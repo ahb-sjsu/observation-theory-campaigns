@@ -1,133 +1,206 @@
-# Projection-Fold Pair Creation
+# Observation Theory Campaigns
 
-A falsification-first research campaign about what a lower-dimensional
-observer sees when smooth hidden dynamics is watched through a singular
-projection. The founding question is whether apparent particle-antiparticle
-creation can arise as a fold of the map from a hidden evolution parameter
-to observed time, and whether any honest local dynamics can predict fold
-statistics, including the Schwinger exponent, without inserting the
-answer. The campaign has since grown an entropy track, a quantum
-observation track, and an entropic-geometry track, all under one evidence
-discipline.
+Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
+work outgrew its first question. GitHub redirects the old name.
 
-## Status at a glance (2026-08-04)
+One program, four tracks. The shared question is what an observer with
+restricted access to a system can see and what it can lawfully claim.
+Each track makes that question concrete in a different setting, and all
+four run under one evidence discipline with sealed instruments,
+preregistered claims, and append-only evidence records.
 
-Three papers are published on Zenodo:
+If you are new here, read this file top to bottom, then the one track
+document that concerns you. Each track section below says what the track
+asks in plain language, what it has established, and where its files
+live.
 
-- **Entropy Across Singular Projections: Fiber Multiplicity, Caustics,
-  and Observer-Relative Information.**
-  DOI 10.5281/zenodo.21789011. The fold theorem (multiplicity jumps by
-  two, signed count conserved), closed-form branch entropies (exactly one
-  bit at a fold slice, exactly one and one half bits at the double-fold
-  symmetric slice, zero for degenerate monotone maps), the caustic
-  resolution-scaling law, and a reversible ensemble whose observed
-  entropy swings 2.07 bits with zero hidden information loss.
-- **Consumer-Relative Quantum Distinguishability on Causal Boundaries.**
-  Concept DOI 10.5281/zenodo.21789046 (v2 at 10.5281/zenodo.21789929).
-  The consumer channel and task layer over quantum relative entropy,
-  exact classical anchors, a consumer hierarchy whose distinguishability
-  distribution moves with the excitation sector, a task-versus-fidelity
-  flip at scarce budgets, and a consumer-family consistency requirement
-  that constrains couplings exactly when observers share events. The
-  flip and family results are [demonstrated-in-model] under sealed
-  preregistrations PREREG-QO2-001 and PREREG-QO3-001.
-- **The Pair-Creation Threshold of Impulsive Stueckelberg-Horwitz-Piron
-  Scattering Is a Cayley-Transform Pole.**
-  DOI 10.5281/zenodo.21790096. An exact replication of Land,
-  arXiv:1604.01625, plus three proved propositions: the published
-  impulsive midpoint closure is the Cayley transform of the reduced kick
-  generator, continuous accumulation of the same generator conserves a
-  hyperbolic form and never reverses coordinate time, and beyond the
-  pole the Cayley image lies in a disconnected group component no
-  continuous flow reaches. The published threshold is the pole.
+## The four tracks
 
-Experiment status:
+| Track | Short name | Question in one line | Status |
+|---|---|---|---|
+| PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 designed and piloting |
+| PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Instruments sealed, PE-0..PE-2 done |
+| QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
+| EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | Design only, gated on hard open questions |
 
-| Experiment | Status |
-|---|---|
-| PF-0 instrument net (N0/P0/P1/D0/M0/S0/E0) | passed, sealed as PF0-FREEZE-001 |
-| PF-1 structural stability | done, persistence and eps^2 perturbation-theory match |
-| PF-2 generic Hamiltonian negative control | done, fold counts measure-set (all 10^4 members identical) |
-| PF-3 prior-art replication (Land 2016) | done, exact, two preserved findings |
-| PF-4 Schwinger challenge | designed (experiments/PF4-DESIGN.md), not sealed |
-| PF-5..PF-7 | designed in CAMPAIGN.md, gated |
-| PE-0/PE-1 entropy instruments | passing, sealed under PEQO-FREEZE-002 |
-| PE-2 reversible fold cycle | done |
-| PE-3..PE-5 | designed |
-| QO-0/QO-1 quantum instruments | passing, sealed under PEQO-FREEZE-002 |
-| QO-2 flip, QO-3 consumer family | [demonstrated-in-model] under sealed preregs |
-| EG-0..EG-5 entropic geometry | designed, gated on open questions |
+### PF, projection folds (the founding track)
 
-Four seals are in the ledger (`experiments/SEALS.md`), each a
-registration ID, sealing commit, and SHA-256 blob hash: two instrument
-freezes and two preregistrations. Both preregistered claims passed on
-grids fully disjoint from their exploratory runs.
+A hidden system evolves smoothly in its own parameter. An observer
+parameterizes what it sees by its own clock. If observed time, as a
+function of the hidden parameter, has a turning point (a fold), then one
+observed instant suddenly corresponds to two hidden states, which looks
+like a pair of particles appearing. The kinematics of this is a theorem.
+The scientific question is whether any honest dynamics produces folds
+with the quantitative statistics of real pair production, above all the
+Schwinger exponential, without the answer being inserted by hand.
 
-## Package map
+Established so far. The instrument net is sealed (PF0-FREEZE-001), fold
+detection and classification are validated against exact controls in
+MATLAB and Python with cross-language agreement at machine precision.
+Structural stability of folds matches first-order perturbation theory
+over seven decades (PF-1). A generic bounded Hamiltonian produces folds
+at a rate set rigidly by the dynamics and the sampling measure, with no
+universality (PF-2, the negative control). A published classical
+pair-creation calculation in Stueckelberg-Horwitz-Piron electrodynamics
+was replicated exactly (PF-3), and the replication proved that the
+published reversal threshold is a pole of the Cayley transform its
+impulsive closure applies, while continuous integration of the same
+force never reverses. That finding is now a binding design clause for
+the remaining experiment.
 
-- `experiments/CAMPAIGN.md` - the PF campaign design and evidence rules.
-- `experiments/ENTROPY-TRACK.md` - PE track: entropy across singular
-  projections, three-entropies discipline, PE-0..PE-5.
-- `experiments/QUANTUM-OBSERVATION-BRIDGE.md` - QO track: consumer
-  channels, the flip, the consumer-family quantifier.
-- `experiments/ENTROPIC-GEOMETRY-TRACK.md` - EG track: gravity-adjacent
-  design with the area-law gate as expected stopping point.
-- `experiments/PF3-PROVENANCE.md` - line-by-line provenance of the Land
-  replication and its two findings.
-- `experiments/PF4-DESIGN.md` - the sealed-challenge design with the
-  closure-prescription clause C1-C5.
-- `experiments/PF0-TOLERANCE-FREEZE.md`, `PEQO-INSTRUMENT-FREEZE.md`,
-  `PREREG-QO2-001.md`, `PREREG-QO3-001.md`, `SEALS.md` - the sealed
-  layer.
-- `matlab/` - Atlas MATLAB instruments and pilots (`+pf` package,
-  `run_p0_instrument_net.m`, `run_pe0_entropy_controls.m`, sweeps).
+Still open. PF-4, the sealed Schwinger challenge, is designed
+(`experiments/PF4-DESIGN.md`) with the closure-prescription clause and
+a planted-artifact control, and a candidate-family pilot is running.
+The expected outcome remains a disciplined negative.
+
+Key files. `experiments/CAMPAIGN.md` (the master design),
+`experiments/PF3-PROVENANCE.md`, `experiments/PF4-DESIGN.md`,
+`matlab/`, `python/shp_land2016.py`, `python/pf4_pilot.py`.
+Paper. The Cayley-pole paper, DOI 10.5281/zenodo.21790096.
+
+### PE, projection entropy
+
+When a fold doubles the number of hidden states behind one observation,
+the observer's ignorance grows. This track measures that growth
+exactly and keeps three different things called entropy strictly apart:
+the observer's conditional ignorance, the coarse-grained entropy of
+binned observations, and thermodynamic entropy production, which
+requires physically destroying information and never follows from a
+projection alone.
+
+Established so far. Closed-form branch entropies (a fold carries
+exactly one bit, the double-fold symmetric slice exactly one and one
+half bits, degenerate monotone maps exactly zero, so multiplicity, not
+criticality, stores the information). The fold caustic's binned entropy
+converges to its differential limit with square-root-of-resolution
+deviations. A reversible ensemble's observed entropy swings 2.07 bits
+along a trajectory while momentum reversal recovers the initial hidden
+state to machine precision, so the entire change is observational
+(PE-2). Instruments sealed under PEQO-FREEZE-002.
+
+Still open. PE-3 (mixing versus folding), PE-4 (when coupling to an
+environment turns observational ambiguity into real entropy
+production), PE-5 (the classical consumer hierarchy).
+
+Key files. `experiments/ENTROPY-TRACK.md`, `python/projection_fold.py`,
+`python/pe2_reversible_cycle.py`, `matlab/run_pe0_entropy_controls.m`.
+Paper. Entropy Across Singular Projections,
+DOI 10.5281/zenodo.21789011.
+
+### QO, quantum observation
+
+Observation Theory's classical observer reads the world through a fixed
+operator and budget. This track replaces that read operator with a
+quantum channel (a partial trace over an inaccessible region, a noisy
+detector, a restricted algebra of observables) and asks whether the
+consumer-relative structure survives and produces anything a plain
+information theorist would not already know. The connection to gravity
+literature is that several modern derivations of Einstein's equations
+run through exactly this object, distinguishability of quantum states
+from a restricted vantage point.
+
+Established so far, all in small exactly computable spin models.
+Instruments reproduce the classical fold entropies through the quantum
+divergence pathway exactly and are sealed. A hierarchy of nested
+consumers divides one fixed distinguishability total differently
+depending on the excitation, so a certificate built from the wrong
+observable class can be exactly vacuous. At scarce storage budgets an
+encoder optimized for a declared energy functional beats a
+fidelity-optimized encoder on that functional while losing badly on
+fidelity, and the trade vanishes when storage suffices (the flip). A
+consistency requirement imposed across many observers constrains the
+model's couplings exactly when the observers witness one shared event
+and is provably idle when they are probed separately. The flip and the
+family result passed sealed preregistrations (PREREG-QO2-001,
+PREREG-QO3-001) on grids fully disjoint from their exploratory runs
+and carry the demonstrated-in-model label.
+
+Still open. Nothing scheduled; the track is complete at its declared
+scope. Its standing caution is printed in the paper: the consumer does
+not create anything physical by choosing what to observe.
+
+Key files. `experiments/QUANTUM-OBSERVATION-BRIDGE.md`,
+`python/qo0_instrument.py` through `python/qo3_family.py`, the two
+governed runners, `experiments/PREREG-QO2-001.md`,
+`experiments/PREREG-QO3-001.md`.
+Paper. Consumer-Relative Quantum Distinguishability on Causal
+Boundaries, concept DOI 10.5281/zenodo.21789046 (v2 at
+10.5281/zenodo.21789929).
+
+### EG, entropic geometry
+
+The speculative track, deliberately gated. If fibers of a projection
+carry entropy, could matter-induced changes in that entropy play the
+role of gravity? The design confronts the idea with the hard gates in
+order: entropy of a region must scale with its boundary area rather
+than its volume (the expected point of failure), a local source must
+produce inverse-square attraction without any inserted potential, a
+first law must hold with independently defined quantities, and the
+Poisson structure must survive held-out tests. A clean negative at the
+area gate is a publishable and expected outcome.
+
+Established so far. Nothing; design only, with verified citations to
+the gravity-from-entropy literature and seven recorded open design
+questions that must close before any experiment seals. EG runs after
+the PE track seals its remaining instruments.
+
+Key files. `experiments/ENTROPIC-GEOMETRY-TRACK.md`.
+
+## The evidence discipline (applies to every track)
+
+1. Instruments are validated against exact controls and sealed before
+   claim-bearing use; the freezes fix every numerical bar in advance.
+2. Claim-bearing results require a sealed preregistration naming the
+   claim, the grid, the estimator, and the falsification bar before
+   the run. Seals are git-blob hashes in `experiments/SEALS.md` (four
+   entries: two freezes, two preregistrations, all verifiable with
+   `git show <commit>:<path> | sha256sum`).
+3. Every trajectory is counted; no conditioning on success.
+4. Evidence records in `results/` are append-only hashed JSON
+   sufficient for independent recomputation; every paper figure
+   regenerates from them via `paper/make_figdata.py`.
+5. Instrument defects found during shakedowns become permanent
+   controls (seven so far). A clean negative is a result.
+
+Evidence labels. `[proved]` mathematics, `[replicated]` published
+benchmarks, `[demonstrated-in-model]` sealed bars passed,
+`[exploratory]` unsealed work, `[refuted]` a sealed claim failed. No
+result in this repository is evidence that physical spacetime is a
+projection.
+
+## Published papers
+
+1. Entropy Across Singular Projections (PE track),
+   DOI 10.5281/zenodo.21789011.
+2. Consumer-Relative Quantum Distinguishability on Causal Boundaries
+   (QO track), concept DOI 10.5281/zenodo.21789046.
+3. The Pair-Creation Threshold of Impulsive
+   Stueckelberg-Horwitz-Piron Scattering Is a Cayley-Transform Pole
+   (PF track), DOI 10.5281/zenodo.21790096.
+
+## Repository layout
+
+- `experiments/` - track designs, seals, preregistrations, provenance.
+- `matlab/` - Atlas MATLAB instruments and pilots (`+pf` package).
 - `python/` - reference implementations, quantum instruments, governed
-  prereg runners, the Land replication, 46 tests.
-- `paper/` - three RevTeX papers with compiled PDFs; `make_figdata.py`
-  regenerates every figure table from committed evidence.
-- `results/` - append-only hashed JSON evidence records.
-- `nrp/` - Kubernetes Job and PVC templates for NRP ensembles.
+  runners, replications, pilots, and the test suite.
+- `paper/` - three RevTeX papers, compiled PDFs, and the figure-data
+  generator.
+- `results/` - append-only hashed evidence records.
+- `nrp/` - Kubernetes Job templates for large ensembles.
 
 ## Reproducing
 
 ```bash
 python -m venv .venv && . .venv/bin/activate
 pip install -r python/requirements.txt
-pytest -q python/tests            # 46 tests
-python python/qo0_instrument.py   # quantum instrument + anchors
+pytest -q python/tests            # full test suite
+python python/qo0_instrument.py   # QO instruments + classical anchors
 python python/pe2_reversible_cycle.py
-python python/shp_land2016.py     # Land replication + findings
+python python/shp_land2016.py     # PF-3 replication + findings
 python paper/make_figdata.py      # regenerate all figure data
 ```
 
 MATLAB (Atlas): `addpath(genpath('matlab'))` then
 `run_p0_instrument_net`, `run_pe0_entropy_controls`,
 `run_p1_structural_stability`, `run_p2_toy_hamiltonian`.
-
-Every claim-bearing number in the papers traces to a record in
-`results/` or recomputes deterministically from committed code. Seals
-verify with `git show <commit>:<path> | sha256sum` against
-`experiments/SEALS.md`.
-
-## Evidence discipline
-
-1. Seal hypotheses, estimators, and falsification bars before
-   claim-bearing runs; sealed documents are hash-ledgered and any edit
-   voids the seal.
-2. Count every trajectory; no conditioning on successful folds,
-   arrivals, or detections.
-3. Validate every instrument against exact null and positive controls;
-   instrument defects found in shakedowns become standing controls
-   (seven so far, from no-signalling nulls to the Cayley trap).
-4. Keep an append-only record sufficient for independent recomputation.
-5. A clean negative is a result. The expected outcome of the Schwinger
-   challenge remains a disciplined negative.
-
-## Evidence labels
-
-`[proved]` mathematics, `[replicated]` published benchmarks,
-`[demonstrated-in-model]` sealed simulation bars passed,
-`[exploratory]` unsealed work, `[refuted]` a sealed claim failed.
-No simulation result is labeled evidence that physical spacetime is a
-projection, and the quantum track adds its own standing sentence: the
-consumer does not create anything physical by choosing what to observe.
