@@ -238,6 +238,15 @@ before running. Evidence: results/prereg-pf4-001.json.
 
 ## 9. Open design questions (must close before sealing)
 
+0. **Standing requirement for any second attempt (owner-imposed,
+   2026-08-04).** A second sealed attempt on this family must either
+   model the two-variable structure explicitly (an exponent depending
+   on more than one combination of P and E, for example the
+   effective-gap axis plus a declared gap term) or set its bars
+   against model error rather than binomial error, and the
+   preregistration must declare which of the two it does before any
+   governed run executes. PREREG-PF4-002 does not exist until this
+   choice is made in writing.
 1. Which candidate family is worth the first seal. ANSWERED by the
    pilot (section 9a): the Sauter-slab energy-transfer family is
    viable, rare-event generating, and clean; its measured structure
