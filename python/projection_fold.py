@@ -103,6 +103,79 @@ def classify_scalar_critical_point(
     return "creation-fold" if second_derivative > 0 else "annihilation-fold"
 
 
+def polynomial_time_branches(
+    coefficients: Iterable[float],
+    t_obs: float,
+    *,
+    x0: float = 0.0,
+    velocity: float = 1.0,
+    imag_tol: float = 1e-9,
+    residual_tol: float = 1e-10,
+    derivative_floor: float = 1e-9,
+) -> list[Branch]:
+    """Return all branches of a polynomial time map t(tau) at one observation time.
+
+    Coefficients use the numpy convention, highest degree first. The worldline
+    is x(tau) = x0 + velocity*tau. Generic slices only: an observation time
+    whose preimage touches a critical point of the time map is refused with
+    ValueError, because branch counting is ill-posed there; the critical point
+    itself belongs to ``polynomial_critical_points`` and the classifier.
+    """
+    poly = np.asarray(list(coefficients), dtype=float)
+    shifted = poly.copy()
+    shifted[-1] -= t_obs
+    candidates = np.roots(shifted) if len(shifted) > 1 else np.array([])
+    taus = np.sort(candidates[np.abs(candidates.imag) <= imag_tol].real)
+    derivative = np.polyder(poly)
+    branches: list[Branch] = []
+    for tau in taus:
+        residual = abs(float(np.polyval(shifted, tau)))
+        if residual > residual_tol:
+            raise ValueError(f"root residual {residual:g} exceeds {residual_tol:g}")
+        slope = float(np.polyval(derivative, tau))
+        if abs(slope) <= derivative_floor:
+            raise ValueError(
+                "non-generic slice: a preimage lies on a critical point; "
+                "use polynomial_critical_points for the fold itself"
+            )
+        orientation = 1 if slope > 0 else -1
+        branches.append(
+            Branch(float(tau), float(t_obs), x0 + velocity * float(tau), orientation)
+        )
+    return branches
+
+
+def polynomial_critical_points(
+    coefficients: Iterable[float],
+    *,
+    first_tol: float = 1e-9,
+    second_tol: float = 1e-8,
+    imag_tol: float = 1e-9,
+) -> list[dict[str, Any]]:
+    """Locate and classify all real critical points of a polynomial time map."""
+    poly = np.asarray(list(coefficients), dtype=float)
+    d1 = np.polyder(poly)
+    d2 = np.polyder(d1)
+    candidates = np.roots(d1) if len(d1) > 1 else np.array([])
+    taus = np.sort(candidates[np.abs(candidates.imag) <= imag_tol].real)
+    points: list[dict[str, Any]] = []
+    for tau in taus:
+        first = float(np.polyval(d1, tau))
+        second = float(np.polyval(d2, tau))
+        points.append(
+            {
+                "tau": float(tau),
+                "t": float(np.polyval(poly, tau)),
+                "first_derivative": first,
+                "second_derivative": second,
+                "classification": classify_scalar_critical_point(
+                    first, second, first_tol=first_tol, second_tol=second_tol
+                ),
+            }
+        )
+    return points
+
+
 def schwinger_circle_action(radius: float, mass: float, charge_field: float) -> float:
     """Semiclassical circular worldline action S=2*pi*m*R-pi*|qE|*R^2."""
     if radius < 0 or mass <= 0 or charge_field <= 0:

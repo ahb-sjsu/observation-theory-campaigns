@@ -92,6 +92,7 @@ def main() -> int:
     record = {
         "schema": "projection-fold-ensemble-v1",
         "backend": BACKEND,
+        "backend_version": xp.__version__,
         "n": n,
         "steps": args.steps,
         "dt": args.dt,

@@ -9,6 +9,13 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+import numpy
+
+try:
+    import scipy
+except ImportError:  # scipy is optional for the current models
+    scipy = None
+
 from projection_fold import (
     analytic_fold_branches,
     canonical_sha256,
@@ -93,6 +100,10 @@ def main() -> int:
             "ended_utc": ended.isoformat(),
             "elapsed_seconds": (ended - started).total_seconds(),
             "python": sys.version,
+            "dependencies": {
+                "numpy": numpy.__version__,
+                "scipy": scipy.__version__ if scipy is not None else None,
+            },
             "platform": platform.platform(),
             "hostname": platform.node(),
             "container_image": os.environ.get("CONTAINER_IMAGE_DIGEST", "unknown"),
