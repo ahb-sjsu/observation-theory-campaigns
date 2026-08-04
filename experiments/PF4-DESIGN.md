@@ -211,6 +211,31 @@ controls, and the C1-C5 clauses would be the campaign's disciplined
 negative for this family, and the effective-gap parameterization is
 the design vehicle.
 
+## 9b. Governed outcome of PREREG-PF4-001 (2026-08-04, sealed verdict)
+
+The first sealed run returned **neither-axis**, exactly the third
+branch the preregistration defined. All twenty probe-placed cells
+landed in the measurable band (the adaptive manifest worked), drift
+was uniform at 6e-7, and both C3/C4 controls agreed per-member exactly
+(z = 0.00 under RK4 and under step halving). The fitted effective-gap
+slope beta = 41.2 confirmed the pilot's two-point prediction of 41.6,
+and the G model beat the Schwinger-shaped model by 3.28x on held-out
+weighted error. But the sealed bars were not met: MSE_G = 81.2 against
+the bar of 4, because at 5 x 10^4-trajectory precision the residual
+gap-dependence of the suppression at fixed d/E is many binomial sigma;
+and the S model, though worse, was not 4x worse. The claim neither
+passed nor was refuted, and the record carries both residual sets.
+
+Reading. The effective-gap Gaussian axis is a few-percent-accurate
+organizer of the family and not a law; the family's true exponent has
+structure beyond any single (P, E) combination, with suppression
+deepening in the gap at fixed d/E. The pilot-level conclusion that the
+Schwinger form does not organize this family stands descriptively but
+did not earn a sealed label. Any second attempt must either model the
+gap-dependence explicitly (a two-variable exponent) or set bars
+against model error rather than binomial error, and must say which
+before running. Evidence: results/prereg-pf4-001.json.
+
 ## 9. Open design questions (must close before sealing)
 
 1. Which candidate family is worth the first seal. ANSWERED by the
