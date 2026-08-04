@@ -1,0 +1,97 @@
+{
+  "declared": {
+    "growth_events": 200,
+    "prescriptions": [
+      "leftmost",
+      "rightmost",
+      "random"
+    ],
+    "seed": 20260805,
+    "string_length": 60
+  },
+  "growth_rule": {
+    "arrangement_prescription_borne": true,
+    "conserved_counts_agree": true,
+    "per_prescription": {
+      "leftmost": {
+        "final_length": 203,
+        "final_prefix": "ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+        "letter_counts": {
+          "A": 2,
+          "B": 201
+        }
+      },
+      "random": {
+        "final_length": 203,
+        "final_prefix": "ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+        "letter_counts": {
+          "A": 2,
+          "B": 201
+        }
+      },
+      "rightmost": {
+        "final_length": 203,
+        "final_prefix": "ABABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+        "letter_counts": {
+          "A": 2,
+          "B": 201
+        }
+      }
+    },
+    "statement": "conserved charges are prescription-invariant while the arrangement is prescription-borne, the signed-versus-unsigned split measured in rewriting form"
+  },
+  "label": "exploratory",
+  "planted_trap": {
+    "distinct_terminals": [
+      "B",
+      "BB",
+      "BBBB"
+    ],
+    "flagged": true,
+    "per_prescription": {
+      "leftmost": {
+        "events": 7,
+        "final": "B"
+      },
+      "random": {
+        "events": 6,
+        "final": "BB"
+      },
+      "rightmost": {
+        "events": 4,
+        "final": "BBBB"
+      }
+    },
+    "statement": "the non-confluent rule's physics is prescription-borne and the pipeline flags it, the Cayley-trap obligation discharged"
+  },
+  "record_sha256": "d2fff2ff9c928443130b796f09836faef58418488e340680617b833cdc104934",
+  "runtime": {
+    "code_commit": "4cca8f7",
+    "generated_utc": "2026-08-04T21:25:51.193624+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "wm2-prescription-v1",
+  "sorting_rule": {
+    "exact_agreement": true,
+    "initial": "ABBAAAAAABBBAABBBBBBAAABBBBBAABAAAABABBBABBBBAAAAABBBBAAABBB",
+    "inversions": 406,
+    "per_prescription": {
+      "leftmost": {
+        "events": 406,
+        "final": "AAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+      },
+      "random": {
+        "events": 406,
+        "final": "AAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+      },
+      "rightmost": {
+        "events": 406,
+        "final": "AAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+      }
+    },
+    "statement": "the causal-invariant control agrees exactly, final string and event count, under every prescription"
+  }
+}
