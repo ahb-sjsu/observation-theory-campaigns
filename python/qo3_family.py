@@ -70,6 +70,20 @@ EPSILON = 0.05
 DELTA = 0.05
 LOOSE = 0.15
 
+# Family B: overlapping consumers witnessing ONE shared event. The windows
+# form a nested chain, all containing the shared excitation site, so every
+# consumer sees the same matter event from a different extent of access:
+# the structure the Jacobson quantifier actually exploits. Family A's
+# disjoint per-wedge probes cannot tie consumers together; this family can.
+SHARED_SITE = 3
+WINDOWS_B = [
+    [3],
+    [3, 4],
+    [2, 3, 4],
+    [1, 2, 3, 4, 5],
+    [0, 1, 2, 3, 4, 5, 6, 7],
+]
+
 
 def fit_quadratic_through_origin(thetas, values):
     t2 = np.asarray(thetas, dtype=float) ** 2
@@ -116,7 +130,31 @@ def coupling_point(j, h):
         )
         lambdas[cut] = lam
         residuals[cut] = res
-    return lambdas, residuals
+
+    lambdas_b, residuals_b = {}, {}
+    top_theta_divergence = []
+    for window in WINDOWS_B:
+        values = []
+        for theta in THETAS:
+            u = local_rotation(N, SHARED_SITE, theta, "z")
+            rho = u @ sigma @ u.conj().T
+            d = relative_entropy(
+                partial_trace(rho, window, N), partial_trace(sigma, window, N)
+            )
+            assert np.isfinite(d) and d >= -1e-12
+            values.append(float(d))
+        lam, res = fit_quadratic_through_origin(THETAS, values)
+        key = "".join(str(q) for q in window)
+        lambdas_b[key] = lam
+        residuals_b[key] = res
+        top_theta_divergence.append(values[-1])
+    for smaller, larger in zip(
+        top_theta_divergence[:-1], top_theta_divergence[1:], strict=False
+    ):
+        assert smaller <= larger + 1e-10, \
+            "nested-window DPI violated for the shared event"
+
+    return lambdas, residuals, lambdas_b, residuals_b
 
 
 def spread(lambdas, cuts):
@@ -128,13 +166,17 @@ def main() -> int:
     points = []
     for j in J_GRID:
         for h in H_GRID:
-            lambdas, residuals = coupling_point(j, h)
+            lambdas, residuals, lambdas_b, residuals_b = coupling_point(j, h)
+            window_keys = list(lambdas_b)
             points.append({
                 "J": j, "h": h,
                 "lambda_by_cut": {str(c): lambdas[c] for c in CUTS},
                 "residual_by_cut": {str(c): residuals[c] for c in CUTS},
                 "universality_spread_full": spread(lambdas, CUTS),
                 "universality_spread_bulk": spread(lambdas, [2, 3, 4, 5]),
+                "family_b_lambda_by_window": lambdas_b,
+                "family_b_residual_by_window": residuals_b,
+                "family_b_spread": spread(lambdas_b, window_keys),
             })
 
     def survives_single(point, cut, eps):
@@ -166,19 +208,50 @@ def main() -> int:
             "bulk_family_survival": bulk,
         }
 
+    window_keys = ["".join(str(q) for q in w) for w in WINDOWS_B]
+    for eps, delta, tag in ((EPSILON, DELTA, "strict"), (LOOSE, LOOSE, "loose")):
+        single_b = {
+            key: sum(
+                p["family_b_residual_by_window"][key] < eps for p in points
+            ) / n_points
+            for key in window_keys
+        }
+        prefix_curve = []
+        for k in range(len(window_keys)):
+            fam = window_keys[: k + 1]
+            count = 0
+            for p in points:
+                law = all(
+                    p["family_b_residual_by_window"][key] < eps for key in fam
+                )
+                lam = {key: p["family_b_lambda_by_window"][key] for key in fam}
+                if law and (len(fam) < 2 or spread(lam, fam) < delta):
+                    count += 1
+            prefix_curve.append(count / n_points)
+        summary[tag]["family_b_single_survival"] = single_b
+        summary[tag]["family_b_joint_survival_by_prefix_size"] = prefix_curve
+
+    def verdict_for(single_values, joint_curve, loose_joint_full):
+        if loose_joint_full == 0.0:
+            return "declaration fails: no coupling point satisfies the " \
+                   "family requirement even at loose thresholds"
+        if joint_curve[-1] < min(single_values):
+            return "quantifier active: the family requirement is strictly " \
+                   "tighter than every single-consumer requirement"
+        return "quantifier inert: the family adds nothing beyond the " \
+               "tightest single consumer"
+
     strict = summary["strict"]
-    min_single = min(strict["single_survival_by_cut"].values())
-    joint_full = strict["joint_survival_by_prefix_size"][-1]
-    loose_full = summary["loose"]["joint_survival_by_prefix_size"][-1]
-    if loose_full == 0.0:
-        verdict = "declaration fails in this model class: no coupling point " \
-                  "satisfies the family requirement even at loose thresholds"
-    elif joint_full < min_single:
-        verdict = "quantifier active: the family requirement is strictly " \
-                  "tighter than every single-consumer requirement"
-    else:
-        verdict = "quantifier inert in this model class: the family adds " \
-                  "nothing beyond the tightest single consumer"
+    verdict = verdict_for(
+        strict["single_survival_by_cut"].values(),
+        strict["joint_survival_by_prefix_size"],
+        summary["loose"]["joint_survival_by_prefix_size"][-1],
+    )
+    verdict_b = verdict_for(
+        strict["family_b_single_survival"].values(),
+        strict["family_b_joint_survival_by_prefix_size"],
+        summary["loose"]["family_b_joint_survival_by_prefix_size"][-1],
+    )
 
     record = {
         "schema": "qo3-family-v1",
@@ -186,8 +259,11 @@ def main() -> int:
         "declared": {
             "model_family": "open-chain Ising H = -J sum ZZ - h sum X",
             "beta": BETA, "J_grid": J_GRID, "h_grid": H_GRID,
-            "consumers": "right-exterior wedges, cuts 1..6",
-            "excitations": "Z rotation at each consumer's boundary site",
+            "family_a": "right-exterior wedges, cuts 1..6, each probed by a "
+                        "Z rotation at its own boundary site",
+            "family_b": "nested windows all containing the shared site 3, "
+                        "one shared Z excitation: overlapping consumers "
+                        "witnessing one event",
             "thetas": THETAS, "flux_weight": "theta^2 (parameter only)",
             "epsilon": EPSILON, "delta": DELTA, "loose": LOOSE,
             "scope_note": "1D cuts all have boundary size one; this tests "
@@ -196,7 +272,8 @@ def main() -> int:
         },
         "coupling_points": points,
         "summary": summary,
-        "verdict": verdict,
+        "verdict_family_a_disjoint_probes": verdict,
+        "verdict_family_b_shared_event": verdict_b,
         "runtime": {
             "generated_utc": datetime.now(timezone.utc).isoformat(),
             "python": sys.version,
@@ -212,16 +289,26 @@ def main() -> int:
     output = Path(__file__).resolve().parents[1] / "results" / "qo3-family.json"
     output.write_text(json.dumps(record, indent=2, sort_keys=True), encoding="utf-8")
 
-    print("single survival (strict):", strict["single_survival_by_cut"])
-    print("joint survival by family size (strict):",
+    print("A single survival (strict):", strict["single_survival_by_cut"])
+    print("A joint survival by family size (strict):",
           [round(v, 3) for v in strict["joint_survival_by_prefix_size"]])
-    print("bulk family survival (strict):", strict["bulk_family_survival"])
-    print("joint survival by family size (loose):",
-          [round(v, 3) for v in summary["loose"]["joint_survival_by_prefix_size"]])
+    print("B single survival (strict):",
+          {k: round(v, 3) for k, v in strict["family_b_single_survival"].items()})
+    print("B joint survival by family size (strict):",
+          [round(v, 3)
+           for v in strict["family_b_joint_survival_by_prefix_size"]])
+    print("B joint survival by family size (loose):",
+          [round(v, 3)
+           for v in summary["loose"]["family_b_joint_survival_by_prefix_size"]])
     sample = points[0]
-    print("sample lambdas at J=%.1f h=%.1f:" % (sample["J"], sample["h"]),
+    print("sample A lambdas at J=%.1f h=%.1f:" % (sample["J"], sample["h"]),
           {c: round(v, 4) for c, v in sample["lambda_by_cut"].items()})
-    print("verdict:", verdict)
+    print("sample B lambdas:",
+          {k: round(v, 4)
+           for k, v in sample["family_b_lambda_by_window"].items()},
+          "spread", round(sample["family_b_spread"], 4))
+    print("verdict A (disjoint probes):", verdict)
+    print("verdict B (shared event):", verdict_b)
     print(output)
     return 0
 
