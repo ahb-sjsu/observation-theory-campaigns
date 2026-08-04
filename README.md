@@ -17,14 +17,15 @@ live.
 ## The four tracks
 
 Each track keeps one color everywhere in this file: 🟦 folds, 🟥
-entropy, 🟪 quantum, 🟧 geometry. The letter codes always accompany
-the chips, so nothing depends on color alone.
+entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry. The letter
+codes always accompany the chips, so nothing depends on color alone.
 
 | Track | Short name | Question in one line | Status |
 |---|---|---|---|
-| 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 sealed and running |
+| 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 first sealed run resolved neither-axis |
 | 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Instruments sealed, PE-0..PE-2 done |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
+| 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Designed; TB-0 modular instrument passing |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | Design only, gated on hard open questions |
 
 ## Status ledger, one row per experiment
@@ -48,6 +49,8 @@ document in `experiments/SEALS.md`.
 | 🟪 **QO-1** consumer hierarchy | `[demonstrated-in-model]` ✅ | degradation chain, ordering is a theorem: Z-excitation 0 → 0.668 → 0.675 → 0.724 nats (position-blind, largest gap at flux rung); X-excitation 0.048 → 0.116 → 0.148 → 0.301 (position-visible, largest gap interior) — where distinguishability lives moves with the sector; exact sufficiency anchor (DPI equality 1.1e-16) |
 | 🟪 **QO-2** the flip | `[demonstrated-in-model]` ✅ PREREG-QO2-001 | governed run on fully disjoint grids: flip at k\*=1 at all 3 coupling points (primary: T-arm task 0.0000/infid 0.3637 vs F-arm 0.1076/0.0678, margins 0.01 cleared ×10/×30); anti-arm worst everywhere (≥1.25); flip vanishes when budget suffices — scarcity phenomenon, the classical budget-relativity flip reproduced quantum |
 | 🟪 **QO-3** consumer-family quantifier | `[demonstrated-in-model]` ✅ PREREG-QO3-001 | two-sided, δ = 0.05 preregistered: disjoint probes INERT (joint = min single = 1.00, λ's agree ≤1.6e-3 grid-wide); shared-event nested windows ACTIVE (joint 0.25 < 1.00, tightening 1.0→0.75→0.25, surviving set exactly the weak-coupling row) — an all-observers requirement does work iff observers share events |
+| 🟫 **TB-0** modular instrument | `[demonstrated-in-model]` ✅ | the Araki relative-modular route and the states-as-expectation-functionals route (no partial-trace primitive anywhere) both reproduce the sealed Umegaki instrument to 9.4e-16, six decades under the 1e-10 bar, across closed forms, the 8-qubit consumer sweep, a dephased pair, and a near-degenerate case; the asymmetric commuting control pins the modular index-order convention |
+| 🟫 **TB-1/2/3** scaling ladder, flip persistence, wedge family | design 📐 | TYPE-III-BRIDGE.md: ten-row honesty table (type I object → type III status → bridge), split property with collar width as resolution parameter, 8 open design questions |
 | 🟧 **EG-0..5** entropic geometry | design 📐 gated | ENTROPIC-GEOMETRY-TRACK.md: area-law gate EG-1 is the expected stopping point; 7 open design questions must close before EG-0 seals |
 
 Five sealed documents in the ledger (two instrument freezes, three
