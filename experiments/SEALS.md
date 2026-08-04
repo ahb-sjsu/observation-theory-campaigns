@@ -13,3 +13,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-QO2-001 | experiments/PREREG-QO2-001.md | 106f25e | f95317ae23ccab9ed472d9a7749a1e70b2a4575a5c2bd123cfbfa2ee7af9b2a3 | 2026-08-04 | A. H. Bond (session instruction) |
 | PREREG-QO3-001 | experiments/PREREG-QO3-001.md | 106f25e | 41e93bfcbd8e0dc070358534bfb37003a5f5f08e6a84f44fdf4ba5f491a31a9b | 2026-08-04 | A. H. Bond (session instruction) |
 | PREREG-PF4-001 | experiments/PREREG-PF4-001.md | 0277ce5 | 592fe7a26b36ed0d668dd506236804a883d39755d0e07635fbb2a6b9dbc99535 | 2026-08-04 | A. H. Bond (session instruction) |
+| PREREG-PF4-002 | experiments/PREREG-PF4-002.md | 7f8d799 | fbba4d75ffecde249f20600ae9dfc720b781f68588e6db413dca386aa165d439 | 2026-08-04 | A. H. Bond (session instruction) |

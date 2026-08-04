@@ -1,0 +1,649 @@
+\documentclass[aps,prd,reprint,nofootinbib,longbibliography]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
+
+\newtheorem{definition}{Definition}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Ec}{\mathcal{E}}
+
+\begin{document}
+
+\title{Consumer-Relative Distinguishability in the Thermodynamic Limit}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 4, 2026}
+
+\begin{abstract}
+The quantum results of this campaign were measured in finite-dimensional
+models, where every algebra is a full matrix algebra, every state has a
+density matrix, and every consumer has a partial trace.  The local algebras
+of quantum field theory are not such objects.  They are type III factors,
+which admit no trace, no density matrices, no partial traces, and no
+entanglement entropy of a region.  This paper reports a measured bridge
+between the two settings.  The consumer-relative quantities that carry
+every sealed claim of the campaign have well-defined thermodynamic limits,
+while the absolute quantities that do not survive the passage were never
+load-bearing.  Three results support this.  The type-III-native
+computational routes, through the relative modular operator and through
+states treated as expectation functionals, reproduce the sealed finite
+instrument at machine precision, six decades inside the declared agreement
+bar.  A ladder of growing spin chains shows every consumer-relative
+restricted relative entropy converging exponentially, while a deliberately
+included absolute quantity, the entanglement entropy of the cut, diverges
+exactly extensively.  The task-versus-fidelity flip of the earlier quantum
+paper persists at every rung of the ladder at fixed absolute budget, with
+its held-out task gap constant to nine decimals.  A corollary is that the
+sealed quantum results of the campaign, computed at a single finite size,
+were already converged to their quoted precision and are effectively
+infinite-volume statements.  Every number here is measured in finite
+models standing in for split inclusions, no claim is made that any
+extrapolated limit equals a field-theory value, and the consumer does not
+create anything physical by choosing what to observe.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+An earlier paper of this campaign defined consumer-relative
+distinguishability, the divergence between two quantum states as seen
+through the declared channel, task, and budget of a particular agent, and
+measured its behavior in small spin-chain models where every quantity is
+computable.  Its three principal findings were a consumer hierarchy that
+divides one distinguishability total differently for different
+excitations, a strict task-versus-fidelity trade at scarce storage budgets
+called the flip, and a consumer-family consistency requirement that does
+constraining work exactly when the consumers share an event.  Every one of
+those measurements lived inside finite-dimensional type I factors.  Every
+algebra was a full matrix algebra, every state had a density matrix, and
+every consumer channel was built from a partial trace.
+
+The observable algebra of a bounded region in a real quantum field theory
+is not that object.  Local algebras are type III von Neumann factors, with
+the most singular subtype identified for physically reasonable theories
+\cite{Fredenhagen1985, Witten2018}.  A type III factor admits no trace, so
+it has no density matrices, no partial trace, and no von Neumann entropy
+of a restricted state.  The mathematical objects the earlier paper
+computed with do not exist there.  What does exist is relative entropy,
+defined for states of an arbitrary von Neumann algebra through the
+relative modular operator \cite{Araki1976}, together with the
+data-processing inequality in full generality \cite{Uhlmann1977} and the
+characterization of its equality case \cite{Petz1986}.  Field-theory
+computations confirm that relative entropies of physical states are free
+of the ultraviolet divergences that destroy the absolute quantities
+\cite{Lashkari2014}.
+
+This paper asks which of the campaign's quantum objects survive the
+passage from finite models to that setting, and it answers by measurement
+rather than by declaration.  The candidate thesis, fixed before any run,
+was that consumer-relative relative quantities survive while absolute
+quantities do not.  Restricted relative entropies, their differences and
+orderings, task distortions, and the flip are built from expectation
+values and relative modular data, so each should have a well-defined
+limit as the model grows.  The reduced density matrix, the entanglement
+entropy of a cut, and dephasing in a preferred basis are type I artifacts
+with no counterpart, so they should diverge or fail to be definable, and
+the campaign's sealed claims should turn out never to have depended on
+them.  Either half of this thesis could have failed per quantity, and a
+failure would have been a recorded result.
+
+Three instruments carry the answer.  The first computes the campaign's
+sealed divergences by two independent type-III-native routes, one through
+the relative modular operator and one through states treated purely as
+expectation functionals on the consumer algebra, with no reduced density
+matrix formed anywhere in the code path, and requires exact agreement
+with the sealed finite instrument.  The second runs a ladder of growing
+chains at fixed physics and measures which quantities converge and which
+diverge, with the entanglement entropy of the cut carried deliberately as
+the diverging control.  The third reruns the flip protocol at every rung
+of the ladder under a budget accounting chosen, before the run, to be the
+one that can possess a limit at all.
+
+Three claim types are kept separate throughout, exactly as in the earlier
+papers.  Proved statements are the literature's theorems, cited and never
+retested here.  Measured-in-model statements are facts about the declared
+finite models and their internal limits, and every number in this paper
+is of that kind at exploratory evidence label.  Design statements
+describe instruments not yet run.  One discipline is repeated from the
+earlier paper because it governs this one equally.  Renaming known
+operator-algebra facts adds nothing.  The existence of Araki relative
+entropy, the generality of data processing, and the type classification
+of local algebras are known mathematics, and calling them a bridge would
+be a relabeling.  The contribution of this paper, if any, is the measured
+bridge, meaning the quantitative demonstration that the campaign's
+specific sealed numbers are computed by the surviving objects and are
+already converged in the growing-model limit.  The causal caution of the
+campaign applies verbatim.  The consumer does not create anything
+physical by choosing what to observe, and the only admissible causal
+direction runs from the physical state through the accessible channel to
+the consumer-relative divergence.
+
+\section{The honesty table}
+\label{sec:honesty}
+
+Table~\ref{tab:honesty} states, for each object the quantum track used,
+what it was in the finite models, what its status is when the algebra is
+type III, and what form the object must take for its claims to survive
+the passage.  The table condenses a standing track document, and its
+verdicts rest on the cited literature, principally the modern review
+\cite{Witten2018}, the founding definition of relative entropy for
+general von Neumann algebras \cite{Araki1976}, the general
+data-processing inequality \cite{Uhlmann1977} and its equality case
+\cite{Petz1986}, the type III$_{1}$ identification for local algebras
+\cite{Fredenhagen1985}, the theory of standard split inclusions
+\cite{DoplicherLongo1984}, the nuclearity condition that supplies them
+\cite{BuchholzWichmann1986}, the algebraic framework as a whole
+\cite{Haag1996}, and finiteness of relative entropies in conformal field
+theory as context \cite{Lashkari2014}.
+
+Two reading rules govern the table.  A verdict of no counterpart is not a
+defect of the quantum track.  It is the reason the sealed claims were
+phrased through expectation values and divergences wherever possible.
+And the table is a standing document, so any run that contradicts a cell
+overwrites the cell with the change logged.
+
+\begin{table*}[t]
+\caption{The honesty table.  One row per quantum-track object, condensed
+from the track document.  Survives verbatim means the type I definition
+never used a density matrix and needs no rephrasing.  TB-0, TB-1, TB-2,
+and TB-3 name the instruments of Secs.~\ref{sec:modular} through
+\ref{sec:nonclaims}.}
+\label{tab:honesty}
+\begin{ruledtabular}
+\begin{tabular}{p{0.145\textwidth}p{0.24\textwidth}p{0.26\textwidth}p{0.27\textwidth}}
+Object & Type I definition as used & Type III status & Bridge \\
+\colrule
+Reduced density matrix &
+Partial trace of the global state, the state the consumer holds &
+No counterpart.  A type III factor has no trace and no density operators
+\cite{Witten2018} &
+The state as an expectation functional restricted to the algebra.  The
+functional survives, the matrix was its type I shadow \\
+Partial trace channel &
+CPTP map onto the accessible factor, the canonical consumer channel &
+No counterpart, there is no trace to take &
+Algebra restriction of the functional.  Conditional expectations exist
+only in special cases and are flagged when used \\
+Umegaki relative entropy &
+Spectral trace formula, the sealed QO-0 instrument &
+Counterpart exists, the Araki relative entropy through the relative
+modular operator \cite{Araki1976} &
+Compute both routes at finite size and require exact agreement.  TB-0 \\
+Data-processing inequality &
+Divergence non-increase under every channel, 32 sealed margins &
+Holds in full generality \cite{Uhlmann1977}, equality characterized by
+sufficiency \cite{Petz1986} &
+Survives verbatim.  The sealed exact-sufficiency anchor becomes the Petz
+cocycle condition \\
+Consumer equivalence &
+Equality of all expectation values on the consumer algebra &
+Survives verbatim, the definition never mentioned density matrices &
+None needed \\
+Pinching channel &
+Diagonal-part map in the computational basis &
+No canonical counterpart, the map is basis dependent and no preferred
+maximal abelian subalgebra is supplied &
+None.  Every statement needing it is flagged finite-size.  The classical
+anchors live inside the commuting embedding, which is honestly type I \\
+Entanglement entropy of the cut &
+Von Neumann entropy of the reduced state &
+Undefined, no von Neumann entropy of a region in type III
+\cite{Witten2018} &
+None, and none needed.  No sealed claim used it.  TB-1 carries it as the
+deliberately diverging control \\
+Uhlmann fidelity &
+Trace-norm formula, the flip's fidelity witness &
+Survives, defined on any von Neumann algebra through standard-form vector
+representatives &
+GNS-form computation checked against the trace-norm formula, folded into
+TB-0 \\
+The flip &
+Task win plus fidelity loss at matched budget, budgets as kept-qubit
+counts &
+Both witnesses are expectation and fidelity objects and survive.  The
+kept-subset encoder family is type I language &
+Encoders rephrased as channels with a fixed absolute budget.  Persistence
+measured on the ladder.  TB-2 \\
+Consumer-family quantifier &
+Joint spectral-law requirement over nested windows, active with a shared
+event &
+Wedge families sharing an event are exactly the structure field theory
+possesses \cite{Witten2018}.  The lattice spectral law has no direct
+counterpart &
+Reformulation through modular flow.  Design only.  TB-3 \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\section{The modular dictionary and the TB-0 instrument}
+\label{sec:modular}
+
+\subsection{The surviving formula}
+
+For a faithful state $\rho$ on a finite-dimensional algebra with
+eigendecomposition $\rho=\sum_i p_i\,|e_i\rangle\langle e_i|$, the vector
+$\Omega_\rho=\sum_i \sqrt{p_i}\;e_i\otimes e_i^{*}$ on the doubled space
+represents $\rho$, and under the identification of the doubled space with
+Hilbert-Schmidt operators $\Omega_\rho$ is the matrix $\sqrt{\rho}$.  The
+relative modular operator of the pair $(\rho,\sigma)$ acts on
+Hilbert-Schmidt operators as
+\begin{equation}
+\Delta_{\sigma|\rho}(X) \;=\; \sigma X \rho^{-1},
+\label{eq:relmod}
+\end{equation}
+with spectrum the set of eigenvalue ratios $s_i/p_j$.  Araki's formula
+\cite{Araki1976} is
+\begin{equation}
+S(\rho\,\|\,\sigma) \;=\;
+-\bigl(\Omega_\rho,\;\ln\Delta_{\sigma|\rho}\,\Omega_\rho\bigr),
+\label{eq:araki}
+\end{equation}
+and in type I this equals the Umegaki trace formula identically, which a
+two-line computation in the joint eigenbasis confirms.
+Equation~\eqref{eq:araki} contains no trace and no density matrix in its
+general form, only two states of a von Neumann algebra and the modular
+data they induce, which is why it is the formula that still parses when
+the algebra is type III.
+
+One hazard is recorded because it bites in practice.  References disagree
+on the index order of the relative modular operator, and some write the
+operator of Eq.~\eqref{eq:relmod} with the roles of the two states
+exchanged.  Relative entropy is asymmetric, so a convention slip silently
+computes the divergence in the reversed order.  The instrument pins its
+convention with an asymmetric commuting control pair whose divergences in
+the two orders differ in closed form, so a slipped convention fails the
+control rather than passing unnoticed.
+
+A second route removes the density matrix entirely.  For two states given
+only as expectation functionals on a finite-dimensional consumer algebra,
+the GNS construction from the reference functional yields a Hilbert
+space, a cyclic vector, and a relative modular operator built from the
+two functionals alone, and Eq.~\eqref{eq:araki} then yields the
+restricted relative entropy without any reduced density matrix being
+formed at any point in the code path.  In type I this must equal the
+restricted Umegaki value computed through the partial trace.  The moral
+is stated once.  The relative modular operator is the object that
+survives the passage, and density matrices are its type I shadow, useful
+for computation and meaningless as a foundation.
+
+\subsection{TB-0 results}
+
+The TB-0 instrument computes the campaign's sealed model, an eight-qubit
+transverse-field Ising chain with thermal reference, by three routes.
+Route one is the sealed spectral Umegaki instrument, untouched.  Route
+two is Eq.~\eqref{eq:araki} evaluated spectrally through the ratio set
+and the overlap matrix.  Route three is the states-as-functionals GNS
+route on each consumer algebra, which also computes Uhlmann fidelity in
+GNS form against the trace-norm formula.  The declared falsification bar
+was route disagreement above $10^{-10}$ on any state pair or region.
+
+The measured worst disagreement over the entire grid is
+$9.4\times 10^{-16}$, six decades inside the declared bar.  The agreement
+holds across the closed-form checks, which cover the commuting
+Kullback-Leibler case at $5.6\times 10^{-17}$, a dephased pair at
+$9.4\times 10^{-16}$, the global pair at $1.1\times 10^{-16}$, and a
+near-degenerate pair with eigenvalue splittings swept downward, stable at
+$5.6\times 10^{-17}$.  It holds across the eight-qubit consumer sweep,
+where the single-site, pair, and half-chain consumers show functional
+route agreement with the partial-trace route at or below
+$2.3\times 10^{-16}$.  This result is deliberately a null test of
+mathematics, exactly as the sealed data-processing margins of the earlier
+paper were.  Its job is to certify that the implementation computes the
+objects the theorems are about, because every later section leans on the
+modular route.  The caveat is adjacent.  Machine-precision agreement in
+type I does not test any type III statement, it certifies the instrument
+that the ladder then uses.
+
+\section{The split property as the physical referent}
+\label{sec:split}
+
+Finite models cannot be honest stand-ins for local algebras, and the
+split property says what they can be honest stand-ins for.  In a field
+theory satisfying the nuclearity condition on the energy-level density
+\cite{BuchholzWichmann1986}, for a double cone and a slightly larger
+concentric double cone there is an interpolating type I factor between
+the two local algebras,
+\begin{equation}
+\Ac(O) \;\subset\; \Nc \;\subset\; \Ac(\widehat{O}),
+\label{eq:split}
+\end{equation}
+a standard split inclusion in the sense of Doplicher and Longo
+\cite{DoplicherLongo1984}.  The interpolating factor is where density
+matrices, partial traces, and all of the campaign's finite machinery
+legitimately live.  The local algebras on either side of it are type
+III$_{1}$ \cite{Fredenhagen1985} and have none of that machinery.
+
+The campaign adopts this as a standing rule.  Every finite-size claim is
+a statement about a split-inclusion approximation, never about a local
+algebra.  The collar, the gap between the region and its enlargement, is
+the resolution parameter of the approximation.  On a chain the collar is
+concrete, since the consumer keeps a region and the enlarged region adds
+buffer sites on each side, and the collar width in sites plays the role
+the resolution parameter played in the campaign's classical
+projection-entropy track.  The type III divergences are expected to
+reappear as the collar shrinks for absolute quantities and not for
+relative ones, which is the thesis of Sec.~\ref{sec:intro} restated in
+collar language.  The ladder of the next section grows the system at
+fixed cut fraction, and every one of its witnesses is a witness about a
+family of such approximations.
+
+\section{The scaling ladder}
+\label{sec:ladder}
+
+\subsection{Design}
+
+The ladder runs chains of length $N=4$ through $12$ at fixed physics,
+coupling $J=1$, transverse field $h=2$ in the gapped paramagnetic regime,
+inverse temperature $\beta=0.5$, and a diagonal excitation of strength
+$\theta=0.8$ at the site adjacent to the half-chain cut.  The consumers
+are the single boundary site, the boundary pair, and the kept half chain,
+the last being the consumer whose algebra grows with $N$.  Two lists were
+declared before the run.  The candidate-convergent list holds the
+consumer-relative restricted relative entropies of excitation against
+reference.  The candidate-divergent list holds the von Neumann entropy of
+the thermal reference reduced to the half chain, included deliberately as
+the diverging control.  If the control had failed to diverge, the ladder
+would have had no contrast and would have supported no convergence claim
+for anything.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.52\columnwidth,
+  ymode=log, xlabel={$N$}, xtick={6,8,10,12},
+  ylabel={successive difference (nats)},
+  unbounded coords=discard, restrict x to domain=5:13,
+  legend pos=north east]
+\addplot[blue!70!black, mark=*]
+  table[x=N, y=sdiff_site] {figdata/tb1_ladder.dat};
+\addlegendentry{site consumer}
+\addplot[red!70!black, mark=square*]
+  table[x=N, y=sdiff_pair] {figdata/tb1_ladder.dat};
+\addlegendentry{pair consumer}
+\addplot[black!60, mark=triangle*]
+  table[x=N, y=sdiff_half] {figdata/tb1_ladder.dat};
+\addlegendentry{half-chain consumer}
+\end{axis}
+\end{tikzpicture}\\[2pt]
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.42\columnwidth,
+  xlabel={$N$}, xtick={4,6,8,10,12},
+  ylabel={$S_{\text{half}}$ (nats)}, ymin=0, ymax=2.6,
+  legend pos=north west]
+\addplot[black, mark=*]
+  table[x=N, y=shalf] {figdata/tb1_ladder.dat};
+\addlegendentry{thermal half-chain entropy}
+\end{axis}
+\end{tikzpicture}
+\caption{The contrast pair of the ladder.  Top, successive differences of
+the consumer-relative restricted relative entropies on a logarithmic
+axis, shrinking roughly fifty-fold per rung for all three consumers,
+including the half-chain consumer whose algebra grows with $N$.  Bottom,
+the deliberately included absolute control, the von Neumann entropy of
+the thermal half chain, exactly extensive at $0.1756$ nats per added
+site pair.  Relative quantities have limits, the absolute entropy does
+not.}
+\label{fig:ladder}
+\end{figure}
+
+\subsection{Results}
+
+Every consumer-relative restricted relative entropy converges
+exponentially.  Successive differences shrink roughly fifty-fold per
+rung.  The site consumer moves from $1.2\times 10^{-3}$ at the first
+rung gap to $8.0\times 10^{-9}$ at the last, the pair consumer from
+$9.5\times 10^{-4}$ to $5.7\times 10^{-9}$, and the half-chain consumer,
+whose algebra grows with the system, from $5.2\times 10^{-4}$ to
+$3.4\times 10^{-9}$, reaching nine-digit stability by $N=10$.  The
+effective limits are
+\begin{equation}
+\begin{aligned}
+D_{\text{site}} &= 0.631800, &\quad D_{\text{pair}} &= 0.674747,\\
+D_{\text{half}} &= 0.675183, &\quad D_{\text{global}} &= 0.723532,
+\end{aligned}
+\label{eq:limits}
+\end{equation}
+in nats, with the global divergence computed through $N=10$.  The Araki
+route of Sec.~\ref{sec:modular} agreed with the sealed Umegaki instrument
+at every rung and consumer within the $10^{-10}$ bar, and the
+states-as-functionals route agreed through $N=8$, the largest size at
+which it was run.
+
+The diverging control diverged exactly as predicted.  The thermal
+half-chain von Neumann entropy takes the values $0.746$, $1.097$,
+$1.448$, $1.799$, and $2.151$ nats across the ladder, exactly extensive
+at $0.1756$ nats per added site pair.  Figure~\ref{fig:ladder} shows the
+contrast pair, the plateaus of the relative quantities against the linear
+growth of the absolute one.  One quantity, one verdict.  The relative
+quantities have limits and the absolute entropy does not, which is the
+first quantitative confirmation of the thesis of Sec.~\ref{sec:intro}.
+
+A corollary is stated plainly because it retroactively strengthens the
+campaign.  The sealed quantum results were computed at $N=8$, and
+Eq.~\eqref{eq:limits} shows the $N=8$ values already agree with the
+extrapolated limits to the precision at which they were quoted.  The
+campaign's sealed quantum numbers are therefore effectively
+infinite-volume statements.  The caveat is adjacent.  This holds in the
+measured regime of a fixed physical excitation on a gapped reference at
+fixed cut fraction, the result carries the exploratory label, and the
+open questions about scaling regime and uniformity in
+Sec.~\ref{sec:nonclaims} are untouched by it.
+
+\section{Flip persistence at fixed budget}
+\label{sec:flip}
+
+\subsection{The budget decision, made before the run}
+
+The earlier paper's flip was measured at budgets counted in stored
+qubits, and a ladder forces a choice between two accountings, a fixed
+absolute number of stored qubits and a fixed fraction of the kept region.
+The choice was made before the run and recorded as binding, with fixed
+absolute budget primary, for two reasons.  The task is local and its
+relevant halo converges by the ladder result of Sec.~\ref{sec:ladder}, so
+scarcity relative to the task is a notion independent of system size.
+And a fractional budget has no type III meaning at all, because algebra
+dimension is the quintessential type I artifact, so only the fixed-count
+object can possess a limit.  The fraction was retained as a secondary
+diagnostic.
+
+\subsection{Results}
+
+The protocol reruns the sealed flip design, with its training and
+held-out scenario grids, its declared win margins, and its mandatory
+anti-arm, on the kept halves of chains $N=6$ through $12$.  At budget
+$k=1$ the flip holds at every rung, with the task arm winning the task,
+losing on fidelity, and the anti-arm worst on the task everywhere, which
+keeps every rung interpretable under the sealed rule.  The held-out task
+gap between the arms is $0.10762$ at all four rungs, constant to
+$5.3\times 10^{-10}$ by $N=12$.  The task functional, the task arm's
+encoder, and the fidelity arm's miss are all local objects, so the task
+gap is size-independent almost immediately.  The infidelity gap converges
+from $0.2994$ to $0.2946$ with successive differences shrinking through
+$3.5\times 10^{-3}$, $1.2\times 10^{-3}$, and $1.1\times 10^{-4}$.
+Figure~\ref{fig:flip} shows both gaps.  At fixed absolute budget the flip
+is a thermodynamic-limit phenomenon, which is what the budget decision
+predicted and what a type III phrasing requires.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.55\columnwidth,
+  xlabel={$N$}, xtick={6,8,10,12},
+  ylabel={held-out gap}, ymin=0, ymax=0.36,
+  legend pos=south west]
+\addplot[blue!70!black, mark=*]
+  table[x=N, y=infidgap] {figdata/tb2_flip.dat};
+\addlegendentry{infidelity gap, converging}
+\addplot[red!70!black, mark=square*]
+  table[x=N, y=taskgap] {figdata/tb2_flip.dat};
+\addlegendentry{task gap, constant}
+\end{axis}
+\end{tikzpicture}
+\caption{Flip persistence at fixed absolute budget $k=1$ across the
+ladder.  The held-out task gap between the arms is $0.10762$ at every
+rung, constant to $5.3\times 10^{-10}$.  The infidelity gap converges
+from $0.2994$ to $0.2946$ with successive differences shrinking roughly
+tenfold per rung.  The flip holds at every $N$ with the anti-arm worst on
+the task everywhere.}
+\label{fig:flip}
+\end{figure}
+
+The secondary diagnostic did not trivialize, and the finding is reported
+adjacent to the result it qualifies.  The flip region in budget count ran
+$\{1\}$, $\{1,2\}$, $\{1\}$, and $\{1,3\}$ across the four rungs, with
+collapse fractions $0.33$, $0.5$, $0.2$, and $0.5$, neither shrinking nor
+stabilizing.  The cause is visible in the search records.  The
+fidelity-optimal subset at intermediate budgets sometimes contains the
+task site and sometimes does not, depending on which subsets best capture
+the reference correlations at each region size.  The upper edge of the
+flip region is therefore a discrete subset-selection artifact at small
+region sizes, the clean convergent object is the fixed-count flip, and
+the fractional diagnostic is untestable below substantially larger
+regions.  This is recorded as a finding rather than massaged away.
+
+\section{What the bridge does not do}
+\label{sec:nonclaims}
+
+The bridge measured here is deliberately narrow, and its edges are stated
+so that no reader extends it.
+
+The chain has no causal structure.  There are no light cones, no Killing
+flow, and no horizon generators, and the collar of Sec.~\ref{sec:split}
+is a distance in sites, not a causal separation.  No entropy-area
+statement appears anywhere in this paper, and the diverging control of
+Sec.~\ref{sec:ladder} must not be read as one.  No claim is made that any
+extrapolated limit in Eq.~\eqref{eq:limits} equals a value in any quantum
+field theory.  Convergence of a ladder of finite models is not existence
+of a continuum limit, and the finite models stand in for split-inclusion
+interpolators, never for local algebras.
+
+One limitation is promoted to the standing open question of the track.
+The ladder grows the system at fixed cut fraction, which probes an
+infrared limit.  The type III pathologies of the continuum are
+ultraviolet, arising as the collar of a split inclusion shrinks at fixed
+physical size.  The ladder as run may therefore converge for reasons that
+say nothing about the ultraviolet passage, and a collar-width sweep at
+fixed physics is the declared candidate instrument for separating the two
+regimes.  Until that sweep exists, the bridge is an infrared bridge.
+
+The consumer-family quantifier remains at the design stage.  Its type III
+reformulation replaces nested lattice windows with a family of split
+inclusions sharing an excitation region, replaces the lattice spectral
+law with a quadratic form built from the reference state's modular data,
+and inherits a circularity audit that the declared form must pass before
+any run.  Nothing in this paper advances that instrument beyond design,
+and its honest possible endpoint includes termination at the design
+stage.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper measured a bridge between the campaign's finite quantum models
+and the operator-algebraic setting in which quantum field theory actually
+lives.  The type-III-native routes, through the relative modular operator
+and through states as expectation functionals with no partial-trace
+primitive anywhere in the code path, reproduce the sealed instrument at
+$9.4\times 10^{-16}$, six decades inside the declared bar.  The ladder
+shows every consumer-relative restricted relative entropy converging
+exponentially to the limits of Eq.~\eqref{eq:limits} while the
+entanglement entropy of the cut, the quantity outsiders most expect the
+program to depend on, diverges exactly extensively as the deliberate
+control.  The flip persists at every rung at fixed absolute budget with a
+task gap constant to nine decimals, under a budget accounting chosen
+before the run because it is the only one with a type III meaning.  The
+corollary stands that the campaign's sealed quantum results were already
+infinite-volume statements to their quoted precision.
+
+The relabeling clause applies to everything else.  The theorems cited
+here belong to Araki, Uhlmann, Petz, Fredenhagen, Doplicher and Longo,
+and Buchholz and Wichmann, and restating them adds nothing.  Whatever in
+this paper merely renames known operator-algebra facts is not a
+contribution.  The contribution, if any, is the measured bridge, the
+demonstration that the campaign's specific sealed numbers are carried by
+the objects that survive the passage and are already converged in the
+growing-model limit, together with the honest boundary of
+Sec.~\ref{sec:nonclaims}.  Every result carries the exploratory label.
+Nothing in this paper claims anything about physical gravity, real
+horizons, or the actual values of any quantum field theory.  The consumer
+does not create anything physical by choosing what to observe.
+
+\begin{acknowledgments}
+The author thanks the maintainers of the open-source scientific Python
+stack used for all computations.
+\end{acknowledgments}
+
+\begin{thebibliography}{9}
+
+\bibitem{Araki1976}
+H.~Araki,
+``Relative entropy of states of von Neumann algebras,''
+Publ. RIMS Kyoto Univ. \textbf{11}, 809 (1976).
+
+\bibitem{Witten2018}
+E.~Witten,
+``Notes on some entanglement properties of quantum field theory,''
+Rev. Mod. Phys. \textbf{90}, 045003 (2018),
+arXiv:1803.04993.
+
+\bibitem{Haag1996}
+R.~Haag,
+\emph{Local Quantum Physics: Fields, Particles, Algebras},
+2nd ed. (Springer, Berlin, 1996).
+
+\bibitem{Fredenhagen1985}
+K.~Fredenhagen,
+``On the modular structure of local algebras of observables,''
+Commun. Math. Phys. \textbf{97}, 79 (1985).
+
+\bibitem{DoplicherLongo1984}
+S.~Doplicher and R.~Longo,
+``Standard and split inclusions of von Neumann algebras,''
+Invent. Math. \textbf{75}, 493 (1984).
+
+\bibitem{BuchholzWichmann1986}
+D.~Buchholz and E.~H.~Wichmann,
+``Causal independence and the energy-level density of states in local
+quantum field theory,''
+Commun. Math. Phys. \textbf{106}, 321 (1986).
+
+\bibitem{Uhlmann1977}
+A.~Uhlmann,
+``Relative entropy and the Wigner-Yanase-Dyson-Lieb concavity in an
+interpolation theory,''
+Commun. Math. Phys. \textbf{54}, 21 (1977).
+
+\bibitem{Petz1986}
+D.~Petz,
+``Sufficient subalgebras and the relative entropy of states of a von
+Neumann algebra,''
+Commun. Math. Phys. \textbf{105}, 123 (1986).
+
+\bibitem{Lashkari2014}
+N.~Lashkari,
+``Relative entropies in conformal field theory,''
+Phys. Rev. Lett. \textbf{113}, 051602 (2014),
+arXiv:1404.3216.
+
+\end{thebibliography}
+
+\end{document}
