@@ -1,0 +1,395 @@
+{
+  "analysis": {
+    "fraction_shrinking": false,
+    "k1_infid_gap": {
+      "converging": true,
+      "diffs": [
+        0.0035010645583339883,
+        0.001195127302158372,
+        0.00010785051672235202
+      ],
+      "values": [
+        0.29943608042986636,
+        0.29593501587153237,
+        0.294739888569374,
+        0.29463203805265165
+      ]
+    },
+    "k1_task_gap": {
+      "converging": true,
+      "diffs": [
+        1.498985952599896e-06,
+        2.8145489563979886e-08,
+        5.284798293425652e-10
+      ],
+      "values": [
+        0.10761783494712825,
+        0.10761633596117565,
+        0.10761630781568608,
+        0.10761630728720625
+      ]
+    },
+    "k_collapse": [
+      1,
+      2,
+      1,
+      3
+    ],
+    "k_collapse_fraction": [
+      0.3333333333333333,
+      0.5,
+      0.2,
+      0.5
+    ]
+  },
+  "declared": {
+    "J": 1.0,
+    "beta": 0.5,
+    "h": 2.0,
+    "held": [
+      [
+        0.7,
+        1.0,
+        1.3
+      ],
+      [
+        0.08,
+        0.18,
+        0.28
+      ]
+    ],
+    "ladder": [
+      6,
+      8,
+      10,
+      12
+    ],
+    "margin": 0.01,
+    "train": [
+      [
+        0.55,
+        0.85,
+        1.15
+      ],
+      [
+        0.12,
+        0.22,
+        0.32
+      ]
+    ]
+  },
+  "label": "exploratory",
+  "oq4_decision": "primary accounting is fixed absolute budget k; the task is local and its halo converges (TB-1), and fractional budgets have no type III meaning since algebra dimension is a type I artifact; the fraction is a secondary diagnostic expected to trivialize",
+  "record_sha256": "6b3651f556970efa706dce900db2be0ec1df78fc8a1663db371bd34038a2acd1",
+  "rungs": [
+    {
+      "N": 6,
+      "budgets": {
+        "1": {
+          "F_infid": 0.06790184880874875,
+          "F_task": 0.10761783494713012,
+          "T_infid": 0.36733792923861514,
+          "T_task": 1.8750433304780422e-15,
+          "anti_task": 1.298411280203071,
+          "f_arm": [
+            1
+          ],
+          "flip": true,
+          "interpretable": true,
+          "t_arm": [
+            0
+          ]
+        },
+        "2": {
+          "F_infid": 0.024769084847868068,
+          "F_task": 1.924386576016938e-15,
+          "T_infid": 0.024769084847868068,
+          "T_task": 1.924386576016938e-15,
+          "anti_task": 1.298411280203071,
+          "f_arm": [
+            0,
+            1
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            1
+          ]
+        }
+      },
+      "flip_region": [
+        1
+      ],
+      "k_collapse": 1,
+      "k_collapse_fraction": 0.3333333333333333,
+      "m": 3,
+      "strong_q": 1
+    },
+    {
+      "N": 8,
+      "budgets": {
+        "1": {
+          "F_infid": 0.06775575167352621,
+          "F_task": 0.1076163359611757,
+          "T_infid": 0.3636907675450586,
+          "T_task": 4.9343245538895844e-17,
+          "anti_task": 1.2983931949082843,
+          "f_arm": [
+            2
+          ],
+          "flip": true,
+          "interpretable": true,
+          "t_arm": [
+            0
+          ]
+        },
+        "2": {
+          "F_infid": 0.04396908213324449,
+          "F_task": 0.10761633596117567,
+          "T_infid": 0.07334834529748006,
+          "T_task": 2.4671622769447924e-16,
+          "anti_task": 1.2983931949082843,
+          "f_arm": [
+            2,
+            3
+          ],
+          "flip": true,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            2
+          ]
+        },
+        "3": {
+          "F_infid": 0.02477134628963425,
+          "F_task": 1.9737298215558337e-16,
+          "T_infid": 0.049967315155005174,
+          "T_task": 4.9343245538895844e-17,
+          "anti_task": 1.2983931949082843,
+          "f_arm": [
+            0,
+            1,
+            2
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            2,
+            3
+          ]
+        }
+      },
+      "flip_region": [
+        1,
+        2
+      ],
+      "k_collapse": 2,
+      "k_collapse_fraction": 0.5,
+      "m": 4,
+      "strong_q": 2
+    },
+    {
+      "N": 10,
+      "budgets": {
+        "1": {
+          "F_infid": 0.0682286872781021,
+          "F_task": 0.107616307815687,
+          "T_infid": 0.3629685758474761,
+          "T_task": 9.12850042469573e-16,
+          "anti_task": 1.298392855332401,
+          "f_arm": [
+            2
+          ],
+          "flip": true,
+          "interpretable": true,
+          "t_arm": [
+            0
+          ]
+        },
+        "2": {
+          "F_infid": 0.07380617016914925,
+          "F_task": 8.881784197001252e-16,
+          "T_infid": 0.36674191801461337,
+          "T_task": 8.388351741612294e-16,
+          "anti_task": 1.298392855332401,
+          "f_arm": [
+            0,
+            2
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            1
+          ]
+        },
+        "3": {
+          "F_infid": 0.02532219106766341,
+          "F_task": 9.86864910777917e-16,
+          "T_infid": 0.4014266254217078,
+          "T_task": 9.86864910777917e-16,
+          "anti_task": 1.298392855332401,
+          "f_arm": [
+            0,
+            1,
+            2
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            1,
+            3
+          ]
+        },
+        "4": {
+          "F_infid": 0.02477138842571252,
+          "F_task": 1.0115365335473648e-15,
+          "T_infid": 0.04997299897640371,
+          "T_task": 7.894919286223335e-16,
+          "anti_task": 1.298392855332401,
+          "f_arm": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "flip_region": [
+        1
+      ],
+      "k_collapse": 1,
+      "k_collapse_fraction": 0.2,
+      "m": 5,
+      "strong_q": 2
+    },
+    {
+      "N": 12,
+      "budgets": {
+        "1": {
+          "F_infid": 0.0682235478729723,
+          "F_task": 0.10761630728720645,
+          "T_infid": 0.36285558592562395,
+          "T_task": 1.9737298215558337e-16,
+          "anti_task": 1.298392848956289,
+          "f_arm": [
+            3
+          ],
+          "flip": true,
+          "interpretable": true,
+          "t_arm": [
+            0
+          ]
+        },
+        "2": {
+          "F_infid": 0.07405998647676877,
+          "F_task": 1.7270135938613546e-16,
+          "T_infid": 0.36305009385581716,
+          "T_task": 4.9343245538895844e-17,
+          "anti_task": 1.298392848956289,
+          "f_arm": [
+            0,
+            3
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            1
+          ]
+        },
+        "3": {
+          "F_infid": 0.04396963110788658,
+          "F_task": 0.1076163072872068,
+          "T_infid": 0.382693617391088,
+          "T_task": 1.4802973661668753e-16,
+          "anti_task": 1.298392848956289,
+          "f_arm": [
+            3,
+            4,
+            5
+          ],
+          "flip": true,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            4,
+            5
+          ]
+        },
+        "4": {
+          "F_infid": 0.02532222680865294,
+          "F_task": 1.7270135938613546e-16,
+          "T_infid": 0.07364380776605083,
+          "T_task": 7.401486830834377e-17,
+          "anti_task": 1.298392848956289,
+          "f_arm": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            1,
+            3,
+            4
+          ]
+        },
+        "5": {
+          "F_infid": 0.024771388822700715,
+          "F_task": 2.713878504639272e-16,
+          "T_infid": 0.024771388822700715,
+          "T_task": 2.713878504639272e-16,
+          "anti_task": 1.298392848956289,
+          "f_arm": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "flip": false,
+          "interpretable": true,
+          "t_arm": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "flip_region": [
+        1,
+        3
+      ],
+      "k_collapse": 3,
+      "k_collapse_fraction": 0.5,
+      "m": 6,
+      "strong_q": 3
+    }
+  ],
+  "runtime": {
+    "code_commit": "903df55",
+    "generated_utc": "2026-08-04T19:49:34.956490+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "tb2-flip-ladder-v1"
+}
