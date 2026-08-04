@@ -1,0 +1,520 @@
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\dd}{\mathrm{d}}
+
+\begin{document}
+
+\title{Entropy Across Singular Projections:\\
+Fiber Multiplicity, Caustics, and Observer-Relative Information}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 4, 2026}
+
+\begin{abstract}
+A lower-dimensional observer who watches a hidden dynamical system through a
+projection must count, distinguish, and assign probability to the hidden
+states compatible with each observation.  When the map from the hidden
+evolution parameter to observed time has singularities, that counting changes
+abruptly.  This paper treats the simplest such singularity, the fold, at
+finite observational resolution.  We prove a local theorem stating that a
+nondegenerate fold changes the number of hidden preimages by two while an
+orientation-weighted count is conserved.  We compute closed-form branch
+entropies for a family of canonical control maps.  The quadratic fold carries
+exactly one bit at every two-branch slice, the symmetric slice of a double
+fold carries exactly one and one half bits, and a degenerate critical point
+of a monotone map carries no entropy at all, so multiplicity rather than
+criticality is what stores the information.  We compute the resolution
+scaling of the binned entropy of the fold caustic and verify numerically that
+it converges to its differential limit with deviations shrinking as the
+square root of the bin width.  Finally we demonstrate, in a reversible
+Hamiltonian model, that the observed binned entropy of the coordinate-time
+marginal changes by more than two bits along a trajectory while momentum
+reversal recovers the initial hidden ensemble to near machine precision, so
+the observed entropy change is produced and destroyed by folds of the
+projection with zero hidden information loss.  Nothing in this paper is a
+claim about physical spacetime, about the thermodynamics of real systems, or
+about quantum gravity.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+An observer rarely sees the full state of the system it observes.  It sees a
+projection, and it parameterizes what it sees by its own time.  If the hidden
+evolution parameter and the observed time increase together everywhere, the
+observer's bookkeeping is simple.  Each observed instant corresponds to one
+hidden state, and observed uncertainty tracks hidden uncertainty.  The
+interesting case is the other one.  If the observed time, viewed as a
+function of the hidden evolution parameter, has a critical point, then a
+single observed instant can correspond to several hidden states at once.
+The set of hidden states compatible with one observation, which we call the
+fiber of that observation, changes its size discontinuously as the observed
+time crosses the critical value.
+
+This paper studies how a finite-resolution observer counts and weighs the
+members of such fibers, and how much information the observer's ignorance is
+worth, in the simplest singular situation.  That situation is the fold, the
+generic critical point of a map from one dimension to one dimension.
+Singularity theory guarantees that folds are stable under small
+perturbations, so they are the correct first object of study, and it
+classifies everything more complicated as a higher catastrophe.
+
+Four results are reported, and each carries an explicit evidence label.
+First, a local theorem, proved, describing what a fold does to the fiber.
+The number of hidden preimages of an observed instant jumps by two across a
+fold, while a signed count that weights each preimage by its time
+orientation does not change at all.  Second, closed-form entropy values,
+computed and verified in two independent implementations, for a family of
+canonical control maps.  A quadratic fold is worth exactly one bit of branch
+ambiguity, a symmetric double fold is worth exactly one and one half bits,
+and a monotone map with a degenerate critical point is worth nothing.
+Third, a resolution-scaling law, computed and numerically demonstrated, for
+the observed density near a fold.  That density diverges at the fold, but
+the divergence is integrable, and the binned observed entropy converges to a
+finite differential limit as the bin width shrinks, with deviations falling
+as the square root of the bin width.  Fourth, a numerical demonstration in a
+small Hamiltonian model.  A reversible hidden dynamics, integrated with a
+time-symmetric method, produces observed entropy changes of more than two
+bits along a trajectory, and then gives every bit back.  Reversing the
+momenta recovers the initial hidden ensemble to near machine precision, and
+the entropy curve retraces itself exactly.  The observed entropy change is
+therefore a property of the projection and the observer's resolution, not of
+any loss in the hidden dynamics.
+
+The scope of these claims is deliberately narrow.  The theorem is a
+statement in one-dimensional singularity theory.  The closed-form values are
+exact computations for named control maps.  The demonstration is a
+simulation of a toy model.  No claim is made about physical spacetime, about
+the thermodynamics of any real system, or about quantum gravity.  The paper
+does establish, within its model class, a clean separation between two
+things that are often conflated, the growth of an observer's coarse-grained
+entropy and the destruction of hidden information.  Folds of a projection
+produce the first without any of the second.
+
+\section{Setup}
+\label{sec:setup}
+
+Let $\M$ be a smooth manifold, the hidden state space, and let
+\begin{equation}
+  z: I \rightarrow \M
+\end{equation}
+be a smooth trajectory parameterized by a hidden evolution variable $\tau$
+on an interval $I$.  A smooth observation map
+\begin{equation}
+  \pi: \M \rightarrow \X
+\end{equation}
+sends hidden states to an observed space $\X$, which we take to carry
+spacetime coordinates $x^\mu$.  An observer supplies a time functional
+\begin{equation}
+  T_u(x) = u_\mu x^\mu,
+\end{equation}
+with $u$ the observer's time direction, and reads the trajectory through
+the scalar time map
+\begin{equation}
+  f(\tau) = T_u\!\left(\pi(z(\tau))\right).
+  \label{eq:timemap}
+\end{equation}
+
+\begin{definition}[Fiber of an observed time]
+The fiber of the observed time $t$ is the preimage
+\begin{equation}
+  F(t) = \{\, \tau \in I : f(\tau) = t \,\},
+\end{equation}
+the set of hidden parameter values compatible with the observation $t$.
+\end{definition}
+
+The unsigned multiplicity $N(t) = |F(t)|$ counts the fiber.  The signed
+count weights each element by its time orientation,
+\begin{equation}
+  N_{\mathrm{sgn}}(t)
+  = \sum_{\tau_i \in F(t)} \operatorname{sgn} f'(\tau_i),
+  \label{eq:signed}
+\end{equation}
+defined on regular slices, meaning values of $t$ whose fiber contains no
+critical point of $f$.
+
+The observer does not resolve $t$ exactly.  It resolves $t$ to within a bin
+width $\epsilon > 0$, and its observed distribution is the pushforward of
+the hidden distribution under $f$, accumulated into bins of width
+$\epsilon$.  We write $H_\epsilon$ for the Shannon entropy in bits of that
+binned distribution.  Finite resolution is mandatory rather than a modeling
+convenience.  Differential entropy is not invariant under reparameterization
+of the observed variable, and near a singularity of $f$ the pushforward
+density diverges, so an unbinned continuous entropy assigned to the observed
+variable depends on coordinate choices in exactly the region this paper is
+about.  The binned quantity $H_\epsilon$ is well defined for every
+$\epsilon > 0$, and every entropy statement below is either a statement
+about $H_\epsilon$ at stated $\epsilon$, a statement about a discrete
+branch-label distribution, or an exact limit as $\epsilon \to 0$ with the
+divergent resolution term removed.
+
+\section{The fold theorem}
+\label{sec:fold}
+
+The fold is the nondegenerate critical point of the time map.  The
+statement below is kinematic.  It concerns the map $f$ alone and involves
+no dynamics, no probability, and no physics.
+
+\begin{theorem}[Local fold multiplicity]
+\label{thm:fold}
+Let $f$ be smooth near $\tau_0$ with $f'(\tau_0) = 0$ and
+$f''(\tau_0) \neq 0$, and let $t_0 = f(\tau_0)$.  Then in suitable smooth
+local coordinates
+\begin{equation}
+  f(\tau) - t_0 = \sigma\,(\tau - \tau_0)^2,
+  \qquad \sigma \in \{+1, -1\}.
+  \label{eq:normalform}
+\end{equation}
+For $\sigma = +1$ the unsigned multiplicity of nearby regular slices is $0$
+for $t < t_0$ and $2$ for $t > t_0$, and the two branches carry opposite
+signs of $f'$.  The signed count $N_{\mathrm{sgn}}$ takes the same value on
+both sides of the fold.  For $\sigma = -1$ the time-reversed statement
+holds.
+\end{theorem}
+
+\begin{proof}
+The one-dimensional Morse lemma gives the normal form
+\eqref{eq:normalform}.  For $\sigma = +1$ and $t > t_0$ the local preimages
+are $\tau_\pm = \tau_0 \pm \sqrt{t - t_0}$, with
+$f'(\tau_\pm) = \pm 2\sqrt{t - t_0}$, so the two branches have opposite
+orientation and their contributions to \eqref{eq:signed} cancel.  For
+$t < t_0$ there are no local preimages, contributing zero.  The local signed
+count is therefore $0$ on both sides.  The case $\sigma = -1$ follows by
+reversing the sign of the time coordinate.
+\end{proof}
+
+The fold is stable.  Whitney's classification of stable maps of the plane
+and the catastrophe-theory literature descending from it establish that a
+nondegenerate fold persists under small smooth perturbations and that its
+square-root branch geometry is universal \cite{Whitney1955,Arnold1992}.
+Those structural statements are standard mathematics and are cited, not
+reproved.  What the present campaign adds is a numerical verification of
+the same statements by the instrument stack used throughout this paper, and
+that verification is labeled demonstrated, not proved.  In five hundred
+perturbation trials per amplitude, the fold persisted with probability
+$1.000$ at every perturbation norm up to $0.12$.  The branch-separation
+exponent, fitted over six decades of distance to the fold, was
+$0.500000000000$ against the square-root law, with fit error below
+$10^{-10}$.  The deviations of the perturbed fold location and fold
+curvature from first-order perturbation theory scaled as the square of the
+perturbation amplitude across seven decades of measured deviation.  At the
+largest tested amplitude, norm $0.32$, persistence dropped to $0.956$,
+which is the expected exit from the perturbative regime rather than an
+instrument failure.  These numbers validate the instruments against known
+mathematics.  They are not new mathematics.
+
+\section{Branch weights and branch entropy}
+\label{sec:weights}
+
+Suppose the hidden parameter $\tau$ is distributed uniformly on $I$.  The
+coarea formula for the pushforward of a density under a map with
+nonvanishing derivative on the fiber assigns each preimage
+$\tau_i \in F(t)$ a weight proportional to the reciprocal of the local time
+speed \cite{EvansGariepy1992},
+\begin{equation}
+  w_i(t) = \frac{1/|f'(\tau_i)|}{\sum_{j} 1/|f'(\tau_j)|}.
+  \label{eq:coarea}
+\end{equation}
+An observer who resolves the observed time but not the branch label is
+ignorant of which preimage the system occupies, and the value of that
+missing label is the branch entropy
+\begin{equation}
+  H_{\mathrm{br}}(t) = -\sum_i w_i(t)\, \log_2 w_i(t)
+  \label{eq:branchentropy}
+\end{equation}
+in bits \cite{CoverThomas2006,Jaynes1957}.
+
+The following values are proved by direct computation from
+\eqref{eq:coarea} and \eqref{eq:branchentropy} and were verified in two
+independent implementations, one in MATLAB and one in Python, which agree
+on branch locations to $4.4 \times 10^{-16}$.
+
+\emph{Quadratic fold.}  For $f(\tau) = \tau^2$ the two branches at any
+regular slice $t > 0$ sit at $\tau = \pm\sqrt{t}$ with equal speeds
+$|f'| = 2\sqrt{t}$.  The weights are $(\tfrac12, \tfrac12)$ and
+\begin{equation}
+  H_{\mathrm{br}}(t) = 1 \text{ bit}
+  \qquad \text{for every } t > 0.
+\end{equation}
+The fold hands the observer exactly one new binary distinction, uniformly
+across its two-branch side.
+
+\emph{Double fold.}  For $f(\tau) = \tau^3 - \tau$, at the symmetric slice
+$t = 0$ the fiber is $\{-1, 0, 1\}$ with speeds $|f'| = (2, 1, 2)$.  The
+weights are $(\tfrac14, \tfrac12, \tfrac14)$ and
+\begin{equation}
+  H_{\mathrm{br}}(0) = \tfrac{3}{2} \text{ bits}
+\end{equation}
+exactly.  As the slice approaches a band edge, the two merging branches
+dominate the fiber measure because their speeds vanish, and the branch
+entropy tends to $1$ bit.  The measured deviation from $1$ bit is below
+$10^{-3}$ at a distance of $10^{-9}$ from the edge.
+
+\emph{Monotone maps.}  For $f(\tau) = \tau$, and equally for the degenerate
+cubic $f(\tau) = \tau^3$, every fiber is a single point and
+\begin{equation}
+  H_{\mathrm{br}}(t) = 0 \text{ bits}
+  \qquad \text{for every regular } t.
+\end{equation}
+The cubic has a critical point at the origin, yet contributes no branch
+entropy anywhere, because the map remains monotone and no slice ever meets
+more than one preimage.  Multiplicity, not criticality, is what carries the
+information.  Throughout all four control maps the signed count
+\eqref{eq:signed} is constant on regular slices, so the observational
+multiplicity and its entropy grow while the topological invariant is
+conserved, exactly as Theorem~\ref{thm:fold} requires.
+
+\section{The fold caustic and resolution scaling}
+\label{sec:caustic}
+
+Where the derivative of the time map vanishes, the projection compresses
+hidden measure into a small observed interval, and the observed density
+diverges.  For the quadratic fold $f(\tau) = \tau^2$ with $\tau$ uniform on
+$[-1, 1]$, the pushforward density is
+\begin{equation}
+  p(t) = \frac{1}{2\sqrt{t}}, \qquad 0 < t \le 1,
+  \label{eq:caustic}
+\end{equation}
+the inverse-square-root divergence familiar from caustics in optics, where
+a family of rays folds onto an envelope and the intensity diverges with the
+same exponent at the same codimension \cite{BerryUpstill1980}.  The
+divergence in \eqref{eq:caustic} is integrable, so the fold concentrates
+observed probability without creating any entropy pathology.
+
+The binned observed entropy of \eqref{eq:caustic} obeys a clean resolution
+law.  A direct computation of the differential entropy of \eqref{eq:caustic}
+gives $1 - 1/\ln 2$ bits, approximately $-0.4427$ bits, the negative value
+being ordinary for a density concentrated on a subunit interval.  The
+binned entropy at width $\epsilon$ then satisfies
+\begin{equation}
+  H_\epsilon + \log_2 \epsilon \;\longrightarrow\; 1 - \frac{1}{\ln 2}
+  \qquad (\epsilon \to 0),
+  \label{eq:scaling}
+\end{equation}
+with the bin masses computed exactly from the cumulative distribution
+$\sqrt{t}$.  The measured deviations from the limit are $0.00447$ at
+$\epsilon = 10^{-4}$, $0.00141$ at $\epsilon = 10^{-5}$, and $0.000447$ at
+$\epsilon = 10^{-6}$, shrinking as $\sqrt{\epsilon}$, the rate set by the
+single bin that straddles the divergence.  The convergence
+\eqref{eq:scaling} is the quantitative sense in which the caustic is
+harmless.  All resolution dependence sits in the universal term
+$-\log_2 \epsilon$ shared by every absolutely continuous observed density,
+and the fold contributes only a finite, computable offset.  This
+convergence was verified in the stated range and is labeled demonstrated
+there, with the closed-form limit computed exactly.
+
+\section{A reversible fold cycle}
+\label{sec:cycle}
+
+The results above are static.  This section demonstrates, in a model, what
+folds do to an observer's entropy along a dynamical trajectory, and what
+they do not do.  Everything in this section carries the label demonstrated
+in a model, at exploratory grade, and nothing in it is a thermodynamic
+claim.
+
+The hidden dynamics is the conserved toy Hamiltonian
+\begin{equation}
+\begin{split}
+  H = {}& \tfrac12\!\left(p_t^2 + p_x^2 + p_u^2\right)
+  + \tfrac12 \omega_t^2 t^2
+  + \tfrac12 \omega_u^2 u^2 \\
+  & + \tfrac{\lambda}{4} u^4
+  + g E\, t u,
+\end{split}
+\label{eq:toy}
+\end{equation}
+with $\omega_t = 1$, $\omega_u = 1.2$, $\lambda = 0.1$, $g = 0.25$, and
+$E = 1$.  The coordinate $t$ plays the role of observed time, with
+$\dd t/\dd\tau = p_t$, the coordinate $u$ is hidden, and folds of the time
+map occur wherever $p_t$ crosses zero with nonzero acceleration.  The
+integrator is velocity Verlet with step $10^{-3}$ over
+$\tau \in [0, 40]$, a symplectic and time-symmetric method, and the
+relative energy drift over the full run was $6.1 \times 10^{-9}$, within the sealed
+fixed-step bar of the tolerance freeze described in
+Section~\ref{sec:methods}.  The model \eqref{eq:toy} is not relativistic
+and is not proposed as a theory of anything.  It is an instrumented
+example whose only job is to produce genuine folds under a genuinely
+reversible dynamics.
+
+\emph{Single-trajectory audit.}  One trajectory of \eqref{eq:toy} produces
+twelve folds of the time map.  Observed through constant-time levels, its
+unsigned multiplicity is a staircase over the observation axis with band
+profile $4, 8, 12, 13$ and then the same values descending, constant
+between breakpoints, and the signed count \eqref{eq:signed} obeys the path
+degree rule at each of the roughly $370$ tested levels.  That rule states
+that the signed crossing count of a level equals the sign of the net
+displacement of $t$ when the level lies between the endpoint values of $t$
+and equals zero otherwise.  One caveat is recorded with this result rather
+than elsewhere.  The twelve fold values of $t$ cluster near the turning
+amplitudes of the trajectory, so only the two isolated breakpoints, the
+endpoint values with steps of one, admitted the per-breakpoint step check
+at this level resolution, while the clustered fold breakpoints were
+verified in aggregate through steps of four across close pairs together
+with band constancy.  A finer level grid around the clusters is the
+designed follow-up.
+
+\emph{Reversible ensemble.}  An ensemble of $10^4$ members, initialized
+from a fixed seeded Gaussian spread and integrated with the same method,
+gives the observed side of the demonstration.  The observed quantity is the
+binned entropy $H_\epsilon$ of the coordinate-time marginal, with bin width
+$0.05$ on the range $[-3, 3]$.  Along the forward trajectory that entropy
+spans $2.0708$ bits, from $0.1952$ bits to $2.2660$ bits, rising and
+falling as fold bands raise and lower the fiber multiplicity.  The hidden
+side of the demonstration is the reversal.  Flipping every momentum at the
+final time and integrating forward again recovers the initial ensemble
+with maximum residual $1.1 \times 10^{-14}$ over all members and
+coordinates, and the reversed entropy curve retraces the forward curve
+with defect exactly zero, a bit-identical retrace guaranteed by the
+time symmetry of the integrator.  The falsification bar for this run,
+sealed in advance, would have been tripped by any signed-count violation,
+any failure of band constancy, a recovery residual above $10^{-9}$, or a
+reversed entropy curve that failed to retrace the forward one.  None
+tripped.
+
+The conclusion is stated exactly.  In this model, more than two bits of
+observed entropy appear and disappear along a trajectory whose hidden
+dynamics loses nothing.  The observed entropy change is observational.  It
+is produced and destroyed by folds of the projection together with the
+observer's finite resolution, with zero hidden information loss.
+
+Three distinct quantities must not be conflated in reading that sentence.
+The first is the conditional entropy of the hidden state given the
+observation, the observer's residual uncertainty, which folds change by
+changing the number and weighting of compatible hidden states.  The second
+is the coarse-grained entropy of the observed, binned distribution, the
+quantity measured above, which a reversible hidden dynamics can raise and
+lower freely.  The third is thermodynamic entropy production, which
+requires a physical mechanism that makes lost distinctions inaccessible,
+such as dissipation, an unmonitored environment, or the erasure of a
+memory, and which carries the Landauer cost
+\cite{Landauer1961,Bennett1982}.  Nothing in this paper measures or bounds
+the third quantity.  The demonstration shows precisely that the first two
+can undergo large changes while the third has no mechanism to occur, since
+the dynamics is reversible and reversed.
+
+\section{Entropy signatures of projection singularities}
+\label{sec:signatures}
+
+The results above organize into a classification of what each local type of
+projection singularity contributes to an observer's information budget.
+Table~\ref{tab:signatures} states it.  The fold row and the two regular
+rows are established by the preceding sections at the labels given there.
+The cusp and higher rows are design, not results.  They state the
+predictions this framework makes and the experiments that would test them,
+and no measurement reported here bears on them.
+
+\begin{table}[t]
+\caption{\label{tab:signatures}Entropy signatures by singularity class.
+Rows above the rule are established in this paper at the stated labels.
+Rows below the rule are open questions stated as design targets.}
+\begin{ruledtabular}
+\begin{tabular}{llll}
+Class & Multiplicity & Signed count & Entropy signature \\
+\colrule
+Regular & constant & conserved & none \\
+Degenerate & constant & conserved & none \\
+monotone & & & \\
+Fold & jumps by two & conserved & one new binary \\
+ & & & distinction \\
+\colrule
+Cusp & varies across & conserved & correlated branch \\
+ & fold boundaries & globally & ambiguity (open) \\
+Higher & larger structured & constrained & multiway ambiguity \\
+catastrophes & changes & & (open) \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The organizing statement is the pairing of the fold row with the
+degenerate-monotone row.  A fold gives the observer exactly one new binary
+distinction, worth one bit at equal weighting and never more than one bit,
+while a degenerate critical point of a monotone map gives the observer
+nothing at all.  Criticality of the time map is therefore neither
+necessary nor sufficient for observational entropy.  What is both
+necessary and sufficient, in the one-dimensional setting treated here, is
+a change in fiber multiplicity, and Theorem~\ref{thm:fold} fixes the
+quantum of that change at two while conserving the signed count.  Whether
+the cusp contributes a correlated two-bit structure, and whether the
+higher catastrophes contribute the multiway ambiguities their normal
+forms suggest, are the designed continuations, and they are listed in the
+table as open.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+All instruments used in this paper were validated against exact analytic
+controls before any result-bearing run, under a sealed tolerance freeze
+registered as PF0-FREEZE-001, which fixes every numerical bar in advance
+and voids itself if edited.  The control net comprises a monotone null, the
+exact quadratic creation and annihilation folds, the degenerate cubic, and
+the double fold, in both a MATLAB implementation and an independent Python
+implementation.  Cross-language branch locations agree to
+$4.4 \times 10^{-16}$, and the same scenario executed on two substrates
+yields bit-identical scenario and outcome hashes.  Every result-bearing run
+writes an append-only JSON evidence record in the repository containing the
+complete parameter set, seeds, outcome arrays, and SHA-256 hashes of inputs
+and outputs, and the records cited here carry the exploratory label of the
+campaign's evidence-grading scheme.  A reducer may summarize records but
+may not rewrite them.
+
+\begin{thebibliography}{9}
+
+\bibitem{Whitney1955}
+H.~Whitney,
+On singularities of mappings of Euclidean spaces. I. Mappings of the plane
+into the plane,
+Ann.\ of Math.\ \textbf{62}, 374 (1955).
+
+\bibitem{Arnold1992}
+V.~I.~Arnold,
+\emph{Catastrophe Theory}, 3rd ed.\
+(Springer-Verlag, Berlin, 1992).
+
+\bibitem{BerryUpstill1980}
+M.~V.~Berry and C.~Upstill,
+Catastrophe optics: morphologies of caustics and their diffraction patterns,
+Prog.\ Opt.\ \textbf{18}, 257 (1980).
+
+\bibitem{Jaynes1957}
+E.~T.~Jaynes,
+Information theory and statistical mechanics,
+Phys.\ Rev.\ \textbf{106}, 620 (1957).
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory}, 2nd ed.\
+(Wiley-Interscience, Hoboken, 2006).
+
+\bibitem{EvansGariepy1992}
+L.~C.~Evans and R.~F.~Gariepy,
+\emph{Measure Theory and Fine Properties of Functions}
+(CRC Press, Boca Raton, 1992).
+
+\bibitem{Landauer1961}
+R.~Landauer,
+Irreversibility and heat generation in the computing process,
+IBM J.\ Res.\ Dev.\ \textbf{5}, 183 (1961).
+
+\bibitem{Bennett1982}
+C.~H.~Bennett,
+The thermodynamics of computation, a review,
+Int.\ J.\ Theor.\ Phys.\ \textbf{21}, 905 (1982).
+
+\end{thebibliography}
+
+\end{document}
