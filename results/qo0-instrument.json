@@ -1,0 +1,119 @@
+{
+  "classical_anchors": {
+    "dpi_margin_merge": 1.1102230246251565e-16,
+    "embedding": "branches by increasing tau as computational basis; coarea weights as eigenvalues; uniform fiber as reference; branch-label algebra as the diagonal algebra",
+    "m0_bits": 1.4999999999999996,
+    "m0_merged_orientation_pair_bits": 1.0,
+    "p0_bits": 1.0
+  },
+  "closed_form_residuals": {
+    "commuting_kl": 0.0,
+    "pure_vs_maximally_mixed": 0.0,
+    "self_divergence": 7.771561172376096e-16,
+    "support_violation_is_inf": 0.0,
+    "unitary_invariance": 2.220446049250313e-15
+  },
+  "divergence": "umegaki-nats",
+  "dpi_sweep": {
+    "correlation_assistance_exploratory": {
+      "assistance": 0.2133390037376195,
+      "d_keep_full_outside": 1.4364659152794417,
+      "d_keep_site_only": 1.2231269115418222
+    },
+    "max_dephasing_monotonicity_defect": -0.004331737905713839,
+    "min_composition_margin": 0.0033104408057170742,
+    "min_dpi_margin": 1.4985473478779099e-05,
+    "model": {
+      "beta": 1.0,
+      "consumer_regions": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4
+        ]
+      ],
+      "dephasing_strengths": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "excitation": "exp(i theta Z) on qubit 4 (visible to the consumer)",
+      "field": 2.0,
+      "hamiltonian": "transverse-field Ising, open chain",
+      "n_qubits": 8,
+      "null_controls": "no-signalling: X rotation on interior qubits 1, 3; symmetry: X rotation on qubit 4 invisible on-site",
+      "thetas": [
+        0.1,
+        0.4,
+        0.8,
+        1.2
+      ]
+    },
+    "n_dpi_checks": 32,
+    "no_signalling_null_control": {
+      "boundary_inside": -1.1102230246251565e-16,
+      "deep_inside": -5.551115123125783e-16
+    },
+    "region_divergences_by_theta": {
+      "0.1": [
+        0.027821312471955406,
+        0.027806326998476627,
+        0.027555907858662965,
+        0.023689386317422206
+      ],
+      "0.4": [
+        0.4233100238732912,
+        0.42308201517877175,
+        0.41927180916639284,
+        0.3604414672269549
+      ],
+      "0.8": [
+        1.4364659152794417,
+        1.4356921875158823,
+        1.422762583305487,
+        1.2231269115418222
+      ],
+      "1.2": [
+        2.4249009057207003,
+        2.423594774378018,
+        2.4017682843604673,
+        2.064762918535484
+      ]
+    },
+    "spectral_floor_spread": 0.0,
+    "spectral_floor_values": [
+      1e-14,
+      1e-13,
+      1e-12,
+      1e-11,
+      1e-10
+    ],
+    "symmetry_null_control": {
+      "x_rotation_site_only": -1.6653345369377348e-16
+    }
+  },
+  "label": "exploratory",
+  "record_sha256": "bde3a532c666c1ee9ee2e0ff0c192486c3184b592c6f586885d242a720abc4c3",
+  "runtime": {
+    "code_commit": "07f1e4c",
+    "generated_utc": "2026-08-04T08:21:55.416902+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "qo0-instrument-v1"
+}
