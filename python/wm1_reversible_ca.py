@@ -37,8 +37,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from projection_fold import canonical_sha256  # noqa: E402
 
 RULE = 30
-WIDTH = 4096
-STEPS = 400
+WIDTH = 1024
+STEPS = 1200
 BLOCK = 8
 
 
