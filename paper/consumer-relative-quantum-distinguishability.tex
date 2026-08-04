@@ -1,0 +1,741 @@
+\documentclass[aps,prd,reprint,nofootinbib,longbibliography]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\newtheorem{definition}{Definition}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Ec}{\mathcal{E}}
+
+\begin{document}
+
+\title{Consumer-Relative Quantum Distinguishability on Causal Boundaries}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 4, 2026}
+
+\begin{abstract}
+Distinguishability between quantum states is usually treated as a property of
+the states alone.  We treat it instead as a property of the states together
+with a declared consumer, meaning the agent whose access channel, task, and
+budget determine which distinctions can be claimed.  We define the consumer
+channel, the consumer-relative divergence, consumer equivalence, and
+task-relative distortion, verify that the resulting instruments reproduce
+exact classical anchors from an earlier projection-entropy campaign, and
+measure their behavior in a small spin-chain model where every quantity is
+computable.  Three findings result.  First, a nested hierarchy of consumers
+divides one fixed distinguishability total in a way that moves with the
+excitation, so a certificate built from one observable class can be exactly
+vacuous for an excitation in another class.  Second, at scarce storage
+budgets an encoder optimized for a declared energy functional preserves that
+functional exactly while losing badly on global state fidelity, the encoder
+optimized for fidelity does the opposite, and the trade disappears once the
+budget is large enough to store everything the task needs.  Third, a
+consistency requirement imposed across a family of consumers does no work
+when the consumers are probed disjointly and does real work, selecting the
+weak-coupling regime of the model family, exactly when all consumers witness
+one shared event.  We also report three instrument defects found during
+construction and converted into standing controls, because each is a silent
+failure mode of restricted-divergence numerics.  Everything numerical in
+this paper is demonstrated in finite-dimensional models.  Nothing in it is a
+claim about physical gravity, real horizons, or quantum gravity, and the
+consumer does not create anything physical by choosing what to observe.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Several modern derivations of gravitational field equations from information
+pass through a single kind of object, the distinguishability of quantum
+states as seen from a restricted vantage point.  Jacobson derived the
+Einstein equation as an equation of state by demanding that a thermodynamic
+identity hold for every local causal horizon, which is a universal
+quantifier over restricted observers \cite{Jacobson1995}.  Bianconi
+postulated an action that is itself a quantum relative entropy between
+geometric and matter degrees of freedom \cite{Bianconi2025}.  Dorau and Much
+proved, for a special class of states on a special geometry, that the
+relative entropy accessible to an observer confined outside a horizon equals
+an energy flux, and recovered semiclassical gravity from that equality
+together with an assumed entropy-area formula \cite{DorauMuch2026}.  A
+related construction runs the thermodynamic argument on stretched light
+cones \cite{AlonsoSerrano2025}.  In each case the restriction to an
+observer's accessible algebra is the informational move, and in each case
+the observer appears only as a restriction.  None of these constructions
+contains a consumer in the operational sense, an agent with a declared task
+whose success is scored on that task rather than on full state
+reconstruction.
+
+This paper supplies and tests that missing layer in the only setting where
+every quantity can be computed and audited, namely finite-dimensional
+models.  The program it extends, called Observation Theory in our earlier
+classical work, holds that distinguishability is not one thing.  It is
+relative to a consumer, and the distinctions a consumer needs for its task
+can be preserved while global state fidelity is sacrificed, and conversely.
+The classical version of that statement was established with projection and
+entropy instruments in prior work of this campaign.  Here the classical read
+operator is replaced by a quantum channel, the most general physically
+allowed map on quantum states, and the same questions are asked again.
+
+Three claim types are kept separate throughout.  Instrument claims state
+that the implemented objects compute what the definitions name, and they are
+verified against closed forms.  In-model structural claims state measured
+facts about one declared family of finite-dimensional models.  Physical
+claims about gravity, real horizons, or quantum gravity are absent, and no
+sentence of this paper should be read as making one.  The causal direction
+in every construction runs from the physical state and the model couplings,
+through the accessible channel, to the consumer-relative divergence.  No
+choice of channel, task, or budget feeds back into the state or the
+couplings.  The consumer does not create anything physical by choosing what
+to observe.  Observation relativity, as used here, concerns evidential
+access, not reality.
+
+One further discipline governs the whole paper.  Renaming known quantities
+adds nothing.  Calling relative entropy distinguishability, calling the
+data-processing inequality an access law, and calling a partial trace a
+consumer channel are relabelings of standard mathematics.  The contribution,
+if any, is confined to the task layer defined below and to the measured
+results.  Where a result turns out to be a relabeling, the paper says so.
+
+The paper proceeds in six steps.  It replaces the classical read operator
+with a quantum channel and states the access law.  It defines consumer
+equivalence and task-relative distortion.  It verifies exact classical
+reduction against anchors inherited from the earlier campaign.  It analyzes
+a small transverse-field Ising model with a declared inside and outside,
+reporting instrument results and three defects converted to standing
+controls.  It measures a consumer hierarchy, a budgeted encoding trade we
+call the flip, and a consumer-family consistency requirement with a
+two-sided outcome.  It closes by stating precisely what would be required to
+connect any of this to the gravitational results cited above, and why the
+present constructions do not.
+
+\section{Definitions}
+\label{sec:defs}
+
+\subsection{Consumer channel and consumer-relative divergence}
+
+A quantum channel is a completely positive trace-preserving linear map
+$\Nc$ on density matrices \cite{NielsenChuang}.  A consumer $C$ receives
+states only through its declared channel $\Nc_C$.  Canonical instances used
+in this paper are the partial trace over an inaccessible tensor factor, local
+dephasing at declared strength, and pinching, meaning full dephasing in the
+computational basis, which restricts the consumer to the diagonal algebra.
+
+The default divergence is the Umegaki quantum relative entropy
+\cite{Umegaki1962},
+\begin{equation}
+D(\rho\,\|\,\sigma) \;=\; \Tr\!\left[\rho\left(\ln\rho-\ln\sigma\right)\right],
+\label{eq:umegaki}
+\end{equation}
+in nats, the natural-logarithm unit of information, defined as $+\infty$
+when the support of $\rho$ is not contained in the support of $\sigma$.  The consumer-relative divergence is
+\begin{equation}
+D_C(\rho\,\|\,\sigma) \;=\; D\!\left(\Nc_C(\rho)\,\|\,\Nc_C(\sigma)\right).
+\label{eq:dc}
+\end{equation}
+
+\subsection{The access law}
+
+For every channel $\Nc$ and all states $\rho,\sigma$,
+\begin{equation}
+D\!\left(\Nc(\rho)\,\|\,\Nc(\sigma)\right) \;\le\; D(\rho\,\|\,\sigma),
+\label{eq:dpi}
+\end{equation}
+the data-processing inequality \cite{Lindblad1975}.  Equality
+characterizes sufficiency of the channel for the pair \cite{Petz1986}.  In
+consumer language Eq.~\eqref{eq:dpi} says that claimable distinctions cannot
+exceed underlying distinctions, and that restriction, coarse-graining, and
+inaccessibility only erase distinguishability, never create it.  This
+reading is a relabeling of a known theorem.  The instruments of
+Sec.~\ref{sec:model} do not test whether Eq.~\eqref{eq:dpi} is true.  They
+verify that the implementation computes the objects the theorem is about,
+which Sec.~\ref{sec:model} shows is a real failure surface.
+
+\subsection{Consumer equivalence}
+
+Let $\Ac_C$ be the algebra of observables the consumer can evaluate on the
+output of its channel.  Two states are consumer equivalent,
+\begin{equation}
+\rho \sim_C \sigma
+\quad\Longleftrightarrow\quad
+\Tr(\rho\,O)=\Tr(\sigma\,O)\ \ \text{for all } O\in\Ac_C ,
+\label{eq:equiv}
+\end{equation}
+when no observable available to the consumer separates them.  The quotient
+of state space by $\sim_C$ is the world the consumer can act on, with
+unreadable distinctions collapsed.  In this paper the channel is the
+primitive object and $\Ac_C$ is derived from it, because two consumers with
+the same algebra can differ in noise, and a conditional expectation onto a
+subalgebra exists only for special algebra-state pairs.
+
+\subsection{Task-relative distortion}
+
+A task is a declared functional $f$ on states, fixed before any sweep.  For
+an encoding map $\Ec$ at a declared budget, with a declared decoder $\Dc$,
+the task distortion is the error in the functional,
+\begin{equation}
+d_f(\rho,\Ec) \;=\; \bigl|\,f(\rho)-f\!\left(\Dc(\Ec(\rho))\right)\bigr| ,
+\label{eq:taskdist}
+\end{equation}
+scored against the global reconstruction error
+\begin{equation}
+1-F\!\left(\rho,\Dc(\Ec(\rho))\right),
+\qquad
+F(\rho,\sigma)=\Bigl(\Tr\sqrt{\sqrt{\rho}\,\sigma\sqrt{\rho}}\Bigr)^{2},
+\label{eq:infid}
+\end{equation}
+where $F$ is the Uhlmann fidelity \cite{Uhlmann1976,Jozsa1994}.  The task
+layer is where the paper's contribution lives, if anywhere.  The divergence
+layer of Eqs.~\eqref{eq:umegaki} through \eqref{eq:equiv} answers how
+distinguishable two states are through a channel.  The task layer asks which
+distinction a particular consumer needs, and the experiments below measure
+whether that question has content beyond the divergence layer.
+
+\subsection{Boundary language}
+
+Throughout, a boundary is a statement about which tensor factor of a
+finite-dimensional Hilbert space a consumer can touch, with the consumer
+channel a partial trace over the rest.  A bipartite lattice cut is already a
+boundary in this sense.  The causal boundaries of the gravitational
+literature are the special case in which the split is causal and the
+restricted state is thermal with respect to a modular flow, the intrinsic
+evolution that the state itself induces on the accessible algebra.  The models of
+this paper use the general case and claim nothing about the special one.
+Section~\ref{sec:gap} lists what the special case would additionally
+require.
+
+\section{Classical reduction and anchors}
+\label{sec:classical}
+
+When all states and channels are simultaneously diagonalizable, the quantum
+objects must collapse to the classical ones.  Equation~\eqref{eq:umegaki}
+becomes the Kullback-Leibler divergence, the channel becomes a stochastic
+map, and consumer equivalence becomes the classical quotient.  The earlier
+campaign supplies two exact anchors, the branch-weight distributions of two
+fold projections whose entropies are known in closed form.  A two-branch
+fold carries branch weights $(\tfrac12,\tfrac12)$ and exactly one bit.  A
+double fold carries branch weights $(\tfrac14,\tfrac12,\tfrac14)$ at its
+symmetric slice and exactly $1.5$ bits.
+
+The declared embedding, fixed before any run, maps fold branches in
+increasing order of the evolution parameter to computational basis states,
+coarea weights to eigenvalues of a diagonal density matrix, the uniform
+distribution to the reference state $I/d$, and the branch-label algebra to
+the diagonal algebra.  Entropy is then recovered through the divergence
+pathway,
+\begin{equation}
+S(\rho) \;=\; \log_2 d \;-\; \frac{D(\rho\,\|\,I/d)}{\ln 2}.
+\label{eq:entropy}
+\end{equation}
+The instrument reproduces $1.000000000000$ bits for the two-branch fold and
+$1.500000000000$ bits for the double fold through
+Eq.~\eqref{eq:entropy}, at residuals below $2\times 10^{-15}$.
+
+The anchors also pin the equality case of the access law.  Merging the two
+orientation branches of the double fold is a classical channel.  Against
+the uniform reference the merge loses exactly nothing, because the
+conditional distributions inside the merged group coincide, so the
+data-processing gap is an exact sufficiency equality, measured at
+$1.1\times 10^{-16}$.  Against the asymmetric reference
+$(\tfrac12,\tfrac14,\tfrac14)$ the same merge loses a nonzero amount with
+the closed form
+\begin{equation}
+\Delta \;=\; \frac{\ln 2}{4}-\frac{1}{2}\ln\frac{4}{3}
+\;\approx\; 0.029446\ \text{nats},
+\label{eq:gap}
+\end{equation}
+and the measured gap matches Eq.~\eqref{eq:gap} to twelve decimals.  A
+quantum instrument that failed these classical limits would be invalid
+regardless of anything else it computed.  The embedding is declared rather
+than unique, and the reduction check is exactly as strong as that
+declaration.
+
+\section{Model and instrument}
+\label{sec:model}
+
+\subsection{Declared model}
+
+The model for all quantum runs is an open chain of $8$ qubits with the
+transverse-field Ising Hamiltonian
+\begin{equation}
+H \;=\; -J\sum_{k=0}^{6} Z_k Z_{k+1} \;-\; h\sum_{k=0}^{7} X_k ,
+\label{eq:ising}
+\end{equation}
+in the gapped paramagnetic regime.  The reference state is thermal,
+$\sigma_\beta = e^{-\beta H}/\Tr\,e^{-\beta H}$, at $\beta=0.5$ with $J=1$
+and $h=2$ for the instrument, hierarchy, and flip studies, and at
+$\beta=0.4$ over the coupling grid $J\in\{0.6,0.8,1.0,1.2\}$,
+$h\in\{1.6,1.8,2.0,2.2\}$ for the family study of Sec.~\ref{sec:family}.
+Excitations are local unitaries $U_\theta=\exp(i\theta P_s)$ for a
+single-site Pauli operator $P_s$, applied to the thermal reference.  The
+declared cut places sites $0$ through $3$ inside and sites $4$ through $7$
+outside, and the exterior consumer's channel is the partial trace onto the
+outside.  All computations are exact diagonalization in double precision.
+
+\subsection{Instrument results}
+
+The instrument layer verifies that the implementation computes
+Eqs.~\eqref{eq:umegaki} through \eqref{eq:dc} correctly.  Closed-form
+checks cover the commuting Kullback-Leibler case, a pure state against the
+maximally mixed state, self-divergence, unitary invariance, and the
+support-violation convention, with a maximum residual below
+$2\times 10^{-15}$.  Across the excitation and channel sweep the
+implementation performed $32$ data-processing checks of
+Eq.~\eqref{eq:dpi}, every margin strictly positive and finite, minimum
+margin $9.6\times 10^{-8}$.  Composition monotonicity, meaning that
+composing two channels never increases the divergence, held at every point.
+Sweeping the numerical support floor across
+$10^{-14}$ through $10^{-10}$ changed no reported divergence, with a
+measured spread of zero.
+
+\subsection{Three defects converted to standing controls}
+\label{sec:defects}
+
+Three instrument defects were discovered by failed first designs.  Each is
+reported here as a methods result, because each is a silent failure mode of
+restricted-divergence numerics that produces passing-looking output, and
+each is now a standing control asserted on every run.
+
+\emph{Silent infinite divergence at the support floor.}
+At $\beta=1$ the smallest thermal eigenvalue, near $2\times 10^{-12}$, sat
+at the $10^{-12}$ support floor of the divergence routine.  A full-rank
+reference was thereby misread as rank deficient, the full-state divergence
+went silently infinite, and every global-versus-restricted margin became
+infinity minus a finite number.  All margins were vacuously positive, and
+the defect was invisible in the minimum margin.  The production model must
+now clear the support floor by three decades, which is asserted, and every
+global divergence carries a finiteness assertion.  The first evidence
+record contained this flaw and was regenerated.  The corrected record
+supersedes it.
+
+\emph{No-signalling null.}
+A unitary, or any channel, acting only on the traced-out interior cannot
+change the exterior reduced state at all.  The first sweep design placed
+the excitation inside, so every consumer divergence was exactly zero and
+the data-processing checks passed trivially on a degenerate sweep.
+Interior excitation is now an asserted null control, with the measured
+exterior divergence below $7\times 10^{-16}$ for excitations both deep
+inside and at the interior side of the cut.
+
+\emph{Symmetry null.}
+By the global spin-flip symmetry of Eq.~\eqref{eq:ising}, the single-site
+reduced thermal state is exactly $(I+mX)/2$ for a magnetization parameter
+$m$.  An $X$-axis rotation commutes with it and is invisible to the
+site-only consumer even though it acts on that consumer's own qubit, with
+the measured on-site divergence below $7\times 10^{-16}$.  Whether a
+consumer can see an excitation depends on the interplay of excitation
+direction and state symmetry, not only on locality.  This null is also the
+first concrete instance in this paper of certificate vacuity, developed
+quantitatively in Sec.~\ref{sec:hierarchy}.
+
+\section{Consumer hierarchy}
+\label{sec:hierarchy}
+
+\subsection{Design}
+
+Four consumers are arranged as a degradation chain, each weaker consumer a
+channel composed onto the stronger one's output, so the ordering of their
+divergences is a theorem and any measured inversion would be an
+implementation bug.  From weakest to strongest the levels are position
+only, realized as a $Z$-basis pinch on every outside site, position plus
+flux, which keeps the full single-site algebra of the excited site and
+pinches the rest, the full boundary, which is the partial trace onto the
+outside region, and the full state.  The declared flux stand-in is the
+transverse-field energy density on the excited site,
+\begin{equation}
+f(\rho) \;=\; \Tr\!\left[\rho\,(-h\,X_{s})\right],
+\label{eq:flux}
+\end{equation}
+declared rather than derived, a choice whose risks are discussed with the
+results.  Two excitation axes are measured, a $Z$-axis rotation and an
+$X$-axis rotation on the same outside site, both at
+$\theta\in\{0.4,0.8,1.2\}$.
+
+\begin{table}[t]
+\caption{Consumer-hierarchy divergence chains at excitation strength
+$\theta=0.8$, in nats.  Each level is a channel degradation of the one
+below it, so each column is nondecreasing downward by
+Eq.~\eqref{eq:dpi}.  The orderings and gap locations are stable across
+$\theta=0.4$ and $\theta=1.2$.}
+\label{tab:hierarchy}
+\begin{ruledtabular}
+\begin{tabular}{lcc}
+Consumer level & $Z$ excitation & $X$ excitation \\
+\colrule
+position only        & $0.000000$ & $0.047621$ \\
+position plus flux   & $0.667985$ & $0.116320$ \\
+full boundary        & $0.675183$ & $0.148405$ \\
+full state           & $0.723532$ & $0.300990$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\subsection{Results}
+
+Table~\ref{tab:hierarchy} shows the measured chains.  For the $Z$-axis
+excitation the position-only consumer sees exactly nothing.  This is a
+commutation theorem, asserted in the instrument, because the excitation
+commutes with every $Z$-string the pinched consumer can read.  The largest
+gap, $0.667985$ nats, sits at the flux rung.  For the $X$-axis excitation
+the position-only consumer does see the event, at $0.047621$ nats, because
+the excitation disturbs position correlations even though the on-site
+marginal is unchanged by the symmetry null of Sec.~\ref{sec:defects}.  The
+largest gap for this excitation, $0.152585$ nats, sits at the interior
+rung between the full boundary and the full state.
+
+The structural statement is that the same four consumers, ordered the same
+way by Eq.~\eqref{eq:dpi}, divide the same kind of distinguishability total
+entirely differently depending on the excitation sector.  Where the
+distinguishing information lives moves with the excitation.  A certificate
+of the form ``the position consumer sees nothing, therefore nothing
+happened'' is exactly vacuous for a flux-sector excitation, since the
+position consumer's divergence is identically zero there while the flux
+consumer's divergence is large.  This is the task layer measured rather
+than relabeled.  The divergence layer alone fixes only the ordering.  The
+gaps, and where they sit, are model facts that no renaming produces.  The
+caveat is adjacent.  The flux functional Eq.~\eqref{eq:flux} is a declared
+stand-in on a lattice with no null direction, and every statement above is
+a statement about this model class at these parameters.
+
+\section{The flip}
+\label{sec:flip}
+
+\subsection{Design}
+
+The flip hypothesis, transplanted from the classical program, is that at a
+fixed budget an encoder optimized to preserve a declared task functional
+beats a fidelity-optimized encoder on the task while losing on global
+fidelity.  The declared design is as follows.  The model is the outside
+region of Sec.~\ref{sec:model}, four qubits with the thermal marginal as
+vacuum.  Scenario states apply a strong $Z$ rotation on a
+fidelity-dominant site and a weak $Z$ rotation on the flux site, so the
+fidelity signal and the task signal live on different qubits.  The task is
+the flux functional Eq.~\eqref{eq:flux} on the flux site.  The encoder
+family, identical for every arm, keeps a subset of $k$ of the $4$ qubits
+and decodes by reattaching the vacuum marginals of the discarded qubits.
+The budget is the number of stored qubit slots.  The family is discrete
+and exhaustively searched, so there is no optimizer whose artifacts could
+manufacture the result.  Arms are selected on a training grid of scenario
+angles and judged only on a disjoint held-out grid, with declared win
+margins of $0.01$ on both axes.  The F-arm minimizes mean infidelity, the
+T-arm minimizes mean task distortion, and a mandatory anti-arm applies the
+T-arm's encoder with the flux qubit dephased before storage, spending the
+identical budget while destroying the flux observable.  If the anti-arm
+were not clearly worst on the task, the declared functional would not be
+what governs the task and the run would be uninterpretable rather than
+positive.  A two-qubit analytic flip control, which no search could fake,
+is part of the accompanying test suite.
+
+\begin{table}[t]
+\caption{Held-out flip results by budget $k$ in stored qubit slots.  Task
+distortion is Eq.~\eqref{eq:taskdist} for the flux functional, infidelity
+is Eq.~\eqref{eq:infid}.  Task values of $0.000$ are exact zeros of the
+encoding in exact arithmetic, measured at $10^{-16}$.}
+\label{tab:flip}
+\begin{ruledtabular}
+\begin{tabular}{clccc}
+$k$ & Arm & Keeps & Task distortion & Infidelity \\
+\colrule
+1 & F    & strong site        & $0.118$ & $0.069$ \\
+1 & T    & flux site          & $0.000$ & $0.326$ \\
+1 & anti & flux site, pinched & $1.289$ & $0.431$ \\
+\colrule
+2 & F    & strong pair        & $0.118$ & $0.046$ \\
+2 & T    & flux pair          & $0.000$ & $0.330$ \\
+2 & anti & flux pair, pinched & $1.289$ & $0.430$ \\
+\colrule
+3 & F    & includes flux site & $0.000$ & $0.025$ \\
+3 & T    & includes flux site & $0.000$ & $0.050$ \\
+3 & anti & flux site pinched  & $1.289$ & $0.197$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\subsection{Results}
+
+Table~\ref{tab:flip} reports the held-out outcomes.  At budget $k=1$ the
+T-arm keeps the flux site and achieves task distortion exactly zero,
+because a kept single-site marginal determines the single-site functional
+exactly, at the price of infidelity $0.326$.  The F-arm keeps the strong
+site and achieves infidelity $0.069$ at task distortion $0.118$.  The
+task-optimized encoder wins the task outright and is worse on global
+fidelity by a factor of $4.7$.  This is the flip.  At $k=2$ the split
+persists, and the fidelity arm's choice is informative in its own right,
+since it prefers the correlated strong pair over adding the weakly excited
+flux qubit.  Fidelity favors preserving correlation structure.  At $k=3$
+the fidelity-optimal subset happens to contain the flux qubit, both arms
+reach task distortion zero, and the flip vanishes.  The anti-arm is worst
+on the task at every budget, $1.289$ against at most $0.118$, so the
+declared functional does govern the task and the runs are interpretable.
+
+The flip region is contiguous, budgets $1$ and $2$, and the flip dies at
+exactly the budget where storage suffices to keep everything
+task-relevant.  The flip is a scarcity phenomenon.  This is the
+budget-relativity structure the classical program predicts, here realized
+with quantum states, a quantum channel budget, and an energy functional.
+The result is not an estimation protocol.  Classical shadow methods
+predict many observables of a state from few randomized measurements with
+guarantees that sharpen as the observable class narrows
+\cite{Huang2020}.  The flip instead measures a strict trade between one
+declared functional and global reconstruction at matched storage, and its
+content is the existence and location of that trade, not an estimator.
+Two caveats are adjacent.  The scenario family was declared so that task
+signal and fidelity signal live on different qubits, which is the
+misalignment the hypothesis requires, so the result demonstrates
+existence in a declared model class and nothing stronger.  These runs
+carry an exploratory label, and a sealed preregistered replication would
+be required before the flip could be claimed beyond this model class.
+
+\section{Consumer-family consistency}
+\label{sec:family}
+
+\subsection{Design}
+
+Jacobson's derivation runs on a universal quantifier, a demand imposed for
+every local horizon at once \cite{Jacobson1995}.  The model-internal
+question tested here is whether such a quantifier does any work, meaning
+whether a requirement imposed across a whole family of consumers
+constrains a model more than the same requirement imposed on each consumer
+alone.  The declared requirement, per coupling point $(J,h)$ of the model
+family at $\beta=0.4$, is that each consumer's divergence follow the
+declared flux weight,
+\begin{equation}
+D_c(\theta) \;=\; \lambda_c\,\theta^{2}
+\quad\text{within relative residual } \epsilon,
+\label{eq:law}
+\end{equation}
+with the constant $\lambda_c$ universal across the family within spread
+$\delta$, where the spread is the range of the constants divided by their
+mean.  The flux weight $\theta^{2}$ is declared from the excitation
+parameter alone, so nothing informational enters the declaration and the
+universality content is measured rather than inserted.  Thresholds
+$\epsilon=\delta=0.05$ were fixed with the design, and all verdicts are
+also reported at a loose value $0.15$.  Excitation strengths are
+$\theta\in\{0.05,0.10,0.15,0.20\}$.
+
+Two families are measured.  Family A consists of six wedge consumers, the
+right exteriors of cuts $1$ through $6$, each probed by a $Z$ rotation at
+its own boundary site, so the probes are disjoint.  Family B consists of
+five nested windows, from the single shared site up to the full chain, all
+witnessing one shared excitation at one site, so every consumer sees the
+same event with a different extent of access.
+
+\subsection{Family A, disjoint probes}
+
+The quantifier is inert.  The $\theta^{2}$ law holds for every consumer at
+every coupling point, the constants $\lambda_c$ agree across the six
+consumers within a relative spread of at most $1.6\times 10^{-3}$ over the
+whole grid, more than an order of magnitude inside the declared $\delta$,
+and the joint requirement never removes a coupling point that any single
+consumer keeps.  Survival is $1.0$ for
+every consumer and for every subfamily at both thresholds.  The mechanism
+is visible in the construction.  At short correlation length the effect of
+a boundary-local probe is confined near its site up to tails set by that
+length, every wedge containing its own probe captures it essentially
+completely, and disjoint probes tie nothing together.  A
+family of observers probed disjointly cannot make an all-observers
+quantifier do work.
+
+\begin{table}[t]
+\caption{Family B universality spread of the constants $\lambda$ across
+the five nested windows, by coupling point.  The strict threshold is
+$\delta=0.05$.  The spread increases monotonically with the coupling
+ratio $J/h$, which sets the correlation strength.}
+\label{tab:spread}
+\begin{ruledtabular}
+\begin{tabular}{ccccc}
+ & $h=1.6$ & $h=1.8$ & $h=2.0$ & $h=2.2$ \\
+\colrule
+$J=0.6$ & $0.0350$ & $0.0345$ & $0.0340$ & $0.0335$ \\
+$J=0.8$ & $0.0612$ & $0.0603$ & $0.0594$ & $0.0585$ \\
+$J=1.0$ & $0.0936$ & $0.0922$ & $0.0908$ & $0.0894$ \\
+$J=1.2$ & $0.1313$ & $0.1293$ & $0.1273$ & $0.1253$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\subsection{Family B, one shared event}
+
+The quantifier is active.  Every window passes the $\theta^{2}$ law singly
+at every coupling point, so no single consumer constrains the coupling
+grid at all.  The joint universality requirement tightens strictly with
+family size, with surviving fractions of the sixteen-point coupling grid
+of $1.00$, $0.75$, and $0.25$ at family sizes one, two, and three, and
+$0.25$ thereafter.  The joint requirement is strictly tighter than every
+single-consumer requirement.  The surviving quarter is exactly the
+weak-coupling row $J=0.6$.  Table~\ref{tab:spread} shows why.  The
+universality spread orders monotonically with correlation strength, from
+$0.0335$ at the weakest-coupling corner to $0.1313$ at the
+strongest-coupling corner, so the family requirement constrains couplings
+by bounding correlation assistance and selects the near-factorized regime.
+The constants also saturate once the window clears the correlation
+length.  On the surviving row the three-site window and every larger
+window agree to four decimals, while at the strongest coupling that
+agreement is reached only by the two largest windows.  All sufficiently
+large observers agree, and only observers smaller than the correlation
+length dissent.
+
+\subsection{Reading}
+
+Stated carefully and model-internally, an all-observers consistency
+requirement does real constraining work precisely when the observers
+overlap on shared events, and does none when they are probed disjointly.
+The overlap structure is what the continuum family of local horizons in
+Jacobson's argument possesses and what family A lacks.  This is a
+statement about one finite model family and about the structure of the
+quantifier, not about gravity.  Two caveats are adjacent.  The verdict is
+threshold-relative, since at the loose threshold of $0.15$ every coupling
+point survives every requirement, so a sealed study must preregister the
+spread threshold before it can claim a selection effect.  And in one
+dimension every cut has a boundary of a single site, so this experiment
+tests the universality content of the quantifier and says nothing about
+area scaling.
+
+\section{What a connection to gravity would require}
+\label{sec:gap}
+
+This section states precisely what separates the constructions above from
+the gravitational results of
+Refs.~\cite{Jacobson1995,DorauMuch2026}, so that no reader mistakes the
+finite models for more than they are.
+
+Every algebra in this paper is a finite-dimensional type I factor.  The
+observable algebra of a real horizon exterior is a type III von Neumann
+factor, which admits no density matrices, no partial trace, and no von
+Neumann entropy of the restricted state.  Connecting the consumer layer to
+that setting would require, at minimum, four replacements.  First, type
+III algebras in place of finite factors, with relative entropy defined
+through relative modular operators rather than
+Eq.~\eqref{eq:umegaki}.  Second, a genuine causal structure in place of a
+lattice cut, since the cut used here has no light cones, no Killing flow,
+and no notion of a horizon generator.  Third, the entropy-area input
+justified rather than declared, because in Refs.~\cite{Jacobson1995,
+DorauMuch2026} the proportionality of entropy to area is an assumption,
+and nothing in this paper produces or replaces it.  Fourth, the special
+state class relaxed, since the theorem of Ref.~\cite{DorauMuch2026} holds
+for coherent excitations on a bifurcate Killing horizon and the thermal
+lattice states used here have no counterpart standing.
+
+The finite-dimensional statements divide accordingly.  The existence of
+reduced density matrices, of the pinching channel, and of
+Eq.~\eqref{eq:entropy} are artifacts of type I, and every number in
+Secs.~\ref{sec:model} through \ref{sec:family} depends on them.  The
+relative entropy itself and the data-processing inequality have exact
+type III counterparts, so the definitions of Sec.~\ref{sec:defs} survive
+the passage in principle.  Whether the task layer survives it, meaning
+whether consumer equivalence for declared functionals and the flip can
+even be formulated without density matrices, is open, and this paper
+takes no position on it.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper replaced the classical read operator of an earlier
+observation-theoretic program with a quantum channel, defined
+consumer-relative divergence, consumer equivalence, and task-relative
+distortion, and measured all of them in finite-dimensional models with
+exact classical anchors.  The instrument layer reproduced closed forms at
+the $10^{-15}$ level, held every data-processing margin strictly
+positive, and yielded three transferable methods findings, the
+support-floor infinity, the no-signalling null, and the symmetry null,
+each a silent failure mode of restricted-divergence numerics now held as
+a standing control.  The hierarchy result showed that where
+distinguishability lives moves with the excitation sector, making some
+certificates exactly vacuous.  The flip result showed a strict
+task-versus-fidelity trade that exists at scarce budgets and dies when
+scarcity ends.  The family result showed that an all-observers
+requirement constrains a model exactly when the observers share events,
+and is otherwise inert.
+
+The relabeling clause applies to everything else.  Whatever in this paper
+merely renames relative entropy, data processing, or the partial trace is
+not a contribution.  The contribution is confined to the task layer and
+to the measured results, all of which are demonstrated in
+finite-dimensional models, carry an exploratory evidence label pending
+sealed preregistered replication, and make no claim about physical
+gravity, real horizons, or quantum gravity.  The consumer does not create
+anything physical by choosing what to observe.
+
+\begin{acknowledgments}
+The author thanks the maintainers of the open-source scientific Python
+stack used for all computations.
+\end{acknowledgments}
+
+\begin{thebibliography}{11}
+
+\bibitem{Umegaki1962}
+H.~Umegaki,
+``Conditional expectation in an operator algebra, IV (entropy and
+information),''
+K\=odai Math. Sem. Rep. \textbf{14}, 59 (1962).
+
+\bibitem{Lindblad1975}
+G.~Lindblad,
+``Completely positive maps and entropy inequalities,''
+Commun. Math. Phys. \textbf{40}, 147 (1975).
+
+\bibitem{Uhlmann1976}
+A.~Uhlmann,
+``The `transition probability' in the state space of a $^{*}$-algebra,''
+Rep. Math. Phys. \textbf{9}, 273 (1976).
+
+\bibitem{Jozsa1994}
+R.~Jozsa,
+``Fidelity for mixed quantum states,''
+J. Mod. Opt. \textbf{41}, 2315 (1994).
+
+\bibitem{Petz1986}
+D.~Petz,
+``Sufficient subalgebras and the relative entropy of states of a von
+Neumann algebra,''
+Commun. Math. Phys. \textbf{105}, 123 (1986).
+
+\bibitem{NielsenChuang}
+M.~A.~Nielsen and I.~L.~Chuang,
+\emph{Quantum Computation and Quantum Information}
+(Cambridge University Press, Cambridge, 2010).
+
+\bibitem{Jacobson1995}
+T.~Jacobson,
+``Thermodynamics of spacetime: The Einstein equation of state,''
+Phys. Rev. Lett. \textbf{75}, 1260 (1995),
+arXiv:gr-qc/9504004.
+
+\bibitem{Bianconi2025}
+G.~Bianconi,
+``Gravity from entropy,''
+Phys. Rev. D \textbf{111}, 066001 (2025),
+arXiv:2408.14391.
+
+\bibitem{DorauMuch2026}
+P.~Dorau and A.~Much,
+``From quantum relative entropy to the semiclassical Einstein
+equations,''
+Phys. Rev. Lett. \textbf{136}, 091602 (2026),
+arXiv:2510.24491.
+
+\bibitem{AlonsoSerrano2025}
+A.~Alonso-Serrano, L.~J.~Garay, M.~Liska, and C.~Lopez~Pineros,
+``Gravity from equilibrium thermodynamics of stretched light cones,''
+Phys. Rev. D \textbf{112}, 124026 (2025),
+arXiv:2509.08566.
+
+\bibitem{Huang2020}
+H.-Y.~Huang, R.~Kueng, and J.~Preskill,
+``Predicting many properties of a quantum system from very few
+measurements,''
+Nat. Phys. \textbf{16}, 1050 (2020).
+
+\end{thebibliography}
+
+\end{document}
