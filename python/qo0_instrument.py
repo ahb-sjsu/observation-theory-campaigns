@@ -115,7 +115,8 @@ def merge_branches(rho: np.ndarray, groups: list[list[int]]) -> np.ndarray:
 
 # ---- model for the sweep -------------------------------------------------
 
-def ising_hamiltonian(n_qubits: int, field: float) -> np.ndarray:
+def ising_hamiltonian_jh(n_qubits: int, coupling: float, field: float) -> np.ndarray:
+    """Open-chain Ising H = -J sum ZZ - h sum X with both couplings free."""
     x = np.array([[0.0, 1.0], [1.0, 0.0]])
     z = np.array([[1.0, 0.0], [0.0, -1.0]])
 
@@ -127,10 +128,14 @@ def ising_hamiltonian(n_qubits: int, field: float) -> np.ndarray:
 
     h = np.zeros((2**n_qubits, 2**n_qubits))
     for k in range(n_qubits - 1):
-        h -= site(z, k) @ site(z, k + 1)
+        h -= coupling * (site(z, k) @ site(z, k + 1))
     for k in range(n_qubits):
         h -= field * site(x, k)
     return h
+
+
+def ising_hamiltonian(n_qubits: int, field: float) -> np.ndarray:
+    return ising_hamiltonian_jh(n_qubits, 1.0, field)
 
 
 def thermal_state(hamiltonian: np.ndarray, beta: float) -> np.ndarray:
