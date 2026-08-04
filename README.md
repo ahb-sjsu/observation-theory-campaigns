@@ -3,7 +3,7 @@
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, four tracks. The shared question is what an observer with
+One program, five tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
 Each track makes that question concrete in a different setting, and all
 four run under one evidence discipline with sealed instruments,
