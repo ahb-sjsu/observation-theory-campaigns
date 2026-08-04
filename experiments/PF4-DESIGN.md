@@ -236,6 +236,25 @@ gap-dependence explicitly (a two-variable exponent) or set bars
 against model error rather than binomial error, and must say which
 before running. Evidence: results/prereg-pf4-001.json.
 
+## 9c. Governed outcome of PREREG-PF4-002 (2026-08-04, sealed verdict)
+
+The second sealed run, with bars set against model error per the
+section 9.0 declaration, PASSES both bars with room. The effective-gap
+model's held-out weighted error is 0.38 of its training error against
+a bar of 2.0, so the axis generalizes across gaps it never saw better
+than it fits the gaps it trained on. The Schwinger-shaped model is
+3.14 times worse on the same held-out cells against a bar of 2.0.
+Both prescription controls agreed per-member exactly, ten of twelve
+training and seven of eight held-out cells were usable, and drift was
+uniform at 6e-7. The claim earns [demonstrated-in-model]: in the
+Sauter family, reversal suppression is organized by the effective-gap
+Gaussian measure-tail axis, and the Schwinger-shaped axis fails to
+compete. This is the campaign's disciplined negative for the Schwinger
+question in this family, sealed, and the construction question of
+section 9.1, whether any family has a non-measure-tail exponent,
+stands as the program's open summit. Evidence:
+results/prereg-pf4-002.json.
+
 ## 9. Open design questions (must close before sealing)
 
 0. **Standing requirement for any second attempt (owner-imposed,
