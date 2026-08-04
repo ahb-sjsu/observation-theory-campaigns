@@ -1,0 +1,150 @@
+{
+  "outcome": {
+    "energy_final": 0.5272024995427459,
+    "energy_initial": 0.5272025,
+    "final_state": [
+      0.052025977574993755,
+      1.001424373747559,
+      8.00000000000355,
+      0.2,
+      0.06985407925471308,
+      0.0016135260101907982
+    ],
+    "fold_count": 12,
+    "fold_events": [
+      {
+        "acceleration_t": -0.9492647230984987,
+        "fold_type": "annihilation-fold",
+        "t": 0.9864779794855113,
+        "tau": 1.5746859769936767,
+        "x": 0.31493719539874204
+      },
+      {
+        "acceleration_t": 0.7665431193903894,
+        "fold_type": "creation-fold",
+        "t": -0.8645397773595681,
+        "tau": 4.823516696035417,
+        "x": 0.9647033392071082
+      },
+      {
+        "acceleration_t": -0.5884156550630152,
+        "fold_type": "annihilation-fold",
+        "t": 0.7587391878439353,
+        "tau": 8.302399398664189,
+        "x": 1.6604798797328117
+      },
+      {
+        "acceleration_t": 0.6779317708756292,
+        "fold_type": "creation-fold",
+        "t": -0.810001680529134,
+        "tau": 11.875294622147278,
+        "x": 2.3750589244297275
+      },
+      {
+        "acceleration_t": -0.8868418949537519,
+        "fold_type": "annihilation-fold",
+        "t": 0.9435613681072983,
+        "tau": 15.199965335834191,
+        "x": 3.039993067167498
+      },
+      {
+        "acceleration_t": 0.9978716890992427,
+        "fold_type": "creation-fold",
+        "t": -1.0206879898686538,
+        "tau": 18.38517292122773,
+        "x": 3.6770345842465773
+      },
+      {
+        "acceleration_t": -0.9553021779687589,
+        "fold_type": "annihilation-fold",
+        "t": 0.9906908670505427,
+        "tau": 21.549282263367555,
+        "x": 4.30985645267491
+      },
+      {
+        "acceleration_t": 0.7773610151223406,
+        "fold_type": "creation-fold",
+        "t": -0.8714258761859996,
+        "tau": 24.790894958283992,
+        "x": 4.958178991658575
+      },
+      {
+        "acceleration_t": -0.5924111938481762,
+        "fold_type": "annihilation-fold",
+        "t": 0.760935209523203,
+        "tau": 28.256197351711453,
+        "x": 5.651239470344471
+      },
+      {
+        "acceleration_t": 0.6679338256750648,
+        "fold_type": "creation-fold",
+        "t": -0.8040725724746679,
+        "tau": 31.836412836058855,
+        "x": 6.367282567214369
+      },
+      {
+        "acceleration_t": -0.8779516775922314,
+        "fold_type": "annihilation-fold",
+        "t": 0.937548567906888,
+        "tau": 35.172236820953536,
+        "x": 7.034447364193694
+      },
+      {
+        "acceleration_t": 0.9958809411491287,
+        "fold_type": "creation-fold",
+        "t": -1.019274058970802,
+        "tau": 38.36101885703864,
+        "x": 7.672203771411086
+      }
+    ],
+    "initial_state": [
+      0.0,
+      1.0,
+      0.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "max_relative_energy_drift": 1.2529966997298914e-07,
+    "n_steps": 40000,
+    "negative_orientation_segments": 6,
+    "parameters": {
+      "field": 1.0,
+      "g": 0.25,
+      "lambda": 0.1,
+      "omega_t": 1.0,
+      "omega_u": 1.2
+    },
+    "positive_orientation_segments": 7
+  },
+  "outcome_sha256": "4487de3dcd91f9bba9105e510a786257446e48835ebea60518a13d527e3cfff1",
+  "record_sha256": "0fd96c9c65fbfb304c52fa5fdeccaf095224f789f647ec0a17fc7a10f798b028",
+  "runtime": {
+    "code_commit": "cb50e60",
+    "container_image": "unknown",
+    "elapsed_seconds": 1.085499,
+    "ended_utc": "2026-08-04T03:50:19.048824+00:00",
+    "hostname": "pf-smoke-l584h",
+    "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.41",
+    "python": "3.12.13 (main, Jun 11 2026, 01:09:00) [GCC 14.2.0]",
+    "started_utc": "2026-08-04T03:50:17.963325+00:00"
+  },
+  "scenario": {
+    "dt": 0.001,
+    "field": 1.0,
+    "g": 0.25,
+    "lambda": 0.1,
+    "model": "toy_hamiltonian",
+    "omega_t": 1.0,
+    "omega_u": 1.2,
+    "pt0": 1.0,
+    "pu0": 0.0,
+    "px0": 0.2,
+    "t0": 0.0,
+    "tau_max": 40.0,
+    "u0": 0.1,
+    "x0": 0.0
+  },
+  "scenario_sha256": "af9fb6091440c86fb4e5ed8d83e8b7d39ab6a741c239403055af10545e6cae69",
+  "schema": "projection-fold-trial-v1"
+}
