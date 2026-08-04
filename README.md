@@ -302,6 +302,8 @@ projection.
    (PF track), DOI 10.5281/zenodo.21790096.
 4. 🟫 Consumer-Relative Distinguishability in the Thermodynamic Limit
    (TB track), drafted and compiled in `paper/`, not yet published.
+5. 🟦 A Sealed Negative for Schwinger Scaling in a Resolved-Field
+   Hidden-Dynamics Family (PF track), DOI 10.5281/zenodo.21798545.
 
 ## Repository layout
 
