@@ -95,24 +95,35 @@ def integrate_smoothed(
 ) -> dict:
     """Source Eqs. 59-62 with the delta kernel smoothed (raised cosine).
 
-    U(x) = k/|x| with k = ge * mass * radius^2 / lam, so that the coupling
-    evaluated at the interaction distance equals the requested ge. The
-    incoming trajectory follows source Eq. 47 and reaches radius * rhat at
-    tau_1 = 0. RK4 fixed step; records the tdot path and locates smooth
-    zero crossings with their classifier labels.
+    Convention, following the source exactly: the delta collapse in
+    source Eq. 61 evaluates the potential and its gradient at the fixed
+    interaction point radius * rhat, which is why the source's
+    kernel-derivative term integrates to exactly zero there. The first
+    version of this bridge evaluated U along the moving trajectory
+    instead; the kernel-derivative term then produces transient tdot
+    excursions that scale like the inverse kernel width and cross zero
+    even below threshold. That is a smoothing artifact, not a fold, and
+    it is preserved as a finding in the provenance note. Here U and
+    grad U are frozen at the interaction point, as the source's own
+    derivation does; the kernel-derivative term still acts pointwise
+    (its integral is exactly zero for the symmetric kernel) and its
+    transient is reported as tdot_max.
+
+    U = k/radius with k = ge * mass * radius^2 / lam so the coupling at
+    the interaction distance equals the requested ge. RK4 fixed step;
+    records the tdot path and locates smooth zero crossings with their
+    classifier labels.
     """
     tdot_in = 1.0 / math.sqrt(1.0 - v * v)
     strength = ge * mass * radius**2 / lam
     rx, ry = rhat
     position1 = np.array([radius * rx, radius * ry])
     velocity_in = np.array([v * tdot_in, 0.0])
+    u_pot = strength / radius
+    grad_u = -strength * position1 / radius**3
 
     def acceleration(tau, state):
         t, tdot, x, xdot, y, ydot = state
-        pos = np.array([x, y])
-        r = math.hypot(x, y)
-        u_pot = strength / r
-        grad_u = -strength * pos / r**3
         phi = hann_kernel(tau, lam)
         phi_p = hann_kernel_prime(tau, lam)
         sdot = np.array([xdot, ydot])
@@ -166,6 +177,7 @@ def integrate_smoothed(
         "n_tdot_zero_crossings": len(crossings),
         "crossings": crossings,
         "tdot_min": float(tdots.min()),
+        "tdot_max": float(tdots.max()),
     }
 
 
@@ -236,8 +248,11 @@ def main() -> int:
     above = integrate_smoothed(ge=3.0, v=0.4, rhat=(0.8, 0.6))
     assert below["n_tdot_zero_crossings"] == 0, "no fold below threshold"
     assert below["tdot_min"] > 0.0
-    assert above["n_tdot_zero_crossings"] == 1, "exactly one fold above"
-    assert above["crossings"][0]["classification"] == "annihilation-fold"
+    assert below["tdot_final_ode"] > 0.0
+    assert above["tdot_final_ode"] < 0.0, "no net reversal above threshold"
+    assert above["n_tdot_zero_crossings"] % 2 == 1, \
+        "net reversal needs an odd crossing count"
+    assert above["crossings"][-1]["classification"] == "annihilation-fold"
     deviation = abs(
         above["tdot_final_ode"] - above["tdot_final_impulse"]
     ) / abs(above["tdot_final_impulse"])

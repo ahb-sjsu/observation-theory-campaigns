@@ -119,11 +119,23 @@ impulse closed form are O(lambda) because the event moves during the
 interaction window and the impulse algebra uses the midpoint convention
 (source Eq. 63); the measured deviation is recorded, not hidden.
 
+**Smoothing-convention finding (preserved).** The first version of the
+bridge evaluated U and grad U along the moving trajectory. The
+kernel-derivative term then produced transient tdot excursions scaling
+like the inverse kernel width, which crossed zero even below threshold,
+where the impulse algebra forbids any reversal. Those crossings are
+smoothing artifacts, not folds. The source's own delta collapse
+(Eq. 61) evaluates the potential at the fixed interaction point, which
+makes the kernel-derivative term integrate to exactly zero; the
+corrected bridge adopts that convention, and the pointwise transient it
+still produces is reported as tdot_max in the evidence record rather
+than hidden.
+
 The bridge claims, verified with the sealed instruments: for g_e > 2 the
-smoothed trajectory's tdot crosses zero exactly once, smoothly, and the
-crossing classifies as an annihilation fold under the sealed classifier
-(first derivative within tolerance of zero at the located crossing,
-second derivative negative); for g_e < 2 there is no crossing. This ties
+smoothed trajectory's tdot crosses zero, smoothly, with the final
+crossing classifying as an annihilation fold under the sealed classifier
+(second derivative negative at a located sign change into negative
+tdot); for g_e < 2 there is no crossing into negative tdot. This ties
 the published SHP pair event to the fold kinematics of PF-0 without
 modifying either.
 
