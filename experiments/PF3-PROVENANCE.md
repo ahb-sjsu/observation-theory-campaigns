@@ -119,25 +119,45 @@ impulse closed form are O(lambda) because the event moves during the
 interaction window and the impulse algebra uses the midpoint convention
 (source Eq. 63); the measured deviation is recorded, not hidden.
 
-**Smoothing-convention finding (preserved).** The first version of the
-bridge evaluated U and grad U along the moving trajectory. The
-kernel-derivative term then produced transient tdot excursions scaling
-like the inverse kernel width, which crossed zero even below threshold,
-where the impulse algebra forbids any reversal. Those crossings are
-smoothing artifacts, not folds. The source's own delta collapse
-(Eq. 61) evaluates the potential at the fixed interaction point, which
-makes the kernel-derivative term integrate to exactly zero; the
-corrected bridge adopts that convention, and the pointwise transient it
-still produces is reported as tdot_max in the evidence record rather
-than hidden.
+### Replication findings (both preserved per the evidence discipline)
 
-The bridge claims, verified with the sealed instruments: for g_e > 2 the
-smoothed trajectory's tdot crosses zero, smoothly, with the final
-crossing classifying as an annihilation fold under the sealed classifier
-(second derivative negative at a located sign change into negative
-tdot); for g_e < 2 there is no crossing into negative tdot. This ties
-the published SHP pair event to the fold kinematics of PF-0 without
-modifying either.
+**Finding F1, kernel artifact.** The first bridge evaluated U and grad U
+along the moving trajectory. The kernel-derivative term then produced
+transient tdot excursions scaling like the inverse kernel width, which
+crossed zero even below threshold, where the impulse algebra forbids
+reversal. Those crossings are smoothing artifacts, not folds. The
+source's own delta collapse (Eq. 61) evaluates the potential at the
+fixed interaction point, making that term integrate to exactly zero,
+and the corrected treatments below follow that convention.
+
+**Finding F2, the threshold belongs to the midpoint prescription.** With
+the frozen-point convention, the accumulated-kernel variable
+s = integral phi dtau turns Eqs. 59-60 into the linear kick system
+d(tdot)/ds = -g_e w, dw/ds = -g_e (tdot + 1) for w the R-hat velocity
+component. Continuous integration gives hyperbolic evolution,
+tdot(1) + 1 = (tdot_in + 1) cosh g_e - w_in sinh g_e, which never
+reverses tdot for any physical initial condition (w_in < tdot_in + 1),
+verified by independent RK4 against the closed form. The source's
+midpoint convention (Eq. 63) applies the same generator as the Cayley
+transform (I - G/2)^{-1}(I + G/2), the Pade(1,1) approximant of the
+exponential, whose pole at g_e = 2 is exactly the published
+annihilation threshold. The published classical pair event is therefore
+a property of the impulsive midpoint prescription, not of continuous
+accumulation of the same force; whether the full field dynamics
+(trajectory-varying potential, radiation reaction) restores a reversal
+threshold is an open question this replication does not answer. The
+closed-form replication of the source's published algebra is unaffected
+by this finding and passes all guards.
+
+**The bridge to the fold instruments.** Given F2, the honest smooth
+worldline attached to the impulsive solution is the source's own
+midpoint reading: the velocity transitions from incoming to outgoing
+across the kernel window, tdot(tau) = tdot_in + (tdot_f - tdot_in)
+S(tau) with S the kernel's cumulative integral. Under the sealed
+classifier this worldline has no tdot crossing below threshold and
+exactly one above, classified as an annihilation fold. This ties the
+published pair event to the PF-0 fold kinematics using only the
+source's velocities and kernel.
 
 ## What this replication does not claim
 

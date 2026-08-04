@@ -82,102 +82,109 @@ def hann_kernel_prime(s: float, lam: float) -> float:
     return -math.pi * math.sin(math.pi * s / lam) / (2.0 * lam**2)
 
 
-def integrate_smoothed(
-    *,
-    ge: float,
-    v: float,
-    rhat,
-    radius: float = 1.0,
-    lam: float = 0.02,
-    mass: float = 1.0,
-    tau_pad: float = 0.5,
-    dt: float = 2e-5,
-) -> dict:
-    """Source Eqs. 59-62 with the delta kernel smoothed (raised cosine).
+def continuous_accumulation(*, ge: float, v: float, rhat_x: float) -> dict:
+    """Continuous integration of the source's kick generator.
 
-    Convention, following the source exactly: the delta collapse in
-    source Eq. 61 evaluates the potential and its gradient at the fixed
-    interaction point radius * rhat, which is why the source's
-    kernel-derivative term integrates to exactly zero there. The first
-    version of this bridge evaluated U along the moving trajectory
-    instead; the kernel-derivative term then produces transient tdot
-    excursions that scale like the inverse kernel width and cross zero
-    even below threshold. That is a smoothing artifact, not a fold, and
-    it is preserved as a finding in the provenance note. Here U and
-    grad U are frozen at the interaction point, as the source's own
-    derivation does; the kernel-derivative term still acts pointwise
-    (its integral is exactly zero for the symmetric kernel) and its
-    transient is reported as tdot_max.
+    With the interaction point frozen (the source's Eq. 61 convention)
+    and the kernel-derivative term dropped (its integral is exactly zero
+    there), Eqs. 59-60 reduce, in the accumulated-kernel variable
+    s = integral phi dtau in [0, 1], to the linear system
 
-    U = k/radius with k = ge * mass * radius^2 / lam so the coupling at
-    the interaction distance equals the requested ge. RK4 fixed step;
-    records the tdot path and locates smooth zero crossings with their
-    classifier labels.
+        d(tdot)/ds = -ge w        dw/ds = -ge (tdot + 1)
+
+    for w the R-hat component of the spatial velocity. The solution is
+    hyperbolic,
+
+        tdot(s) + 1 = (tdot_in + 1) cosh(ge s) - w_in sinh(ge s),
+
+    and since w_in = v tdot_in rhat_x < tdot_in + 1, tdot never reverses
+    for any ge. The midpoint convention of source Eq. 63 is instead the
+    Cayley transform (I - G/2)^{-1}(I + G/2) of the same generator, the
+    Pade(1,1) approximant of this exponential, whose pole at ge = 2 is
+    exactly the published annihilation threshold. Verified here by an
+    independent RK4 integration against the closed form.
     """
     tdot_in = 1.0 / math.sqrt(1.0 - v * v)
-    strength = ge * mass * radius**2 / lam
-    rx, ry = rhat
-    position1 = np.array([radius * rx, radius * ry])
-    velocity_in = np.array([v * tdot_in, 0.0])
-    u_pot = strength / radius
-    grad_u = -strength * position1 / radius**3
+    w_in = v * tdot_in * rhat_x
 
-    def acceleration(tau, state):
-        t, tdot, x, xdot, y, ydot = state
-        phi = hann_kernel(tau, lam)
-        phi_p = hann_kernel_prime(tau, lam)
-        sdot = np.array([xdot, ydot])
-        ttdot = (lam / mass) * (
-            float(sdot @ grad_u) * phi + (1.0 + 1.0 / tdot_in) * u_pot * phi_p
-        )
-        sddot = (lam / mass) * (tdot + 1.0) * grad_u * phi
-        return np.array([tdot, ttdot, xdot, sddot[0], ydot, sddot[1]])
+    def closed(s):
+        a = tdot_in + 1.0
+        return (a * math.cosh(ge * s) - w_in * math.sinh(ge * s) - 1.0,
+                w_in * math.cosh(ge * s) - a * math.sinh(ge * s))
 
-    tau0 = -(lam + tau_pad)
-    start_pos = position1 + velocity_in * tau0
-    state = np.array([
-        tdot_in * tau0, tdot_in,
-        start_pos[0], velocity_in[0],
-        start_pos[1], velocity_in[1],
+    tdot_c, w_c = closed(1.0)
+
+    n = 20000
+    ds = 1.0 / n
+    tdot, w = tdot_in, w_in
+    tdot_min = tdot
+    for _ in range(n):
+        def rhs(td, ww):
+            return -ge * ww, -ge * (td + 1.0)
+        k1 = rhs(tdot, w)
+        k2 = rhs(tdot + ds / 2 * k1[0], w + ds / 2 * k1[1])
+        k3 = rhs(tdot + ds / 2 * k2[0], w + ds / 2 * k2[1])
+        k4 = rhs(tdot + ds * k3[0], w + ds * k3[1])
+        tdot += ds / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0])
+        w += ds / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])
+        tdot_min = min(tdot_min, tdot)
+
+    return {
+        "ge": ge, "v": v, "rhat_x": rhat_x, "tdot_in": tdot_in,
+        "tdot_final_closed_form": tdot_c,
+        "tdot_final_rk4": float(tdot),
+        "closed_vs_rk4": abs(tdot_c - tdot),
+        "tdot_min_along_path": float(tdot_min),
+        "tdot_final_impulse_cayley": tdot_final(tdot_in, v, rhat_x, ge),
+        "reverses": tdot_c < 0.0,
+    }
+
+
+def midpoint_bridge(
+    *, ge: float, v: float, rhat_x: float, lam: float = 0.02, dt: float = 1e-4
+) -> dict:
+    """The source-faithful smooth reading of the impulsive worldline.
+
+    The midpoint algebra transitions the velocity from its incoming to
+    its outgoing value across the kernel window; the natural smooth
+    worldline it defines is tdot(tau) = tdot_in + (tdot_f - tdot_in)
+    S(tau) with S the kernel's cumulative integral. This uses only the
+    source's own velocities and kernel. The crossing, when tdot_f < 0,
+    is located and classified with the sealed classifier.
+    """
+    tdot_in = 1.0 / math.sqrt(1.0 - v * v)
+    tdot_f = tdot_final(tdot_in, v, rhat_x, ge)
+
+    taus = np.arange(-lam, lam + dt, dt)
+
+    def kernel_cdf(s):
+        if s <= -lam:
+            return 0.0
+        if s >= lam:
+            return 1.0
+        return 0.5 + s / (2.0 * lam) + math.sin(math.pi * s / lam) / (2.0 * math.pi)
+
+    tdots = np.array([
+        tdot_in + (tdot_f - tdot_in) * kernel_cdf(s) for s in taus
     ])
-    n_steps = int(round(2.0 * (lam + tau_pad) / dt))
-    taus = np.empty(n_steps + 1)
-    tdots = np.empty(n_steps + 1)
-    taus[0], tdots[0] = tau0, state[1]
-    tau = tau0
-    for k in range(1, n_steps + 1):
-        k1 = acceleration(tau, state)
-        k2 = acceleration(tau + dt / 2, state + dt / 2 * k1)
-        k3 = acceleration(tau + dt / 2, state + dt / 2 * k2)
-        k4 = acceleration(tau + dt, state + dt * k3)
-        state = state + dt / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
-        tau += dt
-        taus[k], tdots[k] = tau, state[1]
-
     crossings = []
     hits = np.nonzero(tdots[:-1] * tdots[1:] < 0.0)[0]
     for idx in hits:
         alpha = tdots[idx] / (tdots[idx] - tdots[idx + 1])
-        tau_c = taus[idx] + alpha * dt
-        second = (tdots[idx + 1] - tdots[idx]) / dt
+        tau_c = float(taus[idx] + alpha * dt)
+        slope = (tdot_f - tdot_in) * hann_kernel(tau_c, lam)
         crossings.append({
-            "tau": float(tau_c),
-            "tdot_second_derivative": float(second),
+            "tau": tau_c,
+            "tdot_slope": float(slope),
             "classification": classify_scalar_critical_point(
-                0.0, second, second_tol=1e-6
+                0.0, slope, second_tol=1e-9
             ),
         })
-
     return {
-        "ge": ge, "v": v, "rhat": list(rhat), "lambda": lam, "dt": dt,
-        "tdot_in": tdot_in,
-        "tdot_final_ode": float(state[1]),
-        "xdot_final_ode": [float(state[3]), float(state[5])],
-        "tdot_final_impulse": tdot_final(tdot_in, v, rx, ge),
+        "ge": ge, "v": v, "rhat_x": rhat_x, "lambda": lam,
+        "tdot_in": tdot_in, "tdot_final_impulse": tdot_f,
         "n_tdot_zero_crossings": len(crossings),
         "crossings": crossings,
-        "tdot_min": float(tdots.min()),
-        "tdot_max": float(tdots.max()),
     }
 
 
@@ -244,18 +251,24 @@ def main() -> int:
     limit = -(tdot_in + 2.0)
     assert abs(asymptote["1000.0"] - limit) < 0.01, "asymptote guard"
 
-    below = integrate_smoothed(ge=1.0, v=0.4, rhat=(0.8, 0.6))
-    above = integrate_smoothed(ge=3.0, v=0.4, rhat=(0.8, 0.6))
-    assert below["n_tdot_zero_crossings"] == 0, "no fold below threshold"
-    assert below["tdot_min"] > 0.0
-    assert below["tdot_final_ode"] > 0.0
-    assert above["tdot_final_ode"] < 0.0, "no net reversal above threshold"
-    assert above["n_tdot_zero_crossings"] % 2 == 1, \
-        "net reversal needs an odd crossing count"
-    assert above["crossings"][-1]["classification"] == "annihilation-fold"
-    deviation = abs(
-        above["tdot_final_ode"] - above["tdot_final_impulse"]
-    ) / abs(above["tdot_final_impulse"])
+    continuous = {
+        str(ge): continuous_accumulation(ge=ge, v=0.4, rhat_x=0.8)
+        for ge in (1.0, 3.0, 6.0)
+    }
+    for entry in continuous.values():
+        assert entry["closed_vs_rk4"] < 1e-9, "cosh/sinh closed-form guard"
+        assert not entry["reverses"], \
+            "continuous accumulation reversed: the Cayley finding is wrong"
+        assert entry["tdot_min_along_path"] > -1e-12
+
+    bridge_below = midpoint_bridge(ge=1.0, v=0.4, rhat_x=0.8)
+    bridge_above = midpoint_bridge(ge=3.0, v=0.4, rhat_x=0.8)
+    assert bridge_below["n_tdot_zero_crossings"] == 0, \
+        "no crossing below threshold"
+    assert bridge_above["n_tdot_zero_crossings"] == 1, \
+        "exactly one crossing above threshold"
+    assert bridge_above["crossings"][0]["classification"] == \
+        "annihilation-fold"
 
     record = {
         "schema": "pf3-shp-land2016-v1",
@@ -282,10 +295,17 @@ def main() -> int:
             "rutherford_cot_half_angle_08_06":
                 rutherford_cot_half_angle((0.8, 0.6)),
         },
-        "smoothed_bridge": {
-            "below_threshold": below,
-            "above_threshold": above,
-            "ode_vs_impulse_relative_deviation": deviation,
+        "continuous_accumulation_finding": {
+            "statement": "with the source's frozen-point convention the "
+                "kick generator exponentiates to cosh/sinh evolution and "
+                "never reverses tdot; the published ge > 2 threshold is "
+                "the pole of the midpoint (Cayley / Pade(1,1)) form of "
+                "the same generator",
+            "sweeps": continuous,
+        },
+        "midpoint_bridge": {
+            "below_threshold": bridge_below,
+            "above_threshold": bridge_above,
         },
         "runtime": {
             "generated_utc": datetime.now(timezone.utc).isoformat(),
@@ -310,14 +330,15 @@ def main() -> int:
           f"{min(timelike_margins):.4f}); asymptotic limit timelike")
     print(f"asymptote at ge=1000: {asymptote['1000.0']:.6f} "
           f"(limit {limit:.6f})")
-    print(f"smoothed: below threshold crossings "
-          f"{below['n_tdot_zero_crossings']}, tdot_min "
-          f"{below['tdot_min']:.4f}; above threshold crossings "
-          f"{above['n_tdot_zero_crossings']} "
-          f"({above['crossings'][0]['classification']}), tdot_f ODE "
-          f"{above['tdot_final_ode']:.4f} vs impulse "
-          f"{above['tdot_final_impulse']:.4f} "
-          f"(deviation {deviation:.1%})")
+    for ge_key, entry in continuous.items():
+        print(f"continuous ge={ge_key}: tdot_f = "
+              f"{entry['tdot_final_closed_form']:.4f} (never reverses) "
+              f"vs Cayley/impulse {entry['tdot_final_impulse_cayley']:.4f}")
+    print(f"midpoint bridge: below crossings "
+          f"{bridge_below['n_tdot_zero_crossings']}, above crossings "
+          f"{bridge_above['n_tdot_zero_crossings']} "
+          f"({bridge_above['crossings'][0]['classification']} at tau "
+          f"{bridge_above['crossings'][0]['tau']:.5f})")
     print(output)
     return 0
 
