@@ -155,6 +155,35 @@ for r in tb2["rungs"]:
                  b1["T_infid"] - b1["F_infid"]))
 write("tb2_flip.dat", "N taskgap infidgap", rows)
 
+# Figures P1/P2: PF-4 governed cells with the G line, and the pilot's
+# critical manifold.
+rows = []
+for run_id, fname in ((1, "prereg-pf4-001.json"), (2, "prereg-pf4-002.json")):
+    rec = json.loads((ROOT / "results" / fname).read_text())
+    for split in ("train_cells", "held_cells"):
+        for c in rec[split]:
+            if (c["count"] >= 5 and c["fraction"] < 0.9
+                    and c["max_relative_energy_drift"] < 1e-4
+                    and not c["deterministically_reversing"]):
+                d = c["deterministic_pt_min"]
+                rows.append((run_id, 0 if split == "train_cells" else 1,
+                             c["P"], c["E"], d, (d / c["E"]) ** 2,
+                             -math.log(c["fraction"])))
+write("pf4_cells.dat", "run split P E d xg neglogf", rows)
+
+rec2 = json.loads((ROOT / "results" / "prereg-pf4-002.json").read_text())
+g = rec2["fits"]["model_G"]
+rows = [(x, g["alpha"] + g["beta"] * x)
+        for x in np.linspace(0.03, 0.24, 40)]
+write("pf4_gline.dat", "xg pred", rows)
+
+pilot = json.loads((ROOT / "results" / "pf4-pilot.json").read_text())
+rows = []
+for c in pilot["family_p2s"]["cells"]:
+    rows.append((c["P"], c["E"], c["deterministic_pt_min"],
+                 1 if c["deterministically_reversing"] else 0))
+write("pf4_manifold.dat", "P E d regime", rows)
+
 # Figure Q3: QO-3 joint survival versus family size, families A and B.
 qo3 = json.loads((ROOT / "results" / "qo3-family.json").read_text())
 strict = qo3["summary"]["strict"]
