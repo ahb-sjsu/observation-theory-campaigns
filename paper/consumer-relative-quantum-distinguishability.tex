@@ -451,9 +451,7 @@ a statement about this model class at these parameters.
   ylabel={held-out distortion}, ymin=-0.04, ymax=1.42,
   legend style={font=\footnotesize, draw=none, fill=none,
     at={(0.5,1.02)}, anchor=south, legend columns=2}]
-\begin{pgfonlayer}{axis background}
 \fill[blue!6] (axis cs:0.75,-0.04) rectangle (axis cs:2.25,1.42);
-\end{pgfonlayer}
 \node[font=\footnotesize, gray] at (axis cs:1.5,1.05) {flip region};
 \addplot[blue!70!black, mark=*]
   table[x=budget, y=Ttask] {figdata/qo2_flip.dat};
