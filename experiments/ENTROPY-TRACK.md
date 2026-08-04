@@ -114,15 +114,37 @@ H(Z_delta | X_epsilon) surface in both resolutions, and the branch-entropy
 plateau (1 bit away from the fold, resolution-limited within the unresolved
 fold bin).
 
-### PE-2: Reversible fold cycle — DESIGNED
+### PE-2: Reversible fold cycle — IMPLEMENTED, PASSING (exploratory)
 
-A hidden Hamiltonian trajectory producing 0 -> 2 -> 0 (or 1 -> 3 -> 1)
-projected multiplicity. The PF-2 toy already produces 12 fold events per
-trajectory and the symplectic ensemble machinery exists. Verify: fine-grained
-entropy constant (volume-preserving integrator), observed binned entropy
-rises and falls with the folds, signed count constant throughout. If the
-entropy increment reverses when the fold reverses, it is observational, not
-thermodynamic production.
+Pilot `python/pe2_reversible_cycle.py`, evidence `results/pe2-cycle.json`,
+instrument `polyline_level_crossings` (tested against the analytic fold,
+refuses non-generic levels and exact sample hits).
+
+Part A, one toy trajectory observed through constant-time levels: the
+unsigned multiplicity is a staircase over the observation axis with band
+profile 4-8-12-13-12-8-4, constant between breakpoints, and the signed
+crossing count obeys the path-degree rule at every one of ~370 tested
+levels. Branch entropy from coarea weights rises and falls with the
+staircase. Caveat recorded honestly: the 12 fold values of t cluster near
+the turning amplitudes, so only the 2 isolated breakpoints (the endpoint
+values, steps of 1) admitted the per-breakpoint step check at this level
+resolution; the clustered fold breakpoints were verified in aggregate
+(steps of 4 across close pairs) plus band constancy. A finer level grid
+around the clusters is the follow-up.
+
+Part B, a 10000-member symplectic ensemble evolved forward and
+momentum-flip reversed: observed binned entropy H_eps(t) spans a 2.07-bit
+range (0.195 to 2.266 bits) along the trajectory, while the initial hidden
+ensemble is recovered to 1.1e-14 and the reversed entropy curve retraces
+the forward curve with defect 0.0 (bit-identical, as time-symmetric Verlet
+guarantees); energy drift 6.1e-9, within the sealed T7 bar. The entropy
+change is therefore entirely observational: more than two bits of observed
+entropy appear and disappear with zero hidden information loss.
+
+**Falsification bar (met):** signed-count violation at any level, failure
+of band constancy, hidden-state recovery residual above 1e-9, or a
+reversed entropy curve that does not retrace the forward one would have
+invalidated the reading.
 
 ### PE-3: Mixing versus folding — DESIGNED
 
