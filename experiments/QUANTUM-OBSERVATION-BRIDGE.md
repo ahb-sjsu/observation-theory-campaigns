@@ -255,7 +255,46 @@ any claim-bearing sweep.
 
 ## 5. Experiments
 
-### QO-0: Finite-dimensional instrument
+### QO-0: Finite-dimensional instrument — IMPLEMENTED, PASSING (exploratory)
+
+Implemented 2026-08-04 as `python/qo0_instrument.py` with tests in
+`python/tests/test_qo0.py`; evidence `results/qo0-instrument.json`. Declared
+defaults recorded in the instrument (partially resolving open questions 4,
+5, and 10 for this instrument; final closure at seal time): Umegaki
+divergence in nats; the channel is the primitive object; commuting
+embedding = branches by increasing tau as computational basis states,
+coarea weights as eigenvalues, uniform fiber as reference, branch-label
+algebra as the diagonal algebra.
+
+Measured: the classical anchors reproduce through the divergence pathway
+exactly (P0 1.000000000000 bits, M0 1.500000000000 bits via
+S = log2 d - D(rho||I/d)/ln 2), and merging the M0 orientation pair
+returns exactly the fold bit with nonnegative DPI margin. Closed-form
+residuals <= 2.3e-15. On the 8-qubit gapped Ising thermal model with a
+Z-axis excitation on a visible site: 32 DPI checks, minimum margin
++1.5e-5 (strictly positive, no degenerate passes), dephasing
+monotonicity and composition monotonicity clean, spectral-floor spread
+0.0 across 1e-14..1e-10. Exploratory correlation-assistance observation:
+distinguishability of the local excitation grows from 1.223 nats
+(site-only consumer) to 1.436 nats (full outside region); correlated
+neighbors carry witness information about a strictly local event.
+
+Two exact null controls were discovered by failed first designs and are
+now asserted by the instrument:
+
+- **No-signalling null.** A unitary (or any CPTP map) on the traced-out
+  interior leaves the consumer's reduced state exactly unchanged; the
+  first sweep design put the matter inside and every consumer divergence
+  was exactly zero, so DPI passed trivially. Interior excitation is now an
+  asserted null (measured |D| <= 5.6e-16). Consequence recorded for EG-2:
+  matter must deform what the consumer's channel actually reads.
+- **Symmetry null.** The Ising thermal single-site reduced state is
+  exactly (I + m X)/2 by global spin-flip symmetry, so an X-axis rotation
+  commutes with it and is invisible to the site-only consumer even on its
+  own qubit. Whether a consumer can see an excitation depends on the
+  interplay of excitation direction and state symmetry, not only on
+  locality; this is a concrete finite-dimensional instance of the
+  certificate-vacuity question.
 
 **Question.** Do the consumer-channel instruments compute divergences,
 restricted divergences, and DPI margins correctly in an explicit small
