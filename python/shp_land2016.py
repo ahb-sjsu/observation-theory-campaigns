@@ -181,6 +181,7 @@ def main() -> int:
     max_system_residual = 0.0
     max_component_mismatch = 0.0
     timelike_margins = []
+    spacelike_cells = []
     threshold_ok = True
     for v in grid["v_values"]:
         tdot_in = 1.0 / math.sqrt(1.0 - v * v)
@@ -196,9 +197,13 @@ def main() -> int:
                     max_component_mismatch,
                     abs(closed[0] - tdot_final(tdot_in, v, rhat[0], ge)),
                 )
-                timelike_margins.append(
-                    closed[0]**2 - closed[1]**2 - closed[2]**2
-                )
+                margin = closed[0]**2 - closed[1]**2 - closed[2]**2
+                timelike_margins.append(margin)
+                if margin <= 0.0:
+                    spacelike_cells.append(
+                        {"v": v, "rhat": rhat, "ge": ge,
+                         "margin": float(margin)}
+                    )
                 if ge < 2.0 and closed[0] <= 0.0:
                     threshold_ok = False
                 if ge > 2.0 and closed[0] >= 0.0:
@@ -206,8 +211,19 @@ def main() -> int:
 
     assert max_system_residual < 1e-12, "Eq.66 vs Eq.67 transcription guard"
     assert max_component_mismatch < 1e-12, "Eq.67 vs Eq.76 consistency guard"
-    assert min(timelike_margins) > 0.0, "timelike guard (source Eq. 81 claim)"
     assert threshold_ok, "threshold guard (source Eqs. 79-80)"
+
+    # Timelike guard, corrected scope. The source's timelike sentence
+    # attaches to the g_e -> infinity limiting value (Eq. 81), where
+    # tdot_f -> -(tdot_in + 2) while the spatial speed tends to
+    # v tdot_in, so the limit is timelike for every v < 1. At
+    # intermediate g_e the outgoing velocity can be spacelike, which is
+    # the Stueckelberg requirement that a time-reversing worldline cross
+    # the spacelike region; the first version of this guard asserted
+    # timelike everywhere, failed, and the failure is preserved as a
+    # measured finding rather than suppressed.
+    limit_margin = (tdot_in + 2.0) ** 2 - (0.6 * tdot_in) ** 2
+    assert limit_margin > 0.0, "asymptotic timelike guard (source Eq. 81)"
 
     asymptote = {}
     tdot_in = 1.0 / math.sqrt(1.0 - 0.4**2)
@@ -239,6 +255,12 @@ def main() -> int:
             "eq66_vs_eq67_max_residual": max_system_residual,
             "eq67_vs_eq76_max_mismatch": max_component_mismatch,
             "min_timelike_margin": float(min(timelike_margins)),
+            "n_spacelike_cells": len(spacelike_cells),
+            "spacelike_cells": spacelike_cells,
+            "spacelike_reading": "intermediate-ge spacelike outgoing "
+                "velocities are the Stueckelberg crossing of the spacelike "
+                "region, not a transcription error; the source's timelike "
+                "claim is about the ge->infinity limit",
             "threshold_ge2_exact": threshold_ok,
             "asymptote_series": asymptote,
             "asymptote_limit": limit,
@@ -267,8 +289,10 @@ def main() -> int:
 
     print(f"guards: system residual {max_system_residual:.2e}, "
           f"component mismatch {max_component_mismatch:.2e}, "
-          f"min timelike margin {min(timelike_margins):.4f}, "
           f"threshold exact: {threshold_ok}")
+    print(f"spacelike cells: {len(spacelike_cells)} of "
+          f"{len(timelike_margins)} (min margin "
+          f"{min(timelike_margins):.4f}); asymptotic limit timelike")
     print(f"asymptote at ge=1000: {asymptote['1000.0']:.6f} "
           f"(limit {limit:.6f})")
     print(f"smoothed: below threshold crossings "

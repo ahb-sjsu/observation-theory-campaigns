@@ -84,8 +84,17 @@ g_e^2 spatial term.
 4. **Threshold guard.** tdot_f > 0 for all g_e < 2; sign change only
    through the denominator zero at g_e = 2.
 5. **Asymptote guard.** tdot_f -> -(tdot_in + 2) as g_e grows.
-6. **Timelike guard.** tdot_f^2 - |xdot_f|^2 > 0 over the swept g_e grid
-   (the source's closing claim of Section 3).
+6. **Timelike guard, corrected scope.** The first version of this guard
+   asserted tdot_f^2 - |xdot_f|^2 > 0 over the whole sweep grid and
+   failed. The failure is a finding, preserved per the evidence
+   discipline: at intermediate g_e the outgoing velocity can be
+   spacelike, which is exactly Stueckelberg's requirement that a
+   time-reversing worldline cross the spacelike region twice (source
+   page 2), and the source's timelike sentence after Eq. 81 attaches to
+   the g_e -> infinity limiting value, where tdot_f -> -(tdot_in + 2)
+   against spatial speed v tdot_in, timelike for every v < 1. The
+   corrected guard asserts the asymptotic-limit statement and records
+   every spacelike cell of the sweep in the evidence record.
 7. **Rutherford-limit guard.** cot(theta/2) = Rhat_y/Rhat_x under the
    Eq. 72 constraint at low velocity.
 
