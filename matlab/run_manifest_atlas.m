@@ -12,7 +12,8 @@ end
 n = height(manifest);
 results = cell(n,1);
 
-hasParallel = license('test','Distrib_Computing_Toolbox');
+hasParallel = license('test','Distrib_Computing_Toolbox') ...
+    && ~isempty(ver('parallel'));
 if hasParallel
     pool = gcp('nocreate');
     if isempty(pool)
