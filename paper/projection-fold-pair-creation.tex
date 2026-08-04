@@ -1,0 +1,439 @@
+\documentclass[aps,prd,reprint,nofootinbib,longbibliography]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\dd}{\mathrm{d}}
+
+\begin{document}
+
+\title{Projection Folds and Apparent Pair Creation:\\
+A Computational Falsification Framework for Hidden-Manifold Models}
+
+\author{Andrew H. Bond}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 3, 2026}
+
+\begin{abstract}
+A smooth trajectory can intersect a constant-time slice twice after its projection
+into spacetime develops a nondegenerate fold.  An observer using spacetime time as
+the evolution coordinate then sees a particle-antiparticle-like pair appear, even
+though the underlying trajectory neither begins nor branches.  The local statement
+is exact: the two projected branches have opposite time orientation and preserve a
+signed intersection number.  It is also old in spirit, lying close to
+Stueckelberg's worldline interpretation of pair creation.  The open question is not
+whether folds can depict pairs, but whether a local hidden-manifold dynamics can
+predict their statistics without putting quantum-field-theoretic answers into the
+projection, initial measure, or selection rule.
+
+We formulate that question as a falsification campaign.  Exact monotone, fold,
+degenerate, and double-fold controls validate branch counting and event location.
+A conserved Hamiltonian toy model tests how easily generic local dynamics produces
+coordinate-time folds and serves as a negative control for universal rate claims.
+A prior-art replication anchors the campaign in Stueckelberg--Horwitz--Piron
+dynamics.  The first physical gate is a held-out Schwinger-scaling challenge:
+a candidate model must recover the exponent $\exp[-\pi m^2/|qE|]$, conservation,
+complete outcome accounting, observer covariance, and gauge independence without
+retuning.  We give an implementation plan for MATLAB on a local research server
+and containerized CPU/GPU ensembles on the National Research Platform.  The
+framework is designed to make a clean negative publishable: a fold may remain a
+useful kinematic representation even if it fails as a mechanism of quantum pair
+production.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Particle creation is often drawn as a worldline that turns in coordinate time.  A
+single continuous curve, parameterized by an evolution variable independent of
+spacetime time, can appear on a constant-time slice as two objects with opposite
+time orientation.  Stueckelberg used this construction explicitly in 1941, and
+modern Stueckelberg--Horwitz--Piron (SHP) dynamics retains an invariant evolution
+parameter $\tau$ independent of the spacetime coordinates
+\cite{Stueckelberg1941,Land2017}.  Worldline methods also give a standard
+semiclassical description of Schwinger production, where closed Euclidean
+trajectories determine the nonperturbative exponent
+\cite{Schwinger1951,DunneSchubert2005}.
+
+The geometric picture invites a stronger hypothesis.  Suppose observed spacetime
+is a projection of a larger state manifold.  Could apparent pair production be a
+stable singularity of that projection rather than a fundamental creation event?
+The question is mathematically coherent, but it is easy to answer circularly.  A
+model can always be assigned a projection, hidden-state density, or stopping rule
+that produces the desired number of branches.  Reproducing a picture is not the
+same as deriving a rate.
+
+This paper therefore makes a deliberately limited contribution.  It does not
+propose a completed alternative to quantum field theory.  It separates:
+
+\begin{enumerate}[leftmargin=1.5em]
+\item an exact kinematic statement about projection folds;
+\item a dynamical question about the flux of trajectories through a fold set; and
+\item a physical question about whether that flux reproduces quantum pair
+production.
+\end{enumerate}
+
+We then specify a computational campaign in which each level has its own witness
+and falsification bar.  The methodology follows a simple rule: a claim may not
+exceed what the recorded observables can distinguish.  In particular, every
+trajectory is counted.  A model is not permitted to discard no-fold, escape,
+recrossing, or numerically inconvenient outcomes and then interpret the retained
+subset as a production rate.
+
+\section{Projection folds}
+
+Let $\M$ be a smooth state manifold and let
+\begin{equation}
+  z:I\rightarrow\M
+\end{equation}
+be a smooth trajectory parameterized by an evolution variable $\tau$.  A smooth
+observation map
+\begin{equation}
+  \pi:\M\rightarrow\X
+\end{equation}
+produces an observed spacetime trajectory $x^\mu(\tau)=\pi^\mu(z(\tau))$.  An
+observer or detector defines a time functional
+\begin{equation}
+  T_u(x)=u_\mu x^\mu,
+\end{equation}
+where $u$ specifies the observer's time direction.  Write
+$f(\tau)=T_u(x(\tau))$.
+
+\begin{definition}[Worldline-time fold]
+A point $\tau_0$ is a nondegenerate worldline-time fold when
+\begin{equation}
+  f'(\tau_0)=0,
+  \qquad
+  f''(\tau_0)\neq 0.
+\end{equation}
+\end{definition}
+
+The singularity belongs to the composition $T_u\circ\pi\circ z$.  Spacetime itself
+need not be degenerate.  Nor does the fold require many hidden dimensions; one
+independent evolution parameter is enough.  Higher dimension earns explanatory
+weight only if it predicts the distribution or dynamics of folds.
+
+\begin{proposition}[Local pair multiplicity]
+Let $\tau_0$ be a nondegenerate worldline-time fold with
+$t_0=f(\tau_0)$.  In suitable local coordinates,
+\begin{equation}
+  f(\tau)-t_0=\sigma(\tau-\tau_0)^2,
+  \qquad \sigma\in\{+1,-1\}.
+\end{equation}
+For $\sigma=+1$, the number of intersections with a nearby constant-time slice
+changes from zero to two as $t$ crosses $t_0$ from below.  The two regular
+branches have opposite signs of $f'(\tau)$.  For $\sigma=-1$, the time-reversed
+statement holds.
+\end{proposition}
+
+\begin{proof}
+The one-dimensional Morse lemma gives the stated normal form.  For
+$\sigma=+1$ and $t>t_0$, the two solutions are
+\begin{equation}
+  \tau_\pm=\tau_0\pm\sqrt{t-t_0}.
+\end{equation}
+Their derivatives satisfy
+$f'(\tau_+)=-f'(\tau_-)\neq0$.  No real solutions exist for $t<t_0$.  The
+case $\sigma=-1$ follows by reversing the direction of the time coordinate.
+\end{proof}
+
+Define the signed intersection count on a regular slice by
+\begin{equation}
+  N_{\mathrm{sgn}}(t)
+  =\sum_{\tau_i:f(\tau_i)=t}
+   \operatorname{sgn} f'(\tau_i).
+\end{equation}
+A simple fold changes the unsigned count by two and the signed count by zero.  If
+one chooses to interpret orientation as a charge label, opposite labels follow.
+That interpretation is an additional physical hypothesis; the topological result
+itself establishes only opposite orientation.
+
+The local separation of branches is also diagnostic.  If an observed spatial
+coordinate has nonzero first derivative at the fold,
+$x(\tau)=x_0+v(\tau-\tau_0)+\cdots$, then
+\begin{equation}
+  \Delta x(t)=2|v|\sqrt{|t-t_0|}+o(\sqrt{|t-t_0|}).
+  \label{eq:sqrt}
+\end{equation}
+This square-root law is an exact instrument target.
+
+\section{From a picture to a mechanism}
+
+A fold permits an apparent pair event.  It does not determine when events occur,
+with what probability, or with what energy and quantum numbers.  A candidate
+mechanism must specify at least
+\begin{equation}
+  (\M,\mathcal{D},\pi,\mu_0),
+\end{equation}
+where $\mathcal{D}$ is a local dynamics on $\M$ and $\mu_0$ is the initial-state
+measure.  The critical set is
+\begin{equation}
+  \F_u=\left\{z:\frac{\dd}{\dd\tau}
+  T_u(\pi(z(\tau)))=0\right\},
+\end{equation}
+and the putative production rate is a trajectory flux through the nondegenerate
+part of $\F_u$.
+
+The phrase ``anti-hub'' is not used here.  Near a fold, a projection generally
+concentrates rather than depletes observed density because the projection Jacobian
+vanishes.  The mathematically relevant objects are projection multiplicity,
+critical-set flux, and orientation.
+
+\subsection{Anti-circularity conditions}
+
+A model is excluded from claim-bearing evaluation if it contains any of the
+following in explicit or equivalent form:
+
+\begin{itemize}[leftmargin=1.5em]
+\item a rule that inserts folds at a desired rate;
+\item the Schwinger exponent in the initial-state weights or retention rule;
+\item training and evaluation on the same field, mass, and charge region;
+\item postselection on trajectories that fold or resemble particles;
+\item a coordinate-time choice transformed without the observer and detector;
+\item a charge or energy assignment chosen only after inspecting the branches.
+\end{itemize}
+
+A long parameter search can otherwise manufacture almost any radial or exponential
+law.  The scientific object is not the best-fitting hidden geometry, but the
+held-out predictions of a geometry fixed for independent reasons.
+
+\section{Controls and candidate dynamics}
+
+\subsection{Exact instrument controls}
+
+The measurement stack begins with six controls.
+
+\begin{table}[h]
+\caption{Instrumentation controls.  The cubic critical point prevents a zero of
+$\dd t/\dd\tau$ from being treated automatically as a pair fold.}
+\begin{ruledtabular}
+\begin{tabular}{lll}
+Control & Time map & Required result \\
+\hline
+N0 & $t=\tau$ & no folds \\
+P0 & $t=\tau^2$ & $0\rightarrow 2$ branches \\
+P1 & $t=-\tau^2$ & $2\rightarrow 0$ branches \\
+D0 & $t=\tau^3$ & degenerate, not a fold \\
+M0 & $t=\tau^3-\tau$ & two critical points recovered \\
+S0 & circular instanton action & $R_*=m/|qE|$, $S_*=\pi m^2/|qE|$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Control S0 uses the reduced circular worldline action
+\begin{equation}
+  S(R)=2\pi mR-\pi|qE|R^2.
+\end{equation}
+Its stationary radius and action are
+\begin{equation}
+  R_*=\frac{m}{|qE|},
+  \qquad
+  S_*=\frac{\pi m^2}{|qE|}.
+\end{equation}
+It verifies that the rate-analysis code can recover the standard semiclassical
+scaling before it is applied to a new dynamics.
+
+\subsection{A conserved negative control}
+
+We use the toy Hamiltonian
+\begin{equation}
+\begin{split}
+H={}&\frac{1}{2}(p_t^2+p_x^2+p_u^2)
++\frac{1}{2}\omega_t^2t^2
++\frac{1}{2}\omega_u^2u^2\\
+&+\frac{\lambda}{4}u^4+gEtu.
+\end{split}
+\label{eq:toy}
+\end{equation}
+The variable $u$ is hidden, $\tau$ is the Hamiltonian evolution parameter, and the
+coordinate-time velocity is $\dd t/\dd\tau=p_t$.  Folds occur whenever $p_t$
+crosses zero with nonzero acceleration.
+
+Equation~\eqref{eq:toy} is intentionally not relativistic and is not proposed as a
+model of QED.  It asks a narrower question: how often does a generic local,
+energy-conserving system produce projection folds, and how sensitive is the answer
+to initial-state measure, slicing, and numerical method?  A likely result is that
+folds are easy to obtain but their flux has no universal Schwinger dependence.
+That negative is useful because it separates the stable geometry of a fold from the
+far stronger physics of a pair-production rate.
+
+\subsection{Prior-art replication}
+
+Before modifying SHP dynamics, the campaign reproduces one published classical pair
+trajectory and its total conservation accounting \cite{Land2017}.  The equations,
+gauge-field conventions, initial conditions, and numerical tolerances are frozen in
+a replication record.  Failure to reproduce the selected case blocks novelty
+claims.  This stage prevents the proposed framework from quietly rediscovering a
+known worldline construction under new terminology.
+
+\section{The experiment campaign}
+
+\subsection{PF-0: event-location audit}
+
+PF-0 measures branch counts, signed counts, critical-point classification, and
+Eq.~\eqref{eq:sqrt}.  The instrument fails if it misses a simple fold, labels the
+cubic control as a fold, or changes the signed intersection number outside the
+sealed numerical tolerance.
+
+\subsection{PF-1: structural stability}
+
+Smooth random perturbations are added to the exact fold.  The campaign measures the
+persistence of a nearby nondegenerate critical point, the fitted square-root
+exponent, and the condition number of event location.  Numerical precision and
+sampling density are swept independently.  A positive result is not pair physics;
+it is confirmation that the code sees the stable singularity it claims to see.
+
+\subsection{PF-2: generic local dynamics}
+
+Ensembles of Eq.~\eqref{eq:toy} are run over field-like coupling, oscillator scales,
+nonlinearity, initial-state distribution, and observer slicing.  Every trajectory
+receives an outcome: no fold, fold, recrossing, escape, or numerical failure.  The
+primary quantities are fold flux, branch lifetime, creation--annihilation balance,
+and Hamiltonian drift.  The result is rejected as a mechanism if an apparent law is
+explained by the initial measure, discarded trajectories, or coordinate choice.
+
+\subsection{PF-3: Schwinger scaling challenge}
+
+The first physical gate uses a candidate dynamics fixed before the sweep.  One
+overall time-volume conversion and, if unavoidable, one rate prefactor may be
+calibrated on a training region.  Contiguous ranges of $E$, $m$, and $q$ are held
+out.  The target is
+\begin{equation}
+  \log\Gamma=\mathrm{const}-\frac{\pi m^2}{|qE|}
+  \label{eq:schwinger}
+\end{equation}
+within a preregistered approximation regime.
+
+The candidate is compared with polynomial-threshold, power-law, alternative
+exponential, and complexity-penalized spline models.  It fails if the held-out slope
+excludes $-\pi$, if a simpler alternative predicts better, if the result is not
+stable under integration refinement, or if an equivalent of Eq.~\eqref{eq:schwinger}
+was embedded in the initial measure or stopping rule.
+
+\subsection{PF-4: conservation and complete accounting}
+
+A branch-count change is not sufficient.  The underlying model must conserve its
+stated total quantities.  If the background field is dynamical, energy acquired by
+the projected branches must be supplied by the field.  An orientation-based charge
+rule must be declared in advance and sum to the initial charge.  Missing or deleted
+trajectories are reported as primary outcomes, not ignored as implementation noise.
+
+\subsection{PF-5: covariance and gauge audit}
+
+A coordinate-time fold may be observer dependent.  The complete setup is therefore
+transformed: state, fields, projection, and detector time direction.  A passive
+coordinate change must transform event worldpoints without changing invariant
+rates.  Electromagnetic implementations are repeated in gauge-equivalent potentials
+with the same field tensor.  Observer-dependent particle assignments are retained
+only when a physical detector model predicts the corresponding difference.
+
+\subsection{PF-6: quantum ceiling}
+
+Only after the preceding gates pass does the campaign test scalar--spinor
+differences, multipair statistics, Pauli blocking, interference in pulsed fields,
+and backreaction.  A classical fold model is expected to fail at least some of
+these tests.  Such failure does not refute the fold theorem; it limits the model to
+a worldline representation rather than a replacement for quantum field theory.
+
+\section{Execution on Atlas and NRP}
+
+The reference package contains MATLAB and Python implementations.  MATLAB on Atlas
+is used first because adaptive ODE solvers can locate zero crossings through event
+functions, and Parallel Computing Toolbox supports parameter sweeps with
+\texttt{parfor} \cite{MatlabODE45,MatlabParfor}.  Atlas also serves as the
+independent reducer for selected NRP outputs.
+
+The National Research Platform (NRP) is used for large finite ensembles.  NRP
+recommends Kubernetes Jobs for computations that run to completion and prohibits
+batch jobs that merely sleep while awaiting manual use \cite{NRPJobs}.  Current
+cluster policy requires resource requests to match measured use and requires equal
+requests and limits for large populations of pods or jobs \cite{NRPPolicies}.  The
+campaign therefore keeps its full manifest in durable storage and exposes only a
+bounded live working set.  Four bounds are monitored independently:
+
+\begin{enumerate}[leftmargin=1.5em]
+\item active workers;
+\item Kubernetes objects and pending pods;
+\item storage and network pressure; and
+\item unreduced evidence backlog.
+\end{enumerate}
+
+GPU runs begin with one device per job and record device type, CUDA runtime,
+precision, and image digest.  The NRP documentation supports requesting generic or
+specific GPU resources, but utilization must justify the allocation
+\cite{NRPGPU}.  The supplied GPU path is a vectorized fixed-step integrator for the
+toy negative control; it is not used for claim-bearing SHP or Schwinger results
+until cross-validated against adaptive CPU integration.
+
+Every trial writes an immutable JSON record containing the complete scenario,
+random seed, projection, observer, numerical method, all outcome counts,
+conservation residuals, resource use, code commit, container digest, and hashes of
+inputs and outputs.  A reducer may summarize records but may not rewrite them.
+
+\section{What would count as a result?}
+
+Several outcomes would be scientifically useful.
+
+\paragraph{Expected negative.}
+Simple folds are structurally stable, generic local systems produce them, but fold
+flux depends on arbitrary dynamics and initial measure and fails the held-out
+Schwinger law.  The conclusion would be that projection folds are a valid
+kinematic representation and not a mechanism of QED pair production.
+
+\paragraph{Stronger negative.}
+A broad model class can be shown analytically or computationally to produce only
+power-law or threshold fold flux unless an exponential action or equivalent
+large-deviation structure is inserted.  This could become a no-go result for naive
+hidden-manifold models.
+
+\paragraph{Unexpected positive.}
+One fixed, local, covariant dynamics reproduces Eq.~\eqref{eq:schwinger}, complete
+conservation, gauge independence, held-out field profiles, and later quantum
+signatures.  That would justify a much stronger theory paper.  A fitted $0\to2$
+branch plot would not.
+
+\section{Relation to black-hole particle creation}
+
+The same language may later be applied to Hawking or Unruh settings, where particle
+content depends on the relation between field modes and an observer's time
+coordinate.  The relevant benchmark would not be the existence of two branches,
+but recovery of the exponential null-coordinate mapping, Bogoliubov coefficients,
+thermal spectrum, and detector response.  We leave that extension outside the
+first campaign.  A model that cannot pass the constant-field Schwinger gates has no
+basis for a black-hole information claim.
+
+\section{Discussion}
+
+A fold supplies an economical explanation of why a projected worldline can look
+like a pair with opposite orientation.  It does not explain why electrons have
+their measured mass, charge, spin, statistics, and production rate.  The distinction
+between depiction and derivation is the center of the proposed campaign.
+
+The likely value of this work is methodological.  Hidden-dimensional and emergent
+models are often judged by whether they can display a desired curve.  Here the
+model must survive exact nulls, positive controls, complete accounting, held-out
+parameter regimes, independent implementations, conservation, and covariance.  A
+clean rejection leaves the geometry intact while removing an unsupported physical
+interpretation.  A positive result must earn each additional word in the claim.
+
+\section*{Data and code availability}
+
+The accompanying source package contains the manuscript, experiment plan,
+preregistration template, MATLAB controls and ODE pilots, a Python reference
+implementation with unit tests, and NRP Kubernetes templates.  No claim-bearing
+results are included in this draft.
+
+\bibliography{references}
+
+\end{document}

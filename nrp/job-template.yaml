@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pf-smoke
+  labels:
+    campaign: projection-fold
+spec:
+  backoffLimit: 2
+  ttlSecondsAfterFinished: 604800
+  template:
+    metadata:
+      labels:
+        campaign: projection-fold
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: worker
+          image: REPLACE_WITH_IMMUTABLE_IMAGE_DIGEST
+          args:
+            - --scenario-json
+            - '{"model":"toy_hamiltonian","omega_t":1.0,"omega_u":1.2,"lambda":0.1,"g":0.25,"field":1.0,"dt":0.001,"tau_max":40,"t0":0,"pt0":1,"x0":0,"px0":0.2,"u0":0.1,"pu0":0}'
+            - --output
+            - /results/pf-smoke.json
+          env:
+            - name: CODE_COMMIT
+              value: REPLACE_WITH_GIT_COMMIT
+            - name: CONTAINER_IMAGE_DIGEST
+              value: REPLACE_WITH_IMMUTABLE_IMAGE_DIGEST
+          resources:
+            requests:
+              cpu: "1"
+              memory: 2Gi
+              ephemeral-storage: 2Gi
+            limits:
+              cpu: "1"
+              memory: 2Gi
+              ephemeral-storage: 2Gi
+          volumeMounts:
+            - name: results
+              mountPath: /results
+      volumes:
+        - name: results
+          persistentVolumeClaim:
+            claimName: projection-fold-results

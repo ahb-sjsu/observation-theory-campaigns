@@ -1,0 +1,39 @@
+# Small instrumentation example only. Do not scale this into an unbounded Job set.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pf-indexed-instrument
+spec:
+  completionMode: Indexed
+  completions: 8
+  parallelism: 4
+  backoffLimitPerIndex: 2
+  maxFailedIndexes: 1
+  ttlSecondsAfterFinished: 604800
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: worker
+          image: REPLACE_WITH_IMMUTABLE_IMAGE_DIGEST
+          command: ["/bin/sh", "-lc"]
+          args:
+            - >-
+              python /opt/projection-fold/python/run_trial.py
+              --scenario-json
+              "{\"model\":\"analytic_fold\",\"t_obs\":${JOB_COMPLETION_INDEX},\"velocity\":1.0}"
+              --output /results/pf-index-${JOB_COMPLETION_INDEX}.json
+          resources:
+            requests:
+              cpu: "1"
+              memory: 2Gi
+            limits:
+              cpu: "1"
+              memory: 2Gi
+          volumeMounts:
+            - name: results
+              mountPath: /results
+      volumes:
+        - name: results
+          persistentVolumeClaim:
+            claimName: projection-fold-results
