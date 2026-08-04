@@ -10,22 +10,35 @@ initial-condition set. No dynamical exponential exists to measure; the
 family is an analytic null for the Schwinger question, stated and
 unit-tested, not swept.
 
-Family P2, resolved-field energy transfer. The campaign toy Hamiltonian
-with the time confinement removed,
+Family P2S, resolved Sauter-slab energy transfer.
 
-  H = p_t^2/2 + p_u^2/2 + omega_u^2 u^2/2 + lambda u^4/4 + g E t u,
+  H = p_t^2/2 + p_u^2/2 + omega_u^2 u^2/2 + lambda u^4/4
+      + g E L tanh(t/L) u,
 
-with omega_t = 0, initial momentum gap p_t(0) = P > 0, t(0) = 0, and
-the hidden oscillator thermal at temperature T. The event reverses when
-the oscillator transfers momentum P across the gap through the resolved
-coupling. Gaussian-tail reasoning for the driven-oscillator integral
-predicts exponential suppression with exponent proportional to
-P^2/(g E)^2, which differs from the Schwinger-shaped axis P^2/(g E) by
-one power of the field. The pilot measures reversal fractions over a
-(P, E) grid, fits the powers, and compares the two axes. Continuous
-velocity-Verlet integration throughout (closure clause C1), with a
-step-halving and an independent-integrator control on one cell
-(C3/C4 style, pilot grade).
+with omega_t = 0, initial momentum gap p_t(0) = P > 0, the event
+starting outside the slab at t(0) = -4L, and the hidden oscillator
+thermal at temperature T. The force on the time momentum is
+-g E u sech^2(t/L), a field localized in a slab of width L that the
+event crosses, so the field does bounded work.
+
+Version note (v1 finding, preserved). The first sweep used the
+unbounded coupling g E t u. Because t grows secularly with omega_t = 0,
+that coupling does unbounded work, the oscillator equilibrium runs away,
+and the fixed step under-resolved the strong-field cells (measured
+energy drift up to 0.23 at E = 2). Those cells were dynamically and
+numerically meaningless. The slab profile bounds the tilt at g E L,
+which removes the runaway at its physical source; the step is also
+tightened and a per-cell drift bar now excludes any cell above it from
+every fit.
+
+The event reverses when the oscillator transfers momentum P across the
+gap during the slab crossing. Gaussian-tail reasoning predicts
+exponential suppression with exponent proportional to P^2/(g E)^2,
+which differs from the Schwinger-shaped axis P^2/(g E) by one power of
+the field. The pilot measures reversal fractions over a (P, E) grid,
+fits the powers, and compares the two axes. Continuous velocity-Verlet
+integration throughout (closure clause C1), with a step-halving and an
+independent-integrator control on one cell (C3/C4 style, pilot grade).
 
 Exploratory label. No physics claim; the measured exponent is expected
 to be measure-set, which is the point.
@@ -50,7 +63,9 @@ OMEGA_U = 1.2
 LAM = 0.1
 G = 1.0
 T_BATH = 1.0
-DT = 2.5e-3
+SAUTER_L = 3.0
+T_START = -4.0 * SAUTER_L
+DT = 1e-3
 TAU_MAX = 40.0
 N_PER_CELL = 50_000
 SEED = 20260805
@@ -58,6 +73,7 @@ P_GRID = [1.0, 1.5, 2.0]
 E_GRID = [0.5, 0.75, 1.0, 1.5, 2.0]
 CONTROL_CELL = (1.5, 1.0)
 MIN_COUNT_FOR_FIT = 5
+DRIFT_BAR = 1e-4
 
 
 def static_family_reverses(
@@ -70,14 +86,20 @@ def static_family_reverses(
 def run_cell(p_gap, e_field, *, dt=DT, n=N_PER_CELL, seed=SEED,
              integrator="verlet"):
     rng = np.random.RandomState(seed + int(1000 * p_gap) + int(100 * e_field))
-    t = np.zeros(n)
+    t = np.full(n, T_START)
     pt = np.full(n, p_gap)
     u = rng.standard_normal(n) * math.sqrt(T_BATH) / OMEGA_U
     pu = rng.standard_normal(n) * math.sqrt(T_BATH)
 
+    def slab(t):
+        return SAUTER_L * np.tanh(t / SAUTER_L)
+
+    def slab_force_profile(t):
+        return 1.0 / np.cosh(t / SAUTER_L) ** 2
+
     def energy(t, pt, u, pu):
         return (0.5 * (pt**2 + pu**2) + 0.5 * OMEGA_U**2 * u**2
-                + 0.25 * LAM * u**4 + G * e_field * t * u)
+                + 0.25 * LAM * u**4 + G * e_field * slab(t) * u)
 
     e0 = energy(t, pt, u, pu)
     reversed_mask = np.zeros(n, dtype=bool)
@@ -85,14 +107,14 @@ def run_cell(p_gap, e_field, *, dt=DT, n=N_PER_CELL, seed=SEED,
 
     if integrator == "verlet":
         for _ in range(n_steps):
-            ft = -G * e_field * u
-            fu = -OMEGA_U**2 * u - LAM * u**3 - G * e_field * t
+            ft = -G * e_field * u * slab_force_profile(t)
+            fu = -OMEGA_U**2 * u - LAM * u**3 - G * e_field * slab(t)
             pt_h = pt + 0.5 * dt * ft
             pu_h = pu + 0.5 * dt * fu
             t = t + dt * pt_h
             u = u + dt * pu_h
-            ft = -G * e_field * u
-            fu = -OMEGA_U**2 * u - LAM * u**3 - G * e_field * t
+            ft = -G * e_field * u * slab_force_profile(t)
+            fu = -OMEGA_U**2 * u - LAM * u**3 - G * e_field * slab(t)
             pt = pt_h + 0.5 * dt * ft
             pu = pu_h + 0.5 * dt * fu
             reversed_mask |= pt <= 0.0
@@ -100,8 +122,9 @@ def run_cell(p_gap, e_field, *, dt=DT, n=N_PER_CELL, seed=SEED,
         def rhs(state):
             t, pt, u, pu = state
             return np.array([
-                pt, -G * e_field * u,
-                pu, -OMEGA_U**2 * u - LAM * u**3 - G * e_field * t,
+                pt, -G * e_field * u * slab_force_profile(t),
+                pu,
+                -OMEGA_U**2 * u - LAM * u**3 - G * e_field * slab(t),
             ])
         state = np.array([t, pt, u, pu])
         for _ in range(n_steps):
@@ -126,10 +149,16 @@ def run_cell(p_gap, e_field, *, dt=DT, n=N_PER_CELL, seed=SEED,
             "max_relative_energy_drift": drift}
 
 
+def usable_cells(cells):
+    """Fit-eligible cells: enough counts, unsaturated, under the drift bar."""
+    return [c for c in cells if c["count"] >= MIN_COUNT_FOR_FIT
+            and c["fraction"] < 0.9
+            and c["max_relative_energy_drift"] < DRIFT_BAR]
+
+
 def fit_powers(cells):
     """Fit -log f = alpha * P^a * E^b on cells with enough counts."""
-    usable = [c for c in cells if c["count"] >= MIN_COUNT_FOR_FIT
-              and c["fraction"] < 0.9]
+    usable = usable_cells(cells)
     if len(usable) < 4:
         return None
     y = np.log([-math.log(c["fraction"]) for c in usable])
@@ -155,8 +184,7 @@ def fit_powers(cells):
 
 def axis_comparison(cells):
     """R^2 of -log f against P^2/E^2 and against P^2/E, with intercept."""
-    usable = [c for c in cells if c["count"] >= MIN_COUNT_FOR_FIT
-              and c["fraction"] < 0.9]
+    usable = usable_cells(cells)
     if len(usable) < 4:
         return None
     y = np.array([-math.log(c["fraction"]) for c in usable])
@@ -206,9 +234,20 @@ def main() -> int:
     powers = fit_powers(cells)
     axes = axis_comparison(cells)
 
+    excluded = [
+        {"P": c["P"], "E": c["E"],
+         "drift": c["max_relative_energy_drift"], "count": c["count"]}
+        for c in cells if c not in usable_cells(cells)
+    ]
     record = {
-        "schema": "pf4-pilot-v1",
+        "schema": "pf4-pilot-v2",
         "label": "exploratory",
+        "v1_note": "the first sweep used the unbounded coupling g E t u; "
+                   "secular growth of t made the field do unbounded work "
+                   "and drift reached 0.23 at E = 2; superseded by the "
+                   "Sauter-slab family before any record was written",
+        "drift_bar": DRIFT_BAR,
+        "cells_excluded_from_fits": excluded,
         "family_p1_static": {
             "statement": "M tdot + eps U(x) is exactly conserved for "
                 "static a0 = a5 = U, so reversal is the deterministic "
@@ -216,11 +255,13 @@ def main() -> int:
                 "is pure initial-condition measure; no dynamical "
                 "exponential exists in this family",
         },
-        "family_p2": {
+        "family_p2s": {
             "hamiltonian": "pt^2/2 + pu^2/2 + omega_u^2 u^2/2 + "
-                           "lambda u^4/4 + g E t u, omega_t = 0",
+                           "lambda u^4/4 + g E L tanh(t/L) u, omega_t = 0, "
+                           "t(0) = -4L",
             "parameters": {"omega_u": OMEGA_U, "lambda": LAM, "g": G,
-                           "T": T_BATH, "dt": DT, "tau_max": TAU_MAX,
+                           "T": T_BATH, "L": SAUTER_L, "t_start": T_START,
+                           "dt": DT, "tau_max": TAU_MAX,
                            "n_per_cell": N_PER_CELL, "seed": SEED},
             "P_grid": P_GRID, "E_grid": E_GRID,
             "cells": cells,
