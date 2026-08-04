@@ -164,12 +164,62 @@ labels: [refuted], [demonstrated-in-model] for the candidate family
 only, or the clean negative. No outcome supports a claim about
 physical spacetime; CAMPAIGN.md section 9's ceiling stands.
 
+## 9a. Pilot outcome (2026-08-04, exploratory, results/pf4-pilot.json)
+
+The candidate-family pilot ran four iterations, each failure preserved
+in the code's version notes: the unbounded coupling did secular work
+(drift 0.23), the slab fix exposed an initialization transient that
+reversed everything, the shifted-well fix exposed a deterministic
+crossing kick, and the final design splits regimes with a per-cell
+thermal-free probe. Findings from the completed sweep of the Sauter
+family (18 cells, 5 x 10^4 trajectories each, drift uniformly at
+6 x 10^-7, eleven decades under the v1 worst):
+
+1. **The family has a critical field.** Above a P-dependent threshold
+   the deterministic crossing kick alone reverses the event (with
+   runaway feedback, since a slowing event absorbs more kick); below
+   it reversal is fluctuation-driven. The deterministic minimum of the
+   time momentum, measured by the probe at every cell, maps this
+   manifold.
+2. **The sub-critical transition is razor sharp.** At gap 0.5 the
+   fraction moves from 2.8 x 10^-4 to 0.91 between fields 0.65 and
+   0.80, three decades in a fifteen-percent field step. Only two of
+   eighteen cells landed in the measurable band, so the preregistered
+   grids must be adaptive in the field (or parameterized along the
+   measured critical manifold), and fixed rectangular grids will
+   mostly buy bounds.
+3. **Two-point diagnostic, post hoc and exploratory.** The two
+   measurable cells satisfy -log f proportional to (d/E)^2, with d
+   the probe's deterministic minimum (the effective gap), to two
+   percent (ratio 2.03 measured against 1.99 predicted), while the
+   Schwinger-shaped axis d^2/E misses by fifty-seven percent and the
+   bare-gap Gaussian axis (P/E)^2 by forty percent. Two points prove
+   nothing, but they point where the family is going: suppression
+   organized by a Gaussian measure tail in the effective gap, which is
+   the measure-set exponent PF-2 anticipated, not the Schwinger form.
+4. **A control lesson.** The prescription-pair and step-halving
+   controls agreed exactly but vacuously, because the declared control
+   cell produced zero counts under all three prescriptions. Sealed
+   controls must sit on cells verified measurable, or they certify
+   nothing.
+
+Implication for sealing: the first preregisterable claim is now
+concrete and negative-shaped. In the Sauter family, held-out
+suppression follows the effective-gap Gaussian axis and excludes the
+Schwinger axis. Demonstrating that with an adaptive grid, measurable
+controls, and the C1-C5 clauses would be the campaign's disciplined
+negative for this family, and the effective-gap parameterization is
+the design vehicle.
+
 ## 9. Open design questions (must close before sealing)
 
-1. Which candidate family is worth the first seal. The frozen-kick
-   null result narrows the space usefully, but a family with resolved
-   field variation and honest escape structure has to be constructed
-   and piloted before anything is worth preregistering.
+1. Which candidate family is worth the first seal. ANSWERED by the
+   pilot (section 9a): the Sauter-slab energy-transfer family is
+   viable, rare-event generating, and clean; its measured structure
+   (critical manifold, effective gap, sharp transition) now shapes the
+   prereg. The remaining construction question is whether any family
+   exists whose exponent is NOT a measure tail, which is the actual
+   Schwinger question.
 2. The four-volume normalization of the rate in a hidden-parameter
    theory (per tau, per t, per worldline, per detector window) must
    be declared once and defended, since the target law's prefactor
