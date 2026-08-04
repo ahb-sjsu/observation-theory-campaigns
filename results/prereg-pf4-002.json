@@ -1,0 +1,419 @@
+{
+  "controls": {
+    "near_10pct": {
+      "cell": {
+        "E": 1.4425781249999998,
+        "P": 0.95,
+        "fraction": 0.10946
+      },
+      "dt_half": {
+        "fraction": 0.10946,
+        "z": 0.0
+      },
+      "rk4": {
+        "fraction": 0.10946,
+        "z": 0.0
+      }
+    },
+    "near_1pct": {
+      "cell": {
+        "E": 1.374462890625,
+        "P": 0.95,
+        "fraction": 0.01016
+      },
+      "dt_half": {
+        "fraction": 0.01016,
+        "z": 0.0
+      },
+      "rk4": {
+        "fraction": 0.01016,
+        "z": 0.0
+      }
+    }
+  },
+  "declared": {
+    "generalization_ratio_bar": 2.0,
+    "held_P": [
+      0.65,
+      0.85
+    ],
+    "s_ratio_bar": 2.0,
+    "targets": [
+      0.22,
+      0.3,
+      0.38,
+      0.46
+    ],
+    "train_P": [
+      0.55,
+      0.75,
+      0.95
+    ]
+  },
+  "fits": {
+    "model_G": {
+      "alpha": -0.12429061298285399,
+      "beta": 43.176187880553684,
+      "generalization_ratio": 0.3841533420540226,
+      "held_wmse": 51.78998906661527,
+      "train_wmse": 134.81592738384185
+    },
+    "model_S": {
+      "alpha": 0.2280182850968475,
+      "beta": 34.574545231863524,
+      "held_wmse": 162.60796845362734,
+      "train_wmse": 305.521118843971
+    },
+    "ratio_S_over_G_held": 3.1397567635025294
+  },
+  "held_cells": [
+    {
+      "E": 0.983935546875,
+      "P": 0.65,
+      "binomial_stderr": 0.0015790493317182968,
+      "count": 7299,
+      "deterministic_pt_min": 0.21638353205475577,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.14598,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.804257187096437e-07,
+      "n": 50000,
+      "placed_E": 0.983935546875,
+      "probe_rk4_min": 0.2163835312124994,
+      "target_ratio": 0.22
+    },
+    {
+      "E": 0.938525390625,
+      "P": 0.65,
+      "binomial_stderr": 0.0007153930611908394,
+      "count": 1314,
+      "deterministic_pt_min": 0.2820451249449988,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.02628,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.285999893198311e-07,
+      "n": 50000,
+      "placed_E": 0.938525390625,
+      "probe_rk4_min": 0.28204512405128646,
+      "target_ratio": 0.3
+    },
+    {
+      "E": 0.8885742187500001,
+      "P": 0.65,
+      "binomial_stderr": 0.0001495824588646677,
+      "count": 56,
+      "deterministic_pt_min": 0.3377222013434447,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.00112,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.053330108903019e-07,
+      "n": 50000,
+      "placed_E": 0.8885742187500001,
+      "probe_rk4_min": 0.3377222004257692,
+      "target_ratio": 0.38
+    },
+    {
+      "E": 0.837109375,
+      "P": 0.65,
+      "binomial_stderr": 4.47191234261138e-05,
+      "count": 5,
+      "deterministic_pt_min": 0.3845014563813626,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.0001,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.735726660213385e-07,
+      "n": 50000,
+      "placed_E": 0.837109375,
+      "probe_rk4_min": 0.3845014554360405,
+      "target_ratio": 0.46
+    },
+    {
+      "E": 1.2881835937500004,
+      "P": 0.85,
+      "binomial_stderr": 0.0014466569213189423,
+      "count": 5937,
+      "deterministic_pt_min": 0.2839120046981988,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.11874,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.171574829744992e-07,
+      "n": 50000,
+      "placed_E": 1.2881835937500004,
+      "probe_rk4_min": 0.2839120031861049,
+      "target_ratio": 0.22
+    },
+    {
+      "E": 1.229150390625,
+      "P": 0.85,
+      "binomial_stderr": 0.0005804518998159967,
+      "count": 857,
+      "deterministic_pt_min": 0.3683501226718003,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.01714,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 8.150374918351548e-07,
+      "n": 50000,
+      "placed_E": 1.229150390625,
+      "probe_rk4_min": 0.3683501212726968,
+      "target_ratio": 0.3
+    },
+    {
+      "E": 1.162548828125,
+      "P": 0.85,
+      "binomial_stderr": 0.000123241421608159,
+      "count": 38,
+      "deterministic_pt_min": 0.44139306909805714,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.00076,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.992089092430582e-07,
+      "n": 50000,
+      "placed_E": 1.162548828125,
+      "probe_rk4_min": 0.44139306730827754,
+      "target_ratio": 0.38
+    },
+    {
+      "E": 1.092919921875,
+      "P": 0.85,
+      "binomial_stderr": 4.4721359549995795e-09,
+      "count": 0,
+      "deterministic_pt_min": 0.5031884012375754,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.0,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.706903565469232e-07,
+      "n": 50000,
+      "placed_E": 1.092919921875,
+      "probe_rk4_min": 0.5031883990714534,
+      "target_ratio": 0.46
+    }
+  ],
+  "label": "demonstrated-in-model",
+  "outcome": "claim PASSES: the effective-gap axis generalizes within its accuracy class and the Schwinger-shaped axis fails to compete",
+  "record_sha256": "b48b3666b3c176bc59175bf8b359585ce71384d20413ea28b635837c01e4183f",
+  "registration_id": "PREREG-PF4-002",
+  "runtime": {
+    "code_commit": "7f8d799",
+    "generated_utc": "2026-08-04T22:58:21.126666+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "prereg-pf4-002-run-v1",
+  "train_cells": [
+    {
+      "E": 0.8318115234375,
+      "P": 0.55,
+      "binomial_stderr": 0.0016697535530730276,
+      "count": 8372,
+      "deterministic_pt_min": 0.18336165785695888,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.16744,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.037871478155224e-07,
+      "n": 50000,
+      "placed_E": 0.8318115234375,
+      "probe_rk4_min": 0.18336165742522256,
+      "target_ratio": 0.22
+    },
+    {
+      "E": 0.7947265625,
+      "P": 0.55,
+      "binomial_stderr": 0.0007882840858472281,
+      "count": 1605,
+      "deterministic_pt_min": 0.23769126876842334,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.0321,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.547295954622001e-07,
+      "n": 50000,
+      "placed_E": 0.7947265625,
+      "probe_rk4_min": 0.2376912682181735,
+      "target_ratio": 0.3
+    },
+    {
+      "E": 0.7523437500000001,
+      "P": 0.55,
+      "binomial_stderr": 0.0002618460005423035,
+      "count": 172,
+      "deterministic_pt_min": 0.28542838296551387,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.00344,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.714029139234055e-07,
+      "n": 50000,
+      "placed_E": 0.7523437500000001,
+      "probe_rk4_min": 0.2854283823503466,
+      "target_ratio": 0.38
+    },
+    {
+      "E": 0.7084472656250003,
+      "P": 0.55,
+      "binomial_stderr": 3.4639976905304086e-05,
+      "count": 3,
+      "deterministic_pt_min": 0.3255942739908939,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 6e-05,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.563254820699341e-07,
+      "n": 50000,
+      "placed_E": 0.7084472656250003,
+      "probe_rk4_min": 0.3255942733730587,
+      "target_ratio": 0.46
+    },
+    {
+      "E": 1.1360595703124998,
+      "P": 0.75,
+      "binomial_stderr": 0.0015347048602255744,
+      "count": 6818,
+      "deterministic_pt_min": 0.249807191296893,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.13636,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.632616548492211e-07,
+      "n": 50000,
+      "placed_E": 1.1360595703124998,
+      "probe_rk4_min": 0.24980718995822673,
+      "target_ratio": 0.22
+    },
+    {
+      "E": 1.0838378906250001,
+      "P": 0.75,
+      "binomial_stderr": 0.0006388379199765775,
+      "count": 1042,
+      "deterministic_pt_min": 0.32480562272029606,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.02084,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.306079135329636e-07,
+      "n": 50000,
+      "placed_E": 1.0838378906250001,
+      "probe_rk4_min": 0.32480562142820896,
+      "target_ratio": 0.3
+    },
+    {
+      "E": 1.0248046875,
+      "P": 0.75,
+      "binomial_stderr": 0.0001885116229838362,
+      "count": 89,
+      "deterministic_pt_min": 0.3901206144370516,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.00178,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.5124332447039e-07,
+      "n": 50000,
+      "placed_E": 1.0248046875,
+      "probe_rk4_min": 0.3901206131134474,
+      "target_ratio": 0.38
+    },
+    {
+      "E": 0.9650146484375001,
+      "P": 0.75,
+      "binomial_stderr": 3.999839996799872e-05,
+      "count": 4,
+      "deterministic_pt_min": 0.44390498166041376,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 8e-05,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 7.490841021568213e-07,
+      "n": 50000,
+      "placed_E": 0.9650146484375001,
+      "probe_rk4_min": 0.4439049802584206,
+      "target_ratio": 0.46
+    },
+    {
+      "E": 1.4425781249999998,
+      "P": 0.95,
+      "binomial_stderr": 0.0013962700913505237,
+      "count": 5473,
+      "deterministic_pt_min": 0.3161583425595974,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.10946,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.610483801884053e-07,
+      "n": 50000,
+      "placed_E": 1.4425781249999998,
+      "probe_rk4_min": 0.3161583413803288,
+      "target_ratio": 0.22
+    },
+    {
+      "E": 1.374462890625,
+      "P": 0.95,
+      "binomial_stderr": 0.00044848131287713656,
+      "count": 508,
+      "deterministic_pt_min": 0.4130130962095876,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.01016,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.172913291363874e-07,
+      "n": 50000,
+      "placed_E": 1.374462890625,
+      "probe_rk4_min": 0.41301309435650385,
+      "target_ratio": 0.3
+    },
+    {
+      "E": 1.298779296875,
+      "P": 0.95,
+      "binomial_stderr": 0.0001427557074165513,
+      "count": 51,
+      "deterministic_pt_min": 0.4940757945682561,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.00102,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 6.431659831790729e-07,
+      "n": 50000,
+      "placed_E": 1.298779296875,
+      "probe_rk4_min": 0.49407579163202353,
+      "target_ratio": 0.38
+    },
+    {
+      "E": 1.22158203125,
+      "P": 0.95,
+      "binomial_stderr": 4.89868553797853e-05,
+      "count": 6,
+      "deterministic_pt_min": 0.5610804407656499,
+      "deterministically_reversing": false,
+      "dt": 0.001,
+      "fraction": 0.00012,
+      "integrator": "verlet",
+      "max_relative_energy_drift": 5.834207968267117e-07,
+      "n": 50000,
+      "placed_E": 1.22158203125,
+      "probe_rk4_min": 0.5610804372198748,
+      "target_ratio": 0.46
+    }
+  ],
+  "zero_field_null": {
+    "E": 0.0,
+    "P": 0.75,
+    "binomial_stderr": 1.414213562373095e-08,
+    "count": 0,
+    "deterministic_pt_min": 0.75,
+    "deterministically_reversing": false,
+    "dt": 0.001,
+    "fraction": 0.0,
+    "integrator": "verlet",
+    "max_relative_energy_drift": 4.405928018379918e-07,
+    "n": 5000
+  }
+}
