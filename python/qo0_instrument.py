@@ -63,7 +63,7 @@ def relative_entropy(
 
     s, v = np.linalg.eigh(sigma)
     s = np.clip(s.real, 0.0, None)
-    weights = np.real(np.einsum("ji,jk,ki->i", v.conj(), rho, v))
+    weights = np.real(np.sum(v.conj() * (rho @ v), axis=0))
     kernel = s <= support_floor
     if float(weights[kernel].sum()) > support_tol:
         return float("inf")
@@ -250,10 +250,14 @@ def dpi_sweep() -> dict:
     """
     n = 8
     outside = [4, 5, 6, 7]
-    beta = 1.0
+    beta = 0.5
     field = 2.0
     hamiltonian = ising_hamiltonian(n, field)
     sigma = thermal_state(hamiltonian, beta)
+    smallest_weight = float(np.linalg.eigvalsh(sigma).min())
+    assert smallest_weight > 1e-9, \
+        "thermal spectrum too close to the support floor: divergences " \
+        "would go infinite for spectral, not physical, reasons"
 
     thetas = [0.1, 0.4, 0.8, 1.2]
     strengths = [0.1, 0.25, 0.5]
@@ -286,6 +290,9 @@ def dpi_sweep() -> dict:
         u = local_z_rotation(n, 4, theta)
         rho = u @ sigma @ u.conj().T
         d_global = relative_entropy(rho, sigma)
+        assert np.isfinite(d_global), \
+            "global divergence infinite: support semantics misfired on a " \
+            "full-rank pair"
         chain = [d_global]
         for keep in regions:
             chain.append(relative_entropy(

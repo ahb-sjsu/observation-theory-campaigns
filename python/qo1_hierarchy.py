@@ -71,6 +71,31 @@ def pinch_qubits(rho: np.ndarray, qubits: list[int], n_qubits: int) -> np.ndarra
     return out
 
 
+def hierarchy_pairs(
+    rho: np.ndarray,
+    sigma: np.ndarray,
+    outside: list[int],
+    n_qubits: int,
+) -> dict[str, tuple[np.ndarray, np.ndarray]]:
+    """The four consumer-level state pairs, built once per excitation."""
+    m = len(outside)
+    rho_out = partial_trace(rho, outside, n_qubits)
+    sigma_out = partial_trace(sigma, outside, n_qubits)
+    rest = list(range(1, m))
+    everything = list(range(m))
+    return {
+        "full_state": (rho, sigma),
+        "full_boundary": (rho_out, sigma_out),
+        "position_plus_flux": (
+            pinch_qubits(rho_out, rest, m), pinch_qubits(sigma_out, rest, m)
+        ),
+        "position_only": (
+            pinch_qubits(rho_out, everything, m),
+            pinch_qubits(sigma_out, everything, m),
+        ),
+    }
+
+
 def hierarchy_chain(
     rho: np.ndarray,
     sigma: np.ndarray,
@@ -80,25 +105,10 @@ def hierarchy_chain(
     support_floor: float = 1e-12,
 ) -> dict[str, float]:
     """The four-level divergence chain for one state pair."""
-    m = len(outside)
-    rho_out = partial_trace(rho, outside, n_qubits)
-    sigma_out = partial_trace(sigma, outside, n_qubits)
-    rest = list(range(1, m))
+    pairs = hierarchy_pairs(rho, sigma, outside, n_qubits)
     return {
-        "full_state": relative_entropy(rho, sigma, support_floor=support_floor),
-        "full_boundary": relative_entropy(
-            rho_out, sigma_out, support_floor=support_floor
-        ),
-        "position_plus_flux": relative_entropy(
-            pinch_qubits(rho_out, rest, m),
-            pinch_qubits(sigma_out, rest, m),
-            support_floor=support_floor,
-        ),
-        "position_only": relative_entropy(
-            pinch_qubits(rho_out, list(range(m)), m),
-            pinch_qubits(sigma_out, list(range(m)), m),
-            support_floor=support_floor,
-        ),
+        level: relative_entropy(a, b, support_floor=support_floor)
+        for level, (a, b) in pairs.items()
     }
 
 
@@ -145,9 +155,12 @@ def classical_anchors() -> dict:
 def quantum_hierarchies() -> dict:
     n = 8
     outside = [4, 5, 6, 7]
-    beta = 1.0
+    beta = 0.5
     field = 2.0
     sigma = thermal_state(ising_hamiltonian(n, field), beta)
+    smallest_weight = float(np.linalg.eigvalsh(sigma).min())
+    assert smallest_weight > 1e-9, \
+        "thermal spectrum too close to the support floor"
     thetas = [0.4, 0.8, 1.2]
 
     results = {}
@@ -157,6 +170,8 @@ def quantum_hierarchies() -> dict:
             u = local_rotation(n, 4, theta, axis)
             rho = u @ sigma @ u.conj().T
             chain = hierarchy_chain(rho, sigma, outside, n)
+            assert all(np.isfinite(v) for v in chain.values()), \
+                f"infinite divergence in chain ({axis}, theta={theta})"
             for weaker, stronger in zip(LEVELS[:-1], LEVELS[1:], strict=False):
                 assert chain[weaker] <= chain[stronger] + 1e-10, \
                     f"hierarchy inversion at {weaker} ({axis}, theta={theta})"
@@ -180,14 +195,13 @@ def quantum_hierarchies() -> dict:
         "X excitation should reach the position-only consumer via correlations"
 
     floors = [1e-14, 1e-13, 1e-12, 1e-11, 1e-10]
-    spreads = []
     u = local_rotation(n, 4, 0.8, "z")
     rho = u @ sigma @ u.conj().T
+    pairs = hierarchy_pairs(rho, sigma, outside, n)
+    spreads = []
     for level in LEVELS:
-        values = [
-            hierarchy_chain(rho, sigma, outside, n, support_floor=f)[level]
-            for f in floors
-        ]
+        a, b = pairs[level]
+        values = [relative_entropy(a, b, support_floor=f) for f in floors]
         spreads.append(max(values) - min(values))
     floor_spread = float(max(spreads))
     assert floor_spread < 1e-9
