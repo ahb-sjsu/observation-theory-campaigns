@@ -1,0 +1,58 @@
+{
+  "declared": {
+    "generations": 11,
+    "held_window": [
+      6,
+      9
+    ],
+    "initial": "double self-loop",
+    "n_sources": 30,
+    "prescription": "generational maximal scan-ordered non-overlapping matching, declared single prescription",
+    "rule": "{{x,y},{x,z}} -> {{x,z},{x,w},{y,w},{z,w}}",
+    "seed": 20260805,
+    "train_window": [
+      2,
+      5
+    ]
+  },
+  "fits": {
+    "d_hat_train": 2.3048745528934456,
+    "exponential_held_sse": 1.0919732864502836,
+    "held_shells_exp_pred": [
+      45.236265369015534,
+      67.52814921007682,
+      100.80520349192645,
+      150.48078719640583
+    ],
+    "held_shells_measured": [
+      36.833333333333336,
+      47.56666666666667,
+      56.96666666666667,
+      69.3
+    ],
+    "held_shells_power_pred": [
+      36.10884307490946,
+      44.154069414999924,
+      52.5584987687835,
+      61.290134839595126
+    ],
+    "power_law_held_sse": 0.027509850141721224
+  },
+  "graph": {
+    "n_relations": 1794,
+    "n_vertices": 897
+  },
+  "held_out_winner_at_measured_sizes": "finite-dimension power law",
+  "label": "exploratory",
+  "record_sha256": "e962a45c193780a3420b84451b1852423399c24f8e7a2e1c6c1d2d3072ceda2d",
+  "runtime": {
+    "code_commit": "d761749",
+    "generated_utc": "2026-08-04T21:32:55.214947+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "wm4-hypergraph-v1",
+  "statement": "the verdict holds at measured sizes only; a finite-size crossover beyond the held-out window cannot be excluded, per the track document's qualifier"
+}

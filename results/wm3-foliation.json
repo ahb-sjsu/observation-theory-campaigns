@@ -1,0 +1,211 @@
+{
+  "declared": {
+    "n_random_foliations": 5,
+    "seed": 20260805,
+    "string_length": 24
+  },
+  "foliation_face": {
+    "earliest": {
+      "max_width": 7,
+      "mean_width": 4.230769230769231,
+      "n_slices": 13
+    },
+    "invariants": {
+      "depth": 13,
+      "n_edges": 88,
+      "n_events": 55
+    },
+    "latest": {
+      "max_width": 7,
+      "mean_width": 4.230769230769231,
+      "n_slices": 13
+    },
+    "max_width_range": [
+      4,
+      7
+    ],
+    "randoms": [
+      {
+        "max_width": 5,
+        "mean_width": 2.2916666666666665,
+        "n_slices": 24
+      },
+      {
+        "max_width": 5,
+        "mean_width": 2.8947368421052633,
+        "n_slices": 19
+      },
+      {
+        "max_width": 4,
+        "mean_width": 2.2,
+        "n_slices": 25
+      },
+      {
+        "max_width": 4,
+        "mean_width": 2.1153846153846154,
+        "n_slices": 26
+      },
+      {
+        "max_width": 4,
+        "mean_width": 2.2,
+        "n_slices": 25
+      }
+    ],
+    "slice_count_range": [
+      13,
+      26
+    ]
+  },
+  "label": "exploratory",
+  "prescription_face": {
+    "agree": true,
+    "sorting_invariants": {
+      "leftmost": {
+        "depth": 13,
+        "n_edges": 88,
+        "n_events": 55,
+        "out_degree_multiset": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "rightmost": {
+        "depth": 13,
+        "n_edges": 88,
+        "n_events": 55,
+        "out_degree_multiset": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      }
+    },
+    "trap_flagged": true,
+    "trap_invariants": {
+      "leftmost": {
+        "n_edges": 6,
+        "n_events": 7
+      },
+      "rightmost": {
+        "n_edges": 0,
+        "n_events": 4
+      }
+    }
+  },
+  "record_sha256": "870cff812dda6ee3fb60374c41ba99f9263dff4d094c01ae392bef746e8851ae",
+  "runtime": {
+    "code_commit": "d761749",
+    "generated_utc": "2026-08-04T21:32:54.957919+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "wm3-foliation-v1",
+  "statement": "for the causal-invariant rule the causal-graph invariants are prescription-independent and foliation-independent, while slice counts and widths, the observer's simultaneity bookkeeping, vary across foliations between the depth bound and the sampled maximum; the non-confluent trap's causal graph itself differs across prescriptions"
+}
