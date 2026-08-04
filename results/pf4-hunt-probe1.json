@@ -1,0 +1,81 @@
+{
+  "declared": {
+    "E": 0.4,
+    "L": 3.0,
+    "P_grid": [
+      1.2,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      4.0
+    ],
+    "dt": 0.0005,
+    "integrator": "rk4",
+    "observable": "post-crossing residual oscillator energy about the asymptotic well",
+    "omega_u": 1.2
+  },
+  "fit": {
+    "analyticity_prediction": -11.309733552923255,
+    "intercept": -0.5584193647047014,
+    "r_squared": 0.9921278824841334,
+    "slope_ratio": 0.6913151078649734,
+    "slope_vs_invP": -7.81858967106325
+  },
+  "label": "exploratory",
+  "record_sha256": "d0e5bb85297b45ffec226f977385e3cdf56509d986bc824e0616b0535092d536",
+  "rows": [
+    {
+      "E_res": 0.0007162098294895836,
+      "P": 1.2,
+      "delta_pt": 0.0005691910461294025,
+      "log_E_res": -7.241537375990375,
+      "pt_final": 1.1994308089538706
+    },
+    {
+      "E_res": 0.003436065312489009,
+      "P": 1.5,
+      "delta_pt": 0.002268343709454834,
+      "log_E_res": -5.673428266749454,
+      "pt_final": 1.4977316562905452
+    },
+    {
+      "E_res": 0.01356605417613516,
+      "P": 2.0,
+      "delta_pt": 0.006775064871112235,
+      "log_E_res": -4.300184622943066,
+      "pt_final": 1.9932249351288878
+    },
+    {
+      "E_res": 0.027744145573175602,
+      "P": 2.5,
+      "delta_pt": 0.011106212478210864,
+      "log_E_res": -3.58473043138308,
+      "pt_final": 2.488893787521789
+    },
+    {
+      "E_res": 0.04230863715946836,
+      "P": 3.0,
+      "delta_pt": 0.014122448172161572,
+      "log_E_res": -3.1627640256063705,
+      "pt_final": 2.9858775518278384
+    },
+    {
+      "E_res": 0.06631556448504977,
+      "P": 4.0,
+      "delta_pt": 0.01660295392467015,
+      "log_E_res": -2.7133306508945663,
+      "pt_final": 3.98339704607533
+    }
+  ],
+  "runtime": {
+    "code_commit": "17ee7a0",
+    "generated_utc": "2026-08-04T23:31:51.173611+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-hunt-probe1-v1",
+  "statement": "a slope near -pi omega_u L in a thermal-free system is a dynamics-set action-type exponential, the candidate non-measure-tail mechanism"
+}
