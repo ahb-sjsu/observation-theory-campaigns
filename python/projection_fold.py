@@ -151,15 +151,27 @@ def polynomial_critical_points(
     first_tol: float = 1e-9,
     second_tol: float = 1e-8,
     imag_tol: float = 1e-9,
+    merge_tol: float = 1e-8,
 ) -> list[dict[str, Any]]:
-    """Locate and classify all real critical points of a polynomial time map."""
+    """Locate and classify all real critical points of a polynomial time map.
+
+    A repeated root of the derivative (a degenerate critical point) is one
+    geometric point: root clusters within merge_tol collapse to their mean.
+    """
     poly = np.asarray(list(coefficients), dtype=float)
     d1 = np.polyder(poly)
     d2 = np.polyder(d1)
     candidates = np.roots(d1) if len(d1) > 1 else np.array([])
     taus = np.sort(candidates[np.abs(candidates.imag) <= imag_tol].real)
-    points: list[dict[str, Any]] = []
+    clusters: list[list[float]] = []
     for tau in taus:
+        if clusters and abs(tau - clusters[-1][-1]) <= merge_tol:
+            clusters[-1].append(float(tau))
+        else:
+            clusters.append([float(tau)])
+    points: list[dict[str, Any]] = []
+    for cluster in clusters:
+        tau = float(np.mean(cluster))
         first = float(np.polyval(d1, tau))
         second = float(np.polyval(d2, tau))
         points.append(
