@@ -209,6 +209,11 @@ def polyline_level_crossings(
     t = np.asarray(t, dtype=float)
     dt_dtau = np.asarray(dt_dtau, dtype=float)
     s = t - t_obs
+    if np.any(s == 0.0):
+        raise ValueError(
+            "non-generic level: the level hits a sample exactly; "
+            "perturb the observation level"
+        )
     hits = np.nonzero(s[:-1] * s[1:] < 0.0)[0]
     crossings: list[dict[str, float]] = []
     for k in hits:

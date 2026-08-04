@@ -159,16 +159,18 @@ def test_pe2_polyline_crossings_match_analytic_fold():
     tau = np.linspace(-2.0, 2.0, 4001)
     t = tau**2
     dt = 2.0 * tau
-    crossings, weights = polyline_level_crossings(tau, t, dt, 0.25)
+    crossings, weights = polyline_level_crossings(tau, t, dt, 0.26)
     assert len(crossings) == 2
     assert sorted(c["orientation"] for c in crossings) == [-1.0, 1.0]
     assert sum(c["orientation"] for c in crossings) == 0.0
     for crossing in crossings:
-        assert abs(abs(crossing["tau"]) - 0.5) < 1e-6
+        assert abs(abs(crossing["tau"]) - math.sqrt(0.26)) < 1e-6
     assert np.allclose(weights, [0.5, 0.5], atol=1e-4)
     assert abs(branch_entropy_bits(weights) - 1.0) < 1e-7
     empty, _ = polyline_level_crossings(tau, t, dt, -1.0)
     assert empty == []
+    with pytest.raises(ValueError, match="hits a sample"):
+        polyline_level_crossings(tau, t, dt, 0.25)
 
 
 def test_schwinger_circle_baseline():

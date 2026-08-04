@@ -183,8 +183,8 @@ def part_b_reversible_ensemble():
         return [t, pt, x, px, u, pu], curve
 
     final, forward_curve = run(list(initial), N_STEPS, record=True)
-    drift = np.max(np.abs(energy(*[final[i] for i in (0, 1, 2, 3, 4, 5)]) - e0)
-                   / np.maximum(np.abs(e0), 1.0))
+    e_final = energy(final[0], final[1], final[3], final[4], final[5])
+    drift = np.max(np.abs(e_final - e0) / np.maximum(np.abs(e0), 1.0))
 
     reversed_start = [final[0], -final[1], final[2], -final[3], final[4], -final[5]]
     back, reverse_curve = run(reversed_start, N_STEPS, record=True)
