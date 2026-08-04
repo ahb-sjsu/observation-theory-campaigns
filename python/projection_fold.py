@@ -188,6 +188,50 @@ def polynomial_critical_points(
     return points
 
 
+def polyline_level_crossings(
+    tau: np.ndarray,
+    t: np.ndarray,
+    dt_dtau: np.ndarray,
+    t_obs: float,
+    *,
+    velocity_floor: float = 1e-10,
+) -> tuple[list[dict[str, float]], np.ndarray]:
+    """Transversal crossings of a sampled trajectory t(tau) with one level.
+
+    Linear interpolation between samples. Each crossing carries the
+    interpolated tau, the interpolated dt/dtau, and orientation equal to its
+    sign; coarea weights are proportional to 1/|dt/dtau|, normalized over
+    the fiber. Generic levels only: a crossing with |dt/dtau| at or below
+    velocity_floor is refused, because branch counting is ill-posed at a
+    fold; sweep levels must avoid fold values of t.
+    """
+    tau = np.asarray(tau, dtype=float)
+    t = np.asarray(t, dtype=float)
+    dt_dtau = np.asarray(dt_dtau, dtype=float)
+    s = t - t_obs
+    hits = np.nonzero(s[:-1] * s[1:] < 0.0)[0]
+    crossings: list[dict[str, float]] = []
+    for k in hits:
+        alpha = s[k] / (s[k] - s[k + 1])
+        velocity = dt_dtau[k] + alpha * (dt_dtau[k + 1] - dt_dtau[k])
+        if abs(velocity) <= velocity_floor:
+            raise ValueError(
+                "non-generic level: a crossing sits on a fold; "
+                "choose observation levels away from fold values"
+            )
+        crossings.append(
+            {
+                "tau": float(tau[k] + alpha * (tau[k + 1] - tau[k])),
+                "dt_dtau": float(velocity),
+                "orientation": 1.0 if velocity > 0 else -1.0,
+            }
+        )
+    if not crossings:
+        return [], np.array([])
+    raw = np.array([1.0 / abs(c["dt_dtau"]) for c in crossings])
+    return crossings, raw / raw.sum()
+
+
 def fiber_branch_weights(
     coefficients: Iterable[float],
     t_obs: float,

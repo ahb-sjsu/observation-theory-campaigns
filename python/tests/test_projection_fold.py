@@ -13,6 +13,7 @@ from projection_fold import (  # noqa: E402
     branch_entropy_bits,
     classify_scalar_critical_point,
     fiber_branch_weights,
+    polyline_level_crossings,
     polynomial_critical_points,
     polynomial_time_branches,
     schwinger_optimum,
@@ -152,6 +153,22 @@ def test_pe1_binned_fold_entropy_converges_to_differential_limit():
     ]
     assert deviations[0] > deviations[1] > deviations[2]
     assert deviations[2] < 0.05
+
+
+def test_pe2_polyline_crossings_match_analytic_fold():
+    tau = np.linspace(-2.0, 2.0, 4001)
+    t = tau**2
+    dt = 2.0 * tau
+    crossings, weights = polyline_level_crossings(tau, t, dt, 0.25)
+    assert len(crossings) == 2
+    assert sorted(c["orientation"] for c in crossings) == [-1.0, 1.0]
+    assert sum(c["orientation"] for c in crossings) == 0.0
+    for crossing in crossings:
+        assert abs(abs(crossing["tau"]) - 0.5) < 1e-6
+    assert np.allclose(weights, [0.5, 0.5], atol=1e-4)
+    assert abs(branch_entropy_bits(weights) - 1.0) < 1e-7
+    empty, _ = polyline_level_crossings(tau, t, dt, -1.0)
+    assert empty == []
 
 
 def test_schwinger_circle_baseline():
