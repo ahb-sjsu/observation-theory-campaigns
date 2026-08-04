@@ -1,0 +1,80 @@
+{
+  "declared": {
+    "E": 0.4,
+    "L": 6.0,
+    "P_grid": [
+      0.8,
+      1.0,
+      1.2,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "dt": 0.0005,
+    "omega_u": 1.2
+  },
+  "fit": {
+    "analyticity_prediction": -11.309733552923255,
+    "intercept": -3.3258178740265034,
+    "r_squared": 0.9935414581072952,
+    "slope_ratio_measured_over_predicted": -0.11561141116261313,
+    "slope_vs_invP": 1.3075342559266119
+  },
+  "label": "exploratory",
+  "record_sha256": "ab01a3a5398febd2ffe5b245ae0616ae554dc7d26b9c17d9c334ba4d73df4ae2",
+  "rows": [
+    {
+      "P": 0.8,
+      "kick": 0.17559012351620606,
+      "log_kick": -1.7396028435758353,
+      "pt_min": 0.624409876483794
+    },
+    {
+      "P": 1.0,
+      "kick": 0.13512741336340006,
+      "log_kick": -2.001537142953579,
+      "pt_min": 0.8648725866365999
+    },
+    {
+      "P": 1.2,
+      "kick": 0.11120107881228702,
+      "log_kick": -2.196415195663371,
+      "pt_min": 1.088798921187713
+    },
+    {
+      "P": 1.5,
+      "kick": 0.08931460146539694,
+      "log_kick": -2.4155902942152223,
+      "pt_min": 1.410685398534603
+    },
+    {
+      "P": 2.0,
+      "kick": 0.06975308325011409,
+      "log_kick": -2.6627936549549327,
+      "pt_min": 1.930246916749886
+    },
+    {
+      "P": 2.5,
+      "kick": 0.059502041069432465,
+      "log_kick": -2.8217446633309704,
+      "pt_min": 2.4404979589305675
+    },
+    {
+      "P": 3.0,
+      "kick": 0.053548779107710054,
+      "log_kick": -2.927162281457339,
+      "pt_min": 2.94645122089229
+    }
+  ],
+  "runtime": {
+    "code_commit": "b895fd5",
+    "generated_utc": "2026-08-04T23:25:26.570642+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-hunt-probe-v1",
+  "statement": "if the deterministic kick is exponential in 1/P with the analyticity slope, the family has a dynamics-set action-type exponential in the adiabatic corner, the hunt's candidate mechanism for a non-measure-tail exponent"
+}
