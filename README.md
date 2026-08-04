@@ -56,7 +56,8 @@ document in `experiments/SEALS.md`.
 | 🟧 **EG-0..5** entropic geometry | design 📐 gated | ENTROPIC-GEOMETRY-TRACK.md: area-law gate EG-1 is the expected stopping point; 7 open design questions must close before EG-0 seals |
 | 🟨 **WM-0** dimension instrument net | `[demonstrated-in-model]` ✅ + a bias finding | shell estimator exact on controls (path 1.000, 2D torus 2.000, 3D torus 2.958, tree flagged at 6.47 with growing local slope) — while the naive log-log ball-volume slope, the casual emergent-dimension estimator, reads LOW on every exact control (0.896/1.771/2.657), an O(1/r) bias of 0.10–0.34 at practical radii that any small-graph dimension claim inherits |
 | 🟨 **WM-1** reversible-CA entropy cycle | `[demonstrated-in-model]` ✅ | Rule 122R (the featured example of Wolfram's own second-law writings), asymmetric confined random seed: declared block entropy rises 1.646 → 3.288 bits, then retraces bitwise exactly (defect 0.0) with exact microstate recovery — the second law of reversible computation is observational entropy, the PE-2 conclusion verbatim. Three instrument findings preserved: Rule 30R dense-phase locking, symmetric-init time-reflection recurrence, byte-block coarseness |
-| 🟨 **WM-2/3/4** prescription, foliation, held-out scaling | design 📐 | WOLFRAM-MODELS-TRACK.md: claim-by-claim mapping table, planted non-confluent rule as the Cayley trap, signed-vs-unsigned trichotomy for particle claims |
+| 🟨 **WM-2** prescription audit | `[demonstrated-in-model]` ✅ trap discharged | string-substitution instance, three declared update orders: the causal-invariant sorting rule BA→AB agrees exactly under every prescription (final string and event count = inversion number, 406); the planted non-confluent rule {AB→B, BA→A} is flagged with three distinct terminal strings (B, BB, BBBB); the growth rule A→AB splits measured — conserved letter counts prescription-invariant, arrangement prescription-borne |
+| 🟨 **WM-3/4** foliation covariance, held-out scaling | design 📐 | WOLFRAM-MODELS-TRACK.md: signed-vs-unsigned trichotomy for particle claims; PF-4-style held-out dimension scaling on published rules |
 
 Six sealed documents in the ledger (two instrument freezes, four
 preregistrations), every one verifiable by blob hash. Three papers
@@ -169,6 +170,41 @@ Paper. Consumer-Relative Quantum Distinguishability on Causal
 Boundaries, concept DOI 10.5281/zenodo.21789046 (v2 at
 10.5281/zenodo.21789929).
 
+### 🟫 TB, the type-III bridge
+
+The campaign's quantum results were measured in finite matrix models,
+where every state has a density matrix and every region a partial
+trace. The local algebras of quantum field theory are type III von
+Neumann factors, where none of those objects exist. This track asks
+which of the campaign's consumer-relative objects survive that
+passage, makes the answer a table rather than a slogan, and then
+measures the approach to the limit on ladders of growing chains. The
+thesis, now confirmed in its first regime, is that relative quantities
+survive (relative entropies, their orderings, task distortions, the
+flip) while absolute quantities were never load-bearing.
+
+Established so far. TB-0, the type-III-native routes (the Araki
+relative modular formula and states as expectation functionals with no
+partial-trace primitive) reproduce the sealed finite instrument at
+machine precision. TB-1, every consumer-relative restricted relative
+entropy converges exponentially on chains N = 4..12 while the thermal
+half-chain entropy diverges exactly extensively as the deliberate
+control, with the corollary that the sealed QO numbers were already
+infinite-volume values at their quoted precision. TB-2, the flip at
+fixed absolute budget has a sharp thermodynamic limit (the budget
+decision is recorded in the track document, since a fractional budget
+has no type III meaning), and the flip region's upper edge was found
+to be small-size combinatorics, reported as such.
+
+Still open. TB-3, the wedge-family reformulation of the consumer-family
+quantifier with modular flow, design-only; the IR-versus-UV scaling
+question; the eight open questions of the track document.
+
+Key files. `experiments/TYPE-III-BRIDGE.md`, `python/tb0_modular.py`,
+`python/tb1_ladder.py`, `python/tb2_flip_ladder.py`.
+Paper. Consumer-Relative Distinguishability in the Thermodynamic
+Limit, drafted and compiled in `paper/`, not yet published.
+
 ### 🟧 EG, entropic geometry
 
 The speculative track, deliberately gated. If fibers of a projection
@@ -187,6 +223,49 @@ questions that must close before any experiment seals. EG runs after
 the PE track seals its remaining instruments.
 
 Key files. `experiments/ENTROPIC-GEOMETRY-TRACK.md`.
+
+### 🟨 WM, Wolfram models
+
+The Wolfram Physics Project claims that simple rewriting systems
+exhibit emergent dimension, special relativity from causal invariance,
+particles as stable structures, and a second law from computational
+irreducibility. Each of those claims rests on an inference pattern the
+campaign has already made measurable, so this track runs the audits:
+estimator validation before any dimension claim, update-order
+independence as a prescription test with a planted non-confluent rule
+as the trap, foliation covariance for particle claims with the
+signed-versus-unsigned trichotomy, and the reversible-entropy protocol
+for the second law. The framing is deliberately fair. The track tests
+claims rather than people, and a claim that survives the audits comes
+out stronger.
+
+Established so far. WM-0, the shell dimension estimator is exact on
+controls of known dimension with a regular tree flagged as
+non-finite-dimensional, and the naive ball-volume slope that casual
+measurements use was caught reading low on every exact control, a
+finite-radius bias of 0.10 to 0.34 that small-graph dimension claims
+inherit. WM-1, a second-order reversible automaton on Rule 122, the
+featured example of the program's own second-law writings, raises its
+declared coarse entropy and then retraces bitwise exactly with exact
+microstate recovery, so the second law of reversible computation is
+observational entropy, the campaign's PE-2 conclusion transplanted.
+WM-2, the prescription audit on string substitution systems: the
+causal-invariant sorting rule agrees exactly under every update order
+(the event count is the inversion number), the planted non-confluent
+rule is flagged with three distinct terminal strings, and the growth
+rule splits cleanly into prescription-invariant conserved counts and
+prescription-borne arrangement.
+
+Still open. WM-3, foliation covariance on causal graphs; WM-4,
+held-out dimension scaling on published hypergraph rules; the
+hypergraph version of WM-2; the seven open questions of the track
+document, led by whether the program's topological-obstruction
+particles admit any computable signed invariant.
+
+Key files. `experiments/WOLFRAM-MODELS-TRACK.md`,
+`python/wm0_dimension.py`, `python/wm1_reversible_ca.py`,
+`python/wm2_prescription.py`. Related prior work in
+`C:\source\wolfram-observer-bridge`.
 
 ## The evidence discipline (applies to every track)
 
