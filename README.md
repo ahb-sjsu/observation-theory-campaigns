@@ -14,7 +14,7 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The four tracks
+## The five tracks
 
 Each track keeps one color everywhere in this file: 🟦 folds, 🟥
 entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry. The letter
