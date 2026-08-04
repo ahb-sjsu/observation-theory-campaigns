@@ -336,7 +336,49 @@ reports itself unrunnable at this beta rather than reporting limits.
 
 ---
 
-### TB-2: Flip persistence
+### TB-2: Flip persistence — RUN, FIXED-BUDGET LIMIT CONFIRMED
+(exploratory)
+
+Open question 4 was decided before the run and the decision is
+binding for this track. The primary budget accounting is a fixed
+absolute number of stored qubits, for two reasons. The task is local
+and its relevant halo converges (TB-1), so scarcity relative to the
+task is an N-independent notion. And a fractional budget has no type
+III meaning, because algebra dimension is the quintessential type I
+artifact, so only the fixed-k object can have a limit at all. The
+fraction of the kept region is retained as a secondary diagnostic.
+
+Executed 2026-08-04 as `python/tb2_flip_ladder.py`, evidence
+`results/tb2-flip-ladder.json`, kept halves of chains N = 6..12 with
+the PREREG-QO2-001 scenario grids. Results.
+
+1. The fixed-budget flip has a sharp limit. At k = 1 the flip holds
+   at every N with the anti-arm worst everywhere. The held-out task
+   gap is 0.10762 at all four rungs, converged to 5.3e-10 by N = 12
+   (the task functional, the T-arm, and the F-arm's miss are all
+   local, so the gap is N-independent almost immediately). The
+   infidelity gap converges 0.2994 to 0.2946 with successive
+   differences shrinking 3.5e-3 to 1.1e-4. The flip is a
+   thermodynamic-limit phenomenon at fixed absolute budget, which is
+   what the OQ4 decision predicted and what a type III phrasing
+   needs.
+2. The secondary diagnostic did not trivialize and is honestly
+   non-monotone. The flip region in k ran [1], [1,2], [1], [1,3]
+   across the ladder, because the fidelity-optimal subset at
+   intermediate budgets sometimes contains the flux site and
+   sometimes does not, depending on the combinatorics of which
+   subsets best capture the reference correlations at each m. The
+   collapse fraction (0.33, 0.5, 0.2, 0.5) neither shrinks nor
+   stabilizes at these sizes. Reading: the upper edge of the flip
+   region is a discrete subset-selection artifact at small m, the
+   clean convergent object is the fixed-k flip, and the
+   trivialization prediction for fractions is untestable below
+   substantially larger m. This is recorded as a finding, not
+   massaged away.
+
+Original design follows.
+
+### TB-2: Flip persistence (original design)
 
 **Question.** Does the QO-2 flip survive growing N when the encoder
 family is rephrased as channels, and does the flip region, expressed in
