@@ -9,7 +9,10 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from projection_fold import (  # noqa: E402
     analytic_fold_branches,
+    binned_fold_entropy,
+    branch_entropy_bits,
     classify_scalar_critical_point,
+    fiber_branch_weights,
     polynomial_critical_points,
     polynomial_time_branches,
     schwinger_optimum,
@@ -106,6 +109,49 @@ def test_m0_double_fold_critical_points_classified():
 def test_non_generic_slice_is_refused():
     with pytest.raises(ValueError, match="non-generic"):
         polynomial_time_branches([1.0, 0.0, 0.0], 0.0)
+
+
+def test_pe0_fold_branch_ambiguity_is_one_bit_and_signed_zero():
+    for t_obs in (0.04, 0.25, 1.0):
+        branches, weights = fiber_branch_weights([1.0, 0.0, 0.0], t_obs)
+        assert len(branches) == 2
+        assert signed_branch_count(branches) == 0
+        assert np.allclose(weights, [0.5, 0.5], atol=1e-12)
+        assert math.isclose(branch_entropy_bits(weights), 1.0, abs_tol=1e-12)
+    _, empty = fiber_branch_weights([1.0, 0.0, 0.0], -1.0)
+    assert branch_entropy_bits(empty) == 0.0
+
+
+def test_pe0_m0_symmetric_slice_entropy_is_exactly_three_halves_bits():
+    branches, weights = fiber_branch_weights([1.0, 0.0, -1.0, 0.0], 0.0)
+    assert len(branches) == 3
+    assert signed_branch_count(branches) == 1
+    assert np.allclose(sorted(weights), [0.25, 0.25, 0.5], atol=1e-10)
+    assert math.isclose(branch_entropy_bits(weights), 1.5, abs_tol=1e-9)
+
+
+def test_pe0_m0_band_edge_entropy_approaches_one_bit():
+    edge = 2.0 / (3.0 * math.sqrt(3.0))
+    _, weights = fiber_branch_weights([1.0, 0.0, -1.0, 0.0], edge - 1e-9)
+    assert abs(branch_entropy_bits(weights) - 1.0) < 1e-3
+
+
+def test_pe0_monotone_and_degenerate_carry_no_branch_ambiguity():
+    for coefficients in ([1.0, 0.0], [1.0, 0.0, 0.0, 0.0]):
+        for t_obs in (-0.5, 0.5):
+            branches, weights = fiber_branch_weights(coefficients, t_obs)
+            assert len(branches) == 1
+            assert branch_entropy_bits(weights) == 0.0
+
+
+def test_pe1_binned_fold_entropy_converges_to_differential_limit():
+    limit = 1.0 - 1.0 / math.log(2.0)
+    deviations = [
+        abs(binned_fold_entropy(eps) + math.log2(eps) - limit)
+        for eps in (1e-4, 1e-5, 1e-6)
+    ]
+    assert deviations[0] > deviations[1] > deviations[2]
+    assert deviations[2] < 0.05
 
 
 def test_schwinger_circle_baseline():

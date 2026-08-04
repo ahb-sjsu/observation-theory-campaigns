@@ -188,6 +188,57 @@ def polynomial_critical_points(
     return points
 
 
+def fiber_branch_weights(
+    coefficients: Iterable[float],
+    t_obs: float,
+    **kwargs: Any,
+) -> tuple[list[Branch], np.ndarray]:
+    """Branches and their pushforward weights at one generic observed value.
+
+    For a hidden state uniform in tau, the coarea formula assigns each
+    preimage a weight proportional to 1/|dt/dtau|; weights are normalized
+    over the fiber. This is observational (coarse-grained) structure, not
+    thermodynamic entropy production.
+    """
+    poly = np.asarray(list(coefficients), dtype=float)
+    branches = polynomial_time_branches(poly, t_obs, **kwargs)
+    if not branches:
+        return [], np.array([])
+    derivative = np.polyder(poly)
+    raw = np.array(
+        [1.0 / abs(float(np.polyval(derivative, b.tau))) for b in branches]
+    )
+    return branches, raw / raw.sum()
+
+
+def branch_entropy_bits(weights: Iterable[float]) -> float:
+    """Shannon entropy in bits of a branch-weight distribution."""
+    w = np.asarray(list(weights), dtype=float)
+    w = w[w > 0]
+    if w.size == 0:
+        return 0.0
+    return float(-(w * np.log2(w)).sum())
+
+
+def binned_fold_entropy(epsilon: float, *, half_width: float = 1.0) -> float:
+    """Shannon entropy in bits of the binned pushforward of the exact fold.
+
+    For t = tau^2 with tau uniform on [-half_width, half_width], the observed
+    density is p(t) = 1/(2*half_width*sqrt(t)) on (0, half_width^2]; bin
+    masses are exact via the CDF sqrt(t)/half_width. As epsilon -> 0,
+    H + log2(epsilon) converges to the differential entropy, which equals
+    1 - 1/ln(2) bits for half_width = 1: the caustic divergence at the fold
+    is integrable and produces no entropy pathology.
+    """
+    if epsilon <= 0 or half_width <= 0:
+        raise ValueError("epsilon and half_width must be positive")
+    top = half_width * half_width
+    edges = np.arange(0.0, top + epsilon, epsilon)
+    masses = np.diff(np.sqrt(np.minimum(edges, top))) / half_width
+    masses = masses[masses > 0]
+    return float(-(masses * np.log2(masses)).sum())
+
+
 def schwinger_circle_action(radius: float, mass: float, charge_field: float) -> float:
     """Semiclassical circular worldline action S=2*pi*m*R-pi*|qE|*R^2."""
     if radius < 0 or mass <= 0 or charge_field <= 0:
