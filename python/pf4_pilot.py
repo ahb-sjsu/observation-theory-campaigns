@@ -21,15 +21,19 @@ thermal at temperature T. The force on the time momentum is
 -g E u sech^2(t/L), a field localized in a slab of width L that the
 event crosses, so the field does bounded work.
 
-Version note (v1 finding, preserved). The first sweep used the
-unbounded coupling g E t u. Because t grows secularly with omega_t = 0,
-that coupling does unbounded work, the oscillator equilibrium runs away,
-and the fixed step under-resolved the strong-field cells (measured
-energy drift up to 0.23 at E = 2). Those cells were dynamically and
-numerically meaningless. The slab profile bounds the tilt at g E L,
-which removes the runaway at its physical source; the step is also
-tightened and a per-cell drift bar now excludes any cell above it from
-every fit.
+Version notes (both findings preserved). v1 used the unbounded coupling
+g E t u; secular growth of t made the field do unbounded work and
+energy drift reached 0.23 at E = 2, so the strong-field cells were
+meaningless. v2 introduced the slab but initialized the oscillator
+thermal about u = 0 while the saturated tilt already displaces the
+equilibrium to gEL/omega^2 at t(0); every member then carried a large
+coherent transient whose deterministic momentum transfer reversed
+every trajectory (measured fraction 1.0 at E = 1.5 for gaps 1 and 2),
+so nothing was a rare event. v3 initializes the ensemble thermal about
+the Newton-solved shifted equilibrium in the effective well, restores
+the campaign coupling g = 0.25 so the deterministic crossing kick sits
+below the gap, and lowers the gap grid to keep rates measurable. The
+per-cell drift bar excludes any cell above 1e-4 from every fit.
 
 The event reverses when the oscillator transfers momentum P across the
 gap during the slab crossing. Gaussian-tail reasoning predicts
@@ -61,7 +65,7 @@ from projection_fold import canonical_sha256  # noqa: E402
 
 OMEGA_U = 1.2
 LAM = 0.1
-G = 1.0
+G = 0.25
 T_BATH = 1.0
 SAUTER_L = 3.0
 T_START = -4.0 * SAUTER_L
@@ -69,11 +73,26 @@ DT = 1e-3
 TAU_MAX = 40.0
 N_PER_CELL = 50_000
 SEED = 20260805
-P_GRID = [1.0, 1.5, 2.0]
+P_GRID = [0.6, 0.9, 1.2]
 E_GRID = [0.5, 0.75, 1.0, 1.5, 2.0]
-CONTROL_CELL = (1.5, 1.0)
+CONTROL_CELL = (0.9, 1.0)
 MIN_COUNT_FOR_FIT = 5
 DRIFT_BAR = 1e-4
+
+
+def shifted_equilibrium(e_field: float, t_value: float) -> float:
+    """Newton solve of omega_u^2 u + lambda u^3 = -g E slab(t) for the
+    displaced oscillator equilibrium under the saturated tilt."""
+    tilt = -G * e_field * SAUTER_L * math.tanh(t_value / SAUTER_L)
+    u = tilt / OMEGA_U**2
+    for _ in range(50):
+        f = OMEGA_U**2 * u + LAM * u**3 - tilt
+        fp = OMEGA_U**2 + 3.0 * LAM * u**2
+        step = f / fp
+        u -= step
+        if abs(step) < 1e-14:
+            break
+    return u
 
 
 def static_family_reverses(
@@ -88,7 +107,9 @@ def run_cell(p_gap, e_field, *, dt=DT, n=N_PER_CELL, seed=SEED,
     rng = np.random.RandomState(seed + int(1000 * p_gap) + int(100 * e_field))
     t = np.full(n, T_START)
     pt = np.full(n, p_gap)
-    u = rng.standard_normal(n) * math.sqrt(T_BATH) / OMEGA_U
+    u_star = shifted_equilibrium(e_field, T_START)
+    omega_eff = math.sqrt(OMEGA_U**2 + 3.0 * LAM * u_star**2)
+    u = u_star + rng.standard_normal(n) * math.sqrt(T_BATH) / omega_eff
     pu = rng.standard_normal(n) * math.sqrt(T_BATH)
 
     def slab(t):

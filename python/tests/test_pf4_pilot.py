@@ -20,8 +20,14 @@ def test_p2_zero_field_null_and_energy_conservation():
     assert cell["max_relative_energy_drift"] < 1e-6
 
 
+def test_p2_quiet_approach_no_saturation():
+    cell = run_cell(0.6, 1.5, n=2000)
+    assert cell["fraction"] < 0.9, "cell saturated: coherent transient back"
+    assert cell["max_relative_energy_drift"] < 1e-4
+
+
 def test_p2_reversal_fraction_decreases_with_gap():
-    low = run_cell(1.0, 1.5, n=4000)
-    high = run_cell(2.0, 1.5, n=4000)
+    low = run_cell(0.6, 1.5, n=4000)
+    high = run_cell(1.2, 1.5, n=4000)
     assert low["fraction"] > high["fraction"]
-    assert low["max_relative_energy_drift"] < 1e-5
+    assert low["max_relative_energy_drift"] < 1e-4
