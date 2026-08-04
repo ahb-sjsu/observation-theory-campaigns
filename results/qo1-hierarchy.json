@@ -1,0 +1,145 @@
+{
+  "classical_anchors": {
+    "nonzero_gap": {
+      "d_full": 0.17328679513998635,
+      "d_merged": 0.1438410362258905,
+      "expected_gap": 0.0294457589140959,
+      "gap": 0.029445758914095843
+    },
+    "sufficiency_equality": {
+      "d_full": 0.05889151782819191,
+      "d_merged": 0.0588915178281918,
+      "gap": 1.1102230246251565e-16,
+      "statement": "orientation label carries zero distinguishing information for the symmetric pair: exact DPI equality"
+    }
+  },
+  "divergence": "umegaki-nats",
+  "label": "exploratory",
+  "levels": [
+    "position_only",
+    "position_plus_flux",
+    "full_boundary",
+    "full_state"
+  ],
+  "quantum": {
+    "hierarchies": {
+      "x": {
+        "0.4": {
+          "chain": {
+            "full_boundary": 0.0437333204769601,
+            "full_state": 0.08869823944818167,
+            "position_only": 0.004259286491659964,
+            "position_plus_flux": 0.03427806114789922
+          },
+          "gaps": {
+            "full_boundary-position_plus_flux": 0.009455259329060883,
+            "full_state-full_boundary": 0.04496491897122157,
+            "position_plus_flux-position_only": 0.030018774656239255
+          },
+          "largest_gap": "full_state-full_boundary"
+        },
+        "0.8": {
+          "chain": {
+            "full_boundary": 0.14840523655057591,
+            "full_state": 0.300989795958023,
+            "position_only": 0.04762097628370654,
+            "position_plus_flux": 0.11631963266610779
+          },
+          "gaps": {
+            "full_boundary-position_plus_flux": 0.03208560388446813,
+            "full_state-full_boundary": 0.15258455940744708,
+            "position_plus_flux-position_only": 0.06869865638240125
+          },
+          "largest_gap": "full_state-full_boundary"
+        },
+        "1.2": {
+          "chain": {
+            "full_boundary": 0.25052316849103784,
+            "full_state": 0.5081014600261597,
+            "position_only": 0.1339232416404581,
+            "position_plus_flux": 0.19635939816244896
+          },
+          "gaps": {
+            "full_boundary-position_plus_flux": 0.05416377032858888,
+            "full_state-full_boundary": 0.2575782915351219,
+            "position_plus_flux-position_only": 0.06243615652199086
+          },
+          "largest_gap": "full_state-full_boundary"
+        }
+      },
+      "z": {
+        "0.4": {
+          "chain": {
+            "full_boundary": 0.19896865212993964,
+            "full_state": 0.21321662865332325,
+            "position_only": 0.0,
+            "position_plus_flux": 0.19684754264712145
+          },
+          "gaps": {
+            "full_boundary-position_plus_flux": 0.0021211094828181842,
+            "full_state-full_boundary": 0.01424797652338361,
+            "position_plus_flux-position_only": 0.19684754264712145
+          },
+          "largest_gap": "position_plus_flux-position_only"
+        },
+        "0.8": {
+          "chain": {
+            "full_boundary": 0.6751828940372633,
+            "full_state": 0.7235321687609542,
+            "position_only": 0.0,
+            "position_plus_flux": 0.6679850926557451
+          },
+          "gaps": {
+            "full_boundary-position_plus_flux": 0.007197801381518154,
+            "full_state-full_boundary": 0.04834927472369088,
+            "position_plus_flux-position_only": 0.6679850926557451
+          },
+          "largest_gap": "position_plus_flux-position_only"
+        },
+        "1.2": {
+          "chain": {
+            "full_boundary": 1.1397775567543347,
+            "full_state": 1.2213960614618475,
+            "position_only": 0.0,
+            "position_plus_flux": 1.1276269342414116
+          },
+          "gaps": {
+            "full_boundary-position_plus_flux": 0.012150622512923093,
+            "full_state-full_boundary": 0.08161850470751286,
+            "position_plus_flux-position_only": 1.1276269342414116
+          },
+          "largest_gap": "position_plus_flux-position_only"
+        }
+      }
+    },
+    "model": {
+      "beta": 0.5,
+      "excited_site": 4,
+      "field": 2.0,
+      "flux_standin": "transverse-field energy density -h X on site 4 (declared, QO open question 8)",
+      "n_qubits": 8,
+      "outside": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "thetas": [
+        0.4,
+        0.8,
+        1.2
+      ]
+    },
+    "spectral_floor_spread": 0.0
+  },
+  "record_sha256": "4808513ecbc415f9c76370fd48f26101a2a9cce9840a657b70df7f7d0cf2f6a8",
+  "runtime": {
+    "code_commit": "1003235",
+    "generated_utc": "2026-08-04T08:48:18.836906+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "qo1-hierarchy-v1"
+}
