@@ -150,12 +150,12 @@ def main() -> int:
                rng.choice(len(keys), N_SOURCES, replace=False)]
     controls["torus_d2"] = dimension_estimate(graph, sources, 16)
 
-    graph = torus_3d(14)
+    graph = torus_3d(20)
     keys = list(graph)
     sources = [keys[i] for i in
                rng.choice(len(keys), N_SOURCES, replace=False)]
-    controls["torus_d3"] = dimension_estimate(graph, sources, 6,
-                                              window=(1, 5))
+    controls["torus_d3"] = dimension_estimate(graph, sources, 9,
+                                              window=(3, 9))
 
     tree = regular_tree(3, 12)
     tree_est = dimension_estimate(tree, [0], 11, window=(2, 10))
