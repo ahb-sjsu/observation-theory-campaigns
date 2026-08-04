@@ -67,13 +67,22 @@ def main() -> int:
     prev = np.zeros(WIDTH, dtype=np.uint8)
     curr = np.zeros(WIDTH, dtype=np.uint8)
     curr[WIDTH // 2] = 1
-    seed_prev, seed_curr = prev.copy(), curr.copy()
+    seed_curr = curr.copy()
 
     forward = [block_entropy_bits(curr)]
-    for _ in range(STEPS):
+    first_evolved = None
+    for k in range(STEPS):
         prev, curr = curr, step_elementary(curr, table) ^ prev
+        if k == 0:
+            first_evolved = curr.copy()
         forward.append(block_entropy_bits(curr))
 
+    # One extra forward step supplies the pair (a_{T+1}, a_T), so the
+    # reversal retraces a_T, a_{T-1}, .., a_0 in exact alignment with
+    # the forward record. The first version swapped (a_T, a_{T-1}) and
+    # retraced from a_{T-1}, a one-step misalignment the exact-retrace
+    # bar caught immediately.
+    prev, curr = curr, step_elementary(curr, table) ^ prev
     rev_prev, rev_curr = curr.copy(), prev.copy()
     reverse = [block_entropy_bits(rev_curr)]
     for _ in range(STEPS):
@@ -83,8 +92,8 @@ def main() -> int:
 
     retrace = max(abs(a - b) for a, b in
                   zip(reverse, forward[::-1], strict=True))
-    recovered = (np.array_equal(rev_curr, seed_prev)
-                 and np.array_equal(rev_prev, seed_curr))
+    recovered = (np.array_equal(rev_curr, seed_curr)
+                 and np.array_equal(rev_prev, first_evolved))
     assert retrace == 0.0, "entropy curve failed to retrace exactly"
     assert recovered, "microstate not recovered exactly"
     rise = forward[-1] - forward[0]
