@@ -5,6 +5,16 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{microtype}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
@@ -279,6 +289,29 @@ information.  Throughout all four control maps the signed count
 multiplicity and its entropy grow while the topological invariant is
 conserved, exactly as Theorem~\ref{thm:fold} requires.
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{loglogaxis}[paperaxis, height=0.5\columnwidth,
+  xlabel={bin width $\varepsilon$},
+  ylabel={deviation from limit (bits)},
+  legend pos=north west]
+\addplot[only marks, mark=*, mark size=2pt, blue!70!black]
+  table[x=eps, y=deviation] {figdata/pe1_convergence.dat};
+\addlegendentry{measured}
+\addplot[dashed, domain=1e-6:1e-4, samples=2, black!60]{0.4472*sqrt(x)};
+\addlegendentry{$\propto\sqrt{\varepsilon}$}
+\end{loglogaxis}
+\end{tikzpicture}
+\caption{Convergence of the binned fold-caustic entropy to its
+differential limit.  The deviation of $H_{\varepsilon}+\log_{2}\varepsilon$
+from $1-1/\ln 2$ bits shrinks proportionally to the square root of the bin
+width across the tested range, so the inverse-square-root caustic is
+integrable and produces no entropy pathology.  Points are recomputed
+deterministically from the sealed instrument.}
+\label{fig:convergence}
+\end{figure}
+
 \section{The fold caustic and resolution scaling}
 \label{sec:caustic}
 
@@ -317,6 +350,55 @@ $-\log_2 \epsilon$ shared by every absolutely continuous observed density,
 and the fold contributes only a finite, computable offset.  This
 convergence was verified in the stated range and is labeled demonstrated
 there, with the closed-form limit computed exactly.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 2, vertical sep=5mm,
+    xlabels at=edge bottom, xticklabels at=edge bottom},
+  paperaxis, height=0.42\columnwidth,
+  xlabel={observation level $t$}]
+\nextgroupplot[ylabel={preimage count}, ymin=3, ymax=14, ytick={4,8,12}]
+\addplot[blue!70!black, const plot]
+  table[x=level, y=multiplicity] {figdata/pe2_staircase.dat};
+\nextgroupplot[ylabel={entropy (bits)}, ymin=0]
+\addplot[red!70!black]
+  table[x=level, y=entropy] {figdata/pe2_staircase.dat};
+\end{groupplot}
+\end{tikzpicture}
+\caption{The observation axis of one hidden trajectory of the toy
+Hamiltonian.  The unsigned preimage count (top) is a staircase whose
+breakpoints are the fold values of the observed time and whose interior
+band profile is $4$, $8$, $12$, $13$ before descending symmetrically.  The
+coarea branch entropy (bottom) rises and falls with the staircase.  The
+signed count, not shown, equals the path degree at every tested level.}
+\label{fig:staircase}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.5\columnwidth,
+  xlabel={hidden evolution parameter $\tau$},
+  ylabel={observed entropy $H_{\varepsilon}$ (bits)},
+  ymin=0, legend pos=south east]
+\addplot[blue!70!black]
+  table[x=tau, y=forward] {figdata/pe2_cycle.dat};
+\addlegendentry{forward}
+\addplot[only marks, mark=o, mark size=1.5pt, each nth point=8,
+  red!70!black]
+  table[x=tau, y=reverse_reflected] {figdata/pe2_cycle.dat};
+\addlegendentry{reversed, reflected}
+\end{axis}
+\end{tikzpicture}
+\caption{Observed binned entropy of the coordinate-time marginal for the
+ten-thousand-member ensemble.  The forward curve spans $2.07$ bits.  The
+open circles show the momentum-reversed run reflected in time, which
+retraces the forward curve with defect exactly zero while the initial
+hidden ensemble is recovered to $1.1\times 10^{-14}$, so the entire
+entropy change is observational.}
+\label{fig:cycle}
+\end{figure}
 
 \section{A reversible fold cycle}
 \label{sec:cycle}
