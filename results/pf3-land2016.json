@@ -1,0 +1,385 @@
+{
+  "continuous_accumulation_finding": {
+    "statement": "with the source's frozen-point convention the kick generator exponentiates to cosh/sinh evolution and never reverses tdot; the published ge > 2 threshold is the pole of the midpoint (Cayley / Pade(1,1)) form of the same generator",
+    "sweeps": {
+      "1.0": {
+        "closed_vs_rk4": 7.993605777301127e-15,
+        "ge": 1.0,
+        "reverses": false,
+        "rhat_x": 0.8,
+        "tdot_final_closed_form": 1.8163997576546032,
+        "tdot_final_impulse_cayley": 2.019617586129819,
+        "tdot_final_rk4": 1.8163997576546111,
+        "tdot_in": 1.0910894511799618,
+        "tdot_min_along_path": 1.061734786763577,
+        "v": 0.4
+      },
+      "3.0": {
+        "closed_vs_rk4": 1.3855583347321954e-13,
+        "ge": 3.0,
+        "reverses": false,
+        "rhat_x": 0.8,
+        "tdot_final_closed_form": 16.554654547324393,
+        "tdot_final_impulse_cayley": -5.59887587456169,
+        "tdot_final_rk4": 16.554654547324255,
+        "tdot_in": 1.0910894511799618,
+        "tdot_min_along_path": 1.061734789562517,
+        "v": 0.4
+      },
+      "6.0": {
+        "closed_vs_rk4": 1.0231815394945443e-12,
+        "ge": 6.0,
+        "reverses": false,
+        "rhat_x": 0.8,
+        "tdot_final_closed_form": 350.37756741903036,
+        "tdot_final_impulse_cayley": -3.3520003456917618,
+        "tdot_final_rk4": 350.37756741902933,
+        "tdot_in": 1.0910894511799618,
+        "tdot_min_along_path": 1.0617347895625202,
+        "v": 0.4
+      }
+    }
+  },
+  "grid": {
+    "ge_values": [
+      0.25,
+      0.5,
+      1.0,
+      1.5,
+      1.9,
+      2.1,
+      3.0,
+      5.0,
+      10.0,
+      50.0
+    ],
+    "rhat_values": [
+      [
+        0.8,
+        0.6
+      ],
+      [
+        0.6,
+        0.8
+      ],
+      [
+        0.96,
+        0.28
+      ]
+    ],
+    "tdot_in_values": [
+      1.0206207261596576,
+      1.0910894511799618,
+      1.2909944487358056
+    ],
+    "v_values": [
+      0.2,
+      0.4,
+      0.6
+    ]
+  },
+  "guards": {
+    "asymptote_limit": -3.091089451179962,
+    "asymptote_series": {
+      "10.0": -3.1198683119542974,
+      "100.0": -3.078791458568758,
+      "1000.0": -3.089709579878576
+    },
+    "eq66_vs_eq67_max_residual": 5.684341886080802e-14,
+    "eq67_vs_eq76_max_mismatch": 1.4210854715202004e-14,
+    "min_timelike_margin": -69.04141302879555,
+    "n_spacelike_cells": 27,
+    "rutherford_cot_half_angle_08_06": 0.7499999999999999,
+    "spacelike_cells": [
+      {
+        "ge": 1.0,
+        "margin": -1.2586961250514253,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.5,
+        "margin": -8.271996994977371,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.9,
+        "margin": -67.45029148647507,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.0,
+        "margin": -1.3675623358417877,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.5,
+        "margin": -8.551938679866876,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.9,
+        "margin": -69.04141302879555,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.0,
+        "margin": -1.171603156419133,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.5,
+        "margin": -8.048043647065775,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.9,
+        "margin": -66.17739425261803,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.2
+      },
+      {
+        "ge": 1.0,
+        "margin": -0.8570562698997177,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.5,
+        "margin": -7.360012324622067,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.9,
+        "margin": -62.81608354999861,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.0,
+        "margin": -1.0898220194847732,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.5,
+        "margin": -7.958552823555081,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.9,
+        "margin": -66.21804450547234,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.0,
+        "margin": -0.6708436702316707,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.5,
+        "margin": -6.881179925475674,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.9,
+        "margin": -60.09451478561934,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.4
+      },
+      {
+        "ge": 1.0,
+        "margin": -0.39999999999999947,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.5,
+        "margin": -6.457142857142866,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.9,
+        "margin": -58.92307692307668,
+        "rhat": [
+          0.8,
+          0.6
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.0,
+        "margin": -0.8000000000000003,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.5,
+        "margin": -7.4857142857142875,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.9,
+        "margin": -64.76923076923049,
+        "rhat": [
+          0.6,
+          0.8
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.0,
+        "margin": -0.08000000000000113,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.5,
+        "margin": -5.634285714285719,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.6
+      },
+      {
+        "ge": 1.9,
+        "margin": -54.2461538461537,
+        "rhat": [
+          0.96,
+          0.28
+        ],
+        "v": 0.6
+      }
+    ],
+    "spacelike_reading": "intermediate-ge spacelike outgoing velocities are the Stueckelberg crossing of the spacelike region, not a transcription error; the source's timelike claim is about the ge->infinity limit",
+    "threshold_ge2_exact": true
+  },
+  "label": "exploratory",
+  "midpoint_bridge": {
+    "above_threshold": {
+      "crossings": [
+        {
+          "classification": "annihilation-fold",
+          "tau": -0.007568824967737205,
+          "tdot_slope": -229.57840301202958
+        }
+      ],
+      "ge": 3.0,
+      "lambda": 0.02,
+      "n_tdot_zero_crossings": 1,
+      "rhat_x": 0.8,
+      "tdot_final_impulse": -5.59887587456169,
+      "tdot_in": 1.0910894511799618,
+      "v": 0.4
+    },
+    "below_threshold": {
+      "crossings": [],
+      "ge": 1.0,
+      "lambda": 0.02,
+      "n_tdot_zero_crossings": 0,
+      "rhat_x": 0.8,
+      "tdot_final_impulse": 2.019617586129819,
+      "tdot_in": 1.0910894511799618,
+      "v": 0.4
+    }
+  },
+  "record_sha256": "5d06aabb2e8d5a397b90bd014f1c45ce18ef6527a8a81952662fdfc0a4fc6173",
+  "runtime": {
+    "code_commit": "063e34f",
+    "generated_utc": "2026-08-04T10:47:28.871490+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf3-shp-land2016-v1",
+  "source": {
+    "arxiv": "1604.01625v1",
+    "provenance_note": "experiments/PF3-PROVENANCE.md",
+    "related_doi": "10.1088/1742-6596/845/1/012025"
+  }
+}
