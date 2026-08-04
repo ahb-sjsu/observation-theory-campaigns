@@ -399,8 +399,18 @@ model.
 
 ---
 
-### QO-2: The gravitational flip — IMPLEMENTED, FLIP CONFIRMED IN-MODEL
-(exploratory)
+### QO-2: The gravitational flip — [demonstrated-in-model] under
+PREREG-QO2-001
+
+Governed run 2026-08-04 (sealing commit 106f25e, evidence
+`results/prereg-qo2-001.json`): on angle grids fully disjoint from the
+exploratory run, the flip holds at k* = 1 at the primary coupling point
+(T-arm task 0.0000 vs F-arm 0.1076 against a 0.01 margin; T-arm
+infidelity 0.3637 vs F-arm 0.0678 against a 0.01 margin) and at both
+secondary points, with the anti-arm worst everywhere (>= 1.25 vs
+<= 0.111). The claim is demonstrated in this model class and encoder
+family; the exploratory record below is superseded for claim purposes
+and retained as history.
 
 Implemented 2026-08-04 as `python/qo2_flip.py` with tests in
 `python/tests/test_qo2.py` (including a 2-qubit analytic flip control that
@@ -467,8 +477,19 @@ or only on training states, it is classified as an optimization artifact.
 
 ---
 
-### QO-3: Consistency across a consumer family — IMPLEMENTED, TWO-SIDED
-RESULT (exploratory)
+### QO-3: Consistency across a consumer family — [demonstrated-in-model]
+under PREREG-QO3-001
+
+Governed run 2026-08-04 (sealing commit 106f25e, evidence
+`results/prereg-qo3-001.json`): on a coupling grid fully disjoint from
+the exploratory one, with delta = 0.05 preregistered, both sealed claims
+pass. Activation: joint family-B survival 0.25 against minimum single
+1.00. Inertness: joint family-A survival exactly equals minimum single
+at 1.00. The surviving family-B set is exactly the weak-coupling row
+J = 0.7, the fresh-grid analogue of the exploratory J = 0.6 row, so the
+predicted secondary structure reproduced as well. Demonstrated in this
+model family; the exploratory record below is superseded for claim
+purposes and retained as history.
 
 Implemented 2026-08-04 as `python/qo3_family.py` with tests in
 `python/tests/test_qo3.py`; evidence `results/qo3-family.json`. The
