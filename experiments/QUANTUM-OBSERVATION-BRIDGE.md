@@ -399,7 +399,38 @@ model.
 
 ---
 
-### QO-2: The gravitational flip
+### QO-2: The gravitational flip — IMPLEMENTED, FLIP CONFIRMED IN-MODEL
+(exploratory)
+
+Implemented 2026-08-04 as `python/qo2_flip.py` with tests in
+`python/tests/test_qo2.py` (including a 2-qubit analytic flip control that
+no optimizer can fake, answering open question 2 for this model class);
+evidence `results/qo2-flip.json`. The encoder family is discrete and
+exhaustively searched, so there is no optimization artifact to classify.
+The declared task is the flux functional only; the area-response variant
+remains deferred on open question 3. The anti-arm (T-arm encoder with the
+flux qubit Z-pinched at identical budget, per open question 7) was worst
+on task at every budget (1.289 against 0.118 and 0.000), so the runs are
+interpretable.
+
+Measured on held-out states, budgets in stored qubit slots:
+
+- k = 1: T-arm keeps the flux site: task distortion exactly 0, infidelity
+  0.326. F-arm keeps the strong site: task distortion 0.118, infidelity
+  0.069. FLIP: the task-optimized encoder wins the task outright and is
+  4.7x worse on global fidelity.
+- k = 2: same split (F-arm keeps the correlated strong pair rather than
+  adding the weakly-excited flux qubit: fidelity prefers preserving
+  correlation structure). FLIP again.
+- k = 3: the fidelity-optimal subset now contains the flux qubit, both
+  arms reach task distortion 0, and the flip vanishes.
+
+The flip region is contiguous (budgets 1 and 2) and the flip dies exactly
+when the budget suffices to keep everything task-relevant: the flip is a
+scarcity phenomenon, which is the budget-relativity structure the
+classical Observation Theory flip predicts. This completes paper step 5
+(quantum flip for an energy-flux consumer, positive sign) at exploratory
+label; a sealed prereg would be required before the paper can claim it.
 
 **Question.** At matched budget, does an encoding optimized for the flux
 functional beat a fidelity-optimized encoding on area-response prediction
