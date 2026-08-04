@@ -1,0 +1,528 @@
+# EG Track: Entropic Geometry from Singular Projections
+
+**Status:** design draft, unsealed, non-claim-bearing. No physics claims are
+made anywhere in this document. Every quantitative statement below is either
+a citation, a definition, or a target for a future sealed run.
+
+## 1. Question
+
+Can spacetime geometry be reconstructed as the information geometry of a
+singular projection, with gravity arising from matter-induced changes in the
+distinguishability of hidden states?
+
+Concretely: if an observer sees X = pi(Z) for hidden state Z, the fibers
+pi^{-1}(x) carry an entropy field. Matter, modeled as a local deformation of
+the hidden dynamics or hidden-state density, deforms the fiber measure. The
+question is whether the induced gradients of distinguishability can play the
+role of a gravitational potential, with the Newtonian Poisson equation
+nabla^2 Phi = 4 pi G rho as the pilot target, without inserting that
+structure anywhere in the model.
+
+The track separates three claims that must not be conflated:
+
+1. **Instrument claim:** fiber entropy, conditional entropy, and relative
+entropy of fiber measures can be measured correctly at finite resolution.
+This extends the PE track and is testable now.
+2. **Structural claim:** some declarable projection geometry yields area-law
+state counting, inverse-square attraction, universal coupling, and
+conservation identities, none of them inserted. This is the campaign.
+3. **Physical claim:** real gravity is such a projection. Nothing in this
+track can support this claim and no run will be labeled as doing so.
+
+## 2. Context: the entropic-gravity lineage
+
+All four works below are theoretical proposals or derivations. None is an
+experimental result. Each derives gravitational field equations FROM assumed
+thermodynamic or information-theoretic inputs; none derives those inputs from
+an independently specified microscopic substrate, which is exactly the gap
+this track's constructive route targets.
+
+**T. Jacobson, "Thermodynamics of Spacetime: The Einstein Equation of
+State", arXiv:gr-qc/9504004 (v2, June 1995), Phys. Rev. Lett. 75, 1260-1263
+(1995).** The lineage root. Demands that the Clausius relation
+delta Q = T delta S hold for all local Rindler causal horizons, with
+delta Q the energy flux and T the Unruh temperature seen by an accelerated
+observer, and derives the Einstein equation as an equation of state. What it
+establishes: Einstein dynamics follows from entropy proportional to horizon
+area plus the Clausius relation. What it does not establish: why entropy is
+proportional to area, what the microscopic states are, or what physical
+system the entropy is the entropy of. The proportionality S ~ A is an input.
+
+**G. Bianconi, "Gravity from entropy", arXiv:2408.14391 (v1 26 Aug 2024
+through v7 8 Feb 2025), Phys. Rev. D 111, 066001 (2025).** Postulates an
+entropic action given by the quantum relative entropy between the spacetime
+metric, treated as an operator playing the role of an effective density
+matrix, and a metric induced by matter fields in a topological
+(Dirac-Kahler) representation. The modified Einstein equations reduce to the
+standard ones with zero cosmological constant at low coupling, and an
+auxiliary G-field acting as Lagrange multipliers yields an emergent small
+positive cosmological constant. What it establishes: a self-consistent
+action of relative-entropy form whose weak-coupling limit is Einstein
+gravity. What it does not establish: the action is postulated, not derived;
+there is no microscopic ensemble whose coarse-graining produces the density
+matrices; there is no falsifiable prediction tested against data in the
+paper.
+
+**P. Dorau and A. Much, "From Quantum Relative Entropy to the Semiclassical
+Einstein Equations", arXiv:2510.24491 (v1 28 Oct 2025, v3 3 Mar 2026),
+listed journal reference Phys. Rev. Lett. 136, 091602 (2026).** Uses
+Tomita-Takesaki modular theory to show that the relative entropy between the
+vacuum and coherent excitations of a scalar quantum field on a bifurcate
+Killing horizon equals the energy flux across the horizon; combined with the
+Bekenstein-Hawking entropy-area formula this yields the semiclassical
+Einstein equations, refining Jacobson by replacing classical thermodynamic
+entropy with quantum relative entropy for a specific state class. What it
+establishes: the flux-entropy equality is a theorem of modular theory for
+that state class and geometry. What it does not establish: the
+Bekenstein-Hawking formula is still an input, the state class is special,
+and a Killing horizon is assumed rather than emergent.
+
+**A. Alonso-Serrano, L. J. Garay, M. Liska, C. Lopez Pineros, "Gravity from
+equilibrium thermodynamics of stretched light cones", arXiv:2509.08566 (v1
+10 Sep 2025, v4 24 Feb 2026), Phys. Rev. D 112, 124026 (2025), DOI
+10.1103/y9rz-b88v.** Studies stretched light cones of uniformly accelerating
+observers, computes their expansion, shear, and vorticity, and shows the
+shear vanishes so the analysis can be carried out entirely in equilibrium
+thermodynamics; energy balance plus the Clausius relation then encodes the
+gravitational dynamics. What it establishes: the Jacobson-type argument can
+be run on a different, shear-free local structure without non-equilibrium
+entropy production terms. What it does not establish: same as Jacobson; the
+entropy-area proportionality and the Unruh temperature are inputs.
+
+Two standing caveats govern how this track reads the entire lineage:
+
+**Entropy is a functional, not a substance.** Entropy is a property of a
+state (or ensemble) together with a coarse-graining. "Gravity from entropy"
+is meaningless until the state, the coarse-graining, and the observer are
+specified. In this track all three are explicit: the hidden ensemble, the
+projection pi with resolutions (delta, epsilon), and the declared fiber
+measure.
+
+**The reverse-engineering caveat.** For any potential V(x) one can define
+S(x) = -V(x)/T and observe that F = -grad V = T grad S. This is a renaming,
+not an explanation. Any "entropic force" account that selects its entropy
+function to match a known potential has zero content. An entropic derivation
+earns content only when the entropy is computed from an independently
+specified state and coarse-graining, and the force law then follows without
+having been inserted. The anti-circularity contract in section 4 is the
+enforcement of this caveat, and EG-2 includes an explicit audit for
+potential-equivalent inputs.
+
+## 3. Projection-entropy objects
+
+The objects are those of the PE track (ENTROPY-TRACK.md), extended by a
+relative-entropy comparison between deformed and undeformed ensembles:
+
+- hidden state Z in a smooth manifold M, with a declared reference ensemble
+(the "vacuum" ensemble) and declared local dynamics;
+- observation map pi: M -> observed space, X = pi(Z);
+- the fiber pi^{-1}(x) of hidden states compatible with one observation;
+- the fiber entropy S_pi(x) = k_B ln mu(pi^{-1}(x)) for a fiber measure mu
+declared before any claim-bearing run;
+- the conditional entropy H(Z_delta | X_epsilon) at finite hidden resolution
+delta and finite observed resolution epsilon;
+- the relative entropy D(mu_matter(x) || mu_vac(x)) between the
+matter-deformed and vacuum fiber measures at each observed point.
+
+The finite-resolution formulation is mandatory, not optional. Continuous
+conditional entropy under a deterministic projection has coordinate
+pathologies near singularities, and differential entropy is not
+reparametrization invariant; a claimed entropy gradient that changes sign
+under a hidden-coordinate change is an artifact, not a force. Every EG
+witness is defined at stated (delta, epsilon) and must converge as both are
+refined, exactly as the PE-1 convergence slice already demonstrates for the
+fold caustic.
+
+The candidate geometric object is an effective line element built from
+distinguishability: the distance between nearby observed points x and x' is
+measured by how distinguishable their fiber-conditional distributions are
+(a Fisher-information or relative-entropy quadratic form on the family
+mu(.|x)). Whether this object behaves like a metric at all, and whether
+matter deformations curve it the right way, is what the campaign tests. It
+is not assumed.
+
+## 4. The decisive derivation chain and its anti-circularity contract
+
+A claim-bearing EG result must traverse this chain in one direction only:
+
+```text
+Level 0: hidden manifold M, local dynamics, projection pi,
+         fiber measure mu, vacuum ensemble
+              |
+Level 1: fiber entropy S_pi(x); relative entropy of
+         matter-deformed versus vacuum fibers
+              |
+Level 2: effective metric from distinguishability;
+         area law for boundary state counting
+              |
+Level 3: dynamics: Newtonian limit nabla^2 Phi = 4 pi G rho
+         as pilot target; Einstein-like structure beyond
+```
+
+Everything at Level 0 is frozen before the claim-bearing sweep. Everything
+at Levels 1-3 is measured, never adjusted. If the gravitational equation, or
+any consequence of it, is used to select or tune the fiber measure, the run
+is void. This is the EG analogue of the CAMPAIGN.md section 3 contract, and
+the forbidden-input list mirrors it:
+
+- a command or fitted term producing attraction, area scaling, or the
+Poisson equation at the desired strength;
+- any 1/r potential, 1/r^2 force, or their equivalents inserted into the
+hidden dynamics, the projection, the fiber measure, or the source model;
+- the Bekenstein-Hawking coefficient, or any entropy-area proportionality,
+as an input rather than a measured output;
+- an entropy function chosen after inspecting which choice reproduces a
+target potential (the reverse-engineering caveat as a contract clause);
+- a temperature defined from the first law it is later used to verify;
+- postselection on regions, sources, or configurations that exhibit
+attraction, area scaling, or the desired sign;
+- coarse-graining or resolution choices made after examining their effect
+on the witnesses;
+- loss functions fitted to any target law on the parameter range used for
+evaluation;
+- observer-specific coordinate choices that are not transformed with the
+observer.
+
+The model may contain: local hidden fields and dynamics, a projection, a
+declared fiber measure, a declared detector model for temperature, and a
+source distribution, all fixed before the claim-bearing sweep.
+
+## 5. The area-law gate
+
+This is EG's first major gate and the expected point of failure.
+
+Generic hidden multiplicity scales with volume. For a generic projection
+and a generic ensemble, the number of independently distinguishable hidden
+states associated with an observed region of linear size R scales as R^3
+(in three observed dimensions), so S(R) ~ R^3. Every entropic account of
+gravity in the lineage above requires boundary scaling, S(R) ~ R^2. The
+framework becomes relevant to gravity only if some declarable projection
+geometry makes the independently distinguishable states associated with a
+region scale with its boundary area, and does so for a structural reason
+that is itself not inserted.
+
+Candidate mechanisms to be formalized and tested, each as a concrete
+Level-0 construction:
+
+- **Gauge redundancy.** Interior hidden states are identified under a
+declared symmetry group; only the quotient is counted. Area scaling would
+require the quotient's independent labels to live on the boundary.
+- **Equivalence-related fibers.** Distinct fibers over interior points are
+related by hidden-dynamics equivalences, so joint multiplicity is not the
+product of fiber multiplicities.
+- **Error-correcting encodings.** Interior information is redundantly
+encoded across the region, so the number of independent logical states is
+set by a boundary-sized code, not the physical volume.
+- **Boundary-limited access.** The observation map reads the interior only
+through boundary data. This must create a genuine distinguishability
+limit in the declared ensemble, not merely an access inconvenience.
+- **Projection rank constraints.** The rank of d(pi) restricted to the
+region limits the number of independent observed directions.
+- **Long-range correlation.** Interior states are correlated strongly
+enough that joint entropy is subextensive.
+- **Interior conservation links.** Constraints of Gauss-law type tie
+interior configurations to boundary fluxes, removing interior
+independence.
+
+Standing warning: volume concentration near a boundary is NOT sufficient. A
+measure concentrated in a shell near the boundary still counts
+volume-independent distinctions unless the interior distinctions are
+genuinely non-independent; a thin shell of thickness delta contributes
+R^2 * delta / delta^3 states at resolution delta, which is still a
+volume law in disguise as delta -> 0. The gate is about independence of
+distinctions, not about where the measure sits.
+
+A clean negative at this gate, a proof or measured demonstration that a
+declared mechanism class cannot produce area scaling, is a publishable
+result and the expected one.
+
+## 6. Experiments
+
+### EG-0: Projection entropy instrumentation
+
+**Question.** Do the finite-resolution entropy instruments measure
+H(Z_delta | X_epsilon) and the relative entropy between matter-deformed and
+vacuum fiber measures correctly?
+
+**Method.** Extend the PE-0 instrument (`pf.fiber_entropy` in MATLAB,
+`fiber_branch_weights` / `branch_entropy_bits` in Python, exercised by
+`run_pe0_entropy_controls.m` and pytest) with: (a) the full
+H(Z_delta | X_epsilon) surface on the analytic control net; (b) relative
+entropy D(mu_1 || mu_2) on control pairs with closed-form values (shifted
+and scaled uniform fibers, Gaussian fibers with known KL divergence, the
+exact fold with a declared deformation); (c) convergence sweeps in delta
+and epsilon. Every EG-0 target must first reproduce the already-passing
+PE-0 closed-form values (P0 one bit, M0 1.5 bits at the symmetric slice,
+band-edge limit, N0/D0 zero) before any new target is evaluated.
+
+**Primary witnesses.** Conditional-entropy error against closed form,
+relative-entropy error against closed form, convergence order in delta and
+epsilon, cross-language agreement, invariance of all witnesses under
+declared hidden-coordinate reparametrization.
+
+**Falsification bar.** Any disagreement with a closed-form value beyond
+the sealed tolerance, any witness that fails to converge under resolution
+refinement, or any witness that changes under hidden reparametrization
+invalidates the instrument. No later EG experiment may run until EG-0 is
+sealed and passing.
+
+**Substrate.** MATLAB on Atlas with Python replication, exactly as PF-0.
+
+---
+
+### EG-1: Area-versus-volume scaling test
+
+**Question.** For each candidate mechanism in section 5, does the measured
+entropy of the independently distinguishable states associated with a
+region of size R scale as R^3 or as R^2?
+
+**Method.** Implement each mechanism as a concrete Level-0 construction.
+Measure S(R) at fixed (delta, epsilon) over at least two decades of R, then
+repeat at refined resolutions to separate genuine scaling from resolution
+artifacts. Fit the exponent against preregistered alternatives: exponent 3,
+exponent 2, free power law, and a penalized spline.
+
+**Primary witnesses.** Fitted scaling exponent with confidence interval,
+residual structure, exponent stability under resolution refinement,
+mechanism-by-mechanism classification.
+
+**Falsification bar.** For any mechanism, a measured volume law where the
+framework requires an area law fails that mechanism immediately; if all
+declared mechanisms fail, the gravity relevance of the whole track fails at
+this gate and the campaign result is the negative classification. An
+apparent area law that drifts toward volume under resolution refinement is
+classified as a resolution artifact, not a pass.
+
+**Substrate.** MATLAB on Atlas for pilots and reduction; NRP CPU ensembles
+for the scaling sweeps.
+
+---
+
+### EG-2: Matter deformation
+
+**Question.** Does a local source, with NO inserted radial potential
+anywhere in the model, deform the fiber measure so that the induced drift
+on coarse variables has acceleration a(r) ~ -M/r^2?
+
+**Method.** Declare a local source as a bounded modification of the hidden
+dynamics or hidden-state density, verified by audit to contain no radial
+potential or its equivalent. Compute the deformed fiber measure and the
+relative-entropy field D(mu_matter(x) || mu_vac(x)). Derive the drift of
+coarse observables from the coarse-grained hidden dynamics alone, with any
+mobility or temperature factor declared at Level 0. Fit a(r) against r over
+the accessible range, for several source strengths M.
+
+**Reverse-engineering audit (mandatory).** Before the claim-bearing sweep,
+run the declared source through an equivalence check: if the source's
+effect on the fiber measure can be written as mu_matter = mu_vac *
+exp(-V(x)/T) for some radial V equal to the target potential up to fit
+tolerance, and V was expressible from the source parameters without
+running the dynamics, the construction is potential-equivalent and the run
+is void under section 4.
+
+**Primary witnesses.** Log-log slope of |a| versus r (target -2), sign of
+the drift (attraction), linearity in source strength, angular isotropy,
+stability of all four under matched changes of coarse-graining, resolution,
+and integrator.
+
+**Falsification bar.** A slope excluding -2, repulsion, nonlinearity in M
+in the weak-source regime, or a drift that appears or disappears under
+matched resolution or coarse-graining changes rejects the mechanism. A
+positive that fails the reverse-engineering audit is void, not positive.
+
+**Substrate.** MATLAB on Atlas for exact small-N analytics; NRP for
+ensemble estimation of the deformed measure.
+
+---
+
+### EG-3: Local first-law test
+
+**Question.** Does delta Q = T delta S hold locally with flux, temperature,
+and entropy each defined independently?
+
+**Method.** Define delta Q from the conservation law of the hidden
+dynamics (the same accounting discipline as PF-5). Define T from a declared
+detector or fluctuation-response model that makes no reference to the first
+law (the EG analogue of an Unruh-type response, fixed at Level 0). Define
+delta S from the EG-0 instrument. Drive controlled quasi-static
+deformations and compare the three independently measured quantities.
+
+**Primary witnesses.** The residual delta Q - T delta S relative to each
+term; an independence audit certifying that each of the three quantities
+was computed without reference to the other two; residual behavior under
+deformation-rate refinement (quasi-static limit).
+
+**Falsification bar.** If the relation holds only when T is defined as
+delta Q / delta S, the test is circular and void. A residual beyond the
+sealed bar in the quasi-static limit rejects the thermodynamic reading of
+the fiber entropy. This gate mirrors the role the Clausius relation plays
+as an INPUT in Jacobson 1995 and arXiv:2509.08566; here it must be an
+OUTPUT or the chain stops.
+
+**Substrate.** MATLAB on Atlas.
+
+---
+
+### EG-4: Geometric equation test
+
+**Question.** Does the induced potential satisfy the Poisson equation and
+its structural consequences, none of which were inserted?
+
+**Method.** Take the potential Phi measured in EG-2-class runs. Calibrate
+the single constant G_eff once, on a training region only. Then test, on
+held-out configurations:
+
+1. Poisson: nabla^2 Phi = 4 pi G_eff rho pointwise within bars;
+2. Gauss law: flux of the measured field through closed surfaces equals
+4 pi G_eff times enclosed source, surface-shape independent;
+3. shell theorem: a uniform shell produces null interior force and
+exterior force equal to the point-source equivalent;
+4. superposition: two weak sources produce the sum of their individual
+fields within the weak-field bar;
+5. equivalence principle: test states of different internal structure and
+composition fall with the same acceleration;
+6. conservation identities: source accounting and field-flux consistency
+under time-dependent rearrangement of sources.
+
+**Primary witnesses.** Poisson residual field, Gauss flux ratio across
+surface shapes, interior shell residual, superposition defect, composition
+dependence of test-state acceleration, conservation residuals.
+
+**Falsification bar.** Failure of any single item beyond its sealed bar
+rejects the Newtonian-limit claim. Items 3-5 are the discriminating ones: a
+reverse-engineered entropy gradient can fake item 1 on the training region
+but has no reason to pass shell, superposition, and universality on
+held-out configurations simultaneously.
+
+**Substrate.** NRP ensembles for field maps; MATLAB on Atlas for
+independent reduction and the analytic shell/superposition references.
+
+---
+
+### EG-5: Black-hole benchmark
+
+**Question.** At the compact-source limit, does the framework reproduce
+horizon-like thermodynamics, and does the projection hide information
+rather than delete it?
+
+**Method.** Drive the declared source toward the compact limit permitted by
+the model. Measure: (a) entropy of the enclosed region versus the area of
+the enclosing surface; (b) the declared detector temperature versus the
+surface-gravity analogue kappa (target relation T ~ kappa / 2 pi in the
+model's units); (c) global recoverability: the full-resolution hidden
+record must remain sufficient to reconstruct the initial hidden state
+(volume preservation and invertibility audit), so that any apparent
+information loss is attributable to the projection and resolution, never to
+deletion; (d) the fine-grained conservation accounting of PF-5 throughout.
+
+**Primary witnesses.** Stability of the entropy-area coefficient across
+source strengths, slope of T versus kappa, hidden-state reconstruction
+residual at full resolution, fine-grained volume-conservation residual.
+
+**Falsification bar.** Entropy scaling with enclosed volume at the compact
+limit, a temperature unrelated to kappa, or any apparent deletion of hidden
+information traced to the model rather than to a declared resolution limit
+rejects the benchmark. EG-5 may not run unless EG-1 through EG-4 have
+passed; a black-hole analogy on top of a failed area gate is forbidden by
+construction.
+
+**Substrate.** NRP for the ensemble limit; MATLAB on Atlas for reduction.
+
+## 7. Comparison: postulated entropic action versus constructive route
+
+| Aspect | Bianconi, arXiv:2408.14391 | This track |
+|---|---|---|
+| Origin of entropy | Postulated action: quantum relative entropy between the metric, read as an effective density matrix, and a matter-induced metric | Derived: entropy of fibers of a concrete observation map with a fiber measure declared before runs |
+| Status of the metric | Fundamental variable of the action | Candidate emergent object: distinguishability form on fiber-conditional distributions, tested rather than assumed |
+| Matter coupling | Matter fields induce a second metric inside the postulated action | Matter is a declared local deformation of hidden dynamics; it deforms the fiber measure, and everything else must follow |
+| Field equations | Variation of the postulated action; Einstein limit at low coupling | Must emerge from coarse-grained hidden dynamics and survive EG-4's held-out structural tests |
+| Cosmological constant | Emergent, small, positive, from G-field multipliers | No statement; outside the pilot scope |
+| Validation mode | Analytical self-consistency | Analytical work plus a sealed falsification campaign with preregistered bars |
+| Designed failure point | None; the action is chosen to work | EG-1 area gate, where the generic expectation is failure |
+
+The two routes are complementary, not competing: if the constructive route
+ever produced an area law and a first law, comparing the resulting
+effective action to Bianconi's postulated one would be a natural follow-up.
+Nothing licenses that comparison today.
+
+## 8. Position in the campaign
+
+EG runs AFTER the PE entropy track validates its instruments. Concretely:
+PE-0 is implemented and passing, but EG-0 additionally requires the full
+H(Z_delta | X_epsilon) surface and the relative-entropy extension, and the
+PE-2 reversible-cycle discipline is a prerequisite for reading any EG
+entropy change correctly. No EG experiment is scheduled until the PE track
+seals its instrument layer.
+
+```text
+PF-0 sealed instrument net (done)
+      |
+PE-0 / PE-1 entropy instruments (passing, unsealed)
+      |
+PE-2 reversibility discipline
+      |
+EG-0 projection entropy instrumentation
+      |
+EG-1 area-versus-volume gate   <- expected stopping point
+      |
+EG-2 matter deformation
+      |
+EG-3 local first law
+      |
+EG-4 geometric equations
+      |
+EG-5 black-hole benchmark
+```
+
+Substrates follow the campaign allocation: MATLAB on Atlas for analytic
+controls, exact small-N work, and independent reduction; NRP for scaling
+sweeps and ensembles, as finite Kubernetes Jobs under the standing cluster
+policy.
+
+The near-term deliverable is a theorem or a negative campaign establishing
+which projection geometries CANNOT yield, simultaneously, area-law entropy,
+inverse-square attraction, universal coupling, and Einstein-like
+conservation. A positive model passing all four gates without inserting any
+of them would matter; the negative classification is the expected outcome
+and is publishable on its own under the campaign's evidence discipline. A
+clean negative is a result.
+
+## 9. Non-claims
+
+Nothing in this track bears on physical gravity. No run in this track will
+be labeled evidence that spacetime is a projection, that gravity is
+entropic, or that the cited literature is confirmed or refuted. Evidence
+labels follow CAMPAIGN.md section 9; everything in this document is
+`[exploratory]` until a sealed preregistration exists, and the highest
+label any EG result can earn is `[demonstrated-in-model]`.
+
+## 10. Open design questions (must close before EG-0 seals)
+
+Recorded at drafting time, 2026-08-04. Each needs a decision or a
+PE-style closed-form control before the corresponding experiment can seal.
+
+1. **Distinguishability metric underdefined.** Section 3 names a
+Fisher/relative-entropy quadratic form on fiber-conditional distributions,
+but at finite (delta, epsilon) several inequivalent discretizations exist,
+and the Level-0 choice affects EG-4. Needs a closed-form control.
+2. **"Independently distinguishable states associated with a region" has no
+operational definition.** Mutual information with the complement,
+conditional entropy given boundary data, and code-subspace dimension give
+different counts; the EG-1 area-gate verdict could depend on the choice.
+The single most important pre-seal decision.
+3. **The EG-2 reverse-engineering audit is a criterion, not yet an
+algorithm.** A formal test certifying that a source is not
+potential-equivalent may be undecidable in general; a restricted declared
+source class may be needed instead.
+4. **No temperature definition exists yet for EG-3/EG-5.** Without an
+Unruh-analogue response derived inside the model, EG-3 risks being
+unrunnable rather than falsifiable.
+5. **Can the fiber measure be canonical?** A measure induced by a hidden
+symplectic/Liouville structure (as in the PF-2 toy) would strengthen any
+positive and simplify the anti-circularity story versus an arbitrary
+declaration.
+6. **kappa in EG-5 is undefined until EG-4's metric exists.** The current
+text assumes a surface-gravity analogue can be constructed.
+7. **Sequencing tension.** This file requires PE-2 before EG-0, but PE-2 is
+itself only designed. Starting EG-0 earlier is a conscious decision to
+relax that dependency, not a silent violation.
