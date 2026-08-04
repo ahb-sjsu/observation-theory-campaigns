@@ -1,7 +1,9 @@
 \documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
 
 \usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{array}
 \usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{microtype}
@@ -505,19 +507,15 @@ and no measurement reported here bears on them.
 Rows above the rule are established in this paper at the stated labels.
 Rows below the rule are open questions stated as design targets.}
 \begin{ruledtabular}
-\begin{tabular}{llll}
+\begin{tabular}{L{0.14\columnwidth}L{0.2\columnwidth}L{0.15\columnwidth}L{0.24\columnwidth}}
 Class & Multiplicity & Signed count & Entropy signature \\
 \colrule
 Regular & constant & conserved & none \\
-Degenerate & constant & conserved & none \\
-monotone & & & \\
-Fold & jumps by two & conserved & one new binary \\
- & & & distinction \\
+Degenerate monotone & constant & conserved & none \\
+Fold & jumps by two & conserved & one new binary distinction \\
 \colrule
-Cusp & varies across & conserved & correlated branch \\
- & fold boundaries & globally & ambiguity (open) \\
-Higher & larger structured & constrained & multiway ambiguity \\
-catastrophes & changes & & (open) \\
+Cusp & varies across fold boundaries & conserved globally & correlated branch ambiguity (open) \\
+Higher catastrophes & larger structured changes & constrained & multiway ambiguity (open) \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
