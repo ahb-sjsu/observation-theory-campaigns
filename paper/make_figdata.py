@@ -131,6 +131,30 @@ for ge in (0.0, 0.5, 1.0, 1.5, 1.9, 2.1, 3.0, 5.0):
     rows.append((ge, w_f, velocity[0] + 1.0))
 write("pf3_cayley_points.dat", "ge w tplus", rows)
 
+# Figures T1/T2: TB-1 ladder convergence and TB-2 flip persistence.
+tb1 = json.loads((ROOT / "results" / "tb1-ladder.json").read_text())
+rungs = tb1["rungs"]
+ns = [r["N"] for r in rungs]
+rows = []
+for idx, r in enumerate(rungs):
+    def sdiff(label):
+        if idx == 0:
+            return float("nan")
+        return abs(r[label]["D"] - rungs[idx - 1][label]["D"])
+    rows.append((r["N"], r["site"]["D"], r["pair"]["D"], r["half"]["D"],
+                 sdiff("site"), sdiff("pair"), sdiff("half"),
+                 r["half_entropy_vacuum"]))
+write("tb1_ladder.dat",
+      "N dsite dpair dhalf sdiff_site sdiff_pair sdiff_half shalf", rows)
+
+tb2 = json.loads((ROOT / "results" / "tb2-flip-ladder.json").read_text())
+rows = []
+for r in tb2["rungs"]:
+    b1 = r["budgets"]["1"]
+    rows.append((r["N"], b1["F_task"] - b1["T_task"],
+                 b1["T_infid"] - b1["F_infid"]))
+write("tb2_flip.dat", "N taskgap infidgap", rows)
+
 # Figure Q3: QO-3 joint survival versus family size, families A and B.
 qo3 = json.loads((ROOT / "results" / "qo3-family.json").read_text())
 strict = qo3["summary"]["strict"]
