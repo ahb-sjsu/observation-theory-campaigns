@@ -74,20 +74,35 @@ def test_qo0_partial_trace_recovers_product_factors():
     assert np.allclose(partial_trace(rho, [1, 2], 3), np.kron(plus, c), atol=1e-12)
 
 
-def test_qo0_dpi_on_small_model():
+def test_qo0_no_signalling_null_control():
     n = 4
     sigma = thermal_state(ising_hamiltonian(n, 2.0), 1.0)
     u = local_x_rotation(n, 1, 0.7)
+    rho = u @ sigma @ u.conj().T
+    d_out = relative_entropy(
+        partial_trace(rho, [2, 3], n), partial_trace(sigma, [2, 3], n)
+    )
+    assert abs(d_out) < 1e-10
+    assert relative_entropy(rho, sigma) > 1e-3
+
+
+def test_qo0_dpi_on_small_model_with_visible_excitation():
+    n = 4
+    sigma = thermal_state(ising_hamiltonian(n, 2.0), 1.0)
+    u = local_x_rotation(n, 2, 0.7)
     rho = u @ sigma @ u.conj().T
     d_global = relative_entropy(rho, sigma)
     rho_out = partial_trace(rho, [2, 3], n)
     sigma_out = partial_trace(sigma, [2, 3], n)
     d_traced = relative_entropy(rho_out, sigma_out)
-    assert d_traced <= d_global + 1e-10
+    assert 1e-3 < d_traced <= d_global + 1e-10
+    d_site = relative_entropy(
+        partial_trace(rho, [2], n), partial_trace(sigma, [2], n)
+    )
+    assert d_site <= d_traced + 1e-10
     d_dephased = relative_entropy(
         dephase(rho_out, 0, 2, 0.3), dephase(sigma_out, 0, 2, 0.3)
     )
     assert d_dephased <= d_traced + 1e-10
     d_pinched = relative_entropy(pinch(rho_out), pinch(sigma_out))
     assert d_pinched <= d_traced + 1e-10
-    assert d_global > 1e-3

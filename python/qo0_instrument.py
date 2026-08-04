@@ -217,8 +217,18 @@ def closed_forms() -> dict:
 
 
 def dpi_sweep() -> dict:
+    """DPI, monotonicity, and floor-stability sweep on the Ising model.
+
+    Design note (a real finding from the first version of this sweep): a
+    unitary, or any CPTP map, acting only on the traced-out interior cannot
+    change the exterior reduced state at all; that is the no-signalling
+    theorem, and it made an interior-excitation sweep trivially degenerate
+    (every consumer-side divergence exactly zero). The sweep therefore uses
+    interior excitation as an exact NULL CONTROL, and generates nontrivial
+    distinguishability by exciting a site the consumer can see, with the
+    consumer hierarchy formed by shrinking the kept region toward that site.
+    """
     n = 8
-    inside = [0, 1, 2, 3]
     outside = [4, 5, 6, 7]
     beta = 1.0
     field = 2.0
@@ -230,44 +240,53 @@ def dpi_sweep() -> dict:
     margins = []
     monotone_defects = []
     composition_margins = []
-    locality = {}
 
-    for site_label, site_index in (("deep_inside", 1), ("boundary", 3)):
+    no_signalling = {}
+    for site_label, site_index in (("deep_inside", 1), ("boundary_inside", 3)):
         u = local_x_rotation(n, site_index, 0.8)
         rho = u @ sigma @ u.conj().T
-        rho_out = partial_trace(rho, outside, n)
-        sigma_out = partial_trace(sigma, outside, n)
-        locality[site_label] = relative_entropy(rho_out, sigma_out)
+        d_out = relative_entropy(
+            partial_trace(rho, outside, n), partial_trace(sigma, outside, n)
+        )
+        no_signalling[site_label] = d_out
+        assert abs(d_out) < 1e-10, "no-signalling null control failed"
 
+    regions = [[4, 5, 6, 7], [4, 5, 6], [4, 5], [4]]
+    region_divergences = {}
     for theta in thetas:
-        u = local_x_rotation(n, 2, theta)
+        u = local_x_rotation(n, 4, theta)
         rho = u @ sigma @ u.conj().T
         d_global = relative_entropy(rho, sigma)
-        rho_out = partial_trace(rho, outside, n)
-        sigma_out = partial_trace(sigma, outside, n)
-        d_traced = relative_entropy(rho_out, sigma_out)
-        margins.append(d_global - d_traced)
+        chain = [d_global]
+        for keep in regions:
+            chain.append(relative_entropy(
+                partial_trace(rho, keep, n), partial_trace(sigma, keep, n)
+            ))
+        for larger, smaller in zip(chain[:-1], chain[1:], strict=False):
+            margins.append(larger - smaller)
+        region_divergences[str(theta)] = chain[1:]
 
-        previous = d_traced
+        rho_pair = partial_trace(rho, [4, 5], n)
+        sigma_pair = partial_trace(sigma, [4, 5], n)
+        d_pair = relative_entropy(rho_pair, sigma_pair)
+        previous = d_pair
         for s in strengths:
             d_s = relative_entropy(
-                dephase(rho_out, 0, 4, s), dephase(sigma_out, 0, 4, s)
+                dephase(rho_pair, 0, 2, s), dephase(sigma_pair, 0, 2, s)
             )
-            margins.append(d_traced - d_s)
+            margins.append(d_pair - d_s)
             monotone_defects.append(d_s - previous)
             previous = d_s
 
-        once = (dephase(rho_out, 0, 4, 0.25), dephase(sigma_out, 0, 4, 0.25))
-        twice = (dephase(once[0], 0, 4, 0.25), dephase(once[1], 0, 4, 0.25))
+        once = (dephase(rho_pair, 0, 2, 0.25), dephase(sigma_pair, 0, 2, 0.25))
+        twice = (dephase(once[0], 0, 2, 0.25), dephase(once[1], 0, 2, 0.25))
         composition_margins.append(
             relative_entropy(*once) - relative_entropy(*twice)
         )
-
-        d_pinched = relative_entropy(pinch(rho_out), pinch(sigma_out))
-        margins.append(d_traced - d_pinched)
+        margins.append(d_pair - relative_entropy(pinch(rho_pair), pinch(sigma_pair)))
 
     floor_values = [1e-14, 1e-13, 1e-12, 1e-11, 1e-10]
-    u = local_x_rotation(n, 2, 0.8)
+    u = local_x_rotation(n, 4, 0.8)
     rho = u @ sigma @ u.conj().T
     rho_out = partial_trace(rho, outside, n)
     sigma_out = partial_trace(sigma, outside, n)
@@ -276,22 +295,31 @@ def dpi_sweep() -> dict:
     ]
     floor_spread = max(d_by_floor) - min(d_by_floor)
 
+    reference_chain = region_divergences[str(0.8)]
+    assert reference_chain[-1] > 1e-3, \
+        "sweep degenerate: consumer sees nothing, model lacks structure"
+
     return {
         "model": {
             "n_qubits": n, "hamiltonian": "transverse-field Ising, open chain",
-            "field": field, "beta": beta, "inside": inside, "outside": outside,
-            "excitation": "exp(i theta X) on one site", "thetas": thetas,
+            "field": field, "beta": beta,
+            "excitation": "exp(i theta X) on qubit 4 (visible to the consumer)",
+            "null_control": "same rotation on interior qubits 1 and 3",
+            "consumer_regions": regions, "thetas": thetas,
             "dephasing_strengths": strengths,
         },
+        "no_signalling_null_control": no_signalling,
+        "region_divergences_by_theta": region_divergences,
         "min_dpi_margin": float(min(margins)),
         "n_dpi_checks": len(margins),
         "max_dephasing_monotonicity_defect": float(max(monotone_defects)),
         "min_composition_margin": float(min(composition_margins)),
         "spectral_floor_values": floor_values,
         "spectral_floor_spread": float(floor_spread),
-        "locality_observation_exploratory": {
-            "d_outside_for_deep_inside_excitation": locality["deep_inside"],
-            "d_outside_for_boundary_excitation": locality["boundary"],
+        "correlation_assistance_exploratory": {
+            "d_keep_site_only": reference_chain[-1],
+            "d_keep_full_outside": reference_chain[0],
+            "assistance": reference_chain[0] - reference_chain[-1],
         },
     }
 
@@ -337,10 +365,13 @@ def main() -> int:
           f"{sweep['n_dpi_checks']} checks; "
           f"composition min {sweep['min_composition_margin']:.3e}; "
           f"floor spread {sweep['spectral_floor_spread']:.3e}")
-    loc = sweep["locality_observation_exploratory"]
-    print(f"locality (exploratory): boundary excitation "
-          f"D_C {loc['d_outside_for_boundary_excitation']:.6f} vs deep "
-          f"D_C {loc['d_outside_for_deep_inside_excitation']:.6f}")
+    null = sweep["no_signalling_null_control"]
+    print(f"no-signalling null control: deep {null['deep_inside']:.3e}, "
+          f"boundary {null['boundary_inside']:.3e}")
+    assist = sweep["correlation_assistance_exploratory"]
+    print(f"correlation assistance (exploratory): site-only "
+          f"D {assist['d_keep_site_only']:.6f} -> full-outside "
+          f"D {assist['d_keep_full_outside']:.6f}")
     print(output)
     return 0
 
