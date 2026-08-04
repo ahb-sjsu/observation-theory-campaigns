@@ -16,14 +16,14 @@ live.
 
 ## The four tracks
 
-Each track keeps one color everywhere in this file: 🟦 folds, 🟩
+Each track keeps one color everywhere in this file: 🟦 folds, 🟥
 entropy, 🟪 quantum, 🟧 geometry. The letter codes always accompany
 the chips, so nothing depends on color alone.
 
 | Track | Short name | Question in one line | Status |
 |---|---|---|---|
 | 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 sealed and running |
-| 🟩 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Instruments sealed, PE-0..PE-2 done |
+| 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Instruments sealed, PE-0..PE-2 done |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | Design only, gated on hard open questions |
 
@@ -40,10 +40,10 @@ document in `experiments/SEALS.md`.
 | 🟦 **PF-2** generic Hamiltonian control | `[exploratory]` ✅ expected negative shape | 10^4-member symplectic ensemble: every member exactly 12 folds — fold counts are set by dynamics and measure, no universality; drift ≤ 4.3e-9 |
 | 🟦 **PF-3** Land 2016 replication | `[replicated]` ✅ + 2 findings | printed Eq. 66 system vs printed Eq. 67 closed form agree to 5.7e-14 over 90 cells; threshold g_e > 2 exact everywhere; asymptote E_f = −(E_in+2M) to 1.4e-3. F1: trajectory-varying smoothing fakes below-threshold folds (1/λ kernel artifact). F2: the published threshold is the Cayley/Padé(1,1) pole of the kick generator — continuous accumulation conserves (ṫ+1)²−w² and never reverses (paper 3) |
 | 🟦 **PF-4** Schwinger challenge | sealed 🔄 PREREG-PF4-001 running | pilot (4 iterations, each failure → design constraint): family has a critical-field manifold E_crit(P) with deterministic/fluctuation regime split; transition spans 3 decades over a 15% field step; 2-point diagnostic matches effective-gap Gaussian axis (d/E)² to 2%, Schwinger axis off 57%. Sealed claim = negative-shaped axis discrimination, adaptive probe-placed manifest, bars MSE_G ≤ 4 ∧ MSE_S ≥ 4·MSE_G; governed run in Atlas screen `pf4prereg` |
-| 🟩 **PE-0** entropy controls | `[proved]` + sealed ✅ PEQO-FREEZE-002 | coarea branch weights closed-form: fold slice exactly 1 bit, M0 symmetric slice exactly 1.5 bits (weights ¼,½,¼), band edge → 1 bit, monotone/degenerate exactly 0 — multiplicity, not criticality, stores the information; both languages |
-| 🟩 **PE-1** resolution scaling | `[demonstrated-in-model]` ✅ | binned fold-caustic entropy: H + log₂ε → 1 − 1/ln2 with deviations 4.5e-3 → 4.5e-4 shrinking as √ε; the inverse-square-root caustic is integrable, no entropy pathology |
-| 🟩 **PE-2** reversible fold cycle | `[demonstrated-in-model]` ✅ | observed binned entropy swings 2.0708 bits along the trajectory while momentum reversal recovers the initial 10^4-member ensemble to 1.1e-14 and the reversed entropy curve retraces with defect exactly 0 — the entire change is observational; multiplicity staircase 4-8-12-13 with the signed path-degree rule at every level |
-| 🟩 **PE-3/4/5** mixing, noise, hierarchy | design 📐 | ENTROPY-TRACK.md sections PE-3..PE-5 |
+| 🟥 **PE-0** entropy controls | `[proved]` + sealed ✅ PEQO-FREEZE-002 | coarea branch weights closed-form: fold slice exactly 1 bit, M0 symmetric slice exactly 1.5 bits (weights ¼,½,¼), band edge → 1 bit, monotone/degenerate exactly 0 — multiplicity, not criticality, stores the information; both languages |
+| 🟥 **PE-1** resolution scaling | `[demonstrated-in-model]` ✅ | binned fold-caustic entropy: H + log₂ε → 1 − 1/ln2 with deviations 4.5e-3 → 4.5e-4 shrinking as √ε; the inverse-square-root caustic is integrable, no entropy pathology |
+| 🟥 **PE-2** reversible fold cycle | `[demonstrated-in-model]` ✅ | observed binned entropy swings 2.0708 bits along the trajectory while momentum reversal recovers the initial 10^4-member ensemble to 1.1e-14 and the reversed entropy curve retraces with defect exactly 0 — the entire change is observational; multiplicity staircase 4-8-12-13 with the signed path-degree rule at every level |
+| 🟥 **PE-3/4/5** mixing, noise, hierarchy | design 📐 | ENTROPY-TRACK.md sections PE-3..PE-5 |
 | 🟪 **QO-0** quantum instrument | `[demonstrated-in-model]` + sealed ✅ PEQO-FREEZE-002 | classical anchors exact through the Umegaki divergence pathway (1.000000000000 and 1.500000000000 bits; orientation merge returns exactly the fold bit); 32 DPI margins all strictly positive (min 9.6e-8); 3 discovered defects now standing controls: no-signalling null (7e-16), symmetry null ((I+mX)/2 invisibility), support-floor silent infinity |
 | 🟪 **QO-1** consumer hierarchy | `[demonstrated-in-model]` ✅ | degradation chain, ordering is a theorem: Z-excitation 0 → 0.668 → 0.675 → 0.724 nats (position-blind, largest gap at flux rung); X-excitation 0.048 → 0.116 → 0.148 → 0.301 (position-visible, largest gap interior) — where distinguishability lives moves with the sector; exact sufficiency anchor (DPI equality 1.1e-16) |
 | 🟪 **QO-2** the flip | `[demonstrated-in-model]` ✅ PREREG-QO2-001 | governed run on fully disjoint grids: flip at k\*=1 at all 3 coupling points (primary: T-arm task 0.0000/infid 0.3637 vs F-arm 0.1076/0.0678, margins 0.01 cleared ×10/×30); anti-arm worst everywhere (≥1.25); flip vanishes when budget suffices — scarcity phenomenon, the classical budget-relativity flip reproduced quantum |
@@ -91,7 +91,7 @@ Key files. `experiments/CAMPAIGN.md` (the master design),
 `matlab/`, `python/shp_land2016.py`, `python/pf4_pilot.py`.
 Paper. The Cayley-pole paper, DOI 10.5281/zenodo.21790096.
 
-### 🟩 PE, projection entropy
+### 🟥 PE, projection entropy
 
 When a fold doubles the number of hidden states behind one observation,
 the observer's ignorance grows. This track measures that growth
@@ -203,7 +203,7 @@ projection.
 
 ## Published papers
 
-1. 🟩 Entropy Across Singular Projections (PE track),
+1. 🟥 Entropy Across Singular Projections (PE track),
    DOI 10.5281/zenodo.21789011.
 2. 🟪 Consumer-Relative Quantum Distinguishability on Causal Boundaries
    (QO track), concept DOI 10.5281/zenodo.21789046.
