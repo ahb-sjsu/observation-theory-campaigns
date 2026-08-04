@@ -1,11 +1,16 @@
 # Preregistration QO3-001: quantifier activation on a fresh coupling grid
 
-**Status:** draft, unsealed. No run governed by this document has been
-executed. Sealing is the project owner's action; the sealing commit and
-blob hash go to `experiments/SEALS.md`, after which no field below may
-change.
+**Status:** SEALED.
 
-**Registration ID:** PREREG-QO3-001 (assigned at seal)
+**Registration ID:** PREREG-QO3-001
+
+**Date sealed:** 2026-08-04
+
+**Authorization:** sealed on the project owner's explicit instruction.
+The sealing commit and blob hash are recorded in `experiments/SEALS.md`.
+No field below may change; an edit voids the seal. The governed runner is
+`python/qo3_prereg_run.py`, committed at the sealing commit, which takes
+every constant from this document.
 
 ## Claim
 
