@@ -173,8 +173,10 @@ write("pf4_cells.dat", "run split P E d xg neglogf", rows)
 
 rec2 = json.loads((ROOT / "results" / "prereg-pf4-002.json").read_text())
 g = rec2["fits"]["model_G"]
-rows = [(x, g["alpha"] + g["beta"] * x)
-        for x in np.linspace(0.03, 0.24, 40)]
+rows = []
+for i in range(40):
+    x = 0.03 + (0.24 - 0.03) * i / 39.0
+    rows.append((x, g["alpha"] + g["beta"] * x))
 write("pf4_gline.dat", "xg pred", rows)
 
 pilot = json.loads((ROOT / "results" / "pf4-pilot.json").read_text())
