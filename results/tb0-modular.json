@@ -1,0 +1,43 @@
+{
+  "agreement_bar": 1e-10,
+  "closed_form_checks": {
+    "commuting_kl_vs_araki": 5.551115123125783e-17,
+    "dephased_umegaki_vs_araki": 9.43689570931383e-16,
+    "global_umegaki_vs_araki": 1.1102230246251565e-16,
+    "near_degenerate_stability": 5.551115023120939e-17,
+    "pure_vs_mixed_vs_araki": 3.3306690738754696e-16
+  },
+  "consumer_sweep": {
+    "outside4": {
+      "araki_via_functionals": 0.6751828940372632,
+      "functional_vs_trace_state_gap": 2.8115785114132965e-17,
+      "route_disagreement": 1.1102230246251565e-16,
+      "umegaki_via_partial_trace": 0.6751828940372633
+    },
+    "pair": {
+      "araki_via_functionals": 0.6747470269256252,
+      "functional_vs_trace_state_gap": 1.1106045326266569e-16,
+      "route_disagreement": 2.220446049250313e-16,
+      "umegaki_via_partial_trace": 0.6747470269256249
+    },
+    "site": {
+      "araki_via_functionals": 0.6318003674958523,
+      "functional_vs_trace_state_gap": 2.7755636907517885e-16,
+      "route_disagreement": 2.220446049250313e-16,
+      "umegaki_via_partial_trace": 0.6318003674958521
+    }
+  },
+  "label": "exploratory",
+  "record_sha256": "a6dbb93ae308ebc562db48eab0eaed04c7063129cf8cbbda3ea938f4425f77a5",
+  "runtime": {
+    "code_commit": "243e87c",
+    "generated_utc": "2026-08-04T19:15:32.100789+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "tb0-modular-v1",
+  "statement": "the relative modular route and the states-as-functionals route reproduce the sealed Umegaki instrument on the campaign models; the objects that survive the passage to type III agree with their type I shadows at machine precision",
+  "worst_disagreement": 9.43689570931383e-16
+}
