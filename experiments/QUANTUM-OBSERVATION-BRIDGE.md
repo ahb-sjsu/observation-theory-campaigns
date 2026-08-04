@@ -266,21 +266,31 @@ embedding = branches by increasing tau as computational basis states,
 coarea weights as eigenvalues, uniform fiber as reference, branch-label
 algebra as the diagonal algebra.
 
-Measured: the classical anchors reproduce through the divergence pathway
-exactly (P0 1.000000000000 bits, M0 1.500000000000 bits via
-S = log2 d - D(rho||I/d)/ln 2), and merging the M0 orientation pair
-returns exactly the fold bit with nonnegative DPI margin. Closed-form
-residuals <= 2.3e-15. On the 8-qubit gapped Ising thermal model with a
-Z-axis excitation on a visible site: 32 DPI checks, minimum margin
-+1.5e-5 (strictly positive, no degenerate passes), dephasing
-monotonicity and composition monotonicity clean, spectral-floor spread
-0.0 across 1e-14..1e-10. Exploratory correlation-assistance observation:
-distinguishability of the local excitation grows from 1.223 nats
-(site-only consumer) to 1.436 nats (full outside region); correlated
+Measured (corrected record, beta = 0.5): the classical anchors reproduce
+through the divergence pathway exactly (P0 1.000000000000 bits, M0
+1.500000000000 bits via S = log2 d - D(rho||I/d)/ln 2), and merging the
+M0 orientation pair returns exactly the fold bit with nonnegative DPI
+margin. Closed-form residuals <= 1.8e-15. On the 8-qubit gapped Ising
+thermal model with a Z-axis excitation on a visible site: 32 DPI checks,
+minimum margin +9.6e-8 (strictly positive and all finite), dephasing and
+composition monotonicity clean, spectral-floor spread 0.0 across
+1e-14..1e-10. Exploratory correlation-assistance observation:
+distinguishability of the local excitation grows from 0.632 nats
+(site-only consumer) to 0.675 nats (full outside region); correlated
 neighbors carry witness information about a strictly local event.
 
-Two exact null controls were discovered by failed first designs and are
-now asserted by the instrument:
+Three instrument defects were discovered by failed first designs and are
+now standing controls or bars:
+
+- **Silent infinite divergence at the support floor.** At beta = 1 the
+  thermal spectrum's smallest weight (~2e-12) sat at the 1e-12 support
+  floor, so a full-rank reference read as rank-deficient, the full-state
+  divergence went silently infinite, and global-versus-traced margins
+  were inf minus finite: vacuously positive and invisible in the
+  minimum. Models must now clear the floor by three decades (asserted)
+  and every global divergence carries a finiteness assert. The first
+  QO-0 evidence record had this flaw and was regenerated; the corrected
+  record supersedes it.
 
 - **No-signalling null.** A unitary (or any CPTP map) on the traced-out
   interior leaves the consumer's reduced state exactly unchanged; the
@@ -332,7 +342,33 @@ QO-0 is sealed and passing.
 
 ---
 
-### QO-1: Consumer hierarchy
+### QO-1: Consumer hierarchy — IMPLEMENTED, PASSING (exploratory)
+
+Implemented 2026-08-04 as `python/qo1_hierarchy.py` with tests in
+`python/tests/test_qo1.py`; evidence `results/qo1-hierarchy.json`. The
+four levels are realized as a degradation chain (each weaker consumer is
+a channel composed onto the stronger one's output), so the ordering is a
+theorem and any inversion is a bug; none was measured. The declared flux
+stand-in is the transverse-field energy density on the excited site
+(open question 8: declared, not derived).
+
+Measured, both at theta = 0.8 (stable across 0.4 and 1.2):
+
+- Z-excitation chain: 0.000000 <= 0.667985 <= 0.675183 <= 0.723532
+  nats. The position-only consumer sees exactly nothing (commutation
+  theorem, asserted); the largest gap sits at the flux rung. A position
+  certificate is vacuous for this excitation.
+- X-excitation chain: 0.047621 <= 0.116320 <= 0.148405 <= 0.300990
+  nats. The position consumer sees it through correlations; the largest
+  gap sits at the interior rung.
+- Where the distinguishing information lives moves with the excitation
+  sector: the same four consumers, ranked the same way by DPI, divide
+  the same total distinguishability entirely differently. This is the
+  task layer measured, not relabeled.
+- Classical anchors in closed form: merging the M0 orientation pair
+  against the uniform fiber is an exact DPI equality (sufficiency; gap
+  1.1e-16), and against the asymmetric reference the gap matches
+  ln2/4 - ln(4/3)/2 to twelve decimals. Spectral-floor spread 0.0.
 
 **Question.** Do nested observer algebras produce the lawful
 distinguishability ordering, and with measurable, interpretable gaps?
