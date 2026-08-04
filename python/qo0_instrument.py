@@ -140,13 +140,33 @@ def thermal_state(hamiltonian: np.ndarray, beta: float) -> np.ndarray:
     return (vectors * boltzmann) @ vectors.conj().T
 
 
-def local_x_rotation(n_qubits: int, qubit: int, theta: float) -> np.ndarray:
-    x = np.array([[0.0, 1.0], [1.0, 0.0]])
-    full_x = np.array([[1.0]])
+def local_rotation(n_qubits: int, qubit: int, theta: float, axis: str) -> np.ndarray:
+    """exp(i theta P) for a single-site Pauli P on one qubit.
+
+    Axis choice matters physically: the Ising thermal state's single-site
+    reduced state is exactly (I + m X)/2 by the global spin-flip symmetry,
+    so an X-axis rotation commutes with it and is invisible to a site-only
+    consumer even though it acts on that consumer's own qubit. A Z-axis
+    rotation is not absorbed. The sweep uses Z for the visible excitation
+    and the invisibility of the X case is itself a symmetry null control.
+    """
+    pauli = {
+        "x": np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex),
+        "z": np.array([[1.0, 0.0], [0.0, -1.0]], dtype=complex),
+    }[axis]
+    full = np.array([[1.0]], dtype=complex)
     for j in range(n_qubits):
-        full_x = np.kron(full_x, x if j == qubit else np.eye(2))
+        full = np.kron(full, pauli if j == qubit else np.eye(2))
     dim = 2**n_qubits
-    return np.cos(theta) * np.eye(dim) + 1j * np.sin(theta) * full_x
+    return np.cos(theta) * np.eye(dim) + 1j * np.sin(theta) * full
+
+
+def local_x_rotation(n_qubits: int, qubit: int, theta: float) -> np.ndarray:
+    return local_rotation(n_qubits, qubit, theta, "x")
+
+
+def local_z_rotation(n_qubits: int, qubit: int, theta: float) -> np.ndarray:
+    return local_rotation(n_qubits, qubit, theta, "z")
 
 
 # ---- anchor and sweep runs -----------------------------------------------
@@ -251,10 +271,19 @@ def dpi_sweep() -> dict:
         no_signalling[site_label] = d_out
         assert abs(d_out) < 1e-10, "no-signalling null control failed"
 
+    symmetry_null = {}
+    u = local_x_rotation(n, 4, 0.8)
+    rho = u @ sigma @ u.conj().T
+    symmetry_null["x_rotation_site_only"] = relative_entropy(
+        partial_trace(rho, [4], n), partial_trace(sigma, [4], n)
+    )
+    assert abs(symmetry_null["x_rotation_site_only"]) < 1e-10, \
+        "symmetry null control failed: X rotation should be invisible on-site"
+
     regions = [[4, 5, 6, 7], [4, 5, 6], [4, 5], [4]]
     region_divergences = {}
     for theta in thetas:
-        u = local_x_rotation(n, 4, theta)
+        u = local_z_rotation(n, 4, theta)
         rho = u @ sigma @ u.conj().T
         d_global = relative_entropy(rho, sigma)
         chain = [d_global]
@@ -286,7 +315,7 @@ def dpi_sweep() -> dict:
         margins.append(d_pair - relative_entropy(pinch(rho_pair), pinch(sigma_pair)))
 
     floor_values = [1e-14, 1e-13, 1e-12, 1e-11, 1e-10]
-    u = local_x_rotation(n, 4, 0.8)
+    u = local_z_rotation(n, 4, 0.8)
     rho = u @ sigma @ u.conj().T
     rho_out = partial_trace(rho, outside, n)
     sigma_out = partial_trace(sigma, outside, n)
@@ -303,12 +332,14 @@ def dpi_sweep() -> dict:
         "model": {
             "n_qubits": n, "hamiltonian": "transverse-field Ising, open chain",
             "field": field, "beta": beta,
-            "excitation": "exp(i theta X) on qubit 4 (visible to the consumer)",
-            "null_control": "same rotation on interior qubits 1 and 3",
+            "excitation": "exp(i theta Z) on qubit 4 (visible to the consumer)",
+            "null_controls": "no-signalling: X rotation on interior qubits 1, 3; "
+                             "symmetry: X rotation on qubit 4 invisible on-site",
             "consumer_regions": regions, "thetas": thetas,
             "dephasing_strengths": strengths,
         },
         "no_signalling_null_control": no_signalling,
+        "symmetry_null_control": symmetry_null,
         "region_divergences_by_theta": region_divergences,
         "min_dpi_margin": float(min(margins)),
         "n_dpi_checks": len(margins),

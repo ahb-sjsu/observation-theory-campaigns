@@ -12,6 +12,7 @@ from qo0_instrument import (  # noqa: E402
     dephase,
     ising_hamiltonian,
     local_x_rotation,
+    local_z_rotation,
     merge_branches,
     partial_trace,
     pinch,
@@ -86,10 +87,21 @@ def test_qo0_no_signalling_null_control():
     assert relative_entropy(rho, sigma) > 1e-3
 
 
-def test_qo0_dpi_on_small_model_with_visible_excitation():
+def test_qo0_symmetry_null_x_rotation_invisible_on_site():
     n = 4
     sigma = thermal_state(ising_hamiltonian(n, 2.0), 1.0)
     u = local_x_rotation(n, 2, 0.7)
+    rho = u @ sigma @ u.conj().T
+    d_site = relative_entropy(
+        partial_trace(rho, [2], n), partial_trace(sigma, [2], n)
+    )
+    assert abs(d_site) < 1e-10
+
+
+def test_qo0_dpi_on_small_model_with_visible_excitation():
+    n = 4
+    sigma = thermal_state(ising_hamiltonian(n, 2.0), 1.0)
+    u = local_z_rotation(n, 2, 0.7)
     rho = u @ sigma @ u.conj().T
     d_global = relative_entropy(rho, sigma)
     rho_out = partial_trace(rho, [2, 3], n)
@@ -99,7 +111,7 @@ def test_qo0_dpi_on_small_model_with_visible_excitation():
     d_site = relative_entropy(
         partial_trace(rho, [2], n), partial_trace(sigma, [2], n)
     )
-    assert d_site <= d_traced + 1e-10
+    assert 1e-3 < d_site <= d_traced + 1e-10
     d_dephased = relative_entropy(
         dephase(rho_out, 0, 2, 0.3), dephase(sigma_out, 0, 2, 0.3)
     )
