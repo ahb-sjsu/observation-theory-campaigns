@@ -266,7 +266,35 @@ until TB-0 is sealed and passing.
 
 ---
 
-### TB-1: The scaling ladder
+### TB-1: The scaling ladder — RUN, THESIS PATTERN CONFIRMED
+(exploratory)
+
+Executed 2026-08-04 as `python/tb1_ladder.py`, evidence
+`results/tb1-ladder.json`, chains N = 4..12 at (J, h, beta, theta) =
+(1, 2, 0.5, 0.8), half-chain cut, diagonal excitation at the cut
+boundary. Every consumer-relative restricted relative entropy
+converges exponentially, successive differences shrinking roughly
+fifty-fold per rung (site consumer 1.2e-3 down to 8.0e-9, pair
+9.5e-4 down to 5.7e-9, and the half-chain consumer, whose algebra
+grows with N, 5.2e-4 down to 3.4e-9), reaching nine-digit stability
+by N = 10. The effective thermodynamic-limit values are D_site =
+0.631800, D_pair = 0.674747, D_half = 0.675183, D_global = 0.723532,
+which shows the sealed QO-1 numbers at N = 8 were already converged
+to their quoted precision, so the campaign's quantum results are
+effectively infinite-volume statements. The diverging control
+diverged exactly as predicted, the thermal half-chain entropy exactly
+extensive at 0.1756 nats per added site pair. The Araki route agreed
+with the sealed Umegaki instrument at every rung and consumer (bar
+1e-10), and the states-as-functionals route agreed through N = 8.
+One quantity, one verdict: relative quantities have limits, the
+absolute entropy does not. This is the thesis's first quantitative
+confirmation, at exploratory label, in the regime of fixed physical
+excitation with a gapped reference; the open questions about scaling
+regime and uniformity (section 9) remain open.
+
+Original design follows.
+
+### TB-1: The scaling ladder (original design)
 
 **Question.** At fixed physical excitation and fixed cut fraction, which
 QO quantities converge as N grows and which diverge.
