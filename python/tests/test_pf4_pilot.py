@@ -21,8 +21,8 @@ def test_p2_zero_field_null_and_energy_conservation():
 
 
 def test_p2_quiet_approach_no_saturation():
-    cell = run_cell(0.5, 0.8, n=2000)
-    assert cell["fraction"] < 0.9, "cell saturated: coherent transient back"
+    cell = run_cell(0.7, 0.4, n=2000)
+    assert cell["fraction"] < 0.5, "cell saturated: coherent transient back"
     assert not cell["deterministically_reversing"]
     assert cell["max_relative_energy_drift"] < 1e-4
 
