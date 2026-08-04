@@ -18,10 +18,39 @@ live.
 
 | Track | Short name | Question in one line | Status |
 |---|---|---|---|
-| PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 designed and piloting |
+| PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 sealed and running |
 | PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Instruments sealed, PE-0..PE-2 done |
 | QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | Design only, gated on hard open questions |
+
+## Status ledger, one row per experiment
+
+Class labels follow the evidence scheme at the end of this file; a seal
+or registration ID means the row is governed by a hash-ledgered
+document in `experiments/SEALS.md`.
+
+| Experiment | Class | Evidence |
+|---|---|---|
+| **PF-0** instrument net | `[proved]` + sealed ✅ PF0-FREEZE-001 | full N0/P0/P1/D0/M0/S0/E0 net in MATLAB and Python; branch counts 0→1→2 exact with signed count 0; separation exponent 0.500000000000; cross-language branch agreement 4.4e-16; same scenario on two substrates bit-identical outcome hashes |
+| **PF-1** structural stability | `[exploratory]` ✅ bar not tripped | fold persistence 1.000 to perturbation norm 0.12 (0.956 at 0.32, all window-loss, zero degeneracies); fitted exponent 0.500 at every norm; location and curvature deviations from first-order perturbation theory scale as norm² over seven decades |
+| **PF-2** generic Hamiltonian control | `[exploratory]` ✅ expected negative shape | 10^4-member symplectic ensemble: every member exactly 12 folds — fold counts are set by dynamics and measure, no universality; drift ≤ 4.3e-9 |
+| **PF-3** Land 2016 replication | `[replicated]` ✅ + 2 findings | printed Eq. 66 system vs printed Eq. 67 closed form agree to 5.7e-14 over 90 cells; threshold g_e > 2 exact everywhere; asymptote E_f = −(E_in+2M) to 1.4e-3. F1: trajectory-varying smoothing fakes below-threshold folds (1/λ kernel artifact). F2: the published threshold is the Cayley/Padé(1,1) pole of the kick generator — continuous accumulation conserves (ṫ+1)²−w² and never reverses (paper 3) |
+| **PF-4** Schwinger challenge | sealed 🔄 PREREG-PF4-001 running | pilot (4 iterations, each failure → design constraint): family has a critical-field manifold E_crit(P) with deterministic/fluctuation regime split; transition spans 3 decades over a 15% field step; 2-point diagnostic matches effective-gap Gaussian axis (d/E)² to 2%, Schwinger axis off 57%. Sealed claim = negative-shaped axis discrimination, adaptive probe-placed manifest, bars MSE_G ≤ 4 ∧ MSE_S ≥ 4·MSE_G; governed run in Atlas screen `pf4prereg` |
+| **PE-0** entropy controls | `[proved]` + sealed ✅ PEQO-FREEZE-002 | coarea branch weights closed-form: fold slice exactly 1 bit, M0 symmetric slice exactly 1.5 bits (weights ¼,½,¼), band edge → 1 bit, monotone/degenerate exactly 0 — multiplicity, not criticality, stores the information; both languages |
+| **PE-1** resolution scaling | `[demonstrated-in-model]` ✅ | binned fold-caustic entropy: H + log₂ε → 1 − 1/ln2 with deviations 4.5e-3 → 4.5e-4 shrinking as √ε; the inverse-square-root caustic is integrable, no entropy pathology |
+| **PE-2** reversible fold cycle | `[demonstrated-in-model]` ✅ | observed binned entropy swings 2.0708 bits along the trajectory while momentum reversal recovers the initial 10^4-member ensemble to 1.1e-14 and the reversed entropy curve retraces with defect exactly 0 — the entire change is observational; multiplicity staircase 4-8-12-13 with the signed path-degree rule at every level |
+| **PE-3/4/5** mixing, noise, hierarchy | design 📐 | ENTROPY-TRACK.md sections PE-3..PE-5 |
+| **QO-0** quantum instrument | `[demonstrated-in-model]` + sealed ✅ PEQO-FREEZE-002 | classical anchors exact through the Umegaki divergence pathway (1.000000000000 and 1.500000000000 bits; orientation merge returns exactly the fold bit); 32 DPI margins all strictly positive (min 9.6e-8); 3 discovered defects now standing controls: no-signalling null (7e-16), symmetry null ((I+mX)/2 invisibility), support-floor silent infinity |
+| **QO-1** consumer hierarchy | `[demonstrated-in-model]` ✅ | degradation chain, ordering is a theorem: Z-excitation 0 → 0.668 → 0.675 → 0.724 nats (position-blind, largest gap at flux rung); X-excitation 0.048 → 0.116 → 0.148 → 0.301 (position-visible, largest gap interior) — where distinguishability lives moves with the sector; exact sufficiency anchor (DPI equality 1.1e-16) |
+| **QO-2** the flip | `[demonstrated-in-model]` ✅ PREREG-QO2-001 | governed run on fully disjoint grids: flip at k\*=1 at all 3 coupling points (primary: T-arm task 0.0000/infid 0.3637 vs F-arm 0.1076/0.0678, margins 0.01 cleared ×10/×30); anti-arm worst everywhere (≥1.25); flip vanishes when budget suffices — scarcity phenomenon, the classical budget-relativity flip reproduced quantum |
+| **QO-3** consumer-family quantifier | `[demonstrated-in-model]` ✅ PREREG-QO3-001 | two-sided, δ = 0.05 preregistered: disjoint probes INERT (joint = min single = 1.00, λ's agree ≤1.6e-3 grid-wide); shared-event nested windows ACTIVE (joint 0.25 < 1.00, tightening 1.0→0.75→0.25, surviving set exactly the weak-coupling row) — an all-observers requirement does work iff observers share events |
+| **EG-0..5** entropic geometry | design 📐 gated | ENTROPIC-GEOMETRY-TRACK.md: area-law gate EG-1 is the expected stopping point; 7 open design questions must close before EG-0 seals |
+
+Five sealed documents in the ledger (two instrument freezes, three
+preregistrations), every one verifiable by blob hash. Three papers
+published (DOIs below). Both governed QO claims passed on grids fully
+disjoint from their exploratory runs; the governed PF-4 run is in
+flight.
 
 ### PF, projection folds (the founding track)
 
@@ -152,8 +181,8 @@ Key files. `experiments/ENTROPIC-GEOMETRY-TRACK.md`.
    claim-bearing use; the freezes fix every numerical bar in advance.
 2. Claim-bearing results require a sealed preregistration naming the
    claim, the grid, the estimator, and the falsification bar before
-   the run. Seals are git-blob hashes in `experiments/SEALS.md` (four
-   entries: two freezes, two preregistrations, all verifiable with
+   the run. Seals are git-blob hashes in `experiments/SEALS.md` (five
+   entries: two freezes, three preregistrations, all verifiable with
    `git show <commit>:<path> | sha256sum`).
 3. Every trajectory is counted; no conditioning on success.
 4. Evidence records in `results/` are append-only hashed JSON
