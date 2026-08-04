@@ -1,9 +1,10 @@
 # PF-0 tolerance freeze — DRAFT for review
 
 **Status:** draft, unsealed, exploratory. Numbers below were measured during the
-2026-08-03/04 shakedown (commits 8ddd321..3d15e92) on Atlas (MATLAB R2026a,
+2026-08-03/04 shakedown (commits 8ddd321..d542851) on Atlas (MATLAB R2026a,
 Python 3.12.3 venv) and NRP (`python:3.12-slim` CPU Job, `ssu-atlas-ai`).
-Sealing is a human action and has not happened.
+Sealing is a human action and has not happened. All four pre-seal gaps
+identified in the first revision are closed; see the gap closure record.
 
 ## Measured instrument performance
 
@@ -20,6 +21,12 @@ Sealing is a human action and has not happened.
 | Relative energy drift, fixed step | Verlet dt 1e-3, single + 1000-member ensemble | 1.25e-7 single; <= 4.3e-9 ensemble | results/atlas-verlet.json, results/atlas-ensemble.json |
 | Cross-substrate determinism | same scenario, Atlas venv vs NRP container | outcome_sha256 bit-identical | results/atlas-verlet.json vs results/nrp-smoke.json |
 | Ensemble fold-count dispersion | 1000 perturbed ICs, PF-2 toy | all 1000 members: exactly 12 folds | results/atlas-ensemble.json |
+| N0 monotone null | polynomial instrument, both languages | 1 branch, orientation +1, 0 critical points at every slice | run_p0_instrument_net + pytest |
+| P0/P1 generic slices vs quadratic reference | polynomial instrument vs branch_count / analytic_fold_branches | tau agreement < 1e-12, orientations identical | run_p0_instrument_net + pytest |
+| D0 degenerate cubic | polynomial instrument | one critical point, classified degenerate, never a fold | run_p0_instrument_net + pytest |
+| M0 double fold t = tau^3 - tau | polynomial instrument, both languages | band counts 1-3-3-3-1, signed count +1 at every slice, both folds at +/-1/sqrt(3) with correct types | run_p0_instrument_net + pytest |
+| M0 cross-language branch locations | MATLAB vs Python, slice t = 0.2 | max difference 4.4e-16 | console runs |
+| Determinism recheck under versioned records | Atlas venv rerun vs original NRP record | outcome_sha256 bit-identical | results/atlas-verlet-r2.json vs results/nrp-smoke.json |
 
 ## Proposed frozen tolerances
 
@@ -43,22 +50,47 @@ Fixed-step path (velocity Verlet, dt = 1e-3):
 - T9 same scenario on two substrates yields identical outcome_sha256
   when dependency versions match
 
-Classifier constants (both languages, already identical): first-derivative
-tolerance 1e-9, second-derivative tolerance 1e-8.
+## Classifier constants, derived
 
-## Gaps that must close before sealing
+The classifier is invoked only at located critical points, never at arbitrary
+samples; the polynomial instrument refuses slices whose preimage falls within
+the derivative floor of a critical point, so no regular point reaches it.
 
-1. **M0 double-fold control is not implemented.** The control table requires
-   t(tau) = tau^3 - tau with both critical points found and correctly oriented.
-   Neither the MATLAB nor the Python suite exercises it yet.
-2. **N0 monotone null is not explicitly run.** Trivial, but the sealed net
-   must include it as a stated pass.
-3. **Evidence records do not capture numpy/scipy versions.** T9 is only
-   meaningful if dependency versions are recorded; add them to the runtime
-   block of `run_trial.py`.
-4. **Classifier tolerances (1e-9 / 1e-8) are inherited, not derived.** Either
-   justify them against measured event-location error or restate them as
-   conventions in the prereg.
+- **first_tol = 1e-9 (frozen).** Measured first-derivative residual at located
+  events: <= 4.5e-13 on the adaptive path, <= 5.6e-16 at polynomial critical
+  points. The tolerance sits at least 2e3 above the worst residual, so no
+  true critical point can be misread as regular.
+- **second_tol = 1e-8 (frozen).** Across all 71 fold events in the committed
+  evidence the smallest |d^2 t / d tau^2| is 0.2088; the analytic controls
+  give 2 (P0), 2*sqrt(3) (M0), and exactly 0 (D0). The tolerance sits 2e7
+  below the smallest genuine fold curvature and at least 7 decades above the
+  measured degenerate residual, so folds and degenerate points cannot swap.
+
+Any claim-bearing model whose fold curvatures approach 1e-5 in the campaign
+units invalidates this derivation and forces a re-freeze before use.
+
+## Gap closure record (2026-08-04, commits 779f1c0..d542851)
+
+1. **M0 double-fold control: closed.** Generic polynomial instrument
+   (`pf.poly_branches` / `polynomial_time_branches`,
+   `pf.poly_critical_points` / `polynomial_critical_points`) implemented in
+   both languages; band structure, signed invariant, both fold locations and
+   types verified, cross-language agreement 4.4e-16. Non-generic slices are
+   refused by contract rather than counted.
+2. **N0 monotone null: closed.** Explicit pass in both suites.
+3. **Dependency versions: closed.** `run_trial.py` records numpy and scipy
+   versions under `runtime.dependencies`; `gpu_ensemble.py` records
+   `backend_version`. T9 re-verified under the new format against the
+   original NRP record.
+4. **Classifier tolerances: closed.** Derived above from measured margins and
+   restated as frozen constants with an explicit invalidation condition.
+
+One instrument defect was found and fixed during closure: `roots()` reports a
+repeated derivative root once per multiplicity, so the D0 cubic initially
+yielded its single degenerate critical point twice. Critical-point clusters
+within 1e-8 now collapse to their mean (commit 1a0c65a). The Python D0 test
+caught this before the MATLAB net ran; the defect is preserved here per the
+evidence discipline.
 
 ## Non-claims
 
