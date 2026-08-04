@@ -55,11 +55,12 @@ document in `experiments/SEALS.md`.
 | 🟫 **TB-3** wedge family | design 📐 | TYPE-III-BRIDGE.md: modular-flow reformulation of QO-3; may end design-only |
 | 🟧 **EG-0..5** entropic geometry | design 📐 gated | ENTROPIC-GEOMETRY-TRACK.md: area-law gate EG-1 is the expected stopping point; 7 open design questions must close before EG-0 seals |
 
-Five sealed documents in the ledger (two instrument freezes, three
+Six sealed documents in the ledger (two instrument freezes, four
 preregistrations), every one verifiable by blob hash. Three papers
-published (DOIs below). Both governed QO claims passed on grids fully
-disjoint from their exploratory runs; the governed PF-4 run is in
-flight.
+published and a fourth drafted (the TB thermodynamic-limit paper,
+compiled in `paper/`). The governed PREREG-PF4-002 run (bars set
+against model error per the section 9.0 declaration) is in flight in
+Atlas screen `pf4prereg2`.
 
 ### 🟦 PF, projection folds (the founding track)
 
@@ -215,6 +216,8 @@ projection.
 3. 🟦 The Pair-Creation Threshold of Impulsive
    Stueckelberg-Horwitz-Piron Scattering Is a Cayley-Transform Pole
    (PF track), DOI 10.5281/zenodo.21790096.
+4. 🟫 Consumer-Relative Distinguishability in the Thermodynamic Limit
+   (TB track), drafted and compiled in `paper/`, not yet published.
 
 ## Repository layout
 
