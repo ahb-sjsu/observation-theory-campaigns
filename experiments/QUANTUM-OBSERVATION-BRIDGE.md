@@ -467,7 +467,56 @@ or only on training states, it is classified as an optimization artifact.
 
 ---
 
-### QO-3: Consistency across a consumer family
+### QO-3: Consistency across a consumer family — IMPLEMENTED, TWO-SIDED
+RESULT (exploratory)
+
+Implemented 2026-08-04 as `python/qo3_family.py` with tests in
+`python/tests/test_qo3.py`; evidence `results/qo3-family.json`. The
+experiment did not end design-only. Scope note honored: in one dimension
+every cut has boundary size one, so what is tested is the universality
+content of the all-observers quantifier, not area scaling (EG-1's job).
+Declared requirement per coupling point (J, h): D_c = lambda_c theta^2
+within epsilon = 0.05 for every consumer, lambda universal across the
+family within delta = 0.05; flux weight theta^2 from the excitation
+parameter alone (open question 3 discipline: nothing informational in the
+declaration).
+
+**Family A, disjoint probes (each wedge excited at its own boundary
+site): quantifier INERT, with the mechanism visible.** The theta^2 law
+holds for every consumer at every coupling point, and the lambdas
+coincide across consumers to four decimals, so the joint requirement
+never removes a coupling point that a single consumer keeps. The reason
+is structural: a boundary-local probe is quasi-local at short correlation
+length, every wedge containing its own probe captures it fully, and
+nothing ties the consumers together. Disjoint per-observer probes cannot
+make the quantifier do work.
+
+**Family B, overlapping windows witnessing ONE shared event: quantifier
+ACTIVE.** Nested windows all containing the shared excitation site, so
+every consumer sees the same event with different extent of access.
+Every window passes the theta^2 law singly at every coupling point, but
+the joint universality requirement tightens strictly with family size
+(survival 1.0 -> 0.75 -> 0.25 -> 0.25 -> 0.25 over the coupling grid)
+and is strictly tighter than every single-consumer requirement. The
+surviving quarter is exactly the weak-coupling row J = 0.6, and the
+universality spread orders monotonically with correlation strength
+(0.0335 at J=0.6, h=2.2 up to 0.1313 at J=1.2, h=1.6): the quantifier
+constrains couplings by bounding correlation assistance, selecting the
+near-factorized corner. Lambda saturates once the window exceeds the
+correlation length (windows [2,3,4] and larger agree to four decimals):
+all sufficiently large observers agree, small ones dissent.
+
+Reading for the Jacobson quantifier, model-internal only: the
+all-observers quantifier is inert when observers are probed disjointly
+and does real constraining work exactly when the family overlaps on
+shared events, which is the structure the Rindler-wedge continuum has
+and family A lacked. This answers open question 11 with a measured
+tightening curve rather than a guess, and refines open question 3: the
+declaration risk in this experiment was carried by the flux weight, and
+keeping it parameter-only (theta^2) left the universality content to be
+measured, not inserted. At loose thresholds (0.15) everything survives:
+the constraint's strength is threshold-relative, and a sealed QO-3 would
+have to preregister delta.
 
 **Question.** Model-internally only: if a declared area-analogue is fixed,
 does requiring D_C proportional to that area-analogue for ALL consumers in a
