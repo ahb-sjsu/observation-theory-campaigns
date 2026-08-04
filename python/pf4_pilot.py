@@ -73,9 +73,9 @@ DT = 1e-3
 TAU_MAX = 40.0
 N_PER_CELL = 50_000
 SEED = 20260805
-P_GRID = [0.6, 0.9, 1.2]
-E_GRID = [0.5, 0.75, 1.0, 1.5, 2.0]
-CONTROL_CELL = (0.9, 1.0)
+P_GRID = [0.5, 0.7, 0.9]
+E_GRID = [0.3, 0.4, 0.5, 0.65, 0.8, 1.0]
+CONTROL_CELL = (0.7, 0.5)
 MIN_COUNT_FOR_FIT = 5
 DRIFT_BAR = 1e-4
 
@@ -164,17 +164,48 @@ def run_cell(p_gap, e_field, *, dt=DT, n=N_PER_CELL, seed=SEED,
     count = int(reversed_mask.sum())
     fraction = count / n
     stderr = math.sqrt(max(fraction * (1 - fraction), 1e-12) / n)
+    det = deterministic_probe(p_gap, e_field, dt=dt)
     return {"P": p_gap, "E": e_field, "n": n, "dt": dt,
             "integrator": integrator, "count": count,
             "fraction": fraction, "binomial_stderr": stderr,
-            "max_relative_energy_drift": drift}
+            "max_relative_energy_drift": drift,
+            "deterministic_pt_min": det["pt_min"],
+            "deterministically_reversing": det["reversed"]}
+
+
+def deterministic_probe(p_gap, e_field, *, dt=DT):
+    """One thermal-free trajectory (u at the shifted equilibrium, pu = 0)
+    isolates the deterministic crossing kick. Cells whose probe reverses
+    are in the above-threshold regime, a different mechanism from the
+    rare-event one, and are excluded from the rare-event fits."""
+    u0 = shifted_equilibrium(e_field, T_START)
+    t, pt = np.array([T_START]), np.array([p_gap])
+    u, pu = np.array([u0]), np.array([0.0])
+    pt_min = p_gap
+    for _ in range(int(round(TAU_MAX / dt))):
+        ft = -G * e_field * u / np.cosh(t / SAUTER_L) ** 2
+        fu = (-OMEGA_U**2 * u - LAM * u**3
+              - G * e_field * SAUTER_L * np.tanh(t / SAUTER_L))
+        pt_h = pt + 0.5 * dt * ft
+        pu_h = pu + 0.5 * dt * fu
+        t = t + dt * pt_h
+        u = u + dt * pu_h
+        ft = -G * e_field * u / np.cosh(t / SAUTER_L) ** 2
+        fu = (-OMEGA_U**2 * u - LAM * u**3
+              - G * e_field * SAUTER_L * np.tanh(t / SAUTER_L))
+        pt = pt_h + 0.5 * dt * ft
+        pu = pu_h + 0.5 * dt * fu
+        pt_min = min(pt_min, float(pt[0]))
+    return {"pt_min": pt_min, "reversed": pt_min <= 0.0}
 
 
 def usable_cells(cells):
-    """Fit-eligible cells: enough counts, unsaturated, under the drift bar."""
+    """Fit-eligible cells: enough counts, unsaturated, under the drift
+    bar, and in the fluctuation-driven (sub-threshold) regime."""
     return [c for c in cells if c["count"] >= MIN_COUNT_FOR_FIT
             and c["fraction"] < 0.9
-            and c["max_relative_energy_drift"] < DRIFT_BAR]
+            and c["max_relative_energy_drift"] < DRIFT_BAR
+            and not c["deterministically_reversing"]]
 
 
 def fit_powers(cells):
@@ -233,9 +264,12 @@ def main() -> int:
         for e_field in E_GRID:
             cell = run_cell(p_gap, e_field)
             cells.append(cell)
+            regime = ("DET" if cell["deterministically_reversing"]
+                      else "fluct")
             print(f"P={p_gap} E={e_field}: fraction {cell['fraction']:.5f} "
                   f"({cell['count']}/{cell['n']}), drift "
-                  f"{cell['max_relative_energy_drift']:.1e}")
+                  f"{cell['max_relative_energy_drift']:.1e}, "
+                  f"det_min {cell['deterministic_pt_min']:.3f} [{regime}]")
 
     p_c, e_c = CONTROL_CELL
     base = next(c for c in cells if c["P"] == p_c and c["E"] == e_c)
