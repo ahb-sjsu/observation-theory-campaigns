@@ -62,18 +62,36 @@ def ball_volumes(adjacency: dict, source, r_max: int) -> list[int]:
 
 def dimension_estimate(adjacency: dict, sources, r_max: int,
                        window=WINDOW) -> dict:
+    """Two estimators per graph, both recorded.
+
+    The naive estimator fits the log-log slope of the ball volume V(r),
+    which is what casual emergent-dimension measurements use. The first
+    run of this net caught its finite-radius bias on an exact control:
+    V(r) = 2r^2 + 2r + 1 on the 2D torus gives slope 1.77 over the
+    declared window, 0.23 below truth, an O(1/r) subleading effect.
+    That measurement is preserved as v_slope. The instrument estimator
+    is the shell form, S(r) = V(r) - V(r-1) proportional to r^(d-1),
+    whose leading bias cancels (shells on the 2D torus are exactly 4r).
+    Controls are asserted on d_hat, the shell estimate.
+    """
     lo, hi = window
-    logs = []
+    v_logs, s_logs = [], []
     for s in sources:
         v = ball_volumes(adjacency, s, r_max)
         if len(v) <= hi:
             continue
-        logs.append([math.log(v[r]) for r in range(lo, hi + 1)])
-    mean_log_v = np.mean(np.array(logs), axis=0)
+        v_logs.append([math.log(v[r]) for r in range(lo, hi + 1)])
+        s_logs.append([math.log(max(v[r] - v[r - 1], 1))
+                       for r in range(lo, hi + 1)])
     log_r = np.log(np.arange(lo, hi + 1))
-    slope = float(np.polyfit(log_r, mean_log_v, 1)[0])
-    local = list(np.diff(mean_log_v) / np.diff(log_r))
-    return {"d_hat": slope, "local_slopes": [float(x) for x in local]}
+    mean_log_v = np.mean(np.array(v_logs), axis=0)
+    mean_log_s = np.mean(np.array(s_logs), axis=0)
+    v_slope = float(np.polyfit(log_r, mean_log_v, 1)[0])
+    shell_slope = float(np.polyfit(log_r, mean_log_s, 1)[0])
+    local = list(np.diff(mean_log_s) / np.diff(log_r))
+    return {"d_hat": shell_slope + 1.0, "v_slope": v_slope,
+            "shell_slope": shell_slope,
+            "local_shell_slopes": [float(x) for x in local]}
 
 
 def path_graph(n: int) -> dict:
@@ -147,9 +165,12 @@ def main() -> int:
                          ("torus_d3", 3.0)):
         err = abs(controls[name]["d_hat"] - target)
         assert err < TOLERANCE, f"{name} failed: {controls[name]['d_hat']}"
-    slopes = tree_est["local_slopes"]
+    slopes = tree_est["local_shell_slopes"]
     assert slopes[-1] > slopes[0], "tree local slope must increase"
     assert tree_est["d_hat"] > 4.0, "tree must exceed every finite control"
+    naive_bias = abs(controls["torus_d2"]["v_slope"] - 2.0)
+    assert naive_bias > TOLERANCE, \
+        "the naive-estimator bias finding should reproduce"
 
     record = {
         "schema": "wm0-dimension-v1",
@@ -175,8 +196,8 @@ def main() -> int:
                       encoding="utf-8")
 
     for name, entry in controls.items():
-        print(f"{name}: d_hat {entry['d_hat']:.3f}, local slopes "
-              f"{[round(s, 2) for s in entry['local_slopes'][:4]]}...")
+        print(f"{name}: d_hat {entry['d_hat']:.3f} (naive v-slope "
+              f"{entry['v_slope']:.3f})")
     print(output)
     return 0
 
