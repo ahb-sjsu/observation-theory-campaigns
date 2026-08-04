@@ -1,0 +1,434 @@
+\documentclass[aps,prd,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
+
+\newtheorem{proposition}{Proposition}
+
+\begin{document}
+
+\title{The Pair-Creation Threshold of Impulsive
+Stueckelberg--Horwitz--Piron Scattering Is a Cayley-Transform Pole}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 4, 2026}
+
+\begin{abstract}
+In classical Stueckelberg electrodynamics a particle worldline represents
+pair annihilation when its time coordinate reverses direction with respect
+to the evolution parameter.  A recent calculation by Land exhibits this
+reversal in impulsive Coulomb scattering and finds a sharp threshold, the
+reversal occurring exactly when a dimensionless interaction strength
+exceeds two, equivalently when the interaction energy exceeds the rest
+energy of the annihilated pair.  We replicate the published calculation
+exactly and then locate the origin of its threshold.  The impulsive
+midpoint convention used to close the scattering equations is, for the
+reduced two-dimensional kick system, precisely the Cayley transform of the
+interaction generator, which is the lowest diagonal Pad\'e approximant of
+the exponential map.  The published threshold is the pole of that
+approximant.  Integrating the same generator continuously instead gives
+hyperbolic evolution that conserves a quadratic form and provably never
+reverses the time velocity from physical initial data, at any interaction
+strength.  In group language, the continuous flow stays in the identity
+component of the invariance group of the conserved form, while beyond the
+pole the Cayley transform lands in the disconnected component containing
+the simultaneous reversal of time velocity and radial velocity, which no
+continuous flow of the generator can reach.  The published algebra is
+correct as published.  What our result shows is that its classical pair
+event marks the breakdown radius of an approximant rather than a
+dynamical transition of the continuously accumulated force, and that
+whether the full field dynamics restores a genuine threshold is an open
+question.  A practical corollary for simulation work is that reversal
+statistics can be created by a discretization prescription alone.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Stueckelberg proposed that a single classical worldline can describe pair
+annihilation if its laboratory time coordinate, viewed as a function of an
+independent evolution parameter, turns around \cite{Stueckelberg1941,
+Stueckelberg1942}.  The framework of Horwitz and Piron gives this idea a
+covariant Hamiltonian mechanics \cite{HorwitzPiron1973}, and its
+gauge-invariant electrodynamics permits the mass exchange with the field
+that a turnaround requires \cite{LandBook}.  Within that theory, Land
+computed a concrete example \cite{Land2016}.  An event scatters
+impulsively in the Coulomb field of a heavy nucleus, and its outgoing
+time velocity reverses sign exactly when a dimensionless coupling,
+built from the correlation length, the interaction distance, and the
+charges, exceeds two.  The condition translates to the statement that
+the interaction energy exceeds the rest energy of the annihilated pair,
+which is physically appealing, and the calculation is fully explicit.
+
+This paper reports a replication of that calculation and one structural
+finding about it.  The replication is exact.  Every printed equation we
+transcribe passes machine-precision consistency guards, the threshold
+appears exactly where the source places it, and the limiting outgoing
+energy agrees with the printed asymptote.  The finding concerns where
+the threshold comes from.  The source closes its impulsive scattering
+equations with a midpoint convention, evaluating the interaction with
+the average of the incoming and outgoing velocities.  For the reduced
+system that governs the time velocity and the radial velocity component,
+that convention is exactly the Cayley transform of the interaction
+generator.  The Cayley transform is the simplest diagonal Pad\'e
+approximant of the exponential map, and it has a pole.  The published
+threshold sits exactly on that pole.  The alternative closure,
+continuous accumulation of the same generator, has no pole.  It
+conserves a quadratic form that confines the motion to one branch of a
+hyperbola, and from physical initial data it never reverses the time
+velocity at any coupling strength.
+
+Three claim types appear below and are kept separate.  Statements about
+the source's published algebra are replication results, verified to
+machine precision.  The identification of the midpoint closure with the
+Cayley transform, the conservation law of the continuous closure, and
+the component structure of the two maps are proved.  Statements about
+which closure the full field theory prefers are open questions, and we
+make no claim about physical pair production anywhere in this paper.
+
+\section{The replicated configuration}
+\label{sec:config}
+
+We follow the notation of Ref.~\cite{Land2016} and use its equation
+numbers.  An event with coordinates $x^{\mu}(\tau)$ evolves under the
+Lorentz force of five $\tau$-dependent gauge fields (source Eq.~12),
+and may exchange mass with the field (source Eq.~14), which is what
+permits $\dot t = dt/d\tau$ to change sign.  The incoming trajectory has
+velocity $u = \dot t_{\mathrm{in}}(1, v, 0, 0)$ with
+$\dot t_{\mathrm{in}} = 1/\sqrt{1 - v^{2}}$ (source Eqs.~47--48).  The
+nucleus induces the potential $a^{0} = a^{5} = (Ze/4\pi R)\,
+\delta(\tau - \tau_{1})$ at interaction distance $R$ in the
+small-correlation-length limit (source Eq.~56).  The strength of the
+kick is the dimensionless coupling
+\begin{equation}
+g_{e} \;=\; \frac{\lambda}{M}\,\frac{Ze^{2}}{4\pi R^{2}},
+\label{eq:ge}
+\end{equation}
+with $\lambda$ the correlation length and $M$ the Galilean target mass
+(source Eq.~64).  Closing the impulse integrals with the midpoint
+velocities (source Eq.~63) yields a linear system (source Eq.~66) whose
+solution (source Eq.~67) has time component
+\begin{equation}
+\dot t_{f}
+= \frac{\dot t_{\mathrm{in}}\left(1 - g_{e} v \hat R_{x}\right)
++ \tfrac{1}{4} g_{e}^{2}\left(\dot t_{\mathrm{in}} + 2\right)}
+{1 - \tfrac{1}{4} g_{e}^{2}},
+\label{eq:tdotf}
+\end{equation}
+where $\hat R_{x}$ is the component of the unit vector to the
+interaction point along the incoming motion (source Eq.~76).  The
+numerator is positive definite (source Eq.~78), so the sign of
+$\dot t_{f}$ is the sign of the denominator, giving reversal exactly for
+$g_{e} > 2$ (source Eqs.~79--80), and
+$\dot t_{f} \to -(\dot t_{\mathrm{in}} + 2)$ as $g_{e} \to \infty$
+(source Eq.~81).
+
+Our transcription of the system and of the closed form agree with each
+other to $5.7 \times 10^{-14}$ over a ninety-cell parameter sweep, the
+time component of the closed form matches Eq.~\eqref{eq:tdotf} to
+$1.4 \times 10^{-14}$, the threshold is exact in every cell, and the
+asymptote is reproduced to $1.4 \times 10^{-3}$ at $g_{e} = 1000$.  The
+replication record, with a line-by-line provenance note mapping each
+source equation to code, is part of the repository described in
+Sec.~\ref{sec:methods}.
+
+\section{The reduced kick system and its two closures}
+\label{sec:reduced}
+
+During the kick the source evaluates the potential at the fixed
+interaction point, which is what its delta collapse does in source
+Eq.~61.  Writing $w$ for the component of the spatial velocity along
+$\hat R$ and $s \in [0, 1]$ for the accumulated interaction kernel, the
+force equations (source Eqs.~59--60) reduce to the linear system
+\begin{equation}
+\frac{d}{ds}
+\begin{pmatrix} \dot t + 1 \\ w \end{pmatrix}
+=
+G
+\begin{pmatrix} \dot t + 1 \\ w \end{pmatrix},
+\qquad
+G = -g_{e}
+\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},
+\label{eq:generator}
+\end{equation}
+with the perpendicular velocity component unchanged.  The
+kernel-derivative part of the force is a total derivative whose
+contribution vanishes identically in the variable $s$.  Everything below
+is a statement about the two ways of turning the generator
+$G$ into a map from incoming to outgoing velocities.
+
+\begin{proposition}[Identification]
+\label{prop:cayley}
+The midpoint closure of source Eq.~63 applied to the reduced system
+\eqref{eq:generator} is the Cayley transform
+$\,v_{f} = (I - G/2)^{-1}(I + G/2)\, v_{\mathrm{in}}$, and its time
+component reproduces Eq.~\eqref{eq:tdotf} identically.
+\end{proposition}
+
+\begin{proof}
+The midpoint convention evaluates the velocity in the accumulated kick
+as the average of the endpoint velocities, so
+$v_{f} - v_{\mathrm{in}} = G\,(v_{\mathrm{in}} + v_{f})/2$, which
+rearranges to the stated transform.  Expanding with
+$G^{2} = g_{e}^{2} I$ gives
+$v_{f} = \left[(1 + \tfrac{1}{4} g_{e}^{2}) I + G\right]
+v_{\mathrm{in}} / (1 - \tfrac{1}{4} g_{e}^{2})$, whose first component
+is Eq.~\eqref{eq:tdotf} after substituting
+$w_{\mathrm{in}} = v \dot t_{\mathrm{in}} \hat R_{x}$.  The identity was
+also verified numerically to $10^{-12}$ across the sweep of
+Sec.~\ref{sec:verify}.
+\end{proof}
+
+The Cayley transform is the Pad\'e approximant of order $(1,1)$ of the
+exponential map \cite{HairerLubichWanner, Iserles2000}.  Its
+eigenvalue action on the eigenvectors of $G$, which have eigenvalues
+$\mp g_{e}$, is $\lambda \mapsto (1 + \lambda/2)/(1 - \lambda/2)$, so
+one image eigenvalue is $(1 + g_{e}/2)/(1 - g_{e}/2)$.  The pole at
+$g_{e} = 2$ is the published threshold.
+
+\begin{proposition}[Conservation and no reversal]
+\label{prop:conserve}
+The continuous flow $\exp(sG)$ conserves
+$Q = (\dot t + 1)^{2} - w^{2}$.  For physical initial data, meaning
+$\dot t_{\mathrm{in}} + 1 > |w_{\mathrm{in}}|$, the continuously
+accumulated kick satisfies $\dot t(s) + 1 \geq \sqrt{Q} > 0$ for all
+$s$ and all $g_{e}$, so the time velocity never reverses.
+\end{proposition}
+
+\begin{proof}
+$G$ satisfies $G^{T} \eta + \eta G = 0$ for
+$\eta = \mathrm{diag}(1, -1)$, so $\exp(sG)$ lies in the invariance
+group of $Q$.  In light-cone coordinates $(\dot t + 1) \pm w$ the flow
+is diagonal with factors $e^{\mp g_{e} s}$, so their product $Q$ is
+constant and both coordinates remain positive if they start positive.
+Incoming data has $\dot t_{\mathrm{in}} + 1 > 1 > |w_{\mathrm{in}}|$
+whenever $|v| < 1$, since
+$|w_{\mathrm{in}}| \le v \dot t_{\mathrm{in}} < \dot t_{\mathrm{in}}$.
+The closed form
+$\dot t(s) + 1 = (\dot t_{\mathrm{in}} + 1)\cosh(g_{e} s) -
+w_{\mathrm{in}} \sinh(g_{e} s)$ was verified against an independent
+fixed-step integration to $10^{-9}$.
+\end{proof}
+
+\begin{proposition}[Component structure]
+\label{prop:component}
+The invariance group of $Q$ has disconnected components.  For
+$g_{e} < 2$ the Cayley transform lies in the identity component and maps
+the physical branch $\dot t + 1 \geq \sqrt{Q}$ to itself.  For
+$g_{e} > 2$ both of its eigenvalues are negative, so it is the product
+of a boost with the total reflection $-I$, lands in the component that
+reverses both $\dot t + 1$ and $w$, and maps the physical branch to the
+opposite branch $\dot t + 1 \leq -\sqrt{Q}$.  No continuous
+one-parameter flow of $G$ reaches that component.
+\end{proposition}
+
+\begin{proof}
+The image eigenvalues $(1 \mp g_{e}/2)/(1 \pm g_{e}/2)$ are both
+positive for $g_{e} < 2$ and both negative for $g_{e} > 2$, with product
+one in both cases, so the map is a $Q$-preserving matrix equal to a
+boost for $g_{e} < 2$ and to $-I$ times a boost for $g_{e} > 2$.  The
+exponential of a fixed generator is connected to the identity, so it
+cannot equal a map with negative eigenvalues.  Branch preservation and
+branch exchange follow from the sign of the eigenvalues on the
+light-cone coordinates.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.55\columnwidth,
+  xlabel={coupling $g_{e}$},
+  ylabel={outgoing $\dot t_{f}$},
+  ymin=-8, ymax=8, restrict y to domain=-8.5:8.5,
+  unbounded coords=jump,
+  legend pos=north west]
+\addplot[blue!70!black]
+  table[x=ge, y=cayley] {figdata/pf3_prescriptions.dat};
+\addlegendentry{midpoint (Cayley)}
+\addplot[red!70!black, dashed]
+  table[x=ge, y=continuous] {figdata/pf3_prescriptions.dat};
+\addlegendentry{continuous (exponential)}
+\addplot[black!50, dotted, domain=0:6, samples=2] {0};
+\end{axis}
+\end{tikzpicture}
+\caption{Outgoing time velocity against coupling for the reference
+scattering geometry.  The midpoint closure diverges at the pole
+$g_{e} = 2$ and emerges reversed, which is the published pair event.
+The continuous closure of the same generator grows monotonically and
+never reverses.  Both curves are computed from the committed replication
+code.}
+\label{fig:prescriptions}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.62\columnwidth,
+  xlabel={radial velocity $w$},
+  ylabel={$\dot t + 1$},
+  ymin=-6, ymax=6, xmin=-3, xmax=3,
+  legend pos=south west]
+\addplot[black!60]
+  table[x=w, y=upper] {figdata/pf3_hyperbola.dat};
+\addlegendentry{invariant branches}
+\addplot[black!60, forget plot]
+  table[x=w, y=lower] {figdata/pf3_hyperbola.dat};
+\addplot[red!70!black, thick]
+  table[x=w, y=tplus] {figdata/pf3_flowpath.dat};
+\addlegendentry{continuous flow, $g_{e}=3$}
+\addplot[only marks, mark=*, mark size=1.8pt, blue!70!black]
+  table[x=w, y=tplus] {figdata/pf3_cayley_points.dat};
+\addlegendentry{Cayley images}
+\end{axis}
+\end{tikzpicture}
+\caption{The conserved-form picture.  Physical initial data sits on the
+upper branch of the invariant hyperbola.  The continuous flow moves
+along that branch and cannot leave it.  The Cayley images move along the
+upper branch as the coupling grows toward two, then reappear on the
+lower branch beyond the pole.  Every plotted Cayley image satisfies the
+invariant to $10^{-9}$, verified in the committed data script.}
+\label{fig:hyperbola}
+\end{figure}
+
+\section{Numerical verification}
+\label{sec:verify}
+
+All numbers are from the committed evidence record of the replication
+run.  The transcription guards give agreement between the printed
+linear system and the printed closed form at $5.7 \times 10^{-14}$ and
+between the closed form and its time component at
+$1.4 \times 10^{-14}$.  The continuous closed form of
+Proposition~\ref{prop:conserve} agrees with an independent
+Runge--Kutta integration to better than $10^{-9}$ at couplings one,
+three, and six.  At the reference geometry with $v = 0.4$ and
+$\hat R_{x} = 0.8$ the two closures give outgoing time velocities of
+$2.02$ against $1.82$ at coupling one, $-5.60$ against $+16.55$ at
+coupling three, and $-3.35$ against $+350.4$ at coupling six, the
+midpoint values approaching the printed asymptote from below while the
+continuous values grow exponentially.  The sweep also finds spacelike
+outgoing velocities in thirty percent of its cells at intermediate
+coupling, which is not an error, since a worldline that reverses its
+time direction must cross the spacelike region, and the source's
+timelike statement applies to its large-coupling limit.
+
+\section{What is and is not implied}
+\label{sec:scope}
+
+The published calculation is internally exact and our replication
+confirms every printed consequence of its stated conventions.  The
+midpoint convention is, moreover, not a numerical shortcut that the
+source could simply have avoided.  It is the closure that defines the
+impulsive model, adopted for the same reason implicit midpoint methods
+are prized in geometric integration, and the resulting map does
+preserve the invariant form of the reduced system exactly
+\cite{HairerLubichWanner}.  The point established here is narrower and,
+we think, sharper.  Within the impulsive model the pair threshold is
+located exactly at the pole where the Cayley approximant of the kick
+exponential leaves the identity component of the invariance group, and
+the continuously accumulated version of the same kick provably never
+produces a reversal.  The classical pair event of this configuration is
+therefore a property of the closure prescription, not of the
+accumulated force.
+
+Whether that observation deflates the physical picture or refines it is
+an open dynamical question that the impulse limit cannot settle.  The
+full theory evolves the potential with the moving event, includes
+radiation, and determines the interaction window self-consistently, and
+none of that structure survives in the frozen-point kick.  A
+configuration in which the full pre-Maxwell field dynamics produces or
+forbids a reversal threshold would decide the question, and we state it
+as such rather than prejudge it.
+
+There is also a practical corollary for any simulation campaign that
+counts time reversals, including ours.  A discretization prescription
+can manufacture a reversal threshold at the breakdown radius of its own
+approximant, complete with a physically appealing energy condition,
+while the continuous dynamics it approximates has none.  Reversal
+statistics inherit the component structure of the map used to close each
+interaction, so a campaign that measures them must either integrate
+continuously through interactions or preregister its closure
+prescription and test sensitivity to it.  This lesson is now part of the
+anti-circularity contract of the pair-production campaign that produced
+this replication.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+The replication lives in a repository whose instruments were validated
+under sealed tolerance freezes before any result-bearing run, with
+every numerical bar fixed in advance.  The transcription is guarded by
+solving the printed linear system numerically against the printed
+closed form across a parameter sweep, and the provenance note maps each
+source equation to its implementation line by line.  Evidence records
+are append-only JSON with SHA-256 hashes of inputs and outputs, and
+every figure in this paper is generated by a committed script whose
+inputs are the committed evidence records or the committed replication
+code, with the invariant of Fig.~\ref{fig:hyperbola} asserted inside
+the data script itself.
+
+\begin{thebibliography}{9}
+
+\bibitem{Stueckelberg1941}
+E.~C.~G. Stueckelberg,
+La signification du temps propre en m\'ecanique ondulatoire,
+Helv. Phys. Acta \textbf{14}, 588 (1941).
+
+\bibitem{Stueckelberg1942}
+E.~C.~G. Stueckelberg,
+La m\'ecanique du point mat\'eriel en th\'eorie de relativit\'e et en
+th\'eorie des quanta,
+Helv. Phys. Acta \textbf{15}, 23 (1942).
+
+\bibitem{HorwitzPiron1973}
+L.~P. Horwitz and C. Piron,
+Relativistic dynamics,
+Helv. Phys. Acta \textbf{46}, 316 (1973).
+
+\bibitem{Land2016}
+M. Land,
+Pair production in classical Stueckelberg--Horwitz--Piron
+electrodynamics,
+J. Phys.: Conf. Ser. \textbf{845}, 012025 (2017),
+arXiv:1604.01625.
+
+\bibitem{LandBook}
+M. Land and L.~P. Horwitz,
+\textit{Relativistic Classical Mechanics and Electrodynamics}
+(Morgan and Claypool, San Rafael, 2020).
+
+\bibitem{HairerLubichWanner}
+E. Hairer, C. Lubich, and G. Wanner,
+\textit{Geometric Numerical Integration}, 2nd ed.
+(Springer, Berlin, 2006).
+
+\bibitem{Iserles2000}
+A. Iserles, H.~Z. Munthe-Kaas, S.~P. N{\o}rsett, and A. Zanna,
+Lie-group methods,
+Acta Numerica \textbf{9}, 215 (2000).
+
+\bibitem{Feynman1949}
+R.~P. Feynman,
+The theory of positrons,
+Phys. Rev. \textbf{76}, 749 (1949).
+
+\end{thebibliography}
+
+\end{document}

@@ -81,6 +81,56 @@ for entry in qo2["budgets"]:
     ))
 write("qo2_flip.dat", "budget Ftask Finfid Ttask Tinfid antitask", rows)
 
+# Figure C1: tdot_f versus ge under the two prescriptions (Cayley pole
+# versus continuous exponential), recomputed from the committed PF-3 code.
+from shp_land2016 import final_velocity, tdot_final  # noqa: E402
+
+V_REF, RHAT_REF = 0.4, (0.8, 0.6)
+TDOT_IN = 1.0 / math.sqrt(1.0 - V_REF**2)
+W_IN = V_REF * TDOT_IN * RHAT_REF[0]
+C2 = (TDOT_IN + 1.0) ** 2 - W_IN**2
+
+rows = []
+ge = 0.0
+while ge <= 6.0 + 1e-9:
+    if abs(ge - 2.0) < 0.05:
+        cayley = float("nan")
+    else:
+        cayley = tdot_final(TDOT_IN, V_REF, RHAT_REF[0], ge)
+    continuous = ((TDOT_IN + 1.0) * math.cosh(ge)
+                  - W_IN * math.sinh(ge)) - 1.0
+    rows.append((ge, cayley, continuous))
+    ge += 0.02
+write("pf3_prescriptions.dat", "ge cayley continuous", rows)
+
+# Figure C2: the invariant hyperbola in the (w, tdot+1) plane, the
+# continuous path along the physical branch, and Cayley images crossing
+# to the PT branch above the pole.
+rows = []
+for i in range(241):
+    w = -3.0 + i * 0.025
+    top = math.sqrt(C2 + w * w)
+    rows.append((w, top, -top))
+write("pf3_hyperbola.dat", "w upper lower", rows)
+
+rows = []
+for i in range(101):
+    s = i / 100.0
+    ge = 3.0
+    tp = ((TDOT_IN + 1.0) * math.cosh(ge * s) - W_IN * math.sinh(ge * s))
+    w = (W_IN * math.cosh(ge * s) - (TDOT_IN + 1.0) * math.sinh(ge * s))
+    rows.append((w, tp))
+write("pf3_flowpath.dat", "w tplus", rows)
+
+rows = []
+for ge in (0.0, 0.5, 1.0, 1.5, 1.9, 2.1, 3.0, 5.0):
+    velocity = final_velocity(TDOT_IN, V_REF, RHAT_REF, ge)
+    w_f = velocity[1] * RHAT_REF[0] + velocity[2] * RHAT_REF[1]
+    invariant = (velocity[0] + 1.0) ** 2 - w_f**2
+    assert abs(invariant - C2) < 1e-9, "Cayley left the invariant set"
+    rows.append((ge, w_f, velocity[0] + 1.0))
+write("pf3_cayley_points.dat", "ge w tplus", rows)
+
 # Figure Q3: QO-3 joint survival versus family size, families A and B.
 qo3 = json.loads((ROOT / "results" / "qo3-family.json").read_text())
 strict = qo3["summary"]["strict"]
