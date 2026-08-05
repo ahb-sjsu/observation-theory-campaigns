@@ -1,0 +1,761 @@
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
+
+\newcommand{\dd}{\mathrm{d}}
+
+\begin{document}
+
+\title{Auditing Emergent Physics Claims in Rewriting Systems:\\
+Exact Tests of Dimension, Causal Invariance, and the Second Law}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 5, 2026}
+
+\begin{abstract}
+The Wolfram Physics Project claims that simple rewriting systems
+exhibit emergent spatial dimension, relativistic structure from causal
+invariance of the rewriting, and a second law of thermodynamics from
+computational irreducibility.  Each of these claims rests on an
+inference pattern that the present campaign has already made exactly
+measurable for its own purposes, so the claims can be audited rather
+than debated.  This paper reports six audits, run under the campaign's
+sealed-instrument discipline and framed so that a defender of the
+program would accept every pass condition as fair.  A shell-based
+dimension estimator is exact on controls of known dimension and
+refuses the diverging control, while the naive ball-volume slope that
+casual dimension measurements use reads low on every exact control by
+a finite-radius bias that small-graph dimension claims inherit.  A
+manifestly reversible cellular automaton, built on the featured rule
+of the program's own second-law writings, raises its declared
+coarse-grained entropy from an ordered seed and then retraces the
+curve bitwise exactly with exact recovery of the initial microstate,
+so the entropy growth is observational, which sharpens the program's
+observer-relative account of the second law into a measured statement.
+For string rewriting, a causally invariant sorting rule agrees exactly
+under every update order, a planted non-confluent rule is flagged with
+three distinct terminal strings, and a growth rule splits into
+conserved counts that are invariant and an arrangement that belongs to
+the update order.  Causal-graph invariants built from token genealogy
+are identical across update orders where causal invariance holds, and
+extremal foliations achieve the causal depth bound exactly while
+random foliations spend up to twice as many slices, so simultaneity
+bookkeeping moves while the invariants stay frozen.  A hypergraph
+rule's measured dimension then passes a held-out scaling test, beating
+a preregistered exponential alternative forty-fold in held-out error.
+The capstone audit shows that the same rule's bulk bookkeeping is not
+invariant.  Five declared match orders give different relation counts,
+different vertex counts, and a seventeen percent spread in the
+dimension estimate, so the surviving dimension claim carries a
+measured prescription caveat at these sizes.  The verdict pattern is
+uniform.  Quantities are exact where an algebraic property protects
+them, prescription-borne where matching conflicts exist, and the
+second law of reversible computation is observational entropy.
+Nothing in this paper bears on whether the program is correct as
+fundamental physics.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+The Wolfram program proposes that fundamental physics emerges from
+simple rewriting systems.  Space and its dimension are read from the
+growth of neighborhood volumes in an evolving hypergraph
+\cite{Wolfram2020}, special relativity is attributed to causal
+invariance of the rewriting, the property that every order of applying
+the rules yields the same causal structure \cite{Gorard2020a}, quantum
+mechanics is read from the branching of a multiway evolution
+\cite{Gorard2020b}, and the second law of thermodynamics is attributed
+to computational irreducibility acting on computationally bounded
+observers \cite{Wolfram2023}.  The program's claims have been debated
+mostly at the level of plausibility, because the inference patterns
+they rest on, reading a dimension from a growth curve, asserting
+independence from an update order, counting structures relative to a
+slicing, and locating an entropy in an observer, are rarely stated
+with pass and failure conditions that both sides accept in advance.
+
+This campaign built exact instruments for all four of those inference
+patterns before turning to the Wolfram program, for reasons internal
+to its own questions.  A foliation-covariance audit asks whether a
+claimed event survives a passive change of the observer's slicing, and
+the campaign's fold theorem states exactly which changes of
+multiplicity are legitimate under such a change.  A prescription audit
+asks whether a claimed quantity survives a change of update
+prescription, after an earlier stage of the campaign proved that a
+published threshold belonged to a discretization rather than to the
+dynamics.  An estimator-validation rule forbids any instrument from
+measuring anything until it has passed exact controls, including a
+control it must refuse.  And the campaign's entropy track separated
+observational entropy from thermodynamic entropy by exhibiting a
+reversible system whose observed entropy swings while its hidden
+ensemble is recovered exactly \cite{EntropyPaper,SourcesPaper}.
+
+These audits test
+claims, not people, every pass condition is one a defender of the
+program would accept as fair, every failure condition is a finding
+about a model class rather than a criticism of a research effort, and
+a claim that survives comes out stronger than it went in.
+
+The paper reports six audits.  An instrument net validates the
+dimension estimator on exact controls and, along the way, measures the
+finite-radius bias of the naive estimator that casual dimension claims
+use.  A reversible cellular automaton makes the program's second-law
+account a measured statement.  A string-rewriting audit measures which
+quantities survive a change of update order, with a planted
+non-confluent rule as the trap the pipeline must catch.  A
+causal-graph audit checks the same question on causal structure and
+adds a foliation sweep.  A hypergraph audit tests a dimension claim on
+held-out data it was never fitted to.  The capstone audit then turns
+the update-order question on the hypergraph rule itself and finds its
+bulk bookkeeping prescription-borne.  A closing section assembles the
+scorecard, which claims are invariant, which are observational, and
+which belong to the prescription.
+
+All
+systems are finite and computable, all measurements are exact or carry
+declared tolerances, and no result bears on whether the Wolfram
+program is true or false as fundamental physics.  A claim shown
+prescription-borne here is a result about a declared rule at measured
+sizes under a declared audit, nothing more.
+
+\section{The claims and the audit instruments}
+\label{sec:mapping}
+
+The track document of this campaign records a mapping with one row per
+program claim, the instrument that audits it, and what a pass and a
+failure mean.  Four rows were run and are reported here.
+
+Emergent dimension from ball-volume growth is audited by the
+estimator net of Sec.~\ref{sec:wm0} followed by the held-out scaling
+test of Sec.~\ref{sec:wm4}.  A pass means the rule's estimated
+dimension is finite, stable on radii never used for fitting, and beats
+preregistered alternative growth laws.  A failure means the dimension
+estimate belongs to the fitted radius window, a statement about
+estimator scope on that rule.
+
+Causal invariance, the basis of the program's relativistic claims, is
+audited by the prescription protocols of Secs.~\ref{sec:wm2}
+and~\ref{sec:wm2h}, with the update order as the prescription.  For a
+rule with provable confluence the declared invariants must agree
+exactly across independent update orders.  For a rule without such a
+proof the order dependence is measured rather than assumed away, and
+any quantity that varies is classified prescription-borne for that
+rule.
+
+Structures counted relative to a slicing are audited by the
+foliation protocol of Sec.~\ref{sec:wm3}.  The campaign's fold theorem
+allows an honest middle outcome, a multiplicity that varies across
+slicings while a declared signed invariant is conserved, so the audit
+never demands naive invariance of raw counts.
+
+The second law from computational irreducibility is audited by the
+reversible-automaton protocol of Sec.~\ref{sec:wm1}.  This row is not
+adversarial at all.  The program's own account already locates the
+second law in the observer \cite{Wolfram2023}, and the audit supplies
+the exact-arithmetic witness that turns that account from an argument
+into a measurement.
+
+The fifth row of the mapping, quantum mechanics from multiway
+branching \cite{Gorard2020b}, remains design only and no experiment
+for it is reported here.
+
+Two standing disciplines bind every run.  Every pipeline carries a
+planted artifact, a deliberately non-confluent rule whose order
+dependence is known in advance, and a pipeline that fails to flag its
+own trap voids the run.  And every window, coarse-graining,
+prescription list, and alternative model is declared before the run it
+governs, per the track's anti-circularity contract.
+
+\section{The dimension-estimator net and the naive-slope bias}
+\label{sec:wm0}
+
+No dimension is quoted in this paper before the instrument that
+measures it has passed exact controls, including a control it must
+refuse.  For a graph, let $S(v,r)$ be the number of vertices at graph
+distance exactly $r$ from a base vertex $v$, and let $B(v,r)$ be the
+number within distance $r$.  The campaign's estimator fits the slope
+of $\log S$ against $\log r$ over the window $2 \le r \le 10$,
+declared before any rule measurement, averages over $24$ declared base
+points, and reports
+\begin{equation}
+  \hat d \;=\; 1 + \frac{\dd \log S}{\dd \log r},
+  \label{eq:dhat}
+\end{equation}
+with a sealed tolerance of $0.15$ and a refusal condition.  If the
+local log-log slope grows across the window instead of stabilizing,
+the graph is flagged non-finite-dimensional and no number is
+reported.
+
+\begin{table}[t]
+\caption{The estimator net on exact controls.  The shell estimator of
+Eq.~\eqref{eq:dhat} is compared with the naive ball-volume slope on
+the same graphs, windows, and base points.  The tree control must be
+refused, and is.  All numbers are from the committed evidence
+record.}
+\label{tab:wm0}
+\begin{ruledtabular}
+\begin{tabular}{lcccc}
+Control & Exact $d$ & Shell $\hat d$ & Naive slope & Deficit \\
+\colrule
+path            & $1$ & $1.000$ & $0.896$ & $0.104$ \\
+2D torus        & $2$ & $2.000$ & $1.771$ & $0.229$ \\
+3D torus        & $3$ & $2.958$ & $2.657$ & $0.343$ \\
+regular tree    & none & refused & $5.490$ & none \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Table~\ref{tab:wm0} shows the net.  The path graph returns $1.000$
+with local slopes flat to machine precision, the two-dimensional torus
+returns $2.000$ within $2\times10^{-16}$, and the three-dimensional
+torus returns $2.958$, a deviation of $0.042$ against the tolerance of
+$0.15$, with local slopes climbing from $1.919$ toward $2$ across the
+window as the lattice shells converge on their asymptotic law.  The
+regular tree, the control the estimator must refuse, shows local
+slopes growing from $2.71$ to $10.43$ across the window with no
+stabilization, and the estimator flags the graph
+non-finite-dimensional instead of printing a number.  An estimator
+that returned a finite dimension for the tree would fail the net as
+badly as one that misread a torus, because the point of the net is
+that the instrument must know what it cannot measure.
+
+The net also produced a finding about the estimator the program's
+informal practice suggests, the log-log slope of the ball volume
+itself.  On the same exact controls that slope reads $0.896$, $1.771$,
+and $2.657$ against exact values of $1$, $2$, and $3$.  The origin is
+elementary.  A ball volume growing as $r^d$ with a subleading term
+of relative order $1/r$ has a log-log slope that sits below $d$ by a term of
+order $1/r$ at every finite radius, and over practical windows the
+accumulated deficit is $0.10$ to $0.34$ in the measured cases.  Any
+dimension read from a ball-volume slope on a small graph inherits this
+bias, and it acts in one direction, toward reading low.  The shell
+form of Eq.~\eqref{eq:dhat} removes the accumulation by
+differentiating first, which is why it is the instrument used in
+Secs.~\ref{sec:wm4} and~\ref{sec:wm2h}.
+
+\section{The second law of a reversible automaton is observational}
+\label{sec:wm1}
+
+The program's second-law claim is already observer-relative.
+Computational irreducibility makes the microdynamics opaque to a
+bounded observer, and the entropy that observer assigns grows
+\cite{Wolfram2023}.  The campaign's entropy track proved a sharpened
+form of this statement for reversible hidden dynamics, an observed
+binned entropy that swings while the hidden ensemble is recovered
+exactly, so that the entire change is observational
+\cite{EntropyPaper,SourcesPaper}.  This audit transplants that
+protocol onto the automaton family the program itself uses.
+
+The system is a second-order reversible elementary automaton,
+\begin{equation}
+  a_{t+1} \;=\; F(a_t) \oplus a_{t-1},
+  \label{eq:secondorder}
+\end{equation}
+where $F$ is an elementary rule applied to the current row and
+$\oplus$ is addition modulo two.  The update is invertible by
+construction, since $a_{t-1} = F(a_t) \oplus a_{t+1}$ recovers the
+past exactly, in the family reviewed by Toffoli and Margolus
+\cite{ToffoliMargolus1990} and explored in the program's foundational
+book \cite{Wolfram2002}.  The declared instance takes $F$ to be
+Rule~122, the featured example of the program's own second-law
+writings \cite{Wolfram2023}, on $1024$ cells with periodic boundary
+for $1500$ steps, from a random $256$-cell center region with the
+prior row zero.  The declared coarse-graining is the Shannon entropy
+of the empirical histogram of non-overlapping four-cell blocks,
+declared before the run.  The arithmetic is exact over the two-element
+field, so the reversed trajectory is not approximately the forward
+trajectory, it is the forward trajectory bitwise, or the
+implementation is wrong.
+
+The measured result.  The coarse-grained entropy rises from $1.646$
+bits at the ordered seed to $3.288$ bits at the turnaround, a rise of
+$1.641$ bits against a declared bar of $1.0$.  Under reversal the
+entropy curve retraces with a maximum defect of exactly $0.0$ bits at
+every mirrored time, and the initial pair of configurations is
+recovered exactly, cell for cell.  The entropy of the finite
+reversible system fluctuates along the way, as it must, and the claim
+is the rise from the ordered seed together with the exact retrace,
+not monotonicity.
+
+The reading is the campaign's entropy-track conclusion verbatim.  The
+dynamics loses nothing, the observer's coarse-graining produces the
+entire entropy change, and the second law of this reversible
+computational system is observational entropy.  This is the program's
+own account
+\cite{Wolfram2023}, converted into a statement with an exact witness,
+and any second-law claim for reversible rewriting systems now has a
+measured form to be compared against.
+
+Three instrument findings bound the protocol's scope.  First, the reversible form
+of Rule~30, the program's flagship pseudorandomizer, runs from a
+single seed into a dense phase in which the rule's output vanishes on
+saturated neighborhoods and the block entropy falls, so that rule and
+seed pair never randomizes under the declared coarse-graining.
+Second, the symmetric initialization that sets the prior row equal to
+the current row makes the orbit time-reflection symmetric, and
+Rule~122 then shows a near-recurrence toward order within a thousand
+steps, so the initialization must be asymmetric for the rise to be
+sustained.  Third, eight-cell byte blocks are too coarse for
+structured automaton fields and four-cell blocks resolve the growth.
+A fourth note concerns the bar itself.  An early version of the
+reversal swapped the wrong pair of rows, a one-step misalignment, and
+the exact-retrace bar caught it immediately, which is what a bar set
+at exactly zero is for.
+
+\section{Strings under a change of update order}
+\label{sec:wm2}
+
+Causal invariance is the program's stated basis for relativistic
+claims \cite{Gorard2020a}.  Its operational content is that the
+physics of a rewriting system should not depend on the order in which
+applicable rules are applied.  The campaign audits exactly that, with
+the update order as a prescription in the sense of its earlier
+threshold finding, under three declared orders, leftmost match,
+rightmost match, and seeded random match, all from the same declared
+initial string of $60$ letters over the alphabet $\{A,B\}$.
+
+The causally invariant control is the sorting rule $BA \to AB$.  Each
+event removes exactly one inversion, one misordered pair of letters,
+so the algebra fixes the event
+count in advance.  The measured result agrees exactly.  Under every
+one of the three orders the rule terminates in the same sorted string
+after exactly $406$ events, and $406$ is the inversion number of the
+declared initial string.  The invariance is not approximate and not
+statistical.  It is the confluence of the rule made visible, and it is
+what a genuine causal-invariance claim looks like when measured.
+
+The planted trap is the rule pair $\{AB \to B,\ BA \to A\}$, built to
+be non-confluent because overlapping matches conflict.  The pipeline
+must flag it or the run is void.  It fires.  The three orders
+terminate in three distinct strings, $B$, $BBBB$, and $BB$, after $7$,
+$4$, and $6$ events respectively.  Everything about this rule's
+outcome, its terminal state, its event count, its history, belongs to
+the update order, and the pipeline records it as prescription-borne.
+The trap discharges the campaign's standing obligation to prove that
+the pipeline can catch the artifact class it is hunting.
+
+The growth rule $A \to AB$, run for $200$ declared events, splits
+along exactly the line the campaign's fold theorem predicts.  The
+conserved quantities agree exactly across all three orders, two $A$
+letters and $201$ $B$ letters in a final string of length $203$,
+because each event preserves the $A$ count and adds exactly one $B$
+regardless of where it applies.  The arrangement of those letters
+differs between orders.  Counts protected by a conservation law are
+prescription-invariant while the configuration carrying them is
+prescription-borne, the signed-versus-unsigned split of the campaign's
+earlier work measured here in rewriting form.
+
+\section{Causal graphs and foliations}
+\label{sec:wm3}
+
+The previous section audited terminal states.  This one audits the
+causal structure itself, the object the program's relativistic claims
+live on \cite{Gorard2020a}.  The causal graph is built from token
+genealogy.  Each event consumes tokens and produces tokens, and a
+causal edge runs from the event that produced a token to the event
+that consumed it.  The audit runs the sorting rule on a declared
+$24$-letter string under leftmost and rightmost orders and compares
+declared invariants of the two causal graphs, then sweeps foliations
+of one graph.
+
+For the sorting rule the causal-graph invariants are identical across
+prescriptions.  Both orders give $55$ events, $88$ causal edges,
+causal depth $13$, and the same out-degree multiset, one event of
+out-degree zero, twenty of out-degree one, and thirty-four of
+out-degree two.  The causal structure of the confluent rule is a
+prescription-independent object, measured rather than asserted.
+
+The trap's causal graphs differ radically, as they must.  The leftmost
+order gives $7$ events joined by $6$ causal edges, while the rightmost
+order gives $4$ events with no causal edges at all, a causally
+disconnected history in which every event consumes only initial
+tokens.  For a non-confluent rule not even the causal graph's gross
+shape survives the prescription, which is the precise sense in which
+relativistic claims require causal invariance rather than merely
+invoke it.
+
+The foliation sweep then measures the observer's remaining freedom on
+the one invariant causal graph.  A valid foliation is a sequence of
+antichains respecting the causal partial order and exhausting the
+graph.  The earliest and latest layerings both use exactly $13$
+slices, achieving the causal depth bound exactly, with maximum slice
+width $7$.  Five seeded random foliations use $19$ to $26$ slices with
+maximum widths of $4$ and $5$.  The invariants are frozen while the
+number of slices an observer spends, the simultaneity bookkeeping,
+moves by a factor of two between the extremal and the sampled random
+foliations.  This is the campaign's foliation lesson in rewriting
+form.  What varies under a change of slicing is the observer's
+accounting, and what survives is the partial order, so any claimed
+structure must be checked against the invariants and not against the
+accounting.
+
+\section{A dimension claim that survives held-out scaling}
+\label{sec:wm4}
+
+With the estimator net passed, the audit turns to the program's
+dimension claim on a hypergraph rule of the program's own class
+\cite{Wolfram2020}.  The declared rule is
+\begin{equation}
+  \{\{x,y\},\{x,z\}\} \;\to\;
+  \{\{x,z\},\{x,w\},\{y,w\},\{z,w\}\},
+  \label{eq:wm4rule}
+\end{equation}
+where $w$ is a fresh vertex, run from a double self-loop for $11$
+generations under one declared prescription, generational maximal
+scan-ordered non-overlapping matching.  The final hypergraph has
+$1794$ relations on $897$ vertices.  The shell estimator of
+Sec.~\ref{sec:wm0} is calibrated on the training radii $2 \le r \le 5$
+over $30$ declared base points, giving $\hat d = 2.305$, and the
+claim is then tested on the held-out radii $6 \le r \le 9$, which were
+never used in fitting.  Two preregistered growth laws, the
+finite-dimension power law and the exponential alternative that a
+non-finite-dimensional graph would follow, are each calibrated on the
+training window and made to predict the held-out shell counts.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis,
+  xlabel={shell radius $r$},
+  ylabel={mean shell count},
+  xtick={6,7,8,9},
+  legend pos=north west, legend cell align=left]
+\addplot[blue!70!black, only marks, mark=*, mark size=2.0pt]
+  table[x=r, y=measured] {figdata/wm4_heldout.dat};
+\addlegendentry{measured, held-out radii}
+\addplot[red!70!black, densely dashed, mark=square*, mark size=1.4pt]
+  table[x=r, y=power] {figdata/wm4_heldout.dat};
+\addlegendentry{power law, trained on $r \le 5$}
+\addplot[green!50!black, densely dotted, mark=triangle*, mark size=1.7pt]
+  table[x=r, y=exp] {figdata/wm4_heldout.dat};
+\addlegendentry{exponential, trained on $r \le 5$}
+\end{axis}
+\end{tikzpicture}
+\caption{The held-out test of the hypergraph dimension claim.  Mean
+shell counts of the rule of Eq.~\eqref{eq:wm4rule} on the held-out
+radii, never used in fitting, against the predictions of the two
+preregistered growth laws calibrated on the training radii alone.  The
+power law tracks the measured shells while the exponential alternative
+overshoots increasingly with radius.  Every point is read from the
+committed evidence record.}
+\label{fig:wm4}
+\end{figure}
+
+Figure~\ref{fig:wm4} shows the held-out comparison.  The power law
+predicts the four held-out shell counts with a summed squared error of
+$0.028$ in log space, while the exponential alternative accumulates
+$1.09$, a factor of forty in favor of the finite-dimension reading.
+The measured shells at radii $6$ through $9$ are $36.8$, $47.6$,
+$57.0$, and $69.3$, and the power-law predictions track them to
+within eight counts.  This dimension claim genuinely survives the audit at
+the measured sizes.  The
+measurement is at finite radius on a finite object, a crossover
+beyond the held-out window cannot be excluded, and the asymptotic
+dimension claim of the program is not settled by any finite-size
+audit.  A second caveat is measured in the next
+section.
+
+\section{The capstone, hypergraph bookkeeping is prescription-borne}
+\label{sec:wm2h}
+
+The string audit of Sec.~\ref{sec:wm2} found exact prescription
+invariance where confluence protects it.  The capstone audit asks the
+same question of the hypergraph rule of Eq.~\eqref{eq:wm4rule}, whose
+left-hand side consumes two relations sharing a vertex, so that
+candidate matches overlap and a maximal non-overlapping matching
+depends on the order in which candidates are scanned.  Five match
+orders were declared in advance, the storage order of the relation
+list, that order reversed, two seeded random permutations, and a sort
+by second vertex.  Each order evolves the same initial condition for
+the same $11$ generations, and the same declared quantities are
+measured on each result over $24$ base points to radius $9$.
+
+\begin{table}[t]
+\caption{The five prescriptions of the capstone audit on the growth
+rule of Eq.~\eqref{eq:wm4rule}.  Every column that a naive reading
+would treat as physics of the rule differs across the declared match
+orders.  All numbers are from the committed evidence record.}
+\label{tab:wm2h}
+\begin{ruledtabular}
+\begin{tabular}{lcccc}
+Prescription & Relations & Vertices & Degree sum & $\hat d$ \\
+\colrule
+storage order    & $1794$ & $897$ & $3588$ & $2.454$ \\
+reversed         & $1882$ & $941$ & $3762$ & $2.883$ \\
+seeded shuffle a & $1710$ & $855$ & $3420$ & $2.664$ \\
+seeded shuffle b & $1810$ & $905$ & $3620$ & $2.431$ \\
+by second vertex & $1758$ & $879$ & $3510$ & $2.751$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 2,
+    vertical sep=30pt, xlabels at=edge bottom},
+  paperaxis, height=0.42\columnwidth,
+  xtick={1,2,3,4,5}, xmin=0.4, xmax=5.6]
+\nextgroupplot[ylabel={relations}, xticklabels={},
+  ymin=1650, ymax=1940]
+\addplot[ybar, bar width=11pt, fill=blue!35, draw=blue!70!black]
+  table[x=idx, y=relations] {figdata/wm2h_prescriptions.dat};
+\nextgroupplot[ylabel={$\hat d$}, xlabel={prescription index},
+  ymin=2.3, ymax=3.0]
+\addplot[only marks, red!70!black, mark=*, mark size=2.2pt]
+  table[x=idx, y=dimension] {figdata/wm2h_prescriptions.dat};
+\end{groupplot}
+\end{tikzpicture}
+\caption{The capstone audit, one growth rule under five declared match
+orders.  Prescription indices are 1 the storage order, 2 the reversed
+order, 3 and 4 two seeded random permutations, and 5 the sort by
+second vertex.  The upper panel shows the final relation count and the
+lower panel the shell-estimator dimension of the same evolution.  Both
+move with the prescription, spanning $1710$ to $1882$ relations and
+$2.43$ to $2.88$ in dimension.  Every value is read from the committed
+evidence record.}
+\label{fig:wm2h}
+\end{figure}
+
+Table~\ref{tab:wm2h} and Fig.~\ref{fig:wm2h} show the result.  The
+five prescriptions give five different evolutions.  Relation counts
+span $1710$ to $1882$, vertex counts span $855$ to $941$, degree sums
+span $3420$ to $3762$, and the shell-estimator dimension spans $2.43$
+to $2.88$, a seventeen percent spread against the audit's five percent
+invariance bar.  Because matches conflict, even the number of events
+per generation is a prescription choice, so the bulk bookkeeping of
+this rule, its sizes, its degree structure, and its measured
+dimension, is prescription-borne at these sizes.  The contrast with
+the string audit is the finding.  The sorting rule was exact under
+every order because an algebraic property, confluence with a
+conserved inversion count, protected it.  The growth rule has no such
+protection, and the audit measures the consequence.
+
+The WM-4 verdict of Sec.~\ref{sec:wm4} therefore inherits a measured
+caveat.  Its dimension of $2.305$ was measured under the storage-order
+prescription, and the same rule under other declared orders yields
+dimensions up to $2.88$.  One part of the verdict is robust.  The
+power law beats the exponential alternative under every one of the
+five prescriptions, with error ratios from six-fold to several
+hundred-fold, so the qualitative finding of finite-dimensional
+scaling at measured sizes survives the prescription sweep, while the
+quantitative value of the dimension does not.  A dimension claim for
+a rule with match conflicts must either declare its prescription or
+report a prescription band, and at these sizes that band is wide.
+
+The planted trap of this audit is a contraction rule on a
+twelve-relation path with a three-branch fork at its midpoint, run to
+exhaustion.  It fires as required, terminating in three distinct
+final states across the prescriptions, and the pipeline flags it.
+The trap's own construction preserved a lesson.  The bare contraction
+path without the fork was found confluent en route, any contraction
+order composes the path to a single edge, so a trap must contain a
+genuine conflict and not merely an aesthetic of disorder.  The fork
+supplies the conflict, and the recorded lesson is part of the audit's
+evidence.
+
+\section{The scorecard}
+\label{sec:scorecard}
+
+Assembled across the six audits, the verdicts sort into three classes,
+and the sorting principle is visible in every row.
+
+Invariant, exactly.  The sorting rule's terminal state and event
+count, protected by confluence and equal to the inversion number.
+The conserved letter counts of the growth rule, protected by a
+conservation law.  The causal-graph invariants of the confluent rule,
+identical across prescriptions.  The causal depth bound, achieved
+exactly by the extremal foliations.  And, robustly though not
+exactly, the qualitative finite-dimension verdict of the hypergraph
+rule, which survives both a held-out test and a five-prescription
+sweep.
+
+Observational.  The second law of the reversible automaton.  The
+entropy rise of $1.641$ bits is real for the declared observer and
+the dynamics underneath it loses nothing, with retrace defect exactly
+zero and exact microstate recovery.  This class is where the
+program's own second-law account already lives, now with a measured
+witness.
+
+Prescription-borne.  The arrangement of the growth rule's letters.
+The entire outcome of every planted non-confluent rule.  And the bulk
+bookkeeping of the flagship hypergraph rule, its relation counts, its
+vertex counts, its degree structure, and its quantitative dimension
+at these sizes, spread across a seventeen percent band by declared
+match orders.
+
+The pattern is uniform and is the paper's summary finding.  A
+quantity is exact across observers and prescriptions precisely where
+an algebraic property protects it, a confluence proof, a conservation
+law, an antichain bound, and it is prescription-borne wherever
+matching conflicts exist and no such protection applies.  Claims of
+the Wolfram program that rest on protected quantities measured with
+validated instruments survive these audits and come out stronger, as
+the fair-framing clause intended.  Claims that rest on bulk
+bookkeeping of rules with match conflicts inherit a measured
+prescription caveat, and the naive dimension estimator adds a
+one-directional bias on top.  None of this decides the program's
+physics.  It decides which of the program's numbers are about the
+rules and which are about the bookkeeping.
+
+\section{What this paper establishes}
+\label{sec:claims}
+
+\begin{table*}[t]
+\caption{Claim register for the Wolfram-models track.  Demonstrated in
+model means an exact measurement in a declared construction with
+append-only evidence records, declared prescriptions and windows, and
+planted traps where the audit class requires them.  The evidence
+records carry the campaign's exploratory grading pending the
+cross-substrate replication clause, and the label below applies to
+each measurement inside its declared scope.}
+\label{tab:claims}
+\begin{ruledtabular}
+\begin{tabular}{L{4.6cm} L{9.2cm} l}
+Result & Claim & Label \\
+\colrule
+Estimator net & the shell dimension estimator is exact on controls of
+known dimension and refuses the diverging tree control &
+demonstrated in model \\
+Naive-slope bias & the log-log ball-volume slope reads low by 0.10 to
+0.34 on exact controls at practical radii, a bias any small-graph
+dimension claim inherits & demonstrated in model \\
+Reversible second law & the declared coarse entropy of Rule~122 in
+second-order reversible form rises 1.646 to 3.288 bits and retraces
+bitwise exactly with exact microstate recovery, so the growth is
+observational entropy & demonstrated in model \\
+String prescription audit & the confluent sorting rule agrees exactly
+under every declared update order with event count equal to the
+inversion number, the planted non-confluent rule is flagged with three
+distinct terminals, and the growth rule splits into invariant
+conserved counts and prescription-borne arrangement &
+demonstrated in model \\
+Causal-graph audit & causal-graph invariants from token genealogy are
+identical across prescriptions for the confluent rule, the trap's
+causal graphs differ radically, and extremal foliations achieve the
+depth bound exactly while random foliations spend up to twice the
+slices & demonstrated in model \\
+Held-out dimension & the declared hypergraph rule's finite-dimension
+power law beats the preregistered exponential alternative forty-fold
+in held-out error at measured sizes & demonstrated in model \\
+Capstone prescription audit & five declared match orders give the
+growth rule different relation counts, vertex counts, and dimension
+estimates spanning an eighteen percent band, so its bulk bookkeeping
+is prescription-borne and the held-out dimension claim carries a
+measured prescription caveat at these sizes & demonstrated in model \\
+Scope & nothing in this paper bears on whether the Wolfram program is
+true or false as fundamental physics, and no result may be quoted as
+evidence in either direction & non-claim \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Table~\ref{tab:claims} registers the claims with their labels.  Read
+together they audit four of the program's five claimed inference
+patterns.  Dimension claims survive where the instrument is validated,
+the test is held out, and the prescription band is declared.  Causal
+invariance is exact where confluence protects it and is measurably
+absent where it does not.  Structure counting is legitimate on the
+invariants of the causal partial order and illegitimate on the
+slicing's bookkeeping.  The second law of reversible computation is
+observational entropy.  The multiway quantum claim remains unaudited
+and no statement about it is made.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+All audits follow the campaign's standing discipline.  Estimator
+windows, tolerances, coarse-grainings, prescription lists, base-point
+counts, seeds, and alternative growth laws were declared before the
+runs they govern, per the track's anti-circularity contract, and the
+fair-framing clause of the track document, that the audits test
+claims rather than people and that a surviving claim comes out
+stronger, governs the reading of every verdict.  Every result-bearing
+run writes an append-only JSON evidence record containing the
+complete declared parameter set, outcome arrays, and a canonical
+SHA-256 hash of the record body.  The records for this paper are
+\texttt{wm0-dimension.json}, \texttt{wm1-reversible-ca.json},
+\texttt{wm2-prescription.json}, \texttt{wm3-foliation.json},
+\texttt{wm4-hypergraph.json}, and \texttt{wm2h-prescription.json} in
+the campaign repository, each carrying the exploratory label of the
+campaign's evidence-grading scheme, with the committed runners
+alongside them.  Every prescription audit carries a planted
+non-confluent trap whose detection is a validity condition of the
+run, and both traps fired.  Every number and every figure coordinate
+in this paper is read from those committed records, and the figure
+tables are generated deterministically by a committed script with no
+free parameters.  A reducer may summarize records but may not rewrite
+them.
+
+\begin{thebibliography}{9}
+
+\bibitem{Wolfram2020}
+S.~Wolfram,
+A class of models with the potential to represent fundamental physics,
+Complex Systems \textbf{29}, 107 (2020),
+arXiv:2004.08210.
+
+\bibitem{Gorard2020a}
+J.~Gorard,
+Some relativistic and gravitational properties of the Wolfram model,
+Complex Systems \textbf{29}, 599 (2020),
+arXiv:2004.14810.
+
+\bibitem{Gorard2020b}
+J.~Gorard,
+Some quantum mechanical properties of the Wolfram model,
+Complex Systems \textbf{29}, 537 (2020),
+doi:10.25088/ComplexSystems.29.2.537.
+
+\bibitem{Wolfram2002}
+S.~Wolfram,
+\emph{A New Kind of Science}
+(Wolfram Media, Champaign, 2002).
+
+\bibitem{Wolfram2023}
+S.~Wolfram,
+\emph{The Second Law: Resolving the Mystery of the Second Law of
+Thermodynamics}
+(Wolfram Media, Champaign, 2023).
+
+\bibitem{ToffoliMargolus1990}
+T.~Toffoli and N.~Margolus,
+Invertible cellular automata: a review,
+Physica D \textbf{45}, 229 (1990).
+
+\bibitem{EntropyPaper}
+A.~H.~Bond,
+Entropy across singular projections: fiber multiplicity, caustics, and
+observer-relative information,
+Zenodo (2026), doi:10.5281/zenodo.21789011.
+
+\bibitem{SourcesPaper}
+A.~H.~Bond,
+Three sources of observed entropy in reversible hidden dynamics:
+mixing, projection multiplicity, and inaccessible degrees of freedom,
+companion paper of this campaign (2026).
+
+\end{thebibliography}
+
+\end{document}

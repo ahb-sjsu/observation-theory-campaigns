@@ -726,7 +726,8 @@ Verdicts computed from the numbers after measurement.
 `results/eg4d-gauge.json`; instrument validated against dense
 conditioning to 5.4e-16 mean and 3.1e-16 covariance; lattice 128
 with the charge pair separated by 64 after a first 64/32 run showed
-dipole steepening of the falloff fit, recorded).**
+dipole steepening of the falloff fit, measured slope -2.715 against
+the clean-geometry -2.275, recorded).**
 
 ALL EIGHT DECLARED ITEMS PASS. The distinguishability field is
 EXACTLY STATIC under the deterministic dynamics, drift 2.0e-18 over

@@ -24,12 +24,9 @@
 \newcommand{\dd}{\mathrm{d}}
 
 % ----------------------------------------------------------------------
-% EG-1b MEASURED-VALUE PLACEHOLDERS.
-% Every macro below is a placeholder for a measured number from the
-% causal-determinism run of the EG track.  The main session will bind
-% each macro to the corresponding value in results/eg1b-mechanism.json
-% before this draft is compiled for release.  None of these numbers may
-% be invented, and the draft is not final while any placeholder remains.
+% EG-1b MEASURED VALUES.
+% Each macro below is bound to the corresponding measured value in the
+% committed evidence record results/eg1b-mechanism.json.
 % ----------------------------------------------------------------------
 \newcommand{\egbRmax}{301}               % largest patch size R in the EG-1b sweep
 \newcommand{\egbRankNinety}{901}       % measured patch count in bits, rule-90 arm, at R = Rmax
@@ -176,9 +173,7 @@ $I(\text{region}\,;\,\text{complement})$ is a mandatory secondary
 witness, computed in every arm, because the two counts can diverge and
 the divergence is itself informative.  Any arm whose verdict differs
 between the two counts is reported under both, with the primary count
-deciding the gate.  This decision was recorded before the first area-gate
-run and is quoted here so that the reader can audit the verdicts against
-it.
+deciding the gate.
 
 One standing warning from the track design governs the reading of every
 arm.  Concentration of measure near a boundary is not area scaling.  A
@@ -301,8 +296,7 @@ Sec.~\ref{sec:gate} is what makes this a clean verdict rather than an
 ambiguity.  An entropic-gravity reading built on this mechanism class
 would have to live on the correlation count, which the decision relegated
 to secondary, and would have to justify that choice against the
-independence requirement the gate is about.  The caveat belongs to this
-result and is stated with it.  The split is measured in one construction
+independence requirement the gate is about.  The split is measured in one construction
 on two-dimensional lattices, and nothing here decides how general it is.
 
 \subsection{Arm C, boundary-limited access}
@@ -549,8 +543,9 @@ the patch ensemble is uniform over a linear subspace, so its entropy in
 bits equals the rank of that subspace over the two-element field and is
 computed exactly.  The run measures patch counts over a sweep of patch
 sizes up to $R = \egbRmax$, together with the structural-origin audit,
-the same construction with each bulk cell flipped independently with
-probability $\egbNoiseRate$ after its deterministic update.  The audit
+the same construction with one fresh uniform bit added to each bulk
+cell after its deterministic update at each step, equivalent to
+independent flips with probability $\egbNoiseRate$.  The audit
 arm restores a positive bulk entropy density, so by
 Lemma~\ref{lem:density} its count must revert toward volume if the
 deterministic structure, and nothing else, was carrying the perimeter
@@ -562,10 +557,10 @@ count is $\egbRankNinety$ bits against the cone bound of
 Eq.~\eqref{eq:cone}, a ratio of $\egbConeRatioNinety$, and the same
 saturation holds exactly at every measured size.  Over the full
 sweep the deterministic arm has fitted free slope $\egbSlopeDet$ and is
-classified $\egbClassDet$ against the fixed alternatives.  The audit arm
+classified \egbClassDet{} against the fixed alternatives.  The audit arm
 reaches $\egbNoisyRank$ bits at its largest audited size, forty-five,
 exactly its cell count, with fitted free
-slope $\egbSlopeNoisy$, and is classified $\egbClassNoisy$.  The
+slope $\egbSlopeNoisy$, and is classified \egbClassNoisy{}.  The
 theorem, not these numbers, carries the mechanism's scaling claim.  The
 measurement locates one rule inside its bound and the audit ties the
 scaling to the declared structure.
@@ -610,8 +605,7 @@ scaling by insertion would void the run rather than pass the gate.  The
 boundary-limited arm exists precisely to demonstrate the nearest
 temptation, an area law that is an artifact of access rather than a
 property of the ensemble, and the audit arm of the mechanism run exists
-to catch the corresponding temptation for determinism.  Within those
-disciplines the honest summary is modest.  Nothing here supports or
+to catch the corresponding temptation for determinism.  Nothing here supports or
 undermines any entropic account of real gravity.  What is established is
 which mechanism classes could never have supplied the states such
 accounts assume, and which class provably could, in models where every

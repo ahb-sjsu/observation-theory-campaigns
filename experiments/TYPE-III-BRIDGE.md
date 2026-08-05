@@ -559,8 +559,15 @@ interface hypotheses on a matrix logarithm (commutation with rho and
 equivariance under the two conjugations used), which are exactly the
 properties functional calculus supplies for the logarithm of a
 positive definite matrix, together with both unitarity directions.
-The only unformalized step remaining is the instantiation of that
-interface by Mathlib's continuous functional calculus itself.
+The interface is now instantiated as well
+(`proofs/CfcInstance.lean`), the matrix logarithm defined through
+Mathlib's Hermitian continuous functional calculus, commutation
+discharged by the library's Commute lemma, conjugation equivariance
+by map_cfc through the unitary-conjugation star-automorphism, and
+the final theorem `pauli_rotation_entropy_exactness_cfc` assumes
+only a positive-definite state and a Hermitian involution. The
+theorem is machine-checked end to end with nothing left outside the
+kernel.
 
 Machine-checked core. `proofs/PauliRotation.lean` (Lean 4, Mathlib)
 verifies the unitarity of the closed-form rotation, the

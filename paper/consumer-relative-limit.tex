@@ -628,8 +628,13 @@ the vanishing of the odd trace under the commutation hypothesis, and
 the assembled trace identity, is machine-checked in Lean~4 with
 Mathlib in the campaign repository, where the trace identity is
 hypothesis-minimal, holding for arbitrary square matrices with
-$\rho L = L\rho$, which is exactly what functional calculus supplies
-for $L = \ln\rho$.
+$\rho L = L\rho$.  The formalization is complete end to end.  The
+matrix logarithm is instantiated through Mathlib's continuous
+functional calculus for Hermitian matrices, its commutation and
+unitary-conjugation properties are discharged from the library, and
+the final theorem assumes only that $\rho$ is positive definite and
+that $P$ is a Hermitian involution, with no interface hypotheses
+remaining.
 
 \section{What the bridge does not do}
 \label{sec:nonclaims}

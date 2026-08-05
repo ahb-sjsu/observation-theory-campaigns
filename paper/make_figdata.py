@@ -284,3 +284,28 @@ write(
     [(a["r"], a["phi_bits"], b["phi_bits"])
      for a, b in zip(p256, p512, strict=True)],
 )
+# Figure W1: WM-4 held-out shell profile, measured mean shell counts on
+# the held radii against the two preregistered growth-law predictions
+# calibrated on the training window alone (wolfram-audits paper, Fig. 1).
+wm4 = json.loads((ROOT / "results" / "wm4-hypergraph.json").read_text())
+held_lo, held_hi = wm4["declared"]["held_window"]
+held_rs = list(range(held_lo, held_hi + 1))
+fits = wm4["fits"]
+write(
+    "wm4_heldout.dat",
+    "r measured power exp",
+    zip(held_rs, fits["held_shells_measured"],
+        fits["held_shells_power_pred"], fits["held_shells_exp_pred"],
+        strict=True),
+)
+
+# Figure W2: WM-2h per-prescription relation counts and shell-estimator
+# dimensions, in the declared prescription order (wolfram-audits paper,
+# Fig. 2; indices 1..5 are storage, reversed, shuffle a, shuffle b, by
+# second vertex).
+wm2h = json.loads((ROOT / "results" / "wm2h-prescription.json").read_text())
+rows = []
+for i, name in enumerate(wm2h["declared"]["prescriptions"]):
+    run = wm2h["runs"][name]
+    rows.append((i + 1, run["relations"], run["dimension"]))
+write("wm2h_prescriptions.dat", "idx relations dimension", rows)

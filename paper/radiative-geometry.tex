@@ -197,7 +197,7 @@ anti-circularity contract of the track design binds every run.
 The first question is whether matter deforms the fiber measure at
 all, and the measured answer on this substrate is that locally it
 does not.  All numbers in this section are from the committed
-evidence record of the matter run.
+evidence records of the matter and geometry runs.
 
 Every window outside the defect's causal cone carries the identical
 subspace, so the causality null holds exactly for every source.
@@ -228,7 +228,8 @@ window length $160$ and grows with window length, with deficits of
 $11$, $27$, $43$, $51$, $56$, $59$, and $60$ bits at lengths $160$
 through $256$, about half a bit of deficit per added cell on the
 growing windows.  Its spatial arrangement is a period-$64$
-self-similar pattern.  In the fixed-length position scan the finite
+self-similar pattern.  In the fixed-length position scan of the
+geometry run the finite
 values repeat every $64$ cells with the profile $3$, $7$, $11$, $9$,
 $5$, $1$ in the first period and $2$, $6$, $10$, $9$, $5$, $1$ in the
 later ones.  The pattern is set by the automaton's algebraic
@@ -306,7 +307,7 @@ into the spacetime region.  That ordering, a first law referred to
 the flux through a causal boundary, is what Jacobson's construction
 assumes when it places the relation on local horizons
 \cite{Jacobson1995}, and here it emerges from the accounting rather
-than being imposed.  The caveat is adjacent and structural.  The
+than being imposed.  The
 absorption argument leans on the maximality of the vacuum ensemble,
 so this exactness is a property of the measured substrate, not a
 theorem about all ensembles.
@@ -318,19 +319,15 @@ The geometric experiment takes the only field-bearing source class,
 the width-$3$ sink, and tests the structural consequences of the
 Newtonian limit on held-out configurations.  All numbers in this
 section are from the committed evidence record of the geometry run.
-An honest process note belongs with them.  A draft verdict written
-before the run anticipated a different failure pattern, contradicted
-the measured items, and was discarded in favor of verdicts computed
-from the numbers.  The evidence record carries only the computed
-verdicts.
 
 The Poisson item fails.  The discrete Laplacian of the measured field
 is as large far from the source as at it, reaching magnitude $6$ at
 positions far outside the source against magnitude $3$ at the source
 cells, so nothing resembling a source-localized second difference
 exists.  The Gauss item fails.  The field profile is the period-$64$
-algebraic pattern of Sec.~\ref{sec:eg2}, and no monotone flank exists
-anywhere on it to carry a flux reading.
+algebraic pattern of Sec.~\ref{sec:eg2}, and no monotone flank on it
+supports a flux reading, the failure the record's Gauss item
+registers.
 
 The superposition item fails, and the manner of failure is the
 section's sharpest measurement.  Two separated width-$3$ sinks
@@ -416,7 +413,7 @@ Round one removed the invisibility obstruction.  A single
 rule-substitution source in the structured vacuum produces a
 genuinely graded real-valued field, shown in Fig.~\ref{fig:eg4b}, a
 plateau of $0.812$ bits inside the cone with smooth symmetric
-monotone flanks rising over about eight cells, where the maximal
+monotone flanks rising over about a dozen cells, where the maximal
 vacuum gave exactly zero everywhere.  Two declared items pass
 immediately, gradedness and monotone flanks for a Gauss reading.
 Two fail informatively.  The discrete Laplacian does not concentrate
@@ -441,7 +438,10 @@ successive relative changes of $1.0\times10^{-3}$ and then $0.0$.
 This is a true static limit, reached by radiating the switch-on
 transient away to infinity, which is how a reversible system relaxes
 without producing entropy and therefore without harming the area
-law.  The converged field, however, is flat.  It sits at $0.812$
+law.  The evidence record scores its static-field item false
+because that item is a conjunction requiring both convergence and a
+graded profile, and the profile here is flat while the convergence
+is exact.  The converged field sits at $0.812$
 bits at every scanned offset with a single point-like bump at the
 source and spread $5.3$ percent, carrying no spatial gradient at
 all.
@@ -488,11 +488,11 @@ declared openly in advance.  The substrate is the two-dimensional
 discrete wave equation in leapfrog form, reversible, deterministic,
 local, and linear over the reals, with a declared site stiffness of
 $0.2$.  The vacuum is independent standard Gaussian initial data,
-and matter is an impedance defect, a site of different stiffness,
+and matter is an impedance defect, a block of sites of different
+stiffness,
 still a rule substitution with no potential anywhere.  Since the
 static limit of the wave equation is the Poisson equation, this is
-the substrate where the Poisson item has its best chance, and saying
-so before the run is what keeps the test honest.  Window marginals
+the substrate where the Poisson item has its best chance.  Window marginals
 are exact Gaussians whose covariances are computed by adjoint
 evolution, and the covariance instrument was validated against dense
 covariance evolution to $1.1\times10^{-15}$, with causality exact at
@@ -500,15 +500,18 @@ unit wave speed.  The first two instrument iterations found the
 impedance signal at or below the float noise floor of the covariance
 calculus, fields near $10^{-5}$ bits with hundredfold isotropy
 violations diagnosed as ill-conditioning of highly correlated
-neighboring cells, an instrument lesson recorded in the evidence
-record.  The third iteration reads a strong-contrast scatterer,
+neighboring cells, an instrument lesson recorded in the track
+document.  The third iteration reads a strong-contrast scatterer,
 stiffness $0.05$ in the $0.2$ vacuum, through decorrelated
 stride-two windows, and the field becomes well-measured, up to
 $5\times10^{-3}$ bits with isotropy within the profile spread.  The
 campaign's second breakthrough is in Fig.~\ref{fig:eg4c}(a).
 Superposition deviations decay cleanly with source separation,
 $1.13$ to $0.46$ to $0.056$ at separations $12$, $24$, and $40$.
-Distance works as the continuous weak-field knob, which no
+The record scores its superposition item false because the smallest
+deviation sits just above the declared bar of $0.05$, so the
+committed verdict registers the bar miss while the measured finding
+is the decay trend.  Distance works as the continuous weak-field knob, which no
 finite-field substrate could provide.  What round two could not
 reach at times $48$ and $96$ is the static regime itself, since
 two-dimensional waves relax with slow algebraic tails and the
@@ -557,7 +560,7 @@ doubling times $256$ and $512$ on lattices too large for any wrap,
 shown in Fig.~\ref{fig:eg4c}(b).  The static regime is not reached,
 and the direction of failure is itself the answer.  The near-source
 field decays with time, from about $3\times10^{-5}$ bits at time
-$256$ down to between $10^{-7}$ and $6\times10^{-6}$ at time $512$.
+$256$ down to between $3\times10^{-8}$ and $6\times10^{-6}$ at time $512$.
 As the switch-on transient escapes to infinity, nothing persistent
 remains near the source.  The static limit of the wave substrate's
 distinguishability field is consistent with zero.
@@ -592,7 +595,7 @@ A claim demotion was ruled in the track document before the run.
 If a Gauss constraint is declared at the base level, the static
 Poisson structure of the mean field follows from the constraint
 mathematics and not from entropy, so no positive result here can
-support the reading that entropy sources geometry.  The honest
+support the reading that entropy sources geometry.  The
 claim the experiment can earn is that constraints source geometry
 and distinguishability registers them exactly.  What remains
 nontrivial and measurable is whether the relative-entropy field is
@@ -631,8 +634,9 @@ ensemble is stationary.  The field is graded and monotone with a
 measured log-log slope of $-2.275$ against the two-dimensional
 Coulomb expectation of $-2$.  A first run on a $64$ lattice with
 separation $32$ measured $-2.715$, the steepening of a dipole read
-at ranges comparable to its own separation, and the recorded remedy
-was the larger lattice, not a refit.  The field-level object
+at ranges comparable to its own separation, and the track document
+records that run and its remedy, the larger lattice rather than a
+refit.  The field-level object
 superposes exactly, with deviation $4.2\times10^{-16}$, and the
 relative entropy scales exactly quadratically in the charge, with
 the doubled-charge ratio at $4.0$ against the predicted $4.0$.  On
@@ -904,10 +908,9 @@ discovery campaigns and each round of the second campaign carry
 dated declarations recorded before any run, including the declared
 falsification conditions of their hypotheses, and the constraint
 experiment's claim demotion was likewise recorded before its run.
-Verdicts are computed from the measurements after the runs.  The geometry run enforces
-this discipline's value in one recorded lesson, a draft verdict
-written before the data contradicted the measured items and was
-replaced by the computed verdicts the evidence record now carries.
+Verdicts are computed from the measurements after the runs.  In the geometry run, a draft verdict, written before the data,
+contradicted the measured items and was replaced by the computed
+verdicts the evidence record now carries.
 
 Every result-bearing run writes an append-only JSON evidence record
 containing the complete declared parameter set, outcome arrays, and
