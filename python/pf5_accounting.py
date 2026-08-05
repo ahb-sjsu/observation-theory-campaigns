@@ -242,13 +242,17 @@ def main() -> int:
     c2b = census_run(0.3, 2.5, 2_000, 3)
     assert c2b["counts"]["reversing"] == 2_000, f"C2b {c2b['counts']}"
 
-    # C3: failure control, absurd step size with a slow crossing so
-    # the quartic overflow always precedes any exit
-    c3 = census_run(0.01, 0.8, 200, 4, dt=10.0, max_steps=2_000)
-    assert c3["counts"]["nonfinite"] + c3["counts"]["capped"] > 0, \
-        "C3 produced no failures to count"
+    # C3: failure control. With the field off the force on p_t is
+    # identically zero, so reversal cannot preempt the classification
+    # and the absurd step size must overflow the quartic, every
+    # failure counted. A second arm exhausts the step cap instead.
+    c3 = census_run(0.01, 0.0, 200, 4, dt=10.0, max_steps=2_000)
+    assert c3["counts"]["nonfinite"] > 0, \
+        f"C3 produced no failures to count: {c3['counts']}"
     assert sum(c3["counts"].values()) == 200
     assert c3["missing"] == 0
+    c3b = census_run(0.05, 0.0, 100, 6, max_steps=50)
+    assert c3b["counts"]["capped"] == 100, f"C3b {c3b['counts']}"
 
     # C4: charge control on the analytic double fold
     taus = np.linspace(-1.5, 1.5, 4001)
@@ -273,6 +277,7 @@ def main() -> int:
         "C2a_field_free_census": c2a["counts"],
         "C2b_deterministic_census": c2b["counts"],
         "C3_failure_census": c3["counts"],
+        "C3b_capped_census": c3b["counts"],
         "C4_levels_checked": len(lvl),
         "C5_deletion_flagged": frac_deleting["discrepant"],
     }
