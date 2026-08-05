@@ -632,15 +632,34 @@ static regime itself, the profiles are still transient-dominated
 (convergence 4.5) because two-dimensional waves relax with slow
 algebraic tails. That is a compute problem, not a conceptual one.
 
-**ROUND 3, IN FLIGHT.** The long statics batch
-(`python/eg4c3_statics.py`, screen `eg4c3` on Atlas, log
-`~/eg4c3.log`) reads the axis profile at doubling times 256 and 512
-on lattices too large for any wrap, and evaluates convergence,
-gradedness, monotone decay, and Poisson localization on the late
-pair. Harvest on request. Campaign standing so far, the finite-field
-obstruction is conclusively identified (round one), real amplitudes
-restore dilution and the weak-field knob (round two), and the
-statics question is delegated to the long run.
+**ROUND 3 RESULT (runner `python/eg4c3_statics.py`, evidence
+`results/eg4c3-statics.json`).** The long statics batch read the
+axis profile at doubling times 256 and 512 on lattices too large for
+any wrap. The static regime is not reached, and the direction of
+failure is itself the answer. The near-source field DECAYS with
+time, from about 3e-5 bits at time 256 to about 1e-7 to 6e-6 at time
+512, so the static limit of the wave substrate's distinguishability
+field is consistent with zero. As the switch-on transient escapes to
+infinity, nothing persistent remains near the source.
+
+**CAMPAIGN CLOSING VERDICT.** The EG-4 bar stands, and the
+obstruction is now measured on both substrate classes that pass the
+area gate. On the finite-field substrate the static field converges
+exactly but is flat. On the real-amplitude wave substrate the static
+field decays toward zero as the transient clears. In both cases
+every spatial gradient of distinguishability is radiative, carried
+by transients and fronts, and nothing graded survives the static
+limit. The campaign's positive yields stand, the structured-vacuum
+mechanism for local visibility, the escape-to-infinity route to
+reversible relaxation, and distance as a continuous weak-field knob
+on real-amplitude substrates. The sharpened three-way statement of
+the track is this. The area law requires zero entropy production,
+zero entropy production makes relaxation purely radiative, and
+purely radiative relaxation leaves no static field for the Poisson
+structure to live in. A substrate defeating this would need a
+persistent local structure that survives its own relaxation, and
+declaring one without inserting the answer is the open problem the
+track leaves behind.
 
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
