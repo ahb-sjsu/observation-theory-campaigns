@@ -5,7 +5,7 @@ work outgrew its first question. GitHub redirects the old name.
 
 One program, six tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
-Each track makes that question concrete in a different setting, and all\nsix run under one evidence discipline with sealed instruments,
+Each track makes that question concrete in a different setting, and all six run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
 
 If you are new here, read this file top to bottom, then the one track
