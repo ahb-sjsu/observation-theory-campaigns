@@ -49,9 +49,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from projection_fold import canonical_sha256  # noqa: E402
 
 KAPPA = 0.2
-KAPPA_DEFECT = 0.45
+KAPPA_DEFECT = 0.05
 T_TIMES = (48, 96)
-WINDOW = [(di, dj) for di in range(3) for dj in range(3)]
+WINDOW = [(2 * di, 2 * dj) for di in range(3) for dj in range(3)]
 AXIS_RS = list(range(3, 42, 3))
 PAIR_SEPS = (12, 24, 40)
 DEFECT_HALF = 1  # 3x3 defect block
@@ -260,7 +260,8 @@ def main() -> int:
         "label": "exploratory",
         "declared": {"substrate": "2D discrete wave equation, "
                                   "leapfrog, kappa 0.2",
-                     "defect": "impedance block 3x3, kappa 0.45",
+                     "defect": "impedance block 3x3, kappa 0.05 "
+                               "(strong contrast, near-hard scatterer)",
                      "vacuum": "iid standard Gaussian initial data",
                      "times": list(T_TIMES),
                      "window": WINDOW, "axis_rs": AXIS_RS,
