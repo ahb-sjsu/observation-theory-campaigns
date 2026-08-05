@@ -551,6 +551,39 @@ exact-instrument regime and would require sampling-based
 preregistered runs. The campaign closes with two obstructions
 removed, one precisely located, and the bar intact.
 
+### EG-4c MINI-CAMPAIGN — declared before any run, 2026-08-05
+
+Hypothesis, falsifiable and declared first. The flat statics of
+EG-4b are a one-dimensional artifact. In one dimension radiation
+does not dilute, flux conservation forces constant amplitude, so the
+radiation passing any point looks the same at every distance and the
+converged static field is flat. In two dimensions radiation dilutes
+geometrically, so a distance-graded static response can arise from
+geometry alone, and distance itself becomes a continuous weak-field
+knob, attacking the GF(2) quantization obstruction as well. The
+hypothesis fails if the two-dimensional static profile is again flat
+or carries no monotone distance dependence.
+
+Substrate, still exact. The two-dimensional XOR rule (each cell
+becomes the XOR of its four von Neumann neighbors) is linear over
+GF(2), the defect rule adds the cell's own value at declared source
+sites, the initial ensemble is product Bernoulli with declared bias,
+and every window distribution is exact Walsh analysis with
+functionals computed by backward (adjoint) evolution, which for this
+symmetric rule has the same form as the forward rule. No sampling
+anywhere.
+
+Declared probes. Instrument control against brute-force enumeration
+on a small two-dimensional case. Causality null exact. Static
+profile along an axis at two doubling times, with convergence and
+gradedness both required for the hypothesis. Isotropy, the axis
+profile against the diagonal profile at matched distances, since the
+von Neumann neighborhood may imprint its anisotropy. Superposition
+against source separation, with the deviation required to decay with
+distance if dilution is the true weak-field knob. Two-dimensional
+Poisson and Gauss forms on whatever profile is measured. All
+verdicts computed from the numbers after measurement.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
