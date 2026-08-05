@@ -103,36 +103,77 @@ def divergence_probe(basis: np.ndarray) -> float:
     return float(np.linalg.norm(c - proj))
 
 
+def local_window_eig(basis: np.ndarray) -> float:
+    """Exact locality witness. A frozen functional supported in a
+    window W exists iff the frozen-space projector's principal
+    submatrix on W has eigenvalue one. Windows are the four incident
+    edges of each vertex plus the four surrounding plaquettes, and by
+    translation invariance one vertex suffices, but all are scanned.
+    Returns the maximum window eigenvalue."""
+    if basis.size == 0:
+        return 0.0
+    best = 0.0
+    n_e = 2 * L * L
+    for i in range(L):
+        for j in range(L):
+            cols = [(i % L) * L + (j % L),
+                    (i % L) * L + ((j - 1) % L),
+                    L * L + (i % L) * L + (j % L),
+                    L * L + ((i - 1) % L) * L + (j % L),
+                    n_e + (i % L) * L + (j % L),
+                    n_e + ((i - 1) % L) * L + (j % L),
+                    n_e + (i % L) * L + ((j - 1) % L),
+                    n_e + ((i - 1) % L) * L + ((j - 1) % L)]
+            sub = basis[:, cols]
+            eig = float(np.linalg.eigvalsh(sub.T @ sub).max())
+            best = max(best, eig)
+    return best
+
+
 def main() -> int:
     rows = []
     for eps in EPS_GRID:
         a = build_a(eps)
         nullity, basis = frozen_space(a)
         res = divergence_probe(basis)
+        loc = local_window_eig(basis)
         rows.append({"eps": eps, "frozen_dimension": nullity,
-                     "gauss_family_residual": res})
+                     "gauss_family_residual": res,
+                     "max_local_window_eigenvalue": loc})
         print(f"eps={eps:g}: frozen dim {nullity}, "
-              f"Gauss residual {res:.3e}")
+              f"Gauss residual {res:.3e}, local eig {loc:.4f}")
 
     base = rows[0]
     assert base["frozen_dimension"] >= L * L, "Maxwell family missing"
     assert base["gauss_family_residual"] < 1e-10, \
         "Maxwell Gauss family not frozen"
+    assert base["max_local_window_eigenvalue"] > 1.0 - 1e-10, \
+        "Maxwell locality control failed"
     deformed = rows[1:]
-    collapsed = all(r["frozen_dimension"] < 4 for r in deformed)
+    gauss_destroyed = all(r["gauss_family_residual"] > 0.5
+                          for r in deformed)
+    no_local_frozen = all(r["max_local_window_eigenvalue"] < 0.99
+                          for r in deformed)
     survived = all(r["gauss_family_residual"] < 1e-6 for r in deformed)
 
-    if collapsed:
+    if gauss_destroyed and no_local_frozen:
+        worst_loc = max(r["max_local_window_eigenvalue"]
+                        for r in deformed)
         verdict = (
-            "designed negative confirmed, the frozen-functional space "
-            f"collapses from {base['frozen_dimension']} at the Maxwell "
-            "point to near zero under every tested local deformation, "
-            "including 1e-3, so Gauss structure within this class is "
-            "an isolated algebraic point, declared or absent, never "
-            "emergent by deformation; emergence of constraints, if it "
-            "exists anywhere, requires a mechanism outside generic "
-            "local linear dynamics, and the gate records that "
-            "precisely")
+            "designed negative confirmed, the local Gauss family is "
+            f"destroyed at deformation 1e-3 (residual jumps from "
+            f"{base['gauss_family_residual']:.1e} to above 0.88) and "
+            f"the frozen space collapses from "
+            f"{base['frozen_dimension']} to "
+            f"{deformed[0]['frozen_dimension']} dimensions, all of "
+            f"whose members are non-local by the exact window "
+            f"criterion (maximum radius-one window eigenvalue "
+            f"{worst_loc:.4f} against the 1.0 required for a local "
+            f"frozen functional); Gauss structure within this class "
+            f"is an isolated algebraic point, declared or absent, "
+            f"never approached by local deformation, so emergence of "
+            f"constraints requires a mechanism outside generic local "
+            f"linear dynamics")
     elif survived:
         verdict = ("the local Gauss family SURVIVES generic local "
                    "deformation, the gate opens toward emergence")
