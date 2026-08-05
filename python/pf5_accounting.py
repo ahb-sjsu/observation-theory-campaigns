@@ -189,12 +189,15 @@ def census_fraction(census, numerator: str, denominator_classes):
     denom = sum(counts[c] for c in denominator_classes)
     requested = counts[numerator] / denom if denom else float("nan")
     complete = counts[numerator] / total
+    deleted = total - denom
     return {"requested": requested,
             "census_complete": complete,
             "denominator_classes": sorted(denominator_classes),
-            "deleted_count": total - denom,
-            "discrepant": bool(abs(requested - complete) > 1e-12
-                               and total != denom)}
+            "deleted_count": deleted,
+            # nan-safe: an empty or shrunken denominator that changes
+            # the value is always flagged
+            "discrepant": bool(deleted > 0
+                               and not (requested == complete))}
 
 
 def signed_count_rule(ts, pts, levels, dt):
@@ -264,13 +267,21 @@ def main() -> int:
     assert not c4_failures, f"C4 path-degree failures: {c4_failures}"
     assert c4_skipped < len(lvl) // 2, f"C4 too many refusals"
 
-    # C5: deletion trap, the instrument must flag a dropped class
-    frac_honest = census_fraction(c3, "reversing", CLASSES)
+    # C5: deletion trap on a declared synthetic mixed census (a
+    # mechanics control for the flagging logic), plus the empty-
+    # denominator edge on the real C3 census
+    c5_census = {"counts": {"nonfinite": 5, "reversing": 40,
+                            "transmitted": 155, "capped": 0}}
+    frac_honest = census_fraction(c5_census, "reversing", CLASSES)
     frac_deleting = census_fraction(
-        c3, "reversing", ("reversing", "transmitted"))
+        c5_census, "reversing", ("reversing", "transmitted"))
     assert not frac_honest["discrepant"]
     assert frac_deleting["discrepant"], \
         "C5: deleting failures was not flagged"
+    frac_empty = census_fraction(c3, "reversing",
+                                 ("reversing", "transmitted"))
+    assert frac_empty["discrepant"], \
+        "C5: empty denominator after deletion must be flagged"
 
     record["controls"] = {
         "C1_harmonic_drift": c1["max_energy_residual"],
