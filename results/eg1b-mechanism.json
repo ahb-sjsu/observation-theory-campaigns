@@ -1,0 +1,329 @@
+{
+  "arm_noise": [
+    {
+      "H_patch": 9,
+      "R": 3,
+      "cells": 9
+    },
+    {
+      "H_patch": 16,
+      "R": 4,
+      "cells": 16
+    },
+    {
+      "H_patch": 36,
+      "R": 6,
+      "cells": 36
+    },
+    {
+      "H_patch": 64,
+      "R": 8,
+      "cells": 64
+    },
+    {
+      "H_patch": 121,
+      "R": 11,
+      "cells": 121
+    },
+    {
+      "H_patch": 256,
+      "R": 16,
+      "cells": 256
+    },
+    {
+      "H_patch": 529,
+      "R": 23,
+      "cells": 529
+    },
+    {
+      "H_patch": 1024,
+      "R": 32,
+      "cells": 1024
+    },
+    {
+      "H_patch": 2025,
+      "R": 45,
+      "cells": 2025
+    }
+  ],
+  "arm_rule110": [
+    {
+      "H_patch_bits": 5.038909765557392,
+      "R": 3,
+      "cone_bound": 7
+    },
+    {
+      "H_patch_bits": 6.97227441389348,
+      "R": 4,
+      "cone_bound": 10
+    },
+    {
+      "H_patch_bits": 8.84952762482096,
+      "R": 5,
+      "cone_bound": 13
+    }
+  ],
+  "arm_rule150": [
+    {
+      "H_boundary": 7,
+      "H_int_given_boundary": 0,
+      "H_patch": 7,
+      "R": 3
+    },
+    {
+      "H_boundary": 10,
+      "H_int_given_boundary": 0,
+      "H_patch": 10,
+      "R": 4
+    },
+    {
+      "H_boundary": 16,
+      "H_int_given_boundary": 0,
+      "H_patch": 16,
+      "R": 6
+    },
+    {
+      "H_boundary": 22,
+      "H_int_given_boundary": 0,
+      "H_patch": 22,
+      "R": 8
+    },
+    {
+      "H_boundary": 31,
+      "H_int_given_boundary": 0,
+      "H_patch": 31,
+      "R": 11
+    },
+    {
+      "H_boundary": 46,
+      "H_int_given_boundary": 0,
+      "H_patch": 46,
+      "R": 16
+    },
+    {
+      "H_boundary": 67,
+      "H_int_given_boundary": 0,
+      "H_patch": 67,
+      "R": 23
+    },
+    {
+      "H_boundary": 94,
+      "H_int_given_boundary": 0,
+      "H_patch": 94,
+      "R": 32
+    },
+    {
+      "H_boundary": 133,
+      "H_int_given_boundary": 0,
+      "H_patch": 133,
+      "R": 45
+    },
+    {
+      "H_boundary": 190,
+      "H_int_given_boundary": 0,
+      "H_patch": 190,
+      "R": 64
+    },
+    {
+      "H_boundary": 271,
+      "H_int_given_boundary": 0,
+      "H_patch": 271,
+      "R": 91
+    },
+    {
+      "H_boundary": 382,
+      "H_int_given_boundary": 0,
+      "H_patch": 382,
+      "R": 128
+    },
+    {
+      "H_boundary": 541,
+      "H_int_given_boundary": 0,
+      "H_patch": 541,
+      "R": 181
+    },
+    {
+      "H_boundary": 766,
+      "H_int_given_boundary": 0,
+      "H_patch": 766,
+      "R": 256
+    },
+    {
+      "H_boundary": 901,
+      "H_int_given_boundary": 0,
+      "H_patch": 901,
+      "R": 301
+    }
+  ],
+  "arm_rule90": [
+    {
+      "H_boundary": 7,
+      "H_int_given_boundary": 0,
+      "H_patch": 7,
+      "R": 3
+    },
+    {
+      "H_boundary": 10,
+      "H_int_given_boundary": 0,
+      "H_patch": 10,
+      "R": 4
+    },
+    {
+      "H_boundary": 16,
+      "H_int_given_boundary": 0,
+      "H_patch": 16,
+      "R": 6
+    },
+    {
+      "H_boundary": 22,
+      "H_int_given_boundary": 0,
+      "H_patch": 22,
+      "R": 8
+    },
+    {
+      "H_boundary": 31,
+      "H_int_given_boundary": 0,
+      "H_patch": 31,
+      "R": 11
+    },
+    {
+      "H_boundary": 46,
+      "H_int_given_boundary": 0,
+      "H_patch": 46,
+      "R": 16
+    },
+    {
+      "H_boundary": 67,
+      "H_int_given_boundary": 0,
+      "H_patch": 67,
+      "R": 23
+    },
+    {
+      "H_boundary": 94,
+      "H_int_given_boundary": 0,
+      "H_patch": 94,
+      "R": 32
+    },
+    {
+      "H_boundary": 133,
+      "H_int_given_boundary": 0,
+      "H_patch": 133,
+      "R": 45
+    },
+    {
+      "H_boundary": 190,
+      "H_int_given_boundary": 0,
+      "H_patch": 190,
+      "R": 64
+    },
+    {
+      "H_boundary": 271,
+      "H_int_given_boundary": 0,
+      "H_patch": 271,
+      "R": 91
+    },
+    {
+      "H_boundary": 382,
+      "H_int_given_boundary": 0,
+      "H_patch": 382,
+      "R": 128
+    },
+    {
+      "H_boundary": 541,
+      "H_int_given_boundary": 0,
+      "H_patch": 541,
+      "R": 181
+    },
+    {
+      "H_boundary": 766,
+      "H_int_given_boundary": 0,
+      "H_patch": 766,
+      "R": 256
+    },
+    {
+      "H_boundary": 901,
+      "H_int_given_boundary": 0,
+      "H_patch": 901,
+      "R": 301
+    }
+  ],
+  "cone_bound": "H(patch) <= 3R-2 for any deterministic radius-one rule",
+  "declared": {
+    "R_grid_deterministic": [
+      3,
+      4,
+      6,
+      8,
+      11,
+      16,
+      23,
+      32,
+      45,
+      64,
+      91,
+      128,
+      181,
+      256,
+      301
+    ],
+    "R_grid_noise": [
+      3,
+      4,
+      6,
+      8,
+      11,
+      16,
+      23,
+      32,
+      45
+    ],
+    "R_grid_rule110": [
+      3,
+      4,
+      5
+    ],
+    "corollary_decision": "spacetime-region count decided in the track document section 10 before this run; H(patch) vs patch volume R^2 and patch boundary R; H(interior|boundary) reported alongside",
+    "insertion_audit": "rules generic and untuned, the cone bound holds for every radius-one deterministic rule; no area-sized structure, potential, or code declared anywhere; the noise control flips the verdict",
+    "rules": [
+      90,
+      150,
+      110
+    ]
+  },
+  "fits": {
+    "noise_patch": {
+      "classification": "volume",
+      "free_slope": 2.0000000000000004,
+      "residual_area_1": 1.2701328503506686,
+      "residual_free": 5.127900497022837e-16,
+      "residual_volume_2": 0.0
+    },
+    "rule150_patch": {
+      "classification": "area",
+      "free_slope": 1.041720023652846,
+      "residual_area_1": 0.10418050628648841,
+      "residual_free": 0.05515880252948815,
+      "residual_volume_2": 2.0307842635604545
+    },
+    "rule90_patch": {
+      "classification": "area",
+      "free_slope": 1.041720023652846,
+      "residual_area_1": 0.10418050628648841,
+      "residual_free": 0.05515880252948815,
+      "residual_volume_2": 2.0307842635604545
+    }
+  },
+  "label": "exploratory",
+  "lemma": "H(interior|boundary) >= h R^2 - c R, so an area-law primary count forces zero bulk entropy density",
+  "record_sha256": "90baddfb7793a79e806dd9fa4a128546c2976867d3a0c2b043a67f389cbdc2fe",
+  "runtime": {
+    "code_commit": "cea70dc",
+    "generated_utc": "2026-08-05T07:03:06.611995+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg1b-mechanism-v1",
+  "verdict": "mechanism found: causal determinism passes the gate without insertion; for any deterministic radius-one rule the causal cone confines an R x R spacetime patch to at most 3R-2 distinguishable states' worth of entropy, measured exactly area-scaling for rules 90 and 150 over two decades of R and bounded for the nonlinear rule 110, with the deterministic interior exactly boundary-determined; the structural-origin audit holds, one fresh noise bit per cell re-inflates the same construction to a volume law, so the area law tracks determinism and nothing tuned; the entropy-density lemma explains the EG-1 negatives structurally, positive bulk entropy density forbids an area law in the primary count"
+}
