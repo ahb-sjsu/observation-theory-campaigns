@@ -481,20 +481,21 @@ projection.
    Stueckelberg-Horwitz-Piron Scattering Is a Cayley-Transform Pole
    (PF track), DOI 10.5281/zenodo.21790096.
 4. 🟫 Consumer-Relative Distinguishability in the Thermodynamic Limit
-   (TB track, completed with the TB-3 wedge-family reformulation and
-   the Lean-verified Pauli-rotation exactness theorem), compiled in
-   `paper/`, not yet published.
+   (TB track, completed with the TB-3 wedge-family reformulation, the
+   fully Lean-verified Pauli-rotation exactness theorem, and the
+   collar-width sweep), DOI 10.5281/zenodo.21814848.
 5. 🟦 A Sealed Negative for Schwinger Scaling in a Resolved-Field
    Hidden-Dynamics Family (PF track), DOI 10.5281/zenodo.21798545.
 6. 🟥 Three Sources of Observed Entropy in Reversible Hidden Dynamics
-   (PE track completion), drafted and compiled in `paper/`, not yet
-   published.
+   (PE track completion), DOI 10.5281/zenodo.21814851.
 7. 🟧 An Exact Area Gate for Entropic Accounts of Geometry (EG track,
-   EG-0/1/1b), drafted and compiled in `paper/`, not yet published.
+   EG-0/1/1b), DOI 10.5281/zenodo.21814854.
 8. 🟧 Radiative Geometry (EG track, EG-2..6 with the discovery
    campaigns, the constraint-locked closure, the emergence gate, and
-   a citation-verified relation-to-prior-work section), compiled in
-   `paper/`, not yet published.
+   a citation-verified relation-to-prior-work section),
+   DOI 10.5281/zenodo.21814858.
+9. 🟨 Auditing Emergent Physics Claims in Rewriting Systems (the
+   complete WM track), DOI 10.5281/zenodo.21814860.
 
 ## Repository layout
 
