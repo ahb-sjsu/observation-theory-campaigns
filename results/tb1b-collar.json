@@ -1,0 +1,152 @@
+{
+  "collar_decay_ratios": [
+    1.0474878208584057,
+    1.0005267034453216,
+    1.0324003630834113
+  ],
+  "convergence_by_collar": {
+    "0": {
+      "limit_estimate": 0.0375314957065811,
+      "successive_diffs": [
+        2.7677821279326054e-07,
+        2.6474378245211483e-11,
+        1.7763568394002505e-15
+      ]
+    },
+    "1": {
+      "limit_estimate": 0.039313784651243244,
+      "successive_diffs": [
+        1.8909822596668846e-09,
+        1.7985612998927536e-13,
+        8.881784197001252e-16
+      ]
+    },
+    "2": {
+      "limit_estimate": 0.03933449135706768,
+      "successive_diffs": [
+        1.6068035790794966e-11,
+        6.661338147750939e-16,
+        2.220446049250313e-16
+      ]
+    },
+    "3": {
+      "limit_estimate": 0.040608943158737976,
+      "successive_diffs": [
+        1.5432100042289676e-13,
+        8.881784197001252e-16,
+        4.440892098500626e-16
+      ]
+    }
+  },
+  "declared": {
+    "J": 1.0,
+    "N_grid": [
+      6,
+      8,
+      10,
+      12
+    ],
+    "beta": 0.4,
+    "consumer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "excitation": "Z rotation inside the consumer at site edge - w (edge = the cut-adjacent site)",
+    "h": 2.0,
+    "theta": 0.2,
+    "w_grid": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "label": "exploratory",
+  "record_sha256": "3a5fa6b403dfa334ae4d00b651b1acffdff701f73f38ccaa926c472b96d6b38e",
+  "runtime": {
+    "code_commit": "f661a22",
+    "generated_utc": "2026-08-05T19:08:56.709569+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "tb1b-collar-v1",
+  "surface": {
+    "0": [
+      {
+        "D": 0.037531772511270045,
+        "N": 6
+      },
+      {
+        "D": 0.03753149573305725,
+        "N": 8
+      },
+      {
+        "D": 0.037531495706582874,
+        "N": 10
+      },
+      {
+        "D": 0.0375314957065811,
+        "N": 12
+      }
+    ],
+    "1": [
+      {
+        "D": 0.03931378654240625,
+        "N": 6
+      },
+      {
+        "D": 0.03931378465142399,
+        "N": 8
+      },
+      {
+        "D": 0.03931378465124413,
+        "N": 10
+      },
+      {
+        "D": 0.039313784651243244,
+        "N": 12
+      }
+    ],
+    "2": [
+      {
+        "D": 0.039334491373136604,
+        "N": 6
+      },
+      {
+        "D": 0.03933449135706857,
+        "N": 8
+      },
+      {
+        "D": 0.0393344913570679,
+        "N": 10
+      },
+      {
+        "D": 0.03933449135706768,
+        "N": 12
+      }
+    ],
+    "3": [
+      {
+        "D": 0.040608943158890964,
+        "N": 6
+      },
+      {
+        "D": 0.04060894315873664,
+        "N": 8
+      },
+      {
+        "D": 0.04060894315873753,
+        "N": 10
+      },
+      {
+        "D": 0.040608943158737976,
+        "N": 12
+      }
+    ]
+  },
+  "verdict": "the infrared bridge extends to every collar width including zero: at every w the consumer-relative divergence converges in N with shrinking successive differences, and the edge-adjacent value is finite (3.7531e-02 nats) where the continuum boundary layer would be singular; the profile from the cut inward is ['3.753e-02', '3.931e-02', '3.933e-02', '4.061e-02'] with step ratios [1.05, 1.0, 1.03], growing monotonically away from the cut, the boundary layer of visibility; on the lattice the consumer-relative layer is finite and convergent even at the entangling surface, locating the ultraviolet pathology in the absolute layer, consistent with the track's thesis, and the true ultraviolet limit remains a continuum question the lattice cannot decide"
+}
