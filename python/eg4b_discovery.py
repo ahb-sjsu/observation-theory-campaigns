@@ -161,8 +161,10 @@ def main() -> int:
     vac = evolve(N_RING, T_STEPS)
     src = evolve(N_RING, T_STEPS, SOURCE)
 
-    # P1: causality null
-    for r in (100, 128, 180, 220):
+    # P1: causality null, positions chosen outside the cone with the
+    # window extent and the ring wrap accounted for (cone |j| <= 32
+    # at the final time, window covers [r, r+8))
+    for r in (100, 128, 180, 200):
         d = field_value(src, vac, r)
         assert d == 0.0, f"causality violated at r={r}: {d}"
 
