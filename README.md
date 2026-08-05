@@ -357,7 +357,9 @@ projection.
    Stueckelberg-Horwitz-Piron Scattering Is a Cayley-Transform Pole
    (PF track), DOI 10.5281/zenodo.21790096.
 4. 🟫 Consumer-Relative Distinguishability in the Thermodynamic Limit
-   (TB track), drafted and compiled in `paper/`, not yet published.
+   (TB track, completed with the TB-3 wedge-family reformulation and
+   the Lean-verified Pauli-rotation exactness theorem), compiled in
+   `paper/`, not yet published.
 5. 🟦 A Sealed Negative for Schwinger Scaling in a Resolved-Field
    Hidden-Dynamics Family (PF track), DOI 10.5281/zenodo.21798545.
 6. 🟥 Three Sources of Observed Entropy in Reversible Hidden Dynamics
