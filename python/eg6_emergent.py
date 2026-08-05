@@ -183,9 +183,18 @@ def main() -> int:
     record = {
         "schema": "eg6-emergent-v1", "label": "exploratory",
         "declared": {"L": L, "eps_grid": EPS_GRID,
-                     "deformation": "dB/dt += eps * mean of 4 "
-                                    "neighbor plaquettes, local and "
-                                    "translation-invariant"},
+                     "deformation": "BOTH blocks deformed, local and "
+                                    "translation-invariant: dB/dt += "
+                                    "eps * mean of 4 neighbor "
+                                    "plaquettes AND dE/dt += eps * "
+                                    "mean of 4 parallel neighbor "
+                                    "edges",
+                     "instrument_lesson": "a first one-block variant "
+                         "(B update only) falsely showed the Gauss "
+                         "family surviving because the div-curl "
+                         "identity of the untouched E update carried "
+                         "it; genericity requires deforming both "
+                         "blocks"},
         "rows": rows, "verdict": verdict,
         "runtime": {
             "generated_utc": datetime.now(timezone.utc).isoformat(),
