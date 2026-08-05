@@ -150,9 +150,9 @@ def main() -> int:
             ex_id = i * s_small + j
             ey_id = s_small * s_small + ex_id
             c_mat[v, ex_id] += 1.0
-            c_mat[i * s_small + (j - 1) % s_small, ex_id] -= 1.0
+            c_mat[i * s_small + (j + 1) % s_small, ex_id] -= 1.0
             c_mat[v, ey_id] += 1.0
-            c_mat[((i - 1) % s_small) * s_small + j, ey_id] -= 1.0
+            c_mat[((i + 1) % s_small) * s_small + j, ey_id] -= 1.0
     lap = c_mat @ c_mat.T
     lap_pinv = np.linalg.pinv(lap)
     charges_s = {(1, 1): 1.0, (4, 4): -1.0}
