@@ -68,11 +68,14 @@ def build_a(eps: float) -> np.ndarray:
             a[bp(i, j), ey(i, j)] -= 1.0
             for di, dj in ((1, 0), (-1, 0), (0, 1), (0, -1)):
                 a[bp(i, j), bp(i + di, j + dj)] += eps / 4.0
-            # dE/dt = -curl B
+            # dE/dt = -curl B + eps * mean of parallel neighbor edges
             a[ex(i, j), bp(i, j)] -= 1.0
             a[ex(i, j), bp(i - 1, j)] += 1.0
             a[ey(i, j), bp(i, j - 1)] -= 1.0
             a[ey(i, j), bp(i, j)] += 1.0
+            for di, dj in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                a[ex(i, j), ex(i + di, j + dj)] += eps / 4.0
+                a[ey(i, j), ey(i + di, j + dj)] += eps / 4.0
     return a
 
 
