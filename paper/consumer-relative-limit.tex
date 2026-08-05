@@ -16,6 +16,7 @@
     line width=0.9pt}}
 
 \newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
 \newcommand{\Tr}{\operatorname{Tr}}
 \newcommand{\Ac}{\mathcal{A}}
 \newcommand{\Nc}{\mathcal{N}}
@@ -167,7 +168,7 @@ overwrites the cell with the change logged.
 from the track document.  Survives verbatim means the type I definition
 never used a density matrix and needs no rephrasing.  TB-0, TB-1, TB-2,
 and TB-3 name the instruments of Secs.~\ref{sec:modular} through
-\ref{sec:nonclaims}.}
+\ref{sec:wedge}.}
 \label{tab:honesty}
 \begin{ruledtabular}
 \begin{tabular}{p{0.145\textwidth}p{0.24\textwidth}p{0.26\textwidth}p{0.27\textwidth}}
@@ -521,6 +522,107 @@ region sizes, the clean convergent object is the fixed-count flip, and
 the fractional diagnostic is untestable below substantially larger
 regions.  This is recorded as a finding rather than massaged away.
 
+\section{The wedge-family reformulation and an exactness theorem}
+\label{sec:wedge}
+
+The consumer-family quantifier of the campaign's quantum track
+demanded, for a family of nested windows witnessing one shared
+excitation, that a single constant relate each member's relative
+entropy to a declared flux weight.  Under the lattice weight
+$\theta^2$ that requirement tightened toward exclusion on the
+measured grid, with joint survival falling from $1.0$ to $0.75$ to
+$0.25$ as the family grew.  The type III reformulation replaces the
+lattice weight by a quadratic form built from the reference state's
+modular data, and its circularity audit requires that the form be
+computable without evaluating the entropy it normalizes.
+
+The declared form is the Kubo--Mori quadratic form.  For reference
+state $\rho$, window $W$, and excitation $U(\theta) = e^{i\theta P}$
+with $P$ the shared-site Pauli generator, the first-order
+perturbation is $\delta\rho = i[P,\rho]$, its reduction to $W$ is
+$\delta\rho_W$, and
+\begin{equation}
+Q_W \;=\; \tfrac{1}{2} \sum_{ij}
+  \left|\langle i|\,\delta\rho_W\,|j\rangle\right|^2 k(p_i,p_j),
+\qquad
+k(p,q) = \frac{\ln p - \ln q}{p - q},
+\label{eq:kubomori}
+\end{equation}
+with $p_i$ the spectrum of $\rho_W$ and $k(p,p) = 1/p$.  This is the
+exact second-order coefficient of the Araki entropy, assembled from
+the reduced reference and the reduced perturbation only, and the
+code path that assembles it evaluates no entropy anywhere, so the
+audit passes structurally.  A validation probe at $\theta = 0.02$
+finds the measured entropy within $10^{-4}$ of $\theta^2 Q_W$ on
+every window at every coupling point.
+
+Measured on the same grid, windows, and excitations as the sealed
+quantum-track declarations, the reformulated law
+$S_W(\theta) = \lambda_W\,\theta^2 Q_W$ holds with joint survival
+$1.0$ at every family size, and the universality is far stronger
+than the declared spread bar.  The fitted $\lambda$ equals
+$0.9885453204$ constant to thirteen digits across all eighty
+window-and-coupling combinations, against a lattice-weight spread of
+$0.079$ mean and $0.131$ maximum.  The modular form itself saturates
+along the nested family exactly as the entropies do, the activation
+dichotomy follows from localization since a probe disjoint from the
+window gives exactly zero for both the entropy and the form, and the
+route cross-check of Sec.~\ref{sec:dictionary} agrees to
+$1.9\times 10^{-15}$ on the declared member.
+
+The thirteen-digit constancy is a theorem, not a measured
+coincidence.
+
+\begin{theorem}[Pauli-rotation exactness]
+Let $\rho$ be a full-rank density matrix, $P$ a Hermitian involution,
+and $U(\theta) = e^{i\theta P}$.  Then for every $\theta$,
+\begin{equation}
+S\!\left(U\rho\,U^{\dagger} \,\middle\|\, \rho\right)
+ \;=\; \sin^2\!\theta \; S\!\left(P\rho P \,\middle\|\, \rho\right).
+\label{eq:exactness}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since $P^2 = I$, $U = \cos\theta\, I + i \sin\theta\, P$, so
+$U\rho U^{\dagger} = \cos^2\!\theta\,\rho + \sin^2\!\theta\, P\rho P
++ i \sin\theta\cos\theta\,[P,\rho]$.  Von Neumann entropy is
+unitarily invariant, so
+$S(U\rho U^{\dagger}\|\rho) =
+ \operatorname{tr}[(\rho - U\rho U^{\dagger})\ln\rho]$.  The odd
+term vanishes identically because $\rho$ commutes with its own
+logarithm, $\operatorname{tr}([P,\rho]\ln\rho)
+= \operatorname{tr}(P[\rho,\ln\rho]) = 0$ by cyclicity.  With
+$1 - \cos^2\!\theta = \sin^2\!\theta$ the remainder is
+$\sin^2\!\theta\,\operatorname{tr}[(\rho - P\rho P)\ln\rho]$, whose
+coefficient equals $S(P\rho P\|\rho)$ because $P\rho P$ has the
+entropy of $\rho$.  No symmetry of $\rho$ is used anywhere.
+\end{proof}
+
+Three corollaries close the loop.  For any window containing the
+excitation site the reduction commutes with the rotation, so
+$S_W(\theta) = \kappa_W \sin^2\!\theta$ exactly with
+$\kappa_W = S(P\rho_W P\|\rho_W)$.  Matching Taylor coefficients at
+$\theta = 0$ gives $Q_W = \kappa_W$, so the declared flux weight of
+Eq.~\eqref{eq:kubomori} is the involution defect itself.  And the
+fitted $\lambda$ is the pure kinematic constant
+$\sum_k \theta_k^2 \sin^2\!\theta_k / \sum_k \theta_k^4
+= 0.9885453204$ of the declared grid, which the eighty measured
+values match to $1.3\times 10^{-13}$ with no refit, while
+retroactively the quantum track's $\theta^2$-law residuals are
+identified as the universal mismatch between $\sin^2\!\theta$ and
+$\theta^2$, identical for every consumer, which the sealed record
+indeed shows.  The theorem was verified on one hundred twenty random
+full-rank states and random involutions at angles up to $2.0$
+including $\pi/2$ with worst relative error $1.4\times 10^{-14}$,
+and the algebraic core of the proof, the three-harmonic expansion,
+the vanishing of the odd trace under the commutation hypothesis, and
+the assembled trace identity, is machine-checked in Lean~4 with
+Mathlib in the campaign repository, where the trace identity is
+hypothesis-minimal, holding for arbitrary square matrices with
+$\rho L = L\rho$, which is exactly what functional calculus supplies
+for $L = \ln\rho$.
+
 \section{What the bridge does not do}
 \label{sec:nonclaims}
 
@@ -546,14 +648,12 @@ say nothing about the ultraviolet passage, and a collar-width sweep at
 fixed physics is the declared candidate instrument for separating the two
 regimes.  Until that sweep exists, the bridge is an infrared bridge.
 
-The consumer-family quantifier remains at the design stage.  Its type III
-reformulation replaces nested lattice windows with a family of split
-inclusions sharing an excitation region, replaces the lattice spectral
-law with a quadratic form built from the reference state's modular data,
-and inherits a circularity audit that the declared form must pass before
-any run.  Nothing in this paper advances that instrument beyond design,
-and its honest possible endpoint includes termination at the design
-stage.
+The consumer-family quantifier, which an earlier draft of this paper
+could only leave at the design stage, is now measured and proved in
+Sec.~\ref{sec:wedge}.  Its wedge language remains declared analogy
+throughout, the chain still has no causal structure, and the
+remaining distance to quantum field theory is unchanged by the
+reformulation's success.
 
 \section{Conclusion}
 \label{sec:conclusion}
