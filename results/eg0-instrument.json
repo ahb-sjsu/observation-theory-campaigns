@@ -1,0 +1,104 @@
+{
+  "declared": {
+    "c_lin": 0.8,
+    "deform_c": [
+      2.0,
+      1.0
+    ],
+    "delta": 0.0001,
+    "eps": 0.01,
+    "eps_lin": 0.008,
+    "gauss": {
+      "m1": 0.0,
+      "m2": 0.5,
+      "s1": 1.0,
+      "s2": 1.5
+    },
+    "repar_amplitude": 0.2
+  },
+  "label": "exploratory",
+  "part_a": {
+    "caustic_deviation_at_1e-5": 0.0014147751270914277,
+    "cubic_branch_bit": -0.0,
+    "double_fold_slice_bits": 1.5,
+    "fold_branch_bit": 1.0000000000000142
+  },
+  "part_b": {
+    "delta_sweep": [
+      [
+        0.0004,
+        -5.245630393274403
+      ],
+      [
+        0.0002,
+        -5.245862973307291
+      ],
+      [
+        0.0001,
+        -5.245900306581342
+      ]
+    ],
+    "delta_sweep_devs": [
+      0.00023258003288795237,
+      3.733327405175402e-05
+    ],
+    "eps_sweep": [
+      [
+        0.04,
+        1.3532085755981775
+      ],
+      [
+        0.02,
+        1.379378210674754
+      ],
+      [
+        0.01,
+        1.397955883193382
+      ]
+    ],
+    "eps_sweep_devs": [
+      0.026169635076576547,
+      0.018577672518627963
+    ],
+    "linear_control_bits": 6.6438561897747395,
+    "linear_target_bits": 6.643856189774724
+  },
+  "part_c": {
+    "binary_control_bits": 0.08170416594551042,
+    "deformed_fold_bins": 90,
+    "deformed_fold_max_dev": 3.3306690738754696e-16,
+    "gauss_err_wide_range": 1.6653345369377348e-16,
+    "gauss_kl_exact_bits": 0.264363602745831,
+    "gauss_sweep_abs_err": [
+      [
+        0.01,
+        1.748990952066265e-10
+      ],
+      [
+        0.005,
+        1.7490908721384812e-10
+      ],
+      [
+        0.0025,
+        1.7491164072680476e-10
+      ]
+    ],
+    "nested_uniform_bits": 2.0000000000000004
+  },
+  "part_d": {
+    "regrid_max_dev": 8.187894806610529e-16,
+    "regrid_max_dev_refined": 4.440892098500626e-16,
+    "relabel_max_dev": 1.3877787807814457e-16
+  },
+  "record_sha256": "7f5aa8140f6127dfab07f20778e5f9ae7b27f3ba70df272e240fbd51637a861f",
+  "runtime": {
+    "code_commit": "73d15eb",
+    "generated_utc": "2026-08-05T06:39:12.779159+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg0-instrument-v1",
+  "statement": "the EG instrument layer measures the conditional-entropy surface, fiber relative entropy, and their resolution behavior exactly on every closed-form control, reproduces the PE-0 values, and its witnesses are invariant under hidden-coordinate relabeling exactly and under re-gridding up to quadrature error that shrinks with resolution"
+}
