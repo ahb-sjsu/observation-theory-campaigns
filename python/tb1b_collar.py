@@ -9,8 +9,13 @@ size. This is the declared candidate instrument, the collar-width
 sweep at fixed physics.
 
 Design. The consumer is a fixed four-site block at the chain's left
-end, the fixed physical object. The excitation is a Z rotation at
-distance w (the collar, in sites) beyond the consumer's edge. The
+end, the fixed physical object. The excitation is a Z rotation
+INSIDE the consumer at distance w (the collar, in sites) from the
+consumer's edge at the cut, since an excitation strictly outside the
+consumer is exactly invisible by no-signalling at any distance (the
+sealed instrument's own null, reconfirmed en route). Approaching
+w = 0 is the lattice shadow of an excitation approaching the
+entangling surface. The
 sweep measures the consumer-relative divergence D(N, w) for chains
 N = 6 to 12 and collars w = 0 to 4, with theta fixed at 0.2 and the
 sealed instrument's thermal state at the QO couplings.
@@ -54,7 +59,7 @@ from qo0_instrument import (  # noqa: E402
 
 CONSUMER = [0, 1, 2, 3]
 N_GRID = [6, 8, 10, 12]
-W_GRID = [0, 1, 2, 3, 4]
+W_GRID = [0, 1, 2, 3]
 BETA = 0.4
 J_COUP = 1.0
 H_FIELD = 2.0
@@ -68,8 +73,8 @@ def main() -> int:
             ising_hamiltonian_jh(n, J_COUP, H_FIELD), BETA)
         sigma_c = partial_trace(sigma, CONSUMER, n)
         for w in W_GRID:
-            site = CONSUMER[-1] + 1 + w
-            if site >= n:
+            site = CONSUMER[-1] - w
+            if site < 0:
                 surface[str(w)].append({"N": n, "D": float("nan")})
                 continue
             u = local_rotation(n, site, THETA, "z")
@@ -92,32 +97,36 @@ def main() -> int:
                                "limit_estimate": vals[-1]}
 
     limits = [convergence[str(w)]["limit_estimate"] for w in W_GRID]
-    assert all(a > b for a, b in zip(limits[:-1], limits[1:])), \
-        f"divergence must decay with the collar: {limits}"
-    assert all(np.isfinite(v) and v >= 0 for v in limits)
-    ratios = [limits[i] / limits[i + 1] for i in range(len(limits) - 1)]
+    assert all(np.isfinite(v) and v > 0 for v in limits)
+    ratios = [limits[i + 1] / limits[i]
+              for i in range(len(limits) - 1)]
+    monotone_in = all(a < b for a, b in zip(limits[:-1], limits[1:]))
 
     verdict = (
         "the infrared bridge extends to every collar width including "
         "zero: at every w the consumer-relative divergence converges "
-        "in N with shrinking successive differences, the zero-collar "
-        f"value is finite ({limits[0]:.4e} nats) and largest, and the "
-        f"divergence decays with the collar by per-site factors "
-        f"{[round(r, 2) for r in ratios]}, the correlation-length "
-        "decay; on the lattice the consumer-relative layer is finite, "
-        "convergent, and monotone even where the continuum split "
-        "property would refuse the inclusion, which locates the "
+        "in N with shrinking successive differences, and the "
+        f"edge-adjacent value is finite ({limits[0]:.4e} nats) where "
+        "the continuum boundary layer would be singular; the profile "
+        f"from the cut inward is {[f'{v:.3e}' for v in limits]} with "
+        f"step ratios {[round(r, 2) for r in ratios]}"
+        + (", growing monotonically away from the cut, the boundary "
+           "layer of visibility" if monotone_in else
+           ", non-monotone, recorded as measured")
+        + "; on the lattice the consumer-relative layer is finite and "
+        "convergent even at the entangling surface, locating the "
         "ultraviolet pathology in the absolute layer, consistent with "
-        "the track's thesis, and the true ultraviolet limit remains "
-        "a continuum question the lattice cannot decide")
+        "the track's thesis, and the true ultraviolet limit remains a "
+        "continuum question the lattice cannot decide")
 
     record = {
         "schema": "tb1b-collar-v1", "label": "exploratory",
         "declared": {"consumer": CONSUMER, "N_grid": N_GRID,
                      "w_grid": W_GRID, "beta": BETA, "J": J_COUP,
                      "h": H_FIELD, "theta": THETA,
-                     "excitation": "Z rotation at consumer edge + 1 "
-                                   "+ w"},
+                     "excitation": "Z rotation inside the consumer "
+                                   "at site edge - w (edge = the "
+                                   "cut-adjacent site)"},
         "surface": surface,
         "convergence_by_collar": convergence,
         "collar_decay_ratios": ratios,
