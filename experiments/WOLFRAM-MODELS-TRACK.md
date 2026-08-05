@@ -1,4 +1,20 @@
-# WM Track: Wolfram Models and Cellular Automata Under the Campaign Audits
+# WM Track
+
+**WM-2h RESULT (2026-08-05; runner `python/wm2h_prescription.py`,
+evidence `results/wm2h-prescription.json`).** The hypergraph
+prescription audit, the track's last unbuilt experiment and its
+sharpest finding. Five declared match orders (storage, reversed, two
+seeded permutations, sort by second vertex) give the flagship growth
+rule DIFFERENT bulk bookkeeping, relation counts 1710 to 1882,
+vertex counts 855 to 941, and dimension estimates 2.43 to 2.88, an
+eighteen percent spread, so the WM-4 dimension claim inherits a
+measured prescription caveat at these sizes. The contrast with the
+string audit is sharp, the sorting rule was exact under every order,
+while the growth rule's match conflicts make even its event count a
+prescription choice. The fork contraction trap fires with three
+distinct terminals across prescriptions, and the bare path was found
+confluent en route (any contraction order composes to one edge),
+recorded as the trap-design lesson.: Wolfram Models and Cellular Automata Under the Campaign Audits
 
 **Status:** design draft, unsealed, non-claim-bearing. No physics claims
 are made anywhere in this document. Every quantitative statement below

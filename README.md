@@ -26,7 +26,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | COMPLETE: EG-0..4 measured, EG-5 forbidden by its own bar; the arc's result is the exact tension between area-law counting and local field structure |
-| 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Designed; WM-0 and WM-1 measured |
+| 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Complete: WM-0..4 + WM-2h measured; the growth rules bookkeeping is prescription-borne |
 
 ## Status ledger, one row per experiment
 
@@ -75,6 +75,7 @@ document in `experiments/SEALS.md`.
 | 🟨 **WM-2** prescription audit | `[demonstrated-in-model]` ✅ trap discharged | string-substitution instance, three declared update orders: the causal-invariant sorting rule BA→AB agrees exactly under every prescription (final string and event count = inversion number, 406); the planted non-confluent rule {AB→B, BA→A} is flagged with three distinct terminal strings (B, BB, BBBB); the growth rule A→AB splits measured — conserved letter counts prescription-invariant, arrangement prescription-borne |
 | 🟨 **WM-3** foliation covariance | `[demonstrated-in-model]` ✅ | genuine causal graphs from token genealogy: the sorting rule's invariants (55 events, 88 edges, depth 13, degree multiset) identical across prescriptions, while the trap's causal graphs differ radically (7 events/6 edges vs 4 events/0 edges — the rightmost order yields a causally disconnected history); across foliations of one graph, earliest and latest both achieve exactly the depth bound 13 while random extensions spread 19–26 slices — invariants frozen, simultaneity bookkeeping varying 2× |
 | 🟨 **WM-4** held-out dimension scaling | `[demonstrated-in-model]` ✅ at measured sizes | minimal hypergraph rewriter for {{x,y},{x,z}}→{{x,z},{x,w},{y,w},{z,w}}, 11 generations, 1794 relations/897 vertices under one declared prescription: shell estimator gives d̂ = 2.305 on training radii, and on held-out radii the finite-dimension power law beats the exponential alternative by 40× in SSE (0.028 vs 1.092) — this rule genuinely passes the audit, finite-size crossover beyond the window not excluded |
+| 🟨 **WM-2h** hypergraph prescription audit | \[demonstrated-in-model]\ ⚠ prescription-borne | the WM tracks sharpest audit: the flagship growth rules bulk bookkeeping is NOT prescription-invariant — five declared match orders give relation counts 1710–1882, vertex counts 855–941, and dimension estimates 2.43–2.88 (18% spread), so the WM-4 dimension claim inherits a measured prescription caveat at these sizes (unlike the string sorting rule, which was exact under every order); the fork-contraction trap fires with 3 distinct terminals (a bare path is confluent, verified en route) |
 
 Six sealed documents in the ledger (two instrument freezes, four
 preregistrations), every one verifiable by blob hash. Three papers
@@ -427,14 +428,26 @@ test, the power law beating the exponential alternative forty-fold
 in held-out error, so that rule's dimension claim genuinely survives
 at measured sizes.
 
-Still open. The hypergraph version of WM-2; the remaining open
-questions of the track document, led by whether the program's
-topological-obstruction particles admit any computable signed
-invariant.
+WM-2h, the hypergraph prescription audit, then delivered the track's
+sharpest finding. Five declared match orders give the flagship
+growth rule different relation counts (1710 to 1882), different
+vertex counts, and dimension estimates spanning 2.43 to 2.88, an
+eighteen percent spread, so the bulk bookkeeping is
+prescription-borne and the WM-4 dimension claim inherits a measured
+prescription caveat at these sizes, in sharp contrast to the string
+sorting rule, which was exact under every order. The fork
+contraction trap fires with three distinct terminals while the bare
+path is confluent, verified en route, so the audit's teeth are
+demonstrated.
+
+Still open. The remaining open questions of the track document, led
+by whether the program's topological-obstruction particles admit any
+computable signed invariant.
 
 Key files. `experiments/WOLFRAM-MODELS-TRACK.md`,
-`python/wm0_dimension.py` through `python/wm4_hypergraph.py`.
-Related prior work in `C:\source\wolfram-observer-bridge`.
+`python/wm0_dimension.py` through `python/wm4_hypergraph.py`,
+`python/wm2h_prescription.py`. Related prior work in
+`C:\source\wolfram-observer-bridge`.
 
 ## The evidence discipline (applies to every track)
 
