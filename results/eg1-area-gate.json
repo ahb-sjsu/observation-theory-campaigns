@@ -1,0 +1,279 @@
+{
+  "arm_a": {
+    "H_given_boundary": [
+      1,
+      4,
+      16,
+      36,
+      81,
+      196,
+      441,
+      900,
+      1849,
+      3844,
+      7921,
+      15876,
+      32041,
+      64516,
+      89401
+    ],
+    "MI": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "closed_form": "independent spins: H(int|bnd) = (R-2)^2, MI = 0"
+  },
+  "arm_b": [
+    {
+      "H_given_boundary": 4,
+      "H_marginal": 11,
+      "L": 15,
+      "MI": 7,
+      "R": 3,
+      "edges": 450
+    },
+    {
+      "H_given_boundary": 9,
+      "H_marginal": 20,
+      "L": 17,
+      "MI": 11,
+      "R": 4,
+      "edges": 578
+    },
+    {
+      "H_given_boundary": 25,
+      "H_marginal": 44,
+      "L": 21,
+      "MI": 19,
+      "R": 6,
+      "edges": 882
+    },
+    {
+      "H_given_boundary": 49,
+      "H_marginal": 76,
+      "L": 25,
+      "MI": 27,
+      "R": 8,
+      "edges": 1250
+    },
+    {
+      "H_given_boundary": 100,
+      "H_marginal": 139,
+      "L": 31,
+      "MI": 39,
+      "R": 11,
+      "edges": 1922
+    },
+    {
+      "H_given_boundary": 225,
+      "H_marginal": 284,
+      "L": 41,
+      "MI": 59,
+      "R": 16,
+      "edges": 3362
+    },
+    {
+      "H_given_boundary": 484,
+      "H_marginal": 571,
+      "L": 55,
+      "MI": 87,
+      "R": 23,
+      "edges": 6050
+    },
+    {
+      "H_given_boundary": 961,
+      "H_marginal": 1084,
+      "L": 73,
+      "MI": 123,
+      "R": 32,
+      "edges": 10658
+    },
+    {
+      "H_given_boundary": 1936,
+      "H_marginal": 2111,
+      "L": 99,
+      "MI": 175,
+      "R": 45,
+      "edges": 19602
+    },
+    {
+      "H_given_boundary": 3969,
+      "H_marginal": 4220,
+      "L": 137,
+      "MI": 251,
+      "R": 64,
+      "edges": 37538
+    },
+    {
+      "H_given_boundary": 8100,
+      "H_marginal": 8459,
+      "L": 191,
+      "MI": 359,
+      "R": 91,
+      "edges": 72962
+    },
+    {
+      "H_given_boundary": 16129,
+      "H_marginal": 16636,
+      "L": 265,
+      "MI": 507,
+      "R": 128,
+      "edges": 140450
+    },
+    {
+      "H_given_boundary": 32400,
+      "H_marginal": 33119,
+      "L": 371,
+      "MI": 719,
+      "R": 181,
+      "edges": 275282
+    },
+    {
+      "H_given_boundary": 65025,
+      "H_marginal": 66044,
+      "L": 521,
+      "MI": 1019,
+      "R": 256,
+      "edges": 542882
+    },
+    {
+      "H_given_boundary": 90000,
+      "H_marginal": 91199,
+      "L": 611,
+      "MI": 1199,
+      "R": 301,
+      "edges": 746642
+    }
+  ],
+  "arm_c": {
+    "accessible_image_bits": [
+      8,
+      12,
+      20,
+      28,
+      40,
+      60,
+      88,
+      124,
+      176,
+      252,
+      360,
+      508,
+      720,
+      1020,
+      1200
+    ],
+    "closed_form": "access image 4R-4 (area by construction), hidden residual (R-2)^2 (volume)",
+    "hidden_residual_bits": [
+      1,
+      4,
+      16,
+      36,
+      81,
+      196,
+      441,
+      900,
+      1849,
+      3844,
+      7921,
+      15876,
+      32041,
+      64516,
+      89401
+    ]
+  },
+  "declared": {
+    "L_pad": 9,
+    "R_grid": [
+      3,
+      4,
+      6,
+      8,
+      11,
+      16,
+      23,
+      32,
+      45,
+      64,
+      91,
+      128,
+      181,
+      256,
+      301
+    ],
+    "arms": {
+      "A": "independent spins, generic volume control",
+      "B": "Z2 Gauss-law / gauge-quotient uniform code ensemble on torus edges, exact cycle-space dimensions via component counting",
+      "C": "boundary-limited access, the standing-warning instance, never a pass"
+    },
+    "counts_decision": "primary H(region|boundary), secondary I(region;complement), decided in the track document section 10 question 2 before this run",
+    "fit_alternatives": [
+      "free power law",
+      "exponent 2 volume",
+      "exponent 1 area"
+    ],
+    "lattice": "2D; volume = R^2, area = R^1"
+  },
+  "fits": {
+    "arm_a_primary": {
+      "classification": "volume",
+      "free_slope": 2.3281738400805265,
+      "residual_area_1": 2.861672582562818,
+      "residual_free": 0.5221978915748209,
+      "residual_volume_2": 0.8694857714014128
+    },
+    "arm_b_mi": {
+      "classification": "area",
+      "free_slope": 1.0863728305877445,
+      "residual_area_1": 0.21992594982438496,
+      "residual_free": 0.12201684307460411,
+      "residual_volume_2": 1.9392842040766254
+    },
+    "arm_b_primary": {
+      "classification": "volume",
+      "free_slope": 2.1321131157505193,
+      "residual_area_1": 2.405111013509561,
+      "residual_free": 0.18106374761937435,
+      "residual_volume_2": 0.3333339952479709
+    },
+    "arm_c_access": {
+      "classification": "area",
+      "free_slope": 1.0660565578752594,
+      "residual_area_1": 0.16666699762398546,
+      "residual_free": 0.09053187380968698,
+      "residual_volume_2": 1.9805503528335207
+    },
+    "arm_c_hidden": {
+      "classification": "volume",
+      "free_slope": 2.3281738400805265,
+      "residual_area_1": 2.861672582562818,
+      "residual_free": 0.5221978915748209,
+      "residual_volume_2": 0.8694857714014128
+    }
+  },
+  "label": "exploratory",
+  "record_sha256": "b9d1c9a34ea8f7f48642546204817e4a6d181619e46c99bf1a1f2613438c755e",
+  "runtime": {
+    "code_commit": "4f60b8e",
+    "generated_utc": "2026-08-05T06:50:21.813869+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg1-area-gate-v1",
+  "verdict": "gate negative in the primary count for every measured mechanism class: the Gauss-law constraint and gauge-quotient ensembles count exactly (R-1)^2 interior distinctions given the boundary, a volume law, and boundary-limited access leaves the hidden interior residual a volume law while only the observer-accessible image is area-scaling by construction, the standing warning of section 5 made quantitative; the counts split exactly as the section 10 decision anticipated, since the same Gauss-law ensemble carries an exact area-law cut mutual information 4R-5, so constraint structure does put area scaling into observer-relative correlations while leaving interior independence extensive, and any entropic-gravity reading built on this mechanism class would have to live on the correlation count the decision relegated to secondary"
+}
