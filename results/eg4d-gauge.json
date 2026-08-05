@@ -1,0 +1,102 @@
+{
+  "P0_control": {
+    "cov_dev": 3.0878077872387166e-16,
+    "mean_dev": 5.412337245047638e-16
+  },
+  "P1_stationarity": {
+    "dt": 0.05,
+    "mean_field_drift": 1.998839347923018e-18,
+    "steps": 400
+  },
+  "P2_profile": {
+    "expected_2d_coulomb_D": -2.0,
+    "loglog_slope": -2.274558221976345,
+    "profile": [
+      {
+        "D_bits": 0.020507609829608732,
+        "r": 2
+      },
+      {
+        "D_bits": 0.007668102159021828,
+        "r": 3
+      },
+      {
+        "D_bits": 0.0039345992404162715,
+        "r": 4
+      },
+      {
+        "D_bits": 0.001616400181832192,
+        "r": 6
+      },
+      {
+        "D_bits": 0.0008710489457451827,
+        "r": 8
+      },
+      {
+        "D_bits": 0.0004344827996148762,
+        "r": 11
+      },
+      {
+        "D_bits": 0.00018246832925879476,
+        "r": 16
+      },
+      {
+        "D_bits": 7.98158168393817e-05,
+        "r": 22
+      }
+    ]
+  },
+  "P3_superposition": {
+    "D_charge2_over_charge1": 4.0,
+    "field_superposition_dev": 4.163336342344337e-16,
+    "predicted_quadratic": 4.0
+  },
+  "P4_gauss_poisson": {
+    "curl_residual": 1.4907779871675686e-18,
+    "gauss_residual": 8.881784197001252e-16,
+    "reading": "div E = rho exactly and curl E = 0 exactly on the measured field, so its potential solves the lattice Poisson equation, a derived consequence of the declared local constraint per the demotion ruling"
+  },
+  "declared": {
+    "audit": "constraint is per-vertex and local; no radial function, potential, or Poisson equation inserted; conditioning formulas are Gaussian mathematics; claim demotion recorded in the track document before this run",
+    "axis_rs": [
+      2,
+      3,
+      4,
+      6,
+      8,
+      11,
+      16,
+      22
+    ],
+    "charge_separation": 64,
+    "evolve": {
+      "dt": 0.05,
+      "steps": 400
+    },
+    "lattice": 128,
+    "matter": "plus-minus unit charges entering only through the constraint value",
+    "vacuum": "identity-covariance Gaussian conditioned on div E = 0 everywhere"
+  },
+  "items": {
+    "charge_scaling_quadratic": true,
+    "falloff_measured": true,
+    "gauss_exact_on_measured_field": true,
+    "graded_monotone_decay": true,
+    "instrument_control": true,
+    "poisson_inherited_from_constraint": true,
+    "static_under_dynamics": true,
+    "superposition_exact": true
+  },
+  "label": "exploratory",
+  "record_sha256": "cbf76103d1496197f88bcba857bf1d266743bb9446573287d237ea1102b900ba",
+  "runtime": {
+    "code_commit": "c2245b1",
+    "generated_utc": "2026-08-05T17:20:19.155853+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg4d-gauge-v1",
+  "verdict": "constraint-locked structure delivers what every previous substrate lacked, a distinguishability field that is EXACTLY static under the deterministic dynamics (drift 2.00e-18 over 400 steps), graded and monotone with measured log-log slope -2.275 against the two-dimensional Coulomb expectation of -2, exactly superposing at the field level (4.16e-16) with exact quadratic charge scaling of D, and satisfying Gauss and curl-free conditions on the measured field to 8.88e-16; 8 of 8 items pass; per the demotion ruling this does NOT support entropy sourcing geometry, the constraint sources the geometry and the relative-entropy field registers it exactly, which locates the missing ingredient of the EG-4 bar precisely, a local conservation law tying matter to boundary flux"
+}
