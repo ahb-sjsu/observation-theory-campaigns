@@ -204,15 +204,16 @@ points, and reports
 \end{equation}
 with a sealed tolerance of $0.15$ and a refusal condition.  If the
 local log-log slope grows across the window instead of stabilizing,
-the graph is flagged non-finite-dimensional and no number is
-reported.
+the graph is flagged non-finite-dimensional and no dimension is
+quoted.
 
 \begin{table}[t]
 \caption{The estimator net on exact controls.  The shell estimator of
 Eq.~\eqref{eq:dhat} is compared with the naive ball-volume slope on
 the same graphs, windows, and base points.  The tree control must be
-refused, and is.  All numbers are from the committed evidence
-record.}
+refused, and is, with the recorded number a non-refusing estimator
+would print shown in parentheses.  All numbers are from the committed
+evidence record.}
 \label{tab:wm0}
 \begin{ruledtabular}
 \begin{tabular}{lcccc}
@@ -221,7 +222,7 @@ Control & Exact $d$ & Shell $\hat d$ & Naive slope & Deficit \\
 path            & $1$ & $1.000$ & $0.896$ & $0.104$ \\
 2D torus        & $2$ & $2.000$ & $1.771$ & $0.229$ \\
 3D torus        & $3$ & $2.958$ & $2.657$ & $0.343$ \\
-regular tree    & none & refused & $5.490$ & none \\
+regular tree    & none & refused ($6.47$) & $5.490$ & none \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -234,10 +235,11 @@ $0.15$, with local slopes climbing from $1.919$ toward $2$ across the
 window as the lattice shells converge on their asymptotic law.  The
 regular tree, the control the estimator must refuse, shows local
 slopes growing from $2.71$ to $10.43$ across the window with no
-stabilization, and the estimator flags the graph
-non-finite-dimensional instead of printing a number.  An estimator
-that returned a finite dimension for the tree would fail the net as
-badly as one that misread a torus, because the point of the net is
+stabilization, so the recorded refusal condition fires and the graph
+is flagged non-finite-dimensional.  The record retains the number a
+non-refusing estimator would print, $6.47$, and quoting it as a
+dimension would fail the net as
+badly as misreading a torus, because the point of the net is
 that the instrument must know what it cannot measure.
 
 The net also produced a finding about the estimator the program's
@@ -489,7 +491,11 @@ orders were declared in advance, the storage order of the relation
 list, that order reversed, two seeded random permutations, and a sort
 by second vertex.  Each order evolves the same initial condition for
 the same $11$ generations, and the same declared quantities are
-measured on each result over $24$ base points to radius $9$.
+measured on each result over $24$ base points to radius $9$, a
+configuration distinct from the WM-4 calibration, which fitted the
+training radii with thirty base points, so the storage order reads
+$2.454$ here where WM-4 read $2.305$, and the prescription caveat is
+measured in this capstone configuration.
 
 \begin{table}[t]
 \caption{The five prescriptions of the capstone audit on the growth
@@ -623,13 +629,14 @@ rules and which are about the bookkeeping.
 \label{sec:claims}
 
 \begin{table*}[t]
-\caption{Claim register for the Wolfram-models track.  Demonstrated in
-model means an exact measurement in a declared construction with
+\caption{Claim register for the Wolfram-models track.  Measured in
+model, exploratory label, means an exact measurement in a declared
+construction with
 append-only evidence records, declared prescriptions and windows, and
-planted traps where the audit class requires them.  The evidence
-records carry the campaign's exploratory grading pending the
-cross-substrate replication clause, and the label below applies to
-each measurement inside its declared scope.}
+planted traps where the audit class requires them, whose evidence
+record carries the exploratory label because no seal governs the run,
+pending the cross-substrate replication clause.  The label below
+applies to each measurement inside its declared scope.}
 \label{tab:claims}
 \begin{ruledtabular}
 \begin{tabular}{L{4.6cm} L{9.2cm} l}
@@ -637,33 +644,33 @@ Result & Claim & Label \\
 \colrule
 Estimator net & the shell dimension estimator is exact on controls of
 known dimension and refuses the diverging tree control &
-demonstrated in model \\
+measured in model, exploratory label \\
 Naive-slope bias & the log-log ball-volume slope reads low by 0.10 to
 0.34 on exact controls at practical radii, a bias any small-graph
-dimension claim inherits & demonstrated in model \\
+dimension claim inherits & measured in model, exploratory label \\
 Reversible second law & the declared coarse entropy of Rule~122 in
 second-order reversible form rises 1.646 to 3.288 bits and retraces
 bitwise exactly with exact microstate recovery, so the growth is
-observational entropy & demonstrated in model \\
+observational entropy & measured in model, exploratory label \\
 String prescription audit & the confluent sorting rule agrees exactly
 under every declared update order with event count equal to the
 inversion number, the planted non-confluent rule is flagged with three
 distinct terminals, and the growth rule splits into invariant
 conserved counts and prescription-borne arrangement &
-demonstrated in model \\
+measured in model, exploratory label \\
 Causal-graph audit & causal-graph invariants from token genealogy are
 identical across prescriptions for the confluent rule, the trap's
 causal graphs differ radically, and extremal foliations achieve the
 depth bound exactly while random foliations spend up to twice the
-slices & demonstrated in model \\
+slices & measured in model, exploratory label \\
 Held-out dimension & the declared hypergraph rule's finite-dimension
 power law beats the preregistered exponential alternative forty-fold
-in held-out error at measured sizes & demonstrated in model \\
+in held-out error at measured sizes & measured in model, exploratory label \\
 Capstone prescription audit & five declared match orders give the
 growth rule different relation counts, vertex counts, and dimension
-estimates spanning an eighteen percent band, so its bulk bookkeeping
+estimates spanning a seventeen percent band, so its bulk bookkeeping
 is prescription-borne and the held-out dimension claim carries a
-measured prescription caveat at these sizes & demonstrated in model \\
+measured prescription caveat at these sizes & measured in model, exploratory label \\
 Scope & nothing in this paper bears on whether the Wolfram program is
 true or false as fundamental physics, and no result may be quoted as
 evidence in either direction & non-claim \\
