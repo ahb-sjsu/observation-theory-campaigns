@@ -1,0 +1,32 @@
+{
+  "chain_bits": {
+    "H_given_full": 0.0,
+    "H_given_pos": 9.55548679618006,
+    "H_given_pos_branch": 8.545259000165643,
+    "H_given_pos_orient": 8.830703218175874
+  },
+  "declared": {
+    "delta": 0.0001,
+    "epsilon": 0.05,
+    "hidden_measure": "uniform on the tau grid",
+    "map": "t = tau^3 - tau",
+    "tau_limit": 1.6
+  },
+  "gaps_bits": {
+    "branch_worth_beyond_orientation": 0.28544421801023034,
+    "finite_resolution_residual": 8.545259000165643,
+    "orientation_worth": 0.7247835780041871
+  },
+  "label": "exploratory",
+  "record_sha256": "64e80cc5d2445336d1500ca78273d75b42185c4d5fd2c415be63bc7d7f7f3c64",
+  "runtime": {
+    "code_commit": "b599714",
+    "generated_utc": "2026-08-05T02:06:50.510386+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pe5-hierarchy-v1",
+  "statement": "the lawful ordering holds with strictly positive gaps at every rung; orientation resolves the middle branch but not the outer pair, the branch label resolves all three, and the residual is the within-branch positional uncertainty set by delta and epsilon, the classical shadow of the QO-1 chain"
+}
