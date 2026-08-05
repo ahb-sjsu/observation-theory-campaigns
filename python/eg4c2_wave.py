@@ -95,7 +95,7 @@ def gauss_kl_bits(cov_mat: np.ndarray, cov_vac: np.ndarray) -> float:
     sign_m, logdet_m = np.linalg.slogdet(cov_mat)
     assert sign_v > 0 and sign_m > 0, "window covariance not PD"
     tr = float(np.trace(np.linalg.solve(cov_vac, cov_mat)))
-    return 0.5 * (tr - k + logdet_v - logdet_m) / math.log(2.0)
+    return float(0.5 * (tr - k + logdet_v - logdet_m) / math.log(2.0))
 
 
 def kappa_field(side: int, defects) -> np.ndarray:
@@ -218,9 +218,10 @@ def main() -> int:
         "monotone_decay": monotone_decay,
         "isotropy_within_2x_spread": iso_dev < 2.0 * max(spread, 1e-12),
         "superposition_decays_with_separation":
-            sup_rel[-1] < sup_rel[0] and sup_rel[-1] < 0.05,
+            bool(sup_rel[-1] < sup_rel[0] and sup_rel[-1] < 0.05),
         "poisson_source_localized": bool(poisson_localized),
     }
+    items = {k: bool(v) for k, v in items.items()}
 
     pieces = []
     pieces.append(
@@ -260,8 +261,8 @@ def main() -> int:
         "static_spread": spread,
         "isotropy_deviation": iso_dev,
         "superposition": superposition,
-        "laplacian_near": lap_near,
-        "laplacian_mid": lap_mid,
+        "laplacian_near": float(lap_near),
+        "laplacian_mid": float(lap_mid),
         "items": items,
         "verdict": verdict,
         "runtime": {
