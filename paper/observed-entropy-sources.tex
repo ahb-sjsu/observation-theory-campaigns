@@ -29,7 +29,7 @@ Mixing, Projection Multiplicity, and Inaccessible Degrees of Freedom}
 \email{andrew.bond@sjsu.edu}
 \thanks{ORCID: 0009-0003-2599-6158}
 \affiliation{San Jos\'e State University, San Jos\'e, California, USA}
-\date{August 4, 2026}
+\date{August 5, 2026}
 
 \begin{abstract}
 A previous paper showed that folds of a singular projection create observed
@@ -101,9 +101,11 @@ this class.  It is a property of which momenta the observer is permitted
 to flip, and the leaked record hides in correlations that no coarse bath
 observable measured here can see.
 
-The scope of these claims is narrow and stated once.  Every result is a
+Every result is a
 computation or a measured simulation in a declared toy model class, graded
-by the campaign's evidence scheme as demonstrated in model.  No claim is
+as measured in model at the exploratory label, the grade for measured
+simulations whose evidence records carry the exploratory label because no
+seal governs them.  No claim is
 made about physical spacetime, about the thermodynamics of any real
 system, or about quantum gravity.
 
@@ -125,7 +127,8 @@ declared resolution $\epsilon$.  The projection of interest sends the
 hidden evolution parameter $\tau$ to an observed time functional, and the
 observer's singularities are the critical points of that functional.
 
-The track now comprises six experiments.  The fold theorem and the exact
+The track now comprises six experiments and one theorem.  The fold
+theorem and the exact
 branch entropies, the caustic resolution scaling, and the reversible fold
 cycle are published \cite{EntropyPaper}.  The three completions reported
 here are the mixing comparison, the consumer hierarchy, and the bath
@@ -196,8 +199,8 @@ experiment.}
 Figure~\ref{fig:pe3} shows the two entropy curves.  The total rise over
 the run is nearly identical, $5.71$ bits for the integrable dynamics and
 $5.83$ bits for the chaotic one, because the early spread of the ensemble
-is ordinary linear dispersion and is common to both.  An honest reading
-must therefore refuse the total rise as a discriminator.  The late-time
+is ordinary linear dispersion and is common to both.  The total rise
+therefore does not discriminate.  The late-time
 slope discriminates.  Fitted over the second half of the run, the
 integrable curve turns over and recurs at $-0.024$ bits per unit $\tau$
 while the chaotic curve keeps growing at $+0.030$ bits per unit $\tau$.
@@ -205,7 +208,7 @@ Sustained growth follows the dynamics, under either observer, because the
 observers share the marginal by construction.
 
 Multiplicity behaves in the complementary way.  The folding observer sees
-a mean unsigned crossing multiplicity between $9.6$ and $10.2$ per
+a mean unsigned crossing multiplicity between $9.6$ and $10.3$ per
 observed level, with a maximum of $12$, under both dynamics.  The
 monotone observer sees exactly one crossing per level everywhere, under
 both dynamics.  Multiplicity follows the observer's singularities and is
@@ -238,7 +241,7 @@ system.  The first sees only the binned observed time.  The second sees
 the binned time and the orientation, the sign of $\dd t/\dd\tau$.  The
 third sees the binned time and the full branch label.  Because the state
 space is a finite grid, every conditional entropy is an exact finite sum
-with no estimator and no sampling error.
+with no estimator and no sampling error \cite{CoverThomas2006}.
 
 \subsection{Result}
 
@@ -305,7 +308,7 @@ two return legs are run.  One flips only the system momenta, which is
 what the observer can do.  The other flips the bath momenta as well,
 which is the control.  The witnesses are the hidden-state recovery defect
 of each return, the retrace defect of the observed entropy curve, and the
-plugin mutual information between the binned observed coordinate and the
+plug-in mutual information between the binned observed coordinate and the
 binned bath energy.
 
 \subsection{Result}
@@ -361,7 +364,8 @@ bath, recovers the hidden state to better than $5 \times 10^{-15}$ at
 every coupling.  The dynamics never became irreversible.  What changed is
 the reach of the observer's reversal protocol.  In this model class,
 entropy production is an accounting of which degrees of freedom the
-observer can flip, and the published claim that observed entropy carries
+observer can flip \cite{Landauer1961, Bennett1982}, and the published
+claim that observed entropy carries
 no hidden loss survives intact in the enlarged space.
 
 The second finding was not the expected one, and the runner's first
@@ -369,7 +373,7 @@ version asserted its opposite.  The natural expectation is that the
 leaked information should be visible in the bath, for instance as mutual
 information between the observed coordinate and the bath energy.
 Measured, it is not.  Across the whole grid that mutual information stays
-between $0.009$ and $0.016$ bits, within a factor of two of its
+between $0.0086$ and $0.0162$ bits, within a factor of two of its
 zero-coupling estimator floor, while the observer's lost retraceability
 grows to almost six bits.  The mean bath energy is no witness either,
 since without a counter-term the coupling shifts the equilibrium and the
@@ -392,7 +396,9 @@ the campaign's evidence scheme.  Proved means a theorem with a written
 proof.  Exact means a closed-form computation verified in independent
 implementations.  Demonstrated in model means a measured simulation with
 declared parameters, append-only evidence records, and falsification bars
-fixed before the run.}
+fixed before the run.  Measured in model, exploratory label, means the
+same with the evidence record carrying the exploratory label because no
+seal governs the run.}
 \label{tab:claims}
 \begin{ruledtabular}
 \begin{tabular}{L{4.6cm} L{9.2cm} l}
@@ -409,13 +415,14 @@ Reversible cycle \cite{EntropyPaper} & observed entropy swings above two
 bits with zero hidden loss and exact retrace & demonstrated in model \\
 Mixing versus multiplicity (this paper) & sustained entropy growth
 follows the dynamics, multiplicity follows the observer, independently &
-demonstrated in model \\
+measured in model, exploratory label \\
 Consumer hierarchy (this paper) & exact conditional chain with positive
-gaps pricing orientation and branch knowledge separately & demonstrated
-in model \\
+gaps pricing orientation and branch knowledge separately & measured in
+model, exploratory label \\
 Bath coupling (this paper) & reversal failure is set by the observer's
 reach, the full flip recovers exactly at every coupling, and the leak is
-invisible to coarse bath observables & demonstrated in model \\
+invisible to coarse bath observables & measured in model, exploratory
+label \\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
@@ -502,11 +509,6 @@ IBM J.\ Res.\ Dev.\ \textbf{5}, 183 (1961).
 C.~H.~Bennett,
 The thermodynamics of computation, a review,
 Int.\ J.\ Theor.\ Phys.\ \textbf{21}, 905 (1982).
-
-\bibitem{Arnold1992}
-V.~I.~Arnold,
-\emph{Catastrophe Theory}, 3rd ed.\
-(Springer-Verlag, Berlin, 1992).
 
 \end{thebibliography}
 
