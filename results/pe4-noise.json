@@ -1,0 +1,103 @@
+{
+  "declared": {
+    "E": 1.0,
+    "T": 1.0,
+    "coupling": "kappa/sqrt(n_modes) * u * e_j, no counter-term",
+    "dt": 0.001,
+    "eps": 0.05,
+    "g": 0.25,
+    "kappas": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "lam": 0.1,
+    "mi_bins": 12,
+    "mode_band": [
+      0.5,
+      2.5
+    ],
+    "n": 8000,
+    "n_modes": 32,
+    "omega_t": 1.0,
+    "omega_u": 1.2,
+    "seed": 20260806,
+    "tau_forward": 20.0
+  },
+  "label": "exploratory",
+  "per_kappa": {
+    "0": {
+      "bath_energy_gain": 1.1952344891597022e-08,
+      "entropy_retrace_defect_bits": 0.0,
+      "forward_entropy_first_last_bits": [
+        -0.0,
+        3.6854925564984886
+      ],
+      "kappa": 0.0,
+      "mutual_information_Z_Ebath_bits": 0.008639811515849164,
+      "recovery_defect_full_flip": 4.83486330753974e-15,
+      "recovery_defect_system_flip": 4.83486330753974e-15
+    },
+    "0.05": {
+      "bath_energy_gain": 0.0013433174910773005,
+      "entropy_retrace_defect_bits": 3.225490171293885,
+      "forward_entropy_first_last_bits": [
+        -0.0,
+        4.064638167341211
+      ],
+      "kappa": 0.05,
+      "mutual_information_Z_Ebath_bits": 0.009466075178153253,
+      "recovery_defect_full_flip": 4.31426236754649e-15,
+      "recovery_defect_system_flip": 0.32933909149339125
+    },
+    "0.1": {
+      "bath_energy_gain": -0.0003548134780615442,
+      "entropy_retrace_defect_bits": 4.194552559940299,
+      "forward_entropy_first_last_bits": [
+        -0.0,
+        4.411238471857624
+      ],
+      "kappa": 0.1,
+      "mutual_information_Z_Ebath_bits": 0.013818344017836246,
+      "recovery_defect_full_flip": 4.357869195627677e-15,
+      "recovery_defect_system_flip": 0.6428992560769108
+    },
+    "0.2": {
+      "bath_energy_gain": -0.011367792093068374,
+      "entropy_retrace_defect_bits": 5.112775911739999,
+      "forward_entropy_first_last_bits": [
+        -0.0,
+        4.935087907915548
+      ],
+      "kappa": 0.2,
+      "mutual_information_Z_Ebath_bits": 0.01616008625891652,
+      "recovery_defect_full_flip": 4.109050890943292e-15,
+      "recovery_defect_system_flip": 1.1822048434883117
+    },
+    "0.4": {
+      "bath_energy_gain": -0.0424477136749708,
+      "entropy_retrace_defect_bits": 5.868148975097556,
+      "forward_entropy_first_last_bits": [
+        -0.0,
+        5.583468361564364
+      ],
+      "kappa": 0.4,
+      "mutual_information_Z_Ebath_bits": 0.014934827653652717,
+      "recovery_defect_full_flip": 3.811045971515648e-15,
+      "recovery_defect_system_flip": 1.8855192445277176
+    }
+  },
+  "record_sha256": "ced77d3485d4ef352fba13b90c3f528473bd14261fb317272351515f1521177a",
+  "runtime": {
+    "code_commit": "8933255",
+    "generated_utc": "2026-08-05T05:34:59.370046+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pe4-noise-v1",
+  "statement": "irreversibility here is bookkeeping about reach, not dynamics: the system-only flip fails monotonically in kappa while the full flip recovers exactly at every kappa, so entropy production is projection ambiguity leaked into an environment the consumer cannot flip; the leak leaves no coarse record, I(Z; E_bath) stays at the estimator floor and mean bath energy can even fall, while the lost retraceability grows to almost 6 bits, so recovery requires microstate access, not a macroscopic bath reading"
+}
