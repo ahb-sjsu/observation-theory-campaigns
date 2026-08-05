@@ -506,6 +506,63 @@ Row ten's bridge survives its first quantitative test, and the
 remaining distance to QFT is the causal structure this chain does not
 have, per section 7 item 2, unchanged.
 
+**THEOREM UPGRADE (proved; verification `python/tb3_theorem.py`,
+evidence `results/tb3-theorem.json`; algebraic core machine-checked
+in `proofs/PauliRotation.lean`).** The thirteen-digit constancy is a
+theorem, not a measured coincidence.
+
+Pauli-rotation exactness theorem. Let rho be a full-rank density
+matrix, P a Hermitian involution (P^2 = I), and
+U(theta) = exp(i theta P). Then for every theta
+
+    S( U rho U* || rho ) = sin^2(theta) * S( P rho P || rho ).
+
+Proof. Since P^2 = I, U = cos(theta) I + i sin(theta) P, so
+
+    U rho U* = cos^2 rho + sin^2 P rho P
+               + i sin cos (P rho - rho P).
+
+Von Neumann entropy is unitarily invariant, so
+S(theta) = tr[(rho - U rho U*) log rho]. The odd harmonic dies
+identically because rho commutes with its own logarithm,
+tr[(P rho - rho P) log rho] = tr[P (rho log rho - log rho rho)] = 0
+by cyclicity. Using 1 - cos^2 = sin^2, what remains is
+S(theta) = sin^2(theta) tr[(rho - P rho P) log rho], and the
+coefficient equals S(P rho P || rho) because P rho P has the same
+entropy as rho. No symmetry of rho is used anywhere. QED.
+
+Corollaries. (a) For any window containing the excitation site the
+reduction commutes with the rotation, so S_W(theta) =
+kappa_W sin^2(theta) exactly, kappa_W = S(P rho_W P || rho_W).
+(b) The Kubo-Mori form equals kappa_W, by matching Taylor
+coefficients at theta = 0, so TB-3's declared flux weight is the
+involution defect itself. (c) The fitted lambda is the pure kinematic
+constant sum(theta^2 sin^2 theta)/sum(theta^4) = 0.9885453204409 of
+the declared grid, and the validation probe ratio is
+sin^2(0.02)/0.02^2 = 0.9998666738. (d) Retroactively, QO-3's measured
+divergences were exactly kappa_c sin^2(theta), so its theta^2-law
+residuals were the universal sin^2-versus-theta^2 mismatch, identical
+for every consumer, which the record indeed shows.
+
+Verification. 120 random checks (dimensions 4 to 16, Haar-basis
+random involutions, angles up to 2.0 including pi/2), worst relative
+error 1.4e-14. On the campaign Ising window, exactness to 2.1e-15 and
+kappa = Q to 1.1e-15. The kinematic lambda matches all eighty
+committed TB-3 values to 1.3e-13 and the probe ratios to 1.1e-11,
+with no refit.
+
+Machine-checked core. `proofs/PauliRotation.lean` (Lean 4, Mathlib)
+verifies the unitarity of the closed-form rotation, the
+three-harmonic expansion of U rho U*, the vanishing of the odd
+harmonic under the commutation hypothesis, and the assembled trace
+identity. The analytic glue the Lean file does not formalize is
+stated in its header and is standard, the existence of log rho for
+full-rank rho, unitary invariance of von Neumann entropy, and
+S(sigma||rho) = tr sigma log sigma - tr sigma log rho. The trace
+identity is hypothesis-minimal, holding for arbitrary square matrices
+with rho L = L rho, which is exactly what functional calculus
+supplies for L = log rho.
+
 ## 7. Relation to the campaign
 
 TB exists to service the QO paper's section VIII gap list, item by item.
