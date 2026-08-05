@@ -1,0 +1,176 @@
+{
+  "convergence_relative": 4.478415921906167,
+  "declared": {
+    "axis_rs": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ],
+    "substrate": "as eg4c2-wave round 2c, strong contrast scatterer kappa 0.05",
+    "times": [
+      256,
+      512
+    ]
+  },
+  "items": {
+    "causality_null": true,
+    "monotone_decay": false,
+    "poisson_source_localized": false,
+    "static_converged": false,
+    "static_graded": true
+  },
+  "label": "exploratory",
+  "laplacian_mid": 2.8728810309960888e-06,
+  "laplacian_near": 2.797006221285156e-06,
+  "monotone_decay": false,
+  "profiles": {
+    "256": [
+      {
+        "phi_bits": 6.221978774172089e-06,
+        "r": 4
+      },
+      {
+        "phi_bits": 2.8768244667051985e-05,
+        "r": 8
+      },
+      {
+        "phi_bits": 7.755231467566718e-06,
+        "r": 12
+      },
+      {
+        "phi_bits": 2.6962085124768703e-06,
+        "r": 16
+      },
+      {
+        "phi_bits": 2.712110130717588e-06,
+        "r": 20
+      },
+      {
+        "phi_bits": 1.5291671846949777e-05,
+        "r": 24
+      },
+      {
+        "phi_bits": 2.3987282262881654e-06,
+        "r": 28
+      },
+      {
+        "phi_bits": 3.4463935699213343e-06,
+        "r": 32
+      },
+      {
+        "phi_bits": 2.492895869892776e-06,
+        "r": 36
+      },
+      {
+        "phi_bits": 1.3158451601206234e-05,
+        "r": 40
+      },
+      {
+        "phi_bits": 2.249480348421867e-06,
+        "r": 44
+      },
+      {
+        "phi_bits": 6.30035616089222e-06,
+        "r": 48
+      },
+      {
+        "phi_bits": 4.188248451180355e-06,
+        "r": 52
+      },
+      {
+        "phi_bits": 1.9463936417178167e-05,
+        "r": 56
+      },
+      {
+        "phi_bits": 3.5898384522083075e-06,
+        "r": 60
+      }
+    ],
+    "512": [
+      {
+        "phi_bits": 5.836014118940056e-06,
+        "r": 4
+      },
+      {
+        "phi_bits": 2.6321461163216415e-06,
+        "r": 8
+      },
+      {
+        "phi_bits": 1.1289702380441176e-07,
+        "r": 12
+      },
+      {
+        "phi_bits": 3.9065415257233783e-07,
+        "r": 16
+      },
+      {
+        "phi_bits": 2.0130444564615817e-06,
+        "r": 20
+      },
+      {
+        "phi_bits": 7.625537293547371e-07,
+        "r": 24
+      },
+      {
+        "phi_bits": 2.9958966181511934e-08,
+        "r": 28
+      },
+      {
+        "phi_bits": 1.4979538574103013e-07,
+        "r": 32
+      },
+      {
+        "phi_bits": 9.310869049308258e-07,
+        "r": 36
+      },
+      {
+        "phi_bits": 4.949042210325672e-07,
+        "r": 40
+      },
+      {
+        "phi_bits": 2.7062705994183016e-08,
+        "r": 44
+      },
+      {
+        "phi_bits": 6.158952003520313e-08,
+        "r": 48
+      },
+      {
+        "phi_bits": 5.119050681692863e-07,
+        "r": 52
+      },
+      {
+        "phi_bits": 4.877954819015043e-07,
+        "r": 56
+      },
+      {
+        "phi_bits": 4.2272413581600455e-08,
+        "r": 60
+      }
+    ]
+  },
+  "record_sha256": "89f0efb6d1991921c39e049fd2a7455e41c71f6ee755f555a85a2b5ea1644a80",
+  "runtime": {
+    "code_commit": "53ef4ad",
+    "generated_utc": "2026-08-05T09:53:49.801291+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg4c3-statics-v1",
+  "spread": 0.9953628100544936,
+  "verdict": "long statics at T 256 and 512: convergence 4.48, spread 0.995, monotone False, laplacian near/mid 2.8e-06/2.87e-06; 2 of 5 items pass, the static regime is still not reached at these times."
+}
