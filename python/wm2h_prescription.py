@@ -118,7 +118,11 @@ def dimension_estimate(relations):
 
 
 def contraction_to_exhaustion(prescription: str, n_path: int):
-    relations = [(i, i + 1) for i in range(n_path)]
+    # a fork, not a path: path contraction is confluent (any order
+    # composes to one edge, verified en route), while a fork forces
+    # a choice of which branch survives composition
+    relations = [(i, i + 1) for i in range(n_path)] \
+        + [(n_path // 2, n_path + 10 + k) for k in range(3)]
     while True:
         order = order_indices(prescription, relations)
         match = None
@@ -205,7 +209,9 @@ def main() -> int:
                      "prescriptions": list(PRESCRIPTIONS),
                      "sources": N_SOURCES, "r_max": R_MAX,
                      "trap": "contraction x-y,y-z -> x-z on a "
-                             "12-relation path, to exhaustion"},
+                             "12-relation path with a 3-branch fork "
+                             "at its midpoint, to exhaustion (a bare "
+                             "path is confluent, verified en route)"},
         "runs": runs,
         "dimension_spread": float(dim_spread),
         "trap_distinct_terminals": distinct_terminals,
