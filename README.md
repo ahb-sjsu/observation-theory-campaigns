@@ -258,8 +258,19 @@ kernel-checked at its algebraic core in Lean 4 with Mathlib
 (`proofs/PauliRotation.lean`), which retroactively identifies the
 quantum track's theta-squared-law residuals as pure kinematics.
 
-Still open. The IR-versus-UV scaling question and the remaining open
-questions of the track document.
+TB-1b then ran the declared collar-width sweep at fixed physics. At
+every collar including zero the divergence converges in N to ten
+digits, the value at the entangling surface is finite with a shallow
+boundary layer growing inward, and the consumer-relative layer is
+well-behaved exactly where the continuum absolute layer diverges,
+locating the ultraviolet pathology in the absolute layer. A first
+outside-collar design returned machine zeros and was recorded as the
+no-signalling null reconfirmed, an excitation outside the consumer
+is invisible at any distance.
+
+Still open. The remaining open questions of the track document; the
+true ultraviolet limit is a continuum question the lattice cannot
+decide.
 
 Key files. `experiments/TYPE-III-BRIDGE.md`, `python/tb0_modular.py`,
 `python/tb1_ladder.py`, `python/tb2_flip_ladder.py`,

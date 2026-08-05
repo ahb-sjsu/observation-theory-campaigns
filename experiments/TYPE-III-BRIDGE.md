@@ -563,6 +563,30 @@ identity is hypothesis-minimal, holding for arbitrary square matrices
 with rho L = L rho, which is exactly what functional calculus
 supplies for L = log rho.
 
+### TB-1b: The collar-width sweep — IMPLEMENTED, PASSING (exploratory)
+
+Runner `python/tb1b_collar.py`, evidence `results/tb1b-collar.json`.
+The standing open question's declared instrument, the collar sweep
+at fixed physics. The consumer is a fixed four-site block, and the
+excitation approaches the cut FROM INSIDE at collar distance w,
+since an excitation strictly outside the consumer is exactly
+invisible by no-signalling at any distance (the sealed instrument's
+own null, reconfirmed en route when a first outside-collar design
+returned machine zeros).
+
+Measured. At every collar width including zero the divergence
+converges in N to ten digits by N = 10 (N = 10 and N = 12 agree to
+1e-10), extending the infrared bridge to the entangling surface.
+The profile from the cut inward is 3.753e-2, 3.931e-2, 3.933e-2,
+4.061e-2 nats, finite AT the cut-adjacent site and growing mildly
+inward (step ratios 1.05, 1.00, 1.03), a shallow boundary layer of
+visibility. On the lattice the consumer-relative layer is finite,
+convergent, and well-behaved exactly where the continuum absolute
+layer diverges, which locates the ultraviolet pathology in the
+absolute layer, consistent with the track's thesis. The true
+ultraviolet limit remains a continuum question the lattice cannot
+decide, stated as such.
+
 ## 7. Relation to the campaign
 
 TB exists to service the QO paper's section VIII gap list, item by item.
