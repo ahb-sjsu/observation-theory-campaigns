@@ -249,3 +249,38 @@ write(
     zip(r_grid, arm_a_primary, arm_b_primary, arm_b_mi,
         arm_c_access, arm_c_hidden, strict=True),
 )
+# Figure R1: EG-4b round-one transient profile, the graded field of the
+# structured vacuum (radiative-geometry paper, Fig. 1).
+eg4b = json.loads((ROOT / "results" / "eg4b-discovery.json").read_text())
+write(
+    "eg4b_profile.dat",
+    "r phi",
+    [(p["r"], p["phi_bits"]) for p in eg4b["profile"]],
+)
+
+# Figure R2a: EG-4c round-two superposition deviation versus source
+# separation on the wave substrate, distance as the weak-field knob
+# (radiative-geometry paper, Fig. 2 panel a).
+eg4c2 = json.loads((ROOT / "results" / "eg4c2-wave.json").read_text())
+write(
+    "eg4c_superposition.dat",
+    "separation reldev",
+    [(s["separation"], s["relative_deviation"])
+     for s in eg4c2["superposition"]],
+)
+
+# Figure R2b: EG-4c round-three long statics, the axis profile at
+# doubling times 256 and 512 decaying toward zero (radiative-geometry
+# paper, Fig. 2 panel b).
+eg4c3 = json.loads((ROOT / "results" / "eg4c3-statics.json").read_text())
+p256 = eg4c3["profiles"]["256"]
+p512 = eg4c3["profiles"]["512"]
+rs = [row["r"] for row in p256]
+assert rs == eg4c3["declared"]["axis_rs"], "statics off the declared r grid"
+assert rs == [row["r"] for row in p512], "statics r grids differ across times"
+write(
+    "eg4c_statics.dat",
+    "r phi256 phi512",
+    [(a["r"], a["phi_bits"], b["phi_bits"])
+     for a, b in zip(p256, p512, strict=True)],
+)

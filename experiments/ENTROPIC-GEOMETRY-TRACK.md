@@ -614,7 +614,7 @@ separation, Poisson localization. Verdicts from the numbers.
 
 **ROUND 2 RESULTS after three instrument iterations (runner
 `python/eg4c2_wave.py`, evidence `results/eg4c2-wave.json`).** The
-covariance instrument validates against dense evolution to 8.9e-16
+covariance instrument validates against dense evolution to 1.1e-15
 and causality is exact at unit wave speed. The first two iterations
 found the impedance signal at or below the float noise floor of the
 covariance calculus (fields of 1e-5 bits with hundredfold isotropy

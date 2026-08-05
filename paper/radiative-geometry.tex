@@ -1,0 +1,750 @@
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
+
+\begin{document}
+
+\title{Radiative Geometry: Matter, the First Law, and the Failure of
+Statics on Substrates That Pass the Area Gate}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 5, 2026}
+
+\begin{abstract}
+The companion paper of this campaign measured the area gate, the
+requirement that the states counted for a region scale with the
+region's boundary, and found one mechanism class that passes it,
+deterministic local dynamics read over spacetime regions.  This paper
+asks what geometry such a substrate can carry, and answers with exact
+measurements.  Matter on the maximal-entropy linear substrate is
+exactly invisible to every local window, and the one source class
+that produces a finite distinguishability field destroys exactly one
+bit per time step, with a field placed by the algebra of the dynamics
+rather than by distance.  A local first law holds exactly on held-out
+source patterns, with flux, temperature, and entropy defined
+independently, once the flux counts the events crossing into the
+spacetime region.  The Newtonian limit is rejected.  The discrete
+analogue of the Poisson equation fails, no monotone flank supports a
+flux reading, and the information deficits of separated sources
+cancel instead of adding, so the black-hole benchmark that would
+follow is forbidden by its own design bar.  Two discovery campaigns
+then attacked the failed bar and closed with it intact.  A structured
+vacuum removes the invisibility and yields a genuinely graded field,
+but the field's curvature lives on the causal front, and escape to
+infinity yields an exact static limit that is flat.  Moving to two
+dimensions leaves finite-field substrates flat at every distance,
+while a real-amplitude wave substrate makes superposition deviations
+decay cleanly with source separation and then sends its own static
+field toward zero as the transient radiates away.  On both substrate
+classes that pass the area gate, every spatial gradient of
+distinguishability is radiative.  The area law requires zero entropy
+production, zero entropy production makes relaxation purely
+radiative, and purely radiative relaxation leaves no static field for
+a Poisson structure to live in.  Nothing in this paper bears on
+physical gravity.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Entropic accounts of gravity assume that the entropy associated with
+a region of space is proportional to the area of the region's
+boundary, and derive gravitational dynamics from that input together
+with a local thermodynamic relation \cite{Jacobson1995, Bianconi2025,
+DorauMuch2026}.  The companion paper of this campaign treated the
+assumed proportionality as a gate and measured it in models where
+every bit is countable \cite{AreaGatePaper}.  The verdict of that
+paper was a classification.  Every declared mechanism with a positive
+bulk density of entropy fails the gate before it is built, and the
+one mechanism class that provably passes is deterministic local
+dynamics, with the counted region read as a patch of spacetime
+history rather than a snapshot of space.  Determinism concentrates
+all randomness on the initial data, so the states of a spacetime
+patch are bounded by causal-cone data whose size scales with the
+patch perimeter, for every rule in the class and with nothing tuned.
+
+That result opened a question rather than closing one.  A mechanism
+that passes the counting requirement is only the first half of an
+entropic account of geometry.  The second half needs matter to deform
+the substrate, needs a local thermodynamic law to hold with its
+quantities independently defined, and needs the resulting field to
+obey the structural consequences of the Newtonian limit, none of them
+inserted.  This paper reports the campaign's measurements of that
+second half on the substrate class the gate selected, and the outcome
+is exact on both sides.
+
+The positive side is a lawful thermodynamics.  A local first law
+holds exactly on every held-out source pattern, with the flux, the
+temperature, and the entropy change measured by three constructions
+that make no reference to one another.  The relation holds precisely
+when the flux counts the events crossing into the spacetime region,
+which is the ordering the thermodynamic-gravity literature assumes
+rather than derives.
+
+The negative side is the geometry.  Matter on the maximal-entropy
+substrate has no local field at all, and the one source class that
+leaves any trace produces a field arranged by the algebra of the
+dynamics rather than by distance from the source.  The deficits of
+separated sources cancel instead of adding.  Every structural test of
+the Newtonian limit fails, and the failure survives two discovery
+campaigns that were mounted specifically to defeat it.  The campaigns
+removed two obstructions, an ensemble artifact and a topology
+artifact, and then located the remaining obstruction precisely.  On
+every substrate measured, the gradients of distinguishability travel.
+They live on causal fronts and in transients, and whatever static
+limit exists is either flat or zero.  The organizing claim of this
+paper is a three-step chain stated and measured exactly in the
+sections below.  The area law requires zero entropy production, zero
+entropy production makes relaxation purely radiative, and purely
+radiative relaxation leaves no static field for a Poisson structure
+to live in.
+
+The scope of every claim is the declared model class.  The
+measurements are exact computations in toy constructions whose every
+ensemble, source, and instrument was declared before the runs.  No
+claim is made about physical spacetime, about real gravitation, or
+about the correctness of any entropic-gravity proposal.
+
+\section{The substrate and the instruments}
+\label{sec:substrate}
+
+The companion paper's results are used here in summary form and are
+not re-reported \cite{AreaGatePaper}.  Its instrument layer validated
+conditional-entropy and relative-entropy measurements against exact
+closed forms.  Its gate run classified constraint, gauge, and
+access-restriction mechanisms as volume-law failures in the primary
+count, measured an exact split between the independence count and the
+correlation count of one Gauss-law ensemble, and proved two
+structural statements, an entropy-density lemma forcing any passing
+ensemble to zero bulk entropy density and a causal-cone theorem
+giving every deterministic nearest-neighbor rule perimeter-scaling
+patch counts.  The mechanism run bound those theorems to measured
+rule-90 patch counts with a bulk-noise audit.  Everything below
+builds on that substrate class.
+
+The vacuum of the first three experiments is the maximal linear
+substrate.  A ring of $257$ binary cells evolves for $60$ steps under
+the elementary rule 90, in which each cell updates to the sum modulo
+two of its two neighbors, from independent uniform initial data.
+Because the rule is linear over the two-element field, the
+distribution of any window of the spacetime history is uniform on the
+image of a linear map, so every comparison between a matter ensemble
+and the vacuum ensemble is exact subspace arithmetic.  A window
+comparison lands in one of three classes.  The two supports may be
+equal, so the relative entropy is zero.  The matter support may be
+nested strictly inside the vacuum support, so the relative entropy is
+a finite whole number of bits, the dimension deficit.  The matter
+support may escape the vacuum support, so the relative entropy is
+infinite.  All three classes are decided by rank computations with no
+estimator and no sampling anywhere.
+
+Matter is a rule substitution.  Cells of a declared source region
+update by rule 150, which adds the cell's own value to the sum of its
+neighbors, inside the rule-90 vacuum.  Sources of widths $1$, $3$,
+$5$, and $7$ cells were declared.  A rule substitution carries no
+potential, no distance function, and no coupling constant, and the
+anti-circularity contract of the track design binds every run.
+
+\section{EG-2: matter is exactly invisible locally}
+\label{sec:eg2}
+
+The first question is whether matter deforms the fiber measure at
+all, and the measured answer on this substrate is that locally it
+does not.  All numbers in this section are from the committed
+evidence record of the matter run.
+
+Every window outside the defect's causal cone carries the identical
+subspace, so the causality null holds exactly for every source.
+Inside the cone the invisibility is total.  Every single cell, every
+two-by-two patch, and every row segment of lengths $16$, $32$, and
+$64$ at every one of $25$ scanned positions classifies equal to
+vacuum for every source width, $75$ window comparisons per source
+with not one exception.  Matter has no local field on this substrate.
+The reason is the ensemble.  Uniform initial data makes every local
+marginal already maximal, so there is nothing local left to
+distinguish.
+
+Visibility arrives only globally, and how it arrives depends on the
+source width in a way the algebra dictates.  Sources of widths $1$,
+$5$, and $7$ remain exactly equal to vacuum on every proper segment
+up to length $256$ and escape support only at the closed ring of all
+$257$ cells.  The vacuum ring carries $256$ bits because rule 90
+forces one global parity constraint on each row, and the defect frees
+that constraint, giving the matter ring $257$ bits.  The entire
+effect of these sources is one global all-or-nothing bit.
+
+The width-$3$ source is the unique exception, and it is a sink.  It
+destroys rank instead of freeing it, at the exact rate of one bit per
+time step, so the global deficit after $60$ steps is exactly $60$
+bits, the duration itself.  This is the only source class with a
+finite distinguishability field anywhere.  The field appears at
+window length $160$ and grows with window length, with deficits of
+$11$, $27$, $43$, $51$, $56$, $59$, and $60$ bits at lengths $160$
+through $256$, about half a bit of deficit per added cell on the
+growing windows.  Its spatial arrangement is a period-$64$
+self-similar pattern.  In the fixed-length position scan the finite
+values repeat every $64$ cells with the profile $3$, $7$, $11$, $9$,
+$5$, $1$ in the first period and $2$, $6$, $10$, $9$, $5$, $1$ in the
+later ones.  The pattern is set by the automaton's algebraic
+self-similarity and not by distance from the source, which is the
+first sign of the geometric failure measured in
+Sec.~\ref{sec:eg4}.
+
+The reverse-engineering audit for this experiment is structural
+rather than numerical.  For any potential one can define an entropy
+whose gradient reproduces the corresponding force, so a source class
+must be certified not to be a potential in disguise.  A positive
+reweighting of a measure cannot move its support, while a rule
+substitution provably does move the support of a uniform-on-subspace
+measure, as the escapes above witness.  The declared source class is
+therefore not potential-equivalent by construction, and the audit
+required by the track design passes without a fit.
+
+\section{EG-3: the local first law holds exactly}
+\label{sec:eg3}
+
+The first law experiment asks whether $\Delta S = T\,\Delta Q$ holds
+with the three quantities defined independently, which is the
+relation the entropic-gravity lineage consumes as an input
+\cite{Jacobson1995, DorauMuch2026}.  On this substrate it is an
+output.  All numbers in this section are from the committed evidence
+record of the first-law run.
+
+The three definitions never reference one another.  The flux
+$\Delta Q$ counts declared noise injections inside the spacetime
+patch, pure event bookkeeping with no entropy anywhere in its
+definition.  The temperature $T$ is the patch-entropy response to a
+single training injection, measured once before the held-out sweep
+and frozen at exactly one bit per event.  The entropy change
+$\Delta S$ is an exact rank difference between the injected and
+vacuum patch ensembles.  The vacuum patch itself carries $120$ bits,
+exactly the perimeter form the causal-cone bound prescribes for its
+size.
+
+\begin{table}[t]
+\caption{The held-out patterns of the first-law run.  Events inside
+count injections within the spacetime patch, naive events count all
+injections including those in the patch's causal past, and the
+entropy change is an exact rank difference in bits.  The relation
+$\Delta S = T\,\Delta Q$ with $T$ frozen at one bit per event holds
+with zero residual on every row under inside accounting, and the two
+rows where the accountings differ are the ones that identify which
+flux the law selects.}
+\label{tab:firstlaw}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+Pattern & $\Delta Q$ inside & $\Delta Q$ naive & $\Delta S$ (bits) \\
+\colrule
+dilute, 2 events            & $2$  & $2$  & $2$  \\
+dilute, 4 events            & $4$  & $4$  & $4$  \\
+moderate, 8 events          & $8$  & $8$  & $8$  \\
+all in causal past, 4       & $0$  & $4$  & $0$  \\
+mixed, 2 inside 2 past      & $2$  & $4$  & $2$  \\
+stacked column, 12 events   & $12$ & $12$ & $12$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Table~\ref{tab:firstlaw} shows the six held-out patterns.  Dilute,
+moderate, and stacked interior patterns satisfy the relation exactly,
+with the residual zero to rounding.  The structural finding is in the
+two rows where the accountings disagree.  An injection before the
+patch's time span is absorbed exactly, because the maximal ensemble
+is already uniform on every reachable set, so a detector reading a
+later time slice is provably blind to it.  The all-past pattern
+accordingly gives zero entropy change against a positive naive flux,
+and the mixed pattern holds under inside-only accounting while the
+all-events accounting overpredicts.  The Clausius relation is an
+output on this substrate precisely when the flux is the one crossing
+into the spacetime region.  That ordering, a first law referred to
+the flux through a causal boundary, is what Jacobson's construction
+assumes when it places the relation on local horizons
+\cite{Jacobson1995}, and here it emerges from the accounting rather
+than being imposed.  The caveat is adjacent and structural.  The
+absorption argument leans on the maximality of the vacuum ensemble,
+so this exactness is a property of the measured substrate, not a
+theorem about all ensembles.
+
+\section{EG-4: the Newtonian limit is rejected}
+\label{sec:eg4}
+
+The geometric experiment takes the only field-bearing source class,
+the width-$3$ sink, and tests the structural consequences of the
+Newtonian limit on held-out configurations.  All numbers in this
+section are from the committed evidence record of the geometry run.
+An honest process note belongs with them.  A draft verdict written
+before the run anticipated a different failure pattern, contradicted
+the measured items, and was discarded in favor of verdicts computed
+from the numbers.  The evidence record carries only the computed
+verdicts.
+
+The Poisson item fails.  The discrete Laplacian of the measured field
+is as large far from the source as at it, reaching magnitude $6$ at
+positions far outside the source against magnitude $3$ at the source
+cells, so nothing resembling a source-localized second difference
+exists.  The Gauss item fails.  The field profile is the period-$64$
+algebraic pattern of Sec.~\ref{sec:eg2}, and no monotone flank exists
+anywhere on it to carry a flux reading.
+
+The superposition item fails, and the manner of failure is the
+section's sharpest measurement.  Two separated width-$3$ sinks
+produce a global deficit of exactly zero, at both tested separations,
+against the additive expectation of $120$ bits.  Three sinks produce
+a deficit of exactly one bit.  The deficits are dimensions of
+subspace intersections, and they compose by the algebra of the
+two-element field, not by addition.  This is not weak nonlinearity to
+be tamed in a weak-field limit.  It is destructive interference of
+information loss, and the linearity item fails with it.  The interior
+item is unevaluable, because windows between the sources and windows
+far outside both classify equal, so the field has no
+interior-versus-exterior structure at the tested scale.
+
+One law does survive, and its exactness matters for what follows.
+Each isolated sink loses exactly one bit per step at either tested
+position, $60$ bits in $60$ steps.  The substrate supports an exact
+local law of information loss.  What it refuses to support is any
+spatial organization of that loss into a potential.
+
+\section{EG-5: the gate closes by its own bar}
+\label{sec:eg5}
+
+The black-hole benchmark of the track design may not run unless the
+matter, first-law, and geometry experiments all pass, because a
+horizon analogy computed on top of a failed geometry would be
+theater.  The geometry experiment rejected the Newtonian limit, so
+the benchmark is forbidden by construction and the planned arc
+closes.  Its closing shape is the tension this paper is about.  The
+counting half of the entropic program wants zero entropy production,
+which is what buys the area law and the exact first law.  The
+geometry half wants a graded local field, and the measurements above
+show the same determinism that delivers the first half destroying
+the second.  The two discovery campaigns reported next were declared,
+run, and closed in the attempt to break that tension without
+insertion.
+
+\section{The first discovery campaign: a structured vacuum}
+\label{sec:eg4b}
+
+The campaign declaration, recorded in the track document before any
+run, diagnosed the invisibility of Sec.~\ref{sec:eg2} as an artifact
+of the maximal vacuum rather than of determinism.  Uniform initial
+data leaves every local marginal full, so nothing local can be
+distinguished, while the causal-cone bound and the first law are
+ensemble-independent.  The declared move keeps the deterministic
+dynamics and gives the vacuum structure, product Bernoulli initial
+data with bias $0.2$.  Window distributions are then exactly
+computable by Walsh analysis, in which the expectation of each parity
+functional of the window is determined by the size of its support,
+so every field value is an exact Kullback-Leibler divergence with no
+sampling.  The instrument was validated against brute-force
+enumeration to $8.3\times10^{-17}$ before any field was read, and the
+causality null is exact with the ring wrap accounted for.  All
+numbers in this section are from the committed evidence record of
+the discovery campaign.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.62\columnwidth,
+  xlabel={window position $r$ (cells)},
+  ylabel={$\Phi(r)$ (bits)},
+  legend pos=south east]
+\addplot[blue!70!black, mark=*, mark size=1.1pt]
+  table[x=r, y=phi] {figdata/eg4b_profile.dat};
+\addlegendentry{transient profile, structured vacuum}
+\end{axis}
+\end{tikzpicture}
+\caption{The round-one field of the first discovery campaign, the
+relative entropy of the eight-cell window at position $r$ against
+the structured vacuum, read from the committed discovery record.
+The plateau sits at $0.812$ bits inside the causal cone with smooth
+symmetric monotone flanks, against exactly zero everywhere on the
+maximal vacuum of the matter run.  The small excess near the source
+is the single point-like feature the escaped static limit later
+retains.  Every coordinate is read from the committed evidence
+record by the committed figure script.}
+\label{fig:eg4b}
+\end{figure}
+
+Round one removed the invisibility obstruction.  A single
+rule-substitution source in the structured vacuum produces a
+genuinely graded real-valued field, shown in Fig.~\ref{fig:eg4b}, a
+plateau of $0.812$ bits inside the cone with smooth symmetric
+monotone flanks rising over about eight cells, where the maximal
+vacuum gave exactly zero everywhere.  Two declared items pass
+immediately, gradedness and monotone flanks for a Gauss reading.
+Two fail informatively.  The discrete Laplacian does not concentrate
+at the source, reaching $0.098$ on the causal front against $0.049$
+at the source, so the field's curvature lives on the front.  And the
+superposition deviation, between $3.6$ and $6.3$ percent across the
+declared source strengths, does not shrink as the source weakens,
+because a rule substitution is a quantized order-one perturbation.
+The two-element field offers no continuous weak-field knob.
+
+Round two showed the ring has no static limit.  With the source left
+on until the causal front wraps the ring and self-collides, the
+profile flattens to a near-uniform $0.226$ bits with spread $3.6$
+percent and keeps drifting between late times by $23$ percent.  The
+round-one gradient was entirely front-borne, and once the front has
+nowhere to go the gradient dies with it.
+
+Round three escaped to infinity and found exact statics, but flat.
+On a lattice too large for any wrap at the tested times, the
+near-source profile converges exactly under time doubling, with
+successive relative changes of $1.0\times10^{-3}$ and then $0.0$.
+This is a true static limit, reached by radiating the switch-on
+transient away to infinity, which is how a reversible system relaxes
+without producing entropy and therefore without harming the area
+law.  The converged field, however, is flat.  It sits at $0.812$
+bits at every scanned offset with a single point-like bump at the
+source and spread $5.3$ percent, carrying no spatial gradient at
+all.
+
+The campaign verdict, computed from these measurements, is that the
+geometric bar is not passed and the obstruction chain is fully
+mapped.  Local invisibility was an ensemble artifact, removed by
+vacuum structure.  The missing static limit was a topology artifact,
+removed by escape to infinity.  What remains is structural and
+twofold.  The static distinguishability field of this substrate
+class carries no spatial gradient, because all gradient is
+radiative and lives on causal fronts, and dynamics over the
+two-element field admits no continuous weak-field parameter.
+
+\section{The second campaign: dimension, then amplitude}
+\label{sec:eg4c}
+
+The second campaign attacked the two remaining obstructions with a
+declared falsifiable hypothesis per round, each recorded in the
+track document before its run.
+
+Round one tested dimensional dilution.  The hypothesis held that the
+flat statics of the first campaign are a one-dimensional artifact,
+since one-dimensional radiation cannot dilute, while two-dimensional
+radiation thins geometrically with distance and might leave a graded
+static response.  The substrate is the two-dimensional rule in which
+each cell becomes the sum modulo two of its four nearest neighbors,
+with the defect rule adding the cell's own value at source sites,
+structured Bernoulli initial data, and the same exact Walsh
+instrument with functionals computed by backward evolution.  The
+hypothesis is refuted.  The two-dimensional axis profile is flat
+again, $0.0611$ bits at every distance with spread $7\times10^{-6}$,
+the diagonal shows only parity oscillation, and superposition
+deviations sit at one half of scale at every separation.  The
+refutation sharpens the diagnosis.  The obstruction is not dimension
+but the finite field itself.  Influence under linear rules over the
+two-element field is parity path-counting, which is zero or one and
+never small, so no finite-field linear substrate can dilute with
+distance in any dimension.  Geometric dilution requires amplitudes
+that decay.
+
+Round two moved to real amplitudes, with the physics motivation
+declared openly in advance.  The substrate is the two-dimensional
+discrete wave equation in leapfrog form, reversible, deterministic,
+local, and linear over the reals, with a declared site stiffness of
+$0.2$.  The vacuum is independent standard Gaussian initial data,
+and matter is an impedance defect, a site of different stiffness,
+still a rule substitution with no potential anywhere.  Since the
+static limit of the wave equation is the Poisson equation, this is
+the substrate where the Poisson item has its best chance, and saying
+so before the run is what keeps the test honest.  Window marginals
+are exact Gaussians whose covariances are computed by adjoint
+evolution, and the covariance instrument was validated against dense
+covariance evolution to $1.1\times10^{-15}$, with causality exact at
+unit wave speed.  The first two instrument iterations found the
+impedance signal at or below the float noise floor of the covariance
+calculus, fields near $10^{-5}$ bits with hundredfold isotropy
+violations diagnosed as ill-conditioning of highly correlated
+neighboring cells, an instrument lesson recorded in the evidence
+record.  The third iteration reads a strong-contrast scatterer,
+stiffness $0.05$ in the $0.2$ vacuum, through decorrelated
+stride-two windows, and the field becomes well-measured, up to
+$5\times10^{-3}$ bits with isotropy within the profile spread.  The
+campaign's second breakthrough is in Fig.~\ref{fig:eg4c}(a).
+Superposition deviations decay cleanly with source separation,
+$1.13$ to $0.46$ to $0.056$ at separations $12$, $24$, and $40$.
+Distance works as the continuous weak-field knob, which no
+finite-field substrate could provide.  What round two could not
+reach at times $48$ and $96$ is the static regime itself, since
+two-dimensional waves relax with slow algebraic tails and the
+profiles remained transient-dominated.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 2, vertical sep=1.5cm},
+  paperaxis, height=0.5\columnwidth]
+\nextgroupplot[ymode=log,
+  xlabel={source separation (cells)},
+  ylabel={relative deviation},
+  title={(a) superposition on the wave substrate},
+  title style={font=\footnotesize}]
+\addplot[blue!70!black, mark=*, mark size=1.6pt]
+  table[x=separation, y=reldev] {figdata/eg4c_superposition.dat};
+\nextgroupplot[ymode=log,
+  xlabel={distance $r$ (cells)},
+  ylabel={$\Phi(r)$ (bits)},
+  title={(b) the decaying statics},
+  title style={font=\footnotesize},
+  legend pos=north east]
+\addplot[blue!70!black, mark=*, mark size=1.3pt]
+  table[x=r, y=phi256] {figdata/eg4c_statics.dat};
+\addlegendentry{time $256$}
+\addplot[red!70!black, densely dashed, mark=square*, mark size=1.2pt]
+  table[x=r, y=phi512] {figdata/eg4c_statics.dat};
+\addlegendentry{time $512$}
+\end{groupplot}
+\end{tikzpicture}
+\caption{The second discovery campaign on the real-amplitude wave
+substrate.  Panel (a) shows the superposition deviation of two
+impedance scatterers falling cleanly with their separation, the
+continuous weak-field behavior no finite-field substrate could
+provide.  Panel (b) shows the near-source field at doubling times on
+wrap-free lattices.  The field decays with time at every distance,
+so the static limit is consistent with zero.  Every coordinate is
+read from the committed evidence records by the committed figure
+script.}
+\label{fig:eg4c}
+\end{figure}
+
+Round three ran the long statics batch, reading the axis profile at
+doubling times $256$ and $512$ on lattices too large for any wrap,
+shown in Fig.~\ref{fig:eg4c}(b).  The static regime is not reached,
+and the direction of failure is itself the answer.  The near-source
+field decays with time, from about $3\times10^{-5}$ bits at time
+$256$ down to between $10^{-7}$ and $6\times10^{-6}$ at time $512$.
+As the switch-on transient escapes to infinity, nothing persistent
+remains near the source.  The static limit of the wave substrate's
+distinguishability field is consistent with zero.
+
+The campaign closing verdict, computed from the three rounds, is
+that the geometric bar stands and the obstruction is now measured on
+both substrate classes that pass the area gate.  On the finite-field
+substrate the static field converges exactly but is flat.  On the
+real-amplitude wave substrate the static field decays toward zero as
+the transient clears.  The campaign's positive yields also stand,
+the structured-vacuum mechanism for local visibility, the
+escape-to-infinity route to reversible relaxation, and distance as a
+continuous weak-field knob on real-amplitude substrates.
+
+\section{Every gradient is radiative}
+\label{sec:synthesis}
+
+The measurements assemble into one statement.  On both substrate
+classes that pass the area gate, every spatial gradient of
+distinguishability is radiative, carried by transients and causal
+fronts, and nothing graded survives the static limit.  The
+finite-field substrate converges to a flat static field.  The wave
+substrate's static field vanishes.  The chain behind this is three
+exact steps.  The area law requires zero entropy production, which
+is the entropy-density lemma of the companion paper read as a
+constraint on dynamics.  Zero entropy production makes relaxation
+purely radiative, because a reversible system can shed a transient
+only by transporting it away, never by absorbing it.  And purely
+radiative relaxation leaves no static field for the Poisson
+structure to live in, as both campaigns measured.
+
+The contrast with ordinary statics locates the tension in familiar
+territory.  A dissipative system relaxes to a graded static profile
+by pushing entropy into a bath, in the manner the quantum Brownian
+motion literature makes precise \cite{CaldeiraLeggett1983}, and it
+is exactly that entropy production which the area law forbids.  The
+transients that carry the gradients here play the role the
+decoherence literature assigns to the environment as a record
+carrier \cite{Zurek2003}.  The information about the source is not
+destroyed but exported to infinity, and once exported it grades
+nothing locally.  Within this model class the two halves of the
+entropic-gravity program pull in opposite directions.  The counting
+half wants zero entropy production, and the geometry half wants a
+graded static field that zero entropy production forbids.
+
+The open problem the campaign leaves behind is declared without
+inserting its answer.  A substrate defeating the chain would need a
+persistent local structure that survives its own relaxation, some
+conserved or topologically protected feature that remains graded
+after the transients have escaped.  Naming a mechanism with that
+property, without writing the target field into it, is the track's
+standing challenge.
+
+\section{What this paper establishes}
+\label{sec:claims}
+
+\begin{table*}[t]
+\caption{Claim register for the post-gate stage of the
+entropic-geometry track.  Demonstrated in model means an exact
+measurement in a declared construction with append-only evidence
+records and verdicts computed from the measurements.  Closed by
+design means a consequence of a preregistered bar, not a measurement.
+Every number traces to a committed evidence record named in
+Sec.~\ref{sec:methods}.}
+\label{tab:claims}
+\begin{ruledtabular}
+\begin{tabular}{L{4.6cm} L{9.2cm} l}
+Result & Claim & Label \\
+\colrule
+EG-2, invisibility & matter on the maximal vacuum is exactly equal to
+vacuum in every local window for every source width, and widths one,
+five, and seven alter only one global parity bit at the closed ring &
+demonstrated in model \\
+EG-2, sink law & the width-three source is the unique rank-losing
+sink, exactly one bit per step, and its finite field is a period-64
+algebraic pattern set by the dynamics, not by distance &
+demonstrated in model \\
+EG-3, first law & $\Delta S = T\,\Delta Q$ holds exactly on all
+held-out patterns with flux, temperature, and entropy independently
+defined, and holds precisely under inside-the-region flux accounting
+& demonstrated in model \\
+EG-4, Newtonian limit & Poisson, Gauss, superposition, and linearity
+all fail, with deficits of separated sinks composing by two-element
+field algebra, zero for two sinks against an additive expectation of
+120 & demonstrated in model \\
+EG-5, benchmark & the black-hole benchmark may not run on a failed
+geometry, so the planned arc closes with the area mechanism and the
+first law as positives and the geometry as the negative & closed by
+design \\
+EG-4b, visibility & a structured Bernoulli vacuum restores a graded
+field with a 0.812-bit plateau and monotone flanks, so the
+invisibility was an ensemble artifact & demonstrated in model \\
+EG-4b, no statics & the field's Laplacian lives on the causal front,
+the ring has no static limit, escape to infinity converges exactly
+but flat, and the two-element field has no continuous weak-field
+knob & demonstrated in model \\
+EG-4c, round one & dimensional dilution is refuted, the
+two-dimensional finite-field profile is flat at every distance, so
+the obstruction is the finite field, not dimension & demonstrated in
+model \\
+EG-4c, round two & on the real-amplitude wave substrate,
+superposition deviations decay cleanly with source separation, so
+distance is a continuous weak-field knob & demonstrated in model \\
+EG-4c, round three & the wave substrate's near-source field decays
+with time on wrap-free lattices, so its static limit is consistent
+with zero & demonstrated in model \\
+Synthesis & on both measured substrate classes passing the area
+gate, every spatial distinguishability gradient is radiative, and
+the three-step chain from area law to absent statics holds exactly &
+demonstrated in model \\
+Scope & nothing in this paper bears on physical gravity, and no
+physics claim is made & non-claim \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Table~\ref{tab:claims} registers the claims with their labels.  Read
+together they complete the arc the companion paper opened.  The
+substrate class that passes the counting gate carries a lawful and
+exactly measured thermodynamics, refuses every structural test of
+Newtonian geometry, and does so for a reason the discovery campaigns
+located precisely.  The refusal is not an artifact of ensemble,
+topology, dimension, or alphabet, each of which was removed or
+refuted in turn.  It is the radiative character of relaxation
+without entropy production.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+All constructions extend the campaign's published instrument stack
+\cite{SourcesPaper, AreaGatePaper} under the track's
+anti-circularity contract.  The forbidden-input list excludes any
+inserted potential, any distance function, any entropy-area
+proportionality, and any temperature defined through the law it
+verifies, and every ensemble, source class, probe, and bar was
+declared in the track document before the corresponding run.  Both
+discovery campaigns and each round of the second campaign carry
+dated declarations recorded before any run, including the declared
+falsification conditions of their hypotheses.  Verdicts are computed
+from the measurements after the runs.  The geometry run enforces
+this discipline's value in one recorded lesson, a draft verdict
+written before the data contradicted the measured items and was
+replaced by the computed verdicts the evidence record now carries.
+
+Every result-bearing run writes an append-only JSON evidence record
+containing the complete declared parameter set, outcome arrays, and
+a canonical hash of the record body.  The records for this paper are
+\texttt{eg2-matter.json}, \texttt{eg3-first-law.json},
+\texttt{eg4-geometry.json}, \texttt{eg4b-discovery.json},
+\texttt{eg4c-mini.json}, \texttt{eg4c2-wave.json}, and
+\texttt{eg4c3-statics.json} in the campaign repository, all carrying
+the exploratory label of the campaign's evidence-grading scheme, and
+the highest label any claim here earns is demonstrated in model.
+The finite-field instruments are exact rank and Walsh computations
+with no sampling, validated against brute-force enumeration, and the
+wave-substrate instrument is exact Gaussian covariance calculus
+validated against dense covariance evolution, with the entropy
+background of the comparison classes as in the standard treatment
+\cite{CoverThomas2006}.  There are no free parameters anywhere in
+the analysis chain.  Every number and every figure coordinate in
+this paper is read from those committed records or is an exact
+closed form derived in the text, with the figure tables generated
+deterministically by a committed script.  A reducer may summarize
+records but may not rewrite them.
+
+\begin{thebibliography}{9}
+
+\bibitem{Jacobson1995}
+T.~Jacobson,
+Thermodynamics of spacetime: the Einstein equation of state,
+Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995),
+arXiv:gr-qc/9504004.
+
+\bibitem{Bianconi2025}
+G.~Bianconi,
+Gravity from entropy,
+Phys.\ Rev.\ D \textbf{111}, 066001 (2025),
+arXiv:2408.14391.
+
+\bibitem{DorauMuch2026}
+P.~Dorau and A.~Much,
+From quantum relative entropy to the semiclassical Einstein equations,
+Phys.\ Rev.\ Lett.\ \textbf{136}, 091602 (2026),
+arXiv:2510.24491.
+
+\bibitem{Zurek2003}
+W.~H.~Zurek,
+Decoherence, einselection, and the quantum origins of the classical,
+Rev.\ Mod.\ Phys.\ \textbf{75}, 715 (2003).
+
+\bibitem{CaldeiraLeggett1983}
+A.~O.~Caldeira and A.~J.~Leggett,
+Path integral approach to quantum Brownian motion,
+Physica A \textbf{121}, 587 (1983).
+
+\bibitem{AreaGatePaper}
+A.~H.~Bond,
+An exact area gate for entropic accounts of geometry: volume laws,
+count splitting, and the causal-determinism mechanism,
+companion paper of this campaign (2026).
+
+\bibitem{SourcesPaper}
+A.~H.~Bond,
+Three sources of observed entropy in reversible hidden dynamics:
+mixing, projection multiplicity, and inaccessible degrees of freedom,
+companion paper of this campaign (2026).
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory}, 2nd ed.\
+(Wiley-Interscience, Hoboken, 2006).
+
+\end{thebibliography}
+
+\end{document}
