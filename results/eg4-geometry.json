@@ -1,0 +1,181 @@
+{
+  "declared": {
+    "pair_offsets": [
+      0,
+      128
+    ],
+    "phi_reading": "D of the fixed-length window at position r, width-3 source",
+    "ring": 257,
+    "scan_length": 160,
+    "scan_step": 4,
+    "sink": [
+      -1,
+      0,
+      1
+    ],
+    "steps": 60,
+    "triple_offsets": [
+      0,
+      86,
+      172
+    ]
+  },
+  "gauss_item": {
+    "gradient_extremes": [
+      -4.0,
+      4.0
+    ],
+    "monotone_flanks": true,
+    "verdict_item": "fail"
+  },
+  "interior_item": {
+    "between_sources": "equal",
+    "outside_far": "equal",
+    "verdict_item": "unevaluable: both classify equal, the field has no local interior-versus-exterior structure at this scale"
+  },
+  "items": {
+    "gauss": "fail",
+    "interior": "unevaluable",
+    "linearity_global_deficit": "fail",
+    "poisson": "fail",
+    "superposition": "fail"
+  },
+  "label": "exploratory",
+  "newtonian_limit_passes": false,
+  "poisson_item": {
+    "evaluable": true,
+    "field_nonzero_positions": [
+      [
+        40,
+        3.0
+      ],
+      [
+        44,
+        7.0
+      ],
+      [
+        48,
+        11.0
+      ],
+      [
+        52,
+        9.0
+      ],
+      [
+        56,
+        5.0
+      ],
+      [
+        60,
+        1.0
+      ],
+      [
+        104,
+        2.0
+      ],
+      [
+        108,
+        6.0
+      ],
+      [
+        112,
+        10.0
+      ],
+      [
+        116,
+        9.0
+      ],
+      [
+        120,
+        5.0
+      ],
+      [
+        124,
+        1.0
+      ],
+      [
+        168,
+        2.0
+      ],
+      [
+        172,
+        6.0
+      ],
+      [
+        176,
+        10.0
+      ],
+      [
+        180,
+        9.0
+      ],
+      [
+        184,
+        5.0
+      ],
+      [
+        188,
+        1.0
+      ],
+      [
+        232,
+        2.0
+      ],
+      [
+        236,
+        6.0
+      ],
+      [
+        240,
+        10.0
+      ],
+      [
+        244,
+        9.0
+      ],
+      [
+        248,
+        5.0
+      ],
+      [
+        252,
+        1.0
+      ]
+    ],
+    "laplacian_at_source": [
+      0.0,
+      0.0,
+      0.0,
+      3.0,
+      1.0
+    ],
+    "laplacian_max_far_from_source": 6.0,
+    "verdict_item": "fail"
+  },
+  "record_sha256": "5e73e8ed8aa5898483ad548ce883b40414c1179139431d8c79e09e7fc59cd840",
+  "runtime": {
+    "code_commit": "2c6a52e",
+    "generated_utc": "2026-08-05T07:26:34.464708+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg4-geometry-v1",
+  "sink_law_and_linearity": {
+    "additive_three": false,
+    "additive_two_far": false,
+    "additive_two_near": false,
+    "one_sink": 60,
+    "one_sink_shifted": 60,
+    "three_sinks": 1,
+    "two_sinks_far": 0,
+    "two_sinks_near": 0
+  },
+  "superposition_item": {
+    "max_abs_deviation_bits": 22.0,
+    "mean_abs_deviation_bits": 4.153846153846154,
+    "verdict_item": "fail"
+  },
+  "verdict": "Newtonian-limit claim REJECTED for this substrate. Item verdicts: poisson fail, gauss fail, superposition fail, linearity_global_deficit fail, interior unevaluable. The failure is not mere nonlinearity but destructive interference of information loss, two separated width-3 sinks give a global deficit of 0 (near pair 0, three sinks 1) against the additive expectation 120, so matter deficits on this substrate compose by GF(2) algebra, not by addition. The field of the only field-bearing source class is set by the automaton's algebraic self-similarity, its discrete Laplacian is as large far from the source as at it, and no monotone flank exists for a Gauss reading. Per the track document the EG-5 benchmark may not run, and the EG arc closes with the area mechanism and the first law as this substrate's positives and the geometry as its negative."
+}
