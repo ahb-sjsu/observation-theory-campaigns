@@ -1,0 +1,70 @@
+{
+  "declared": {
+    "cases_per_dim": 5,
+    "dims": [
+      4,
+      6,
+      8,
+      16
+    ],
+    "exactness_bar": 1e-11,
+    "ising_instance": {
+      "J": 1.0,
+      "N": 8,
+      "beta": 0.4,
+      "h": 2.0,
+      "site": 3,
+      "window": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "qo3_thetas": [
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "seed": 20260807,
+    "theta_test": [
+      0.3,
+      0.7,
+      1.0,
+      1.5707963267948966,
+      2.0,
+      -0.4
+    ]
+  },
+  "label": "proved",
+  "part1_random": {
+    "checks": 120,
+    "worst_relative_error": 1.4406837278177034e-14
+  },
+  "part2_model": {
+    "kappa_window": 0.9962679320697165,
+    "kubo_mori_Q": 0.9962679320697176,
+    "kubo_vs_kappa_relative": 1.114381973851855e-15,
+    "worst_relative_error": 2.0894662009722284e-15
+  },
+  "part3_kinematics": {
+    "lambda_kinematic": 0.9885453204408994,
+    "max_lambda_deviation": 1.3200551762793111e-13,
+    "max_probe_deviation": 1.1023959523015492e-11,
+    "probe_kinematic": 0.9998666737775747
+  },
+  "record_sha256": "d009c1187be5d709c0ef1a5f9eafc245d246094717796b9b5d98b16df1dd1d93",
+  "runtime": {
+    "code_commit": "3cfd35d",
+    "generated_utc": "2026-08-05T06:05:54.466678+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "tb3-theorem-v1",
+  "statement": "the thirteen-digit constancy of TB-3's lambda is a theorem, not a coincidence: relative entropy under a Hermitian-involution rotation is exactly sin^2(theta) times the involution defect S(P rho P || rho), the Kubo-Mori form equals that defect, and the fitted lambda is a pure kinematic constant of the declared grid",
+  "theorem": "S(exp(i theta P) rho exp(-i theta P) || rho) = sin^2(theta) S(P rho P || rho) for full-rank rho and Hermitian involution P"
+}
