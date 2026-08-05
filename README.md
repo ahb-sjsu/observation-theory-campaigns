@@ -21,7 +21,7 @@ codes always accompany the chips, so nothing depends on color alone.
 
 | Track | Short name | Question in one line | Status |
 |---|---|---|---|
-| 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..4 done (PF4-002 sealed negative), PF4-003 in flight; PF-5 instrument ready, PF-5/6 gates + PF-7 remain |
+| 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..4 done (PF4-002 sealed negative), PF4-003 in flight; PF-5 and PF-6 instruments ready, sealed gate runs + PF-7 remain |
 | 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Complete: instruments sealed, PE-0..PE-5 all measured |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
@@ -44,6 +44,7 @@ document in `experiments/SEALS.md`.
 | 🟦 **PF-4** first sealed run | sealed verdict: **neither-axis** ⚖ PREREG-PF4-001 | governed run complete: all 20 probe-placed cells in band (12/12 train, 7/8 held usable), drift 6e-7, both C3/C4 controls exact per-member prescription agreement (z = 0.00). Fitted G slope β = 41.2 confirms the pilot two-point prediction 41.6, and G beats the Schwinger axis 3.28× on held-out weighted MSE — but the sealed bars (MSE_G ≤ 4, ratio ≥ 4) were not met: G organizes the family at the few-percent level yet residual gap-dependence at fixed d/E is many binomial σ, and S is worse but not 4× worse. Neither pass nor refutation; the residual structure is the next question. Sauter family exhibits a critical-field manifold E_crit(P) (deterministic vs fluctuation regimes) found in the 4-iteration pilot |
 | 🟦 **PF4-003** frozen-measure hunt | sealed, run IN FLIGHT 🔄 PREREG-PF4-003 | the summit attempt: thermal-free pulse-train family, observable N_rev(P), claim log N_rev = a+b/P vs power law with held-out ratio bar 4 and a mandatory C5 planted-artifact trap; screen `pf4frozen`, harvest C5 verdict first |
 | 🟦 **PF-5** instrument layer | instrument passing ✅ unsealed | complete census (4 declared classes, sums exactly, zero missing, failures counted — 200/200 nonfinite and 100/100 capped controls), continuous energy audit per member (bar 1e-5; harmonic control 4.4e-7, smoke 5.6e-7), declared orientation charge = sign(dt/dτ) with the path-degree rule exact at every generic level via the sealed polyline instrument, nan-safe deletion flagging (a statistic that drops a populated class is mechanically discrepant); claim-bearing PF-5 run awaits the PF4-003 harvest and a seal — PF-5/PF-6 are mandatory gates per CAMPAIGN.md §6 |
+| 🟦 **PF-6** instrument layer | instrument passing ✅ unsealed | five audits at machine precision: translation covariance 2.7e-13 with fold worldpoints exactly equivariant; reparametrization bit-exact (path dev 0.0, per-worldline count exactly invariant, rate-per-τ scales exactly as predicted — the physical rate is per worldline, not per parameter tick); boost audit on the PF-3 hyperbolic family (commutation 4.5e-13, invariant 7.1e-11, future cone preserved — never-reverses is boost-invariant); gauge machinery exact on its EM control (Sauter tilt declared non-EM, clause binds when an EM family is declared); observer/detector audit — N(α) measured from the observer's record equals the detector-model prediction exactly at every α, the campaign's lawful-observer-dependence clause made mechanical |
 | 🟥 **PE-0** entropy controls | `[proved]` + sealed ✅ PEQO-FREEZE-002 | coarea branch weights closed-form: fold slice exactly 1 bit, M0 symmetric slice exactly 1.5 bits (weights ¼,½,¼), band edge → 1 bit, monotone/degenerate exactly 0 — multiplicity, not criticality, stores the information; both languages |
 | 🟥 **PE-1** resolution scaling | `[demonstrated-in-model]` ✅ | binned fold-caustic entropy: H + log₂ε → 1 − 1/ln2 with deviations 4.5e-3 → 4.5e-4 shrinking as √ε; the inverse-square-root caustic is integrable, no entropy pathology |
 | 🟥 **PE-2** reversible fold cycle | `[demonstrated-in-model]` ✅ | observed binned entropy swings 2.0708 bits along the trajectory while momentum reversal recovers the initial 10^4-member ensemble to 1.1e-14 and the reversed entropy curve retraces with defect exactly 0 — the entire change is observational; multiplicity staircase 4-8-12-13 with the signed path-degree rule at every level |
@@ -105,15 +106,39 @@ impulsive closure applies, while continuous integration of the same
 force never reverses. That finding is now a binding design clause for
 the remaining experiment.
 
-Still open. PF-4, the sealed Schwinger challenge, is designed
-(`experiments/PF4-DESIGN.md`) with the closure-prescription clause and
-a planted-artifact control, and a candidate-family pilot is running.
-The expected outcome remains a disciplined negative.
+The PF-4 Schwinger challenge then ran its full arc. A four-iteration
+pilot mapped the Sauter family's critical-field manifold. The first
+sealed run returned the defined neither-axis verdict, teaching that
+the effective-gap axis organizes the family at the few-percent level
+without being a law. The second sealed run, with bars set against
+model error as the owner rule demanded, passed both bars with room
+and delivered the campaign's disciplined negative, the family's
+suppression is a Gaussian measure tail in the effective gap and the
+Schwinger axis fails to compete (the fifth paper). Two hunt probes
+then located where a non-measure-tail exponent could live, the
+post-crossing residual is log-linear in inverse momentum with the
+Landau-Zener form explaining its slope quantitatively.
+
+Still open, and in flight. PREREG-PF4-003, the frozen-measure
+pulse-train family, is the sealed summit attempt on the open
+question of whether any constructible family carries an action-set
+exponent; its governed run is executing on Atlas. Behind it stand
+the two mandatory gates of the master design, PF-5 (conservation and
+complete accounting) and PF-6 (observer, Lorentz, and gauge audit),
+whose instrument layers are now built and validated on exact
+controls (`experiments/PF5-INSTRUMENT.md`,
+`experiments/PF6-INSTRUMENT.md`) and await sealed runs on the family
+the harvest selects. PF-7, the quantum-structure ceiling, stays
+gated behind both.
 
 Key files. `experiments/CAMPAIGN.md` (the master design),
-`experiments/PF3-PROVENANCE.md`, `experiments/PF4-DESIGN.md`,
-`matlab/`, `python/shp_land2016.py`, `python/pf4_pilot.py`.
-Paper. The Cayley-pole paper, DOI 10.5281/zenodo.21790096.
+`experiments/PF3-PROVENANCE.md`, `experiments/PF4-DESIGN.md`, the
+five PF preregistrations and instrument documents in `experiments/`,
+`matlab/`, `python/shp_land2016.py`, `python/pf4_pilot.py`,
+`python/pf4_frozen_run.py`, `python/pf5_accounting.py`,
+`python/pf6_covariance.py`.
+Papers. The Cayley-pole paper, DOI 10.5281/zenodo.21790096, and A
+Sealed Negative for Schwinger Scaling, DOI 10.5281/zenodo.21798545.
 
 ### 🟥 PE, projection entropy
 
@@ -147,9 +172,12 @@ coupling while the leak leaves no trace in any coarse bath observable
 The track is complete. All six experiments are measured.
 
 Key files. `experiments/ENTROPY-TRACK.md`, `python/projection_fold.py`,
-`python/pe2_reversible_cycle.py`, `matlab/run_pe0_entropy_controls.m`.
-Paper. Entropy Across Singular Projections,
-DOI 10.5281/zenodo.21789011.
+`python/pe2_reversible_cycle.py` through `python/pe5_hierarchy.py`,
+`matlab/run_pe0_entropy_controls.m`.
+Papers. Entropy Across Singular Projections,
+DOI 10.5281/zenodo.21789011, and Three Sources of Observed Entropy in
+Reversible Hidden Dynamics (the track's completion), compiled in
+`paper/`, not yet published.
 
 ### 🟪 QO, quantum observation
 
@@ -220,7 +248,13 @@ consumer-family quantifier survives reformulation in modular language,
 and improves. With the Kubo-Mori quadratic form as the flux weight the
 shared-event family becomes universal with a single lambda constant to
 thirteen digits across every window and coupling point, where the
-lattice weight had tightened toward exclusion.
+lattice weight had tightened toward exclusion. That constancy was then
+upgraded to a theorem, relative entropy under a Hermitian-involution
+rotation is exactly the squared sine of the angle times the involution
+defect, proved in the paper, verified on random states to 1.4e-14, and
+kernel-checked at its algebraic core in Lean 4 with Mathlib
+(`proofs/PauliRotation.lean`), which retroactively identifies the
+quantum track's theta-squared-law residuals as pure kinematics.
 
 Still open. The IR-versus-UV scaling question and the remaining open
 questions of the track document.
@@ -229,7 +263,8 @@ Key files. `experiments/TYPE-III-BRIDGE.md`, `python/tb0_modular.py`,
 `python/tb1_ladder.py`, `python/tb2_flip_ladder.py`,
 `python/tb3_wedge.py`.
 Paper. Consumer-Relative Distinguishability in the Thermodynamic
-Limit, drafted and compiled in `paper/`, not yet published.
+Limit, completed with the wedge-family section and the exactness
+theorem, compiled in `paper/`, not yet published.
 
 ### 🟧 EG, entropic geometry
 
@@ -278,11 +313,32 @@ sinks canceling to zero against the additive one hundred twenty
 counting demands zero entropy production while a graded local field
 forbids it. Nothing bears on physical gravity.
 
+Two discovery campaigns then attacked the EG-4 bar. The first
+(EG-4b) removed two obstructions and located the third, a structured
+vacuum restores a graded field where the maximal vacuum was blind,
+escape to infinity yields an exact static limit by radiating the
+transient away, but that static field is flat and GF(2) admits no
+continuous weak-field knob. The second (EG-4c) refuted the
+dimensional-dilution hypothesis, two-dimensional finite-field
+substrates are flat again because parity path-counting cannot decay
+in any dimension, and then moved to real amplitudes, the discrete
+wave equation with a Gaussian vacuum and an exact covariance
+instrument, where a strong-contrast scatterer gives a measured
+isotropic field and superposition deviations decay cleanly with
+separation, distance acting as the continuous weak-field knob no
+finite field could provide. The statics question is delegated to a
+long-time batch run currently executing on Atlas, and the bar
+remains intact until it reports.
+
 Key files. `experiments/ENTROPIC-GEOMETRY-TRACK.md`,
 `python/eg0_instrument.py`, `python/eg1_area_gate.py`,
 `python/eg1b_mechanism.py`, `python/eg_ca_substrate.py`,
 `python/eg2_matter.py`, `python/eg3_first_law.py`,
-`python/eg4_geometry.py`.
+`python/eg4_geometry.py`, `python/eg4b_discovery.py`,
+`python/eg4c_mini.py`, `python/eg4c2_wave.py`,
+`python/eg4c3_statics.py`.
+Paper. An Exact Area Gate for Entropic Accounts of Geometry,
+compiled in `paper/`, not yet published.
 
 ### 🟨 WM, Wolfram models
 
@@ -314,18 +370,25 @@ causal-invariant sorting rule agrees exactly under every update order
 (the event count is the inversion number), the planted non-confluent
 rule is flagged with three distinct terminal strings, and the growth
 rule splits cleanly into prescription-invariant conserved counts and
-prescription-borne arrangement.
+prescription-borne arrangement. WM-3, causal-graph invariants built
+from token genealogy are identical across update orders for the
+causal-invariant rule while the planted trap's causal graphs differ
+radically, and foliations move simultaneity bookkeeping by a factor
+of two while the invariants stay frozen, with the extremal
+foliations achieving the depth bound exactly. WM-4, a minimal
+hypergraph rewriter's measured dimension passes a held-out scaling
+test, the power law beating the exponential alternative forty-fold
+in held-out error, so that rule's dimension claim genuinely survives
+at measured sizes.
 
-Still open. WM-3, foliation covariance on causal graphs; WM-4,
-held-out dimension scaling on published hypergraph rules; the
-hypergraph version of WM-2; the seven open questions of the track
-document, led by whether the program's topological-obstruction
-particles admit any computable signed invariant.
+Still open. The hypergraph version of WM-2; the remaining open
+questions of the track document, led by whether the program's
+topological-obstruction particles admit any computable signed
+invariant.
 
 Key files. `experiments/WOLFRAM-MODELS-TRACK.md`,
-`python/wm0_dimension.py`, `python/wm1_reversible_ca.py`,
-`python/wm2_prescription.py`. Related prior work in
-`C:\source\wolfram-observer-bridge`.
+`python/wm0_dimension.py` through `python/wm4_hypergraph.py`.
+Related prior work in `C:\source\wolfram-observer-bridge`.
 
 ## The evidence discipline (applies to every track)
 
@@ -333,9 +396,9 @@ Key files. `experiments/WOLFRAM-MODELS-TRACK.md`,
    claim-bearing use; the freezes fix every numerical bar in advance.
 2. Claim-bearing results require a sealed preregistration naming the
    claim, the grid, the estimator, and the falsification bar before
-   the run. Seals are git-blob hashes in `experiments/SEALS.md` (five
-   entries: two freezes, three preregistrations, all verifiable with
-   `git show <commit>:<path> | sha256sum`).
+   the run. Seals are git-blob hashes in `experiments/SEALS.md`
+   (seven entries: two freezes, five preregistrations, all verifiable
+   with `git show <commit>:<path> | sha256sum`).
 3. Every trajectory is counted; no conditioning on success.
 4. Evidence records in `results/` are append-only hashed JSON
    sufficient for independent recomputation; every paper figure
