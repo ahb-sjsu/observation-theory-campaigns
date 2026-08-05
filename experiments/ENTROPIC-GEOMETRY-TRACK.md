@@ -661,6 +661,62 @@ persistent local structure that survives its own relaxation, and
 declaring one without inserting the answer is the open problem the
 track leaves behind.
 
+### EG-4d — CONSTRAINT-LOCKED STRUCTURE — declared before any run, 2026-08-05
+
+The EG-4c closing verdict left one escape route and one open
+problem, a persistent local structure that survives its own
+relaxation. Physics has exactly one standard mechanism of that kind,
+a local constraint of Gauss type tying field flux to conserved
+charge on every time slice. A constraint-anchored field cannot relax
+away because every reachable configuration satisfies the constraint.
+The campaign has already measured this mechanism's information
+signature once, the EG-1 arm-B Gauss-law ensemble carried an exact
+area-law mutual information across every cut.
+
+**The claim demotion, ruled before the run.** If a Gauss constraint
+is declared at Level 0, the static Poisson structure of the mean
+field follows from the constraint mathematics, not from entropy. Any
+positive result here therefore does NOT support the reading that
+entropy sources geometry. The honest claim this experiment can earn
+is that constraints source geometry and distinguishability registers
+them exactly. The measurable content that remains nontrivial is
+whether the relative-entropy field is static under the declared
+dynamics, whether it is graded with the correct dimensional falloff
+measured rather than assumed, whether the field-level object
+superposes exactly and scales correctly in the charge, and whether
+the Gauss and Poisson forms hold on the MEASURED field. The
+anti-circularity audit records that the constraint is a local
+per-vertex statement about incident edges, that no radial function,
+no potential, and no Poisson equation is inserted anywhere in the
+declarations, and that the solved linear-algebra objects appearing
+in the conditioning formulas are mathematics of conditional
+Gaussians, not model inputs.
+
+**Level-0 declarations.** Substrate, two-dimensional lattice
+electromagnetism on a torus, electric field on edges, magnetic field
+on plaquettes, Hamiltonian one half the sum of squares of both,
+dynamics the standard local curl equations, which are linear,
+reversible, local, and preserve the per-vertex divergence of E
+exactly. Vacuum, the identity-covariance Gaussian on fields
+conditioned on zero divergence at every vertex, which is exactly
+stationary because the transverse sector rotates isotropically and
+the longitudinal sector is frozen by the dynamics. Matter, a
+conserved charge assignment at declared vertices (a plus-minus pair
+separated by half the torus), entering only through the constraint
+value. Windows, small sets of edge fields. Every marginal is an
+exact conditional Gaussian, means by one Fourier solve, covariances
+by Green-function lookups, and the relative entropy in closed form.
+
+**Declared probes.** Instrument control against dense conditioning
+on a small lattice. Stationarity, the D field measured before and
+after long evolution must be identical, the anti-radiative witness
+every previous substrate failed. Profile and falloff, D along an
+axis from the positive charge with the exponent fitted against
+declared alternatives. Exact superposition and charge scaling of the
+field-level object, with D's quadratic composition predicted from
+it. Gauss and Poisson forms evaluated on the measured mean field.
+Verdicts computed from the numbers after measurement.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
