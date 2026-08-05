@@ -1,0 +1,338 @@
+{
+  "declared": {
+    "axis_rs": [
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27,
+      30,
+      33,
+      36,
+      39
+    ],
+    "defect": "impedance block 3x3, kappa 0.05 (strong contrast, near-hard scatterer)",
+    "pair_separations": [
+      12,
+      24,
+      40
+    ],
+    "substrate": "2D discrete wave equation, leapfrog, kappa 0.2",
+    "times": [
+      48,
+      96
+    ],
+    "vacuum": "iid standard Gaussian initial data",
+    "window": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        4
+      ]
+    ]
+  },
+  "instrument_control_dev": 1.1102230246251565e-15,
+  "isotropy_deviation": 0.933703506592773,
+  "items": {
+    "causality_null": true,
+    "isotropy_within_2x_spread": true,
+    "monotone_decay": false,
+    "poisson_source_localized": false,
+    "static_converged": false,
+    "static_graded": true,
+    "superposition_decays_with_separation": false
+  },
+  "label": "exploratory",
+  "laplacian_mid": 0.0009433635765589845,
+  "laplacian_near": 0.0005970732553712674,
+  "profiles": {
+    "48": {
+      "axis": [
+        {
+          "phi_bits": 0.006507209639173518,
+          "r": 3
+        },
+        {
+          "phi_bits": 0.005789995772556341,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.006410416915991057,
+          "r": 9
+        },
+        {
+          "phi_bits": 0.021795279459318775,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.022742404449961146,
+          "r": 15
+        },
+        {
+          "phi_bits": 0.015157518277715894,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.0013785989730338768,
+          "r": 21
+        },
+        {
+          "phi_bits": 2.1452219689919163e-09,
+          "r": 24
+        },
+        {
+          "phi_bits": 1.2813706015259671e-14,
+          "r": 27
+        },
+        {
+          "phi_bits": 1.281370601525967e-15,
+          "r": 30
+        },
+        {
+          "phi_bits": 0.0,
+          "r": 33
+        },
+        {
+          "phi_bits": 0.0,
+          "r": 36
+        },
+        {
+          "phi_bits": 0.0,
+          "r": 39
+        }
+      ],
+      "diagonal": [
+        {
+          "phi_bits": 0.018343037195173308,
+          "r": 3
+        },
+        {
+          "phi_bits": 0.005470502597030585,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.007487233222937499,
+          "r": 9
+        },
+        {
+          "phi_bits": 0.011888999638632035,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.016901620916332624,
+          "r": 15
+        },
+        {
+          "phi_bits": 0.021581739752474908,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.020396422950097085,
+          "r": 21
+        },
+        {
+          "phi_bits": 0.022765156430921692,
+          "r": 24
+        },
+        {
+          "phi_bits": 0.01454496815480165,
+          "r": 27
+        },
+        {
+          "phi_bits": 0.0009666847449765086,
+          "r": 30
+        },
+        {
+          "phi_bits": 2.513789577297238e-06,
+          "r": 33
+        },
+        {
+          "phi_bits": 1.7811051361210943e-13,
+          "r": 36
+        },
+        {
+          "phi_bits": 0.0,
+          "r": 39
+        }
+      ]
+    },
+    "96": {
+      "axis": [
+        {
+          "phi_bits": 0.0007100203192911627,
+          "r": 3
+        },
+        {
+          "phi_bits": 0.00032549769999521766,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.00053804833607054,
+          "r": 9
+        },
+        {
+          "phi_bits": 0.0006244737738176999,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.0005814867536122673,
+          "r": 15
+        },
+        {
+          "phi_bits": 0.0009350594500138423,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.00034526856985643285,
+          "r": 21
+        },
+        {
+          "phi_bits": 0.0005031186549543525,
+          "r": 24
+        },
+        {
+          "phi_bits": 0.0007939653188545932,
+          "r": 27
+        },
+        {
+          "phi_bits": 0.0010814824396944722,
+          "r": 30
+        },
+        {
+          "phi_bits": 0.0049249159260383495,
+          "r": 33
+        },
+        {
+          "phi_bits": 0.0028312935911476407,
+          "r": 36
+        },
+        {
+          "phi_bits": 0.002889737602391883,
+          "r": 39
+        }
+      ],
+      "diagonal": [
+        {
+          "phi_bits": 0.004262958389055402,
+          "r": 3
+        },
+        {
+          "phi_bits": 0.00047323127236979106,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.0003581551212265862,
+          "r": 9
+        },
+        {
+          "phi_bits": 0.000208689270291408,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.00019290892429213826,
+          "r": 15
+        },
+        {
+          "phi_bits": 0.00023445188245828827,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.00021732538051460668,
+          "r": 21
+        },
+        {
+          "phi_bits": 0.0002935699588676346,
+          "r": 24
+        },
+        {
+          "phi_bits": 0.0002950986870081196,
+          "r": 27
+        },
+        {
+          "phi_bits": 0.00028043463332772135,
+          "r": 30
+        },
+        {
+          "phi_bits": 0.00032650465622174917,
+          "r": 33
+        },
+        {
+          "phi_bits": 0.00035900935436619885,
+          "r": 36
+        },
+        {
+          "phi_bits": 0.000853869312905161,
+          "r": 39
+        }
+      ]
+    }
+  },
+  "record_sha256": "7285899c40e5b85013b45b9f246b98827405b2f9f59392cb85873d55489c3b94",
+  "runtime": {
+    "code_commit": "0c26321",
+    "generated_utc": "2026-08-05T08:29:47.039101+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg4c2-wave-v1",
+  "static_convergence_relative": 4.499755534745815,
+  "static_spread": 0.9339079682001697,
+  "superposition": [
+    {
+      "max_abs_deviation": 0.0006054756259253658,
+      "relative_deviation": 1.1343108582707397,
+      "scale": 0.0005337827999358264,
+      "separation": 12
+    },
+    {
+      "max_abs_deviation": 0.0021805428082852397,
+      "relative_deviation": 0.4631117998780555,
+      "scale": 0.004708458754148373,
+      "separation": 24
+    },
+    {
+      "max_abs_deviation": 0.00026401043351340775,
+      "relative_deviation": 0.05588408216851031,
+      "scale": 0.004724251043746639,
+      "separation": 40
+    }
+  ],
+  "verdict": "wave-substrate axis profile at T=96 runs from 0.00071 bits at r=2 to 0.00289 at r=30, spread 0.934, doubling-time convergence 4.5, monotone decay False. real amplitudes RESTORE dilution, the static field is graded. isotropy deviation 0.934; superposition relative deviations [1.1343, 0.4631, 0.0559] across separations [12, 24, 40]; laplacian near/mid 0.000597/0.000943. 3 of 7 items pass; the EG-4 bar remains intact."
+}

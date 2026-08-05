@@ -1,0 +1,337 @@
+{
+  "declared": {
+    "axis_rs": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30
+    ],
+    "bias_p": 0.2,
+    "hypothesis": "flat statics are a 1D artifact; 2D dilution restores gradedness",
+    "pair_separations": [
+      8,
+      16,
+      32
+    ],
+    "rule": "2D von Neumann XOR, defect adds center",
+    "times": [
+      32,
+      64
+    ],
+    "window_shape": [
+      2,
+      3
+    ]
+  },
+  "isotropy_deviation": 0.5645310431573622,
+  "items": {
+    "causality_null": true,
+    "isotropy_within_2x_spread": false,
+    "monotone_decay": true,
+    "poisson_source_localized": false,
+    "static_converged": false,
+    "static_graded": false,
+    "superposition_decays_with_separation": false
+  },
+  "label": "exploratory",
+  "laplacian_mid": 0.0,
+  "laplacian_near": 0.0,
+  "profiles": {
+    "32": {
+      "axis": [
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 2
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 4
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.061093861443447556,
+          "r": 8
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 10
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.06109430441883694,
+          "r": 14
+        },
+        {
+          "phi_bits": 0.061297371076459495,
+          "r": 16
+        },
+        {
+          "phi_bits": 0.06109386141087267,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.061093861410928124,
+          "r": 20
+        },
+        {
+          "phi_bits": 0.06109430325521835,
+          "r": 22
+        },
+        {
+          "phi_bits": 0.061296475864734856,
+          "r": 24
+        },
+        {
+          "phi_bits": 0.06069361522573416,
+          "r": 26
+        },
+        {
+          "phi_bits": 0.04842477298788833,
+          "r": 28
+        },
+        {
+          "phi_bits": 0.014913146061520735,
+          "r": 30
+        }
+      ],
+      "diagonal": [
+        {
+          "phi_bits": 0.03685982649908043,
+          "r": 2
+        },
+        {
+          "phi_bits": 0.049478948645318446,
+          "r": 4
+        },
+        {
+          "phi_bits": 0.03685982649908043,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.04947894864610805,
+          "r": 8
+        },
+        {
+          "phi_bits": 0.037260176356628726,
+          "r": 10
+        },
+        {
+          "phi_bits": 0.04947894864610805,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.026604673014297475,
+          "r": 14
+        },
+        {
+          "phi_bits": 0.016545427451278988,
+          "r": 16
+        },
+        {
+          "phi_bits": 0.006144079930367311,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.016545427451278988,
+          "r": 20
+        },
+        {
+          "phi_bits": 0.006144079930367311,
+          "r": 22
+        },
+        {
+          "phi_bits": 0.016545427451278988,
+          "r": 24
+        },
+        {
+          "phi_bits": 0.006144079930367311,
+          "r": 26
+        },
+        {
+          "phi_bits": 0.016545427451278988,
+          "r": 28
+        },
+        {
+          "phi_bits": 0.004011602789346678,
+          "r": 30
+        }
+      ]
+    },
+    "64": {
+      "axis": [
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 2
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 4
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 8
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 10
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 14
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 16
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 20
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 22
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 24
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 26
+        },
+        {
+          "phi_bits": 0.061093861443447625,
+          "r": 28
+        },
+        {
+          "phi_bits": 0.06109430441883694,
+          "r": 30
+        }
+      ],
+      "diagonal": [
+        {
+          "phi_bits": 0.03685982649908043,
+          "r": 2
+        },
+        {
+          "phi_bits": 0.049478948645318446,
+          "r": 4
+        },
+        {
+          "phi_bits": 0.03685982649908043,
+          "r": 6
+        },
+        {
+          "phi_bits": 0.049478948645318446,
+          "r": 8
+        },
+        {
+          "phi_bits": 0.037260176356628726,
+          "r": 10
+        },
+        {
+          "phi_bits": 0.049478948645318446,
+          "r": 12
+        },
+        {
+          "phi_bits": 0.03685982649908043,
+          "r": 14
+        },
+        {
+          "phi_bits": 0.04947894864610805,
+          "r": 16
+        },
+        {
+          "phi_bits": 0.037260176356628726,
+          "r": 18
+        },
+        {
+          "phi_bits": 0.04947894864610805,
+          "r": 20
+        },
+        {
+          "phi_bits": 0.037260176356628726,
+          "r": 22
+        },
+        {
+          "phi_bits": 0.04947894864610805,
+          "r": 24
+        },
+        {
+          "phi_bits": 0.037260176356628726,
+          "r": 26
+        },
+        {
+          "phi_bits": 0.04947894864610805,
+          "r": 28
+        },
+        {
+          "phi_bits": 0.026604673014297475,
+          "r": 30
+        }
+      ]
+    }
+  },
+  "record_sha256": "4cc65cf1fd0515595a9d4b06be5d814e6aaf3dd0a94acc2f6c913ce4c474daea",
+  "runtime": {
+    "code_commit": "00adace",
+    "generated_utc": "2026-08-05T08:12:30.560347+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg4c-mini-v1",
+  "static_convergence_relative": 0.7558995686523827,
+  "static_spread": 7.250682261269497e-06,
+  "superposition": [
+    {
+      "max_abs_deviation": 0.061297371076459495,
+      "relative_deviation": 0.5008313897524431,
+      "scale": 0.12239123251990712,
+      "separation": 8
+    },
+    {
+      "max_abs_deviation": 0.061297371076459495,
+      "relative_deviation": 0.5000000002645666,
+      "scale": 0.12259474208805003,
+      "separation": 16
+    },
+    {
+      "max_abs_deviation": 0.061297371076459495,
+      "relative_deviation": 0.5,
+      "scale": 0.12259474215291899,
+      "separation": 32
+    }
+  ],
+  "verdict": "axis profile at T=64 spans 0.06109 to 0.06109 bits with spread 7.25e-06 and doubling-time convergence 0.756. the dimensional-dilution hypothesis is NOT supported at these times, the profile has not converged. isotropy deviation 0.565 against spread 7.25e-06; superposition relative deviations [0.5008, 0.5, 0.5] across separations [8, 16, 32]. 2 of 7 items pass; the EG-4 bar remains intact."
+}
