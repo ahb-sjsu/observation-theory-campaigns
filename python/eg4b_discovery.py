@@ -33,6 +33,14 @@ P4  Weak-field superposition, two separated sources against the sum
     sources weaken.
 P5  Poisson and Gauss forms on the measured profile, data-driven
     verdicts computed from the numbers, never written first.
+P6  Steady-state probe, round two of the campaign. Round one found
+    the transient field's gradient living on the causal front, so
+    the source is left on until the front has wrapped the ring and
+    collided with itself, and the profile is read at two late times
+    (both chosen with sparse vacuum supports). If the two late
+    profiles agree, a static field exists and the Poisson items are
+    evaluated on it; if the profile is flat or keeps changing, the
+    substrate has no static limit and that is the finding.
 
 Exploratory label. No physics claim.
 """
@@ -213,6 +221,28 @@ def main() -> int:
                               "relative_deviation":
                                   max(devs) / max(scale, 1e-300)})
 
+    # P6: steady state after the front wraps the ring
+    steady = {}
+    for t_late in (160, 288):
+        vac_l = evolve(N_RING, t_late)
+        src_l = evolve(N_RING, t_late, SOURCE)
+        prof = []
+        for r in range(-128, 129, 8):
+            cells = [(t_late, r + k) for k in range(WINDOW)]
+            prof.append({"r": r, "phi_bits": kl_bits(
+                window_distribution(
+                    rows_as_ints(src_l, cells), P_BIAS),
+                window_distribution(
+                    rows_as_ints(vac_l, cells), P_BIAS))})
+        steady[str(t_late)] = prof
+    p160 = np.array([row["phi_bits"] for row in steady["160"]])
+    p288 = np.array([row["phi_bits"] for row in steady["288"]])
+    steady_scale = float(max(p160.max(), p288.max(), 1e-300))
+    steady_change = float(np.max(np.abs(p288 - p160))) / steady_scale
+    steady_spread = float((p160.max() - p160.min())
+                          / max(p160.max(), 1e-300)) \
+        if p160.max() > 0 else 0.0
+
     # P5: Poisson and Gauss forms on the measured profile, verdicts
     # computed from the numbers
     phis = [row["phi_bits"] for row in profile]
@@ -246,6 +276,8 @@ def main() -> int:
         "linearity_trend_toward_weak": lin_weakest is not None,
         "gauss_monotone_flanks": bool(monotone_flanks),
         "poisson_source_localized": bool(poisson_localized),
+        "static_limit_exists":
+            steady_change < 0.05 and steady_spread > 0.1,
     }
 
     pieces = []
@@ -269,7 +301,20 @@ def main() -> int:
     pieces.append(
         "the discrete laplacian "
         + ("concentrates at the source." if poisson_localized else
-           "does not concentrate at the source."))
+           "does not concentrate at the source, it lives on the "
+           "causal front."))
+    if items["static_limit_exists"]:
+        pieces.append(
+            f"a static limit exists, the late-time profiles agree "
+            f"within {steady_change:.3g} relative and retain a spread "
+            f"of {steady_spread:.3g}.")
+    else:
+        pieces.append(
+            f"no usable static limit at the tested times, the "
+            f"late-time profiles change by {steady_change:.3g} "
+            f"relative and their spread is {steady_spread:.3g}, so "
+            f"the field either keeps evolving or flattens once the "
+            f"front self-collides.")
     passed = sum(1 for v in items.values() if v)
     pieces.append(
         f"{passed} of {len(items)} declared items pass; the EG-4 bar "
@@ -294,6 +339,9 @@ def main() -> int:
         "strength": strength,
         "linearity_deviation": lin_dev,
         "superposition": superposition,
+        "steady_state": steady,
+        "steady_change_relative": steady_change,
+        "steady_spread": steady_spread,
         "gauss_monotone_flanks": bool(monotone_flanks),
         "laplacian_at_source": lap_at_src,
         "laplacian_far_max": lap_far,
@@ -326,6 +374,11 @@ def main() -> int:
     print("superposition:",
           [(s["M"], round(s["relative_deviation"], 5))
            for s in superposition])
+    print("steady 160:",
+          [(row["r"], round(row["phi_bits"], 4))
+           for row in steady["160"] if row["phi_bits"] > 1e-9][:12])
+    print(f"steady change {steady_change:.4g}, spread "
+          f"{steady_spread:.4g}")
     print("items:", items)
     print(output)
     return 0
