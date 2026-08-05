@@ -1,0 +1,52 @@
+{
+  "declared": {
+    "L": 8,
+    "deformation": "dB/dt += eps * mean of 4 neighbor plaquettes, local and translation-invariant",
+    "eps_grid": [
+      0.0,
+      0.001,
+      0.01,
+      0.1,
+      0.3
+    ]
+  },
+  "label": "exploratory",
+  "record_sha256": "2c0442cd986c6b5742f4b41f3377d64bc203112f91a34c52598940cad1260aa7",
+  "rows": [
+    {
+      "eps": 0.0,
+      "frozen_dimension": 66,
+      "gauss_family_residual": 2.185898338314022e-15
+    },
+    {
+      "eps": 0.001,
+      "frozen_dimension": 14,
+      "gauss_family_residual": 0.883883476483243
+    },
+    {
+      "eps": 0.01,
+      "frozen_dimension": 14,
+      "gauss_family_residual": 0.8838834764831599
+    },
+    {
+      "eps": 0.1,
+      "frozen_dimension": 14,
+      "gauss_family_residual": 0.883883476483182
+    },
+    {
+      "eps": 0.3,
+      "frozen_dimension": 14,
+      "gauss_family_residual": 0.883883476483184
+    }
+  ],
+  "runtime": {
+    "code_commit": "925b5fb",
+    "generated_utc": "2026-08-05T17:47:57.029686+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg6-emergent-v1",
+  "verdict": "mixed outcome, recorded per row"
+}
