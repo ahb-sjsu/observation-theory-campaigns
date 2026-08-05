@@ -156,10 +156,10 @@ def main() -> int:
     # P1: translation covariance on transmitted and reversing members
     shift = 8.0
     p1 = {}
-    for name, (p, e) in (("transmitted", (0.75, 0.65)),
-                         ("reversing", (0.3, 2.5))):
-        base = integrate(p, e)
-        moved = integrate(p, e, t0=shift)
+    for name, (p, e, steps) in (("transmitted", (0.75, 0.65, 40_000)),
+                                ("reversing", (0.3, 2.5, 90_000))):
+        base = integrate(p, e, n_steps=steps)
+        moved = integrate(p, e, t0=shift, n_steps=steps)
         dev = float(np.max(np.abs(moved[0] - base[0] - shift)))
         assert dev < 1e-6, f"P1 {name} translation dev {dev}"
         assert fold_count(moved[1]) == fold_count(base[1])
@@ -176,7 +176,7 @@ def main() -> int:
     # power of two the stepwise arithmetic is exactly the base
     # arithmetic, so the same path segment is compared directly.
     alpha = 2.0
-    n_seg = 20_000
+    n_seg = 90_000
     base = integrate(0.3, 2.5, n_steps=n_seg)
     scaled = integrate(0.3, 2.5, alpha=alpha, n_steps=n_seg)
     dev = float(np.max(np.abs(scaled[0] - base[0])))
@@ -259,7 +259,7 @@ def main() -> int:
                       "declared"}
 
     # P5: observer and detector audit on a reversing member
-    ts, pts, us, pus = integrate(0.3, 2.5, n_steps=20_000)
+    ts, pts, us, pus = integrate(0.3, 2.5, n_steps=90_000)
     curve = {}
     for a in ALPHA_GRID:
         slope = np.diff(ts) / pilot.DT + a
