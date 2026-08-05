@@ -502,6 +502,55 @@ insertion audit is unchanged, sources are rule substitutions, no
 potential or distance function anywhere, and the anti-circularity
 contract applies.
 
+**RESULTS after three rounds (runner `python/eg4b_discovery.py`,
+evidence `results/eg4b-discovery.json`; instrument validated against
+enumeration to 8.3e-17; causality null exact with the ring wrap
+accounted for).**
+
+Round one, the structured vacuum removes the invisibility
+obstruction. With Bernoulli bias 0.2 initial data, a single
+rule-substitution source produces a genuinely graded real-valued
+field, a plateau of 0.812 bits inside the cone with smooth symmetric
+monotone flanks rising over about eight cells, against exactly zero
+everywhere on the maximal vacuum of EG-2. Two of the declared items
+pass immediately, gradedness and monotone Gauss flanks. Two fail
+informatively. The discrete Laplacian concentrates on the CAUSAL
+FRONT, not at the source, and the superposition deviation (3.6 to
+6.3 percent) does not shrink as the source weakens, because a rule
+substitution is a quantized order-one perturbation, there is no
+continuous weak-field knob in GF(2).
+
+Round two, the ring has no static limit. With the source left on
+until the front wraps and self-collides, the profile flattens to a
+near-uniform 0.226 bits (spread 3.6 percent) and keeps drifting
+between late times (23 percent), so the round-one gradient was
+entirely front-borne.
+
+Round three, escape to infinity yields exact statics, but flat. On a
+lattice too large for any wrap, the near-source profile CONVERGES
+EXACTLY under time doubling (relative changes 1.0e-3 then 0.0), a
+true static limit reached by radiating the transient away, which is
+how a reversible system relaxes without entropy production and
+without harming the area law. The converged static field is flat,
+0.812 bits at every scanned offset with a single point-like bump at
+the source, spread 5.3 percent, no spatial gradient.
+
+**Campaign verdict.** The EG-4 bar is not passed, and the obstruction
+chain is now fully mapped. Local invisibility was an artifact of the
+maximal vacuum and is removed by ensemble structure. The absence of a
+static limit was an artifact of the closed ring and is removed by
+escape to infinity. What remains is structural and twofold, the
+static distinguishability field of this substrate class carries no
+spatial gradient (all gradient is radiative, living on causal
+fronts), and GF(2) dynamics admits no continuous weak-field
+parameter. A substrate passing EG-4 would need a static response
+with spatial structure, which points at higher dimension, richer
+alphabets, or dynamics with a conserved charge coupling the vacuum
+to the source at a distance, each of which leaves the
+exact-instrument regime and would require sampling-based
+preregistered runs. The campaign closes with two obstructions
+removed, one precisely located, and the bar intact.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
