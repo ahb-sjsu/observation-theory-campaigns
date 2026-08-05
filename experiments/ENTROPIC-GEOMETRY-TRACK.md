@@ -341,6 +341,57 @@ correlation, projection rank constraints) are not yet constructed and
 the gate stays open for them. The track continues only if some future
 declared mechanism passes the primary count without insertion.
 
+### EG-1b: Mechanism discovery — CAUSAL DETERMINISM PASSES (exploratory)
+
+Runner `python/eg1b_mechanism.py`, evidence
+`results/eg1b-mechanism.json`. The discovery effort was theory-first,
+and both theory pieces were recorded before the run.
+
+**Entropy-density lemma (proved).** For a translation-invariant
+ensemble with entropy density h, the chain rule gives
+H(interior | boundary) >= H(region) - H(boundary) >= h R^2 - c R.
+An area-law primary count therefore forces h = 0. This makes the
+EG-1 negatives structural rather than accidental, every mechanism
+class with positive bulk entropy density fails before construction,
+and it directs the search to zero-density ensembles with
+boundary-sized residual freedom.
+
+**Causal-cone bound (proved).** The natural non-inserted origin of
+zero density is deterministic local dynamics with the region read as
+a spacetime region, per the section 10 corollary decision. For any
+deterministic radius-one rule, an R x R spacetime patch is a function
+of its causal-cone data of 3R-2 cells, so H(patch) <= 3R-2, perimeter
+scaling for ANY such rule and any initial ensemble, and the top row
+and side columns determine the interior by induction, so
+H(interior | boundary) is exactly zero.
+
+**Measured.** Additive rules 90 and 150 with i.i.d. uniform initial
+data, every entropy an exact GF(2) rank, R over two decades (3 to
+301): H(patch) = 3R-2 EXACTLY at every R, the cone bound is
+saturated, and H(interior | boundary) = 0 exactly at every R. The
+nonlinear rule 110 by exact enumeration at R = 3, 4, 5 gives 5.04,
+6.97, 8.85 bits, inside the bound, rule-independence witnessed. The
+structural-origin audit, the same rule 90 construction with one
+fresh noise bit per cell per step, gives H(patch) = R^2 exactly at
+every measured R, free-fit slope 2.0000, a volume law. The area law
+tracks determinism and nothing tuned. Insertion audit, the rules are
+generic and untuned, the bound is causality itself, no area-sized
+structure, potential, or code is declared anywhere.
+
+**Reading.** Causal determinism is an area-law mechanism for
+spacetime regions, and it is destroyed by any bulk entropy
+production. Within this model class the gate's requirement selects
+exactly the ensembles with zero entropy production, which is the
+structural feature the thermodynamic gravity literature assumes when
+it works on causal horizons. The reframing is declared honestly, the
+passing region is a spacetime region, not a spatial one, and the
+spatial-region negative of EG-1 stands unchanged.
+
+**Gate standing after EG-1b.** EG-2 through EG-5 are conditionally
+unblocked on the causal-determinism substrate, meaning designs may
+now use deterministic local hidden dynamics with spacetime regions
+and must carry the noise-audit control in every claim-bearing run.
+
 **Method.** Implement each mechanism as a concrete Level-0 construction.
 Measure S(R) at fixed (delta, epsilon) over at least two decades of R, then
 repeat at refined resolutions to separate genuine scaling from resolution
