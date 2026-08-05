@@ -1,0 +1,231 @@
+{
+  "T_detector_bits_per_event": 1.0,
+  "declared": {
+    "detector": "patch-entropy response to one training injection, frozen",
+    "held_out_patterns": {
+      "dilute_2": [
+        [
+          25,
+          5
+        ],
+        [
+          50,
+          30
+        ]
+      ],
+      "dilute_4": [
+        [
+          24,
+          4
+        ],
+        [
+          32,
+          14
+        ],
+        [
+          44,
+          26
+        ],
+        [
+          54,
+          36
+        ]
+      ],
+      "mixed_2in_2past": [
+        [
+          30,
+          10
+        ],
+        [
+          45,
+          25
+        ],
+        [
+          6,
+          15
+        ],
+        [
+          10,
+          33
+        ]
+      ],
+      "moderate_8": [
+        [
+          22,
+          2
+        ],
+        [
+          27,
+          8
+        ],
+        [
+          32,
+          14
+        ],
+        [
+          37,
+          20
+        ],
+        [
+          42,
+          26
+        ],
+        [
+          47,
+          32
+        ],
+        [
+          52,
+          36
+        ],
+        [
+          57,
+          10
+        ]
+      ],
+      "past_4": [
+        [
+          5,
+          10
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          12,
+          30
+        ],
+        [
+          15,
+          5
+        ]
+      ],
+      "stacked_column_12": [
+        [
+          25,
+          12
+        ],
+        [
+          27,
+          12
+        ],
+        [
+          29,
+          12
+        ],
+        [
+          31,
+          12
+        ],
+        [
+          33,
+          12
+        ],
+        [
+          35,
+          12
+        ],
+        [
+          37,
+          12
+        ],
+        [
+          39,
+          12
+        ],
+        [
+          41,
+          12
+        ],
+        [
+          43,
+          12
+        ],
+        [
+          45,
+          12
+        ],
+        [
+          47,
+          12
+        ]
+      ]
+    },
+    "independence_audit": "delta Q counts events, no entropy; T frozen on training only; delta S is a rank; none defined through the others",
+    "patch": {
+      "cols": [
+        0,
+        40
+      ],
+      "t_from": 20,
+      "t_to": 60
+    },
+    "ring": 257,
+    "steps": 60,
+    "train_event": [
+      [
+        40,
+        20
+      ]
+    ],
+    "vacuum_rule": 90
+  },
+  "held_out": [
+    {
+      "delta_Q_inside": 2,
+      "delta_Q_naive": 2,
+      "delta_S_bits": 2,
+      "pattern": "dilute_2",
+      "relative_residual_inside_accounting": 0.0
+    },
+    {
+      "delta_Q_inside": 4,
+      "delta_Q_naive": 4,
+      "delta_S_bits": 4,
+      "pattern": "dilute_4",
+      "relative_residual_inside_accounting": 0.0
+    },
+    {
+      "delta_Q_inside": 8,
+      "delta_Q_naive": 8,
+      "delta_S_bits": 8,
+      "pattern": "moderate_8",
+      "relative_residual_inside_accounting": 0.0
+    },
+    {
+      "delta_Q_inside": 0,
+      "delta_Q_naive": 4,
+      "delta_S_bits": 0,
+      "pattern": "past_4",
+      "relative_residual_inside_accounting": 0.0
+    },
+    {
+      "delta_Q_inside": 2,
+      "delta_Q_naive": 4,
+      "delta_S_bits": 2,
+      "pattern": "mixed_2in_2past",
+      "relative_residual_inside_accounting": 0.0
+    },
+    {
+      "delta_Q_inside": 12,
+      "delta_Q_naive": 12,
+      "delta_S_bits": 12,
+      "pattern": "stacked_column_12",
+      "relative_residual_inside_accounting": 0.0
+    }
+  ],
+  "label": "exploratory",
+  "record_sha256": "4b0883ce7552389aefb77e105e2903fcb9cbf832c6ec27d7a1b09437b16a1d4c",
+  "runtime": {
+    "code_commit": "1647424",
+    "generated_utc": "2026-08-05T07:22:05.834317+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg3-first-law-v2",
+  "vacuum_patch_entropy": 120,
+  "verdict": "the first law delta S = T delta Q holds exactly on held-out interior patterns with all three quantities independently defined, T frozen on one training injection; the flux that makes it hold is the events inside the spacetime region, because injections in the region's causal past are absorbed exactly by the maximal ensemble, delta S = 0 against a positive naive flux; the Clausius relation is an output on this substrate once the flux is the one crossing into the region, and a time-slice reading of the same relation is blind by the same absorption"
+}
