@@ -467,8 +467,9 @@ projection.
    published.
 7. 🟧 An Exact Area Gate for Entropic Accounts of Geometry (EG track,
    EG-0/1/1b), drafted and compiled in `paper/`, not yet published.
-8. 🟧 Radiative Geometry (EG track, EG-2..5 with the discovery
-   campaigns and the constraint-locked closure), compiled in
+8. 🟧 Radiative Geometry (EG track, EG-2..6 with the discovery
+   campaigns, the constraint-locked closure, the emergence gate, and
+   a citation-verified relation-to-prior-work section), compiled in
    `paper/`, not yet published.
 
 ## Repository layout
