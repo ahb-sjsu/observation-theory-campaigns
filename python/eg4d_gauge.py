@@ -47,8 +47,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from projection_fold import canonical_sha256  # noqa: E402
 
-L_SIDE = 64
-CHARGE_SEP = 32
+L_SIDE = 128
+CHARGE_SEP = 64
 AXIS_RS = [2, 3, 4, 6, 8, 11, 16, 22]
 EVOLVE_STEPS = 400
 DT_EVOLVE = 0.05
