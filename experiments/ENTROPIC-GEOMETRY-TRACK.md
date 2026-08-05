@@ -584,6 +584,34 @@ distance if dilution is the true weak-field knob. Two-dimensional
 Poisson and Gauss forms on whatever profile is measured. All
 verdicts computed from the numbers after measurement.
 
+**ROUND 1 RESULT (runner `python/eg4c_mini.py`, evidence
+`results/eg4c-mini.json`).** The dimensional-dilution hypothesis is
+REFUTED. The two-dimensional axis profile is flat again (0.0611 bits
+at every distance, spread 7e-6), the diagonal shows only parity
+oscillation, and superposition deviations sit at one half of scale
+at every separation. The refutation sharpens the obstruction, it is
+not dimension but the finite field itself. Influence under GF(2)
+linear rules is parity path-counting, zero or one and never small,
+so no finite-field linear substrate can dilute with distance in any
+dimension. Geometric dilution requires amplitudes that decay.
+
+**ROUND 2 DECLARATION, before any run.** Real amplitudes with a
+Gaussian vacuum, still exact. The substrate is the two-dimensional
+discrete wave equation (leapfrog, reversible, deterministic, local,
+linear over the reals, site stiffness kappa 0.2), the vacuum is
+i.i.d. standard Gaussian initial data, and matter is an impedance
+defect, a site whose stiffness is 0.4, a rule substitution with no
+potential anywhere. Window marginals are exactly computable
+Gaussians, functionals by adjoint evolution, covariances by dot
+products, divergences by the closed Gaussian form. The physics
+motivation is declared openly, the static limit of the wave equation
+is the Poisson equation, so if the distinguishability field tracks
+the static response this is the substrate where the Poisson item has
+its best chance. Probes mirror round one, causality null exact
+(unit wave speed), static profile at doubling times with escape to
+infinity, gradedness and monotone decay, superposition against
+separation, Poisson localization. Verdicts from the numbers.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
