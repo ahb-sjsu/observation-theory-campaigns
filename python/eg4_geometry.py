@@ -89,16 +89,22 @@ def main() -> int:
         N_RING, T_STEPS,
         shifted(SINK, 0) | shifted(SINK, 86) | shifted(SINK, 172))
 
+    pair_near = evolve_generators(N_RING, T_STEPS,
+                                  shifted(SINK, 0) | shifted(SINK, 40))
+
     # sink law and linearity of the global deficit
     d1 = global_deficit(single, vac)
     d1b = global_deficit(other, vac)
     d2 = global_deficit(pair, vac)
+    d2n = global_deficit(pair_near, vac)
     d3 = global_deficit(triple, vac)
     assert d1 == T_STEPS and d1b == T_STEPS, \
         f"sink law broken: {d1}, {d1b}"
     linearity = {"one_sink": d1, "one_sink_shifted": d1b,
-                 "two_sinks": d2, "three_sinks": d3,
-                 "additive_two": d2 == 2 * d1,
+                 "two_sinks_far": d2, "two_sinks_near": d2n,
+                 "three_sinks": d3,
+                 "additive_two_far": d2 == 2 * d1,
+                 "additive_two_near": d2n == 2 * d1,
                  "additive_three": d3 == 3 * d1}
 
     # the field and the Poisson and Gauss items
@@ -160,27 +166,38 @@ def main() -> int:
              "gauss": gauss["verdict_item"],
              "superposition": superposition["verdict_item"],
              "linearity_global_deficit":
-                 "pass" if linearity["additive_two"]
+                 "pass" if linearity["additive_two_far"]
+                 and linearity["additive_two_near"]
                  and linearity["additive_three"] else "fail",
              "interior": "unevaluable"}
     newtonian = all(v == "pass" for v in items.values())
 
-    verdict = (
-        "Newtonian-limit claim REJECTED for this substrate: the "
-        "distinguishability field of the only field-bearing source "
-        "class is set by the automaton's algebraic self-similarity, "
-        "its discrete Laplacian is as large far from the source as "
-        "anywhere, and no monotone flank exists for a Gauss reading, "
-        "so the Poisson and Gauss items fail while the interior item "
-        "is unevaluable; the structural items survive, the global "
-        "rank deficit is exactly extensive in the number of separated "
-        "sinks and the pair field superposes against the pointwise "
-        "sum within the measured deviation; per the track document "
-        "the EG-5 benchmark may not run, and the EG arc closes with "
-        "the area mechanism, the first law, and the failed geometry, "
-        "which together locate exactly what this substrate can and "
-        "cannot supply"
-    )
+    pieces = ["Newtonian-limit claim "
+              + ("PASSES" if newtonian else "REJECTED")
+              + " for this substrate."]
+    pieces.append("Item verdicts: " + ", ".join(
+        f"{k} {v}" for k, v in items.items()) + ".")
+    if not linearity["additive_two_far"]:
+        pieces.append(
+            "The failure is not mere nonlinearity but destructive "
+            "interference of information loss, two separated width-3 "
+            "sinks give a global deficit of "
+            f"{linearity['two_sinks_far']} (near pair "
+            f"{linearity['two_sinks_near']}, three sinks "
+            f"{linearity['three_sinks']}) against the additive "
+            f"expectation {2 * d1}, so matter deficits on this "
+            "substrate compose by GF(2) algebra, not by addition.")
+    pieces.append(
+        "The field of the only field-bearing source class is set by "
+        "the automaton's algebraic self-similarity, its discrete "
+        "Laplacian is as large far from the source as at it, and no "
+        "monotone flank exists for a Gauss reading.")
+    pieces.append(
+        "Per the track document the EG-5 benchmark may not run, and "
+        "the EG arc closes with the area mechanism and the first law "
+        "as this substrate's positives and the geometry as its "
+        "negative.")
+    verdict = " ".join(pieces)
 
     record = {
         "schema": "eg4-geometry-v1",
