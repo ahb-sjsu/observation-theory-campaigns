@@ -1,0 +1,137 @@
+{
+  "declared": {
+    "generations": 11,
+    "prescriptions": [
+      "storage",
+      "reversed",
+      "shuffle_a",
+      "shuffle_b",
+      "by_second"
+    ],
+    "r_max": 9,
+    "sources": 24,
+    "trap": "contraction x-y,y-z -> x-z on a 12-relation path with a 3-branch fork at its midpoint, to exhaustion (a bare path is confluent, verified en route)"
+  },
+  "dimension_spread": 0.1713356479545171,
+  "invariance": {
+    "degree_sum": false,
+    "dimension_within_5_percent": false,
+    "relation_count": false,
+    "vertex_count": false
+  },
+  "label": "exploratory",
+  "record_sha256": "f2a48acd7e5e48e9ef9f5bfb1c513b921cbab2ec41acbc2eecf4c3c0ecbf94d0",
+  "runs": {
+    "by_second": {
+      "degree_multiset_head": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        8,
+        8,
+        8
+      ],
+      "degree_sum": 3510,
+      "dimension": 2.751357987706605,
+      "power_vs_exp_sse": [
+        0.06005203613866897,
+        3.3195108406935936
+      ],
+      "relations": 1758,
+      "vertices": 879
+    },
+    "reversed": {
+      "degree_multiset_head": [
+        12,
+        12,
+        12,
+        13,
+        13,
+        14,
+        14,
+        19
+      ],
+      "degree_sum": 3762,
+      "dimension": 2.8829670173119943,
+      "power_vs_exp_sse": [
+        0.05158231439630542,
+        3.5262467636322525
+      ],
+      "relations": 1882,
+      "vertices": 941
+    },
+    "shuffle_a": {
+      "degree_multiset_head": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        10,
+        10,
+        12
+      ],
+      "degree_sum": 3420,
+      "dimension": 2.6644697104484125,
+      "power_vs_exp_sse": [
+        0.04049307666126034,
+        2.9921796368850773
+      ],
+      "relations": 1710,
+      "vertices": 855
+    },
+    "shuffle_b": {
+      "degree_multiset_head": [
+        9,
+        9,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11
+      ],
+      "degree_sum": 3620,
+      "dimension": 2.4311947263525386,
+      "power_vs_exp_sse": [
+        0.14868140942221147,
+        0.941629446893794
+      ],
+      "relations": 1810,
+      "vertices": 905
+    },
+    "storage": {
+      "degree_multiset_head": [
+        10,
+        10,
+        10,
+        10,
+        11,
+        12,
+        14,
+        15
+      ],
+      "degree_sum": 3588,
+      "dimension": 2.4538487247534535,
+      "power_vs_exp_sse": [
+        0.002544009898215423,
+        1.9055929234587974
+      ],
+      "relations": 1794,
+      "vertices": 897
+    }
+  },
+  "runtime": {
+    "code_commit": "61c5d53",
+    "generated_utc": "2026-08-05T20:20:58.013719+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "wm2h-prescription-v1",
+  "trap_distinct_terminals": 3,
+  "verdict": "hypergraph prescription audit: relation counts [1710, 1758, 1794, 1810, 1882], vertex counts [855, 879, 897, 905, 941], degree sums [3420, 3510, 3588, 3620, 3762] across five prescriptions DIFFER, the bulk bookkeeping is prescription-borne, recorded per prescription; the dimension estimate spans 2.431 to 2.883 (spread 0.171), so the WM-4 dimension claim carries a prescription dependence larger than five percent, a caveat the WM-4 record now inherits; the planted contraction trap is flagged with 3 distinct terminals across prescriptions, so the audit detects non-confluence"
+}
