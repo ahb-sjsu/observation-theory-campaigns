@@ -748,6 +748,44 @@ of the EG-4 bar is thereby located, not circumvented, and any future
 claim that entropy alone produces Poisson structure on an area-law
 substrate now has a measured counterexample program to answer.
 
+### EG-5 RECONSIDERATION — RULED CLOSED, 2026-08-05
+
+After EG-4d, the EG-4 items pass on the constrained substrate, but
+only under the demotion ruling, which changes what the pass means.
+EG-5 was designed to test whether an ENTROPIC account reproduces
+horizon thermodynamics. On the constrained substrate its items would
+pass or fail for constraint-inherited reasons, there is no horizon,
+no surface-gravity analogue (open question 6 never closed), and no
+acceleration-dependent temperature, so the run would produce the
+ambiguous scorecard the design philosophy exists to prevent. RULING,
+EG-5 stays closed under its own bar, and the track's successor gate
+is EG-6 below. This ruling is recorded so the question does not
+reopen silently.
+
+### EG-6 — THE EMERGENT GAUSS LAW GATE — declared before any run, 2026-08-05
+
+Question. EG-4d showed a DECLARED local constraint carries static
+geometry through reversible dynamics. The remaining falsifiable
+question is whether such a constraint can EMERGE, does any local
+dynamics without a written-in constraint possess kinematically
+frozen local functionals of Gauss type.
+
+Operational form, exact. For linear local dynamics xdot = A x, a
+frozen functional is a left null vector of A, and a Gauss-type
+structure is a translation-invariant family of LOCAL left null
+vectors (Maxwell's per-vertex divergences are exactly this). The
+gate measures, over a declared deformation family of local two-field
+lattice dynamics containing the curl pair at its center, the
+dimension of the frozen-functional space and the locality
+(participation size) of its members as functions of the deformation.
+Expected outcome, the designed negative, local frozen families are
+non-generic, the constraint collapses under generic local
+deformation rather than deforming smoothly, so Gauss structure is
+declared or absent, never emergent within this class. If local
+frozen families persisted generically the gate would open toward
+emergence and EG-5-class physics downstream. Verdicts computed from
+the numbers after measurement.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
