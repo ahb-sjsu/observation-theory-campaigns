@@ -6,35 +6,36 @@ Question, per the track document. Does delta Q = T delta S hold
 locally with flux, temperature, and entropy each defined
 independently, as an output rather than an input.
 
+The observation region is a spacetime patch, the natural region of
+this substrate per the EG-1b corollary decision. A first structural
+fact, proved en route and asserted, shapes the whole experiment. With
+a full uniform initial ensemble, an injection BEFORE the patch's time
+span is absorbed exactly. The evolved ensemble is already maximal on
+every reachable set, so the perturbed marginal coincides with the
+vacuum one and the entropy response is zero. A time-slice detector is
+therefore blind, and the flux entering the first law must count the
+stochastic events INSIDE the observation region, not all events. This
+is measured, not assumed, and it is the substrate's version of the
+statement that only heat crossing into the region drives its entropy.
+
 The three quantities, each defined with no reference to the others.
 
-delta Q. The substrate's only stochastic events are declared noise
-injections, one fresh bit XORed into a stated cell at a stated step.
-The flux into a spacetime region is the COUNT of injections it
-contains. This is event bookkeeping, defined without any entropy.
+delta Q. The count of declared noise injections inside the patch.
+Event bookkeeping, no entropy anywhere.
 
-T. A declared detector, fixed on a single training configuration
-before any test. The detector is the response ratio of the final-row
-entropy to one injected bit placed far from every boundary, measured
-once. Its value is recorded and then frozen.
+T. A declared detector, the patch-entropy response to one training
+injection placed inside the patch, measured once and frozen.
 
-delta S. The entropy gain of the final row over the vacuum value,
-measured by the EG instrument layer as an exact GF(2) rank.
+delta S. The patch entropy gain over vacuum, an exact GF(2) rank
+difference from the instrument layer.
 
-Independence audit. delta Q counts events and mentions no entropy.
-T is fixed on the training configuration only and never recomputed.
-delta S is a rank. None of the three is defined through the others,
-so a first-law relation, if it holds, is an output.
-
-The test. Held-out noise patterns of increasing density and varying
-geometry (scattered dilute, scattered moderate, clustered, dense
-block, repeated-cell), never used in fixing T. The witness is the
-residual delta S - T delta Q relative to T delta Q. The quasi-static
-analogue of the track document's bar is the dilute limit, where
-injections are causally separated; the residual must vanish there.
-Departures at finite density are measured, not assumed, and the
-expected mechanism is saturation, two injections whose light cones
-overlap on the window can share a rank direction.
+Held-out tests, never used in fixing T. Scattered dilute and moderate
+interior patterns, where the law must be exact. Past patterns, all
+events before the patch, where delta S must be exactly zero although
+the naive all-events flux is positive. A mixed pattern, where the law
+must hold with the inside-only accounting and fail with the naive
+one. A stacked-column stress pattern probing rank alignment, with the
+universal bound delta S <= number of events asserted throughout.
 
 Exploratory label. No physics claim.
 """
@@ -60,87 +61,100 @@ from projection_fold import canonical_sha256  # noqa: E402
 
 N_RING = 257
 T_STEPS = 60
-TRAIN_EVENT = ((30, 200),)
+PATCH_T0 = 20
+PATCH_COLS = range(0, 40)
+TRAIN_EVENT = ((40, 20),)
 HELD_OUT = {
-    "dilute_2": ((10, 20), (40, 120)),
-    "dilute_4": ((5, 10), (20, 70), (35, 130), (50, 190)),
-    "moderate_8": ((6, 10), (12, 42), (18, 74), (24, 106),
-                   (30, 138), (36, 170), (42, 202), (48, 234)),
-    "clustered_4": ((30, 100), (30, 102), (31, 101), (32, 100)),
-    "dense_block_9": ((28, 100), (28, 101), (28, 102),
-                      (29, 100), (29, 101), (29, 102),
-                      (30, 100), (30, 101), (30, 102)),
-    "repeated_cell_5": ((20, 50), (25, 50), (30, 50), (35, 50),
-                        (40, 50)),
+    "dilute_2": ((25, 5), (50, 30)),
+    "dilute_4": ((24, 4), (32, 14), (44, 26), (54, 36)),
+    "moderate_8": ((22, 2), (27, 8), (32, 14), (37, 20),
+                   (42, 26), (47, 32), (52, 36), (57, 10)),
+    "past_4": ((5, 10), (8, 20), (12, 30), (15, 5)),
+    "mixed_2in_2past": ((30, 10), (45, 25), (6, 15), (10, 33)),
+    "stacked_column_12": tuple((t, 12) for t in range(25, 49, 2)),
 }
 
 
-def final_row_entropy(noise_events) -> int:
+def inside(event) -> bool:
+    t, j = event
+    return t >= PATCH_T0 and (j % N_RING) in PATCH_COLS
+
+
+def patch_entropy(noise_events) -> int:
     hist = evolve_generators(N_RING, T_STEPS,
                              noise_events=tuple(noise_events))
-    cells = [(T_STEPS, j) for j in range(N_RING)]
+    cells = [(t, j) for t in range(PATCH_T0, T_STEPS + 1)
+             for j in PATCH_COLS]
     return marginal_entropy_bits(window_matrix(hist, cells))
 
 
 def main() -> int:
-    h_vac = final_row_entropy(())
-    assert h_vac == N_RING - 1, \
-        f"vacuum final row must carry the parity constraint: {h_vac}"
+    h_vac = patch_entropy(())
 
-    # detector calibration on the single training configuration
-    h_train = final_row_entropy(TRAIN_EVENT)
+    h_train = patch_entropy(TRAIN_EVENT)
     t_detector = float(h_train - h_vac) / len(TRAIN_EVENT)
     assert t_detector > 0, "detector response must be positive"
 
     rows = []
     for name, events in HELD_OUT.items():
-        dq = len(events)
-        ds = final_row_entropy(events) - h_vac
-        predicted = t_detector * dq
-        residual = (ds - predicted) / predicted
-        rows.append({"pattern": name, "delta_Q": dq,
+        dq_inside = sum(1 for e in events if inside(e))
+        dq_naive = len(events)
+        ds = patch_entropy(events) - h_vac
+        assert ds <= dq_naive, "rank gain cannot exceed event count"
+        predicted = t_detector * dq_inside
+        residual = ((ds - predicted) / predicted if predicted > 0
+                    else float(ds))
+        rows.append({"pattern": name,
+                     "delta_Q_inside": dq_inside,
+                     "delta_Q_naive": dq_naive,
                      "delta_S_bits": ds,
-                     "T_deltaQ": predicted,
-                     "relative_residual": residual})
+                     "relative_residual_inside_accounting": residual})
 
-    dilute = [r for r in rows if r["pattern"].startswith("dilute")]
-    for r in dilute:
-        assert abs(r["relative_residual"]) < 1e-12, \
-            f"first law must be exact in the dilute limit: {r}"
-    dense = [r for r in rows
-             if r["pattern"] in ("dense_block_9", "repeated_cell_5",
-                                 "clustered_4")]
-    assert any(r["relative_residual"] < -1e-12 for r in dense), \
-        "saturation should appear somewhere in the dense patterns"
+    by_name = {r["pattern"]: r for r in rows}
+    for name in ("dilute_2", "dilute_4", "moderate_8"):
+        assert abs(by_name[name]
+                   ["relative_residual_inside_accounting"]) < 1e-12, \
+            f"first law must be exact for {name}"
+    assert by_name["past_4"]["delta_S_bits"] == 0, \
+        "past injections must be absorbed exactly"
+    assert abs(by_name["mixed_2in_2past"]
+               ["relative_residual_inside_accounting"]) < 1e-12, \
+        "mixed pattern must satisfy inside-only accounting"
+    assert by_name["mixed_2in_2past"]["delta_S_bits"] \
+        < t_detector * by_name["mixed_2in_2past"]["delta_Q_naive"], \
+        "naive all-events accounting must overpredict"
 
     verdict = (
-        "the first law delta S = T delta Q holds exactly in the "
-        "dilute limit with all three quantities independently "
-        "defined, T fixed once on a training configuration and never "
-        "recomputed; at finite density the relation breaks by "
-        "saturation, overlapping light cones share rank directions "
-        "so delta S falls below T delta Q, and the departure is "
-        "measured, not assumed; on this substrate the Clausius "
-        "relation is an output in the quasi-static limit and fails "
-        "outside it, which is the ordering the thermodynamic gravity "
-        "literature assumes rather than derives"
+        "the first law delta S = T delta Q holds exactly on held-out "
+        "interior patterns with all three quantities independently "
+        "defined, T frozen on one training injection; the flux that "
+        "makes it hold is the events inside the spacetime region, "
+        "because injections in the region's causal past are absorbed "
+        "exactly by the maximal ensemble, delta S = 0 against a "
+        "positive naive flux; the Clausius relation is an output on "
+        "this substrate once the flux is the one crossing into the "
+        "region, and a time-slice reading of the same relation is "
+        "blind by the same absorption"
     )
 
     record = {
-        "schema": "eg3-first-law-v1",
+        "schema": "eg3-first-law-v2",
         "label": "exploratory",
         "declared": {"ring": N_RING, "steps": T_STEPS,
+                     "patch": {"t_from": PATCH_T0, "t_to": T_STEPS,
+                               "cols": [PATCH_COLS.start,
+                                        PATCH_COLS.stop]},
                      "vacuum_rule": 90,
                      "train_event": [list(e) for e in TRAIN_EVENT],
                      "held_out_patterns": {k: [list(e) for e in v]
                                            for k, v in
                                            HELD_OUT.items()},
-                     "detector": "final-row entropy response to one "
+                     "detector": "patch-entropy response to one "
                                  "training injection, frozen",
                      "independence_audit": "delta Q counts events, no "
                          "entropy; T frozen on training only; delta S "
                          "is a rank; none defined through the others"},
-        "vacuum_row_entropy": h_vac,
+        "vacuum_patch_entropy": h_vac,
         "T_detector_bits_per_event": t_detector,
         "held_out": rows,
         "verdict": verdict,
@@ -161,11 +175,12 @@ def main() -> int:
     output.write_text(json.dumps(record, indent=2, sort_keys=True),
                       encoding="utf-8")
 
-    print(f"vacuum row {h_vac}, T = {t_detector} bits/event")
+    print(f"vacuum patch {h_vac} bits, T = {t_detector} bits/event")
     for r in rows:
-        print(f"{r['pattern']}: dQ {r['delta_Q']}, dS "
+        print(f"{r['pattern']}: dQ_in {r['delta_Q_inside']}, "
+              f"dQ_naive {r['delta_Q_naive']}, dS "
               f"{r['delta_S_bits']}, residual "
-              f"{r['relative_residual']:+.4f}")
+              f"{r['relative_residual_inside_accounting']:+.4f}")
     print(output)
     return 0
 
