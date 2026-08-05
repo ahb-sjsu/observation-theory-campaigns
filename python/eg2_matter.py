@@ -140,6 +140,25 @@ def main() -> int:
                             "H_mat": marginal_entropy_bits(m_mat)})
             segments[str(length)] = row
         entry["row_segments"] = segments
+
+        # 6. visibility onset: growing central segments up to the
+        # whole ring at the final time. Rule 90 makes every evolved
+        # row even-parity deterministically, while the defect feeds
+        # the defect cells' parity into the row, so visibility is
+        # expected to appear only when the window closes on itself.
+        onset = []
+        for length in (96, 128, 160, 192, 224, 240, 250, 255, 256,
+                       257):
+            cells = [(T_STEPS, -length // 2 + k)
+                     for k in range(length)]
+            m_mat = window_matrix(hist, cells)
+            m_vac = window_matrix(vac, cells)
+            rel, d = image_relation(m_mat, m_vac)
+            onset.append({"length": length, "relation": rel,
+                          "D_bits": d if np.isfinite(d) else "inf",
+                          "H_vac": marginal_entropy_bits(m_vac),
+                          "H_mat": marginal_entropy_bits(m_mat)})
+        entry["visibility_onset"] = onset
         per_source[str(m)] = entry
 
     record["per_source"] = per_source
@@ -186,6 +205,11 @@ def main() -> int:
     print("cone edge (M=1):", e1["cone_edge_single_cells"])
     print("singles inside (M=1):",
           set(e1["single_cells_inside"].values()))
+    for m in per_source:
+        onset = per_source[m]["visibility_onset"]
+        print(f"onset M={m}:",
+              [(o["length"], o["relation"], o["H_vac"], o["H_mat"])
+               for o in onset])
     print(output)
     return 0
 
