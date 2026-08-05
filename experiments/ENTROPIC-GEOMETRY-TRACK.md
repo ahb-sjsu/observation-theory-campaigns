@@ -465,6 +465,43 @@ unevaluable, both between-source and far windows classify equal.
 The sink law itself holds, each isolated sink loses exactly one bit
 per step at either tested position.
 
+### EG-4b DISCOVERY CAMPAIGN — declared before any run, 2026-08-05
+
+Goal, get past the EG-4 bar without insertion. Diagnosis of the EG-4
+failure, recorded first. The local invisibility of matter came from
+the MAXIMAL vacuum ensemble, not from determinism, since an i.i.d.
+uniform initial row makes every local marginal full-entropy and
+leaves nothing local to distinguish, while the causal-cone bound and
+the first law are ensemble-independent. The GF(2) composition of
+deficits came from subspace dimension being the only measurable
+quantity in the uniform case.
+
+Declared direction. Keep the deterministic dynamics (preserving the
+EG-1b area mechanism and the EG-3 first law), and give the vacuum a
+structured initial ensemble, product Bernoulli with a declared bias.
+Window distributions are then exactly computable by Walsh analysis,
+each XOR combination of window functionals has expectation
+(1-2p)^(support size), so every field value is an exact
+Kullback-Leibler divergence, no sampling. The relative-entropy field
+becomes real-valued and smooth in the perturbation, and
+Kullback-Leibler additivity for weak independent perturbations is
+exactly the weak-field regime the EG-4 superposition and linearity
+items are stated in.
+
+Declared probes and bars. Instrument control, the Walsh window
+distribution must match brute-force enumeration on a small case to
+1e-12 before any field is read. Causality null exact. Field
+existence and gradedness, measured profile. Source-strength
+linearity, deviation of the field from linearity in a declared
+duration knob must shrink as the source weakens. Weak-field
+superposition, the two-source field against the sum of single-source
+fields, deviation must shrink as the sources weaken. Poisson and
+Gauss forms evaluated on whatever profile is measured, with
+data-driven verdicts written after measurement, never before. The
+insertion audit is unchanged, sources are rule substitutions, no
+potential or distance function anywhere, and the anti-circularity
+contract applies.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
