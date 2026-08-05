@@ -242,8 +242,9 @@ def main() -> int:
     c2b = census_run(0.3, 2.5, 2_000, 3)
     assert c2b["counts"]["reversing"] == 2_000, f"C2b {c2b['counts']}"
 
-    # C3: failure control, absurd step size, failures counted
-    c3 = census_run(0.5, 0.8, 200, 4, dt=10.0, max_steps=2_000)
+    # C3: failure control, absurd step size with a slow crossing so
+    # the quartic overflow always precedes any exit
+    c3 = census_run(0.01, 0.8, 200, 4, dt=10.0, max_steps=2_000)
     assert c3["counts"]["nonfinite"] + c3["counts"]["capped"] > 0, \
         "C3 produced no failures to count"
     assert sum(c3["counts"].values()) == 200
