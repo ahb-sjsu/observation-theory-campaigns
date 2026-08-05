@@ -361,6 +361,8 @@ projection.
 6. 🟥 Three Sources of Observed Entropy in Reversible Hidden Dynamics
    (PE track completion), drafted and compiled in `paper/`, not yet
    published.
+7. 🟧 An Exact Area Gate for Entropic Accounts of Geometry (EG track,
+   EG-0/1/1b), drafted and compiled in `paper/`, not yet published.
 
 ## Repository layout
 
@@ -368,7 +370,7 @@ projection.
 - `matlab/` - Atlas MATLAB instruments and pilots (`+pf` package).
 - `python/` - reference implementations, quantum instruments, governed
   runners, replications, pilots, and the test suite.
-- `paper/` - six RevTeX papers, compiled PDFs, and the figure-data
+- `paper/` - seven RevTeX papers, compiled PDFs, and the figure-data
   generator.
 - `proofs/` - Lean 4 / Mathlib formalizations (machine-checked
   algebraic cores; build with `lake build` after `lake exe cache get`).
