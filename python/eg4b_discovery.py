@@ -41,6 +41,13 @@ P6  Steady-state probe, round two of the campaign. Round one found
     profiles agree, a static field exists and the Poisson items are
     evaluated on it; if the profile is flat or keeps changing, the
     substrate has no static limit and that is the finding.
+P7  Escape-to-infinity probe, round three. The ring destroyed the
+    statics because the radiation returns. On an effectively
+    infinite lattice the outgoing front escapes forever, which is
+    how reversible dynamics can relax without entropy production.
+    The near-source profile is read at three doubling late times on
+    a lattice too large for any wrap, and a static field exists
+    exactly if the profile converges to a nonflat shape.
 
 Exploratory label. No physics claim.
 """
@@ -243,6 +250,48 @@ def main() -> int:
                           / max(p160.max(), 1e-300)) \
         if p160.max() > 0 else 0.0
 
+    # P7: escape to infinity, near-source profile at doubling times
+    # on a lattice too large for any wrap within the horizon
+    def final_gen(n, steps, defects=(), defect_until=10**9):
+        gen = np.eye(n, dtype=bool)
+        dmask = np.zeros(n, dtype=bool)
+        for c in defects:
+            dmask[c % n] = True
+        for t in range(1, steps + 1):
+            nxt = np.roll(gen, 1, axis=0) ^ np.roll(gen, -1, axis=0)
+            if t <= defect_until:
+                nxt[dmask] ^= gen[dmask]
+            gen = nxt
+        return gen
+
+    n_big = 1200
+    center = 600
+    escape = {}
+    for t_late in (64, 128, 256):
+        gv = final_gen(n_big, t_late)
+        gs = final_gen(n_big, t_late, (center,))
+
+        def row_ints(gen, cells_j):
+            return [int("".join("1" if b else "0"
+                                for b in gen[j][::-1]), 2)
+                    for j in cells_j]
+
+        prof = []
+        for dr in range(-48, 49, 4):
+            cells_j = [center + dr + k for k in range(WINDOW)]
+            prof.append({"dr": dr, "phi_bits": kl_bits(
+                window_distribution(row_ints(gs, cells_j), P_BIAS),
+                window_distribution(row_ints(gv, cells_j), P_BIAS))})
+        escape[str(t_late)] = prof
+    e64 = np.array([row["phi_bits"] for row in escape["64"]])
+    e128 = np.array([row["phi_bits"] for row in escape["128"]])
+    e256 = np.array([row["phi_bits"] for row in escape["256"]])
+    esc_scale = float(max(e256.max(), 1e-300))
+    esc_change_last = float(np.max(np.abs(e256 - e128))) / esc_scale
+    esc_change_prev = float(np.max(np.abs(e128 - e64))) / esc_scale
+    esc_spread = float((e256.max() - e256.min()) / esc_scale) \
+        if e256.max() > 0 else 0.0
+
     # P5: Poisson and Gauss forms on the measured profile, verdicts
     # computed from the numbers
     phis = [row["phi_bits"] for row in profile]
@@ -278,6 +327,10 @@ def main() -> int:
         "poisson_source_localized": bool(poisson_localized),
         "static_limit_exists":
             steady_change < 0.05 and steady_spread > 0.1,
+        "escape_static_field":
+            esc_change_last < 0.05
+            and esc_change_last < esc_change_prev
+            and esc_spread > 0.1,
     }
 
     pieces = []
@@ -310,11 +363,24 @@ def main() -> int:
             f"of {steady_spread:.3g}.")
     else:
         pieces.append(
-            f"no usable static limit at the tested times, the "
-            f"late-time profiles change by {steady_change:.3g} "
-            f"relative and their spread is {steady_spread:.3g}, so "
-            f"the field either keeps evolving or flattens once the "
-            f"front self-collides.")
+            f"no usable static limit on the ring, the late-time "
+            f"profiles change by {steady_change:.3g} relative and "
+            f"their spread is {steady_spread:.3g}, so the field "
+            f"either keeps evolving or flattens once the front "
+            f"self-collides.")
+    if items["escape_static_field"]:
+        pieces.append(
+            f"with the radiation escaping to infinity a static "
+            f"near-source field exists, the doubling-time profiles "
+            f"converge ({esc_change_prev:.3g} then "
+            f"{esc_change_last:.3g} relative) with spread "
+            f"{esc_spread:.3g}.")
+    else:
+        pieces.append(
+            f"escape to infinity does not yield a converged static "
+            f"near-source field at the tested times, successive "
+            f"changes {esc_change_prev:.3g} then {esc_change_last:.3g} "
+            f"relative with spread {esc_spread:.3g}.")
     passed = sum(1 for v in items.values() if v)
     pieces.append(
         f"{passed} of {len(items)} declared items pass; the EG-4 bar "
@@ -342,6 +408,9 @@ def main() -> int:
         "steady_state": steady,
         "steady_change_relative": steady_change,
         "steady_spread": steady_spread,
+        "escape": escape,
+        "escape_change_relative": [esc_change_prev, esc_change_last],
+        "escape_spread": esc_spread,
         "gauss_monotone_flanks": bool(monotone_flanks),
         "laplacian_at_source": lap_at_src,
         "laplacian_far_max": lap_far,
@@ -379,6 +448,11 @@ def main() -> int:
            for row in steady["160"] if row["phi_bits"] > 1e-9][:12])
     print(f"steady change {steady_change:.4g}, spread "
           f"{steady_spread:.4g}")
+    print("escape 256:",
+          [(row["dr"], round(row["phi_bits"], 4))
+           for row in escape["256"]])
+    print(f"escape changes {esc_change_prev:.4g} -> "
+          f"{esc_change_last:.4g}, spread {esc_spread:.4g}")
     print("items:", items)
     print(output)
     return 0
