@@ -64,9 +64,13 @@ W_MODES = np.linspace(W_LO, W_HI, N_MODES)
 
 
 def entropy_bits(t: np.ndarray) -> float:
+    # the half-bin offset keeps the degenerate initial ensemble
+    # (t identically zero) off a bin edge, where round-trip 1e-16
+    # noise would split one bin into two and fake a retrace defect
     centered = t - t.mean()
     counts = np.bincount(
-        np.clip(((centered + 8.0) / EPS).astype(int), 0, int(16.0 / EPS)))
+        np.clip(((centered + 8.0 + EPS / 2) / EPS).astype(int), 0,
+                int(16.0 / EPS)))
     p = counts[counts > 0] / len(t)
     return float(-(p * np.log2(p)).sum())
 
