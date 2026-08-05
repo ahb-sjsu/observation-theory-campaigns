@@ -186,6 +186,33 @@ for c in pilot["family_p2s"]["cells"]:
                  1 if c["deterministically_reversing"] else 0))
 write("pf4_manifold.dat", "P E d regime", rows)
 
+# Figure M1: PE-3 observed entropy curves, integrable versus chaotic
+# dynamics, every 10th snapshot of the committed record.
+pe3 = json.loads((ROOT / "results" / "pe3-mixing.json").read_text())
+ci = pe3["results"]["integrable"]["entropy_curve_every_40"]
+cc = pe3["results"]["chaotic"]["entropy_curve_every_40"]
+n3 = len(ci)
+tau_max = pe3["declared"]["tau_max"]
+keep = [i for i in range(n3) if i % 10 == 0 or i == n3 - 1]
+write(
+    "pe3_curves.dat",
+    "tau integrable chaotic",
+    [(i * tau_max / (n3 - 1), ci[i], cc[i]) for i in keep],
+)
+
+# Figure M2: PE-4 recovery defects, retrace defect, and coarse mutual
+# information across the coupling grid.
+pe4 = json.loads((ROOT / "results" / "pe4-noise.json").read_text())
+rows = []
+for kappa in pe4["declared"]["kappas"]:
+    entry = pe4["per_kappa"][f"{kappa:g}"]
+    rows.append((kappa,
+                 entry["recovery_defect_system_flip"],
+                 entry["recovery_defect_full_flip"],
+                 entry["entropy_retrace_defect_bits"],
+                 entry["mutual_information_Z_Ebath_bits"]))
+write("pe4_defects.dat", "kappa sysflip fullflip retrace mi", rows)
+
 # Figure Q3: QO-3 joint survival versus family size, families A and B.
 qo3 = json.loads((ROOT / "results" / "qo3-family.json").read_text())
 strict = qo3["summary"]["strict"]

@@ -1,0 +1,513 @@
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
+
+\newcommand{\dd}{\mathrm{d}}
+
+\begin{document}
+
+\title{Three Sources of Observed Entropy in Reversible Hidden Dynamics:\\
+Mixing, Projection Multiplicity, and Inaccessible Degrees of Freedom}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 4, 2026}
+
+\begin{abstract}
+A previous paper showed that folds of a singular projection create observed
+entropy with zero hidden information loss.  This paper completes that
+program with three measured experiments that say where observed entropy
+comes from and when it becomes real.  The first experiment is a matched
+design in which an integrable and a chaotic dynamics share every other
+parameter while a folding observer and a monotone observer read the same
+trajectories.  Sustained growth of the observed ensemble entropy follows
+the dynamics under either observer, the multiplicity of hidden states
+behind one observation follows the observer under either dynamics, and the
+two mechanisms are independent.  The second experiment measures a hierarchy
+of consumers reading a double fold with increasing access.  Their exact
+conditional entropies form a lawful decreasing chain whose gaps price each
+additional observable, and the chain is the classical counterpart of a
+quantum consumer hierarchy measured earlier in the campaign.  The third
+experiment couples the earlier reversible fold cycle to a thermal bath the
+observer cannot reverse.  Reversal restricted to the system fails in
+proportion to the coupling, reversal extended to the bath succeeds exactly
+at every coupling, and the record of the leak is invisible to the coarse
+bath observables measured here.  Within this model class, observed entropy
+growth is mixing, observed ambiguity is the observer's own singularities,
+and irreversibility is an accounting of which degrees of freedom the
+observer can reach.  Nothing in this paper is a claim about physical
+spacetime or about the thermodynamics of any real system.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+An observer watching a hidden dynamical system through a projection can see
+its recorded entropy change for reasons that have nothing to do with each
+other.  The hidden flow can genuinely mix, spreading an ensemble across the
+observer's bins.  The projection can fold, so that a single observed
+instant sits over several hidden states at once.  And information can leak
+into degrees of freedom the observer cannot manipulate, so that a reversal
+protocol available to the observer no longer undoes the evolution.  These
+three sources are routinely described with the same word, entropy, and a
+central discipline of the present campaign is to refuse that conflation
+until an experiment forces it or forbids it.
+
+The first paper of this track \cite{EntropyPaper} studied the fold itself.
+It proved that a nondegenerate fold changes the number of hidden preimages
+by two while conserving an orientation-weighted count, computed exact
+branch entropies for canonical control maps, measured the resolution
+scaling of the caustic, and demonstrated a reversible Hamiltonian ensemble
+whose observed entropy swings by more than two bits and then returns every
+bit, with the initial hidden ensemble recovered to near machine precision.
+That paper established that folds create observed entropy without hidden
+loss.  It deliberately left three questions open.  Whether fold
+multiplicity or hidden mixing controls the growth of observed entropy in a
+system that has both.  What a hierarchy of observers with graded access is
+worth in exact conditional bits.  And when the recoverable ambiguity of a
+projection becomes irreversible entropy production.
+
+This paper answers all three within the same model family, and the track
+is thereby complete.  The answers have a common shape.  Each candidate
+source of observed entropy is isolated by a matched design in which the
+other sources are held fixed, and each answer is a measured number with a
+falsification bar that was written down before the run.  The mixing
+experiment finds that growth belongs to the dynamics and multiplicity
+belongs to the observer, with no leakage between the two.  The hierarchy
+experiment finds a lawful chain of exact conditional entropies whose gaps
+price orientation and branch knowledge separately.  The bath experiment
+finds that irreversibility is not a property of the dynamics at all in
+this class.  It is a property of which momenta the observer is permitted
+to flip, and the leaked record hides in correlations that no coarse bath
+observable measured here can see.
+
+The scope of these claims is narrow and stated once.  Every result is a
+computation or a measured simulation in a declared toy model class, graded
+by the campaign's evidence scheme as demonstrated in model.  No claim is
+made about physical spacetime, about the thermodynamics of any real
+system, or about quantum gravity.
+
+\section{The model family and the completed track}
+\label{sec:family}
+
+All three experiments use the campaign's standard hidden system, two
+coupled degrees of freedom with Hamiltonian
+\begin{equation}
+H = \tfrac{1}{2}\left(p_t^2 + p_u^2\right)
+  + \tfrac{1}{2}\omega_t^2 t^2 + \tfrac{1}{2}\omega_u^2 u^2
+  + \tfrac{\lambda}{4} u^4 + gE\,t u,
+\label{eq:toy}
+\end{equation}
+with $\omega_u = 1.2$ and $g = 0.25$ throughout, integrated by
+time-symmetric methods whose energy drift is monitored in every run.  The
+observed coordinate is $t$ and the observer's records are binned at a
+declared resolution $\epsilon$.  The projection of interest sends the
+hidden evolution parameter $\tau$ to an observed time functional, and the
+observer's singularities are the critical points of that functional.
+
+The track now comprises six experiments.  The fold theorem and the exact
+branch entropies, the caustic resolution scaling, and the reversible fold
+cycle are published \cite{EntropyPaper}.  The three completions reported
+here are the mixing comparison, the consumer hierarchy, and the bath
+coupling.  Every result-bearing run writes an append-only evidence record
+with hashes, and Sec.~\ref{sec:methods} lists them.
+
+\section{Mixing versus multiplicity}
+\label{sec:pe3}
+
+\subsection{A matched two-by-two}
+
+The design question is whether the growth of observed entropy is
+controlled by hidden chaotic mixing or by the multiplicity of the
+observer's projection.  A four-system comparison invites leakage, because
+a system built to mix usually also folds differently.  The experiment
+instead crosses two dynamics with two observers so that neither axis can
+contaminate the other.
+
+The two dynamics share every parameter of Eq.~(\ref{eq:toy}) with
+$\omega_t = 1$ and $E = 2$ and differ only in the quartic coefficient,
+$\lambda = 0$ for the integrable member and $\lambda = 0.35$ for the
+chaotic member.  The two observers read the same trajectories through two
+time functionals, the folding functional $T = t$ and the monotone
+functional $T = t + 3\tau$.  The monotone functional never folds because
+$\dd T/\dd\tau = p_t + 3$ and $|p_t|$ stays well below $3$ in this family.
+The decisive property of the design is that the two functionals differ
+only by a linear term in $\tau$, so at every instant the ensemble marginal
+of $t$ is the same for both observers.  Growth of the binned ensemble
+entropy therefore cannot depend on the observer, and the multiplicity of
+worldline states behind one observed level cannot depend on anything but
+the observer.  The two mechanisms are separated by construction, and the
+experiment measures whether each one actually moves.
+
+A $20000$-member ensemble with thermal hidden initial conditions is
+integrated to $\tau = 40$ for each dynamics, and the centered binned
+entropy of the observed marginal is recorded along the way at
+$\epsilon = 0.05$.  On a reference trajectory the unsigned crossing count
+of each observed level, the multiplicity a worldline observer must
+resolve, is measured for both functionals.
+
+\subsection{Result}
+
+\begin{figure}[t]
+\begin{tikzpicture}
+\begin{axis}[paperaxis,
+  xlabel={hidden evolution parameter $\tau$},
+  ylabel={observed entropy [bits]},
+  xmin=0, xmax=40, ymin=0,
+  legend pos=south east]
+\addplot[blue!70!black, thick]
+  table[x=tau, y=integrable] {figdata/pe3_curves.dat};
+\addlegendentry{integrable, $\lambda=0$}
+\addplot[red!70!black, thick, densely dashed]
+  table[x=tau, y=chaotic] {figdata/pe3_curves.dat};
+\addlegendentry{chaotic, $\lambda=0.35$}
+\end{axis}
+\end{tikzpicture}
+\caption{Observed binned entropy of the $t$ marginal for the two matched
+dynamics.  The early rise is common linear dispersion and does not
+separate the systems.  The late behavior does.  Over the second half of
+the run the integrable curve recurs with fitted slope $-0.024$ bits per
+unit $\tau$ while the chaotic curve continues to grow at $+0.030$ bits
+per unit $\tau$.  Data from the committed evidence record of the mixing
+experiment.}
+\label{fig:pe3}
+\end{figure}
+
+Figure~\ref{fig:pe3} shows the two entropy curves.  The total rise over
+the run is nearly identical, $5.71$ bits for the integrable dynamics and
+$5.83$ bits for the chaotic one, because the early spread of the ensemble
+is ordinary linear dispersion and is common to both.  An honest reading
+must therefore refuse the total rise as a discriminator.  The late-time
+slope discriminates.  Fitted over the second half of the run, the
+integrable curve turns over and recurs at $-0.024$ bits per unit $\tau$
+while the chaotic curve keeps growing at $+0.030$ bits per unit $\tau$.
+Sustained growth follows the dynamics, under either observer, because the
+observers share the marginal by construction.
+
+Multiplicity behaves in the complementary way.  The folding observer sees
+a mean unsigned crossing multiplicity between $9.6$ and $10.2$ per
+observed level, with a maximum of $12$, under both dynamics.  The
+monotone observer sees exactly one crossing per level everywhere, under
+both dynamics.  Multiplicity follows the observer's singularities and is
+indifferent to whether the hidden flow mixes.
+
+The falsification bar, fixed before the run, was met.  A chaotic late
+slope at or below the integrable one, a folding observer with mean
+multiplicity at or below $1.5$, or a monotone observer seeing any level
+more than once would each have invalidated the reading.  The conclusion
+is that mixing and multiplicity are independent axes.  Mixing pumps
+observed entropy.  Folds create observed ambiguity.  Neither implies the
+other.
+
+\section{The consumer hierarchy}
+\label{sec:pe5}
+
+\subsection{Graded access to a double fold}
+
+The second completion prices what each additional observable is worth to
+an observer of a singular projection.  The system is the double fold
+$t = \tau^3 - \tau$ on the declared interval $|\tau| \le 1.6$, the map
+whose three branches carry only two orientations because the outer
+branches share the sign of $\dd t/\dd\tau$.  That degeneracy is the reason
+this map is the right one.  A consumer who learns the orientation has not
+learned the branch, so the rungs of the hierarchy are genuinely distinct.
+
+The hidden state is uniform on a $\tau$ grid of spacing $10^{-4}$ and the
+observed time is binned at $\epsilon = 0.05$.  Three consumers read the
+system.  The first sees only the binned observed time.  The second sees
+the binned time and the orientation, the sign of $\dd t/\dd\tau$.  The
+third sees the binned time and the full branch label.  Because the state
+space is a finite grid, every conditional entropy is an exact finite sum
+with no estimator and no sampling error.
+
+\subsection{Result}
+
+\begin{table}[t]
+\caption{The measured consumer chain on the double fold.  Each row states
+what the consumer reads and the exact conditional entropy of the hidden
+state given that reading.  The residual of the last rung is within-branch
+positional uncertainty set by the declared grid and bin resolutions.}
+\label{tab:pe5}
+\begin{ruledtabular}
+\begin{tabular}{lc}
+Consumer reads & $H(\text{hidden}\,|\,\text{reading})$ [bits] \\
+\colrule
+binned position only          & $9.5555$ \\
+position and orientation      & $8.8307$ \\
+position and branch label     & $8.5453$ \\
+full hidden state             & $0$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Table~\ref{tab:pe5} shows the chain.  The ordering
+$9.5555 \ge 8.8307 \ge 8.5453 \ge 0$ holds with strictly positive gaps at
+every rung.  Orientation is worth $0.7248$ bits.  The branch label is
+worth a further $0.2854$ bits beyond orientation, and that gap is exactly
+the price of the outer-branch degeneracy, since orientation resolves the
+middle branch but cannot split the outer pair.  The residual $8.5453$ bits
+of the branch consumer is within-branch positional uncertainty fixed by
+the grid and bin resolutions, not by the fold.  A branch is an interval of
+hidden states rather than a point, so no discrete label can take the chain
+to zero.
+
+The campaign's quantum track measured the same structure in an Ising
+consumer hierarchy, where coarser consumers pay quantifiable
+distinguishability costs in a lawful degradation chain
+\cite{QuantumPaper}.  The present chain is the classical counterpart that
+the quantum paper's reduction argument cites.  The gaps are classical
+prices in exact bits, and the ordering is forced by the data-processing
+inequality in its most elementary form.
+
+\section{Reversal reach and entropy production}
+\label{sec:pe4}
+
+\subsection{The cycle with a bath attached}
+
+The published reversible fold cycle showed that more than two bits of
+observed entropy can appear and vanish with zero hidden loss, because
+flipping every momentum retraces the evolution exactly
+\cite{EntropyPaper}.  The third completion asks what changes when the
+system is coupled to an environment.  The hidden coordinate $u$ of
+Eq.~(\ref{eq:toy}), with $\omega_t = 1$, $E = 1$, and $\lambda = 0.1$, is
+coupled to a bath of $32$ harmonic modes with frequencies spread uniformly
+over $[0.5, 2.5]$, thermal initial conditions, and bilinear coupling of
+strength $\kappa/\sqrt{32}$ per mode in the style of the standard
+oscillator-bath models \cite{CaldeiraLeggett1983}.  The full evolution
+remains Hamiltonian and time-symmetric, so in the full space nothing is
+irreversible at any coupling.
+
+The observer's limitation is operational.  The observer can flip the
+system momenta but cannot touch the bath.  For each coupling
+$\kappa \in \{0, 0.05, 0.1, 0.2, 0.4\}$ an $8000$-member ensemble is
+integrated forward to $\tau = 20$, and from the same stored turning state
+two return legs are run.  One flips only the system momenta, which is
+what the observer can do.  The other flips the bath momenta as well,
+which is the control.  The witnesses are the hidden-state recovery defect
+of each return, the retrace defect of the observed entropy curve, and the
+plugin mutual information between the binned observed coordinate and the
+binned bath energy.
+
+\subsection{Result}
+
+\begin{figure}[t]
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 2, vertical sep=34pt},
+  width=\columnwidth]
+\nextgroupplot[paperaxis, height=0.5\columnwidth,
+  ymode=log, ymin=1e-16, ymax=50,
+  xmin=-0.02, xmax=0.42,
+  ylabel={recovery defect},
+  legend pos=south east]
+\addplot[red!70!black, thick, mark=*, mark size=1.6pt]
+  table[x=kappa, y=sysflip] {figdata/pe4_defects.dat};
+\addlegendentry{system-only flip}
+\addplot[blue!70!black, thick, mark=square*, mark size=1.4pt]
+  table[x=kappa, y=fullflip] {figdata/pe4_defects.dat};
+\addlegendentry{full flip with bath}
+\nextgroupplot[paperaxis, height=0.5\columnwidth,
+  xmin=-0.02, xmax=0.42, ymin=-0.3, ymax=6.8,
+  xlabel={coupling $\kappa$},
+  ylabel={[bits]},
+  legend pos=south east]
+\addplot[red!70!black, thick, mark=*, mark size=1.6pt]
+  table[x=kappa, y=retrace] {figdata/pe4_defects.dat};
+\addlegendentry{lost retraceability}
+\addplot[blue!70!black, thick, mark=square*, mark size=1.4pt]
+  table[x=kappa, y=mi] {figdata/pe4_defects.dat};
+\addlegendentry{$I(Z;E_{\text{bath}})$}
+\end{groupplot}
+\end{tikzpicture}
+\caption{Top panel.  Root-mean-square recovery defect of the hidden
+system state after the round trip, for the reversal the observer can
+perform and for the control that also flips the bath.  The observer's
+reversal fails monotonically with coupling while the full flip recovers
+to better than $5 \times 10^{-15}$ at every coupling.  Bottom panel.  The
+entropy retrace defect grows to $5.87$ bits while the mutual information
+between the observed coordinate and the bath energy never leaves the
+estimator floor.  Data from the committed evidence record of the bath
+experiment.}
+\label{fig:pe4}
+\end{figure}
+
+Figure~\ref{fig:pe4} carries both findings.  At $\kappa = 0$ the cycle
+reproduces the published result exactly, with recovery defect
+$4.8 \times 10^{-15}$ and entropy retrace defect exactly zero.  As the
+coupling grows, the reversal available to the observer fails
+monotonically, with recovery defects $0.33$, $0.64$, $1.18$, and $1.89$
+across the grid and a retrace failure that reaches $5.87$ bits.  The
+control tells the other half of the story.  The full flip, including the
+bath, recovers the hidden state to better than $5 \times 10^{-15}$ at
+every coupling.  The dynamics never became irreversible.  What changed is
+the reach of the observer's reversal protocol.  In this model class,
+entropy production is an accounting of which degrees of freedom the
+observer can flip, and the published claim that observed entropy carries
+no hidden loss survives intact in the enlarged space.
+
+The second finding was not the expected one, and the runner's first
+version asserted its opposite.  The natural expectation is that the
+leaked information should be visible in the bath, for instance as mutual
+information between the observed coordinate and the bath energy.
+Measured, it is not.  Across the whole grid that mutual information stays
+between $0.009$ and $0.016$ bits, within a factor of two of its
+zero-coupling estimator floor, while the observer's lost retraceability
+grows to almost six bits.  The mean bath energy is no witness either,
+since without a counter-term the coupling shifts the equilibrium and the
+bath energy actually falls at strong coupling.  The record of the leak
+lives in system-bath microstate correlations that none of the coarse bath
+functionals measured here can see.  Recovery therefore requires
+microstate access, not a macroscopic bath reading.  The revised assertion
+set demands this invisibility, and a coarse mutual information rising
+above $0.05$ bits would now refute the reading.  This is the classical
+face of a familiar quantum lesson, that what an environment records and
+what a coarse observer of that environment can read are very different
+things \cite{Zurek2003}.
+
+\section{What the track establishes}
+\label{sec:claims}
+
+\begin{table*}[t]
+\caption{Claim register for the completed entropy track.  Labels follow
+the campaign's evidence scheme.  Proved means a theorem with a written
+proof.  Exact means a closed-form computation verified in independent
+implementations.  Demonstrated in model means a measured simulation with
+declared parameters, append-only evidence records, and falsification bars
+fixed before the run.}
+\label{tab:claims}
+\begin{ruledtabular}
+\begin{tabular}{L{4.6cm} L{9.2cm} l}
+Experiment & Claim & Label \\
+\colrule
+Fold theorem \cite{EntropyPaper} & a nondegenerate fold changes fiber
+multiplicity by two and conserves the signed count & proved \\
+Branch entropies \cite{EntropyPaper} & fold one bit, symmetric double
+fold one and one half bits, degenerate monotone map zero & exact \\
+Caustic scaling \cite{EntropyPaper} & binned caustic entropy converges to
+its differential limit as the square root of the bin width & demonstrated
+in model \\
+Reversible cycle \cite{EntropyPaper} & observed entropy swings above two
+bits with zero hidden loss and exact retrace & demonstrated in model \\
+Mixing versus multiplicity (this paper) & sustained entropy growth
+follows the dynamics, multiplicity follows the observer, independently &
+demonstrated in model \\
+Consumer hierarchy (this paper) & exact conditional chain with positive
+gaps pricing orientation and branch knowledge separately & demonstrated
+in model \\
+Bath coupling (this paper) & reversal failure is set by the observer's
+reach, the full flip recovers exactly at every coupling, and the leak is
+invisible to coarse bath observables & demonstrated in model \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Table~\ref{tab:claims} registers the claims of the completed track with
+their labels.  Read together, the six experiments give the campaign's
+answer to where observed entropy comes from in this model class.  The
+growth of observed entropy is mixing, a property of the hidden dynamics.
+The ambiguity of an observation is multiplicity, a property of the
+observer's own singularities, worth an exactly computable number of bits
+to resolve.  The irreversibility of observed entropy is neither of these.
+It is an accounting statement about which degrees of freedom the
+observer's reversal can reach, it appears at the moment ambiguity leaks
+into unreachable ones, and it leaves no record that a coarse reading of
+the environment can find.
+
+Three cautions bound the reading.  These are toy Hamiltonians with a
+handful of degrees of freedom, and no thermodynamic limit is taken
+anywhere in this paper.  The bath experiment measures one family of
+coarse bath observables, and a cleverer functional of the bath might see
+more of the leak than the energy does.  And the mixing experiment's
+chaotic member was diagnosed by its behavior rather than by a Lyapunov
+measurement, so the label chaotic is operational.  None of these cautions
+weakens the matched comparisons, which are internal to each experiment.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+All instruments derive from the campaign's sealed tolerance and
+instrument freezes, registered as PF0-FREEZE-001 and PEQO-FREEZE-002,
+which fix numerical bars in advance and void themselves if edited.  The
+three experiments of this paper are exploratory-grade instruments
+validated against exact controls, the zero-coupling limit for the bath
+cycle, the monotone observer for the multiplicity count, and the exact
+finite sums for the hierarchy.  Every result-bearing run writes an
+append-only JSON evidence record containing the complete parameter set,
+seeds, outcome arrays, and a canonical SHA-256 hash of the record body,
+and the records for the three experiments here are
+\texttt{pe3-mixing.json}, \texttt{pe5-hierarchy.json}, and
+\texttt{pe4-noise.json} in the campaign repository.  Every number and
+every figure coordinate in this paper is read from those committed
+records or recomputed deterministically from committed instrument code by
+a committed script, with no free parameters.  One instrument correction
+made during this work is recorded in the repository history.  The
+degenerate initial ensemble of the bath cycle initially sat exactly on a
+bin edge, where round-trip noise at the $10^{-16}$ level split one bin
+into two and produced a spurious retrace defect, and the binning grid was
+shifted by half a bin before any evidence was recorded.
+
+\begin{thebibliography}{9}
+
+\bibitem{EntropyPaper}
+A.~H.~Bond,
+Entropy across singular projections: fiber multiplicity, caustics, and
+observer-relative information,
+Zenodo (2026), doi:10.5281/zenodo.21789011.
+
+\bibitem{QuantumPaper}
+A.~H.~Bond,
+Consumer-relative quantum distinguishability,
+Zenodo (2026), doi:10.5281/zenodo.21789046.
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory}, 2nd ed.\
+(Wiley-Interscience, Hoboken, 2006).
+
+\bibitem{CaldeiraLeggett1983}
+A.~O.~Caldeira and A.~J.~Leggett,
+Path integral approach to quantum Brownian motion,
+Physica A \textbf{121}, 587 (1983).
+
+\bibitem{Zurek2003}
+W.~H.~Zurek,
+Decoherence, einselection, and the quantum origins of the classical,
+Rev.\ Mod.\ Phys.\ \textbf{75}, 715 (2003).
+
+\bibitem{Landauer1961}
+R.~Landauer,
+Irreversibility and heat generation in the computing process,
+IBM J.\ Res.\ Dev.\ \textbf{5}, 183 (1961).
+
+\bibitem{Bennett1982}
+C.~H.~Bennett,
+The thermodynamics of computation, a review,
+Int.\ J.\ Theor.\ Phys.\ \textbf{21}, 905 (1982).
+
+\bibitem{Arnold1992}
+V.~I.~Arnold,
+\emph{Catastrophe Theory}, 3rd ed.\
+(Springer-Verlag, Berlin, 1992).
+
+\end{thebibliography}
+
+\end{document}
