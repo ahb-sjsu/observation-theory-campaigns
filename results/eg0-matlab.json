@@ -1,0 +1,1 @@
+{"fold_bit":1,"double_fold_bits":1.5,"linear_control_bits":6.6438561897747226,"nested_uniform_bits":2.0000000000000244,"gauss_abs_err":1.7491069703723383E-10,"deformed_fold_max_dev":0,"binary_target_bits":0.081704165945510415,"verdict":"MATLAB replication passing on every closed-form control at rounding precision; the EG-0 cross-substrate clause is satisfied"}
