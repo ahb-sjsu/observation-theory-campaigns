@@ -588,6 +588,21 @@ The single most important pre-seal decision.
    known confound the standing warning addresses). Any arm whose
    verdict differs between the two counts is reported under both,
    with the primary count deciding the gate.
+
+   **COROLLARY DECISION for dynamical ensembles, 2026-08-05, before
+   any EG-1b run.** The entropy-density lemma recorded under EG-1b
+   forces any passing mechanism to have zero bulk entropy density, and
+   the natural zero-density class is deterministic local dynamics with
+   the region read as a spacetime region. For such ensembles the
+   deterministic interior makes H(interior | boundary) exactly zero,
+   which is degenerate rather than informative, so the operational
+   count of states associated with a spacetime region is the marginal
+   entropy H(region), compared against region volume R^(d+1) and
+   region boundary R^d, with H(interior | boundary) still computed and
+   reported. A pass additionally requires the structural-origin audit:
+   the same construction with the structural feature removed (bulk
+   noise added) must revert to a volume law, showing the scaling
+   tracks the declared structure and nothing tuned.
 3. **The EG-2 reverse-engineering audit is a criterion, not yet an
 algorithm.** A formal test certifying that a source is not
 potential-equivalent may be undecidable in general; a restricted declared
