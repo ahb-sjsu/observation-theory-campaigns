@@ -612,6 +612,36 @@ its best chance. Probes mirror round one, causality null exact
 infinity, gradedness and monotone decay, superposition against
 separation, Poisson localization. Verdicts from the numbers.
 
+**ROUND 2 RESULTS after three instrument iterations (runner
+`python/eg4c2_wave.py`, evidence `results/eg4c2-wave.json`).** The
+covariance instrument validates against dense evolution to 8.9e-16
+and causality is exact at unit wave speed. The first two iterations
+found the impedance signal at or below the float noise floor of the
+covariance calculus (fields of 1e-5 bits with hundredfold isotropy
+violations, diagnosed as ill-conditioning of highly correlated
+neighboring cells, an instrument lesson recorded). The third
+iteration, a strong-contrast scatterer (stiffness 0.05 in a 0.2
+vacuum) read through decorrelated stride-two windows, produces a
+well-measured field (up to 5e-3 bits), isotropy WITHIN the profile
+spread, and the campaign's second breakthrough, superposition
+deviations decaying cleanly with source separation, 1.13 to 0.46 to
+0.056 across separations 12, 24, 40, so DISTANCE WORKS AS THE
+CONTINUOUS WEAK-FIELD KNOB, which no finite-field substrate could
+provide. What round two cannot reach at times 48 and 96 is the
+static regime itself, the profiles are still transient-dominated
+(convergence 4.5) because two-dimensional waves relax with slow
+algebraic tails. That is a compute problem, not a conceptual one.
+
+**ROUND 3, IN FLIGHT.** The long statics batch
+(`python/eg4c3_statics.py`, screen `eg4c3` on Atlas, log
+`~/eg4c3.log`) reads the axis profile at doubling times 256 and 512
+on lattices too large for any wrap, and evaluates convergence,
+gradedness, monotone decay, and Poisson localization on the late
+pair. Harvest on request. Campaign standing so far, the finite-field
+obstruction is conclusively identified (round one), real amplitudes
+restore dilution and the weak-field knob (round two), and the
+statics question is delegated to the long run.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
