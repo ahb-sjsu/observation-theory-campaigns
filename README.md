@@ -106,15 +106,39 @@ impulsive closure applies, while continuous integration of the same
 force never reverses. That finding is now a binding design clause for
 the remaining experiment.
 
-Still open. PF-4, the sealed Schwinger challenge, is designed
-(`experiments/PF4-DESIGN.md`) with the closure-prescription clause and
-a planted-artifact control, and a candidate-family pilot is running.
-The expected outcome remains a disciplined negative.
+The PF-4 Schwinger challenge then ran its full arc. A four-iteration
+pilot mapped the Sauter family's critical-field manifold. The first
+sealed run returned the defined neither-axis verdict, teaching that
+the effective-gap axis organizes the family at the few-percent level
+without being a law. The second sealed run, with bars set against
+model error as the owner rule demanded, passed both bars with room
+and delivered the campaign's disciplined negative, the family's
+suppression is a Gaussian measure tail in the effective gap and the
+Schwinger axis fails to compete (the fifth paper). Two hunt probes
+then located where a non-measure-tail exponent could live, the
+post-crossing residual is log-linear in inverse momentum with the
+Landau-Zener form explaining its slope quantitatively.
+
+Still open, and in flight. PREREG-PF4-003, the frozen-measure
+pulse-train family, is the sealed summit attempt on the open
+question of whether any constructible family carries an action-set
+exponent; its governed run is executing on Atlas. Behind it stand
+the two mandatory gates of the master design, PF-5 (conservation and
+complete accounting) and PF-6 (observer, Lorentz, and gauge audit),
+whose instrument layers are now built and validated on exact
+controls (`experiments/PF5-INSTRUMENT.md`,
+`experiments/PF6-INSTRUMENT.md`) and await sealed runs on the family
+the harvest selects. PF-7, the quantum-structure ceiling, stays
+gated behind both.
 
 Key files. `experiments/CAMPAIGN.md` (the master design),
-`experiments/PF3-PROVENANCE.md`, `experiments/PF4-DESIGN.md`,
-`matlab/`, `python/shp_land2016.py`, `python/pf4_pilot.py`.
-Paper. The Cayley-pole paper, DOI 10.5281/zenodo.21790096.
+`experiments/PF3-PROVENANCE.md`, `experiments/PF4-DESIGN.md`, the
+five PF preregistrations and instrument documents in `experiments/`,
+`matlab/`, `python/shp_land2016.py`, `python/pf4_pilot.py`,
+`python/pf4_frozen_run.py`, `python/pf5_accounting.py`,
+`python/pf6_covariance.py`.
+Papers. The Cayley-pole paper, DOI 10.5281/zenodo.21790096, and A
+Sealed Negative for Schwinger Scaling, DOI 10.5281/zenodo.21798545.
 
 ### 🟥 PE, projection entropy
 
@@ -148,9 +172,12 @@ coupling while the leak leaves no trace in any coarse bath observable
 The track is complete. All six experiments are measured.
 
 Key files. `experiments/ENTROPY-TRACK.md`, `python/projection_fold.py`,
-`python/pe2_reversible_cycle.py`, `matlab/run_pe0_entropy_controls.m`.
-Paper. Entropy Across Singular Projections,
-DOI 10.5281/zenodo.21789011.
+`python/pe2_reversible_cycle.py` through `python/pe5_hierarchy.py`,
+`matlab/run_pe0_entropy_controls.m`.
+Papers. Entropy Across Singular Projections,
+DOI 10.5281/zenodo.21789011, and Three Sources of Observed Entropy in
+Reversible Hidden Dynamics (the track's completion), compiled in
+`paper/`, not yet published.
 
 ### 🟪 QO, quantum observation
 
@@ -221,7 +248,13 @@ consumer-family quantifier survives reformulation in modular language,
 and improves. With the Kubo-Mori quadratic form as the flux weight the
 shared-event family becomes universal with a single lambda constant to
 thirteen digits across every window and coupling point, where the
-lattice weight had tightened toward exclusion.
+lattice weight had tightened toward exclusion. That constancy was then
+upgraded to a theorem, relative entropy under a Hermitian-involution
+rotation is exactly the squared sine of the angle times the involution
+defect, proved in the paper, verified on random states to 1.4e-14, and
+kernel-checked at its algebraic core in Lean 4 with Mathlib
+(`proofs/PauliRotation.lean`), which retroactively identifies the
+quantum track's theta-squared-law residuals as pure kinematics.
 
 Still open. The IR-versus-UV scaling question and the remaining open
 questions of the track document.
@@ -230,7 +263,8 @@ Key files. `experiments/TYPE-III-BRIDGE.md`, `python/tb0_modular.py`,
 `python/tb1_ladder.py`, `python/tb2_flip_ladder.py`,
 `python/tb3_wedge.py`.
 Paper. Consumer-Relative Distinguishability in the Thermodynamic
-Limit, drafted and compiled in `paper/`, not yet published.
+Limit, completed with the wedge-family section and the exactness
+theorem, compiled in `paper/`, not yet published.
 
 ### 🟧 EG, entropic geometry
 
@@ -279,11 +313,32 @@ sinks canceling to zero against the additive one hundred twenty
 counting demands zero entropy production while a graded local field
 forbids it. Nothing bears on physical gravity.
 
+Two discovery campaigns then attacked the EG-4 bar. The first
+(EG-4b) removed two obstructions and located the third, a structured
+vacuum restores a graded field where the maximal vacuum was blind,
+escape to infinity yields an exact static limit by radiating the
+transient away, but that static field is flat and GF(2) admits no
+continuous weak-field knob. The second (EG-4c) refuted the
+dimensional-dilution hypothesis, two-dimensional finite-field
+substrates are flat again because parity path-counting cannot decay
+in any dimension, and then moved to real amplitudes, the discrete
+wave equation with a Gaussian vacuum and an exact covariance
+instrument, where a strong-contrast scatterer gives a measured
+isotropic field and superposition deviations decay cleanly with
+separation, distance acting as the continuous weak-field knob no
+finite field could provide. The statics question is delegated to a
+long-time batch run currently executing on Atlas, and the bar
+remains intact until it reports.
+
 Key files. `experiments/ENTROPIC-GEOMETRY-TRACK.md`,
 `python/eg0_instrument.py`, `python/eg1_area_gate.py`,
 `python/eg1b_mechanism.py`, `python/eg_ca_substrate.py`,
 `python/eg2_matter.py`, `python/eg3_first_law.py`,
-`python/eg4_geometry.py`.
+`python/eg4_geometry.py`, `python/eg4b_discovery.py`,
+`python/eg4c_mini.py`, `python/eg4c2_wave.py`,
+`python/eg4c3_statics.py`.
+Paper. An Exact Area Gate for Entropic Accounts of Geometry,
+compiled in `paper/`, not yet published.
 
 ### 🟨 WM, Wolfram models
 
@@ -315,18 +370,25 @@ causal-invariant sorting rule agrees exactly under every update order
 (the event count is the inversion number), the planted non-confluent
 rule is flagged with three distinct terminal strings, and the growth
 rule splits cleanly into prescription-invariant conserved counts and
-prescription-borne arrangement.
+prescription-borne arrangement. WM-3, causal-graph invariants built
+from token genealogy are identical across update orders for the
+causal-invariant rule while the planted trap's causal graphs differ
+radically, and foliations move simultaneity bookkeeping by a factor
+of two while the invariants stay frozen, with the extremal
+foliations achieving the depth bound exactly. WM-4, a minimal
+hypergraph rewriter's measured dimension passes a held-out scaling
+test, the power law beating the exponential alternative forty-fold
+in held-out error, so that rule's dimension claim genuinely survives
+at measured sizes.
 
-Still open. WM-3, foliation covariance on causal graphs; WM-4,
-held-out dimension scaling on published hypergraph rules; the
-hypergraph version of WM-2; the seven open questions of the track
-document, led by whether the program's topological-obstruction
-particles admit any computable signed invariant.
+Still open. The hypergraph version of WM-2; the remaining open
+questions of the track document, led by whether the program's
+topological-obstruction particles admit any computable signed
+invariant.
 
 Key files. `experiments/WOLFRAM-MODELS-TRACK.md`,
-`python/wm0_dimension.py`, `python/wm1_reversible_ca.py`,
-`python/wm2_prescription.py`. Related prior work in
-`C:\source\wolfram-observer-bridge`.
+`python/wm0_dimension.py` through `python/wm4_hypergraph.py`.
+Related prior work in `C:\source\wolfram-observer-bridge`.
 
 ## The evidence discipline (applies to every track)
 
@@ -334,9 +396,9 @@ Key files. `experiments/WOLFRAM-MODELS-TRACK.md`,
    claim-bearing use; the freezes fix every numerical bar in advance.
 2. Claim-bearing results require a sealed preregistration naming the
    claim, the grid, the estimator, and the falsification bar before
-   the run. Seals are git-blob hashes in `experiments/SEALS.md` (five
-   entries: two freezes, three preregistrations, all verifiable with
-   `git show <commit>:<path> | sha256sum`).
+   the run. Seals are git-blob hashes in `experiments/SEALS.md`
+   (seven entries: two freezes, five preregistrations, all verifiable
+   with `git show <commit>:<path> | sha256sum`).
 3. Every trajectory is counted; no conditioning on success.
 4. Evidence records in `results/` are append-only hashed JSON
    sufficient for independent recomputation; every paper figure
