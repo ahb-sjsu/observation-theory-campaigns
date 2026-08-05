@@ -61,27 +61,23 @@ H_FIELD = 2.0
 THETA = 0.2
 
 
-def divergence(n: int, w: int) -> float:
-    site = CONSUMER[-1] + 1 + w
-    if site >= n:
-        return float("nan")
-    sigma = thermal_state(ising_hamiltonian_jh(n, J_COUP, H_FIELD),
-                          BETA)
-    u = local_rotation(n, site, THETA, "z")
-    rho = u @ sigma @ u.conj().T
-    return relative_entropy(partial_trace(rho, CONSUMER, n),
-                            partial_trace(sigma, CONSUMER, n))
-
-
 def main() -> int:
-    surface = {}
-    for w in W_GRID:
-        row = []
-        for n in N_GRID:
-            d = divergence(n, w)
-            row.append({"N": n, "D": d})
+    surface = {str(w): [] for w in W_GRID}
+    for n in N_GRID:
+        sigma = thermal_state(
+            ising_hamiltonian_jh(n, J_COUP, H_FIELD), BETA)
+        sigma_c = partial_trace(sigma, CONSUMER, n)
+        for w in W_GRID:
+            site = CONSUMER[-1] + 1 + w
+            if site >= n:
+                surface[str(w)].append({"N": n, "D": float("nan")})
+                continue
+            u = local_rotation(n, site, THETA, "z")
+            rho = u @ sigma @ u.conj().T
+            d = relative_entropy(partial_trace(rho, CONSUMER, n),
+                                 sigma_c)
+            surface[str(w)].append({"N": n, "D": d})
             print(f"w={w} N={n}: D = {d:.10e}", flush=True)
-        surface[str(w)] = row
 
     convergence = {}
     for w in W_GRID:
