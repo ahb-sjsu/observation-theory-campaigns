@@ -313,6 +313,9 @@ projection.
    (TB track), drafted and compiled in `paper/`, not yet published.
 5. 🟦 A Sealed Negative for Schwinger Scaling in a Resolved-Field
    Hidden-Dynamics Family (PF track), DOI 10.5281/zenodo.21798545.
+6. 🟥 Three Sources of Observed Entropy in Reversible Hidden Dynamics
+   (PE track completion), drafted and compiled in `paper/`, not yet
+   published.
 
 ## Repository layout
 
@@ -320,7 +323,7 @@ projection.
 - `matlab/` - Atlas MATLAB instruments and pilots (`+pf` package).
 - `python/` - reference implementations, quantum instruments, governed
   runners, replications, pilots, and the test suite.
-- `paper/` - three RevTeX papers, compiled PDFs, and the figure-data
+- `paper/` - six RevTeX papers, compiled PDFs, and the figure-data
   generator.
 - `results/` - append-only hashed evidence records.
 - `nrp/` - Kubernetes Job templates for large ensembles.
