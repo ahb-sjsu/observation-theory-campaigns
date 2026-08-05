@@ -1,0 +1,76 @@
+{
+  "P1_translation": {
+    "reversing": {
+      "fold_count": 1,
+      "max_worldline_dev": 2.6645352591003757e-13
+    },
+    "transmitted": {
+      "fold_count": 0,
+      "max_worldline_dev": 1.971756091734278e-13
+    }
+  },
+  "P2_reparametrization": {
+    "events_per_worldline": 1,
+    "path_dev": 0.0,
+    "predicted_ratio": 2.0,
+    "rate_per_tau_ratio": 2.0
+  },
+  "P3_boost": {
+    "min_future_cone_margin": 0.0011124959980861604,
+    "worst_commutation": 4.547473508864641e-13,
+    "worst_invariant_drift": 7.129735398561216e-11
+  },
+  "P4_gauge_control": {
+    "canonical_shift_dev": 1.0946799022804043e-12,
+    "history_dev": 2.2343238370581275e-13,
+    "scope_note": "the Sauter tilt is declared non-electromagnetic; this machinery binds when an EM family is declared"
+  },
+  "P5_observer_detector": {
+    "alpha_grid": [
+      -0.45,
+      -0.2,
+      0.0,
+      0.2,
+      0.45,
+      3.0
+    ],
+    "clause": "observer-dependent particle number retained because the detector model (p_t level crossings) predicts every count exactly",
+    "event_counts": {
+      "-0.2": 1,
+      "-0.45": 0,
+      "0": 1,
+      "0.2": 1,
+      "0.45": 0,
+      "3": 0
+    }
+  },
+  "declared": {
+    "family_constants": {
+      "dt": 0.001,
+      "g": 0.25,
+      "lam": 0.1,
+      "omega_u": 1.2,
+      "sauter_L": 3.0
+    },
+    "gauge_control": {
+      "E0": 0.8,
+      "pulse_L": 3.0,
+      "q": 1.0
+    },
+    "observer_family": "T_alpha = t + alpha tau",
+    "reparametrization_alpha": 2.0,
+    "translation_shift": 8.0
+  },
+  "label": "exploratory instrument",
+  "record_sha256": "35347d534d3aa29eda2920b39ce44eaa42f987b26ec16acac863117fb3372f3e",
+  "runtime": {
+    "code_commit": "05004aa",
+    "generated_utc": "2026-08-05T09:35:26.808327+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf6-instrument-v1",
+  "statement": "the PF-6 audit layer is validated end to end, translations move every event worldpoint exactly, reparametrization leaves per-worldline event counts exactly invariant while the per-parameter rate scales as predicted, the hyperbolic family's flow commutes with boosts and preserves the future cone so the never-reverses classification is boost-invariant, the gauge machinery is exact on its electromagnetic control with the Sauter tilt declared non-electromagnetic, and observer-dependent event counts are retained lawfully because the detector model predicts them exactly; the claim-bearing PF-6 run awaits the family selected by the PREREG-PF4-003 harvest and must be sealed before it runs"
+}
