@@ -181,14 +181,21 @@ def main() -> int:
     kl_exact = (math.log(GAUSS["s2"] / GAUSS["s1"])
                 + (GAUSS["s1"]**2 + (GAUSS["m1"] - GAUSS["m2"])**2)
                 / (2 * GAUSS["s2"]**2) - 0.5) / math.log(2.0)
-    gauss_sweep = []
-    for d in (0.01, 0.005, 0.0025):
-        x = np.arange(-10.0, 10.0, d) + d / 2
+    def gauss_err(d: float, rng: float) -> float:
+        x = np.arange(-rng, rng, d) + d / 2
         g1 = np.exp(-0.5 * ((x - GAUSS["m1"]) / GAUSS["s1"])**2)
         g2 = np.exp(-0.5 * ((x - GAUSS["m2"]) / GAUSS["s2"])**2)
-        gauss_sweep.append((d, abs(relative_entropy_bits(g1, g2) - kl_exact)))
-    assert gauss_sweep[-1][1] < 1e-5, f"gaussian KL: {gauss_sweep}"
-    assert gauss_sweep[-1][1] <= gauss_sweep[0][1], "KL not converging"
+        return abs(relative_entropy_bits(g1, g2) - kl_exact)
+
+    gauss_sweep = [(d, gauss_err(d, 10.0)) for d in (0.01, 0.005, 0.0025)]
+    # the delta-quadrature error converges below the range-truncation
+    # floor immediately (the sweep is flat at ~2e-10), so the honest
+    # asserts are the floor's size and its identification: widening the
+    # range at fixed delta must drop the error by decades
+    assert max(e for _, e in gauss_sweep) < 1e-9, f"gaussian KL: {gauss_sweep}"
+    err_wide = gauss_err(0.005, 14.0)
+    assert err_wide < gauss_sweep[1][1] / 100.0, \
+        f"truncation floor not identified: {err_wide} vs {gauss_sweep[1][1]}"
 
     c1, c2 = DEFORM_C
     pp = c1 / (c1 + c2)
@@ -203,6 +210,7 @@ def main() -> int:
     record["part_c"] = {"nested_uniform_bits": d_nested,
                         "gauss_kl_exact_bits": kl_exact,
                         "gauss_sweep_abs_err": gauss_sweep,
+                        "gauss_err_wide_range": err_wide,
                         "binary_control_bits": d_binary,
                         "deformed_fold_max_dev": dev_field,
                         "deformed_fold_bins": len(d_field)}
