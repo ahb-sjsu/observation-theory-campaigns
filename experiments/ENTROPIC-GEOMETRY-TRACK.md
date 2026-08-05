@@ -534,6 +534,19 @@ operational definition.** Mutual information with the complement,
 conditional entropy given boundary data, and code-subspace dimension give
 different counts; the EG-1 area-gate verdict could depend on the choice.
 The single most important pre-seal decision.
+
+   **DECIDED, 2026-08-05, before any EG-1 run.** The primary count is
+   the conditional entropy of the region's hidden state at resolution
+   delta given the boundary data, H(region | boundary), because it
+   directly counts interior distinctions not fixed by the boundary,
+   which is what the gate's independence requirement is about. The
+   mutual information with the complement, I(region ; complement), is
+   a mandatory secondary witness computed alongside it in every arm,
+   because the two can diverge and the divergence is itself
+   informative (the classical Gibbs mutual-information area law is a
+   known confound the standing warning addresses). Any arm whose
+   verdict differs between the two counts is reported under both,
+   with the primary count deciding the gate.
 3. **The EG-2 reverse-engineering audit is a criterion, not yet an
 algorithm.** A formal test certifying that a source is not
 potential-equivalent may be undecidable in general; a restricted declared
