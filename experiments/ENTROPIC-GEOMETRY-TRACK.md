@@ -238,11 +238,35 @@ result and the expected one.
 
 ## 6. Experiments
 
-### EG-0: Projection entropy instrumentation
+### EG-0: Projection entropy instrumentation — IMPLEMENTED, PASSING (exploratory)
 
 **Question.** Do the finite-resolution entropy instruments measure
 H(Z_delta | X_epsilon) and the relative entropy between matter-deformed and
 vacuum fiber measures correctly?
+
+**RESULTS (runner `python/eg0_instrument.py`, evidence
+`results/eg0-instrument.json`).** All four parts pass on exact closed
+forms. Part A reproduces the PE-0 values, the fold's branch bit to
+1.4e-14, the double-fold symmetric slice at exactly 1.5 bits, the
+degenerate cubic at exactly zero, and the caustic limit to 1.4e-3 at
+epsilon 1e-5. Part B measures the conditional-entropy surface, the
+aligned linear control equals log2(100) to 1e-12 with no error term,
+and both resolution sweeps converge (successive-deviation ratios 6.2x
+in delta, 1.4x in epsilon). Part C measures fiber relative entropy,
+nested uniforms exact at 2 bits, the Gaussian control within 1.75e-10
+of the closed-form KL with the floor identified as range truncation by
+a widening control (drops below 1e-12 at 14 sigma), and the
+piecewise-deformed fold's per-bin D equal to the binary divergence
+closed form to 3.3e-16 across all 90 interior bins. Part D verifies
+reparametrization invariance, exact under relabeling (8e-16) and at
+the rounding floor under Jacobian-weighted re-gridding (8.2e-16,
+shrinking to 4.4e-16 at quarter resolution).
+
+**Sealing status.** Unsealed. The substrate clause requires MATLAB
+replication before EG-0 seals; the Python layer is the reference
+implementation. Open question 7 of section 10 is resolved, PE-2 and
+the full PE track are measured, so the sequencing dependency is
+satisfied rather than relaxed.
 
 **Method.** Extend the PE-0 instrument (`pf.fiber_entropy` in MATLAB,
 `fiber_branch_weights` / `branch_entropy_bits` in Python, exercised by
