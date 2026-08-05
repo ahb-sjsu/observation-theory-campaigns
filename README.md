@@ -22,7 +22,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | Track | Short name | Question in one line | Status |
 |---|---|---|---|
 | 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 first sealed run resolved neither-axis |
-| 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Instruments sealed, PE-0/1/2/3/5 done, PE-4 design |
+| 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Complete: instruments sealed, PE-0..PE-5 all measured |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Designed; TB-0 modular instrument passing |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | Design only, gated on hard open questions |
@@ -47,7 +47,7 @@ document in `experiments/SEALS.md`.
 | 🟥 **PE-2** reversible fold cycle | `[demonstrated-in-model]` ✅ | observed binned entropy swings 2.0708 bits along the trajectory while momentum reversal recovers the initial 10^4-member ensemble to 1.1e-14 and the reversed entropy curve retraces with defect exactly 0 — the entire change is observational; multiplicity staircase 4-8-12-13 with the signed path-degree rule at every level |
 | 🟥 **PE-5** classical consumer hierarchy | `[demonstrated-in-model]` ✅ | exact finite sums on the double fold (3 branches, 2 orientations, so the rungs are genuinely distinct): H(Z|pos) 9.556 ≥ H(Z|pos,orient) 8.831 ≥ H(Z|pos,branch) 8.545 ≥ 0 bits — orientation worth 0.725 bits, branch label 0.285 more, residual = within-branch positional uncertainty; the classical shadow of the QO-1 chain, closing the loop the QO paper cites |
 | 🟥 **PE-3** mixing versus folding | `[demonstrated-in-model]` ✅ | matched 2×2 (integrable vs chaotic dynamics × folding vs monotone observer, same trajectories): early entropy rise is common linear dispersion (5.71 vs 5.83 bits) but the late-time slope separates (−0.024 vs +0.030 bits/τ, integrable recurs while chaotic keeps growing) and slice multiplicity is set purely by the observer (mean ~10 per level folding, exactly 1 monotone, under either dynamics) — mixing pumps entropy, folds create multiplicity, independent axes |
-| 🟥 **PE-4** noise | design 📐 | ENTROPY-TRACK.md section PE-4 |
+| 🟥 **PE-4** noise and inaccessible hidden state | `[demonstrated-in-model]` ✅ | PE-2 cycle coupled to a 32-mode thermal bath: system-only flip fails monotonically in κ (recovery defect 0.33→1.89, retrace failure up to 5.87 bits) while the full flip including the bath recovers to 4e-15 at every κ — entropy production is consumer-relative reach, not dynamics; and the leak is invisible to coarse bath observables (I(Z;E_bath) pinned at the 0.009–0.016-bit estimator floor, mean bath energy even falls) while lost retraceability grows to ~6 bits — recovery needs microstate access |
 | 🟪 **QO-0** quantum instrument | `[demonstrated-in-model]` + sealed ✅ PEQO-FREEZE-002 | classical anchors exact through the Umegaki divergence pathway (1.000000000000 and 1.500000000000 bits; orientation merge returns exactly the fold bit); 32 DPI margins all strictly positive (min 9.6e-8); 3 discovered defects now standing controls: no-signalling null (7e-16), symmetry null ((I+mX)/2 invisibility), support-floor silent infinity |
 | 🟪 **QO-1** consumer hierarchy | `[demonstrated-in-model]` ✅ | degradation chain, ordering is a theorem: Z-excitation 0 → 0.668 → 0.675 → 0.724 nats (position-blind, largest gap at flux rung); X-excitation 0.048 → 0.116 → 0.148 → 0.301 (position-visible, largest gap interior) — where distinguishability lives moves with the sector; exact sufficiency anchor (DPI equality 1.1e-16) |
 | 🟪 **QO-2** the flip | `[demonstrated-in-model]` ✅ PREREG-QO2-001 | governed run on fully disjoint grids: flip at k\*=1 at all 3 coupling points (primary: T-arm task 0.0000/infid 0.3637 vs F-arm 0.1076/0.0678, margins 0.01 cleared ×10/×30); anti-arm worst everywhere (≥1.25); flip vanishes when budget suffices — scarcity phenomenon, the classical budget-relativity flip reproduced quantum |
@@ -128,10 +128,13 @@ shows sustained entropy growth follows the dynamics while slice
 multiplicity follows the observer's singularities, and neither implies
 the other (PE-3). The classical consumer hierarchy is measured exactly,
 with lawful ordering and strictly positive gaps at every rung (PE-5).
-Instruments sealed under PEQO-FREEZE-002.
+Coupling to an inaccessible environment is what turns the ambiguity
+into real entropy production, and the production is consumer-relative,
+a full flip including the bath restores exact recovery at every
+coupling while the leak leaves no trace in any coarse bath observable
+(PE-4). Instruments sealed under PEQO-FREEZE-002.
 
-Still open. PE-4 (when coupling to an environment turns observational
-ambiguity into real entropy production).
+The track is complete. All six experiments are measured.
 
 Key files. `experiments/ENTROPY-TRACK.md`, `python/projection_fold.py`,
 `python/pe2_reversible_cycle.py`, `matlab/run_pe0_entropy_controls.m`.

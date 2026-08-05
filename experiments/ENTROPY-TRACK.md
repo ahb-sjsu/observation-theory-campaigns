@@ -179,12 +179,47 @@ integrable one, a folding observer with mean multiplicity at or below
 1.5, or a monotone observer seeing any level more than once would have
 invalidated the reading.
 
-### PE-4: Noise and inaccessible hidden state — DESIGNED
+### PE-4: Noise and inaccessible hidden state — IMPLEMENTED, PASSING (exploratory)
 
-Controlled environmental coupling; measure I(Z; E) and compare with the
-observer's lost information. Determines when recoverable projection
-ambiguity becomes irreversible entropy production. This is the only PE
-experiment that can legitimately produce thermodynamic language.
+Runner `python/pe4_noise.py`, evidence `results/pe4-noise.json`.
+
+The PE-2 reversible cycle coupled through the hidden coordinate to a
+32-mode thermal bath with spread frequencies at strength kappa. The
+whole evolution stays Hamiltonian, so nothing is irreversible in the
+full space at any kappa. The observer can flip only the system
+momenta. Per kappa the protocol is one forward leg and two return
+legs from the same stored state, a system-only flip and a full flip
+including the bath as the control.
+
+Measured (8000 members, kappa 0 to 0.4): at kappa 0 the cycle
+reproduces PE-2 exactly, recovery 4.8e-15 and retrace defect exactly
+0. As kappa grows the system-only flip fails monotonically (recovery
+defect 0.33, 0.64, 1.18, 1.89; retrace failure up to 5.87 bits) while
+the full flip recovers to 4e-15 at every kappa. Entropy production
+here is bookkeeping about which degrees of freedom the observer can
+reach, not a property of the dynamics.
+
+Second finding, kept with its history. Version one of the runner
+asserted the leak must appear as growing I(Z; E_bath). Measured, it
+does not. The coarse mutual information stays within a factor of two
+of the estimator floor across the whole grid (0.009 to 0.016 bits)
+and the mean bath energy even falls at strong coupling (no
+counter-term, so the coupling shifts the equilibrium), while the
+observer's lost retraceability grows to almost 6 bits. The record of
+the leak lives in system-bath microstate correlations invisible to
+every coarse bath functional measured here, so recovery requires
+microstate access, not a macroscopic bath reading.
+
+This is the only PE experiment entitled to thermodynamic language,
+and the language it earns is consumer-relative. Irreversibility
+arrived exactly when projection ambiguity leaked into an environment
+the consumer cannot flip, and it left no macroscopic trace there.
+
+**Falsification bar (met):** a kappa 0 defect above 1e-9, a
+non-monotone system-flip defect, a full flip failing to recover at
+any kappa, or a coarse mutual information ballooning above 0.05 bits
+(which would have refuted the invisibility claim) would have
+invalidated the reading.
 
 ### PE-5: Observation-Theory consumer comparison — IMPLEMENTED, PASSING (exploratory)
 
