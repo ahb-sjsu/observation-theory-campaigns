@@ -25,7 +25,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Complete: instruments sealed, PE-0..PE-5 all measured |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
-| 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | EG-0/1/1b done: gate negative for spatial constraint mechanisms, but causal determinism passes on spacetime regions |
+| 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | COMPLETE: EG-0..4 measured, EG-5 forbidden by its own bar; the arc's result is the exact tension between area-law counting and local field structure |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Designed; WM-0 and WM-1 measured |
 
 ## Status ledger, one row per experiment
@@ -59,7 +59,10 @@ document in `experiments/SEALS.md`.
 | 🟧 **EG-0** entropy instrumentation | `[demonstrated-in-model]` ✅ | all four parts exact on closed forms: PE-0 reproduction (fold bit 1.4e-14, slice exactly 1.5 bits), conditional-entropy surface (aligned linear control = log₂100 to 1e-12, both resolution sweeps converge), fiber relative entropy (nested uniforms exact, Gaussian KL to 1.75e-10 with truncation floor identified, deformed-fold D field = binary closed form to 3.3e-16 over 90 bins), reparametrization invariance at the rounding floor both by relabeling and Jacobian re-gridding; unsealed pending MATLAB replication |
 | 🟧 **EG-1** area-versus-volume gate | `[demonstrated-in-model]` ✅ negative | the designed stopping point, reached: over two decades of R with exact counts, Gauss-law/gauge-quotient ensembles give exactly (R−1)² interior distinctions given the boundary (volume law — mechanisms fail the primary count), and boundary-limited access leaves the hidden residual volume while only its image is area by construction; FINDING: the same Gauss-law ensemble carries an exact area-law cut mutual information 4R−5 — constraint structure puts area scaling into observer-relative correlations while interior independence stays extensive, exactly the count-split the OQ2 decision anticipated |
 | 🟧 **EG-1b** mechanism discovery | `[demonstrated-in-model]` ✅ | CAUSAL DETERMINISM PASSES: entropy-density lemma (proved) forces any passing mechanism to zero bulk entropy density; causal-cone bound (proved) gives H(patch) ≤ 3R−2 for ANY deterministic radius-1 rule on spacetime regions; measured exactly — rules 90/150 saturate the bound (H = 3R−2 exactly, every R over two decades), rule 110 enumerated inside it, H(interior\|boundary) = 0 exactly; structural-origin audit: one noise bit per cell re-inflates to R² exactly (slope 2.0000) — the area law tracks determinism, nothing tuned |
-| 🟧 **EG-2..5** matter deformation onward | design 📐 | conditionally unblocked on the causal-determinism substrate (deterministic hidden dynamics, spacetime regions, mandatory noise-audit control); spatial-region negative of EG-1 stands |
+| 🟧 **EG-2** matter deformation | `[demonstrated-in-model]` ✅ | matter (rule-150 defects in a rule-90 vacuum) is EXACTLY locally invisible — every window through length 64 at every position identical to vacuum for every source; widths 1/5/7 escape support only at the closed ring (one global parity bit); width 3 is the unique rank-losing sink (exactly 1 bit/step, deficit 60 = T) whose finite D field appears only at window length ≥160 in a period-64 self-similar pattern set by the automaton's algebra, not distance; causality null exact; reverse-engineering audit structural (rule substitution moves support, no reweighting can) |
+| 🟧 **EG-3** local first law | `[demonstrated-in-model]` ✅ | δS = T·δQ EXACT on all held-out patterns with the three quantities independent (δQ = event count, T frozen at exactly 1 bit/event on one training injection, δS = rank); the finding: injections in the region's causal past are absorbed exactly (time-slice detectors provably blind — maximal ensemble), so the Clausius relation is an output precisely when the flux counts events crossing into the spacetime region; vacuum patch entropy 120 bits = exact perimeter form |
+| 🟧 **EG-4** geometric equations | `[demonstrated-in-model]` ❌ Newtonian rejected | Poisson fails (Laplacian as large far from source as at it), Gauss fails (no monotone flank), superposition fails by DESTRUCTIVE INTERFERENCE — two separated sinks give global deficit 0 (both separations) vs additive 120, three give 1: deficits compose by GF(2) algebra, not addition; interior unevaluable; sink law itself exact (1 bit/step each in isolation) |
+| 🟧 **EG-5** black-hole benchmark | forbidden by construction 🛑 | the design's own bar: EG-5 may not run unless EG-1..4 passed; EG-4 rejects the Newtonian limit, so the benchmark does not run — the arc closes on the measured tension: area-law counting demands zero entropy production, a graded local field forbids it |
 | 🟨 **WM-0** dimension instrument net | `[demonstrated-in-model]` ✅ + a bias finding | shell estimator exact on controls (path 1.000, 2D torus 2.000, 3D torus 2.958, tree flagged at 6.47 with growing local slope) — while the naive log-log ball-volume slope, the casual emergent-dimension estimator, reads LOW on every exact control (0.896/1.771/2.657), an O(1/r) bias of 0.10–0.34 at practical radii that any small-graph dimension claim inherits |
 | 🟨 **WM-1** reversible-CA entropy cycle | `[demonstrated-in-model]` ✅ | Rule 122R (the featured example of Wolfram's own second-law writings), asymmetric confined random seed: declared block entropy rises 1.646 → 3.288 bits, then retraces bitwise exactly (defect 0.0) with exact microstate recovery — the second law of reversible computation is observational entropy, the PE-2 conclusion verbatim. Three instrument findings preserved: Rule 30R dense-phase locking, symmetric-init time-reflection recurrence, byte-block coarseness |
 | 🟨 **WM-2** prescription audit | `[demonstrated-in-model]` ✅ trap discharged | string-substitution instance, three declared update orders: the causal-invariant sorting rule BA→AB agrees exactly under every prescription (final string and event count = inversion number, 406); the planted non-confluent rule {AB→B, BA→A} is flagged with three distinct terminal strings (B, BB, BBBB); the growth rule A→AB splits measured — conserved letter counts prescription-invariant, arrangement prescription-borne |
@@ -252,16 +255,30 @@ passing mechanism by theory first. An entropy-density lemma forces
 any passing mechanism to zero bulk entropy density, whose natural
 non-inserted origin is deterministic local dynamics with the region
 read as a spacetime region, and there the causal cone bounds the
-patch entropy by its perimeter for any radius-one rule. Measured
-exactly, rules 90 and 150 saturate the bound at every size over two
-decades while one noise bit per cell re-inflates the same
-construction to an exact volume law, so the area law tracks
-determinism and nothing tuned. EG-2 through EG-5 are conditionally
-unblocked on that substrate.
+patch entropy by its perimeter for any radius-one rule, saturated
+exactly by measurement while one noise bit per cell re-inflates the
+construction to an exact volume law.
+
+On that substrate the arc then ran to its end. Matter is exactly
+locally invisible, with one global parity bit for generic sources
+and a unique width-three sink that destroys one bit per step and
+carries the only finite field, an algebraically patterned one
+(EG-2). A genuine first law holds exactly, with independently
+defined flux, temperature, and entropy, once the flux counts the
+events crossing into the spacetime region, because the maximal
+ensemble absorbs anything earlier (EG-3). The geometry fails, the
+field is non-Poisson and sink deficits interfere destructively, two
+sinks canceling to zero against the additive one hundred twenty
+(EG-4), so the black-hole benchmark is forbidden by its own bar
+(EG-5). The track's result is the measured tension, area-law
+counting demands zero entropy production while a graded local field
+forbids it. Nothing bears on physical gravity.
 
 Key files. `experiments/ENTROPIC-GEOMETRY-TRACK.md`,
 `python/eg0_instrument.py`, `python/eg1_area_gate.py`,
-`python/eg1b_mechanism.py`.
+`python/eg1b_mechanism.py`, `python/eg_ca_substrate.py`,
+`python/eg2_matter.py`, `python/eg3_first_law.py`,
+`python/eg4_geometry.py`.
 
 ### 🟨 WM, Wolfram models
 

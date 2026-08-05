@@ -392,6 +392,98 @@ unblocked on the causal-determinism substrate, meaning designs may
 now use deterministic local hidden dynamics with spacetime regions
 and must carry the noise-audit control in every claim-bearing run.
 
+### EG-2 RESULTS on the causal substrate — MEASURED (exploratory)
+
+Runner `python/eg2_matter.py`, machinery `python/eg_ca_substrate.py`,
+evidence `results/eg2-matter.json`. On the linear substrate every
+window marginal is uniform on an image subspace, so the deformation
+field is exact subspace arithmetic, classified equal, nested (finite
+D in bits), or escaped (infinite D, support left the vacuum's).
+
+Matter is a rule substitution, cells of a declared source use rule
+150 in a rule 90 vacuum, sizes 1, 3, 5, 7 cells. The
+reverse-engineering audit is structural, a positive reweighting
+cannot move the support of a uniform-on-subspace measure while a
+rule substitution does, so the source class is not
+potential-equivalent by construction.
+
+Findings, all exact. Causality null, every window outside the defect
+cone carries the identical subspace, asserted. Local invisibility,
+every single cell and every two-by-two patch inside the cone, and
+every row segment up to length 64 at every position, is EXACTLY equal
+to vacuum for every source, matter has no local field on this
+substrate. Visibility onset, sources of width 1, 5, and 7 stay equal
+at every proper segment up to length 256 and escape support only at
+the closed ring (the defect frees the parity constraint rule 90
+imposes, one global all-or-nothing bit). The width-3 source is the
+exception, a rank-losing sink destroying exactly one bit per step
+(global deficit 60 = T), which generates the only finite
+distinguishability field, nested D values appearing from window
+length 160, growing about half a bit per cell, and positioned in a
+period-64 self-similar pattern (profile 3, 7, 11, 9, 5, 1 repeating)
+set by the automaton's algebra, not by distance from the source.
+
+### EG-3 RESULTS, the local first law — MEASURED, PASSING (exploratory)
+
+Runner `python/eg3_first_law.py`, evidence
+`results/eg3-first-law.json`. The three quantities are independent by
+construction. delta Q counts declared noise injections inside the
+spacetime patch, event bookkeeping with no entropy. T is the patch
+response to one training injection, measured once, frozen at exactly
+one bit per event. delta S is an exact rank difference.
+
+A structural fact shapes the accounting and is itself a finding.
+An injection BEFORE the patch's time span is absorbed exactly, the
+uniform ensemble is already maximal on every reachable set, so
+time-slice detectors are blind and only events inside the region
+drive its entropy. Held-out, dilute, moderate, and stacked interior
+patterns satisfy delta S = T delta Q EXACTLY (residual zero to
+rounding), the all-past pattern gives delta S = 0 against a positive
+naive flux, and the mixed pattern holds with inside-only accounting
+while the all-events accounting overpredicts, asserted. The vacuum
+patch entropy is 120 bits, exactly the perimeter form. On this
+substrate the Clausius relation is an output once the flux is the one
+crossing into the region, which is the ordering the thermodynamic
+gravity literature assumes rather than derives.
+
+### EG-4 RESULTS, the geometric equations — MEASURED, NEWTONIAN LIMIT REJECTED (exploratory)
+
+Runner `python/eg4_geometry.py`, evidence
+`results/eg4-geometry.json`. The candidate potential is the EG-2
+field of the width-3 sink, the only field-bearing source class.
+
+Item verdicts. Poisson FAILS, the field's discrete Laplacian is as
+large far from the source as at it. Gauss FAILS, no monotone flank
+exists to carry a flux reading. Superposition FAILS, and not by mere
+nonlinearity, the deficits interfere destructively, two separated
+width-3 sinks give a global deficit of ZERO at both tested
+separations against the additive expectation of 120, and three sinks
+give 1, so matter deficits compose by GF(2) algebra, not by
+addition. Linearity FAILS with them. The interior item is
+unevaluable, both between-source and far windows classify equal.
+
+The sink law itself holds, each isolated sink loses exactly one bit
+per step at either tested position.
+
+### EG-5 GATE — MAY NOT RUN; the arc closes
+
+The EG-5 design forbids the benchmark unless EG-1 through EG-4
+passed. EG-4 rejects the Newtonian limit, so EG-5 does not run, and
+running a black-hole analogy on top of a failed geometry is forbidden
+by construction. The track's arc is complete and its shape is this.
+The area gate is passable only by causal determinism (EG-1b). On
+that substrate a genuine first law holds with independently defined
+flux, temperature, and entropy (EG-3). But the same determinism that
+buys the area law and the first law makes matter locally invisible
+(EG-2) and gives the only surviving distinguishability field an
+algebraic, non-additive, non-Poisson structure (EG-4). Within this
+model class the two halves of the entropic-gravity program pull in
+opposite directions, the counting half wants zero entropy production
+and the geometry half wants a graded local field that zero entropy
+production forbids. That tension, stated exactly and measured
+exactly, is the campaign's result for this track. Nothing in it
+bears on physical gravity.
+
 **Method.** Implement each mechanism as a concrete Level-0 construction.
 Measure S(R) at fixed (delta, epsilon) over at least two decades of R, then
 repeat at refined resolutions to separate genuine scaling from resolution
