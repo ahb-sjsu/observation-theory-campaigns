@@ -717,6 +717,37 @@ field-level object, with D's quadratic composition predicted from
 it. Gauss and Poisson forms evaluated on the measured mean field.
 Verdicts computed from the numbers after measurement.
 
+**RESULTS (runner `python/eg4d_gauge.py`, evidence
+`results/eg4d-gauge.json`; instrument validated against dense
+conditioning to 5.4e-16 mean and 3.1e-16 covariance; lattice 128
+with the charge pair separated by 64 after a first 64/32 run showed
+dipole steepening of the falloff fit, recorded).**
+
+ALL EIGHT DECLARED ITEMS PASS. The distinguishability field is
+EXACTLY STATIC under the deterministic dynamics, drift 2.0e-18 over
+400 steps, the anti-radiative witness every previous substrate
+failed, because the conditional mean is an exact fixed point of the
+curl pair and the conditioned isotropic ensemble is stationary. The
+field is graded and monotone with measured log-log slope -2.275
+against the two-dimensional Coulomb expectation of -2. The
+field-level object superposes exactly (4.2e-16) and D scales exactly
+quadratically in the charge (ratio 4.0). On the MEASURED mean field
+the Gauss law holds to 8.9e-16 and the curl vanishes to 1.5e-18, so
+its potential solves the lattice Poisson equation, a derived
+consequence of the declared local constraint per the demotion
+ruling.
+
+**Standing after EG-4d.** Under the demotion ruling this does not
+support the reading that entropy sources geometry. What it
+establishes, exactly and in one construction, is the resolution of
+the track's three-way tension. A local conservation constraint is
+the one mechanism that carries persistent graded structure through
+reversible dynamics, the constraint sources the geometry, and the
+relative-entropy field registers it exactly. The missing ingredient
+of the EG-4 bar is thereby located, not circumvented, and any future
+claim that entropy alone produces Poisson structure on an area-law
+substrate now has a measured counterexample program to answer.
+
 ### EG-5 GATE — MAY NOT RUN; the arc closes
 
 The EG-5 design forbids the benchmark unless EG-1 through EG-4
