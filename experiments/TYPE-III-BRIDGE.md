@@ -411,7 +411,7 @@ logged, not silently.
 
 ---
 
-### TB-3: The wedge-family reformulation (design-only permitted)
+### TB-3: The wedge-family reformulation — IMPLEMENTED, PASSING (exploratory)
 
 **Question.** Can QO-3's measured result, an all-observers requirement
 that does work exactly when the observers share an event, be restated so
@@ -460,6 +460,51 @@ circularity audit, TB-3 terminates design-only and says so, which is an
 acceptable endpoint exactly as it was for QO-3. If the reformulated
 quantifier is inert on the shared-event family that activated QO-3, the
 row-ten bridge fails and the table is rewritten.
+
+**RESULTS (measured, exploratory; runner `python/tb3_wedge.py`,
+evidence `results/tb3-wedge.json`).** A declared quadratic form passed
+the circularity audit and the design-only exit was not taken. The form
+is the Kubo-Mori quadratic form of the reduced first-order perturbation
+in the reduced reference eigenbasis, the exact second-order coefficient
+of the Araki entropy, assembled from the reference's modular data and
+the excitation generator with no entropy evaluated anywhere in its
+code path. The validation probe at theta 0.02 finds the measured
+entropy within 1e-4 of the declared form on every window at every
+coupling point.
+
+All three requirements held. First, non-circularity as above. Second,
+the saturation structure reappears in the modular form itself, Q
+saturating along the nested family (0.6791, 0.6912, 0.70347, 0.703497,
+0.703497 at the sample point, last step below 1e-5 relative at every
+point) with nested monotonicity holding as the second-order shadow of
+DPI. Third, the activation dichotomy is derived from localization, a
+probe disjoint from the window gives exactly zero for both the entropy
+(below 1e-10) and the modular form (below 1e-12) at every point,
+because the partial trace absorbs a unitary supported outside the
+window.
+
+The headline measurement. Under the lattice theta^2 weight the QO-3
+shared-event family tightened toward exclusion, joint survival 1.0,
+0.75, 0.25, 0.25, 0.25 by family size (strict thresholds). Under the
+modular weight joint survival is 1.0 at every family size, and the
+universality is far stronger than the delta 0.05 bar. Lambda equals
+0.98854532044 constant to thirteen digits across all eighty
+window-and-coupling combinations, against a lattice-weight spread of
+0.079 mean and 0.131 max. The modular normalization removes the window
+dependence and the coupling dependence simultaneously, so what remains
+is a universal profile of the excitation parameter alone, and lambda's
+1.1 percent offset from one is that profile's higher-order theta
+content over the declared fit grid (the theta 0.02 probe sits at
+0.9999). The TB-0 route cross-check on the declared member agrees to
+1.9e-15.
+
+Reading, stated with the analogy discipline. The consumer-family
+universality that QO-3 could only demand becomes automatic once the
+flux weight is the modular quadratic form, which is the finite shadow
+of the wedge-modular-flow normalization the Dorau-Much theorem uses.
+Row ten's bridge survives its first quantitative test, and the
+remaining distance to QFT is the causal structure this chain does not
+have, per section 7 item 2, unchanged.
 
 ## 7. Relation to the campaign
 

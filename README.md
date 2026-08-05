@@ -24,7 +24,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..PF-3 done, PF-4 first sealed run resolved neither-axis |
 | 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Complete: instruments sealed, PE-0..PE-5 all measured |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
-| 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Designed; TB-0 modular instrument passing |
+| 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | Design only, gated on hard open questions |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Designed; WM-0 and WM-1 measured |
 
@@ -55,7 +55,7 @@ document in `experiments/SEALS.md`.
 | 🟫 **TB-0** modular instrument | `[demonstrated-in-model]` ✅ | the Araki relative-modular route and the states-as-expectation-functionals route (no partial-trace primitive anywhere) both reproduce the sealed Umegaki instrument to 9.4e-16, six decades under the 1e-10 bar, across closed forms, the 8-qubit consumer sweep, a dephased pair, and a near-degenerate case; the asymmetric commuting control pins the modular index-order convention |
 | 🟫 **TB-1** scaling ladder | `[demonstrated-in-model]` ✅ thesis pattern | chains N = 4..12: every consumer-relative restricted relative entropy converges exponentially (~50× per rung, 9-digit stable by N = 10; limits D_site 0.631800, D_pair 0.674747, D_half 0.675183) — including the half-chain consumer whose algebra grows with N — while the thermal half-chain entropy diverges exactly extensively (0.1756 nats/site-pair), the deliberate control. The sealed QO numbers at N = 8 were already converged to quoted precision: the campaign's quantum results are effectively infinite-volume statements |
 | 🟫 **TB-2** flip persistence | `[demonstrated-in-model]` ✅ fixed-k limit | OQ4 decided before the run (budget = fixed absolute qubits; fractions have no type III meaning). At k = 1 the flip holds at every N = 6..12 with task gap 0.10762 constant to 5.3e-10 and infidelity gap converging 0.2994 → 0.2946: the flip is a thermodynamic-limit phenomenon at fixed budget. Honest finding: the flip region's upper edge in k is a subset-combinatorics artifact at small m ([1],[1,2],[1],[1,3]) and the fractional diagnostic is non-monotone at these sizes |
-| 🟫 **TB-3** wedge family | design 📐 | TYPE-III-BRIDGE.md: modular-flow reformulation of QO-3; may end design-only |
+| 🟫 **TB-3** wedge family | `[demonstrated-in-model]` ✅ | the Kubo-Mori quadratic form (exact second-order Araki coefficient, assembled from reference modular data with no entropy in its code path) passes the circularity audit and replaces the lattice θ² flux weight: QO-3's shared-event family, which tightened 1.0→0.75→0.25 under the lattice weight, survives at 1.0 at every family size under the modular weight, with λ = 0.98854532044 constant to 13 digits across all 80 window×coupling combinations (lattice spread 0.079 mean) — universality becomes automatic under modular normalization; saturation reappears in Q itself, dichotomy derived from localization, TB-0 route agreement 1.9e-15 |
 | 🟧 **EG-0..5** entropic geometry | design 📐 gated | ENTROPIC-GEOMETRY-TRACK.md: area-law gate EG-1 is the expected stopping point; 7 open design questions must close before EG-0 seals |
 | 🟨 **WM-0** dimension instrument net | `[demonstrated-in-model]` ✅ + a bias finding | shell estimator exact on controls (path 1.000, 2D torus 2.000, 3D torus 2.958, tree flagged at 6.47 with growing local slope) — while the naive log-log ball-volume slope, the casual emergent-dimension estimator, reads LOW on every exact control (0.896/1.771/2.657), an O(1/r) bias of 0.10–0.34 at practical radii that any small-graph dimension claim inherits |
 | 🟨 **WM-1** reversible-CA entropy cycle | `[demonstrated-in-model]` ✅ | Rule 122R (the featured example of Wolfram's own second-law writings), asymmetric confined random seed: declared block entropy rises 1.646 → 3.288 bits, then retraces bitwise exactly (defect 0.0) with exact microstate recovery — the second law of reversible computation is observational entropy, the PE-2 conclusion verbatim. Three instrument findings preserved: Rule 30R dense-phase locking, symmetric-init time-reflection recurrence, byte-block coarseness |
@@ -205,14 +205,19 @@ infinite-volume values at their quoted precision. TB-2, the flip at
 fixed absolute budget has a sharp thermodynamic limit (the budget
 decision is recorded in the track document, since a fractional budget
 has no type III meaning), and the flip region's upper edge was found
-to be small-size combinatorics, reported as such.
+to be small-size combinatorics, reported as such. TB-3, the
+consumer-family quantifier survives reformulation in modular language,
+and improves. With the Kubo-Mori quadratic form as the flux weight the
+shared-event family becomes universal with a single lambda constant to
+thirteen digits across every window and coupling point, where the
+lattice weight had tightened toward exclusion.
 
-Still open. TB-3, the wedge-family reformulation of the consumer-family
-quantifier with modular flow, design-only; the IR-versus-UV scaling
-question; the eight open questions of the track document.
+Still open. The IR-versus-UV scaling question and the remaining open
+questions of the track document.
 
 Key files. `experiments/TYPE-III-BRIDGE.md`, `python/tb0_modular.py`,
-`python/tb1_ladder.py`, `python/tb2_flip_ladder.py`.
+`python/tb1_ladder.py`, `python/tb2_flip_ladder.py`,
+`python/tb3_wedge.py`.
 Paper. Consumer-Relative Distinguishability in the Thermodynamic
 Limit, drafted and compiled in `paper/`, not yet published.
 
