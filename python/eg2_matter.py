@@ -72,8 +72,10 @@ N_RING = 257
 T_STEPS = 60
 SOURCES = {1: frozenset({0}),
            3: frozenset({-1, 0, 1}),
+           5: frozenset({-2, -1, 0, 1, 2}),
            7: frozenset({-3, -2, -1, 0, 1, 2, 3})}
 SEG_LENGTHS = [16, 32, 64]
+SCAN_LENGTH = 160
 
 
 def main() -> int:
@@ -159,6 +161,18 @@ def main() -> int:
                           "H_vac": marginal_entropy_bits(m_vac),
                           "H_mat": marginal_entropy_bits(m_mat)})
         entry["visibility_onset"] = onset
+
+        # 7. position scan at fixed window length: the candidate
+        # spatial field Phi(r) for EG-4, D as a function of where the
+        # window sits relative to the source
+        scan = []
+        for r in range(0, N_RING, 8):
+            cells = [(T_STEPS, r + k) for k in range(SCAN_LENGTH)]
+            rel, d = image_relation(window_matrix(hist, cells),
+                                    window_matrix(vac, cells))
+            scan.append({"r": r, "relation": rel,
+                         "D_bits": d if np.isfinite(d) else "inf"})
+        entry["position_scan"] = scan
         per_source[str(m)] = entry
 
     record["per_source"] = per_source
@@ -210,6 +224,11 @@ def main() -> int:
         print(f"onset M={m}:",
               [(o["length"], o["relation"], o["H_vac"], o["H_mat"])
                for o in onset])
+    for m in per_source:
+        scan = per_source[m]["position_scan"]
+        vals = [(s["r"], s["D_bits"]) for s in scan
+                if s["relation"] != "equal"]
+        print(f"scan M={m}: nonzero at {vals if vals else 'nowhere'}")
     print(output)
     return 0
 
