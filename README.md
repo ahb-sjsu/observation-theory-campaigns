@@ -25,7 +25,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Complete: instruments sealed, PE-0..PE-5 all measured |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
-| 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | EG-0 instrument passing; EG-1 area gate next |
+| 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | EG-0 passing; EG-1 gate reached its designed negative |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Designed; WM-0 and WM-1 measured |
 
 ## Status ledger, one row per experiment
@@ -57,7 +57,8 @@ document in `experiments/SEALS.md`.
 | 🟫 **TB-2** flip persistence | `[demonstrated-in-model]` ✅ fixed-k limit | OQ4 decided before the run (budget = fixed absolute qubits; fractions have no type III meaning). At k = 1 the flip holds at every N = 6..12 with task gap 0.10762 constant to 5.3e-10 and infidelity gap converging 0.2994 → 0.2946: the flip is a thermodynamic-limit phenomenon at fixed budget. Honest finding: the flip region's upper edge in k is a subset-combinatorics artifact at small m ([1],[1,2],[1],[1,3]) and the fractional diagnostic is non-monotone at these sizes |
 | 🟫 **TB-3** wedge family | `[demonstrated-in-model]` ✅ | the Kubo-Mori quadratic form (exact second-order Araki coefficient, assembled from reference modular data with no entropy in its code path) passes the circularity audit and replaces the lattice θ² flux weight: QO-3's shared-event family, which tightened 1.0→0.75→0.25 under the lattice weight, survives at 1.0 at every family size under the modular weight, with λ = 0.98854532044 constant to 13 digits across all 80 window×coupling combinations (lattice spread 0.079 mean) — universality becomes automatic under modular normalization; saturation reappears in Q itself, dichotomy derived from localization, TB-0 route agreement 1.9e-15. UPGRADED TO THEOREM `[proved]`: S(e^{iθP}ρe^{−iθP}‖ρ) = sin²θ·S(PρP‖ρ) exactly for any full-rank ρ and Hermitian involution P (proof in TYPE-III-BRIDGE.md; algebraic core kernel-checked in Lean 4/Mathlib, `proofs/PauliRotation.lean`; 120 random verifications worst 1.4e-14) — λ is the pure kinematic constant Σθ²sin²θ/Σθ⁴ of the grid |
 | 🟧 **EG-0** entropy instrumentation | `[demonstrated-in-model]` ✅ | all four parts exact on closed forms: PE-0 reproduction (fold bit 1.4e-14, slice exactly 1.5 bits), conditional-entropy surface (aligned linear control = log₂100 to 1e-12, both resolution sweeps converge), fiber relative entropy (nested uniforms exact, Gaussian KL to 1.75e-10 with truncation floor identified, deformed-fold D field = binary closed form to 3.3e-16 over 90 bins), reparametrization invariance at the rounding floor both by relabeling and Jacobian re-gridding; unsealed pending MATLAB replication |
-| 🟧 **EG-1..5** area gate onward | design 📐 gated | ENTROPIC-GEOMETRY-TRACK.md: area-law gate EG-1 is the expected stopping point; open question 2 (operational count of independently distinguishable states) is the key pre-seal decision |
+| 🟧 **EG-1** area-versus-volume gate | `[demonstrated-in-model]` ✅ negative | the designed stopping point, reached: over two decades of R with exact counts, Gauss-law/gauge-quotient ensembles give exactly (R−1)² interior distinctions given the boundary (volume law — mechanisms fail the primary count), and boundary-limited access leaves the hidden residual volume while only its image is area by construction; FINDING: the same Gauss-law ensemble carries an exact area-law cut mutual information 4R−5 — constraint structure puts area scaling into observer-relative correlations while interior independence stays extensive, exactly the count-split the OQ2 decision anticipated |
+| 🟧 **EG-2..5** matter deformation onward | design 📐 gated | gate stays open only for unconstructed mechanism classes (structural codes, subextensive correlation, rank constraints); EG-2..5 blocked unless a declared mechanism passes the primary count |
 | 🟨 **WM-0** dimension instrument net | `[demonstrated-in-model]` ✅ + a bias finding | shell estimator exact on controls (path 1.000, 2D torus 2.000, 3D torus 2.958, tree flagged at 6.47 with growing local slope) — while the naive log-log ball-volume slope, the casual emergent-dimension estimator, reads LOW on every exact control (0.896/1.771/2.657), an O(1/r) bias of 0.10–0.34 at practical radii that any small-graph dimension claim inherits |
 | 🟨 **WM-1** reversible-CA entropy cycle | `[demonstrated-in-model]` ✅ | Rule 122R (the featured example of Wolfram's own second-law writings), asymmetric confined random seed: declared block entropy rises 1.646 → 3.288 bits, then retraces bitwise exactly (defect 0.0) with exact microstate recovery — the second law of reversible computation is observational entropy, the PE-2 conclusion verbatim. Three instrument findings preserved: Rule 30R dense-phase locking, symmetric-init time-reflection recurrence, byte-block coarseness |
 | 🟨 **WM-2** prescription audit | `[demonstrated-in-model]` ✅ trap discharged | string-substitution instance, three declared update orders: the causal-invariant sorting rule BA→AB agrees exactly under every prescription (final string and event count = inversion number, 406); the planted non-confluent rule {AB→B, BA→A} is flagged with three distinct terminal strings (B, BB, BBBB); the growth rule A→AB splits measured — conserved letter counts prescription-invariant, arrangement prescription-borne |
@@ -235,17 +236,21 @@ Poisson structure must survive held-out tests. A clean negative at the
 area gate is a publishable and expected outcome.
 
 Established so far. EG-0, the instrument layer, passes on every exact
-closed-form control, the conditional-entropy surface, fiber relative
-entropy between deformed and vacuum measures, resolution convergence,
-and reparametrization invariance of every witness, which is the
-track's defense against coordinate-artifact forces. The sequencing
-dependency on the PE track is satisfied since PE is complete. The
-area-versus-volume gate EG-1 is next and remains the expected point
-of failure, with the operational definition of independently
-distinguishable states as the key pre-seal decision.
+closed-form control, including reparametrization invariance of every
+witness, the track's defense against coordinate-artifact forces.
+EG-1, the area gate, reached its designed negative with exact
+arithmetic over two decades of region size, the measured constraint
+mechanisms count volume-many interior distinctions given the
+boundary, and an access limit is not a distinguishability limit. The
+gate also produced a genuine finding, the Gauss-law ensemble carries
+an exact area-law mutual information across the cut while its
+interior count stays extensive, so area scaling lives in
+observer-relative correlations, not in interior independence, for
+this mechanism class. EG-2 through EG-5 stay blocked unless some
+future declared mechanism passes the primary count.
 
 Key files. `experiments/ENTROPIC-GEOMETRY-TRACK.md`,
-`python/eg0_instrument.py`.
+`python/eg0_instrument.py`, `python/eg1_area_gate.py`.
 
 ### 🟨 WM, Wolfram models
 

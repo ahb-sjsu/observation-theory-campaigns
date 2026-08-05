@@ -294,11 +294,52 @@ sealed and passing.
 
 ---
 
-### EG-1: Area-versus-volume scaling test
+### EG-1: Area-versus-volume scaling test — IMPLEMENTED, MEASURED (exploratory); GATE NEGATIVE IN THE PRIMARY COUNT
 
 **Question.** For each candidate mechanism in section 5, does the measured
 entropy of the independently distinguishable states associated with a
 region of size R scale as R^3 or as R^2?
+
+**RESULTS (runner `python/eg1_area_gate.py`, evidence
+`results/eg1-area-gate.json`; two-dimensional lattices, so volume
+means R^2 and area means R^1; R from 3 to 301, two full decades,
+every count exact with closed forms reproduced at every R).**
+
+Three arms under the section 10 counts decision. The generic
+independent-spin control counts (R-2)^2 given the boundary with zero
+cut mutual information, volume as guaranteed. The Gauss-law
+constraint and gauge-quotient mechanisms, realized as the uniform
+ensemble over the Z2 cycle space of torus edge configurations (both
+mechanism classes share this count), give exactly (R-1)^2 interior
+distinctions given the boundary, a volume law, so the two most
+concrete constraint mechanisms FAIL the gate in the primary count.
+Boundary-limited access leaves the hidden interior residual a volume
+law (R-2)^2 while only the observer-accessible image is area-scaling
+(4R-4) by construction, which is section 5's standing warning made
+quantitative, an access limit is not a distinguishability limit.
+
+The finding beyond the negative. The same Gauss-law ensemble carries
+an exact area-law cut mutual information, I(region ; complement) =
+4R-5, while its interior count stays extensive. The counts split
+exactly as the section 10 decision anticipated, constraint structure
+does put area scaling into observer-relative correlations while
+leaving interior independence extensive. Any entropic-gravity reading
+built on this mechanism class would have to live on the correlation
+count, which the decision relegated to secondary, and would have to
+justify that choice against the independence requirement the gate is
+about.
+
+Fitted free slopes over the full range: primary counts 2.13 to 2.33
+(classified volume against the fixed alternatives), mutual
+information and access image 1.09 and 1.07 (classified area).
+
+**Standing per the falsification bar.** The measured mechanism
+classes fail the gate; the negative classification stands for them.
+The remaining section 5 candidates (error-correcting encodings with a
+structural rather than inserted origin, subextensive long-range
+correlation, projection rank constraints) are not yet constructed and
+the gate stays open for them. The track continues only if some future
+declared mechanism passes the primary count without insertion.
 
 **Method.** Implement each mechanism as a concrete Level-0 construction.
 Measure S(R) at fixed (delta, epsilon) over at least two decades of R, then
