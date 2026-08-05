@@ -1,0 +1,79 @@
+{
+  "controls": {
+    "C1_harmonic_drift": 4.448835994579234e-07,
+    "C2a_field_free_census": {
+      "capped": 0,
+      "nonfinite": 0,
+      "reversing": 0,
+      "transmitted": 2000
+    },
+    "C2b_deterministic_census": {
+      "capped": 0,
+      "nonfinite": 0,
+      "reversing": 2000,
+      "transmitted": 0
+    },
+    "C3_failure_census": {
+      "capped": 0,
+      "nonfinite": 200,
+      "reversing": 0,
+      "transmitted": 0
+    },
+    "C3b_capped_census": {
+      "capped": 100,
+      "nonfinite": 0,
+      "reversing": 0,
+      "transmitted": 0
+    },
+    "C4_levels_checked": 41,
+    "C5_deletion_flagged": true
+  },
+  "declared": {
+    "audit_stride_steps": 25,
+    "charge_assignment": "orientation charge = sign(dt/dtau), declared here before any claim run",
+    "class_priority": "nonfinite, then reversing at first p_t zero crossing, then transmitted at t >= -T_START, then capped",
+    "classes": [
+      "nonfinite",
+      "reversing",
+      "transmitted",
+      "capped"
+    ],
+    "energy_bar": 1e-05,
+    "family_constants": {
+      "dt": 0.001,
+      "g": 0.25,
+      "lam": 0.1,
+      "omega_u": 1.2,
+      "sauter_L": 3.0,
+      "t_start": -12.0
+    },
+    "field_energy_clause": "out of scope for external-field families; applies when a dynamical field model is declared, and must be implemented before any such run"
+  },
+  "label": "exploratory instrument",
+  "record_sha256": "9642f7790abe23ec61b71e0dc51eb8abd74ce67fa50bef96feef829fd98339f7",
+  "runtime": {
+    "code_commit": "7082e0e",
+    "generated_utc": "2026-08-05T09:23:22.716808+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf5-instrument-v1",
+  "smoke_cell": {
+    "E": 0.65,
+    "P": 0.75,
+    "census": {
+      "capped": 0,
+      "nonfinite": 0,
+      "reversing": 0,
+      "transmitted": 5000
+    },
+    "charge_rule_failures": 0,
+    "max_energy_residual": 5.54921373868934e-07,
+    "missing_trajectories": 0,
+    "n": 5000,
+    "reversal_fraction_census_complete": 0.0
+  },
+  "statement": "the PF-5 accounting layer is validated on exact controls, census always sums to the ensemble with zero missing trajectories, failures are counted rather than dropped and deletions are mechanically flagged, energy is tracked continuously for every member against a frozen bar, and the declared orientation charge obeys the path-degree rule exactly at every checked level; the claim-bearing PF-5 run awaits the family selected by the PREREG-PF4-003 harvest and must be sealed before it runs"
+}
