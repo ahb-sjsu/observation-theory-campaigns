@@ -146,12 +146,38 @@ of band constancy, hidden-state recovery residual above 1e-9, or a
 reversed entropy curve that does not retrace the forward one would have
 invalidated the reading.
 
-### PE-3: Mixing versus folding — DESIGNED
+### PE-3: Mixing versus folding — IMPLEMENTED, PASSING (exploratory)
 
-Matched systems: folds without chaotic mixing, mixing without projection
-singularity, both, neither. Establishes whether observed entropy growth is
-controlled by projection multiplicity, hidden mixing, finite resolution, or
-their interaction.
+Runner `python/pe3_mixing.py`, evidence `results/pe3-mixing.json`.
+
+The design sharpened from four separate systems to a matched two-by-two
+in which the axes cannot leak into each other. Two dynamics of the full
+toy Hamiltonian (integrable lambda = 0, chaotic lambda = 0.35) share
+every other parameter, and two observers read the same trajectories, the
+folding time functional T = t and the monotone functional T = t + 3 tau,
+which never folds because |p_t| stays well under 3. Because the
+observers differ only by a linear tau term, the instantaneous ensemble
+marginal of t is common to both. Ensemble entropy growth can therefore
+come only from the dynamics, and slice multiplicity only from the
+observer's singularities.
+
+Measured (20000-member ensemble, tau to 40): the early entropy rise is
+common linear dispersion (5.71 versus 5.83 bits total) and does not
+separate the systems. The late-time slope does. The integrable curve
+turns over and recurs (-0.024 bits per tau over the second half) while
+the chaotic curve keeps growing (+0.030). Multiplicity is set entirely
+by the observer: the folding observer sees mean unsigned crossing
+multiplicity 9.6 to 10.2 per level (maximum 12) under either dynamics,
+the monotone observer sees exactly 1 everywhere under either dynamics.
+
+Reading: mixing pumps sustained entropy growth, folds create slice
+multiplicity, and the two mechanisms are independent axes. Neither
+implies the other.
+
+**Falsification bar (met):** a chaotic late slope at or below the
+integrable one, a folding observer with mean multiplicity at or below
+1.5, or a monotone observer seeing any level more than once would have
+invalidated the reading.
 
 ### PE-4: Noise and inaccessible hidden state — DESIGNED
 
@@ -160,13 +186,29 @@ observer's lost information. Determines when recoverable projection
 ambiguity becomes irreversible entropy production. This is the only PE
 experiment that can legitimately produce thermodynamic language.
 
-### PE-5: Observation-Theory consumer comparison — DESIGNED
+### PE-5: Observation-Theory consumer comparison — IMPLEMENTED, PASSING (exploratory)
 
-Consumers reading position only; position and orientation; the branch label;
-the full hidden state. Their conditional entropies must be ordered
-H(Z|X_pos) >= H(Z|X_pos,orient) >= H(Z|X_branch) >= 0, with the gaps
-measuring what each additional observable is worth. This turns
-consumer-relative observation into a concrete singular-projection example.
+Runner `python/pe5_hierarchy.py`, evidence `results/pe5-hierarchy.json`.
+
+Consumers read the double fold t = tau^3 - tau with increasing access,
+binned position only, position plus orientation sign(dt/dtau), position
+plus the full branch label. The double fold is the right system because
+its three branches carry only two orientations (the outer branches share
+sign), so the rungs are genuinely distinct. With the hidden state
+uniform on a declared tau grid all conditional entropies are exact
+finite sums.
+
+Measured: H(Z|pos) 9.5555 >= H(Z|pos,orient) 8.8307 >=
+H(Z|pos,branch) 8.5453 >= 0 bits. Orientation is worth 0.7248 bits,
+the branch label a further 0.2854 bits, and the 8.5453-bit residual is
+within-branch positional uncertainty set by the declared grid and bin
+resolutions, not by the fold. This is the classical shadow of the QO-1
+degradation chain the quantum paper's classical reduction cites.
+
+**Falsification bar (met):** any rung ordering violation, a zero gap at
+either rung, or a branch rung reaching zero (which would wrongly claim
+the branch label is a complete observable) would have invalidated the
+reading.
 
 ## 6. Novelty discipline
 
