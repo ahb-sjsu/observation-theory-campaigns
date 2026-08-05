@@ -49,11 +49,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from projection_fold import canonical_sha256  # noqa: E402
 
 KAPPA = 0.2
-KAPPA_DEFECT = 0.4
-T_TIMES = (32, 64)
-WINDOW = [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]
-AXIS_RS = list(range(2, 31, 2))
-PAIR_SEPS = (8, 16, 32)
+KAPPA_DEFECT = 0.45
+T_TIMES = (48, 96)
+WINDOW = [(di, dj) for di in range(3) for dj in range(3)]
+AXIS_RS = list(range(3, 42, 3))
+PAIR_SEPS = (12, 24, 40)
+DEFECT_HALF = 1  # 3x3 defect block
 
 
 def laplacian(f: np.ndarray) -> np.ndarray:
@@ -153,9 +154,12 @@ def main() -> int:
     for t_steps in T_TIMES:
         side = 2 * t_steps + 48
         c = side // 2
-        src = ((c, c),)
+        src = tuple((c + a, c + b)
+                    for a in range(-DEFECT_HALF, DEFECT_HALF + 1)
+                    for b in range(-DEFECT_HALF, DEFECT_HALF + 1))
 
-        d_far = field_at(side, t_steps, (c + t_steps + 10, c), src)
+        d_far = field_at(side, t_steps,
+                         (c + t_steps + DEFECT_HALF + 10, c), src)
         assert d_far == 0.0, f"causality violated at T={t_steps}"
 
         axis = [{"r": r,
@@ -167,8 +171,10 @@ def main() -> int:
                 for r in AXIS_RS]
         profiles[str(t_steps)] = {"axis": axis, "diagonal": diag}
 
-    a32 = np.array([row["phi_bits"] for row in profiles["32"]["axis"]])
-    a64 = np.array([row["phi_bits"] for row in profiles["64"]["axis"]])
+    a32 = np.array([row["phi_bits"]
+                    for row in profiles[str(T_TIMES[0])]["axis"]])
+    a64 = np.array([row["phi_bits"]
+                    for row in profiles[str(T_TIMES[1])]["axis"]])
     scale = float(max(a64.max(), 1e-300))
     conv = float(np.max(np.abs(a64 - a32))) / scale
     spread = float((a64.max() - a64.min()) / scale) \
@@ -176,19 +182,23 @@ def main() -> int:
     grads = np.diff(a64)
     monotone_decay = bool(np.all(grads <= 1e-12))
     d64 = np.array([row["phi_bits"]
-                    for row in profiles["64"]["diagonal"]])
+                    for row in profiles[str(T_TIMES[1])]["diagonal"]])
     iso_dev = float(np.max(np.abs(a64 - d64))) / scale
 
-    t_steps = 64
+    t_steps = T_TIMES[1]
     side = 2 * t_steps + 48
     c = side // 2
     superposition = []
     for sep in PAIR_SEPS:
-        s1 = ((c, c - sep // 2),)
-        s2 = ((c, c + sep // 2),)
+        def block(center_j):
+            return tuple((c + a, center_j + b)
+                        for a in range(-DEFECT_HALF, DEFECT_HALF + 1)
+                        for b in range(-DEFECT_HALF, DEFECT_HALF + 1))
+        s1 = block(c - sep // 2)
+        s2 = block(c + sep // 2)
         s12 = s1 + s2
         devs, s_scale = [], 0.0
-        for r in range(-sep, sep + 1, max(2, sep // 4)):
+        for r in range(-sep, sep + 1, max(4, sep // 3)):
             origin = (c + 8, c + r)
             f1 = field_at(side, t_steps, origin, s1)
             f2 = field_at(side, t_steps, origin, s2)
@@ -225,7 +235,7 @@ def main() -> int:
 
     pieces = []
     pieces.append(
-        f"wave-substrate axis profile at T=64 runs from "
+        f"wave-substrate axis profile at T={T_TIMES[1]} runs from "
         f"{a64[0]:.4g} bits at r=2 to {a64[-1]:.4g} at r=30, spread "
         f"{spread:.3g}, doubling-time convergence {conv:.3g}, "
         f"monotone decay {monotone_decay}.")
@@ -250,7 +260,7 @@ def main() -> int:
         "label": "exploratory",
         "declared": {"substrate": "2D discrete wave equation, "
                                   "leapfrog, kappa 0.2",
-                     "defect": "impedance site, kappa 0.4",
+                     "defect": "impedance block 3x3, kappa 0.45",
                      "vacuum": "iid standard Gaussian initial data",
                      "times": list(T_TIMES),
                      "window": WINDOW, "axis_rs": AXIS_RS,
@@ -283,8 +293,9 @@ def main() -> int:
                       encoding="utf-8")
 
     print(f"control dev {ctl_dev:.2e}")
-    print("axis T=64:", [(row["r"], round(row["phi_bits"], 5))
-                         for row in profiles["64"]["axis"]])
+    print(f"axis T={T_TIMES[1]}:",
+          [(row["r"], round(row["phi_bits"], 6))
+           for row in profiles[str(T_TIMES[1])]["axis"]])
     print(f"conv {conv:.4g}, spread {spread:.4g}, iso {iso_dev:.4g}")
     print("superposition:", [(s["separation"],
                               round(s["relative_deviation"], 4))
