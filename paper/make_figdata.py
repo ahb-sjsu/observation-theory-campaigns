@@ -226,3 +226,26 @@ for i in range(max(len(curve_a), len(curve_b))):
         curve_b[i] if i < len(curve_b) else float("nan"),
     ))
 write("qo3_survival.dat", "familysize jointA jointB", rows)
+# Figure G1: EG-1 area-gate counts, all five exact series versus R.
+# Volume pairs and area pairs separate into slope-2 and slope-1 families.
+eg1 = json.loads((ROOT / "results" / "eg1-area-gate.json").read_text())
+r_grid = eg1["declared"]["R_grid"]
+arm_b = eg1["arm_b"]
+assert [row["R"] for row in arm_b] == r_grid, "arm B off the declared R grid"
+arm_a_primary = eg1["arm_a"]["H_given_boundary"]
+arm_b_primary = [row["H_given_boundary"] for row in arm_b]
+arm_b_mi = [row["MI"] for row in arm_b]
+arm_c_access = eg1["arm_c"]["accessible_image_bits"]
+arm_c_hidden = eg1["arm_c"]["hidden_residual_bits"]
+for i, r in enumerate(r_grid):
+    assert arm_a_primary[i] == (r - 2) ** 2, "arm A closed form broken"
+    assert arm_b_primary[i] == (r - 1) ** 2, "arm B closed form broken"
+    assert arm_b_mi[i] == 4 * r - 5, "arm B MI closed form broken"
+    assert arm_c_access[i] == 4 * r - 4, "arm C access closed form broken"
+    assert arm_c_hidden[i] == (r - 2) ** 2, "arm C hidden closed form broken"
+write(
+    "eg1_counts.dat",
+    "R armA_primary armB_primary armB_mi armC_access armC_hidden",
+    zip(r_grid, arm_a_primary, arm_b_primary, arm_b_mi,
+        arm_c_access, arm_c_hidden, strict=True),
+)
