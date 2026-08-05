@@ -262,8 +262,13 @@ reparametrization invariance, exact under relabeling (8e-16) and at
 the rounding floor under Jacobian-weighted re-gridding (8.2e-16,
 shrinking to 4.4e-16 at quarter resolution).
 
-**Sealing status.** Unsealed. The substrate clause requires MATLAB
-replication before EG-0 seals; the Python layer is the reference
+**Sealing status.** The substrate clause is now satisfied. The
+MATLAB replication (`matlab/run_eg0_replication.m`, evidence
+`results/eg0-matlab.json`) reproduces every closed-form control at
+rounding precision, including the Gaussian truncation floor at
+1.7491e-10 against Python's 1.7490e-10 and the deformed-fold field
+at exactly zero deviation. EG-0 is sealable whenever a claim-bearing
+EG run requires it; the Python layer remains the reference
 implementation. Open question 7 of section 10 is resolved, PE-2 and
 the full PE track are measured, so the sequencing dependency is
 satisfied rather than relaxed.

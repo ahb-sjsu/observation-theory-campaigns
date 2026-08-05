@@ -551,6 +551,17 @@ kappa = Q to 1.1e-15. The kinematic lambda matches all eighty
 committed TB-3 values to 1.3e-13 and the probe ratios to 1.1e-11,
 with no refit.
 
+Machine-checked, extended. `proofs/EntropyGlue.lean` now closes the
+analytic glue over a functional-calculus interface, the theorem
+`pauli_rotation_entropy_exactness` derives the FULL entropy statement
+S(U rho U* || rho) = sin^2(theta) S(P rho P || rho) from two
+interface hypotheses on a matrix logarithm (commutation with rho and
+equivariance under the two conjugations used), which are exactly the
+properties functional calculus supplies for the logarithm of a
+positive definite matrix, together with both unitarity directions.
+The only unformalized step remaining is the instantiation of that
+interface by Mathlib's continuous functional calculus itself.
+
 Machine-checked core. `proofs/PauliRotation.lean` (Lean 4, Mathlib)
 verifies the unitarity of the closed-form rotation, the
 three-harmonic expansion of U rho U*, the vanishing of the odd
