@@ -1,17 +1,18 @@
 {
   "declared": {
     "L": 8,
-    "deformation": "dB/dt += eps * mean of 4 neighbor plaquettes, local and translation-invariant",
+    "deformation": "BOTH blocks deformed, local and translation-invariant: dB/dt += eps * mean of 4 neighbor plaquettes AND dE/dt += eps * mean of 4 parallel neighbor edges",
     "eps_grid": [
       0.0,
       0.001,
       0.01,
       0.1,
       0.3
-    ]
+    ],
+    "instrument_lesson": "a first one-block variant (B update only) falsely showed the Gauss family surviving because the div-curl identity of the untouched E update carried it; genericity requires deforming both blocks"
   },
   "label": "exploratory",
-  "record_sha256": "e22e603b387f70883d3b2d838a6df41639f718bb5585b35d3e08782a29511eae",
+  "record_sha256": "814807cf0538308fd0e212165cb34c618d7d43e58ad80680c38ac67395c8e2ee",
   "rows": [
     {
       "eps": 0.0,
@@ -45,8 +46,8 @@
     }
   ],
   "runtime": {
-    "code_commit": "13285de",
-    "generated_utc": "2026-08-05T17:48:35.619667+00:00",
+    "code_commit": "8b3d987",
+    "generated_utc": "2026-08-05T22:01:32.568974+00:00",
     "hostname": "atlas",
     "numpy": "1.26.4",
     "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
