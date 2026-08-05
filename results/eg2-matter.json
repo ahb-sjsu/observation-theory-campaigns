@@ -1,0 +1,3486 @@
+{
+  "declared": {
+    "defect_rule": 150,
+    "ring": 257,
+    "segment_lengths": [
+      16,
+      32,
+      64
+    ],
+    "sources": {
+      "1": [
+        0
+      ],
+      "3": [
+        -1,
+        0,
+        1
+      ],
+      "5": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "7": [
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "steps": 60,
+    "vacuum_rule": 90
+  },
+  "field_summary": {
+    "1": {
+      "finite_D_values": [],
+      "relation_counts": {
+        "equal": 75,
+        "escaped": 0,
+        "nested": 0
+      }
+    },
+    "3": {
+      "finite_D_values": [],
+      "relation_counts": {
+        "equal": 75,
+        "escaped": 0,
+        "nested": 0
+      }
+    },
+    "5": {
+      "finite_D_values": [],
+      "relation_counts": {
+        "equal": 75,
+        "escaped": 0,
+        "nested": 0
+      }
+    },
+    "7": {
+      "finite_D_values": [],
+      "relation_counts": {
+        "equal": 75,
+        "escaped": 0,
+        "nested": 0
+      }
+    }
+  },
+  "label": "exploratory",
+  "per_source": {
+    "1": {
+      "causality_null": "equal",
+      "cone_edge_single_cells": {
+        "57": "equal",
+        "58": "equal",
+        "59": "equal",
+        "60": "equal",
+        "61": "equal",
+        "62": "equal",
+        "63": "equal"
+      },
+      "cone_half_width_final": 60,
+      "defect_cells": [
+        0
+      ],
+      "position_scan": [
+        {
+          "D_bits": 0.0,
+          "r": 0,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 8,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 16,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 24,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 32,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 40,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 48,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 56,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 64,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 72,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 80,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 88,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 104,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 112,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 120,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 136,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 144,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 152,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 160,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 168,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 176,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 184,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 192,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 200,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 208,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 216,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 224,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 232,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 240,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 248,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 256,
+          "relation": "equal"
+        }
+      ],
+      "row_segments": {
+        "16": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "32": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "64": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 96,
+            "relation": "equal"
+          }
+        ]
+      },
+      "single_cells_inside": {
+        "0": "equal",
+        "6": "equal",
+        "12": "equal",
+        "18": "equal",
+        "24": "equal",
+        "30": "equal",
+        "36": "equal",
+        "42": "equal",
+        "48": "equal",
+        "54": "equal",
+        "60": "equal"
+      },
+      "two_by_two_inside": {
+        "0": [
+          "equal",
+          0.0
+        ],
+        "6": [
+          "equal",
+          0.0
+        ],
+        "12": [
+          "equal",
+          0.0
+        ],
+        "18": [
+          "equal",
+          0.0
+        ],
+        "24": [
+          "equal",
+          0.0
+        ],
+        "30": [
+          "equal",
+          0.0
+        ],
+        "36": [
+          "equal",
+          0.0
+        ],
+        "42": [
+          "equal",
+          0.0
+        ],
+        "48": [
+          "equal",
+          0.0
+        ],
+        "54": [
+          "equal",
+          0.0
+        ],
+        "60": [
+          "equal",
+          0.0
+        ]
+      },
+      "visibility_onset": [
+        {
+          "D_bits": 0.0,
+          "H_mat": 96,
+          "H_vac": 96,
+          "length": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 128,
+          "H_vac": 128,
+          "length": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 160,
+          "H_vac": 160,
+          "length": 160,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 192,
+          "H_vac": 192,
+          "length": 192,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 224,
+          "H_vac": 224,
+          "length": 224,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 240,
+          "H_vac": 240,
+          "length": 240,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 250,
+          "H_vac": 250,
+          "length": 250,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 255,
+          "H_vac": 255,
+          "length": 255,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 256,
+          "H_vac": 256,
+          "length": 256,
+          "relation": "equal"
+        },
+        {
+          "D_bits": "inf",
+          "H_mat": 257,
+          "H_vac": 256,
+          "length": 257,
+          "relation": "escaped"
+        }
+      ]
+    },
+    "3": {
+      "causality_null": "equal",
+      "cone_edge_single_cells": {
+        "58": "equal",
+        "59": "equal",
+        "60": "equal",
+        "61": "equal",
+        "62": "equal",
+        "63": "equal",
+        "64": "equal"
+      },
+      "cone_half_width_final": 61,
+      "defect_cells": [
+        -1,
+        0,
+        1
+      ],
+      "position_scan": [
+        {
+          "D_bits": 0.0,
+          "r": 0,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 8,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 16,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 24,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 32,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 3.0,
+          "r": 40,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 11.0,
+          "r": 48,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 5.0,
+          "r": 56,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 64,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 72,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 80,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 88,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 2.0,
+          "r": 104,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 10.0,
+          "r": 112,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 5.0,
+          "r": 120,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 136,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 144,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 152,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 160,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 2.0,
+          "r": 168,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 10.0,
+          "r": 176,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 5.0,
+          "r": 184,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 192,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 200,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 208,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 216,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 224,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 2.0,
+          "r": 232,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 10.0,
+          "r": 240,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 5.0,
+          "r": 248,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 256,
+          "relation": "equal"
+        }
+      ],
+      "row_segments": {
+        "16": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "32": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "64": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 96,
+            "relation": "equal"
+          }
+        ]
+      },
+      "single_cells_inside": {
+        "0": "equal",
+        "6": "equal",
+        "12": "equal",
+        "18": "equal",
+        "24": "equal",
+        "30": "equal",
+        "36": "equal",
+        "42": "equal",
+        "48": "equal",
+        "54": "equal",
+        "60": "equal"
+      },
+      "two_by_two_inside": {
+        "0": [
+          "equal",
+          0.0
+        ],
+        "6": [
+          "equal",
+          0.0
+        ],
+        "12": [
+          "equal",
+          0.0
+        ],
+        "18": [
+          "equal",
+          0.0
+        ],
+        "24": [
+          "equal",
+          0.0
+        ],
+        "30": [
+          "equal",
+          0.0
+        ],
+        "36": [
+          "equal",
+          0.0
+        ],
+        "42": [
+          "equal",
+          0.0
+        ],
+        "48": [
+          "equal",
+          0.0
+        ],
+        "54": [
+          "equal",
+          0.0
+        ],
+        "60": [
+          "equal",
+          0.0
+        ]
+      },
+      "visibility_onset": [
+        {
+          "D_bits": 0.0,
+          "H_mat": 96,
+          "H_vac": 96,
+          "length": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 128,
+          "H_vac": 128,
+          "length": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 11.0,
+          "H_mat": 149,
+          "H_vac": 160,
+          "length": 160,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 27.0,
+          "H_mat": 165,
+          "H_vac": 192,
+          "length": 192,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 43.0,
+          "H_mat": 181,
+          "H_vac": 224,
+          "length": 224,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 51.0,
+          "H_mat": 189,
+          "H_vac": 240,
+          "length": 240,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 56.0,
+          "H_mat": 194,
+          "H_vac": 250,
+          "length": 250,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 59.0,
+          "H_mat": 196,
+          "H_vac": 255,
+          "length": 255,
+          "relation": "nested"
+        },
+        {
+          "D_bits": 60.0,
+          "H_mat": 196,
+          "H_vac": 256,
+          "length": 256,
+          "relation": "nested"
+        },
+        {
+          "D_bits": "inf",
+          "H_mat": 196,
+          "H_vac": 256,
+          "length": 257,
+          "relation": "escaped"
+        }
+      ]
+    },
+    "5": {
+      "causality_null": "equal",
+      "cone_edge_single_cells": {
+        "59": "equal",
+        "60": "equal",
+        "61": "equal",
+        "62": "equal",
+        "63": "equal",
+        "64": "equal",
+        "65": "equal"
+      },
+      "cone_half_width_final": 62,
+      "defect_cells": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "position_scan": [
+        {
+          "D_bits": 0.0,
+          "r": 0,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 8,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 16,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 24,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 32,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 40,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 48,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 56,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 64,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 72,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 80,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 88,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 104,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 112,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 120,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 136,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 144,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 152,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 160,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 168,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 176,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 184,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 192,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 200,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 208,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 216,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 224,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 232,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 240,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 248,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 256,
+          "relation": "equal"
+        }
+      ],
+      "row_segments": {
+        "16": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "32": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "64": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 96,
+            "relation": "equal"
+          }
+        ]
+      },
+      "single_cells_inside": {
+        "0": "equal",
+        "6": "equal",
+        "12": "equal",
+        "18": "equal",
+        "24": "equal",
+        "30": "equal",
+        "36": "equal",
+        "42": "equal",
+        "48": "equal",
+        "54": "equal",
+        "60": "equal"
+      },
+      "two_by_two_inside": {
+        "0": [
+          "equal",
+          0.0
+        ],
+        "6": [
+          "equal",
+          0.0
+        ],
+        "12": [
+          "equal",
+          0.0
+        ],
+        "18": [
+          "equal",
+          0.0
+        ],
+        "24": [
+          "equal",
+          0.0
+        ],
+        "30": [
+          "equal",
+          0.0
+        ],
+        "36": [
+          "equal",
+          0.0
+        ],
+        "42": [
+          "equal",
+          0.0
+        ],
+        "48": [
+          "equal",
+          0.0
+        ],
+        "54": [
+          "equal",
+          0.0
+        ],
+        "60": [
+          "equal",
+          0.0
+        ]
+      },
+      "visibility_onset": [
+        {
+          "D_bits": 0.0,
+          "H_mat": 96,
+          "H_vac": 96,
+          "length": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 128,
+          "H_vac": 128,
+          "length": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 160,
+          "H_vac": 160,
+          "length": 160,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 192,
+          "H_vac": 192,
+          "length": 192,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 224,
+          "H_vac": 224,
+          "length": 224,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 240,
+          "H_vac": 240,
+          "length": 240,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 250,
+          "H_vac": 250,
+          "length": 250,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 255,
+          "H_vac": 255,
+          "length": 255,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 256,
+          "H_vac": 256,
+          "length": 256,
+          "relation": "equal"
+        },
+        {
+          "D_bits": "inf",
+          "H_mat": 257,
+          "H_vac": 256,
+          "length": 257,
+          "relation": "escaped"
+        }
+      ]
+    },
+    "7": {
+      "causality_null": "equal",
+      "cone_edge_single_cells": {
+        "60": "equal",
+        "61": "equal",
+        "62": "equal",
+        "63": "equal",
+        "64": "equal",
+        "65": "equal",
+        "66": "equal"
+      },
+      "cone_half_width_final": 63,
+      "defect_cells": [
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3
+      ],
+      "position_scan": [
+        {
+          "D_bits": 0.0,
+          "r": 0,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 8,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 16,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 24,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 32,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 40,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 48,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 56,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 64,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 72,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 80,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 88,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 104,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 112,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 120,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 136,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 144,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 152,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 160,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 168,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 176,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 184,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 192,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 200,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 208,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 216,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 224,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 232,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 240,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 248,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "r": 256,
+          "relation": "equal"
+        }
+      ],
+      "row_segments": {
+        "16": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 16,
+            "H_vac": 16,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "32": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 32,
+            "H_vac": 32,
+            "r": 96,
+            "relation": "equal"
+          }
+        ],
+        "64": [
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -96,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": -8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 0,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 8,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 16,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 24,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 32,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 40,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 48,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 56,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 64,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 72,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 80,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 88,
+            "relation": "equal"
+          },
+          {
+            "D_bits": 0.0,
+            "H_mat": 64,
+            "H_vac": 64,
+            "r": 96,
+            "relation": "equal"
+          }
+        ]
+      },
+      "single_cells_inside": {
+        "0": "equal",
+        "6": "equal",
+        "12": "equal",
+        "18": "equal",
+        "24": "equal",
+        "30": "equal",
+        "36": "equal",
+        "42": "equal",
+        "48": "equal",
+        "54": "equal",
+        "60": "equal"
+      },
+      "two_by_two_inside": {
+        "0": [
+          "equal",
+          0.0
+        ],
+        "6": [
+          "equal",
+          0.0
+        ],
+        "12": [
+          "equal",
+          0.0
+        ],
+        "18": [
+          "equal",
+          0.0
+        ],
+        "24": [
+          "equal",
+          0.0
+        ],
+        "30": [
+          "equal",
+          0.0
+        ],
+        "36": [
+          "equal",
+          0.0
+        ],
+        "42": [
+          "equal",
+          0.0
+        ],
+        "48": [
+          "equal",
+          0.0
+        ],
+        "54": [
+          "equal",
+          0.0
+        ],
+        "60": [
+          "equal",
+          0.0
+        ]
+      },
+      "visibility_onset": [
+        {
+          "D_bits": 0.0,
+          "H_mat": 96,
+          "H_vac": 96,
+          "length": 96,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 128,
+          "H_vac": 128,
+          "length": 128,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 160,
+          "H_vac": 160,
+          "length": 160,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 192,
+          "H_vac": 192,
+          "length": 192,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 224,
+          "H_vac": 224,
+          "length": 224,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 240,
+          "H_vac": 240,
+          "length": 240,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 250,
+          "H_vac": 250,
+          "length": 250,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 255,
+          "H_vac": 255,
+          "length": 255,
+          "relation": "equal"
+        },
+        {
+          "D_bits": 0.0,
+          "H_mat": 256,
+          "H_vac": 256,
+          "length": 256,
+          "relation": "equal"
+        },
+        {
+          "D_bits": "inf",
+          "H_mat": 257,
+          "H_vac": 256,
+          "length": 257,
+          "relation": "escaped"
+        }
+      ]
+    }
+  },
+  "record_sha256": "be9bbb34c8f6d4a7363e68b9f70aced5e87001ff6e12a9c0162eceb7d57a25ad",
+  "runtime": {
+    "code_commit": "7caf166",
+    "generated_utc": "2026-08-05T07:17:22.135249+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "eg2-matter-v1"
+}
