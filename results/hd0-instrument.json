@@ -1,0 +1,52 @@
+{
+  "items": {
+    "C1_conservation": true,
+    "C2_reversibility": true,
+    "C3_entropy_rise_and_retrace": true,
+    "C4_rotation_equivariance": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "entropy_curve_every_20": [
+      2.998095292781394,
+      3.969234850090886,
+      3.5784774199576397,
+      3.971780726915539,
+      3.559137279840778,
+      3.945847443586653,
+      3.5946560667605096,
+      3.9789771695704355,
+      3.600125907294391,
+      3.9295160251123677,
+      3.635162891713353
+    ],
+    "entropy_final_bits": 3.635162891713353,
+    "entropy_initial_bits": 2.998095292781394,
+    "entropy_rise_bits": 0.6370675989319592,
+    "invariants": [
+      194,
+      -4,
+      -8
+    ],
+    "retrace_max_dev": 0.0
+  },
+  "record_sha256": "df840be16409587f5778ae0f8b3e33bfa146584812afc767c12f69c278044e63",
+  "runtime": {
+    "code_commit": "2a40523",
+    "generated_utc": "2026-08-06T04:03:46.731267+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "hd0-instrument-v1",
+  "verdict": {
+    "computed_from": [
+      "C1_conservation",
+      "C2_reversibility",
+      "C3_entropy_rise_and_retrace",
+      "C4_rotation_equivariance"
+    ],
+    "value": "PASS"
+  }
+}

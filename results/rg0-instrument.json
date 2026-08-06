@@ -1,0 +1,40 @@
+{
+  "items": {
+    "C1_route_agreement": true,
+    "C2_decimation_exact": true,
+    "C3_xi_flow": true,
+    "C4_channel_representability": true,
+    "C5_flow_composition": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "c1_dev": 0.0,
+    "c2_dev": 4.163336342344337e-17,
+    "c3_dev": 0.0,
+    "c4_decimation_residual": 4.163336342344337e-17,
+    "c4_fitted_keff": 0.22178794742787927,
+    "c4_majority_nnn_residual": 0.02601864745963943,
+    "c5_dev": 2.0816681711721685e-17,
+    "k_prime_of_0.5": 0.21689041524151356
+  },
+  "record_sha256": "e191e2b095eb16aff74882d6b87cdcde8192129c230b852fcd576ae9ffae7b7e",
+  "runtime": {
+    "code_commit": "2a40523",
+    "generated_utc": "2026-08-06T04:03:46.345387+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "rg0-instrument-v1",
+  "verdict": {
+    "computed_from": [
+      "C1_route_agreement",
+      "C2_decimation_exact",
+      "C3_xi_flow",
+      "C4_channel_representability",
+      "C5_flow_composition"
+    ],
+    "value": "PASS"
+  }
+}

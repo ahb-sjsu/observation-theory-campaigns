@@ -1,0 +1,41 @@
+{
+  "C4_preview": {
+    "jarzynski_defect": 0.0004330787328576946,
+    "lumped_df": -0.10208281751209336,
+    "note": "measurement, no bar, the FT-1 seed",
+    "true_df": -0.10208281751209336
+  },
+  "items": {
+    "C1_jarzynski": true,
+    "C2_crooks_per_path": true,
+    "C3_second_law": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "c1_dev": 0.0,
+    "c2_max_path_dev": 2.168404344971009e-19,
+    "df": -0.10208281751209336,
+    "dissipation": 0.02332715251692888,
+    "frozen_dev": 0.0,
+    "mean_work": -0.07875566499516448,
+    "n_paths": 19683
+  },
+  "record_sha256": "0c83a3dc71095226f1f08db3189dd1096690a9b7506f17c2e0dfbed8830b4311",
+  "runtime": {
+    "code_commit": "2a40523",
+    "generated_utc": "2026-08-06T04:03:47.300235+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "ft0-instrument-v1",
+  "verdict": {
+    "computed_from": [
+      "C1_jarzynski",
+      "C2_crooks_per_path",
+      "C3_second_law"
+    ],
+    "value": "PASS"
+  }
+}
