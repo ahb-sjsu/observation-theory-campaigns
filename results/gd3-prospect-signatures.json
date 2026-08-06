@@ -1,0 +1,124 @@
+{
+  "P1": {
+    "closed_form_dev": [
+      1.1102230246251565e-16,
+      2.220446049250313e-16,
+      6.661338147750939e-16,
+      8.881784197001252e-16,
+      1.6209256159527285e-14,
+      6.772360450213455e-14
+    ],
+    "max_curvature": [
+      2.220446049250313e-16,
+      2.7755575615628914e-16,
+      5.551115123125783e-16,
+      7.771561172376096e-16,
+      3.4416913763379853e-15,
+      1.4654943925052066e-14
+    ],
+    "max_dev_from_identity": [
+      0.392,
+      0.32666666666666666,
+      0.2177777777777778,
+      0.14,
+      0.03629629629629658,
+      0.009607843137300565
+    ],
+    "ns": [
+      1,
+      2,
+      5,
+      10,
+      50,
+      200
+    ]
+  },
+  "P2": {
+    "crossover": 0.5,
+    "crossover_shifted_env": 0.33849684079704756,
+    "max_dev_from_identity": [
+      0.14857299953490455,
+      0.05191694055806506,
+      0.014596799367392777,
+      0.0
+    ],
+    "overweight_min_margin_02_20": 0.09908349139852149,
+    "secant_high": 2.997126274811609,
+    "secant_low": 2.9971262748116034,
+    "secant_mid": 0.5111846390604652,
+    "sigmas": [
+      1.0,
+      0.5,
+      0.25,
+      0.0
+    ],
+    "symmetry_dev": 4.107825191113079e-15,
+    "tau2": 1.5,
+    "underweight_min_margin_80_98": 0.09908349139852035
+  },
+  "P3": {
+    "asym_ratio_at_50": 1.2077180302469788,
+    "max_dev_from_identity": [
+      44.97817936489083,
+      26.759098567266264,
+      13.981665356527344,
+      0.0
+    ],
+    "oddness_dev_sym": 1.4921397450962104e-13,
+    "second_diff_max": -0.09232073762644433,
+    "second_diff_mean": -0.4024679543568567,
+    "sigmas": [
+      0.6,
+      0.3,
+      0.15,
+      0.0
+    ],
+    "v_sym_at_10_50_80": [
+      15.10180050803176,
+      41.46004751290953,
+      50.827909724620675
+    ]
+  },
+  "audits": {
+    "A1_p1_closed_form": true,
+    "A2_p2_zero_noise_identity": true,
+    "A2_p3_zero_noise_identity": true,
+    "A3_p2_symmetry": true,
+    "A3_p3_symmetry": true,
+    "A4_p2_budget_monotone": true,
+    "A4_p3_budget_monotone": true,
+    "A5_p1_budget_monotone": true
+  },
+  "findings": {
+    "F1_linear_regressive": true,
+    "F2_inverse_s": true,
+    "F3_environment_tracks": true,
+    "F4_loss_side_less_compressed": true,
+    "F5_diminishing_sensitivity": true
+  },
+  "label": "exploratory",
+  "record_sha256": "681bee9bedc132a5dd29dee59d78652c384fb8ea6c7f7768c186c2c29b8d9045",
+  "runtime": {
+    "code_commit": "a85775d",
+    "generated_utc": "2026-08-06T03:16:24.576707+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gd3-prospect-signatures-v1",
+  "verdict": {
+    "computed_from": [
+      "A1_p1_closed_form",
+      "A2_p2_zero_noise_identity",
+      "A2_p3_zero_noise_identity",
+      "A3_p2_symmetry",
+      "A3_p3_symmetry",
+      "A4_p2_budget_monotone",
+      "A4_p3_budget_monotone",
+      "A5_p1_budget_monotone"
+    ],
+    "note": "findings recorded individually, either outcome a result per the declared protocol",
+    "value": "PASS"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "declared": {
+    "bars": {
+      "H1_flip_k2": 0.5
+    },
+    "closed_tol": 1e-12,
+    "flip_tol": 1e-06,
+    "mono_tol": 1e-10,
+    "tie_tol": 1e-12
+  },
+  "ensemble": {
+    "2": {
+      "flip_count": 193,
+      "flip_fraction": 0.965,
+      "flip_max": 0.3277694386777201,
+      "flip_median_over_flips": 0.07042737872053545,
+      "games": 200
+    },
+    "3": {
+      "flip_count": 188,
+      "flip_fraction": 0.94,
+      "flip_max": 0.24721017568339085,
+      "flip_median_over_flips": 0.04431780993440815,
+      "games": 200
+    },
+    "note": "measurement, no bar",
+    "seed": 20260808
+  },
+  "exhibit": {
+    "closed_forms": {
+      "v_fid_k2": {
+        "declared": 0.4,
+        "measured": 0.39999999999999986
+      },
+      "v_finest": {
+        "declared": 1.0,
+        "measured": 0.9999999999999998
+      },
+      "v_task_k1": {
+        "declared": 0.4,
+        "measured": 0.3999999999999999
+      },
+      "v_task_k2": {
+        "declared": 1.0,
+        "measured": 1.0
+      }
+    },
+    "flip_k2": 0.6000000000000001,
+    "items": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "H1": true,
+      "H2": true
+    },
+    "per_budget": {
+      "1": {
+        "flip": 0.0,
+        "h_max_bits": -0.0,
+        "n_mi_ties": 1,
+        "v_fid_best": 0.3999999999999999,
+        "v_task": 0.3999999999999999
+      },
+      "2": {
+        "flip": 0.6000000000000001,
+        "h_max_bits": 0.9967916319816366,
+        "n_mi_ties": 3,
+        "v_fid_best": 0.39999999999999986,
+        "v_task": 1.0
+      },
+      "3": {
+        "flip": 0.6000000000000001,
+        "h_max_bits": 1.584962500721156,
+        "n_mi_ties": 6,
+        "v_fid_best": 0.3999999999999999,
+        "v_task": 1.0
+      },
+      "4": {
+        "flip": 2.220446049250313e-16,
+        "h_max_bits": 1.9898980954642873,
+        "n_mi_ties": 1,
+        "v_fid_best": 0.9999999999999998,
+        "v_task": 1.0
+      },
+      "5": {
+        "flip": 2.220446049250313e-16,
+        "h_max_bits": 2.1735572622751853,
+        "n_mi_ties": 3,
+        "v_fid_best": 0.9999999999999998,
+        "v_task": 1.0
+      },
+      "6": {
+        "flip": 2.220446049250313e-16,
+        "h_max_bits": 2.3068905956085186,
+        "n_mi_ties": 1,
+        "v_fid_best": 0.9999999999999998,
+        "v_task": 1.0
+      }
+    }
+  },
+  "label": "exploratory",
+  "record_sha256": "3b2d0d4e3ed1cc1742a3d0ce3d0de3e5fe7be09264aa5b5312c69b5d95a70d8c",
+  "runtime": {
+    "code_commit": "a85775d",
+    "generated_utc": "2026-08-06T03:16:24.055751+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gd2-budget-flip-game-v1",
+  "verdict": {
+    "computed_from": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "H1",
+      "H2"
+    ],
+    "value": "FAIL"
+  }
+}
