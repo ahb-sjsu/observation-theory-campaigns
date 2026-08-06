@@ -360,6 +360,40 @@ methodology in declared finite models. It is not a claim that any
 countermeasure, implementation, or system is insecure, and none is
 modeled. Exploratory label, results/cr2-countermeasure-flip.json.
 
+#### CR-2 results (run 2026-08-06, record sha 4f1dcd811d62...)
+
+Verdict PASS, all three barred items, and the prevalence
+measurement reproduces the GD-1 figure in leakage form. The
+declared exhibit stands, all seven divergences order channel A
+above channel B with minimum margin 0.0149, a declared commitment
+task prefers B by 0.00212, and the pair is proved incomparable, the
+conic lower bound 0.00175 in one direction and the total-variation
+gap 0.095 in the other. The data-processing control holds, across
+five hundred declared garbles no divergence rose and no task value
+rose by more than 3.3e-16.
+
+The ensemble is the result. Of two thousand seeded random channel
+pairs, 867 are certified comparable, 856 incomparable, and 277
+ambiguous. Among the incomparable pairs, 268 are ordered
+unanimously by all seven declared divergences, and every one of
+those 268 carries a task reversal in the declared battery, maximum
+margin 0.0796 and median 0.0183. No comparable pair carries a
+wedge, which is Blackwell's theorem holding as it must. GD-1
+measured 281 of 281 in decision form and CR-2 measures 268 of 268
+in leakage form.
+
+The reading, as declared in advance. A reduction in a scalar
+leakage measure is not a security guarantee outside certified
+Blackwell comparability, because the ordering a scalar measure
+reports and the ordering a task reports disagree in every
+unanimously ordered incomparable pair measured here. This is a
+statement about evaluation methodology in declared finite models.
+It is not a claim that any countermeasure, implementation, or
+system is insecure, and none was modeled. The constructive half of
+the statement matters as much, the CR-1 certificate decides
+comparability by proof, so an evaluation that establishes
+comparability can rely on its scalar ordering.
+
 ### CR-3: Min-entropy versus Shannon entropy as declared-task entropy
 
 The same declared source is read by two consumers, one whose task is
