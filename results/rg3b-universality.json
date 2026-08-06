@@ -1,0 +1,54 @@
+{
+  "items": {
+    "U1_m1_in_family": true,
+    "U2_m2_flows_in": true,
+    "U3_symmetry_classes": true,
+    "U4_channel_relative": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "u1_residuals": [
+      6.657136864332558e-16,
+      5.030698080332741e-16
+    ],
+    "u2_residual_flow": [
+      0.15679295719997471,
+      0.03228943644536229,
+      0.004150442532418251
+    ],
+    "u2_shrink_ratio": 0.026470847967519043,
+    "u3_field_coarse_m": 0.7771391579238504,
+    "u3_symmetric_coarse_m": [
+      4.996003610813204e-16,
+      5.551115123125783e-17
+    ],
+    "u4_in_family_start_dec_maj": [
+      1.2706849461530112e-16,
+      0.011657092633349119
+    ],
+    "u4_out_of_family_micro_dec_maj": [
+      0.1611242053681637,
+      0.029508508249223107,
+      0.013592148561857042
+    ]
+  },
+  "record_sha256": "a8e26f4efc8ac64931bf0ab3e8055b162dafbf448da35a04df6867bd48831767",
+  "runtime": {
+    "code_commit": "6985c89",
+    "generated_utc": "2026-08-06T06:07:01.001860+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "rg3b-universality-v1",
+  "verdict": {
+    "computed_from": [
+      "U1_m1_in_family",
+      "U2_m2_flows_in",
+      "U3_symmetry_classes",
+      "U4_channel_relative"
+    ],
+    "value": "PASS"
+  }
+}

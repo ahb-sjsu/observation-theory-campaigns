@@ -1,0 +1,38 @@
+{
+  "items": {
+    "N1_unitary_gauge_identity": true,
+    "N2_elitzur_for_matter": true,
+    "N3_observer_family": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "bare_full_2x2": 0.0,
+    "bare_tree_observer": 0.10078002265014104,
+    "bare_unit_observer": 1.0,
+    "dressed_3x3": 0.10042323196100106,
+    "dressed_agreement_dev": 0.0,
+    "dressed_def_2x2": 0.10078002265014104,
+    "dressed_full_2x2": 0.10078002265014104,
+    "observer_bare_spread": 0.8992199773498589,
+    "reading": "matter coupled to gauge carries no observer-independent bare identity, every invariant fact about charge is a statement about lines, the observers' bare readings are their fiber coordinates",
+    "z_ratio_dev": 0.0
+  },
+  "record_sha256": "9f4e776326d5b2fb57ebb269b8abd7a8fc757cf36d2579450d3e3af67a4fbf61",
+  "runtime": {
+    "code_commit": "b82b53a",
+    "generated_utc": "2026-08-06T06:05:59.371466+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gg3-minimal-coupling-v1",
+  "verdict": {
+    "computed_from": [
+      "N1_unitary_gauge_identity",
+      "N2_elitzur_for_matter",
+      "N3_observer_family"
+    ],
+    "value": "PASS"
+  }
+}

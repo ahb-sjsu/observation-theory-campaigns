@@ -1,0 +1,40 @@
+{
+  "items": {
+    "V1_linearity": true,
+    "V3_channel_borne": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "linearity_dev": 9.133802031535687e-05,
+    "multipliers": {
+      "h_dec": 1.8336546061638024,
+      "h_maj": 2.407010574355057,
+      "j2_dec": 0.17377166834860847,
+      "j2_maj": -0.07069413778232336
+    },
+    "note": "V2 is the multiplier table itself, V4 is a measurement with no bar",
+    "rel_diff_h": 0.23820251323361202,
+    "rel_diff_j2": 1.4068220006986512,
+    "v4_growth_agreement": {
+      "h": true,
+      "j2": true
+    }
+  },
+  "record_sha256": "b4fb02e6d07668fd64400cd5a8056c3a0a073c041b2fa64613bbd13f678cb7ec",
+  "runtime": {
+    "code_commit": "b82b53a",
+    "generated_utc": "2026-08-06T06:05:58.081245+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "rg4-relevance-v1",
+  "verdict": {
+    "computed_from": [
+      "V1_linearity",
+      "V3_channel_borne"
+    ],
+    "value": "PASS"
+  }
+}

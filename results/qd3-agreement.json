@@ -1,0 +1,60 @@
+{
+  "items": {
+    "J1_helstrom_closed_form": true,
+    "J2_route_agreement": true,
+    "J3_agreement_manufactured": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "agreement_curve": [
+      0.5095612091172361,
+      0.5373359430480189,
+      0.6357233047033628,
+      0.8749999999999996,
+      0.9999999999999998
+    ],
+    "j1_max_dev": 8.881784197001252e-16,
+    "j2_max_dev": 6.661338147750939e-16,
+    "reading": "objectivity between observers is record strength made mechanical, every disagreement rate is the declared channels' exact Born arithmetic",
+    "table": {
+      "0.196350": {
+        "helstrom_pred": 0.5691419160756948,
+        "p_agree": 0.5095612091172361
+      },
+      "0.392699": {
+        "helstrom_pred": 0.6366307854182562,
+        "p_agree": 0.5373359430480189
+      },
+      "0.785398": {
+        "helstrom_pred": 0.7605026916399935,
+        "p_agree": 0.6357233047033628
+      },
+      "1.570796": {
+        "helstrom_pred": 0.9330127018922193,
+        "p_agree": 0.8749999999999996
+      },
+      "3.141593": {
+        "helstrom_pred": 1.0,
+        "p_agree": 0.9999999999999998
+      }
+    }
+  },
+  "record_sha256": "c6463efc00c16a228bd50a82e9fcb10475b99e36656fd653ef8911884bbcf328",
+  "runtime": {
+    "code_commit": "b82b53a",
+    "generated_utc": "2026-08-06T06:05:58.273281+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "qd3-agreement-v1",
+  "verdict": {
+    "computed_from": [
+      "J1_helstrom_closed_form",
+      "J2_route_agreement",
+      "J3_agreement_manufactured"
+    ],
+    "value": "PASS"
+  }
+}

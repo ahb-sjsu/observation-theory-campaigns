@@ -1,0 +1,37 @@
+{
+  "items": {
+    "T1_sagawa_ueda_exact": true,
+    "T2_bare_identity_broken": true,
+    "T3_information_is_the_consumers": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "bare_deviation": 0.007340923801808952,
+    "bare_efficacy": 0.992659076198191,
+    "bystander_deviation": 0.005318527212710533,
+    "mean_df": -0.06041378341897309,
+    "mean_information_nats": 0.4578439862851924,
+    "mean_work": -0.0294229105595182,
+    "reading": "the identity knows which observer acts, the controller's information restores it exactly and the bystander's does not",
+    "su_deviation": 5.551115123125783e-15,
+    "t4_second_law_margin": 0.4888348591446473
+  },
+  "record_sha256": "b07b5aadff64f4bd711615fde26dee209dcb1511efe76dd8d9e7445ad7c550b6",
+  "runtime": {
+    "code_commit": "b82b53a",
+    "generated_utc": "2026-08-06T06:05:59.058193+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "ft3-feedback-v1",
+  "verdict": {
+    "computed_from": [
+      "T1_sagawa_ueda_exact",
+      "T2_bare_identity_broken",
+      "T3_information_is_the_consumers"
+    ],
+    "value": "PASS"
+  }
+}
