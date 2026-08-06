@@ -1,0 +1,100 @@
+{
+  "G1": {
+    "divergence_margins_A_minus_B": {
+      "chi2_pq": 15.144592818651896,
+      "chi2_qp": 5.638724125790663,
+      "hellinger_sq": 0.4843618306872821,
+      "js": 0.42942642761514666,
+      "kl_pq": 2.358020639841369,
+      "kl_qp": 2.0946953103474186,
+      "tv": 0.751
+    },
+    "divergences_A": {
+      "chi2_pq": 15.252777777777775,
+      "chi2_qp": 15.252777777777775,
+      "hellinger_sq": 0.5257359312880714,
+      "js": 0.4626073734303779,
+      "kl_pq": 2.4568159942117402,
+      "kl_qp": 2.4568159942117402,
+      "tv": 0.85
+    },
+    "divergences_B": {
+      "chi2_pq": 0.10818495912587854,
+      "chi2_qp": 9.614053651987112,
+      "hellinger_sq": 0.041374100600789276,
+      "js": 0.03318094581523125,
+      "kl_pq": 0.09879535437037135,
+      "kl_qp": 0.3621206838643215,
+      "tv": 0.09899999999999999
+    },
+    "pass": false,
+    "residual_A_to_B": 0.004486153846153847,
+    "residual_B_to_A": 0.4198078846639997,
+    "task_margin_B_minus_A": 0.0395,
+    "value_A": 0.0,
+    "value_B": 0.0395
+  },
+  "G2": {
+    "battery_size": 205,
+    "pairs": 500,
+    "pass": true,
+    "worst_divergence_drop": 0.00018304493611327917,
+    "worst_task_gain_under_garbling": 3.3306690738754696e-16
+  },
+  "G3": {
+    "counts": {
+      "ambiguous": 189,
+      "comparable": 1044,
+      "incomparable": 767,
+      "unanimous_incomparable": 281,
+      "wedge_ambiguous": 144,
+      "wedge_comparable": 0,
+      "wedge_incomparable": 281
+    },
+    "ensemble": 2000,
+    "pass": true,
+    "seed": 20260807
+  },
+  "G4": {
+    "incomparable_pairs": 767,
+    "note": "measurement, no bar",
+    "unanimous_among_incomparable": 281,
+    "wedge_among_incomparable": 281,
+    "wedge_margin_max": 0.0776351767410991,
+    "wedge_margin_median": 0.021421810666639396
+  },
+  "declared": {
+    "divergence_battery": [
+      "kl_pq",
+      "kl_qp",
+      "tv",
+      "hellinger_sq",
+      "chi2_pq",
+      "chi2_qp",
+      "js"
+    ],
+    "dpi_tol": 1e-10,
+    "feasibility_tol": 1e-07,
+    "incomparable_tol": 0.01,
+    "wedge_task_tol": 1e-06
+  },
+  "label": "exploratory",
+  "record_sha256": "685153cd40af6819d1b47c577e0ccb4156fe7f6f694af438ac746ab9473a8c48",
+  "runtime": {
+    "code_commit": "d1cf3e0",
+    "generated_utc": "2026-08-06T02:57:21.214139+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gd1-flip-blackwell-v1",
+  "verdict": {
+    "computed_from": [
+      "G1.pass",
+      "G2.pass",
+      "G3.pass"
+    ],
+    "value": "FAIL"
+  }
+}
