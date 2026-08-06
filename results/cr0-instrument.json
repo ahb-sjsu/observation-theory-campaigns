@@ -1,0 +1,141 @@
+{
+  "declared": {
+    "enumeration": "exact integer counting, never sampled",
+    "evaluation_points": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "field": 31,
+    "l2_randomness_set": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "leak_bar_bits": 0.1,
+    "protocol": "experiments/CRYPTO-TRACK.md, CR-0",
+    "shares": 5,
+    "threshold": 3,
+    "tolerance": 1e-12
+  },
+  "items": {
+    "S1_below_threshold_exact_zero": true,
+    "S2_threshold_determines_secret": true,
+    "S3_step_not_ramp": true,
+    "S4_leaky_control_sees_leakage": true,
+    "S5_route_agreement": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "log2_field_size_bits": 4.954196310386875,
+    "qd0_partial_record_curve_bits": [
+      0.8118065626958508,
+      0.9570774866295737,
+      0.9998238825988729,
+      1.042570278568172,
+      1.187841202501895,
+      1.9996477651977458
+    ],
+    "s1_below_threshold_mi_bits": {
+      "1": 0.0,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 0.0,
+      "15": 0.0,
+      "2": 0.0,
+      "23": 0.0,
+      "24": 0.0,
+      "25": 0.0,
+      "3": 0.0,
+      "34": 0.0,
+      "35": 0.0,
+      "4": 0.0,
+      "45": 0.0,
+      "5": 0.0
+    },
+    "s1_max_abs_mi_bits": 0.0,
+    "s1_max_posterior_deviation": 0.0,
+    "s2_lagrange_route_failures": 0,
+    "s2_max_conditional_entropy_bits": 0.0,
+    "s2_max_mi_deviation_from_log2_31": 0.0,
+    "s3_declared_curve_bits": [
+      0.0,
+      0.0,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875
+    ],
+    "s3_max_curve_deviation": 0.0,
+    "s3_max_distance_to_nearest_plateau": 0.0,
+    "s3_shamir_mi_curve_bits": [
+      0.0,
+      0.0,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875
+    ],
+    "s4_l1_determining_pairs": 14,
+    "s4_l1_single_share_mi_bits": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "s4_l1_sixth_share_identical_to_first": true,
+    "s4_l1_zero_information_pairs": [
+      [
+        0,
+        5
+      ]
+    ],
+    "s4_l2_closed_form_bits": 2.6322682154995127,
+    "s4_l2_closed_form_deviation": 0.0,
+    "s4_l2_pair_mi_bits": [
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875,
+      4.954196310386875
+    ],
+    "s4_l2_single_share_mi_bits": [
+      2.6322682154995127,
+      2.6322682154995127,
+      2.6322682154995127,
+      2.6322682154995127,
+      2.6322682154995127
+    ],
+    "s5_max_route_gap_bits": 1.7763568394002505e-15,
+    "shamir_outcome_count": 29791
+  },
+  "record_sha256": "28c9282d42eaaaa4de189aa95f0f653c0107b64920d8fc77bfefd1cf4f6f089f",
+  "runtime": {
+    "code_commit": "17bda25",
+    "generated_utc": "2026-08-06T17:40:13.177183+00:00",
+    "hostname": "atlas",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr0-instrument-v1",
+  "statement": "an engineered redundancy plateau is a step function, exact independence of the secret from every subset below the declared threshold and exact determination at it, with no intermediate value at any subset of any size, while the QD track's naturally occurring plateau rose smoothly with record strength; the declared short-randomness control carries measurable single-share information at its closed form, so the zeros below threshold are a property of the scheme and not of the measurement, and the drafted redundant-share control leaks nothing to any single consumer, redundancy is not leakage",
+  "verdict": {
+    "computed_from": [
+      "S1_below_threshold_exact_zero",
+      "S2_threshold_determines_secret",
+      "S3_step_not_ramp",
+      "S4_leaky_control_sees_leakage",
+      "S5_route_agreement"
+    ],
+    "value": "PASS"
+  }
+}
