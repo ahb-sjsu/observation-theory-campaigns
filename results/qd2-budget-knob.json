@@ -1,0 +1,101 @@
+{
+  "items": {
+    "K1_closed_form_and_fstar": true,
+    "K2_fstar_monotone": true,
+    "K3_portfolio_closed_form": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "budget_curve": {
+      "0.098175": {
+        "fstar": 3,
+        "system_entropy_bits": 0.034430821997208524
+      },
+      "0.196350": {
+        "fstar": 3,
+        "system_entropy_bits": 0.10794571110614068
+      },
+      "0.294524": {
+        "fstar": 3,
+        "system_entropy_bits": 0.20237529524149822
+      },
+      "0.392699": {
+        "fstar": 3,
+        "system_entropy_bits": 0.3070428487891057
+      },
+      "0.490874": {
+        "fstar": 3,
+        "system_entropy_bits": 0.4141631940914206
+      },
+      "0.589049": {
+        "fstar": 3,
+        "system_entropy_bits": 0.5178874588700189
+      },
+      "0.687223": {
+        "fstar": 3,
+        "system_entropy_bits": 0.6139578772807793
+      },
+      "0.785398": {
+        "fstar": 3,
+        "system_entropy_bits": 0.6995227356529176
+      },
+      "0.883573": {
+        "fstar": 3,
+        "system_entropy_bits": 0.7729813343335351
+      },
+      "0.981748": {
+        "fstar": 3,
+        "system_entropy_bits": 0.8338145539597672
+      },
+      "1.079922": {
+        "fstar": 3,
+        "system_entropy_bits": 0.882389318214055
+      },
+      "1.178097": {
+        "fstar": 3,
+        "system_entropy_bits": 0.919741109866326
+      },
+      "1.276272": {
+        "fstar": 3,
+        "system_entropy_bits": 0.947347359191844
+      },
+      "1.374447": {
+        "fstar": 3,
+        "system_entropy_bits": 0.9669087965391419
+      },
+      "1.472622": {
+        "fstar": 3,
+        "system_entropy_bits": 0.9801564792608638
+      },
+      "1.570796": {
+        "fstar": 3,
+        "system_entropy_bits": 0.9886994082884976
+      }
+    },
+    "k1_max_dev": 2.6645352591003757e-15,
+    "k3_max_dev": 1.1102230246251565e-15,
+    "onset_angle": 0.09817477042468103,
+    "reading": "the consumer's budget is a portfolio, not a number, equal fragment counts differ by the measured ratio",
+    "size2_best_bits": 1.611701407412458,
+    "size2_ratio": 36.01069371298711,
+    "size2_worst_bits": 0.044756188821522325
+  },
+  "record_sha256": "0c441dc6fc92025153019abc3e0b13c44ba807a5985719747d51e43f37bd461a",
+  "runtime": {
+    "code_commit": "cf1d1b8",
+    "generated_utc": "2026-08-06T05:35:46.944628+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "qd2-budget-knob-v1",
+  "verdict": {
+    "computed_from": [
+      "K1_closed_form_and_fstar",
+      "K2_fstar_monotone",
+      "K3_portfolio_closed_form"
+    ],
+    "value": "PASS"
+  }
+}

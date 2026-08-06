@@ -1,0 +1,36 @@
+{
+  "items": {
+    "F1_theorem_matches_search": true,
+    "F2_flip_positive": true,
+    "F3_route_agreement": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "acc_fidelity_best": 0.9575447431015982,
+    "acc_task_optimal": 0.9576570909255369,
+    "eigen_sign_disagreements": 15,
+    "entropy_fidelity_best": 1.0,
+    "entropy_task_partition": 0.9999275693342169,
+    "flip": 0.00011234782393865217,
+    "n_fidelity_ties": 840,
+    "route_dev": 3.3306690738754696e-16
+  },
+  "record_sha256": "83e9d61704907babc4520a1b3f2a8c98c0bcbdb63a723d518bdbc6958ec6b124",
+  "runtime": {
+    "code_commit": "a057698",
+    "generated_utc": "2026-08-06T05:39:03.009582+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "rg2b-flip-v1",
+  "verdict": {
+    "computed_from": [
+      "F1_theorem_matches_search",
+      "F2_flip_positive",
+      "F3_route_agreement"
+    ],
+    "value": "PASS"
+  }
+}

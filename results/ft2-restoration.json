@@ -1,0 +1,35 @@
+{
+  "items": {
+    "E1_naive_defects": true,
+    "E2_restored_exact": true,
+    "E3_wrong_model_fails": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "df": -0.10208281751209336,
+    "naive_defect_held": 0.03243638340324573,
+    "naive_defect_lumped": 0.0004330787328576946,
+    "reading": "the fluctuation identity for a budgeted consumer is an inference theorem, restored exactly by lawful inference through the true declared channel and by nothing less",
+    "restored_defect_held": 1.1102230246251565e-15,
+    "restored_defect_lumped": 2.220446049250313e-16,
+    "wrong_model_restored_defect": 0.0032652127670831366
+  },
+  "record_sha256": "6e4bf63a0c95c85155e7ab351669799c8e9b246a4e38165d0ead264620540ee9",
+  "runtime": {
+    "code_commit": "a057698",
+    "generated_utc": "2026-08-06T05:39:03.779352+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "ft2-restoration-v1",
+  "verdict": {
+    "computed_from": [
+      "E1_naive_defects",
+      "E2_restored_exact",
+      "E3_wrong_model_fails"
+    ],
+    "value": "PASS"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "items": {
+    "W1_zero_point_exact": true,
+    "W2_first_order_detectable": true,
+    "W3_sector_split": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "link_response_slope": 1.0000183700291507,
+    "per_eps": {
+      "0.0": {
+        "max_link_exp": 0.0,
+        "max_orbit_action_spread": 0.0,
+        "min_orbit_action_spread": 0.0,
+        "wilson_plaquette": 0.38032051536830963
+      },
+      "0.001": {
+        "max_link_exp": 0.0010000004273072922,
+        "max_orbit_action_spread": 0.02400000000000002,
+        "min_orbit_action_spread": 0.016000000000000014,
+        "wilson_plaquette": 0.3803205153691717
+      },
+      "0.01": {
+        "max_link_exp": 0.010000427267752441,
+        "max_orbit_action_spread": 0.2400000000000002,
+        "min_orbit_action_spread": 0.16000000000000014,
+        "wilson_plaquette": 0.38032052398925986
+      },
+      "0.1": {
+        "max_link_exp": 0.10042323196100106,
+        "max_orbit_action_spread": 2.4000000000000004,
+        "min_orbit_action_spread": 1.6000000000000005,
+        "wilson_plaquette": 0.3804071717849108
+      }
+    },
+    "plaquette_response_slope": 4.000003448055186,
+    "reading": "constraint structure is an isolated algebraic point, declared or absent, first-order loud in the link sector and fourth-order quiet in the invariant sector"
+  },
+  "record_sha256": "d3f7b17776acd5099e39778425a65cfb92ed8c6848485935d90489286838b94d",
+  "runtime": {
+    "code_commit": "a057698",
+    "generated_utc": "2026-08-06T05:39:06.978726+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gg2b-gauss-replay-v1",
+  "verdict": {
+    "computed_from": [
+      "W1_zero_point_exact",
+      "W2_first_order_detectable",
+      "W3_sector_split"
+    ],
+    "value": "PASS"
+  }
+}
