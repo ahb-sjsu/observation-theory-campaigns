@@ -95,6 +95,35 @@ values, with the Boltzmann-level comparison noted as comparison
 only. All four or HD-1 fails. Exploratory label,
 results/hd1-transport.json.
 
+#### HD-1 results (run 2026-08-05, record sha 0a60c7ef5698...)
+
+Verdict FAIL on the shear items, and the failure is the
+substrate's own physics, exactly measured. The shear amplitude did
+not decay at all, decay ratio exactly 1.0 at both wavenumbers with
+fitted rates at the 1e-18 floating floor. The cause is HPP's known
+spurious conservation laws, the head-on collision exchanges a
+north-south pair for an east-west pair, both with zero net momentum
+at the site, and streaming keeps each mover on its line, so the
+transverse momentum of every column and the longitudinal momentum
+of every row are separately conserved and a shear mode can never
+relax. The instrument measured the pathology that motivated the
+FHP model. The sound sector passed, measured sound speed 1.008 and
+1.012 of the lattice prediction at the two wavenumbers, dispersion
+ratio 2.008, and conservation was integer-exact throughout.
+
+#### HD-1b protocol (declared 2026-08-05, before the run)
+
+The FAIL is converted into exact bars. S1, the per-column
+transverse momentum vector of the shear ensemble is integer-exact
+constant at every step, and the per-row longitudinal momentum
+vector likewise, the two spurious invariants measured as exact
+conservation laws rather than inferred from a stalled fit. S2, the
+sound bars of HD-1 unchanged. The diffusive-scaling bar is
+withdrawn as unmeasurable on this substrate, viscosity requires a
+substrate without the spurious invariants, deferred to the HD-2
+design which will declare the FHP hexagonal gas. Exploratory
+label, results/hd1b-transport.json.
+
 ### HD-2: The prescription gate for viscosity
 
 A declared family of coarse-graining prescriptions (cell size,

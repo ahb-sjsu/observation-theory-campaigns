@@ -106,6 +106,33 @@ the declared interaction's basis dictates, and generic interaction
 of the same strength produces none. Exploratory label,
 results/qd1-emergence.json.
 
+#### QD-1 results (run 2026-08-05, record sha 5f4089923187...)
+
+Verdict FAIL on Q5, and the failure is a measured finding. The
+basis-carrying items are exact, the evolved states match the
+branching closed form to 2.7e-15 at every angle with nothing
+fitted, records grow monotonically, the full plateau appears at
+theta = pi with R = 6, and weak declared records give R = 0. The
+declared basis-free control, six sequential pairwise Haar unitaries,
+ended with system entropy 0.665 bits and R = 1, not 0, the
+last-touched environment qubit carries a redundancy-grade record.
+Sequential pairwise scrambling is not basis-free in the operational
+sense, the causal order of the interactions itself imprints a
+recency record on the most recently scrambled qubit. The Q5 bar
+failed as declared and the mechanism is recorded as a finding, an
+observer can be handed a record by the schedule of interactions
+alone.
+
+#### QD-1b protocol (declared 2026-08-05, before the run)
+
+Identical to QD-1 except the basis-free control, which becomes a
+seeded Haar-random pure state of all seven qubits, globally
+scrambled with no interaction schedule at all, the QD-0 C4
+construction. Bars unchanged, system entropy at least 0.3 bits and
+R = 0. The named error, QD-1's control declared a sequence, and a
+sequence is structure. Exploratory label,
+results/qd1b-emergence.json.
+
 ### QD-2: The budget knob
 
 Fragment size and interaction strength ladders. Measured, the

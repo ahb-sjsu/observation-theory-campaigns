@@ -115,6 +115,30 @@ sees, correlation length itself is consumer-selected, not
 consumer-invented. Exploratory label,
 results/rg1-channel-family.json.
 
+#### RG-1 results (run 2026-08-05, record sha b706b30b8331...)
+
+Verdict FAIL, computed as declared, and the failure is numerical
+design, not physics. The physics items passed sharply, cross-sector
+amplitude leakage is exactly zero for all four channels, the
+leading amplitudes are order one, and the sector rates differ by
+the factor 2.893 (correlation lengths 1.5026 odd against 0.5194
+even), so the decay rate each observer sees is exactly its sector's
+eigenvalue ratio and the channel selects the sector. B0 failed at
+relative deviation 0.0386 because the direct route computed
+connected even-channel correlators by subtracting order-one means
+from order-one moments, and at separation 8 the connected value is
+5e-8, catastrophic cancellation, the declared comparison was
+numerically impossible as written.
+
+#### RG-1b protocol (declared 2026-08-05, before the run)
+
+Identical to RG-1 in every declared object and bar except B0's
+direct route, which now applies the mean-subtracted functional
+before the transfer-matrix powers, a cancellation-free computation
+of the same connected correlator. The named error, RG-1's B0
+subtracted means after powering rather than before. Exploratory
+label, results/rg1b-channel-family.json.
+
 ### RG-2: The flip in renormalization form
 
 Fidelity-optimal versus task-optimal coarse-grainings at fixed
