@@ -1,0 +1,57 @@
+{
+  "G1b": {
+    "conic_lower_bound_B_from_A": 0.004263157894736843,
+    "divergence_margins_A_minus_B": {
+      "chi2_pq": 15.144592818651896,
+      "chi2_qp": 5.638724125790663,
+      "hellinger_sq": 0.4843618306872821,
+      "js": 0.42942642761514666,
+      "kl_pq": 2.358020639841369,
+      "kl_qp": 2.0946953103474186,
+      "tv": 0.751
+    },
+    "items": {
+      "conic_bound": true,
+      "divergence_margins": true,
+      "search_consistency": true,
+      "task_margin": true,
+      "tv_gap": true
+    },
+    "min_divergence_margin": 0.42942642761514666,
+    "search_residual_B_from_A": 0.004486153846153847,
+    "task_margin_B_minus_A": 0.0395,
+    "tv_gap_A_minus_B": 0.751,
+    "value_A": 0.0,
+    "value_B": 0.0395
+  },
+  "declared": {
+    "bars": {
+      "conic_bound": 0.001,
+      "divergence_margin": 0.01,
+      "task_margin": 0.01,
+      "tv_gap": 0.01
+    },
+    "g2_g3_g4": "stand as measured in GD-1, not rerun"
+  },
+  "label": "exploratory",
+  "record_sha256": "61ef08e2665ab08a84f037bdce9484b4e88c02c204af205e9c3cfafb3c7cc336",
+  "runtime": {
+    "code_commit": "6d49866",
+    "generated_utc": "2026-08-06T03:01:30.087433+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gd1b-exhibit-certificate-v1",
+  "verdict": {
+    "computed_from": [
+      "conic_bound",
+      "divergence_margins",
+      "search_consistency",
+      "task_margin",
+      "tv_gap"
+    ],
+    "value": "PASS"
+  }
+}
