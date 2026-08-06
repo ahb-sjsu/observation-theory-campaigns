@@ -1,0 +1,139 @@
+{
+  "bars": {
+    "E1_convergence": true,
+    "E2_symmetry": true,
+    "E3_deattention": true,
+    "R1_stationarity": true,
+    "R2_mm_logit_identity": true,
+    "R3_perturbation_optimality": true,
+    "R4_limits": true,
+    "R5_consideration_set": true
+  },
+  "findings": {
+    "F6_attention_complementarity": true
+  },
+  "label": "exploratory",
+  "part1": {
+    "lambdas": [
+      1e-06,
+      0.05,
+      0.2,
+      1.0,
+      5.0
+    ],
+    "residuals": {
+      "r1": 0.0,
+      "r2": 9.547918011776346e-15,
+      "r3": 0.0
+    },
+    "results": {
+      "0.05": {
+        "info_nats": 0.6931471372757193,
+        "p0": [
+          3.0597714015400675e-23,
+          0.5,
+          0.49999999999999994
+        ],
+        "value": 0.9999999979388463
+      },
+      "0.2": {
+        "info_nats": 0.6529675774494026,
+        "p0": [
+          7.355452987311331e-16,
+          0.4999999999999998,
+          0.4999999999999996
+        ],
+        "value": 0.993307149075715
+      },
+      "1.0": {
+        "info_nats": 0.11094407167167433,
+        "p0": [
+          4.772629704735314e-13,
+          0.4999999999997614,
+          0.49999999999976136
+        ],
+        "value": 0.7310585786299422
+      },
+      "1e-06": {
+        "info_nats": 0.6931471805599453,
+        "p0": [
+          0.0,
+          0.5,
+          0.5
+        ],
+        "value": 1.0
+      },
+      "5.0": {
+        "info_nats": 3.2795296071930632e-15,
+        "p0": [
+          0.999999999999341,
+          3.2959363559333727e-13,
+          3.2959363559334545e-13
+        ],
+        "value": 0.599999999999967
+      }
+    }
+  },
+  "part2": {
+    "common_ladder": {
+      "0.05": {
+        "accuracy": 0.9999999999999065,
+        "info_nats": 0.6931471805570445
+      },
+      "0.2": {
+        "accuracy": 0.9994456880293556,
+        "info_nats": 0.6884369114305959
+      },
+      "0.5": {
+        "accuracy": 0.9476095980899045,
+        "info_nats": 0.4876528053466417
+      },
+      "1.0": {
+        "accuracy": 0.7829518230740297,
+        "info_nats": 0.17000071275251968
+      },
+      "2.0": {
+        "accuracy": 0.6386018518066214,
+        "info_nats": 0.03892878125919394
+      }
+    },
+    "complementarity_I1": [
+      0.6884484093076556,
+      0.6884369114305959,
+      0.6827030611680103,
+      0.6636537034778339
+    ],
+    "complementarity_l2_ladder": [
+      0.05,
+      0.2,
+      1.0,
+      5.0
+    ],
+    "fixed_point_resid": 2.120525977034049e-14,
+    "symmetry_dev": 2.120525977034049e-14
+  },
+  "record_sha256": "9964508920e2094be16a82bd99bc8494c6d1251401b6ae67e28ecd14ce9d1358",
+  "runtime": {
+    "code_commit": "8faa675",
+    "generated_utc": "2026-08-06T03:36:33.642512+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gd5-budgeted-equilibrium-v1",
+  "verdict": {
+    "computed_from": [
+      "E1_convergence",
+      "E2_symmetry",
+      "E3_deattention",
+      "R1_stationarity",
+      "R2_mm_logit_identity",
+      "R3_perturbation_optimality",
+      "R4_limits",
+      "R5_consideration_set"
+    ],
+    "note": "finding F6 recorded individually per the declared protocol",
+    "value": "PASS"
+  }
+}
