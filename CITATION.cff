@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use Observation Theory Campaigns (any track's instruments, evidence records, or the sealed-preregistration discipline) in your research, please cite it as below."
+title: "Observation Theory Campaigns: Twelve Tracks on What a Restricted Observer Can See and Lawfully Claim"
+type: software
+authors:
+  - family-names: Bond
+    given-names: Andrew H.
+    email: andrew.bond@sjsu.edu
+    affiliation: San Jose State University
+    orcid: "https://orcid.org/0009-0003-2599-6158"
+date-released: 2026-08-06
+license: MIT
+url: "https://github.com/ahb-sjsu/observation-theory-campaigns"
+repository-code: "https://github.com/ahb-sjsu/observation-theory-campaigns"
+keywords:
+  - observation-theory
+  - projection-folds
+  - observer-dependence
+  - entropy
+  - quantum-observation
+  - type-iii-algebras
+  - quantum-darwinism
+  - fluctuation-theorems
+  - renormalization
+  - gauge-redundancy
+  - preregistration
+  - reproducibility
+identifiers:
+  - description: "Cayley-pole paper"
+    type: doi
+    value: "10.5281/zenodo.21790096"
+  - description: "A Sealed Negative for Schwinger Scaling"
+    type: doi
+    value: "10.5281/zenodo.21798545"
+  - description: "Three Sources of Observed Entropy in Boundaries (concept DOI)"
+    type: doi
+    value: "10.5281/zenodo.21789046"
