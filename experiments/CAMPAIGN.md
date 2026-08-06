@@ -288,6 +288,44 @@ theory.
 **Substrate.** NRP GPUs for path ensembles or lattice/quantum simulations; outside
 the first claim-bearing paper unless PF-4 to PF-6 pass.
 
+### PF-8: The decay gate (design only, declared 2026-08-05, gated)
+
+**Question.** Can folding account for particle decay, one particle becoming two?
+
+**The parity obstruction, already in the sealed evidence.** A fold changes the
+observed unsigned branch count by exactly two and the signed count by exactly
+zero. PF-0 measured this, branch counts 0 to 1 to 2 with signed count 0, and the
+PF-5 charge rule makes it mechanical, charge is sign(dt/dtau) and generic level
+crossings of a continuous worldline come in pairs (Whitney genericity of fold
+singularities). A same-species decay, one particle to two, is a branch-count
+change of plus one, odd parity. For complete continuous worldlines under generic
+projections this is excluded, not missed. Folding imitates pair creation
+precisely because pairs are what folds make.
+
+**What folding can imitate.** Parity-even decay-like events. The zigzag one-to-
+three event, parent plus created pair, reads as decay whenever the products are
+misidentified or one product is unobserved.
+
+**The loophole, and the campaign question.** A consumer blind to one branch class
+reads a one-to-three fold event as one-to-two, apparent odd parity with missing
+energy, which is exactly the phenomenology of decays with unobserved neutrinos.
+The PE track's invisible-leak result is the same structure. PF-8a bars, declared
+now. A complete observer records zero odd events across the full census,
+mechanical parity audit. A declared blind observer's odd-event rate must be
+predicted exactly by its detector model, the PF-6 lawful-observer clause, or the
+run fails. Apparent decay in this model is a measurement of consumer blindness,
+never a property of the worldline.
+
+**PF-8b, lifetime statistics.** Real decay is memoryless, exponential survival.
+Fold statistics are measure-borne, the PF-2 lesson, so the first-fold-time
+distribution of a declared ensemble should be whatever the declared measure
+says and memorylessness should require declared Poisson structure, an expected
+negative with the measured shape recorded either way.
+
+**Gate.** Design only. Runs only after the PF4-003 harvest and the sealed PF-5
+and PF-6 gate runs, in sequence position after PF-6, sharing PF-7's substrate
+options.
+
 ## 6. Campaign sequence
 
 ```text

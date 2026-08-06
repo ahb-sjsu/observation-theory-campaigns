@@ -392,12 +392,107 @@ declared reference functionals. Observer-dependent valuations are
 retained only if the declared detector model predicts every
 difference exactly, the PF-6 clause.
 
+#### GD-4 protocol (declared 2026-08-05, before the run)
+
+Design note, recorded because it shaped the model. A posterior-mean
+read decoded under the gamble's own distribution is exactly unbiased
+in expectation, iterated expectation cancels every reference effect,
+so reference dependence cannot live there. The declared model is
+therefore an encoder adapted to a fixed environment and presented
+with novel gambles, which is also the efficient-coding picture, the
+reference point is the encoder's adaptation level.
+
+The reader. Deviations d = x - R are encoded as sign(d) ln(1 + |d|),
+a discrete Gaussian channel of width sigma acts on an m grid from
+-13 to 13 in steps of 0.01, and the read is the exact posterior mean
+of d under the declared environmental prior, a symmetric Laplace of
+scale 30 on the deviation grid from -150 to 150 in steps of 0.5.
+The valuation of gamble G by observer i is the mean reference plus
+the expected read of deviations. Budget ladder sigma 2.5, 1.0, and
+exactly 0 as the identity control.
+
+Four declared reference functionals, none chosen after outcomes.
+O1 status quo, R = 0. O2 adapted, R = the gamble's mean. O3 lower
+median. O4 lagged, R = the previous outcome of an i.i.d. two-period
+presentation. Declared battery of six gambles, B1 {-40: .5, 50: .5},
+B2 {-5: .5, 15: .5}, B3 {10: 1}, B4 {-60: .3, 0: .4, 60: .3},
+B5 {-20: .8, 80: .2}, B6 {-10: .8, 90: .2}, which is B5 shifted by
+ten.
+
+Audits, all must pass or GD-4 fails. A1, at sigma 0 every valuation
+equals the gamble mean within 1e-12. A2, symmetry anchors at every
+sigma, O2 on B1 reads exactly 5, O1 and O2 on B4 read exactly 0, and
+O4 reads exactly the mean on every gamble, i.i.d. differences are
+symmetric, all within 1e-10. A3, translation covariance of the
+adapted observer, its B6 valuation equals its B5 valuation plus ten
+within 1e-10, the deviation atoms are identical. A4, the maximum
+deviation of any valuation from the gamble mean strictly decreases
+along the sigma ladder.
+
+Findings, declared directional bars. F1, observer dependence, some
+battery gamble shows a spread across observers of at least 0.5 at
+sigma 2.5. F2, a ranking reversal exists within the declared
+battery, some observer pair and gamble pair with strict opposite
+orderings, margins at least 0.02 on both sides. F3, the status-quo
+observer breaks translation covariance by at least 0.05 on the
+B5-to-B6 shift while the adapted observer satisfies it to 1e-10,
+which reference effects appear is decided by the declared
+functional, and every appearance is predicted by the detector model,
+the lawful-observer clause. Exploratory label,
+results/gd4-reference-functionals.json.
+
 ### GD-5: Equilibrium with budgeted consumers
 
 Replication target, logit choice emerging from mutual-information
 costs (Matejka-McKay), replicated exactly in a declared finite model,
 then the campaign question, which equilibrium structures survive when
 all players are budgeted consumers.
+
+#### GD-5 protocol (declared 2026-08-05, before the run)
+
+Part one, the Matejka-McKay replication. Four uniform states, three
+actions, payoffs, the safe action 0.6 in every state, action B 1 on
+states zero and one and 0 elsewhere, action C the mirror on states
+two and three. The rational-inattention objective is expected payoff
+minus lambda times the mutual information between state and action
+in nats, solved by Blahut-Arimoto iteration to residual 1e-14 with
+the logit step in log space, lambda ladder 1e-6, 0.05, 0.2, 1.0,
+5.0. Bars. R1 stationarity, the unconditional action distribution
+equals the marginal within 1e-12. R2 the Matejka-McKay weighted
+logit identity holds at the fixed point within 1e-10. R3
+independent optimality, none of 200 declared random feasible
+perturbations of the conditional strategy (5 percent mixtures toward
+random simplex points, seed 20260809) improves the net objective by
+more than 1e-10, at every lambda. R4 limits, at lambda 1e-6 the
+value is within 1e-9 of 1 and the information within 1e-9 of ln 2,
+at lambda 5.0 the safe action carries unconditional probability at
+least 1 - 1e-9, prior play. R5 consideration sets, at lambda 0.05
+the safe action is excluded, unconditional probability at most 1e-6,
+feasible actions drop from the consideration set exactly as the
+budget prices them out.
+
+Part two, equilibrium with two budgeted consumers. Two uniform
+states, both players choose from two actions, payoff one for
+matching the state plus one half for matching the other player.
+Given the opponent's conditional strategy the effective payoff is
+u(a, s) = 1[a = s] + 0.5 Q(a | s), best responses are Blahut-Arimoto
+solves, iterated from uniform play to joint residual 1e-12. Bars.
+E1 convergence at every declared budget pair. E2 symmetric budgets
+give the symmetric equilibrium within 1e-8, including state-flip
+symmetry. E3 along the common ladder lambda 0.05, 0.2, 0.5, 1.0,
+2.0, equilibrium information is nonincreasing within 1e-12, at 0.05
+matching accuracy is at least 0.95, and at every ladder point the
+measured equilibrium accuracy q satisfies the exact scalar fixed
+point q = logistic((1 + 0.5 (2q - 1)) / lambda) within 1e-8, the
+independent closed-form route, the Shannon-cost solution is interior
+at every finite budget and the measured equilibrium must sit exactly
+on that curve. Finding F6 with declared direction, attention complementarity
+in the coordination game, fixing lambda-one at 0.2 and laddering
+lambda-two over 0.05, 0.2, 1.0, 5.0, player one's equilibrium
+information is nonincreasing in lambda-two within 1e-10 and drops by
+at least 1e-4 across the ladder, a better-informed opponent makes
+attention more valuable. Exploratory label,
+results/gd5-budgeted-equilibrium.json.
 
 ## 5. Evidence discipline and non-claims
 
