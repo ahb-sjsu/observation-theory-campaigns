@@ -559,36 +559,32 @@ reproduced at the finest grain the model has.
   xlabel={restricted observer},
   ylabel={Jarzynski defect},
   xtick={1,2}, xticklabels={lumped, held},
-  xmin=0.5, xmax=2.5, ymin=1e-17, ymax=1,
-  legend pos=north west, legend cell align=left]
+  xmin=0.5, xmax=2.5, ymin=1e-17, ymax=1]
 \addplot[only marks, mark=square*, mark size=2.6pt,
   red!70!black]
   table[x=idx, y=naive] {figdata/gen2_ft_defects.dat};
-\addlegendentry{naive apparent work}
 \addplot[only marks, mark=triangle*, mark size=3.2pt,
   black!60]
   table[x=idx, y=defect] {figdata/gen2_ft_wrongmodel.dat};
-\addlegendentry{restored, misdeclared model}
 \addplot[only marks, mark=*, mark size=2.6pt,
   blue!70!black]
   table[x=idx, y=restored] {figdata/gen2_ft_defects.dat};
-\addlegendentry{restored, true model}
 \addplot[gray!60, densely dashed, domain=0.5:2.5, samples=2]
   {1e-12};
 \end{axis}
 \end{tikzpicture}
-\caption{The defect ladder and its restoration.  The lumped
-observer's naive Jarzynski defect is $4.33\times10^{-4}$ and the
-held observer's is $0.0324$, while the complete and blind
-observers' defects are exactly zero and sit off this logarithmic
-scale.  Bayes work estimates filtered through the true declared
-detector model restore both identities below the dashed declared
-bar of $10^{-12}$, to $2.2\times10^{-16}$ and
-$1.1\times10^{-15}$.  The same filter built from a misdeclared
-model, kernels at inverse temperature 0.9, leaves the lumped
-observer at $3.27\times10^{-3}$, a larger defect than no
-correction at all.  Every point is read from the committed
-evidence records.}
+\caption{The defect ladder and its restoration.  Squares mark the
+naive apparent-work defects, $4.33\times10^{-4}$ for the lumped
+observer and $0.0324$ for the held observer, while the complete
+and blind observers' defects are exactly zero and sit off this
+logarithmic scale.  Circles mark the Bayes work estimates filtered
+through the true declared detector model, which restore both
+identities below the dashed declared bar of $10^{-12}$, to
+$2.2\times10^{-16}$ and $1.1\times10^{-15}$.  The triangle marks
+the same filter built from a misdeclared model, kernels at inverse
+temperature 0.9, which leaves the lumped observer at
+$3.27\times10^{-3}$, a larger defect than no correction at all.
+Every point is read from the committed evidence records.}
 \label{fig:ft}
 \end{figure}
 
