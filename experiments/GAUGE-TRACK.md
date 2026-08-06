@@ -71,6 +71,33 @@ maximal axial slices). Measured, which observables agree across the
 whole family within machine precision and which depend on the
 observer, with every dependence predicted by the declared fixing.
 
+#### GG-1 protocol (declared 2026-08-05, before the run)
+
+The GG-0 substrate unchanged, all 2^18 configurations at K = 0.4.
+Three declared spanning-tree observers, each a maximal-tree gauge
+slice on a different declared tree. Observables, the nine plaquette
+Wilson expectations, a declared area-two loop, and all eighteen
+link readings, computed in the full ensemble and on each observer's
+slice.
+
+Bars. G1, every gauge-invariant observable agrees between the full
+ensemble and every observer's slice within 1e-12. G2, the detector
+model is exact, every non-tree link reading of every observer
+equals the full-ensemble expectation of the closed loop formed by
+that link and its tree path, within 1e-12, and where the GF(2)
+plaquette decomposition certifies the loop contractible with
+enclosed area A the reading also equals the closed form (t^A +
+t^(9-A))/(1 + t^9) within 1e-12, while loops the decomposition
+certifies as winding read zero within 1e-13. G3, the observers
+measurably disagree on link readings, maximum pairwise difference
+at least 0.1, while the full-ensemble Elitzur zero stands. All
+three or GG-1 fails. The reading, every observer's gauge-variant
+bookkeeping is a relabeled gauge-invariant loop selected by its
+declared tree, disagreement between observers is exactly the
+difference in which loops their trees select, and nothing any
+observer reads is outside the invariant algebra. Exploratory
+label, results/gg1-observer-family.json.
+
 ### GG-2: The Gauss-law replay
 
 EG-6's declared-or-absent gate in gauge language. Measured, whether

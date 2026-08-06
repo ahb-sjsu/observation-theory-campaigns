@@ -74,6 +74,38 @@ strength, no record structure inserted). Measured, does the
 classical plateau form under evolution, and is its formation
 declared-or-absent in the EG-6 sense. Either outcome is a result.
 
+#### QD-1 protocol (declared 2026-08-05, before the run)
+
+The system qubit starts in the plus state, six environment qubits
+in zero. Two declared dynamics with matched entangling power. The
+basis-carrying dynamics applies a controlled rotation of declared
+angle theta from the system to each environment qubit, ladder
+theta in pi/16, pi/8, pi/4, pi/2, pi. The evolved state is then a
+branching state whose per-qubit record overlap is cos(theta/2), so
+every fragment information value has the QD-0 closed form, an
+exact prediction with nothing fitted. The basis-free dynamics
+applies six seeded Haar-random two-qubit unitaries, system with
+each environment qubit in turn, no preferred basis anywhere in the
+declaration. Redundancy R is the number of disjoint single-qubit
+fragments whose information reaches ninety percent of the system
+entropy.
+
+Bars. Q1, at every theta the measured fragment informations match
+the branching closed form within 1e-10, the plateau's formation is
+predicted entirely by the declared gate angle. Q2, fragment-one
+information is monotone increasing along the theta ladder. Q3, at
+theta = pi the plateau is exact and R = 6. Q4, at theta = pi/16,
+R = 0, weak declared records give no redundancy. Q5, the
+basis-free dynamics ends with system entropy at least 0.3 bits and
+R = 0, entangling power without a declared basis produces
+entanglement and no redundancy, and at theta = pi the two dynamics
+have comparable system entropy with opposite redundancy, recorded.
+All five or QD-1 fails. The reading, redundancy is
+declared-or-absent, the plateau appears exactly when and exactly as
+the declared interaction's basis dictates, and generic interaction
+of the same strength produces none. Exploratory label,
+results/qd1-emergence.json.
+
 ### QD-2: The budget knob
 
 Fragment size and interaction strength ladders. Measured, the

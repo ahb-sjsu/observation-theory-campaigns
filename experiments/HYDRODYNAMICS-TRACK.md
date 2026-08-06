@@ -69,6 +69,32 @@ Declared shear and sound initial profiles. Measured, decay rates
 and dispersion against declared predictions, the viscosity
 instrument validated on exact controls.
 
+#### HD-1 protocol (declared 2026-08-05, before the run)
+
+HPP on a 64 torus, base occupancy 0.3 per channel, ensembles of 100
+declared seeded realizations, 400 steps. Shear, the north and south
+occupancies are modulated as 0.3 plus and minus 0.06 sin(2 pi k
+x / 64), transverse momentum decaying diffusively. Sound, all four
+occupancies modulated together, a standing density wave. The
+projected mode amplitude is the ensemble mean of the sine-mode
+overlap, the shear rate is the log-slope over steps 50 to 350, and
+the sound frequency comes from the zero-crossing spacing of the
+oscillating amplitude.
+
+Bars, deliberately scaling-based, no Boltzmann coefficient is
+assumed. H1, the shear mode decays, the amplitude at step 350 is
+below 0.9 of the amplitude at step 50, and the rates fitted on the
+two half-windows agree within twenty percent. H2, diffusive
+scaling, the k = 2 shear rate over the k = 1 rate lies in [3.4,
+4.6]. H3, sound dispersion, the measured frequency at k = 1 lies
+within fifteen percent of k_phys divided by sqrt 2, and the k = 2
+over k = 1 frequency ratio lies in [1.85, 2.15]. H4, mass and both
+momentum components integer-exact in every realization at every
+step. The measured viscosity and sound speed are recorded as
+values, with the Boltzmann-level comparison noted as comparison
+only. All four or HD-1 fails. Exploratory label,
+results/hd1-transport.json.
+
 ### HD-2: The prescription gate for viscosity
 
 A declared family of coarse-graining prescriptions (cell size,

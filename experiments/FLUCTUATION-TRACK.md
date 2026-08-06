@@ -71,6 +71,33 @@ zero defect, and every restricted observer's defect is predicted
 exactly by its declared detector model, the PF-6 clause on
 fluctuation identities.
 
+#### FT-1 protocol (declared 2026-08-05, before the run)
+
+The FT-0 system unchanged. Four declared observers. The complete
+observer sees the full path. The lumped observer merges states zero
+and one and computes apparent work from the declared lumped free
+energies of its observed symbol. The held observer reads the state
+only at even stages and computes apparent work holding its last
+reading. The blind observer sees nothing and books the equilibrium
+free-energy change as its work. Each observer's Jarzynski defect is
+the absolute difference between the path average of exp(-apparent
+work) and exp(-dF).
+
+Bars. L1, the complete observer's defect is at most 1e-14. L2, the
+blind observer's defect is at most 1e-14, its apparent work
+telescopes to dF exactly, total blindness satisfies the identity
+trivially. L3, the lumped observer's defect is at least 1e-5,
+strictly broken in between. L4, lawfulness by route agreement, for
+the lumped and held observers the defect computed by full path
+enumeration equals the defect computed independently from the
+observed-record process, the exact hidden-Markov marginal over
+records, within 1e-12, the declared detector model predicts the
+defect exactly. Mean apparent work per observer recorded. All four
+or FT-1 fails. The reading, the defect lives strictly between full
+sight and total blindness, and it is never an anomaly, always the
+declared channel's exact arithmetic. Exploratory label,
+results/ft1-lawful-demon.json.
+
 ### FT-2: Consumer-relative free energy
 
 Whether a lumped consumer's fluctuation identities are exactly

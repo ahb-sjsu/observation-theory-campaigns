@@ -74,9 +74,46 @@ another, the track's seed measured.
 ### RG-1: Channel-family invariance of long-distance structure
 
 Two-dimensional Ising on narrow strips, exact by transfer matrix. A
-declared family of channels (decimation, majority, task-optimized).
-Measured, which long-distance quantities are invariant across the
-family and which are channel artifacts.
+declared family of channels. Measured, which long-distance
+quantities are invariant across the family and which are channel
+artifacts.
+
+#### RG-1 protocol (declared 2026-08-05, before the run)
+
+Substrate, the two-dimensional Ising model on a width-4 periodic
+cylinder at K = 0.3, exact by the symmetric 16 by 16 column
+transfer matrix. Channel family, four declared column functionals,
+decimation (the first spin), majority (ties broken to the first
+spin), the adjacent pair product, and the column parity. The
+long-distance quantity is the decay rate of the connected
+correlator of the channel output along the cylinder, measured from
+exact correlator ratios at separations 8 through 16, with a second
+route through direct transfer-matrix powers required to agree to
+1e-10.
+
+The declared structure to be tested. The transfer matrix commutes
+with the global spin flip, so its eigenvectors split into odd and
+even sectors, and a channel's correlator is exactly a sum over the
+eigenvectors its output couples to. Decimation and majority are odd
+functionals, the pair product and the parity are even. A correlator
+ratio at finite separation carries subleading terms, so the bars
+are on exact sector selection, which proves the asymptotic rate.
+Bars. B1, each odd channel's amplitude onto every even eigenvector
+beyond the ground state is at most 1e-12 while its amplitude onto
+the leading odd eigenvector is at least 1e-6, so its decay rate is
+exactly the leading odd eigenvalue ratio. B2, the same for the two
+even channels with the sectors exchanged, disconnected part
+subtracted, rate exactly the leading subdominant even ratio. B0,
+the eigen-sum correlator and the direct transfer-matrix-power
+correlator agree to 1e-10 in relative terms at separations 8
+through 16. B3, the two sector rates are measurably different,
+ratio recorded. B4, amplitudes within a sector differ across
+channels, spread recorded, measurement with no bar. The
+reading, the decay rate is invariant within a symmetry sector and
+the declared channel selects which sector's invariant the observer
+sees, correlation length itself is consumer-selected, not
+consumer-invented. Exploratory label,
+results/rg1-channel-family.json.
 
 ### RG-2: The flip in renormalization form
 
