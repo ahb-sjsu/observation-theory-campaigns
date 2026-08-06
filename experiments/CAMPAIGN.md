@@ -255,6 +255,35 @@ charge balance, and missing-trajectory count.
 **Falsification bar.** Any unexplained creation of conserved quantities, or a result
 that depends on deleting unsuccessful trajectories, rejects the model.
 
+#### PF5-001 sealed gate run, results (2026-08-06, record sha 073f6e692253...)
+
+Verdict PASS on every sealed bar, and the pass does not test the intended claim.
+All eight cells are evaluable, every census sums exactly to 20000 with zero missing
+trajectories, the maximum relative energy residual across cells is 6.1e-7 against
+the 1e-5 bar, and the path-degree rule holds at every generic level on all 96
+declared polyline members with zero failures and zero refused levels. The census
+also records zero reversing trajectories in every cell, all 160000 members
+transmitted. The sealed claim concerns the accounting of apparent pair events, and
+this grid contains none, so what the run certifies is the accounting machinery on
+transmitted trajectories, not the conservation of pair events.
+
+The named error is the manifest, not the instrument. PREREG-PF5-001 declared a
+product grid of gaps against fields, while PF4-002 placed its cells by bisecting to
+declared targets, which is how that manifest landed in the regime where reversals
+occur. The sealed verdict stands as recorded, and the gate's content question is
+carried by PF5-002 with probe-placed cells. This repeats PF4-003's lesson at the
+level of the gate, a manifest must be verified to contain the events its claim is
+about, and the rule now applies to gate runs as well as summit runs.
+
+#### PF5-002, in preparation
+
+The placement probe (`python/pf5_placement_probe.py`, unsealed) bisects the field at
+each declared gap to land the reversing fraction inside the declared window 0.02 to
+0.30, recording the selected field and the measured fraction per cell.
+PREREG-PF5-002 binds only cells whose probe fraction lies in that window, keeps
+every bar of PREREG-PF5-001 unchanged, and adds one bar, the reversing count per
+bound cell must exceed zero in the governed run, so a vacuous pass cannot recur.
+
 ---
 
 ### PF-6: Observer, Lorentz, and gauge audit
@@ -325,6 +354,33 @@ negative with the measured shape recorded either way.
 **Gate.** Design only. Runs only after the PF4-003 harvest and the sealed PF-5
 and PF-6 gate runs, in sequence position after PF-6, sharing PF-7's substrate
 options.
+
+### PF-4 summit, closed on the pulse-train family (2026-08-06)
+
+Three records close the summit attempt on the thermal-free pulse-train family.
+PREREG-PF4-003 sealed itself unevaluable, every cell capped without a reversal out
+to 4000 slabs. The direct-observable probe (results/pf4-004-probe.json, sha
+c5b7d79c79ac...) then measured N_rev at twelve cells, three field strengths crossed
+with four velocities at identical constants, and found zero reversals in all
+twelve, so PREREG-PF4-004 cannot bind and its template stays unsealed by its own
+verification clause.
+
+#### The mechanism, measured (results/pf4-mechanism.json, sha 99761a6f45d3...)
+
+The declared hypothesis was that the alternating slabs cancel the deposits, with a
+compound flag requiring both a cancellation ratio below 0.5 and an extrapolated
+slabs-to-reversal above 4000. The flag reads False as recorded, and the two halves
+separate cleanly. Cancellation is confirmed and strong, the net drift per slab is
+3.3, 0.9, and 5.0 percent of the mean deposit magnitude in the three declared
+cells, so 95 to 99 percent of every deposit is undone by the next slabs, with sign
+flips on 54, 68, and 27 percent of consecutive deposits. The extrapolation half of
+the flag failed because it took the absolute drift, and the third cell's drift is
+positive, 0.0096 per slab, carrying the trajectory away from reversal rather than
+toward it. The corrected reading is stronger than the declaration, the pulse train
+does not merely deposit too slowly, its residual after cancellation has no fixed
+sign, and at the largest declared field it accelerates the trajectory away from the
+fold. A family whose net transfer can point either way will not spend the gap at
+any cap, which is why every probed cell is empty.
 
 ## 6. Campaign sequence
 
