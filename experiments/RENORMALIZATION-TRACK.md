@@ -57,6 +57,20 @@ decimating twice equals one decimation at the composed coupling
 within 1e-12. All five or RG-0 fails. Exploratory label,
 results/rg0-instrument.json.
 
+#### RG-0 results (run 2026-08-05, record sha e191e2b095eb...)
+
+Verdict PASS, all five items. Route agreement exact, decimation
+exact to 4.2e-17 in every configuration probability with the
+closed-form coupling flow, the correlation length halves exactly,
+and the flow composes exactly. The channel-dependence item is
+sharp, the majority-rule coarse distribution's best
+nearest-neighbor fit mispredicts the next-nearest correlator by
+0.0260, two hundred sixty times the bar, while the decimation
+channel's full-distribution residual on the same substrate is
+4.2e-17. The same microscopic model is exactly representable in the
+coarse family under one declared channel and measurably not under
+another, the track's seed measured.
+
 ### RG-1: Channel-family invariance of long-distance structure
 
 Two-dimensional Ising on narrow strips, exact by transfer matrix. A

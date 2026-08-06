@@ -50,6 +50,19 @@ ninety degrees and evolving equals evolving and then rotating, bit
 for bit, with the channel relabeling included. All four or HD-0
 fails. Exploratory label, results/hd0-instrument.json.
 
+#### HD-0 results (run 2026-08-05, record sha df840be16409...)
+
+Verdict PASS, all four items. Mass 194 and both momentum components
+integer-exact at every step, the double reversal reproduces the
+initial state bit for bit, and the rotated evolution equals the
+evolved rotation bit for bit. The observational entropy rises 0.637
+bits from the ordered start and the reversed run retraces the
+forward curve with maximum deviation exactly zero, the rise is the
+observer's, the substrate forgets nothing. The recorded curve
+oscillates between fillings rather than rising monotonically, the
+blob sloshes on the torus, HPP's known anisotropy already visible
+to the coarse consumer, an early instrument note for HD-1.
+
 ### HD-1: Exact transport instrument
 
 Declared shear and sound initial profiles. Measured, decay rates

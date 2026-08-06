@@ -51,6 +51,18 @@ Jarzynski defect recorded as the FT-1 seed, measurement with no
 bar. C1 through C3 or FT-0 fails. Exploratory label,
 results/ft0-instrument.json.
 
+#### FT-0 results (run 2026-08-05, record sha 0c83a3dc7109...)
+
+Verdict PASS, all three barred items. Jarzynski holds on the
+ensemble with deviation exactly zero, and Crooks holds path by path
+across all 19683 paths with maximum deviation 2.2e-19, the identity
+is exact at the finest grain the model has. Mean work -0.0788
+against dF -0.1021, dissipation 0.0233, and the frozen protocol
+gives exactly zero work on every path. The lumped-observer preview
+measured a Jarzynski defect of 4.33e-4 at equal lumped and true
+free energies, the restricted consumer's identity fails by a
+definite measured amount, the FT-1 seed on record.
+
 ### FT-1: The lawful-demon audit
 
 Declared blind observers (lumped states, missed transitions,

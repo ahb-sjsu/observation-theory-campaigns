@@ -3,9 +3,9 @@
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, seven tracks. The shared question is what an observer with
+One program, twelve tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
-Each track makes that question concrete in a different setting, and all seven run under one evidence discipline with sealed instruments,
+Each track makes that question concrete in a different setting, and all twelve run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
 
 If you are new here, read this file top to bottom, then the one track
@@ -13,10 +13,13 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The seven tracks
+## The twelve tracks
 
 Each track keeps one color everywhere in this file: 🟦 folds, 🟥
-entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry, 🟨 Wolfram models, ⬜ games and decisions. The letter
+entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry, 🟨 Wolfram models, ⬜ games and decisions, and the
+second generation of tracks launched from the first, 🔵
+renormalization, ⚫ quantum Darwinism, 🟠 hydrodynamics, 🔴
+fluctuation theorems, 🟤 gauge redundancy. The letter
 codes always accompany the chips, so nothing depends on color alone.
 
 | Track | Short name | Question in one line | Status |
@@ -28,6 +31,11 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | COMPLETE: EG-0..4 measured, EG-5 forbidden by its own bar; the arc's result is the exact tension between area-law counting and local field structure |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Complete: WM-0..4 + WM-2h measured; the growth rules bookkeeping is prescription-borne |
 | ⬜ GD | Games and decisions | Are the behavioral structures of imperfect-information domains (value of information, prospect-theoretic distortion, reference dependence) consumer-relative phenomena? | COMPLETE: GD-0..5 all measured (GD-1/GD-2 honest FAILs on their own bars, GD-1b/GD-2b passed corrected); prospect signatures, reference dependence, and the RI logit all consumer-relative, measured |
+| 🔵 RG | Renormalization | Is universality a property of the substrate or of the declared coarse-graining channel? | Declared; RG-0 passing (representability is channel-relative, measured) |
+| ⚫ QD | Quantum Darwinism | Is objectivity multi-consumer redundancy, and does it emerge or must it be declared? | Declared; QD-0 passing (plateau and no-plateau controls exact) |
+| 🟠 HD | Hydrodynamics | Is a transport coefficient substrate or prescription, and is coarse dissipation entirely the observer's? | Declared; HD-0 passing (bit-exact Loschmidt retrace) |
+| 🔴 FT | Fluctuation theorems | What happens to Jarzynski and Crooks for a consumer with a restricted channel? | Declared; FT-0 passing (Crooks exact path by path; lumped-observer defect seeded) |
+| 🟤 GG | Gauge redundancy | Is gauge symmetry anything but the fiber structure of the observer's projection? | Declared; GG-0 passing (three-route Wilson agreement, Elitzur exact) |
 
 ## Status ledger, one row per experiment
 
@@ -84,6 +92,11 @@ document in `experiments/SEALS.md`.
 | ⬜ **GD-3** prospect signatures | `[demonstrated-in-model]` ✅ all audits + all 5 findings | budgeted consumers with NO weighting function, reference point, or loss-aversion input: sample-budget reader = exactly linear regressive weighting (closed form 6.8e-14, curvature 1.5e-14); log-odds reader = full inverse-S (endpoint secants 3.00 vs bar 1.1, middle 0.51, margins 0.099 vs 0.01); crossover tracks environment (0.5 → 0.338 ≈ logistic(−1)); loss-heavy environment → loss side read less compressed, ratio 1.208; diminishing sensitivity unambiguous (second diffs all negative). Zero-noise reads = exact identity; symmetric environments = exactly symmetric reads (1.5e-13); every distortion shrinks along every budget ladder |
 | ⬜ **GD-4** reference functionals | `[demonstrated-in-model]` ✅ all audits + all 3 findings | an environment-tuned budgeted encoder reads deviations from four declared reference functionals (status quo, adapted, median, lagged): observer spread 29.6 on one gamble (bar 0.5); ranking reversal O1 vs O3 with margins 12.4/10.8; status-quo observer breaks translation covariance by 6.44 while the adapted observer holds it to 1e-10 on the same shift — which reference effects appear is decided by the declared functional, every difference predicted (lawful-observer clause on valuations). Anchors: zero-noise = exact means; symmetric cases exact to 7.1e-14; distortion ladder strictly budget-monotone |
 | ⬜ **GD-5** Matejka-McKay + budgeted equilibrium | `[replicated]` + `[demonstrated-in-model]` ✅ all 8 bars + F6 | RI logit replicated exactly: stationarity 0, weighted-logit identity 9.5e-15, 200 independent perturbations never improve, limits exact (value 1, info ln 2; prior play at λ=5). Consideration sets as published: safe action excluded at every λ≤1 (3e-23 at 0.05); at λ=1 the soft optimum (net 0.6202) beats pure safe (0.6) and full attention. Budgeted equilibrium: converges 8.9e-14, exactly symmetric, sits on the closed-form fixed-point curve to 2.1e-14; attention complementarity measured: I1 falls 0.6884→0.6637 as the opponent's budget coarsens |
+| 🔵 **RG-0** coarse-graining instruments | `[demonstrated-in-model]` ✅ | 1D Ising exact: decimation in-family to 4.2e-17 with the closed-form coupling flow, correlation length halves exactly, flow composes exactly; majority-rule blocking on the SAME substrate leaves the nearest-neighbor family by 0.0260 (260x the bar) — representability of the coarse theory is channel-relative, measured |
+| ⚫ **QD-0** fragment-information instruments | `[demonstrated-in-model]` ✅ | exact I(S:F) on 1+6 qubits: product = 0 (3.2e-16); GHZ classical plateau exact (1 bit every fragment, 2 bits full); partial-record state matches its overlap closed form to 2.2e-16 at every fragment size; Haar control: mean single-fragment MI 0.051 bits vs S(S)=0.999 — records are structure, not a generic feature of purity |
+| 🟠 **HD-0** lattice-gas instruments | `[demonstrated-in-model]` ✅ | HPP 16x16: mass/momentum integer-exact 200 steps; double reversal bit-exact; coarse entropy rises 0.637 bits while the reversed run retraces the curve with deviation exactly 0 — the rise is the observer's; rotation equivariance bit-exact; the curve's sloshing = HPP anisotropy, noted for HD-1 |
+| 🔴 **FT-0** path-space instruments | `[demonstrated-in-model]` ✅ | 3 states x 8 steps, all 19,683 paths enumerated: Jarzynski deviation exactly 0; Crooks holds PATH BY PATH to 2.2e-19; dissipation 0.0233 ≥ 0; frozen protocol exactly workless. Lumped observer's Jarzynski defect 4.33e-4 recorded — the FT-1 lawful-demon seed |
+| 🟤 **GG-0** gauge-orbit instruments | `[demonstrated-in-model]` ✅ | Z2 on 3x3 torus, all 2^18 configs: every orbit exactly 256 with action exactly constant; Wilson plaquette identical across full enumeration, tree-gauge slice, and torus closed form (0.38032051536830963 on all three); Elitzur exactly 0 on every link, while the gauge-fixed observer reads 0.3803 on non-tree links — a Wilson loop wearing a gauge-variant label, the observer's bookkeeping made explicit |
 | 🟨 **WM-2h** hypergraph prescription audit | \[demonstrated-in-model]\ ⚠ prescription-borne | the WM tracks sharpest audit: the flagship growth rules bulk bookkeeping is NOT prescription-invariant — five declared match orders give relation counts 1710–1882, vertex counts 855–941, and dimension estimates 2.43–2.88 (18% spread), so the WM-4 dimension claim inherits a measured prescription caveat at these sizes (unlike the string sorting rule, which was exact under every order); the fork-contraction trap fires with 3 distinct terminals (a bare path is confluent, verified en route) |
 
 Six sealed documents in the ledger (two instrument freezes, four
@@ -576,6 +589,60 @@ Key files. `experiments/GAMES-DECISIONS-TRACK.md`,
 `python/gd3_prospect_signatures.py`,
 `python/gd4_reference_functionals.py`,
 `python/gd5_budgeted_equilibrium.py`.
+
+### The second generation, five tracks launched 2026-08-05
+
+The first seven tracks kept converging on one lesson, what an
+observer reads is set by its declared channel, task, environment,
+and budget, and apparent physics can be consumer bookkeeping. The
+second generation asks that question of five more bodies of
+physics. Each track has a declaration document, an instrument-layer
+experiment passing all its exact controls, and designed follow-on
+experiments gated behind the usual discipline.
+
+🔵 RG, renormalization as consumer structure
+(`experiments/RENORMALIZATION-TRACK.md`). A block-spin map is a
+declared channel. RG-0 measured the seed result, decimation of the
+Ising ring is exactly in-family with the closed-form coupling flow
+while majority-rule blocking of the same substrate measurably
+leaves the nearest-neighbor family, so whether the coarse theory is
+representable at all is channel-relative. Open, channel-family
+invariance of long-distance structure, the flip in renormalization
+form, the universality gate, relevance as a channel property.
+
+⚫ QD, quantum Darwinism as multi-consumer structure
+(`experiments/QUANTUM-DARWINISM-TRACK.md`). Objectivity as
+redundancy across environment fragments is intrinsically a
+multi-consumer claim. QD-0 validated the fragment-information
+instrument, exact plateaus for perfect records, an exact overlap
+closed form for partial records, and no plateau for Haar randomness.
+Open, the emergence gate for redundancy, the budget knob, the
+multi-consumer agreement audit.
+
+🟠 HD, dissipation as consumer structure
+(`experiments/HYDRODYNAMICS-TRACK.md`). HD-0 validated the
+reversible lattice gas, integer-exact conservation, bit-exact double
+reversal, and the Loschmidt control made mechanical, coarse entropy
+rises 0.637 bits while the reversed run retraces the curve exactly.
+Open, the exact transport instrument, the prescription gate for
+viscosity, dissipation declared-or-absent.
+
+🔴 FT, fluctuation theorems under restricted observation
+(`experiments/FLUCTUATION-TRACK.md`). FT-0 verified Jarzynski
+exactly and Crooks path by path over the full enumerated path
+space, and measured the seed, a lumped observer's Jarzynski defect
+of 4.33e-4. Open, the lawful-demon audit, consumer-relative free
+energy, feedback and measurement.
+
+🟤 GG, gauge redundancy as consumer bookkeeping
+(`experiments/GAUGE-TRACK.md`). A gauge orbit is the fiber of a
+projection. GG-0 validated the orbit instrument with three-route
+agreement on the Wilson expectation to every printed digit and the
+Elitzur control exactly zero, and recorded the observer lesson, the
+gauge-fixed consumer's nonzero link reading is a Wilson loop
+wearing a gauge-variant label. Open, consumer-invariance across the
+gauge-fixed observer family, the Gauss-law replay, the
+minimal-coupling audit.
 
 ## The evidence discipline (applies to every track)
 

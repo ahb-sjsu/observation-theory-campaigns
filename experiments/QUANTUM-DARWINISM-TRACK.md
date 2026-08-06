@@ -54,6 +54,19 @@ environment gives I = 2 S(S) within 1e-10, records are structure,
 not a generic feature of purity. All four or QD-0 fails.
 Exploratory label, results/qd0-instrument.json.
 
+#### QD-0 results (run 2026-08-05, record sha edcf2ebd004d...)
+
+Verdict PASS, all four items. The product state carries no
+information at 3.2e-16, the GHZ plateau is exact at 1 bit for every
+proper fragment and 2 bits for the whole environment, and the
+partial-record state matches its overlap closed form to 2.2e-16 at
+every fragment size, the measured curve rising from 0.81 bits at
+one qubit through the plateau shoulder to 2.00 bits at six. The
+Haar-random control has mean single-fragment information 0.051
+bits against system entropy 0.999, records are structure, not a
+generic feature of purity. The redundancy instrument is validated
+end to end.
+
 ### QD-1: Emergence gate for redundancy
 
 Declared interaction dynamics (controlled rotations of declared

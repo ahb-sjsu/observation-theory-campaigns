@@ -49,6 +49,21 @@ gauge-variant reading is the observer's bookkeeping, not the
 substrate's. All three or GG-0 fails. Exploratory label,
 results/gg0-instrument.json.
 
+#### GG-0 results (run 2026-08-05, record sha ab8594f96c60...)
+
+Verdict PASS, all three items. Every sampled orbit has size exactly
+256 with the action exactly constant on it. The single-plaquette
+Wilson expectation agrees across the full enumeration, the
+tree-gauge-fixed enumeration, and the exact torus closed form to
+every printed digit, 0.38032051536830963 on all three routes. The
+Elitzur control is exactly zero on every link in the full ensemble,
+while the tree-gauge-fixed observer assigns non-tree links a
+reading of 0.3803, which is no accident, in tree gauge a non-tree
+link equals a Wilson loop through the tree, the observer's
+bookkeeping is a gauge-invariant quantity wearing a gauge-variant
+label. The instrument for the observer-family experiments is
+validated.
+
 ### GG-1: Consumer-invariance across gauge-fixed observers
 
 A declared family of gauge fixings (tree gauges on different trees,
