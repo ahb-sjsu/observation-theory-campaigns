@@ -528,6 +528,62 @@ record `results/cr3b-task-entropy.json`, schema
 cr3b-task-entropy-v1. Nothing in CR-3b is a claim about any real
 key-generation system, and the hard limit of section 1 governs.
 
+#### CR-3b results (run 2026-08-06, record sha c8e0db539cb6...)
+
+Verdict PASS, all three declared items. F1, the unchanged items
+repeated their CR-3 values exactly, closed-form agreement 8.9e-16,
+min-entropy route agreement 8.9e-16, the exhaustive scan finding the
+declared spike weight at every source, single-guess identity to
+1.4e-17 with eight of ten sources bit for bit identical, Kraft
+equality exact everywhere, and Huffman margins 0.0 below and 0.0807
+above.
+
+F2 passed on the corrected statement. The ordering held with worst
+value exactly 0.0 and the equality clause held exactly at the uniform
+member. The ratio of min-entropy to Shannon entropy falls strictly
+along the whole eps ladder, 1.0, 0.9202918130749266,
+0.7303985098755919, 0.5199240276284444, 0.376894797099704,
+0.23904214295745602, 0.14641401304235882, and strictly along the
+whole q ladder, 0.2875961377467552, 0.15761166929284676,
+0.11124838824221533. The closed-form derivative of the additive gap
+reads 46.166, 34.559, 16.301, 5.181, 0.4147, -3.444, -7.165 along the
+eps ladder, one sign change and it falls exactly in the declared
+bracket between eps = 0.30 and eps = 0.60, with the gap increments
+positive at every step before the bracket and negative at every step
+after it.
+
+F3, the closed-form derivative agrees with a central finite
+difference of the gap to 1.6e-8 at every ladder point, against the
+declared 1e-6, so the unimodality claim rests on a derivative checked
+against the quantity it differentiates.
+
+F4, recorded without a bar. Bisection inside the declared bracket
+converged in 39 steps to a final width of 5.5e-13 and places the
+maximizing spike weight at 0.353383436367676, an eps of
+0.322133436367676, where the gap reaches 2.6398252258132944 bits and
+the derivative reads 4.5e-12. The largest gap on the declared ladder
+was 2.635309539404596 bits at eps = 0.30, so the ladder came within
+0.0045 bits of the true maximum and stepped over it.
+
+The reading, adjacent to the numbers. The fraction of the averaging
+consumer's accounting that survives to the single-guess consumer
+falls strictly and without exception as the source concentrates,
+from all of it at the uniform source to 0.111 at q = 0.99, while the
+number of bits separating the two accountings rises to an interior
+maximum near eps = 0.32 and then falls back toward zero, because a
+source that is almost certain is cheap under either accounting. For
+the declared key-material case the averaging consumer prices the
+source at 3.477098155193437 bits and the single-guess consumer
+prices the same source at exactly 1 bit, a factor of
+3.477098155193437, and the single guess succeeds with probability
+exactly 0.5 while a Huffman code for the same source averages
+3.4838709677419355 bits per symbol. Both numbers are correct
+readings of one substrate and the disagreement is entirely in the
+task. Which entropy is the right entropy is set by the consumer's
+task rather than by the source, which is the GD-3 lesson in entropy
+accounting form. Nothing in this is a claim about any real
+key-generation system.
+
 ## 7. Non-claims and evidence discipline
 
 Seals, labels, append-only records, and falsification bars as in
