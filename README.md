@@ -3,7 +3,7 @@
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, six tracks. The shared question is what an observer with
+One program, seven tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
 Each track makes that question concrete in a different setting, and all six run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
@@ -13,10 +13,10 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The six tracks
+## The seven tracks
 
 Each track keeps one color everywhere in this file: 🟦 folds, 🟥
-entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry, 🟨 Wolfram models. The letter
+entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry, 🟨 Wolfram models, ⬜ games and decisions. The letter
 codes always accompany the chips, so nothing depends on color alone.
 
 | Track | Short name | Question in one line | Status |
@@ -27,6 +27,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | COMPLETE: EG-0..4 measured, EG-5 forbidden by its own bar; the arc's result is the exact tension between area-law counting and local field structure |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Complete: WM-0..4 + WM-2h measured; the growth rules bookkeeping is prescription-borne |
+| ⬜ GD | Games and decisions | Are the behavioral structures of imperfect-information domains (value of information, prospect-theoretic distortion, reference dependence) consumer-relative phenomena? | Declared; GD-0 instrument passing |
 
 ## Status ledger, one row per experiment
 
@@ -75,6 +76,7 @@ document in `experiments/SEALS.md`.
 | 🟨 **WM-2** prescription audit | `[demonstrated-in-model]` ✅ trap discharged | string-substitution instance, three declared update orders: the causal-invariant sorting rule BA→AB agrees exactly under every prescription (final string and event count = inversion number, 406); the planted non-confluent rule {AB→B, BA→A} is flagged with three distinct terminal strings (B, BB, BBBB); the growth rule A→AB splits measured — conserved letter counts prescription-invariant, arrangement prescription-borne |
 | 🟨 **WM-3** foliation covariance | `[demonstrated-in-model]` ✅ | genuine causal graphs from token genealogy: the sorting rule's invariants (55 events, 88 edges, depth 13, degree multiset) identical across prescriptions, while the trap's causal graphs differ radically (7 events/6 edges vs 4 events/0 edges — the rightmost order yields a causally disconnected history); across foliations of one graph, earliest and latest both achieve exactly the depth bound 13 while random extensions spread 19–26 slices — invariants frozen, simultaneity bookkeeping varying 2× |
 | 🟨 **WM-4** held-out dimension scaling | `[demonstrated-in-model]` ✅ at measured sizes | minimal hypergraph rewriter for {{x,y},{x,z}}→{{x,z},{x,w},{y,w},{z,w}}, 11 generations, 1794 relations/897 vertices under one declared prescription: shell estimator gives d̂ = 2.305 on training radii, and on held-out radii the finite-dimension power law beats the exponential alternative by 40× in SSE (0.028 vs 1.092) — this rule genuinely passes the audit, finite-size crossover beyond the window not excluded |
+| ⬜ **GD-0** decision instruments | `[demonstrated-in-model]` ✅ | exact experiment values (uninformative and perfect closed forms to 1e-12); Blackwell garbling certificate (declared garble 5.6e-17 vs infeasible reverse 0.26 — nine orders of separation); garbling never raises any of 20 task values (worst gain 1e-16); BSC(e1) above BSC(e2) iff e1<=e2 across the grid; an incomparable pair whose declared tasks reverse preference (+0.05 / -0.15) — the GD-1 seed |
 | 🟨 **WM-2h** hypergraph prescription audit | \[demonstrated-in-model]\ ⚠ prescription-borne | the WM tracks sharpest audit: the flagship growth rules bulk bookkeeping is NOT prescription-invariant — five declared match orders give relation counts 1710–1882, vertex counts 855–941, and dimension estimates 2.43–2.88 (18% spread), so the WM-4 dimension claim inherits a measured prescription caveat at these sizes (unlike the string sorting rule, which was exact under every order); the fork-contraction trap fires with 3 distinct terminals (a bare path is confluent, verified en route) |
 
 Six sealed documents in the ledger (two instrument freezes, four
@@ -448,6 +450,41 @@ Key files. `experiments/WOLFRAM-MODELS-TRACK.md`,
 `python/wm0_dimension.py` through `python/wm4_hypergraph.py`,
 `python/wm2h_prescription.py`. Related prior work in
 `C:\source\wolfram-observer-bridge`.
+
+### ⬜ GD, games and decisions under projection
+
+The newest track. An information set in a game is the fiber of a
+projection, many hidden histories behind one observed set, and
+Blackwell's informativeness ordering is the decision-theoretic twin
+of the data-processing inequality the campaign has used throughout.
+The track asks whether the behavioral structures of
+imperfect-information domains, the value of information, the
+inverse-S probability weighting and loss asymmetry of prospect
+theory, reference dependence, and budget-limited equilibrium play,
+are consumer-relative phenomena derivable from declared channel,
+task, and budget structure with nothing inserted. The
+anti-circularity contract forbids weighting functions, post hoc
+reference points, and loss-aversion coefficients as inputs. Nothing
+in the track is a claim about human beings.
+
+Established so far. GD-0, the instrument layer, exact experiment
+values on closed-form controls, a certified Blackwell garbling
+checker whose declared garble resolves nine orders below the
+infeasible floor, garbling never raising any task value across the
+battery, the binary-channel ordering reproduced across the grid, and
+an incomparable experiment pair whose declared tasks reverse
+preference, the seed of GD-1, where the campaign's flip meets
+Blackwell's theorem.
+
+Designed and open. GD-1 (fidelity orderings versus task orderings),
+GD-2 (the budget flip in a game), GD-3 (prospect signatures from
+budgeted consumers, either outcome a result), GD-4 (reference
+dependence as observer functional choice under the lawful-observer
+clause), GD-5 (the Matejka-McKay logit replication and equilibrium
+with budgeted consumers).
+
+Key files. `experiments/GAMES-DECISIONS-TRACK.md`,
+`python/gd0_instrument.py`.
 
 ## The evidence discipline (applies to every track)
 
