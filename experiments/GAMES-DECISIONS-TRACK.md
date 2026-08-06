@@ -176,6 +176,22 @@ margin above 0.01, the conic bound above 1e-3, the TV gap above
 are not rerun, they stand as measured in GD-1. Exploratory label,
 results/gd1b-exhibit-certificate.json.
 
+#### GD-1b results (run 2026-08-05, record sha 61ef08e2665ab08a...)
+
+Verdict PASS, all five items. Minimum divergence margin 0.429, task
+margin 0.0395 (values 0 and 0.0395), conic lower bound 0.004263
+against the 1e-3 bar, TV gap 0.751, and the GD-1 search residual
+0.004486 sits above the analytic bound, which is nearly tight, the
+search was measuring genuine infeasibility to within five percent.
+The rare-decisive-signal exhibit therefore stands proved, every
+declared f-divergence orders A above B by at least 0.429 while the
+declared screening task strictly prefers B and the pair is
+Blackwell-incomparable by proof in both directions. Together with
+GD-1's ensemble measurement, 281 of 281 unanimous-divergence
+incomparable pairs carrying a task reversal, the wedge the QO-2 flip
+exploited is now exhibited exactly in decision form and localized to
+exactly the region Blackwell's theorem leaves open.
+
 ### GD-2: The budget flip in a game
 
 A finite imperfect-information game where a player's information set
