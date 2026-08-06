@@ -226,7 +226,46 @@ the certificate technique is GD-1b's, meaning incomparability is
 established by the conic lower bound and by monotonicity of an
 f-divergence rather than by thresholding a search residual. Declared
 before any run, the leakage channels, the key-recovery task battery,
-and the comparability tolerances. Protocol only, no run.
+and the comparability tolerances.
+
+#### CR-1 protocol (declared 2026-08-06, before the run)
+
+Substrate. A four-bit key uniform on sixteen values, a declared
+bijective substitution table, and leakage channels that read the
+substituted value. The declared channels are the identity channel
+which reads the value itself, the Hamming-weight channel which reads
+the number of set bits, the low-bit channel which reads the lowest
+bit, the noisy Hamming-weight channel which adds declared symmetric
+noise of probability 0.2 in each direction to the Hamming weight, and
+the constant channel which reads nothing.
+
+The certificate technique, declared because it replaces a search with
+a proof. A channel B is a garbling of a channel A exactly when B is
+conditionally independent of the key given A, so the conditional
+mutual information of key and B given A is zero. A strictly positive
+conditional mutual information therefore proves that B is not a
+garbling of A, with no tolerance and no search involved. The
+projected-gradient residual of the GD-0 instrument is retained as a
+cross-check and never as the certificate. All informations are
+computed exactly from the declared joint distributions.
+
+Bars. K1, the identity channel is above every declared channel, each
+garbling residual below the GD-0 feasibility tolerance and each
+conditional mutual information of key and channel given identity
+exactly zero. K2, the constant channel is below every declared
+channel, residuals below the same tolerance. K3, the noisy channel is
+a garbling of the Hamming-weight channel, residual below tolerance
+and conditional mutual information exactly zero, while the reverse is
+proved impossible, the conditional mutual information of key and
+Hamming weight given the noisy reading strictly above 1e-6 and the
+mutual information gap strictly positive. K4, the Hamming-weight and
+low-bit channels are proved incomparable, both conditional mutual
+informations strictly above 1e-6, so neither is a garbling of the
+other. K5, the data-processing control, across a declared battery of
+two hundred seeded random key-recovery tasks on sixteen actions plus
+the declared maximum-likelihood key-guessing task, no garbling ever
+raises a task value by more than 1e-10. All five or CR-1 fails.
+Exploratory label, results/cr1-leakage-ordering.json.
 
 ### CR-2: The countermeasure flip
 
@@ -241,8 +280,53 @@ about nothing else, that a reduction in a scalar leakage measure is
 not a security guarantee outside certified Blackwell comparability,
 because the ordering that a scalar measure reports and the ordering
 that a task reports can disagree. It is not a statement that any
-countermeasure fails, and no countermeasure is modeled. Protocol
-only, no run.
+countermeasure fails, and no countermeasure is modeled.
+
+#### CR-2 protocol (declared 2026-08-06, before the run)
+
+Substrate. A single declared secret bit, uniform, and leakage
+channels from that bit to a declared four-symbol alphabet, so every
+channel is a two by four row-stochastic matrix and the scalar
+fidelity battery is exactly the GD-1 battery of seven f-divergences
+between the two conditional leakage distributions, the two
+Kullback-Leibler directions, total variation, squared Hellinger, the
+two chi-squared directions, and Jensen-Shannon. The declared task
+battery is two hundred seeded random utilities on three actions
+together with five declared threshold tasks whose costs of a wrong
+commitment are 2, 5, 10, 20, and 50, an attacker who must commit to a
+guess and pays for being wrong.
+
+Declared exhibit. Channel A has rows (0.55, 0.25, 0.15, 0.05) and
+(0.45, 0.25, 0.15, 0.15), a channel whose leakage differs broadly but
+mildly. Channel B has rows (0.49, 0.49, 0.01, 0.01) and (0.49, 0.49,
+0.005, 0.015), a channel that is nearly blind except on a rare symbol
+that is three times more likely under one value of the secret. The
+declared reasoning, offered so the run can refute it, is that broad
+mild separation wins every scalar fidelity comparison while the rare
+decisive symbol is what a high-cost commitment task can act on.
+
+Bars. F1, the exhibit, all seven divergences order A above B each
+with margin above 0.005, some declared task prefers B with margin
+above 0.002, and the pair is proved incomparable by the GD-1b
+technique, the conic lower bound above 1e-3 in one direction and the
+total-variation gap above 0.005 in the other. F2, the data-processing
+control, over five hundred declared garbled pairs no divergence rises
+and no task value rises by more than 1e-10. F3, localization, in a
+declared ensemble of two thousand seeded random channel pairs every
+wedge instance, meaning all seven divergences strictly order one
+channel above the other while some task strictly prefers the other by
+more than 1e-6, is certified incomparable, zero wedge instances among
+comparable pairs. F4, prevalence, measurement with no bar, the
+fraction of unanimously ordered incomparable pairs that carry a task
+reversal, reported beside the GD-1 figure of 281 of 281.
+
+The reading, stated in advance and binding on the report. If F1 and
+F3 hold, the measured statement is that a reduction in a scalar
+leakage measure is not a security guarantee outside certified
+Blackwell comparability. This is a statement about evaluation
+methodology in declared finite models. It is not a claim that any
+countermeasure, implementation, or system is insecure, and none is
+modeled. Exploratory label, results/cr2-countermeasure-flip.json.
 
 ### CR-3: Min-entropy versus Shannon entropy as declared-task entropy
 
@@ -255,7 +339,63 @@ the near-uniform sources where they nearly agree and the
 spike-plus-tail sources where they disagree most. The connection is
 to the GD-3 finding that the optimal read is set by the task, here in
 the form that which entropy is the right entropy is set by the
-consumer's task rather than by the source. Protocol only, no run.
+consumer's task rather than by the source.
+
+#### CR-3 protocol (declared 2026-08-06, before the run)
+
+Substrate. Two declared families of sources on an alphabet of n = 32
+outcomes, every probability an exact rational. Family U(eps) places
+probability 1/32 + eps on outcome 0 and (1 - 1/32 - eps)/31 on each
+of the other 31 outcomes, with eps on the declared ladder 0, 0.01,
+0.05, 0.15, 0.30, 0.60, 0.90, so that eps = 0 is exactly the uniform
+source and eps = 0.90 is a hard spike. Family S(q) is the classic
+spike-plus-uniform, probability q on outcome 0 and (1 - q)/31 on each
+other outcome, with q on the declared ladder 0.5, 0.9, 0.99. The
+textbook key-material case is a declared member of family S at
+q = 0.5, half the mass on one outcome and half spread uniformly over
+the remaining 31. Every distribution is built from Python Fractions
+so the probabilities sum to exactly one and the Huffman construction
+compares exact rationals rather than rounded floats. Every summation
+over outcomes uses math.fsum. Tolerance 1e-12 wherever a tolerance is
+needed.
+
+E1 closed forms. For every declared source the Shannon entropy summed
+over the 32 outcomes matches the closed form -a log2 a - (1 - a)
+log2((1 - a)/31) at the source's spike weight a, and the min-entropy
+equals -log2 of the largest probability, with the largest probability
+found by exhaustive scan over the alphabet rather than assumed.
+
+E2 ordering and limit. Min-entropy is at most Shannon entropy for
+every declared source, the two agree within 1e-12 exactly at the
+uniform member eps = 0 and nowhere else on the ladder, and the gap
+Shannon minus min-entropy is strictly increasing along the eps
+ladder. The gap is recorded at every ladder point.
+
+E3 operational validation for the single-guess consumer. The optimal
+single-guess success probability, computed by exhaustive maximization
+over the 32 outcomes, equals 2 to the power minus min-entropy for
+every declared source.
+
+E4 operational validation for the averaging consumer. An exact
+Huffman code is constructed for every declared source with a heap and
+no library import, and the mean code length is at least the Shannon
+entropy and strictly below the Shannon entropy plus one, the classic
+bound, for every source.
+
+E5 the divergence measurement, recorded without a bar. For the
+declared key-material case at q = 0.5 the run reports Shannon
+entropy, min-entropy, their ratio, and the single-guess success
+probability, and the results prose states the factor by which the two
+consumers price the same source differently.
+
+Verdict computed from E1, E2, E3, E4, all four or CR-3 fails. E5 is
+recorded as a measurement and carries no bar. Exploratory label,
+measured in model, unsealed. Runner `python/cr3_task_entropy.py`,
+record `results/cr3-task-entropy.json`, schema cr3-task-entropy-v1.
+If any bar fails the failure is recorded with the design error named
+and a CR-3b correction is declared, the b-run pattern used throughout
+this repository. Nothing in CR-3 is a claim about any real
+key-generation system, and the hard limit of section 1 governs.
 
 ## 7. Non-claims and evidence discipline
 
