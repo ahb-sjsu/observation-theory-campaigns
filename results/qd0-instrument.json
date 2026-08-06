@@ -1,0 +1,44 @@
+{
+  "items": {
+    "C1_product_zero": true,
+    "C2_ghz_plateau": true,
+    "C3_partial_record_closed_form": true,
+    "C4_no_plateau": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "c1_max_mi": 3.2034265038149176e-16,
+    "c2_max_dev": 2.220446049250313e-16,
+    "c3_max_dev": 2.220446049250313e-16,
+    "c3_mi_curve_bits": [
+      0.8118065626958508,
+      0.9570774866295737,
+      0.9998238825988729,
+      1.042570278568172,
+      1.187841202501895,
+      1.9996477651977458
+    ],
+    "c4_full_env_mi_minus_2S": 0.0,
+    "c4_mean_single_fragment_mi": 0.051401243000330776,
+    "c4_system_entropy_bits": 0.9989661835692287
+  },
+  "record_sha256": "edcf2ebd004d9435eabee2371d3132aab90764d77ce327b483cd8454d3f58d52",
+  "runtime": {
+    "code_commit": "2a40523",
+    "generated_utc": "2026-08-06T04:03:46.503342+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "qd0-instrument-v1",
+  "verdict": {
+    "computed_from": [
+      "C1_product_zero",
+      "C2_ghz_plateau",
+      "C3_partial_record_closed_form",
+      "C4_no_plateau"
+    ],
+    "value": "PASS"
+  }
+}

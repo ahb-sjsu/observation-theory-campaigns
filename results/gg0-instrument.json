@@ -1,0 +1,39 @@
+{
+  "items": {
+    "C1_orbit_structure": true,
+    "C2_route_and_closed_form": true,
+    "C3_elitzur": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "elitzur_max_link_exp": 0.0,
+    "max_action_dev_on_orbits": 0.0,
+    "note_c3": "the gauge-fixed observer's nonzero link readings are its bookkeeping, recorded",
+    "orbit_sizes_counts": {
+      "256": 200
+    },
+    "tree_fixed_max_nontree_link_exp": 0.38032051536830963,
+    "wilson_plaquette_closed_form": 0.38032051536830963,
+    "wilson_plaquette_full": 0.38032051536830963,
+    "wilson_plaquette_tree_fixed": 0.38032051536830963,
+    "z_log": 13.17839562145295
+  },
+  "record_sha256": "ab8594f96c60e3ea7294e0ae191c7a9d1274f2a47466173035f8bbd4fd76482a",
+  "runtime": {
+    "code_commit": "2a40523",
+    "generated_utc": "2026-08-06T04:03:50.530328+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gg0-instrument-v1",
+  "verdict": {
+    "computed_from": [
+      "C1_orbit_structure",
+      "C2_route_and_closed_form",
+      "C3_elitzur"
+    ],
+    "value": "PASS"
+  }
+}
