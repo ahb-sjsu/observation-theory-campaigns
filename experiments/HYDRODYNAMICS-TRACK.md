@@ -145,6 +145,81 @@ window shape, sampling cadence). Measured, whether the extracted
 transport coefficient is prescription-invariant or
 prescription-borne, WM-2h transplanted. Either outcome is a result.
 
+#### HD-2 protocol (declared 2026-08-05, before the run)
+
+The substrate is FHP-I on a triangular lattice, the hexagonal gas
+that HD-1b's pathology record demanded. 64 rows by 64 columns in
+even-r offset coordinates, pointy layout, periodic in both
+directions, six boolean channels per site with directions i = 0 to
+5 at angles 60 i degrees, unit vectors with x components (1, 1/2,
+-1/2, -1, -1/2, 1/2) and y components (0, s3, s3, 0, -s3, -s3)
+where s3 = sqrt(3)/2. The declared coordinate convention, x_phys =
+c + 0.5 (r mod 2), y_phys = -r s3, so row r-1 is up, toward +y.
+Neighbor tables, for even r the six neighbors E NE NW W SW SE are
+(r, c+1), (r-1, c), (r-1, c-1), (r, c-1), (r+1, c-1), (r+1, c),
+and for odd r they are (r, c+1), (r-1, c+1), (r-1, c), (r, c-1),
+(r+1, c), (r+1, c+1). Collisions, FHP-I. Head-on two-body, exactly
+channels i and i+3 mod 6 occupied and the other four empty rotates
+the pair to i+1 and i+4 on even time steps and to i-1 and i+2 on
+odd time steps, deterministic alternating chirality. Three-body
+symmetric, exactly channels 0, 2, 4 occupied and the others empty
+becomes 1, 3, 5, and vice versa. Every other configuration is
+unchanged. An update is collide then stream. Momentum is tracked
+integer-exactly, twice the x momentum via channel components (2,
+1, -1, -2, -1, 1) and the y momentum in units of s3 via (0, 1, 1,
+0, -1, -1).
+
+Geometry self-tests, bars that must pass before any physics is
+read. T1, a single particle in channel i evolved 6 full steps has
+physical displacement exactly 6 e_i, for every i, in the declared
+convention. T2, one step in each direction 0 through 5 in sequence
+returns to the start site, from an even-row start and from an
+odd-row start. T3, total mass and both integer momentum components
+are conserved exactly at every step of every physics realization.
+
+The shear instrument. An ensemble of M = 50 seeded realizations,
+seed 20260820 + k, T = 300 steps, base occupancy f0 = 0.35 per
+channel. The occupancy of channel i at a site with physical
+coordinate x_phys is f0 + 0.10 (e_i y component / s3) sin(2 pi k
+x_phys / 64), k in {1, 2}, sampled Bernoulli per site and channel
+with the probability clipped to [0, 1]. The observable is the
+per-column (by c index) sum over rows of the integer y momentum in
+s3 units, ensemble averaged, projected onto sin(2 pi k c / 64)
+with the 2/L normalization of HD-1. Rates are the log-slope of the
+absolute amplitude over declared windows, steps 30 to 250 for k =
+1 and steps 15 to 120 for k = 2, with half-window consistency
+required within twenty-five percent.
+
+Bars. H2a, the shear decays, the k = 1 amplitude at step 250 is
+below 0.9 of the amplitude at step 30, and the two half-window
+rates agree within twenty-five percent of the full-window rate at
+both wavenumbers. H2b, diffusive scaling, the k = 2 rate over the
+k = 1 rate lies in [3.0, 5.0]. H2c, T1 through T3 all exact.
+
+The prescription gate. Nine declared prescriptions are applied to
+the same stored k = 1 per-column momentum series, the field
+estimated from raw sites, from 4-column cell averages, and from
+8-column cell averages, crossed with sampling cadences of 1, 2,
+and 4 steps. A cell average replaces each column's value by the
+mean over its block of columns before the same sine projection,
+and a cadence uses every Nth stored frame, the fitted per-frame
+slope divided by the cadence so every rate is per unit time, all
+nine fitted over the same declared step window. Item H2d, the
+declared hypothesis, the extracted rate is
+prescription-invariant, the spread across the nine, max minus
+min, is at most ten percent of the mean, since linear averaging
+and subsampling preserve an exponential mode's rate. Either
+outcome is a result. H2d is a finding with a declared directional
+bar, recorded individually, and the VERDICT is computed from H2a,
+H2b, and H2c only, this split is declared here.
+
+The measured viscosity nu = rate / k_phys squared, k_phys = 2 pi
+k / 64 with unit lattice spacing in x, is recorded as a value,
+and any Boltzmann-level number placed beside it is comparison
+only, never a bar. Runner python/hd2_fhp_viscosity.py, schema
+hd2-fhp-viscosity-v1, exploratory label,
+results/hd2-fhp-viscosity.json.
+
 ### HD-3: Dissipation declared-or-absent
 
 An EG-6-style gate. Measured, whether any declared coarse
