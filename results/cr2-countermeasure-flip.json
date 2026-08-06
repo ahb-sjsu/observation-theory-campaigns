@@ -1,0 +1,72 @@
+{
+  "declared": {
+    "battery_size": 205,
+    "dpi_tol": 1e-10,
+    "ensemble": 2000,
+    "incomp_tol": 0.01,
+    "seed": 20260902,
+    "wedge_tol": 1e-06
+  },
+  "items": {
+    "F1_exhibit": true,
+    "F2_dpi": true,
+    "F3_localization": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "exhibit": {
+      "best_task_margin_for_B": 0.0021156093127909226,
+      "conic_lower_bound": 0.0017499999999999994,
+      "divergence_margins": {
+        "chi2_pq": 0.08222222222222224,
+        "chi2_qp": 0.21318181818181814,
+        "hellinger_sq": 0.015222257594027622,
+        "js": 0.014908945505920024,
+        "kl_pq": 0.05256144734625991,
+        "kl_qp": 0.07187378962342562,
+        "tv": 0.095
+      },
+      "min_divergence_margin": 0.014908945505920024,
+      "tv_gap": 0.095
+    },
+    "f2": {
+      "worst_divergence_drop": 0.002621720349750157,
+      "worst_task_gain": 3.3306690738754696e-16
+    },
+    "f3_counts": {
+      "ambiguous": 277,
+      "comparable": 867,
+      "incomparable": 856,
+      "unanimous_incomparable": 268,
+      "wedge_ambiguous": 210,
+      "wedge_comparable": 0,
+      "wedge_incomparable": 268
+    },
+    "f4_prevalence": {
+      "gd1_comparison": "GD-1 measured 281 of 281 in decision form",
+      "unanimous_among_incomparable": 268,
+      "wedge_among_incomparable": 268,
+      "wedge_margin_max": 0.07957482603051413,
+      "wedge_margin_median": 0.01831079113807588
+    },
+    "reading": "a reduction in a scalar leakage measure is not a security guarantee outside certified Blackwell comparability, a statement about evaluation methodology in declared finite models and about nothing else"
+  },
+  "record_sha256": "4f1dcd811d622ed3818357566d7b6ef5dcd676204fb99f0e6c3c5796208b5c11",
+  "runtime": {
+    "code_commit": "5c98256",
+    "generated_utc": "2026-08-06T23:17:56.067136+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr2-countermeasure-flip-v1",
+  "verdict": {
+    "computed_from": [
+      "F1_exhibit",
+      "F2_dpi",
+      "F3_localization"
+    ],
+    "value": "PASS"
+  }
+}
