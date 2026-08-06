@@ -251,6 +251,58 @@ observable of the reversible substrate obeys a strict dissipative
 law, or whether every apparent dissipation is an accounting of the
 consumer's reversal reach, PE-4 at the level of transport.
 
+#### HD-3 protocol (declared 2026-08-06, before the run)
+
+The substrate is HD-2's FHP-I gas unchanged, the same 64 by 64
+even-r offset triangular torus, six channels, head-on pairs
+rotated +60 degrees on even steps and -60 on odd steps, the
+symmetric three-body flip, collide then stream, imported from the
+HD-2 runner rather than reimplemented. One shear ensemble at k =
+1, M = 50 seeded realizations, seed 20260825, f0 = 0.35, amplitude
+0.10, T = 300 steps, and the projected shear amplitude a(t) is
+HD-2's observable exactly, the ensemble-mean per-column integer y
+momentum in s3 units projected onto sin(2 pi c / 64) with the 2/L
+normalization.
+
+The gate. D1, exact invertibility. An FHP-I update is a bijection,
+so the exact inverse step is declared, un-stream by pulling every
+channel back along its own direction, then invert the collision at
+the recorded parity, head-on pairs rotate -60 degrees where the
+forward step rotated +60 and +60 where it rotated -60, and the
+three-body flip is its own inverse, which is the HD-2 collision at
+flipped time parity. The forward run is evolved T steps with the
+parity sequence recorded, the inverse steps are applied in reverse
+order, and the bar is that the initial state is recovered bit for
+bit in every realization. D2, the Loschmidt account. a(t) is
+recorded on the forward run, where HD-2 measured decay at rate
+0.0081, and on the inverse run, and the bar is that the
+inverse-run amplitude sequence equals the forward sequence
+reversed exactly, float for float, since a deterministic bijection
+projecting identical integer states must match bitwise. The
+"dissipated" mode is then exactly recoverable and no strict
+dissipative law governs the coarse observable, the apparent decay
+is the observer's accounting, not a substrate law. D3, the
+reversal-reach clause, PE-4 at the transport level. One declared
+bit is flipped in the state at time T, channel 0, row 32, column
+32, realization 0, before inverting. The bar, the perturbed
+inverse run fails to recover the initial amplitude, the returned
+amplitude at time 0 for realization 0 alone is at most half that
+realization's true initial amplitude, computed per realization,
+while the other 49 untouched realizations still return bit for
+bit, a control inside the item. The per-step divergence, the
+Hamming distance between the perturbed-inverse and true-inverse
+states of realization 0, is sampled every 30 steps to record the
+lightcone flood.
+
+Verdict from D1, D2, D3, all three or HD-3 fails. The reading to
+record with the results, dissipation on this substrate is
+declared-or-absent in the consumer, exactly PE-4's lesson at the
+level of transport, the coarse mode's decay is recoverable by any
+observer with exact reversal reach and irrecoverable after the
+loss of one bit. Runner python/hd3_dissipation_gate.py, schema
+hd3-dissipation-gate-v1, exploratory label,
+results/hd3-dissipation-gate.json.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in
