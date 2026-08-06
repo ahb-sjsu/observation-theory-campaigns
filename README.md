@@ -1,16 +1,16 @@
 ﻿# Observation Theory Campaigns
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Tracks](https://img.shields.io/badge/tracks-12-blue)](#the-twelve-tracks)
+[![Tracks](https://img.shields.io/badge/tracks-13-blue)](#the-thirteen-tracks)
 [![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
 
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, twelve tracks. The shared question is what an observer with
+One program, thirteen tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
-Each track makes that question concrete in a different setting, and all twelve run under one evidence discipline with sealed instruments,
+Each track makes that question concrete in a different setting, and all thirteen run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
 
 If you are new here, read this file top to bottom, then the one track
