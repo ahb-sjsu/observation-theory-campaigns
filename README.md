@@ -705,6 +705,10 @@ projection.
    DOI 10.5281/zenodo.21814858.
 9. 🟨 Auditing Emergent Physics Claims in Rewriting Systems (the
    complete WM track), DOI 10.5281/zenodo.21814860.
+10. ⬜ Games and Decisions Under Projection: Blackwell Wedges,
+    Budget Flips, and Prospect Signatures from Declared Consumers
+    (the complete GD arc, honest FAILs included),
+    DOI 10.5281/zenodo.21818268.
 
 ## Repository layout
 
