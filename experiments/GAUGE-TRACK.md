@@ -204,6 +204,22 @@ fact about charge is a statement about lines, and the observers'
 bare readings are their fiber coordinates. Exploratory label,
 results/gg3-minimal-coupling.json.
 
+#### GG-3 results (run 2026-08-06, record sha 9f4e776326d5...)
+
+Verdict PASS, all three items. The unitary-gauge identity is
+verified exactly on the small torus, partition functions matching
+to 1e-16 and the dressed correlator identical on both routes, so
+the 3 by 3 coupled theory is computed exactly through the GG-2
+deformed ensemble. Elitzur for matter holds, the bare two-point
+correlator is zero to 1e-16 while the dressed correlator reads
+0.1008 on the small torus and 0.1004 on the large one. The
+observer family splits exactly as declared, the unitary-gauge
+observer reads bare matter as exactly one, the tree-gauge observer
+reads 0.101, spread 0.899, while the dressed observables agree
+across both to 1e-16. Charge in this model exists only as the
+endpoint of a line, and what an observer calls the bare matter
+field is its fiber coordinate, nothing more.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in

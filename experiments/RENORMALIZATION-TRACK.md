@@ -279,6 +279,19 @@ as measurements of the dominant flow. The named error, RG-3's U4
 assumed the channel's departure would outrun the substrate's
 convergence. Exploratory label, results/rg3b-universality.json.
 
+#### RG-3b results (run 2026-08-06, record sha a8e26f4efc8a...)
+
+Verdict PASS, all four items. M1 exactly in-family, M2's residual
+falling 0.157 to 0.032 to 0.004, symmetry classes unmixed, and the
+corrected U4 sharp, from the exactly-in-family start one
+decimation leaves the residual at 4e-17 while one majority
+blocking raises it to 0.0136, the channel decides whether the
+family survives, while for the out-of-family substrate both
+channels ride the dominant flow toward triviality, reductions
+recorded. Universality in this model is real but channel-shaped,
+what converges is convergence itself, which family it converges
+through is the observer's choice of channel.
+
 ### RG-4: Relevance as a channel property
 
 Declared perturbations to the microscopic model. Measured, whether
@@ -305,6 +318,19 @@ perturbation the two channels' multipliers differ by at least ten
 percent of the larger. V4, measurement with no bar, whether the
 channels agree on the sign and on which perturbation grows.
 Exploratory label, results/rg4-relevance.json.
+
+#### RG-4 results (run 2026-08-06, record sha b4fb02e6d076...)
+
+Verdict PASS, both barred items, linearity to 2e-6. The field
+multiplier is 1.834 under decimation and 2.407 under majority,
+both relevant, different eigenvalues, a 24 percent channel
+disagreement on the growth rate. The next-nearest multiplier is
+the sharp result, +0.174 under decimation and -0.071 under
+majority, the perturbation's coarse image differs in sign across
+the declared channels. Relevance in this model is not merely
+channel-scaled, it can be channel-signed, the direction a
+perturbation appears to flow is a property of the observer's
+blocking rule, not of the perturbation.
 
 ## 5. Evidence discipline and non-claims
 

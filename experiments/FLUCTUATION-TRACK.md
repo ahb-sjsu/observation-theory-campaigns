@@ -160,6 +160,21 @@ the information-corrected second law margin, mean work minus dF
 plus mean information, nonnegative and recorded. All of T1 through
 T3 or FT-3 fails. Exploratory label, results/ft3-feedback.json.
 
+#### FT-3 results (run 2026-08-06, record sha b07b5aadff64...)
+
+Verdict PASS, all three barred items. The Sagawa-Ueda identity
+holds to 5.6e-15 with the controller's pointwise information. The
+bare identity fails by 7.3e-3, efficacy 0.9927, the feedback
+demon's measured advantage. The bystander's information, the same
+measurement seen through additional noise, leaves a defect of
+5.3e-3 while the controller's restores exactness, the identity
+knows which observer acts. The information-corrected second law
+holds with margin 0.489 nats. With FT-1 and FT-2 the arc is
+complete, fluctuation identities for restricted and feedback
+observers are inference theorems about declared channels, and the
+information that appears in them is the acting consumer's, not
+anyone's.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in

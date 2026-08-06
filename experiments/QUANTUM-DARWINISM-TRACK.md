@@ -225,6 +225,18 @@ and every disagreement rate is the declared channels' exact Born
 arithmetic, never noise. Exploratory label,
 results/qd3-agreement.json.
 
+#### QD-3 results (run 2026-08-06, record sha c6463efc00c1...)
+
+Verdict PASS, all three items. Helstrom marginals match their
+closed form to 1e-13 at every angle, the two Born routes agree to
+1e-15, and the agreement curve is the budget knob made social,
+0.510, 0.537, 0.636, 0.875, 1.000 along the angle ladder, exactly
+1 at the perfect-record point and barely above coin-flip at the
+weakest. Two optimal observers of disjoint fragments agree exactly
+to the extent the declared interaction wrote records for them,
+objectivity between observers is record strength made mechanical,
+and every disagreement is Born arithmetic, not noise.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in
