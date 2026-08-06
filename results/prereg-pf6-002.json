@@ -1,0 +1,168 @@
+{
+  "bars": {
+    "b1_translation": true,
+    "b2_reparametrization": true,
+    "b3_boost": true,
+    "b4_gauge": "not-applicable, Sauter tilt declared non-electromagnetic",
+    "b5_observer_detector": true,
+    "b6_anti_vacuity": true
+  },
+  "cells": {
+    "P0.6_E0.895789_pu3": {
+      "first_fold_worldpoint": [
+        -0.7605450981223915,
+        0.6966351849993014
+      ],
+      "fold_count": 4,
+      "fold_count_even": true,
+      "observer_curve": {
+        "-0.2": 4,
+        "-0.45": 8,
+        "0": 4,
+        "0.2": 0,
+        "0.45": 0,
+        "3": 0
+      },
+      "probe_folds": 4,
+      "rate_ratio": 2.0,
+      "reparam_count": 4
+    },
+    "P0.7_E1.044836_pu3": {
+      "first_fold_worldpoint": [
+        0.3014415210720077,
+        1.2707447694050913
+      ],
+      "fold_count": 2,
+      "fold_count_even": true,
+      "observer_curve": {
+        "-0.2": 4,
+        "-0.45": 6,
+        "0": 2,
+        "0.2": 0,
+        "0.45": 0,
+        "3": 0
+      },
+      "probe_folds": 2,
+      "rate_ratio": 2.0,
+      "reparam_count": 2
+    },
+    "P0.8_E1.202014_pu3": {
+      "first_fold_worldpoint": [
+        -0.518499960304824,
+        1.0477797369038342
+      ],
+      "fold_count": 2,
+      "fold_count_even": true,
+      "observer_curve": {
+        "-0.2": 4,
+        "-0.45": 4,
+        "0": 2,
+        "0.2": 0,
+        "0.45": 0,
+        "3": 0
+      },
+      "probe_folds": 2,
+      "rate_ratio": 2.0,
+      "reparam_count": 2
+    },
+    "P0.9_E1.360547_pu2": {
+      "first_fold_worldpoint": [
+        0.28688570650537293,
+        0.16718050385485478
+      ],
+      "fold_count": 2,
+      "fold_count_even": true,
+      "observer_curve": {
+        "-0.2": 2,
+        "-0.45": 4,
+        "0": 2,
+        "0.2": 0,
+        "0.45": 0,
+        "3": 0
+      },
+      "probe_folds": 2,
+      "rate_ratio": 2.0,
+      "reparam_count": 2
+    }
+  },
+  "declared": {
+    "alpha_grid": [
+      -0.45,
+      -0.2,
+      0.0,
+      0.2,
+      0.45,
+      3.0
+    ],
+    "alpha_reparam": 2.0,
+    "members": [
+      [
+        0.6,
+        0.8957885742187499,
+        3.0
+      ],
+      [
+        0.7,
+        1.0448364257812501,
+        3.0
+      ],
+      [
+        0.8,
+        1.2020141601562502,
+        3.0
+      ],
+      [
+        0.9,
+        1.3605468750000003,
+        2.0
+      ]
+    ],
+    "min_total_folds": 8,
+    "n_steps": 40000,
+    "probe_folds": [
+      4,
+      2,
+      2,
+      2
+    ],
+    "shifts": [
+      -2.0,
+      -0.5,
+      0.5,
+      2.0
+    ]
+  },
+  "label": "sealed-gate-run",
+  "measured": {
+    "all_fold_counts_even": true,
+    "boost_min_future_cone_margin": 0.0011124959980861604,
+    "boost_worst_commutation": 4.547473508864641e-13,
+    "boost_worst_invariant_drift": 7.129735398561216e-11,
+    "cells_without_folds": 0,
+    "total_folds": 10,
+    "worst_rate_ratio_dev": 0.0,
+    "worst_translation_worldline_dev": 1.4033219031261979e-13,
+    "worst_worldpoint_dev": 3.108624468950438e-14
+  },
+  "record_sha256": "a75581ac0d71d5125abc720ac8ab2abd259950f6f9f28c458506e39fa388f4b6",
+  "registration_id": "PREREG-PF6-002",
+  "runtime": {
+    "code_commit": "6013259",
+    "generated_utc": "2026-08-06T17:40:27.932635+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "prereg-pf6-002-v1",
+  "verdict": {
+    "computed_from": [
+      "b1",
+      "b2",
+      "b3",
+      "b5",
+      "b6"
+    ],
+    "value": "PASS"
+  }
+}
