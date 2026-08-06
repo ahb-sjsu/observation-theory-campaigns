@@ -105,6 +105,31 @@ the lattice Gauss constraint structure is an isolated algebraic
 point under declared deformations of the link ensemble. Either
 outcome is a result.
 
+#### GG-2 protocol (declared 2026-08-06, before the run)
+
+The GG-0 substrate with the deformed weights exp(K sum of
+plaquettes + epsilon sum of links), epsilon on the declared ladder
+0, 1e-3, 1e-2, 1e-1, all 2^18 configurations enumerated at each
+point, expectations by exact summation.
+
+Bars. W1, at epsilon zero the GG-0 zeros replicate, every link
+expectation within 1e-13 and the action exactly constant on
+sampled orbits. W2, detectability at first order, at every
+positive epsilon the maximum link expectation is at least 0.3
+epsilon and the deformed action is strictly non-constant on every
+sampled generic orbit, the broken constraint is visible at machine
+precision immediately, not asymptotically. W3, sector split of the
+response, the link expectation's log-log slope between epsilon
+1e-3 and 1e-2 lies in [0.8, 1.2] while the plaquette expectation's
+shift has log-log slope in [1.5, 2.5], the gauge-variant sector
+responds at first order and the invariant sector only at second.
+The reading, the EG-6 result in gauge language, constraint
+structure is an isolated algebraic point, declared or absent, with
+no approximately-gauge ensemble in between, and the observer that
+watches invariants is second-order blind to the breaking that the
+link sector shouts. Exploratory label,
+results/gg2-gauss-replay.json.
+
 ### GG-3: Minimal-coupling audit
 
 A declared matter field coupled to links. Measured, which coupled

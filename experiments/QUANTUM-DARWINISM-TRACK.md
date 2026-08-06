@@ -153,6 +153,33 @@ Fragment size and interaction strength ladders. Measured, the
 redundancy transition as a function of consumer budget, and whether
 the transition point is an invariant or a consumer artifact.
 
+#### QD-2 protocol (declared 2026-08-06, before the run)
+
+Two declared consumers of branching states built by explicit gate
+application as in QD-1. The symmetric consumer, controlled
+rotations of equal angle theta on all six environment qubits,
+theta on the declared grid k pi/32 for k = 1 through 16. Its
+budget curve f*(theta) is the smallest fragment size whose
+information reaches ninety percent of the system entropy, absent
+when no fragment of six or fewer suffices. The portfolio consumer,
+declared unequal angles (pi/16, pi/16, pi/8, pi/4, pi/2, 3 pi/4),
+where a fragment's record overlap is the product of cos(theta_j/2)
+over the qubits it holds, so fragments of equal size are no longer
+equivalent and the closed form extends to every subset.
+
+Bars. K1, at every grid angle the measured fragment informations
+match the branching closed form within 1e-10 and the measured
+f*(theta) equals the closed-form prediction. K2, f*(theta) is
+nonincreasing in theta, more interaction strength never demands a
+larger fragment. K3, for the portfolio consumer the measured
+information of every one of the 62 proper environment subsets
+matches the subset closed form within 1e-10. Measurements, the
+onset angle, the smallest theta at which any fragment of six or
+fewer suffices, and the portfolio spread, the information ratio
+between the best and worst fragments of size two, the statement
+that a consumer's budget is a portfolio, not a number. Exploratory
+label, results/qd2-budget-knob.json.
+
 ### QD-3: Multi-consumer agreement audit
 
 Two declared consumers reading disjoint fragments. Measured, when

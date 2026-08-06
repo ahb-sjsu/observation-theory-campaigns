@@ -104,6 +104,28 @@ Whether a lumped consumer's fluctuation identities are exactly
 restored by replacing dF with a declared consumer-relative free
 energy, connecting to Paper V. Either outcome is a result.
 
+#### FT-2 protocol (declared 2026-08-06, before the run)
+
+The FT-0 system and the FT-1 observers unchanged. The declared
+restoration, a budgeted consumer replaces its naive apparent work
+with the Bayes work estimate, minus the log of the conditional
+expectation of exp(-W) given its record, computed by exact
+filtering through its declared detector model. The tower property
+of conditional expectation makes the restored Jarzynski identity
+exact whenever the filter uses the true model, so the bar tests
+the machinery and the lawfulness clause together.
+
+Bars. E1, the naive defects replicate FT-1, lumped at least 1e-5
+and held at least 1e-3. E2, restoration, with the true detector
+model the restored identity holds within 1e-12 for both the lumped
+and the held observer. E3, no restoration by a wrong model, the
+same filter built from kernels at inverse temperature 0.9 leaves
+the lumped observer's restored defect at least 1e-6, magnitude
+recorded. The reading, the fluctuation identity for a budgeted
+consumer is an inference theorem, restored exactly by lawful
+inference through the true declared channel and by nothing less.
+Exploratory label, results/ft2-restoration.json.
+
 ### FT-3: Feedback and measurement
 
 The Sagawa-Ueda generalization replicated exactly in a declared

@@ -158,6 +158,36 @@ Fidelity-optimal versus task-optimal coarse-grainings at fixed
 budget, the task being prediction of declared long-distance
 observables. QO-2 and GD-2 transplanted.
 
+#### RG-2 protocol (declared 2026-08-06, before the run)
+
+Substrate, the RG-1 cylinder unchanged, width 4 at K = 0.3. The
+budget is one bit, a deterministic bipartition of the sixteen
+column states, all 32767 bipartitions enumerated exhaustively. The
+stationary joint of two columns at the declared separation 4 is
+exact through normalized transfer powers. The task, predict the
+sign of the distant column's magnetization, zero magnetization
+declared positive. The fidelity-optimal bipartition maximizes the
+compressed marginal's entropy, which is the channel's mutual
+information about its own column, ties collected within 1e-12 and
+the flip charged against the tie set's best task performer, the
+GD-2 convention. A theorem fixes the task optimum, a state
+contributes at most the larger of its two joint masses to the
+Bayes accuracy, with equality when states of like sign are grouped
+together, so the sign of the per-state mass difference is the
+task-optimal bipartition.
+
+Bars. F1, the exhaustive search's best value equals the
+theorem-partition's value within 1e-12, the search and the theorem
+certify each other. F2, the flip is strictly positive, the
+task-optimal accuracy exceeds the best fidelity-optimal tie
+member's accuracy by at least 1e-4, magnitude recorded. F3, route
+agreement, the joint built from the eigen decomposition and from
+direct matrix powers agree within 1e-12. Measurements, the flip
+magnitude, both accuracies and entropies, and the count of states
+where the theorem partition disagrees with the leading-odd
+eigenvector sign, the finite-distance correction to the RG-1
+sector picture. Exploratory label, results/rg2-flip.json.
+
 ### RG-3: Universality gate
 
 Distinct declared microscopic models under one declared channel.
