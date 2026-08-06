@@ -249,6 +249,30 @@ every fidelity-optimal read by more than 1e-6, and the flip
 magnitudes. Exploratory label,
 results/gd2-budget-flip-game.json.
 
+#### GD-2 results (run 2026-08-05, record sha 3b2d0d4e3ed1cc17...)
+
+Verdict FAIL, computed from the declared items, and the failure is
+the declaration's own bookkeeping. H1 passed, the flip is
+0.6000000000000001 against the bar 0.5 and matches the declared
+closed form exactly. H2, C1, C2, C3 all passed, and every declared
+closed-form value matched within 1e-15, the task-optimal 2-cell
+value 1, the fidelity-optimal 2-cell value 0.4 equal to the
+no-information value, the finest value 1. C4 failed on one integer,
+the declaration claimed six tied fidelity-optimal partitions and the
+instrument counted three. The declaration double-counted, a two-cell
+partition was tallied once from each of its cells, the mass-7/15
+subsets are exactly the complements of the mass-8/15 subsets, three
+partitions, not six. The ensemble measurement stands, at budget 2 a
+strict flip appeared in 193 of 200 random games (fraction 0.965,
+median magnitude 0.070, maximum 0.328), at budget 3 in 188 of 200.
+
+#### GD-2b protocol (declared 2026-08-05, before the run)
+
+Identical to GD-2 in every declared object, bar, seed, and ensemble,
+with one correction. C4's declared count of tied fidelity-optimal
+2-cell partitions is three, the double count above is the named
+error. Exploratory label, results/gd2b-budget-flip-game.json.
+
 ### GD-3: Prospect signatures from budgeted consumers
 
 A declared noisy budgeted estimator of gamble probabilities under a
