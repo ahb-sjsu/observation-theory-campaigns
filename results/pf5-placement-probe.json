@@ -1,0 +1,92 @@
+{
+  "declared": {
+    "E_bracket": [
+      0.45,
+      6.0
+    ],
+    "P_grid": [
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "iters": 12,
+    "n_probe": 2000,
+    "rule": "PF5-002 binds only cells whose probe fraction lies in the window",
+    "target": 0.1,
+    "window": [
+      0.02,
+      0.3
+    ]
+  },
+  "label": "exploratory",
+  "record_sha256": "047cd23006dba4a25e3db31a5894826e26fe2c68282fcdcdf592b15716fd17a6",
+  "rows": [
+    {
+      "E_probe_top": 6.0,
+      "E_selected": 0.8957885742187499,
+      "P": 0.6,
+      "counts_selected": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 200,
+        "transmitted": 1800
+      },
+      "frac_at_top": 1.0,
+      "frac_selected": 0.1,
+      "in_window": true
+    },
+    {
+      "E_probe_top": 6.0,
+      "E_selected": 1.0448364257812501,
+      "P": 0.7,
+      "counts_selected": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 194,
+        "transmitted": 1806
+      },
+      "frac_at_top": 1.0,
+      "frac_selected": 0.097,
+      "in_window": true
+    },
+    {
+      "E_probe_top": 6.0,
+      "E_selected": 1.20201416015625,
+      "P": 0.8,
+      "counts_selected": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 199,
+        "transmitted": 1801
+      },
+      "frac_at_top": 1.0,
+      "frac_selected": 0.0995,
+      "in_window": true
+    },
+    {
+      "E_probe_top": 6.0,
+      "E_selected": 1.3605468750000003,
+      "P": 0.9,
+      "counts_selected": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 206,
+        "transmitted": 1794
+      },
+      "frac_at_top": 1.0,
+      "frac_selected": 0.103,
+      "in_window": true
+    }
+  ],
+  "runtime": {
+    "code_commit": "e8ee2c5",
+    "generated_utc": "2026-08-06T16:02:48.241770+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf5-placement-probe-v1",
+  "usable_cells": 4
+}
