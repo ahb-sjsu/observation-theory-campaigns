@@ -725,6 +725,9 @@ projection.
     Budget Flips, and Prospect Signatures from Declared Consumers
     (the complete GD arc, honest FAILs included),
     DOI 10.5281/zenodo.21818268.
+11. 🔵⚫🟠🔴🟤 Five Audits Under One Consumer Discipline (the
+    complete second-generation arc, six honest FAILs included),
+    DOI 10.5281/zenodo.21821378.
 
 ## Repository layout
 
