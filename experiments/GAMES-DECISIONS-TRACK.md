@@ -441,6 +441,26 @@ functional, and every appearance is predicted by the detector model,
 the lawful-observer clause. Exploratory label,
 results/gd4-reference-functionals.json.
 
+#### GD-4 results (run 2026-08-05, record sha 3a1348c5075dd42a...)
+
+Verdict PASS, all four audits, and all three findings passed their
+declared bars. Zero noise reads every gamble at its mean to 1.8e-15,
+the symmetry anchors hold to 7.1e-14 at every budget, the adapted
+observer's translation covariance is exact to the last bit, and the
+distortion ladder is strictly monotone in the budget, 29.6 at sigma
+2.5, 20.1 at 1.0, machine zero at 0. The findings are large, not
+marginal. The maximum spread across observers on a single gamble is
+29.6, fifty-nine times the bar. The ranking reversal is O1 against
+O3 on B1 against B5, the status-quo observer prefers B1 by 12.4
+while the median observer prefers B5 by 10.8. The status-quo
+observer breaks translation covariance by 6.44 on the B5-to-B6
+shift while the adapted observer holds it to 1e-10 on the same
+shift. Reference dependence in this model is not a preference
+anomaly, it is the declared functional's interaction with an
+environment-tuned budgeted encoder, every difference predicted by
+the detector model, the lawful-observer clause made mechanical on
+valuations.
+
 ### GD-5: Equilibrium with budgeted consumers
 
 Replication target, logit choice emerging from mutual-information
@@ -493,6 +513,29 @@ information is nonincreasing in lambda-two within 1e-10 and drops by
 at least 1e-4 across the ladder, a better-informed opponent makes
 attention more valuable. Exploratory label,
 results/gd5-budgeted-equilibrium.json.
+
+#### GD-5 results (run 2026-08-05, record sha 9964508920e2094b...)
+
+Verdict PASS, all eight bars, and finding F6 passed its declared
+direction. The replication is exact, stationarity residual 0, the
+Matejka-McKay weighted-logit identity holds to 9.5e-15, none of the
+200 independent perturbations improves the net objective by any
+measurable amount, and the limits land on their closed forms, value
+1 with information exactly ln 2 at vanishing cost, prior play at
+cost 5. The consideration-set phenomenon appears exactly as the
+paper describes, the safe action is excluded at every lambda up to
+1.0, with unconditional probability 3e-23 at 0.05, and at lambda
+1.0 the optimum is the genuinely soft strategy, value 0.7311 with
+information 0.1109 for a net 0.6202, strictly beating both pure
+safe play at 0.6 and full attention. At lambda 5 the safe action
+carries everything. The budgeted equilibrium converges to 8.9e-14,
+is exactly symmetric under symmetric budgets, and sits on the
+declared scalar fixed-point curve to 2.1e-14, the independent
+closed-form route. Attention complementarity is measured and
+monotone, player one's equilibrium information falls from 0.6884 to
+0.6637 as the opponent's budget coarsens from 0.05 to 5, a
+better-informed opponent makes attention more valuable in the
+coordination game, exactly as declared.
 
 ## 5. Evidence discipline and non-claims
 

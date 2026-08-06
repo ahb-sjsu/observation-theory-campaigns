@@ -21,13 +21,13 @@ codes always accompany the chips, so nothing depends on color alone.
 
 | Track | Short name | Question in one line | Status |
 |---|---|---|---|
-| 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..4 done (PF4-002 sealed negative), PF4-003 in flight; PF-5 and PF-6 instruments ready, sealed gate runs + PF-7 remain |
+| 🟦 PF | Projection folds | Can a fold in how hidden motion maps to observed time imitate particle pair creation, quantitatively? | PF-0..4 done (PF4-002 sealed negative), PF4-003 in flight; PF-5 and PF-6 instruments ready, sealed gate runs + PF-7 remain; PF-8 decay gate designed (parity obstruction + blind-consumer loophole), gated |
 | 🟥 PE | Projection entropy | How much information does an observer lose at such a fold, and is that loss thermodynamic or merely observational? | Complete: instruments sealed, PE-0..PE-5 all measured |
 | 🟪 QO | Quantum observation | Does the consumer-relative logic survive when the observer is a quantum channel, and does it say anything new? | Complete; two results confirmed under sealed preregistration |
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | COMPLETE: EG-0..4 measured, EG-5 forbidden by its own bar; the arc's result is the exact tension between area-law counting and local field structure |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Complete: WM-0..4 + WM-2h measured; the growth rules bookkeeping is prescription-borne |
-| ⬜ GD | Games and decisions | Are the behavioral structures of imperfect-information domains (value of information, prospect-theoretic distortion, reference dependence) consumer-relative phenomena? | GD-0..3 measured (GD-1/GD-2 honest FAILs on their own bars, GD-1b/GD-2b passed corrected); prospect signatures emerge from budgets alone; GD-4..5 designed |
+| ⬜ GD | Games and decisions | Are the behavioral structures of imperfect-information domains (value of information, prospect-theoretic distortion, reference dependence) consumer-relative phenomena? | COMPLETE: GD-0..5 all measured (GD-1/GD-2 honest FAILs on their own bars, GD-1b/GD-2b passed corrected); prospect signatures, reference dependence, and the RI logit all consumer-relative, measured |
 
 ## Status ledger, one row per experiment
 
@@ -82,6 +82,8 @@ document in `experiments/SEALS.md`.
 | ⬜ **GD-2** budget flip in a game | `[refuted]` ✖ its own bar; values exact | verdict FAIL on one integer: the declaration claimed 6 tied fidelity-optimal partitions, the instrument counted 3 (the declaration tallied each 2-cell partition from both cells). Every closed-form VALUE matched to 1e-15 and H1/H2/C1-C3 passed, flip 0.6 against bar 0.5 |
 | ⬜ **GD-2b** corrected declaration | `[demonstrated-in-model]` ✅ | the stake game exact: task-optimal 2-cell value 1, every MI-optimal 2-cell read worth exactly 0.4 = the no-information value — the fidelity-optimal budget spend buys exactly nothing, flip exactly 3/5. Ensemble: strict flip in **193/200** random games at budget 2 (median 0.070, max 0.328), 188/200 at budget 3 — fidelity-optimal information purchases are generically wrong at scarce budget, now against an adversary |
 | ⬜ **GD-3** prospect signatures | `[demonstrated-in-model]` ✅ all audits + all 5 findings | budgeted consumers with NO weighting function, reference point, or loss-aversion input: sample-budget reader = exactly linear regressive weighting (closed form 6.8e-14, curvature 1.5e-14); log-odds reader = full inverse-S (endpoint secants 3.00 vs bar 1.1, middle 0.51, margins 0.099 vs 0.01); crossover tracks environment (0.5 → 0.338 ≈ logistic(−1)); loss-heavy environment → loss side read less compressed, ratio 1.208; diminishing sensitivity unambiguous (second diffs all negative). Zero-noise reads = exact identity; symmetric environments = exactly symmetric reads (1.5e-13); every distortion shrinks along every budget ladder |
+| ⬜ **GD-4** reference functionals | `[demonstrated-in-model]` ✅ all audits + all 3 findings | an environment-tuned budgeted encoder reads deviations from four declared reference functionals (status quo, adapted, median, lagged): observer spread 29.6 on one gamble (bar 0.5); ranking reversal O1 vs O3 with margins 12.4/10.8; status-quo observer breaks translation covariance by 6.44 while the adapted observer holds it to 1e-10 on the same shift — which reference effects appear is decided by the declared functional, every difference predicted (lawful-observer clause on valuations). Anchors: zero-noise = exact means; symmetric cases exact to 7.1e-14; distortion ladder strictly budget-monotone |
+| ⬜ **GD-5** Matejka-McKay + budgeted equilibrium | `[replicated]` + `[demonstrated-in-model]` ✅ all 8 bars + F6 | RI logit replicated exactly: stationarity 0, weighted-logit identity 9.5e-15, 200 independent perturbations never improve, limits exact (value 1, info ln 2; prior play at λ=5). Consideration sets as published: safe action excluded at every λ≤1 (3e-23 at 0.05); at λ=1 the soft optimum (net 0.6202) beats pure safe (0.6) and full attention. Budgeted equilibrium: converges 8.9e-14, exactly symmetric, sits on the closed-form fixed-point curve to 2.1e-14; attention complementarity measured: I1 falls 0.6884→0.6637 as the opponent's budget coarsens |
 | 🟨 **WM-2h** hypergraph prescription audit | \[demonstrated-in-model]\ ⚠ prescription-borne | the WM tracks sharpest audit: the flagship growth rules bulk bookkeeping is NOT prescription-invariant — five declared match orders give relation counts 1710–1882, vertex counts 855–941, and dimension estimates 2.43–2.88 (18% spread), so the WM-4 dimension claim inherits a measured prescription caveat at these sizes (unlike the string sorting rule, which was exact under every order); the fork-contraction trap fires with 3 distinct terminals (a bare path is confluent, verified en route) |
 
 Six sealed documents in the ledger (two instrument freezes, four
@@ -535,16 +537,45 @@ along every declared budget ladder and vanishes exactly at zero
 noise. The signature set of prospect theory emerged from channel,
 task, and budget declarations alone.
 
-Designed and open. GD-4 (reference dependence as observer functional
-choice under the lawful-observer clause), GD-5 (the Matejka-McKay
-logit replication and equilibrium with budgeted consumers).
+GD-4, reference dependence as observer functional choice. An
+encoder adapted to a declared environment reads deviations from four
+declared reference functionals. All audits and all three findings
+passed. Valuations spread by up to 29.6 across observers on a single
+gamble, the status-quo and median observers strictly reverse a
+gamble ranking with double-digit margins, and the status-quo
+observer breaks translation covariance by 6.44 on a shift the
+adapted observer tracks to 1e-10. Reference dependence here is not a
+preference anomaly, it is the declared functional meeting a budgeted
+encoder, with every difference predicted by the detector model.
+
+GD-5, the Matejka-McKay replication and budgeted equilibrium. The
+rational-inattention logit is replicated exactly, the weighted-logit
+identity to 9.5e-15, independent perturbation optimality, closed
+form limits, and the consideration-set phenomenon as published, the
+safe action excluded at every lambda up to 1 and the genuinely soft
+optimum beating both pure strategies at lambda 1. Two budgeted
+consumers in a coordination game reach an equilibrium that is
+exactly symmetric, sits on the declared closed-form fixed-point
+curve to 2.1e-14, deattends monotonically as budgets coarsen, and
+shows measured attention complementarity, a better-informed opponent
+makes attention more valuable.
+
+The track's first pass is complete, GD-0 through GD-5 all measured.
+The arc's thesis, the behavioral structures of imperfect-information
+domains, the value of information, prospect theory's signature
+distortions, reference dependence, and inattentive equilibrium, are
+consumer-relative phenomena, derived in declared finite models from
+channel, task, environment, and budget with nothing inserted.
+Nothing in the track is a claim about human beings.
 
 Key files. `experiments/GAMES-DECISIONS-TRACK.md`,
 `python/gd0_instrument.py`, `python/gd1_flip_blackwell.py`,
 `python/gd1b_exhibit_certificate.py`,
 `python/gd2_budget_flip_game.py`,
 `python/gd2b_budget_flip_game.py`,
-`python/gd3_prospect_signatures.py`.
+`python/gd3_prospect_signatures.py`,
+`python/gd4_reference_functionals.py`,
+`python/gd5_budgeted_equilibrium.py`.
 
 ## The evidence discipline (applies to every track)
 
