@@ -131,6 +131,51 @@ distribution of maximum reversal margins.
 Label. Exploratory, measured in model, unsealed. Substrate Python on
 Atlas, results/gd1-flip-blackwell.json.
 
+#### GD-1 results (run 2026-08-05, record sha 685153cd40af6819...)
+
+Verdict FAIL, computed from the declared items. G2 passed exactly,
+across 500 declared garbles no divergence rose (worst margin
+1.8e-4 in the required direction, floor -1e-10 untouched) and no
+task in the battery of 205 gained more than 3.3e-16. G3 passed,
+2000 pairs classified 1044 comparable, 767 incomparable, 189
+ambiguous, with zero wedge instances among comparable pairs. G4's
+measurement is the substantive finding, among the 767 incomparable
+pairs 281 showed unanimous divergence ordering and every one of the
+281 carried a task reversal in the declared battery, maximum margin
+0.0776, median 0.0214. Outside certified Blackwell comparability,
+unanimous scalar-fidelity ordering guaranteed nothing about tasks in
+a single instance of this ensemble.
+
+G1 failed on one sub-item. The exhibit's seven divergence margins
+(minimum 0.429) and task margin (0.0395 against values 0 and 0.0395)
+passed, and the reverse residual 0.4198 passed, but the forward
+residual measured 0.004486 against the declared bar 0.01. The bar
+was set at a round number rather than a computed scale. The exhibit
+is provably incomparable, a garbled experiment's joint columns are
+conic combinations of the garbler's joint columns, which forces a
+residual of at least (r t1 - t0)/(1 + r) with r the garbler's
+minimum joint-column ratio, about 0.0021 for the declared exhibit,
+so the search residual 0.0045 reflects genuine infeasibility four
+orders above the feasibility tolerance. The declared bar failed the
+exhibit anyway. The verdict stands as recorded, the design error was
+thresholding a search residual instead of certifying infeasibility.
+
+#### GD-1b protocol (declared 2026-08-05, before the run)
+
+Same exhibit, same task, same divergence battery. The change is the
+certificate. Incomparability is established by proof, not by a
+residual threshold. Direction B-from-A, the exact conic lower bound
+above, computed from the declared joint columns, must exceed 1e-3.
+Direction A-from-B, total variation is an f-divergence, so a
+garbling cannot raise it, and TV(A) minus TV(B) greater than 0.01
+proves A is not a garbling of B. Consistency item, the GD-0 search
+residual in the B-from-A direction must be at or above the analytic
+lower bound. Bars, all seven divergence margins above 0.01, the task
+margin above 0.01, the conic bound above 1e-3, the TV gap above
+0.01, and the consistency item, all pass or GD-1b fails. G2, G3, G4
+are not rerun, they stand as measured in GD-1. Exploratory label,
+results/gd1b-exhibit-certificate.json.
+
 ### GD-2: The budget flip in a game
 
 A finite imperfect-information game where a player's information set
