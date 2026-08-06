@@ -198,6 +198,57 @@ A finite imperfect-information game where a player's information set
 refinement is bought under a declared budget. Task-optimal versus
 fidelity-optimal coarsenings, the QO-2 protocol transplanted.
 
+#### GD-2 protocol (declared 2026-08-05, before the run)
+
+Setting. Six hidden states with a declared prior. Player one buys a
+deterministic coarsening of the state, at most k cells for budget k,
+the choice is public. Player two observes nothing. Both then move
+simultaneously in a zero-sum game with state-dependent payoffs,
+player one maximizing. With two actions for player two the value is
+exact, the best response to a player-two mixture q is per-cell
+greedy, so the game value is the minimum over q in [0, 1] of a
+convex piecewise-linear function, minimized exactly by enumerating
+the crossing points of the per-cell action lines. All 203 partitions
+of six states are enumerated exhaustively. The fidelity-optimal read
+at budget k maximizes mutual information, which for a deterministic
+coarsening is the cell-mass entropy, ties collected within 1e-12 and
+the flip always charged against the best-valued member of the tie
+set. The task-optimal read maximizes game value.
+
+Declared exhibit, the stake game. States are pairs (b, c) with b a
+payoff-relevant bit of prior mass 0.8 and 0.2 and c a
+payoff-irrelevant trit, uniform within b, so the six priors are 4/15
+three times and 1/15 three times. Player one guesses b, payoff +1 on
+a match and -2 on a miss, multiplied by a stake of 1 or 3 chosen by
+player two. Closed forms, declared for the run to check. The
+no-information value is 2/5. The task-optimal 2-cell read is the
+b-split with value exactly 1, also the full-information value. The
+fidelity-optimal 2-cell reads are the six mass-balancing partitions
+splitting 8/15 against 7/15, every one mixing the bit in one cell,
+each with value exactly 2/5. The fidelity-optimal spend of the
+budget buys exactly nothing, and the flip is exactly 3/5.
+
+Measured items and bars, fixed before the run. H1, the flip at
+budget 2 is at least 0.5. H2, at budget 6 the fidelity-optimal and
+task-optimal reads agree with the full-information value within
+1e-10. C1, the task-optimal value ladder is nondecreasing in k
+within 1e-10. C2, the fidelity-optimal entropy ladder is
+nondecreasing within 1e-10. C3, no partition's value exceeds the
+finest partition's value by more than 1e-10, in the exhibit and in
+every ensemble game, this is the zero-sum
+more-information-never-hurts theorem, a violation indicts the
+instrument. C4, the measured exhibit numbers match the declared
+closed forms within 1e-12, including the count of six tied
+fidelity-optimal partitions. All six or GD-2 fails.
+
+Ensemble measurement, no bar. 200 games, seed 20260808, prior
+Dirichlet on six states, payoffs uniform on [-1, 1] with three
+player-one actions and two player-two actions. At budgets 2 and 3,
+the fraction of games where the task-optimal read strictly beats
+every fidelity-optimal read by more than 1e-6, and the flip
+magnitudes. Exploratory label,
+results/gd2-budget-flip-game.json.
+
 ### GD-3: Prospect signatures from budgeted consumers
 
 A declared noisy budgeted estimator of gamble probabilities under a
@@ -206,6 +257,63 @@ inverse-S weighting and asymmetric response to gains versus losses
 WITHOUT any weighting or asymmetry inserted, per the efficient-coding
 hypothesis, or does it fail to. Either outcome is a result. The
 reverse-engineering audit of the EG track applies verbatim.
+
+#### GD-3 protocol (declared 2026-08-05, before the run)
+
+Three declared consumers, all exact finite models, none containing a
+weighting function, a reference point chosen after outcomes, or a
+loss-aversion coefficient. The verdict is computed from the audits
+alone. The findings each carry a declared directional bar and are
+recorded pass or fail individually, either outcome is a result.
+
+Consumer P1, the sample-budget reader. A gamble's win probability p
+is read through n Bernoulli draws under a Beta(2, 2) environmental
+prior, the read is the posterior mean, the budget is n over the
+declared ladder 1, 2, 5, 10, 50, 200. The implied weight w(p) has
+the closed form (2 + np)/(4 + n), checked on a declared grid.
+
+Consumer P2, the log-odds reader. The state is log-odds l on a grid
+from -6 to 6 in steps of 0.01, prior proportional to a Gaussian of
+variance 1.5 on the grid, the channel adds discrete Gaussian noise
+of standard deviation sigma on an m grid from -9 to 9 in the same
+steps, the read is the exact posterior mean of p, and the implied
+weight w(p) is the channel average of the read. Budget ladder sigma
+1.0, 0.5, 0.25, and exactly 0 as the identity control. A shifted
+environment with prior mean -1 is probed at sigma 1.0.
+
+Consumer P3, the magnitude reader. Outcomes x from -100 to 100 in
+steps of 0.5 are encoded as sign(x) ln(1 + |x|), the channel adds
+discrete Gaussian noise of standard deviation sigma on a grid from
+-6 to 6 in steps of 0.01, the read is the exact posterior mean of x,
+v(x) is the channel average. Symmetric environment proportional to
+exp(-|x|/25), asymmetric environment with loss scale 40 against gain
+scale 20, declared here on the efficient-coding rationale that the
+question is whether a budgeted read transmits environmental
+asymmetry into valuation asymmetry. Budget ladder sigma 0.6, 0.3,
+0.15, and exactly 0 as the identity control.
+
+Audits, all must pass or GD-3 fails. A1, P1 measured against closed
+form within 1e-10 at every n. A2, the zero-noise consumers read the
+identity within 1e-12, the machinery inserts nothing. A3, symmetric
+environments produce exactly symmetric reads, w(1-p) = 1 - w(p) and
+v(-x) = -v(x) within 1e-9. A4, the maximum deviation from the
+identity strictly decreases along every declared budget ladder, the
+distortion is budget-borne.
+
+Findings, each with its declared bar. F1, P1 is exactly linear
+(second differences within 1e-10), regressive about the prior mean,
+overweighting below and underweighting above, no inverse-S
+curvature. F2, P2 at sigma 1.0 shows the inverse-S signature,
+crossover in [0.4, 0.6], w - p above 0.01 on [0.02, 0.2], p - w
+above 0.01 on [0.8, 0.98], endpoint secant slopes above 1.1 on
+[0.001, 0.05] and [0.95, 0.999], middle secant below 0.9 on
+[0.35, 0.65]. F3, the shifted environment moves the crossover below
+0.35, the distortion tracks the environment, not the machinery. F4,
+the asymmetric environment yields -v(-50)/v(50) at least 1.05, the
+loss side is read less compressed. F5, diminishing sensitivity under
+the symmetric environment, coarse second differences of v at lag 5
+units on [5, 80] have maximum at most 0.01 and mean at most -0.01.
+Exploratory label, results/gd3-prospect-signatures.json.
 
 ### GD-4: Reference dependence as observer functional choice
 
