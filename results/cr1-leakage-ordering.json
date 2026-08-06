@@ -1,0 +1,98 @@
+{
+  "declared": {
+    "certificate": "conditional mutual information, a proof, with the search residual as cross-check only",
+    "n_keys": 16,
+    "noise": 0.2,
+    "sbox": [
+      12,
+      5,
+      6,
+      11,
+      9,
+      0,
+      10,
+      13,
+      3,
+      14,
+      15,
+      8,
+      4,
+      7,
+      1,
+      2
+    ]
+  },
+  "items": {
+    "K1_identity_dominates": true,
+    "K2_constant_dominated": true,
+    "K3_noise_is_garbling": true,
+    "K4_incomparable_proved": true,
+    "K5_dpi_on_tasks": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "battery_size": 201,
+    "k1_detail": {
+      "const": {
+        "cmi_given_ident": 0.0,
+        "residual": 0.0
+      },
+      "hw": {
+        "cmi_given_ident": 0.0,
+        "residual": 0.0
+      },
+      "lsb": {
+        "cmi_given_ident": 0.0,
+        "residual": 0.0
+      },
+      "noisy_hw": {
+        "cmi_given_ident": 0.0,
+        "residual": 0.0
+      }
+    },
+    "k2_residuals": {
+      "hw": 0.0,
+      "ident": 0.0,
+      "lsb": 0.0,
+      "noisy_hw": 0.0
+    },
+    "k3": {
+      "cmi_hw_given_noisy": 1.1439422266325177,
+      "cmi_noisy_given_hw": 4.805139755722377e-17,
+      "mi_gap_bits": 1.1439422266325177,
+      "residual_hw_to_noisy": 2.220446049250313e-16
+    },
+    "k4": {
+      "cmi_hw_given_lsb": 1.811278124459133,
+      "cmi_lsb_given_hw": 0.7806390622295664
+    },
+    "k5_worst_task_gain": 5.551115123125783e-17,
+    "mutual_information_bits": {
+      "const": 0.0,
+      "hw": 2.0306390622295662,
+      "ident": 4.0,
+      "lsb": 1.0,
+      "noisy_hw": 0.8866968355970487
+    }
+  },
+  "record_sha256": "b3ee26a9f818b373f1ed253567658acca4df70f82946d370ec184822aadb3d27",
+  "runtime": {
+    "code_commit": "5c98256",
+    "generated_utc": "2026-08-06T23:02:54.857274+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr1-leakage-ordering-v1",
+  "verdict": {
+    "computed_from": [
+      "K1_identity_dominates",
+      "K2_constant_dominated",
+      "K3_noise_is_garbling",
+      "K4_incomparable_proved",
+      "K5_dpi_on_tasks"
+    ],
+    "value": "PASS"
+  }
+}
