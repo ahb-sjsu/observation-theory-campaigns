@@ -303,6 +303,31 @@ loss of one bit. Runner python/hd3_dissipation_gate.py, schema
 hd3-dissipation-gate-v1, exploratory label,
 results/hd3-dissipation-gate.json.
 
+#### HD-3 results (run 2026-08-06, record sha d3f5fafa7cb7...)
+
+Verdict PASS, all three items. The declared inverse recovers the
+initial state bit for bit in all 50 realizations, and the
+inverse-run amplitude sequence equals the forward sequence
+reversed with maximum deviation exactly zero, float for float. The
+forward amplitude fell from 25.31 to 2.15, ratio 0.085, the HD-2
+viscous decay reproduced on the new seed, and every one of those
+"dissipated" numbers came back on the way in, so no strict
+dissipative law governs the coarse observable, the decay is the
+observer's accounting. One flipped bit at time T destroys it, the
+perturbed inverse returns realization 0 at amplitude 0.437 against
+a true initial 24.04, return ratio 0.018 against the 0.5 bar,
+while the 49 untouched realizations return bit for bit, the
+control inside the item. The Hamming divergence floods, 1 bit at
+the flip, 3047 by 30 inverse steps, 11007 by 60, then a plateau
+near 11200, which is the full decorrelation value 2 f (1 - f)
+times the 24576 bits of a realization, about 11182, the lightcone
+fills the torus and the perturbed trajectory becomes a stranger to
+the true one. The reading declared before the run stands measured,
+dissipation on this substrate is declared-or-absent in the
+consumer, exactly PE-4's lesson at the level of transport, the
+coarse mode's decay is recoverable by any observer with exact
+reversal reach and irrecoverable after the loss of one bit.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in
