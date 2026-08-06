@@ -81,7 +81,10 @@ def main() -> int:
             if n_sc != n_base or abs(ratio - ALPHA_REPARAM) >= 1e-12:
                 b2_ok = False
         else:
-            ratio = float("nan")
+            # post-seal repair, named in CAMPAIGN.md: the sealing
+            # commit's runner wrote a bare nan here and could not
+            # serialize its own record. No bar is changed.
+            ratio = None
 
         # bar 5, observer and detector audit
         curve = {}
@@ -98,7 +101,8 @@ def main() -> int:
             "fold_count": int(n_base),
             "first_fold_worldpoint": wp_b,
             "reparam_count": int(n_sc),
-            "rate_ratio": float(ratio),
+            "rate_ratio": (float(ratio) if ratio is not None
+                           else None),
             "observer_curve": curve}
         print(f"P={p} E={e:.6f} folds={n_base} reparam={n_sc} "
               f"ratio={ratio} obs={curve}", flush=True)
@@ -143,6 +147,8 @@ def main() -> int:
         "worst_translation_worldline_dev": float(worst_shift_dev),
         "worst_worldpoint_dev": float(worst_wp_dev),
         "worst_rate_ratio_dev": float(worst_rate_dev),
+        "cells_without_folds": int(sum(
+            1 for v in cells.values() if v["fold_count"] < 1)),
         "boost_worst_commutation": float(worst_comm),
         "boost_worst_invariant_drift": float(worst_inv),
         "boost_min_future_cone_margin": float(min_cone)}
