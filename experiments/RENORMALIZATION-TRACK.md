@@ -255,7 +255,7 @@ fails. Exploratory label, results/rg3-universality.json.
 Verdict FAIL on U4, and the failure corrects the declaration's
 picture of the flow. U1 through U3 passed, M1 exactly in-family at
 both steps, M2's residual falling 0.157 to 0.032 to 0.004 under
-decimation, the field model keeping coarse magnetization 0.24
+decimation, the field model keeping coarse magnetization 0.777
 while the symmetric models hold zero to 1e-14. U4 declared that
 majority blocking would push M2's residual up, and it fell, 0.161
 to 0.014. From an out-of-family start the one-dimensional flow
@@ -285,7 +285,7 @@ Verdict PASS, all four items. M1 exactly in-family, M2's residual
 falling 0.157 to 0.032 to 0.004, symmetry classes unmixed, and the
 corrected U4 sharp, from the exactly-in-family start one
 decimation leaves the residual at 4e-17 while one majority
-blocking raises it to 0.0136, the channel decides whether the
+blocking raises it to 0.0117, the channel decides whether the
 family survives, while for the out-of-family substrate both
 channels ride the dominant flow toward triviality, reductions
 recorded. Universality in this model is real but channel-shaped,
