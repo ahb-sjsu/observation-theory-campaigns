@@ -1,0 +1,98 @@
+{
+  "declared": {
+    "E_ladder": [
+      0.6,
+      1.0,
+      1.5
+    ],
+    "P_grid": [
+      1.2,
+      1.5,
+      1.8,
+      2.1
+    ],
+    "cap": 300,
+    "dt": 0.002,
+    "rule": "PF4-004 manifest cells must reverse below cap/2 in this probe at identical constants"
+  },
+  "dt_check": null,
+  "grid": {
+    "0.6": [
+      {
+        "N_rev": -1.0,
+        "P": 1.2,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.5,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.8,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 2.1,
+        "reversed": false
+      }
+    ],
+    "1.0": [
+      {
+        "N_rev": -1.0,
+        "P": 1.2,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.5,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.8,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 2.1,
+        "reversed": false
+      }
+    ],
+    "1.5": [
+      {
+        "N_rev": -1.0,
+        "P": 1.2,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.5,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.8,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 2.1,
+        "reversed": false
+      }
+    ]
+  },
+  "label": "exploratory",
+  "record_sha256": "c5b7d79c79ac38770e50651b04242cda175c396c3c7f0dba3d380019bf304ec1",
+  "runtime": {
+    "code_commit": "f33de78",
+    "generated_utc": "2026-08-06T07:07:40.238271+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-004-probe-v1"
+}
