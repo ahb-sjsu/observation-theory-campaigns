@@ -227,11 +227,55 @@ Distinct declared microscopic models under one declared channel.
 Measured, do their coarse theories converge, and is the convergence
 channel-relative. Either outcome is a result.
 
+#### RG-3 protocol (declared 2026-08-06, before the run)
+
+Three declared microscopic models, all exact by enumeration. M1,
+nearest-neighbor Ising at K = 0.7 on a 16-ring. M2, the same with
+an added next-nearest coupling 0.15 at nearest coupling 0.5. M3,
+Ising at K = 0.7 with a symmetry-breaking field 0.3. The family
+residual of a distribution is its total-variation distance from the
+best nearest-neighbor Ising fit, the fit matching the
+nearest-neighbor correlator exactly by bisection.
+
+Bars. U1, M1 flows exactly in-family under two decimations, 16 to
+8 to 4 spins, residual within 1e-12 at both steps. U2, M2's family
+residual strictly decreases along the same flow, the next-nearest
+coupling is measured irrelevant under decimation, ratio recorded.
+U3, symmetry classes do not mix, M3's coarse magnetization stays
+at least 0.01 in absolute value after the flow while M1 and M2
+stay at zero within 1e-14. U4, convergence is channel-relative, on
+a 12-ring M2's family residual shrinks under one decimation and
+grows under one majority-of-three blocking, both strictly, values
+recorded, the same substrate flows toward the family under one
+declared channel and out of it under another. All four or RG-3
+fails. Exploratory label, results/rg3-universality.json.
+
 ### RG-4: Relevance as a channel property
 
 Declared perturbations to the microscopic model. Measured, whether
 growth or decay of a perturbation under the flow depends on the
 declared channel.
+
+#### RG-4 protocol (declared 2026-08-06, before the run)
+
+Base model, nearest-neighbor Ising at K = 0.6 on a 12-ring. Two
+declared perturbations at strength 1e-4, a field and a
+next-nearest coupling. Two declared channels, decimation to a
+6-ring and majority-of-three to a 4-ring. The coarse parameters
+(coupling, next-nearest coupling, field) are solved exactly by
+Newton iteration matching the coarse nearest correlator, next-
+nearest correlator, and magnetization on the small ring, and the
+response multiplier of a perturbation is the induced coarse
+parameter over the microscopic one.
+
+Bars. V1 linearity, halving the perturbation halves every induced
+response within one part in 1e-3 of the factor two. V2, all four
+multipliers measured, field and next-nearest under each channel.
+V3, the relevance spectrum is channel-borne, for at least one
+perturbation the two channels' multipliers differ by at least ten
+percent of the larger. V4, measurement with no bar, whether the
+channels agree on the sign and on which perturbation grows.
+Exploratory label, results/rg4-relevance.json.
 
 ## 5. Evidence discipline and non-claims
 

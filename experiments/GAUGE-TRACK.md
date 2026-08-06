@@ -173,6 +173,37 @@ A declared matter field coupled to links. Measured, which coupled
 observables survive the observer family, and whether charge
 appears only as a property of the projection's fibers.
 
+#### GG-3 protocol (declared 2026-08-06, before the run)
+
+Z2 matter on sites minimally coupled to Z2 links, action K sum of
+plaquettes plus J sum over links of site-link-site products, K =
+0.4 and J = 0.1. Two substrates. The 2 by 2 torus, 8 links and 4
+sites, fully enumerated over all 4096 joint configurations. The 3
+by 3 torus, reached exactly through the unitary-gauge identity,
+absorbing the matter into the links maps the coupled model onto
+the GG-2 deformed ensemble at epsilon = J, so the 2^18 link
+enumeration computes every gauge-invariant observable of the
+coupled theory.
+
+Bars. N1, the unitary-gauge identity verified on the small torus,
+the full matter-and-gauge enumeration and the deformed-ensemble
+route agree on the partition function up to the exact 2-per-site
+factor and on every dressed correlator within 1e-12. N2, Elitzur
+for matter, the bare two-point matter correlator without its
+connecting line vanishes within 1e-13 on the small torus, while
+the dressed correlator, matter endpoints joined by the link line,
+is at least 0.01 at the declared couplings on both substrates,
+charge exists only as the endpoint of a line, the fiber structure
+made mechanical. N3, the observer family, the unitary-gauge
+observer reads bare matter as exactly one while a declared
+tree-gauge observer reads it otherwise, spread at least 0.1, and
+the dressed observables agree across both observers within 1e-12.
+All three or GG-3 fails. The reading, matter coupled to gauge
+carries no observer-independent bare identity, every invariant
+fact about charge is a statement about lines, and the observers'
+bare readings are their fiber coordinates. Exploratory label,
+results/gg3-minimal-coupling.json.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in

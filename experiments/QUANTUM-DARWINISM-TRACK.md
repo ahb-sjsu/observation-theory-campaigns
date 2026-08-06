@@ -201,6 +201,30 @@ Two declared consumers reading disjoint fragments. Measured, when
 their records agree, and whether every disagreement is predicted
 exactly by the declared channel models, the lawful-observer clause.
 
+#### QD-3 protocol (declared 2026-08-06, before the run)
+
+Branching states at the QD-1 angle ladder, built by gate
+application. Consumer A holds environment qubits one and two,
+consumer B holds three and four, disjoint. Each performs its
+declared optimal two-outcome measurement, the Helstrom
+discrimination of its fragment's two branch states, whose success
+probability has the closed form half of one plus the square root
+of one minus the squared fragment overlap. The joint outcome
+distribution is computed exactly from the Born rule.
+
+Bars. J1, each consumer's marginal success probability matches the
+Helstrom closed form within 1e-10 at every angle. J2, route
+agreement, the joint distribution computed on the full state and
+on the reduced four-qubit state agree within 1e-12. J3, agreement
+is manufactured by record strength, the probability that the two
+consumers' outcomes agree is strictly increasing along the angle
+ladder, reaching at least 1 - 1e-10 at theta = pi and staying at
+most 0.6 at theta = pi/16. All three or QD-3 fails. The reading,
+objectivity between observers is record strength made mechanical,
+and every disagreement rate is the declared channels' exact Born
+arithmetic, never noise. Exploratory label,
+results/qd3-agreement.json.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in

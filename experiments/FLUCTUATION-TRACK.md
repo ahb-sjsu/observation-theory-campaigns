@@ -132,6 +132,34 @@ The Sagawa-Ueda generalization replicated exactly in a declared
 finite model, then the campaign question, whether the mutual
 information term is the consumer's information or any observer's.
 
+#### FT-3 protocol (declared 2026-08-06, before the run)
+
+The FT-0 system with declared measurement and feedback. After the
+fourth relax step the controller measures the state through a
+declared symmetric noisy channel with error rate 0.2, split evenly
+between the two wrong outcomes, and if the outcome is the third
+state it switches the remaining protocol stages to the declared
+alternate energies, the FT-0 linear path retargeted to final
+energies (0.2, 1.0, 0.3), otherwise the original protocol
+continues. The free-energy change is branch-final, computed from
+whichever final energies the feedback selected. The pointwise
+information is the log ratio of the outcome likelihood to the
+outcome's marginal probability at the measurement time.
+
+Bars. T1, the Sagawa-Ueda identity, the path-and-outcome average
+of exp(-(W - dF) - I) equals one within 1e-12. T2, feedback beats
+the bare identity, the average of exp(-(W - dF)) without the
+information term differs from one by at least 1e-3, the measured
+efficacy recorded. T3, the information is the consumer's, refeeding
+the identity with the pointwise information of a declared bystander
+who sees the same measurement through additional noise, total
+error rate 0.4, leaves a defect of at least 1e-4, while the
+controller's own information restores it within 1e-12, the
+identity knows which observer acts. T4, measurement with no bar,
+the information-corrected second law margin, mean work minus dF
+plus mean information, nonnegative and recorded. All of T1 through
+T3 or FT-3 fails. Exploratory label, results/ft3-feedback.json.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in
