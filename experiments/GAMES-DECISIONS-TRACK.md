@@ -74,6 +74,63 @@ declared f-divergence orders A above B while a declared task prefers
 B, measuring the wedge between fidelity orderings and task orderings
 that the flip exploited, now in decision form.
 
+#### GD-1 protocol (declared 2026-08-05, before the run)
+
+Setting. Binary state, uniform prior, experiments are 2 by k
+row-stochastic likelihood matrices with strictly positive entries.
+For a binary state every scalar fidelity ordering in the declared
+battery is an f-divergence between the two conditional signal
+distributions. Declared battery of seven, KL both directions, total
+variation, squared Hellinger, chi-squared both directions, and
+Jensen-Shannon. Values of experiments and garbling certificates come
+from the GD-0 instrument layer unchanged, except that the certificate
+search adds an early exit on residual convergence, the checked object
+remains the residual against the same tolerance.
+
+Declared exhibit, the rare decisive signal. Experiment A has rows
+(0.90, 0.05, 0.05) and (0.05, 0.05, 0.90). Experiment B has rows
+(0.98, 0.019, 0.001) and (0.881, 0.02, 0.099). The exhibit task is a
+screening decision with a safe action worth (0, 0) and a treat action
+worth (-20, +1) across the two states. The design reasoning, declared
+so the run can refute it, A's posteriors never clear the treat
+threshold 20/21 so A is worthless for this task, while B is nearly
+uninformative except for one rare signal whose posterior is 0.99,
+and every divergence in the battery still orders A far above B.
+
+Measured items and bars, fixed before the run.
+
+G1 exhibit verification. All seven divergences order A above B each
+with margin greater than 0.01, the exhibit task prefers B with margin
+greater than 0.01, and the pair is certified Blackwell-incomparable
+with both garbling residuals greater than 0.01. All three or G1 fails.
+
+G2 data-processing control. For 500 declared garbled pairs (A random,
+B equals A M with M random row-stochastic), every divergence orders A
+at or above B within 1e-10 and no task in the declared battery of 205
+(200 random utilities on three actions, seed-fixed, plus threshold
+tasks at costs 2, 5, 10, 20, 50) prefers B by more than 1e-10. Zero
+violations or G2 fails.
+
+G3 localization. In a declared ensemble of 2000 random pairs (seed
+20260807, Dirichlet rows, entries at least 0.005 by rejection), every
+wedge instance, meaning all seven divergences strictly order one
+experiment above the other while some battery task strictly prefers
+the other by more than 1e-6, must be certified incomparable. Pairs are
+classified comparable when either certificate residual is below the
+GD-0 feasibility tolerance, incomparable when both exceed 1e-2, and
+ambiguous otherwise, ambiguous pairs are counted and excluded. Zero
+wedge instances among comparable pairs or G3 fails, this is
+Blackwell's theorem plus the data-processing inequality, so a
+violation indicts the instrument, not the theorem.
+
+G4 prevalence, measurement with no bar. Among incomparable pairs in
+the G3 ensemble, the fraction exhibiting unanimous divergence order,
+the fraction of those with a task reversal in the battery, and the
+distribution of maximum reversal margins.
+
+Label. Exploratory, measured in model, unsealed. Substrate Python on
+Atlas, results/gd1-flip-blackwell.json.
+
 ### GD-2: The budget flip in a game
 
 A finite imperfect-information game where a player's information set
