@@ -590,6 +590,12 @@ Key files. `experiments/GAMES-DECISIONS-TRACK.md`,
 `python/gd4_reference_functionals.py`,
 `python/gd5_budgeted_equilibrium.py`.
 
+Paper. Games and Decisions Under Projection, compiled in `paper/`
+(`paper/games-decisions.tex`), figure data via
+`paper/make_figdata_gd.py` from the committed records plus the
+`results/gd3-figdata-curve.json` figure-data artifact, not yet
+published.
+
 ### The second generation, five tracks launched 2026-08-05
 
 The first seven tracks kept converging on one lesson, what an

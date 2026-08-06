@@ -246,7 +246,7 @@ least $0.429$.
   x tick label style={rotate=28, anchor=east, font=\footnotesize},
   xmin=0.4, xmax=5.6, ymin=0, ymax=1150,
   nodes near coords, every node near coord/.append style={
-    font=\footnotesize}]
+    font=\footnotesize, /pgf/number format/1000 sep={}}]
 \addplot[fill=blue!35, draw=blue!70!black]
   table[x=idx, y=count] {figdata/gd1_counts.dat};
 \end{axis}
