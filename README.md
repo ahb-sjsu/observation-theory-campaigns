@@ -1,5 +1,10 @@
 ﻿# Observation Theory Campaigns
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Tracks](https://img.shields.io/badge/tracks-12-blue)](#the-twelve-tracks)
+[![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
+[![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
+
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
