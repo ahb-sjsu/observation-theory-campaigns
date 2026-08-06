@@ -526,7 +526,7 @@ cost 5. The consideration-set phenomenon appears exactly as the
 paper describes, the safe action is excluded at every lambda up to
 1.0, with unconditional probability 3e-23 at 0.05, and at lambda
 1.0 the optimum is the genuinely soft strategy, value 0.7311 with
-information 0.1109 for a net 0.6202, strictly beating both pure
+information 0.1109 for a net 0.6201, strictly beating both pure
 safe play at 0.6 and full attention. At lambda 5 the safe action
 carries everything. The budgeted equilibrium converges to 8.9e-14,
 is exactly symmetric under symmetric budgets, and sits on the
