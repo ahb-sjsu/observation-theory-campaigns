@@ -1,0 +1,952 @@
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
+
+\begin{document}
+
+\title{Games and Decisions Under Projection:\\
+Blackwell Wedges, Budget Flips, and Prospect Signatures from
+Declared Consumers}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 6, 2026}
+
+\begin{abstract}
+An information set is the fiber of a projection, many hidden states
+behind one observed signal, and Blackwell's ordering of experiments
+is the decision-theoretic twin of the data-processing inequality.
+This paper asks whether the behavioral structures of
+imperfect-information decision problems, the value of information,
+the signature distortions of prospect theory, reference dependence,
+and budget-limited equilibrium play, are consumer-relative phenomena,
+derivable from a declared channel, task, environment, and budget with
+nothing inserted.  Seven experiment runs in exact finite models
+answer with measurements.  A validated instrument layer computes
+exact values of experiments and certified garbling relations.  In an
+ensemble of two thousand random experiment pairs, 281 pairs were
+ordered unanimously by all seven declared divergences while certified
+Blackwell-incomparable, and every one of the 281 carried a task that
+strictly prefers the divergence-dominated experiment.  A constructed
+pair makes the wedge extreme, one experiment beats the other on every
+divergence by at least 0.429 while a declared screening task prefers
+the loser, and the pair is incomparable by proof in both directions.
+In a zero-sum game where information is bought under a cell budget,
+the read that maximizes mutual information is worth exactly the
+no-information value while the task-optimal read at the same budget
+attains the full-information value, a flip of exactly three fifths,
+and a strict flip appears in 193 of 200 random games.  Budgeted
+Bayes-optimal readers with no weighting function, no reference point,
+and no loss-aversion coefficient among their inputs produce
+regressive linear weighting in closed form, the full inverse-S
+weighting curve, a crossover that tracks the declared environment, a
+loss-side response ratio of 1.208 from a loss-heavy environment, and
+diminishing sensitivity, with every distortion shrinking along the
+declared budget ladders and vanishing at zero noise.  Reference
+dependence appears exactly where a declared reference functional
+interacts with an environment-adapted encoder, with an observer
+spread of 29.6, a ranking reversal with margins 12.4 and 10.8, and a
+translation-covariance breach of 6.44 that the adapted observer
+avoids exactly.  The rational-inattention logit of Matejka and McKay
+is replicated to fourteen digits, consideration sets form exactly as
+the budget prices actions out, and in a coordination game of two
+budgeted consumers equilibrium attention is complementary, a
+better-informed opponent makes attention more valuable.  Two runs
+failed their declared bars on their own declarations' bookkeeping,
+the records carry the failures, and corrected redeclarations were run
+afterward.  Nothing in this paper is a claim about human beings.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+This campaign models observation as consumption.  A consumer reads a
+hidden state through a declared channel, spends a declared budget on
+the read, and acts on a declared task.  Earlier stages of the
+campaign measured what such consumers can distinguish in quantum
+models \cite{QuantumPaper} and what entropy they observe in
+reversible classical models \cite{SourcesPaper}.  Imperfect-information
+decision theory has worked with the same objects under other names
+for seventy years.  An information set is the fiber of a projection,
+many hidden histories collapsed behind one observed signal.
+Blackwell's ordering of experiments, under which one information
+source is better than another exactly when it is better for every
+decision problem \cite{Blackwell1953}, is the decision-theoretic twin
+of the data-processing inequality \cite{CoverThomas2006}.  Rational
+inattention prices the read in information units \cite{Sims2003,
+MatejkaMcKay2015}.  Prospect theory catalogs the distortions that
+appear when valuations are measured \cite{KahnemanTversky1979,
+TverskyKahneman1992}.
+
+The question of this track is whether the behavioral structures of
+imperfect-information domains are consumer-relative, derivable from
+declared channel, task, environment, and budget structure with
+nothing inserted.  The distortions of prospect theory are usually
+presented as departures from rationality.  The efficient-coding
+account holds instead that they are what optimal reading through a
+limited channel looks like \cite{ZhangMaloney2012, FrydmanJin2022}.
+That account makes an exactly checkable claim in a finite model.
+Declare the channel, the environment, and the budget, forbid every
+behavioral ingredient as an input, compute the optimal read, and see
+which signatures appear.
+
+Three claim types run through the paper and are never conflated.
+Instrument claims state that values of experiments, garbling
+relations, and optimal budgeted reads can be computed exactly in
+finite models, and they are checked against closed forms.  Structural
+claims state that declared consumer structure produces a named
+behavioral signature without that signature being inserted, or
+measurably fails to, and they carry the campaign's exploratory label
+because they are measured in declared models.  Replication claims
+state that a published theoretical result is reproduced exactly in a
+declared finite instance.  Nothing in this paper is a claim about
+human beings, about empirical behavioral data, or about the
+rationality of any person, and no run is labeled as supporting such a
+claim.
+
+An anti-circularity contract governs every run.  No probability
+weighting function appears anywhere in a model's declarations.  No
+reference point is chosen after inspecting outcomes.  No
+loss-aversion coefficient enters as an input.  No task list is
+selected after seeing which tasks favor a wanted verdict.  Budgets,
+channels, priors, and utilities are declared before the runs that
+bear claims, and any behavioral signature must appear in the measured
+optimal reads or the claim fails.
+
+The paper reports seven experiment runs and one instrument layer.
+The instrument layer computes exact values of experiments and
+certified garbling relations and must pass closed-form controls
+before anything else runs.  The first experiment measures the wedge
+between scalar fidelity orderings and task orderings and locates it
+exactly in the region Blackwell's theorem leaves open.  The second
+transplants the campaign's budget flip, task-optimized reads beating
+fidelity-optimized reads at scarce budget \cite{QuantumPaper}, into a
+game against an adversary.  The third asks whether prospect theory's
+signature distortions emerge from budgeted readers that contain none
+of them.  The fourth locates reference dependence in the choice of a
+declared reference functional read through an environment-adapted
+encoder.  The fifth replicates the rational-inattention logit exactly
+and then measures which equilibrium structures survive when every
+player is a budgeted consumer.  Two of the runs failed their declared
+bars.  In both cases every measured quantity matched its closed form
+and the failure was an error in the declaration's own bookkeeping, a
+threshold applied to the wrong object in one case and a double count
+in the other.  The records carry the failed verdicts, the corrected
+declarations were rerun, and both accounts are reported in full.
+
+\section{The instrument layer passes exact controls}
+\label{sec:gd0}
+
+An experiment in Blackwell's sense is a row-stochastic likelihood
+matrix $A$ with $A_{sy}$ the probability of signal $y$ in state $s$.
+For a prior $\pi$ and a task, a utility matrix $u(a,s)$ over actions
+and states, the value of the experiment is the expected payoff of the
+posterior-optimal action,
+\begin{equation}
+  V(A) \;=\; \sum_y \max_a \sum_s \pi_s\, u(a,s)\, A_{sy},
+  \label{eq:value}
+\end{equation}
+an exact finite sum.  Experiment $B$ is a garbling of $A$ when
+$B = AM$ for some row-stochastic $M$, and Blackwell's theorem states
+that this holds exactly when $A$ is worth at least as much as $B$ for
+every prior and every task \cite{Blackwell1953}.  The instrument
+layer implements Eq.~\eqref{eq:value} directly and implements a
+garbling checker as a projected-gradient search for $M$ whose checked
+object is the residual $\max\,\lvert AM - B\rvert$ against a declared
+feasibility tolerance of $10^{-7}$.  The solver is only a search.
+The residual is the evidence.
+
+Five controls with known answers gate the layer, and no later run in
+the track executes until all five pass.  The uninformative and
+perfect experiments reproduce the no-information and full-information
+closed forms exactly.  Across a declared battery of twenty tasks,
+a battery being a list of tasks fixed before the run, garbling never
+raises any value, with a worst measured gain of $1.1\times10^{-16}$.
+A declared garble is certified feasible at residual
+$5.6\times10^{-17}$ while its reverse direction is refused at
+residual $0.260$, and a signal permutation is certified in both
+directions.  The binary symmetric channel family is ordered by its
+error rate, and the checker reproduces that ordering across the
+declared grid of error rates from $0.05$ to $0.45$.  The last
+control constructs an incomparable pair, refused in both directions,
+whose two declared tasks disagree, one prefers the first experiment
+by $0.05$ and the other prefers the second by $0.15$.  That pair
+seeds the next section.
+
+\section{Unanimous fidelity orderings guarantee nothing outside
+comparability}
+\label{sec:gd1}
+
+The campaign's quantum track found task-optimized encoders beating
+fidelity-optimized encoders at scarce budget \cite{QuantumPaper}.
+Blackwell's theorem gives that finding a sharp decision-theoretic
+frame.  A garbling loses for every task, while any scalar fidelity
+measure is a single number, so scalar orderings can only disagree
+with task orderings where no garbling relation holds in either
+direction.  This experiment measures the disagreement exactly.  The
+setting is a binary state with uniform prior and experiments with
+three signals, so every scalar fidelity in the declared battery is an
+$f$-divergence between the two conditional signal rows.  The battery
+holds seven, Kullback-Leibler in both directions, total variation,
+squared Hellinger, chi-squared in both directions, and
+Jensen-Shannon.  A wedge is a pair where all seven divergences
+strictly order one experiment above the other while some declared
+task strictly prefers the other.
+
+The declared exhibit is a rare decisive signal.  The two experiments
+are
+\begin{equation}
+  A = \begin{pmatrix} 0.90 & 0.05 & 0.05\\
+                      0.05 & 0.05 & 0.90 \end{pmatrix},
+  \quad
+  B = \begin{pmatrix} 0.98 & 0.019 & 0.001\\
+                      0.881 & 0.02 & 0.099 \end{pmatrix},
+  \label{eq:exhibit}
+\end{equation}
+and the exhibit task is a screening decision, a safe action worth
+zero in both states against a treat action worth $-20$ in the healthy
+state and $+1$ in the sick state, so treating pays only above the
+posterior threshold $20/21$.  $A$ is far more informative on every
+divergence, with margins from $0.429$ to $15.1$ across the battery,
+but its best posterior is $0.947$ and never clears the threshold, so
+its value for this task is exactly zero.  $B$ is nearly
+uninformative except for one rare signal, probability $0.05$, whose
+posterior is $0.99$, and its value is $0.0395$.  The task prefers
+$B$ by $0.0395$ while every declared fidelity prefers $A$ by at
+least $0.429$.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, ybar, bar width=13pt,
+  ylabel={experiment pairs},
+  xtick={1,2,3,4,5},
+  xticklabels={comparable, incomparable, ambiguous,
+    unanimous, task reversal},
+  x tick label style={rotate=28, anchor=east, font=\footnotesize},
+  xmin=0.4, xmax=5.6, ymin=0, ymax=1150,
+  nodes near coords, every node near coord/.append style={
+    font=\footnotesize}]
+\addplot[fill=blue!35, draw=blue!70!black]
+  table[x=idx, y=count] {figdata/gd1_counts.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{The declared ensemble of 2000 random experiment pairs.  The
+first three bars partition the ensemble by garbling certificate,
+comparable when a certificate is feasible in some direction,
+incomparable when both residuals exceed the declared 0.01, ambiguous
+otherwise and excluded as declared.  The last two bars are subsets of
+the incomparable class, pairs ordered unanimously by all seven
+divergences and pairs whose unanimous ordering is reversed by a task
+in the declared battery.  The two subsets are equal at 281.  Every
+count is read from the committed evidence record.}
+\label{fig:gd1}
+\end{figure}
+
+Three further items were declared with the exhibit.  A
+data-processing control drew 500 pairs related by a declared random
+garble and checked them against the battery of 205 tasks, 200 random
+three-action utilities and five screening thresholds, all seed-fixed.
+No divergence rose under any garble, the smallest margin in the
+required direction measured $1.8\times10^{-4}$, and no task gained
+more than $3.3\times10^{-16}$, which is Blackwell's theorem plus the
+data-processing inequality holding in the instrument, and a violation
+would have indicted the instrument rather than the theorems.  A
+localization item classified a declared ensemble of 2000 random pairs
+by garbling certificate and required every wedge to fall in the
+incomparable class.  Figure~\ref{fig:gd1} shows the outcome, 1044
+comparable, 767 incomparable, 189 ambiguous, and zero wedges among
+comparable pairs, with 144 wedges among the excluded ambiguous pairs.
+The prevalence measurement, declared with no bar, is the substantive
+finding.  Among the 767 certified-incomparable pairs, 281 were
+ordered unanimously by all seven divergences, and every one of the
+281 carried a task reversal in the declared battery, with a maximum
+reversal margin of $0.0776$ and a median of $0.0214$.  In this
+ensemble, unanimous scalar-fidelity ordering guaranteed nothing about
+tasks in a single instance outside certified comparability.
+
+The recorded verdict of this run is FAIL.  The exhibit's declared bar
+required both garbling-search residuals to exceed $0.01$, a round
+number declared without computing the scale it would be compared
+against.  The reverse residual measured $0.4198$ and passed.  The
+forward residual measured $0.004486$ and failed the bar, while every
+divergence margin and the task margin passed.  The verdict stands as
+recorded, computed from the declared items.
+
+The redeclared run replaced the threshold with a proof and passed all
+five of its items.  Incomparability of the exhibit is established in
+both directions without any residual bar.  In one direction, the
+joint-distribution columns of any garbling of $A$ are conic
+combinations of $A$'s joint columns, so a target column $(t_0, t_1)$
+with $t_0 < r\, t_1$, where $r$ is the smallest first-to-second-row
+ratio among $A$'s joint columns, forces a residual of at least
+$(r\, t_1 - t_0)/(1+r)$ for every row-stochastic $M$.  Computed from
+the declared matrices, the bound is $0.004263$ against its declared
+bar of $10^{-3}$, more than four orders of magnitude above the
+feasibility tolerance, so $B$ is not a garbling of $A$.  In the other
+direction, total variation is an $f$-divergence, a garbling cannot
+raise it, and $A$'s total variation exceeds $B$'s by $0.751$, so $A$
+is not a garbling of $B$.  The consistency item then reads the failed
+bar's own number correctly.  The search residual $0.004486$ sits
+above the analytic bound and within five percent of it, so the search
+was measuring genuine infeasibility, and the original failure was a
+bar thresholding a search residual instead of certifying
+infeasibility.  The exhibit therefore stands proved, every declared
+$f$-divergence orders $A$ above $B$ by at least $0.429$, the declared
+screening task strictly prefers $B$, and the pair is
+Blackwell-incomparable in both directions.  Together with the
+ensemble measurement, the wedge that the campaign's budget flip
+exploited is exhibited exactly in decision form and localized to
+exactly the region Blackwell's theorem leaves open.
+
+\section{The fidelity-optimal purchase buys nothing against an
+adversary}
+\label{sec:gd2}
+
+The second experiment transplants the budget flip into a game.  Six
+hidden states carry a declared prior.  Player one buys a
+deterministic coarsening of the state, a partition into at most $k$
+cells for budget $k$, and the choice of partition is public.  Player
+two observes nothing.  Both then move simultaneously in a zero-sum
+game with state-dependent payoffs, player one maximizing.  With two
+actions for player two the value is exact.  Player one's best
+response to a mixture $q$ is greedy within each cell, so the game
+value is the minimum over $q$ of a convex piecewise-linear function,
+minimized exactly by enumerating the crossing points of the per-cell
+action lines.  All 203 partitions of six states are enumerated.  The
+fidelity-optimal read at budget $k$ maximizes mutual information
+between state and cell, which for a deterministic coarsening is the
+entropy of the cell masses, with ties collected within $10^{-12}$ and
+the flip always charged against the best-valued member of the tie
+set.  The task-optimal read maximizes game value.  The flip at a
+budget is the task-optimal value minus the best fidelity-optimal
+value.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 2,
+    vertical sep=34pt},
+  paperaxis, height=0.44\columnwidth]
+\nextgroupplot[ylabel={game value},
+  xlabel={cell budget $k$},
+  xtick={1,2,3,4,5,6}, xmin=0.6, xmax=6.4,
+  ymin=0.3, ymax=1.12,
+  legend pos=south east, legend cell align=left]
+\addplot[blue!70!black, mark=*, mark size=2.0pt]
+  table[x=k, y=vtask] {figdata/gd2b_ladder.dat};
+\addlegendentry{task-optimal read}
+\addplot[red!70!black, densely dashed, mark=square*,
+  mark size=1.6pt]
+  table[x=k, y=vfid] {figdata/gd2b_ladder.dat};
+\addlegendentry{best fidelity-optimal read}
+\nextgroupplot[ylabel={flip magnitude},
+  xlabel={cell budget $k$},
+  xtick={2,3}, xmin=1.4, xmax=3.6, ymin=0, ymax=0.4,
+  ybar, bar width=10pt,
+  legend pos=north east, legend cell align=left]
+\addplot[fill=blue!35, draw=blue!70!black]
+  table[x=k, y=median] {figdata/gd2b_ensemble.dat};
+\addlegendentry{ensemble median}
+\addplot[fill=red!35, draw=red!70!black]
+  table[x=k, y=maxflip] {figdata/gd2b_ensemble.dat};
+\addlegendentry{ensemble maximum}
+\end{groupplot}
+\end{tikzpicture}
+\caption{The budget flip in the stake game and in the ensemble.  The
+upper panel shows the exhibit's value ladder.  At budgets 2 and 3
+the task-optimal read attains the full-information value 1 while
+every fidelity-optimal read is worth 0.4, the no-information value,
+and the two selection rules agree at large budgets.  The lower panel
+shows the ensemble flip magnitudes over 200 random games, median
+over flipped games and maximum, at budgets 2 and 3.  A strict flip
+occurred in 193 of 200 games at budget 2 and 188 of 200 at budget 3.
+Every number is read from the committed evidence records.}
+\label{fig:gd2}
+\end{figure}
+
+The declared exhibit is a stake game built so that the flip has
+rational closed forms.  States are pairs of a payoff-relevant bit
+with prior mass $0.8$ and $0.2$ and a payoff-irrelevant trit uniform
+within each bit value, so the six priors are $4/15$ three times and
+$1/15$ three times.  Player one guesses the bit, earning $+1$ on a
+match and $-2$ on a miss, multiplied by a stake of $1$ or $3$ chosen
+by player two.  The declared closed forms follow from the structure.
+The no-information value is $2/5$.  The task-optimal two-cell read is
+the bit split, worth exactly $1$, which is also the full-information
+value.  The fidelity-optimal two-cell reads are the mass-balancing
+partitions that split $8/15$ against $7/15$, each mixing the bit
+inside one cell, each worth exactly $2/5$.  The fidelity-optimal
+spend of the budget buys exactly nothing, and the flip is exactly
+$3/5$.
+
+The first run of this experiment recorded verdict FAIL, and the
+failure is an integer in the declaration.  Every measured value
+matched its declared closed form within $10^{-15}$, the task-optimal
+two-cell value measured exactly $1$, every fidelity-optimal two-cell
+read measured $0.4$, the flip measured $0.6$ against its bar of
+$0.5$, the ladders were monotone, and no partition beat the finest,
+which is the zero-sum theorem that more information never hurts,
+carried as an instrument-indicting control.  The one failed item was
+the declared count of tied fidelity-optimal two-cell partitions, six
+declared against three measured.  The declaration had tallied each
+two-cell partition once from each of its cells.  The mass-$7/15$
+subsets are exactly the complements of the mass-$8/15$ subsets, three
+partitions, not six.  The redeclared run corrected that count, held
+every other object fixed, and passed all six items.
+
+The ensemble measurement, declared with no bar and identical across
+both runs, shows the flip is generic rather than constructed.  Over
+200 random games with Dirichlet priors, three player-one actions,
+two player-two actions, and payoffs uniform on $[-1,1]$, all
+seed-fixed, the task-optimal read strictly beat every
+fidelity-optimal read in 193 of 200 games at budget 2, with median
+flip $0.070$ and maximum $0.328$, and in 188 of 200 games at budget
+3.  Figure~\ref{fig:gd2} shows the exhibit ladder and the ensemble
+magnitudes.  The campaign's flip is now measured in a game against
+an adversary.  At scarce budget, buying the read that maximizes
+mutual information is generically the wrong purchase.
+
+\section{Prospect signatures emerge from consumers that contain
+none of them}
+\label{sec:gd3}
+
+Prospect theory's weighting function overweights small probabilities,
+underweights large ones, crosses the identity near one third to one
+half, and is steep at both ends \cite{KahnemanTversky1979,
+TverskyKahneman1992}.  Its value function is asymmetric between
+gains and losses and exhibits diminishing sensitivity.  The
+efficient-coding account predicts that these shapes are properties of
+optimal reading through a limited channel under an environmental
+prior \cite{ZhangMaloney2012, FrydmanJin2022}.  This experiment
+declares three budgeted consumers, none containing a weighting
+function, a reference point chosen after outcomes, or a
+loss-aversion coefficient, and measures which signatures their
+optimal reads exhibit.  The verdict is computed from audits on the
+machinery alone.  The findings carry declared directional bars and
+are recorded pass or fail individually, and either outcome is a
+result.
+
+The first consumer reads a win probability $p$ through $n$ Bernoulli
+draws under a Beta$(2,2)$ environmental prior and reports the
+posterior mean, with the sample budget $n$ on a declared ladder from
+$1$ to $200$.  Its implied weighting has the closed form
+\begin{equation}
+  w(p) \;=\; \frac{2 + np}{4 + n},
+  \label{eq:p1}
+\end{equation}
+and the measured read matches Eq.~\eqref{eq:p1} within
+$6.8\times10^{-14}$ at every $n$ with maximum curvature
+$1.5\times10^{-14}$.  This consumer produces overweighting of small
+probabilities and underweighting of large ones, regression toward
+the prior mean, with no inverse-S curvature at all.  The weighting
+is exactly linear.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.78\columnwidth,
+  xlabel={objective probability $p$},
+  ylabel={implied weight $w(p)$},
+  xmin=0, xmax=1, ymin=0, ymax=1,
+  legend pos=north west, legend cell align=left]
+\addplot[gray!70, densely dotted, domain=0:1, samples=2]
+  {x};
+\addlegendentry{identity}
+\addplot[blue!70!black]
+  table[x=p, y=wsym] {figdata/gd3_wcurve.dat};
+\addlegendentry{symmetric environment}
+\addplot[red!70!black, densely dashed]
+  table[x=p, y=wshift] {figdata/gd3_wcurve.dat};
+\addlegendentry{shifted environment}
+\end{axis}
+\end{tikzpicture}
+\caption{The implied probability weighting of the log-odds reader at
+budget sigma 1.0.  Under the symmetric environment the curve is the
+full inverse-S, crossing the identity at exactly 0.5, overweighting
+below and underweighting above, with endpoint secant slopes 3.00 and
+middle slope 0.51.  Under the declared shifted environment, centered
+at log-odds minus one, the crossover moves to 0.338.  The curve is
+read from a committed figure-data artifact recomputed by the
+committed GD-3 instrument and bound by hash to the sealed evidence
+record.}
+\label{fig:gd3}
+\end{figure}
+
+The second consumer is a log-odds reader.  The hidden state is the
+log-odds $\ell$ of the probability, on a grid from $-6$ to $6$ in
+steps of $0.01$, with a Gaussian environmental prior of variance
+$1.5$.  The channel adds discrete Gaussian noise of width $\sigma$ to
+the coded value, and the read is the exact posterior mean of
+$p = 1/(1+e^{-\ell})$.  The implied weight $w(p)$ is the channel
+average of the read.  The declared budget ladder is $\sigma$ equal to
+$1.0$, $0.5$, $0.25$, and exactly $0$ as the identity control.
+Figure~\ref{fig:gd3} shows the measured curve at $\sigma = 1.0$.  It
+is the full inverse-S, from nothing but a log-odds code, a Gaussian
+budget, and Bayes-optimal reading.  The crossover is exactly $0.5$ by
+symmetry.  The endpoint secant slopes measure $3.00$ at both ends
+against a declared bar of $1.1$, the middle secant measures $0.51$
+against a bar of $0.9$, and the overweighting and underweighting
+margins on the declared bands measure $0.099$ where $0.01$ was
+required.  The declared shifted environment, the same reader with the
+prior centered at log-odds $-1$, moves the crossover to $0.338$,
+inside its declared bar of $0.35$.  The distortion tracks the
+environment, not the machinery.
+
+The third consumer reads outcome magnitudes from $-100$ to $100$
+through the compressive code $\mathrm{sign}(x)\ln(1+\lvert x\rvert)$
+with Gaussian channel noise, under a symmetric Laplace environment
+and, in a declared variant, an asymmetric environment whose loss side
+is heavier, scale $40$ against $20$, declared on the efficient-coding
+rationale that the question is whether a budgeted read transmits
+environmental asymmetry into valuation asymmetry.  Under the
+symmetric environment the read is odd to $1.5\times10^{-13}$, so the
+machinery inserts no asymmetry.  Under the loss-heavy environment the
+measured response ratio at $\pm50$ is $1.208$, the loss side read
+less compressed, with nothing resembling a loss-aversion coefficient
+anywhere in the model.  Diminishing sensitivity is unambiguous, the
+declared coarse second differences on the gain side are all negative
+with maximum $-0.092$ and mean $-0.402$.
+
+The audits that compute the verdict all passed.  The first consumer
+matches its closed form.  The zero-noise consumers read the identity
+within $10^{-12}$, so the machinery inserts nothing.  Symmetric
+environments produce exactly symmetric reads.  And the maximum
+deviation from the identity strictly decreases along every declared
+budget ladder, from $0.392$ to $0.0096$ for the sample reader, from
+$0.149$ to zero for the log-odds reader, and from $45.0$ to zero for
+the magnitude reader, so every distortion is budget-borne and
+vanishes when the budget constraint does.  All five declared findings
+passed their directional bars.  The signature set of prospect theory,
+regressive weighting, the inverse-S, environment-borne loss
+asymmetry, and diminishing sensitivity, emerged in declared budgeted
+consumers with none of it among the inputs.
+
+\section{Reference dependence is the declared functional read
+through an adapted encoder}
+\label{sec:gd4}
+
+A design note recorded in the protocol shaped this model and is
+itself a finding.  A posterior-mean read decoded under the gamble's
+own distribution is exactly unbiased in expectation, iterated
+expectation cancels every reference effect, so reference dependence
+cannot live there.  The declared model is therefore an encoder
+adapted to a fixed environment and presented with novel gambles,
+which is also the efficient-coding picture, and the reference point
+is the encoder's adaptation level.
+
+The reader encodes deviations $d = x - R$ from a reference $R$
+through the compressive code $\mathrm{sign}(d)\ln(1+\lvert d\rvert)$,
+a discrete Gaussian channel of width $\sigma$ acts on the code, and
+the read is the exact posterior mean of $d$ under the declared
+environmental prior, a symmetric Laplace of scale $30$.  The
+valuation of a gamble is the mean reference plus the expected read of
+its deviations.  Four reference functionals are declared, none chosen
+after outcomes.  The status-quo observer takes $R = 0$.  The adapted
+observer takes $R$ equal to the gamble's mean, the expectation-based
+reference of K\H{o}szegi and Rabin in its simplest form
+\cite{KoszegiRabin2006}.  The third observer takes the lower median.
+The lagged observer takes the previous outcome of an independent
+two-period presentation.  A declared battery of six gambles probes
+them, including a pair related by a shift of ten.
+
+\begin{table}[t]
+\caption{Valuations of the six declared gambles by the four declared
+observers at budget sigma 2.5, rounded to two decimals from the
+committed evidence record.  The mean column is the gamble's expected
+value, which every observer reproduces exactly at zero noise.  B6 is
+B5 shifted by ten.  The adapted observer's B6 entry equals its B5
+entry plus ten exactly, while the status-quo observer misses that
+shift by 6.44.}
+\label{tab:gd4}
+\begin{ruledtabular}
+\begin{tabular}{lccccc}
+Gamble & mean & status quo & adapted & lower med. & lagged \\
+\colrule
+B1 & $5$  & $0.63$   & $5.00$   & $-24.56$ & $5.00$  \\
+B2 & $5$  & $3.41$   & $5.00$   & $6.16$   & $5.00$  \\
+B3 & $10$ & $18.02$  & $10.00$  & $10.00$  & $10.00$ \\
+B4 & $0$  & $0.00$   & $0.00$   & $0.00$   & $0.00$  \\
+B5 & $0$  & $-11.80$ & $-11.80$ & $-13.71$ & $0.00$  \\
+B6 & $10$ & $-8.24$  & $-1.80$  & $-3.71$  & $10.00$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The audits all passed, and they are what makes the observer
+differences lawful rather than anomalous.  At zero noise every
+valuation equals the gamble mean within $1.8\times10^{-15}$.  The
+symmetry anchors hold within $7.1\times10^{-14}$ at every budget, the
+adapted observer reads the symmetric gambles at their means, and the
+lagged observer reads every gamble at its mean because independent
+two-period differences are symmetric.  The adapted observer's
+translation covariance is exact, its valuation of the shifted gamble
+equals its valuation of the base gamble plus ten with measured
+deviation zero against the declared $10^{-10}$ tolerance.  And the
+maximum deviation of any valuation from the gamble mean falls
+strictly along the budget ladder, $29.6$ at $\sigma = 2.5$, $20.1$ at
+$1.0$, machine zero at $0$.
+
+Table~\ref{tab:gd4} shows the valuations at the scarcest budget, and
+the declared findings are large rather than marginal.  The maximum
+spread across observers on a single gamble is $29.6$, fifty-nine
+times its declared bar.  A ranking reversal sits inside the declared
+battery, the status-quo observer prefers B1 to B5 by $12.4$ while the
+lower-median observer prefers B5 to B1 by $10.8$.  The status-quo
+observer breaks translation covariance by $6.44$ on the declared
+shift while the adapted observer holds it exactly, so which
+reference effects appear is decided by the declared functional, and
+every appearance is predicted by the detector model.  Reference
+dependence in this model is not a preference anomaly.  It is the
+declared functional's interaction with an environment-tuned budgeted
+encoder, with every difference between observers derived from
+declared structure.
+
+\section{The rational-inattention logit replicates exactly and
+equilibrium attention is complementary}
+\label{sec:gd5}
+
+The last experiment has a replication half and a campaign half.  The
+replication target is the result of Matejka and McKay that a
+rational-inattention consumer, maximizing expected payoff minus
+$\lambda$ times the mutual information between state and action,
+chooses by a weighted logit \cite{Sims2003, MatejkaMcKay2015}.  The
+declared instance has four uniform states and three actions, a safe
+action worth $0.6$ everywhere, and two risky actions each worth $1$
+on their own half of the states.  The optimum is computed by
+Blahut-Arimoto iteration \cite{Blahut1972, Arimoto1972} with the
+logit step in log space, run to a fixed-point residual of
+$10^{-14}$, over the declared cost ladder $\lambda$ from $10^{-6}$
+to $5$.
+
+\begin{table}[t]
+\caption{The rational-inattention ladder of the declared instance.
+Columns are the information cost, the unconditional probability of
+the safe action, the expected payoff of the optimal strategy, and the
+information it buys in nats.  The safe action is priced out of the
+consideration set at every cost up to 1 and carries everything at
+cost 5.  All numbers are from the committed evidence record.}
+\label{tab:gd5}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+$\lambda$ & safe prob. & value & info (nats) \\
+\colrule
+$10^{-6}$ & $0$                   & $1.000000$ & $0.693147$ \\
+$0.05$    & $3.1\times10^{-23}$   & $1.000000$ & $0.693147$ \\
+$0.2$     & $7.4\times10^{-16}$   & $0.993307$ & $0.652968$ \\
+$1.0$     & $4.8\times10^{-13}$   & $0.731059$ & $0.110944$ \\
+$5.0$     & $1.000000$            & $0.600000$ & $3.3\times10^{-15}$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Five declared bars gate the replication and all five passed.
+Stationarity, the unconditional action distribution equal to the
+marginal of the conditional strategy, holds with residual exactly
+zero.  The weighted-logit identity of Matejka and McKay,
+\begin{equation}
+  P(a \mid s) \;=\;
+  \frac{p_0(a)\, e^{u(a,s)/\lambda}}
+       {\sum_b p_0(b)\, e^{u(b,s)/\lambda}},
+  \label{eq:mm}
+\end{equation}
+with $p_0$ the unconditional action distribution, holds at the fixed
+point to $9.5\times10^{-15}$.  None of 200 declared random feasible
+perturbations of the conditional strategy improves the net objective,
+the recorded maximum improvement is exactly zero.  The limits land on
+their closed forms, value $1$ with information equal to $\ln 2$ to
+the last digit at vanishing cost, and prior play at cost $5$, where
+the safe action carries unconditional probability $1$ within
+$10^{-9}$.  Table~\ref{tab:gd5} shows the ladder.  The
+consideration-set phenomenon appears exactly as the replication
+target describes.  The safe action is excluded at every cost up to
+$1$, with unconditional probability $3\times10^{-23}$ at cost
+$0.05$, and at cost $1$ the optimum is genuinely soft, value
+$0.7311$ with information $0.1109$ for a net objective of $0.6201$,
+strictly better than both pure safe play at $0.6$ and full
+attention.  Feasible actions drop from the consideration set exactly
+as the budget prices them out.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, xmode=log,
+  xlabel={opponent's information cost $\lambda_2$},
+  ylabel={player one info $I_1$ (nats)},
+  xtick={0.05,0.2,1.0,5.0},
+  xticklabels={$0.05$,$0.2$,$1$,$5$},
+  ymin=0.66, ymax=0.692]
+\addplot[blue!70!black, mark=*, mark size=2.2pt]
+  table[x=lam2, y=I1] {figdata/gd5_complement.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{Attention complementarity in the coordination game.  Player
+one's information cost is fixed at 0.2 while the opponent's cost
+rises along the declared ladder.  Player one's equilibrium
+information falls from 0.6884 to 0.6637 nats as the opponent
+coarsens, so a better-informed opponent makes attention more
+valuable.  All four points are read from the committed evidence
+record.}
+\label{fig:gd5}
+\end{figure}
+
+The campaign half puts two budgeted consumers in a coordination
+game.  Two uniform states, two actions each, payoff $1$ for matching
+the state plus $0.5$ for matching the other player, so given the
+opponent's conditional strategy $Q$ the effective payoff is
+$u(a,s) = \mathbf{1}[a{=}s] + 0.5\, Q(a \mid s)$ and best responses
+are Blahut-Arimoto solves, iterated from uniform play to a joint
+residual of $10^{-12}$.  All three declared equilibrium bars passed.
+The iteration converges at every declared budget pair.  Symmetric
+budgets give the symmetric equilibrium, including state-flip
+symmetry, with deviation $2.1\times10^{-14}$.  Along the common
+budget ladder the equilibrium information is nonincreasing, matching
+accuracy at the finest budget is above $0.95$, and at every ladder
+point the measured equilibrium accuracy $q$ sits on the independent
+closed-form curve
+\begin{equation}
+  q \;=\; \frac{1}{1 + e^{-(1 + 0.5\,(2q-1))/\lambda}},
+  \label{eq:fp}
+\end{equation}
+the scalar fixed point of the weighted logit applied to the
+coordination payoff, with residual $2.1\times10^{-14}$.  The
+Shannon-cost solution is interior at every finite budget, and the
+measured equilibrium lands on the curve that an entirely separate
+route computes.
+
+The declared finding measures how one player's budget moves the
+other player's equilibrium attention.  Player one's cost is fixed at
+$0.2$ while the opponent's cost ladders over $0.05$, $0.2$, $1$, and
+$5$.  Figure~\ref{fig:gd5} shows the result.  Player one's
+equilibrium information falls monotonically from $0.6884$ to
+$0.6637$ nats as the opponent's budget coarsens, passing its
+declared direction and minimum-drop bars.  In this game attention is
+complementary.  Information bought by one player raises the value of
+information to the other, exactly as declared before the run.
+
+\section{What this paper establishes}
+\label{sec:claims}
+
+\begin{table*}[t]
+\caption{The ledger of the games-and-decisions track.  Verdicts are
+recorded exactly as computed from the declared items of each run,
+including the two failures.  Measured in model, exploratory label,
+means an exact measurement in a declared finite construction with
+append-only evidence records and pre-declared bars, seeds, and
+batteries.  Key numbers are quoted from the committed records.}
+\label{tab:ledger}
+\begin{ruledtabular}
+\begin{tabular}{lL{2.2cm}L{10.6cm}l}
+Run & Verdict & Key measurements & Label \\
+\colrule
+GD-0 instrument layer & validated & closed-form control values
+exact, garbling never raised any of 20 task values (worst gain
+$1.1\times10^{-16}$), declared garble certified at residual
+$5.6\times10^{-17}$ against reverse 0.260, binary-channel ordering
+reproduced, incomparable seed pair with task margins 0.05 and 0.15 &
+instrument \\
+GD-1 wedge ensemble & FAIL & exhibit failed its residual-threshold
+bar, 0.0045 against the declared 0.01, while the data-processing
+control (500 garbles, battery of 205) and localization (zero wedges
+among 1044 comparable pairs) passed, and the ensemble measured 767
+incomparable pairs, 281 unanimous, 281 of 281 with task reversals
+(max 0.0776, median 0.0214) & measured in model, exploratory \\
+GD-1b exhibit certificate & PASS & incomparability proved both ways,
+conic bound 0.004263 against bar $10^{-3}$, total-variation margin
+0.751, all seven divergence margins at least 0.429, task margin
+0.0395, search residual within five percent of the analytic bound &
+measured in model, exploratory \\
+GD-2 budget flip in a game & FAIL & every closed form matched within
+$10^{-15}$ and the flip measured exactly 3/5, but the declaration
+counted six tied fidelity-optimal partitions where the instrument
+counted three, a double count from both cells of each two-cell
+partition & measured in model, exploratory \\
+GD-2b corrected declaration & PASS & task-optimal two-cell value
+exactly 1, every fidelity-optimal two-cell read exactly 0.4, the
+no-information value, flip exactly 3/5, ensemble flip in 193 of 200
+games at budget 2 (median 0.070, max 0.328) and 188 of 200 at budget
+3 & measured in model, exploratory \\
+GD-3 prospect signatures & PASS & all eight audits and all five
+findings, linear regressive weighting to $6.8\times10^{-14}$,
+inverse-S with secants 3.00 and 0.51 and crossover 0.5 moving to
+0.338 under the shifted environment, loss ratio 1.208 with no
+loss-aversion input, second differences max $-0.092$ &
+measured in model, exploratory \\
+GD-4 reference functionals & PASS & audits exact (zero-noise
+identity $1.8\times10^{-15}$, adapted covariance exact), observer
+spread 29.6, ranking reversal 12.4 against 10.8, status-quo
+covariance breach 6.44 & measured in model, exploratory \\
+GD-5 logit and equilibrium & PASS & weighted-logit identity
+$9.5\times10^{-15}$, stationarity 0, 200 perturbations never
+improve, limits exact (value 1, information $\ln 2$, prior play at
+cost 5), consideration-set exclusion $3\times10^{-23}$, equilibrium
+on the scalar fixed-point curve to $2.1\times10^{-14}$,
+complementarity 0.6884 to 0.6637 & replication and measured in
+model, exploratory \\
+Scope & non-claim & nothing in this track is evidence about human
+decision-making, about prospect theory as psychology, or about the
+rationality of any person & non-claim \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Table~\ref{tab:ledger} registers the runs with their recorded
+verdicts.  Read together they answer the track's question inside its
+declared scope.  The value of information is task-relative in a
+precise sense, scalar fidelity orderings carry no task guarantee
+outside certified Blackwell comparability, and in the measured
+ensemble the unanimous-fidelity wedge was never empty of task
+reversals.  The budget flip survives an adversary, and the
+fidelity-optimal purchase can buy exactly nothing while the
+task-optimal purchase at the same budget buys everything.  The
+signature distortions of prospect theory, regressive weighting, the
+inverse-S, loss-side asymmetry, and diminishing sensitivity, are
+producible by declared budgeted consumers that contain none of them,
+with each distortion shrinking as the budget grows and vanishing at
+zero noise, and with the shape tracking the declared environment.
+Reference dependence in these models is the choice of a declared
+reference functional read through an environment-adapted encoder,
+with every observer difference predicted by the detector model.  The
+rational-inattention logit is replicated exactly, and in the one
+equilibrium measured, attention is complementary across players.
+
+Two verdicts in the ledger are FAIL, and both failures were located
+in the declarations rather than in the measured structures, a
+residual threshold where a proof was needed and a double-counted tie
+set.  The corrected redeclarations passed while holding every
+measured object fixed.  The bars ruled in both cases, which is what
+they are declared for.
+
+These are structural results about declared finite models carrying
+the exploratory label of the campaign's evidence-grading scheme.
+They show that the named behavioral signatures can arise from
+channel, task, environment, and budget structure alone.  They do not
+show that human behavior arises this way, and no experiment in this
+track can bear on that question.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+All runs follow the campaign's standing discipline.  Priors,
+utilities, channels, budgets, batteries, seeds, tolerances, and bars
+were declared in the track document before the runs they govern, per
+the anti-circularity contract, and verdicts are computed from the
+declared items, never written first.  Every result-bearing run
+writes an append-only JSON evidence record containing the declared
+parameters, the measured outcomes, and a canonical SHA-256 hash of
+the record body.  The records for this paper are
+\texttt{gd0-instrument.json},
+\texttt{gd1-flip-blackwell.json},
+\texttt{gd1b-exhibit-certificate.json},
+\texttt{gd2-budget-flip-game.json},
+\texttt{gd2b-budget-flip-game.json},
+\texttt{gd3-prospect-signatures.json},
+\texttt{gd4-reference-functionals.json}, and
+\texttt{gd5-budgeted-equilibrium.json} in the campaign repository,
+with the committed runners alongside them.  The failed GD-1 and GD-2
+records are retained unchanged, and the corrected declarations are
+separate records, so the sequence of verdicts is itself part of the
+evidence.  Every number and every figure coordinate in this paper is
+read from those committed records.  The figure tables are generated
+deterministically by a committed script with no free parameters, and
+the one plotted curve not stored in a verdict record, the weighting
+curve of Fig.~\ref{fig:gd3}, is a committed figure-data artifact
+recomputed by the committed GD-3 instrument and bound by hash to the
+sealed record it accompanies.  A reducer may summarize records but
+may not rewrite them.
+
+\begin{thebibliography}{9}
+
+\bibitem{Blackwell1953}
+D.~Blackwell,
+Equivalent comparisons of experiments,
+Ann. Math. Stat. \textbf{24}, 265 (1953).
+
+\bibitem{KahnemanTversky1979}
+D.~Kahneman and A.~Tversky,
+Prospect theory: An analysis of decision under risk,
+Econometrica \textbf{47}, 263 (1979).
+
+\bibitem{TverskyKahneman1992}
+A.~Tversky and D.~Kahneman,
+Advances in prospect theory: Cumulative representation of
+uncertainty,
+J. Risk Uncertain. \textbf{5}, 297 (1992).
+
+\bibitem{Sims2003}
+C.~A.~Sims,
+Implications of rational inattention,
+J. Monet. Econ. \textbf{50}, 665 (2003).
+
+\bibitem{MatejkaMcKay2015}
+F.~Mat\v{e}jka and A.~McKay,
+Rational inattention to discrete choices: A new foundation for the
+multinomial logit model,
+Am. Econ. Rev. \textbf{105}, 272 (2015).
+
+\bibitem{ZhangMaloney2012}
+H.~Zhang and L.~T.~Maloney,
+Ubiquitous log odds: A common representation of probability and
+frequency distortion in perception, action, and cognition,
+Front. Neurosci. \textbf{6}, 1 (2012).
+
+\bibitem{FrydmanJin2022}
+C.~Frydman and L.~J.~Jin,
+Efficient coding and risky choice,
+Q. J. Econ. \textbf{137}, 161 (2022).
+
+\bibitem{KoszegiRabin2006}
+B.~K\H{o}szegi and M.~Rabin,
+A model of reference-dependent preferences,
+Q. J. Econ. \textbf{121}, 1133 (2006).
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory}, 2nd ed.\
+(Wiley-Interscience, Hoboken, 2006).
+
+\bibitem{Blahut1972}
+R.~E.~Blahut,
+Computation of channel capacity and rate-distortion functions,
+IEEE Trans. Inf. Theory \textbf{18}, 460 (1972).
+
+\bibitem{Arimoto1972}
+S.~Arimoto,
+An algorithm for computing the capacity of arbitrary discrete
+memoryless channels,
+IEEE Trans. Inf. Theory \textbf{18}, 14 (1972).
+
+\bibitem{QuantumPaper}
+A.~H.~Bond,
+Consumer-relative quantum distinguishability on causal boundaries,
+Zenodo (2026), doi:10.5281/zenodo.21789046.
+
+\bibitem{SourcesPaper}
+A.~H.~Bond,
+Three sources of observed entropy in reversible hidden dynamics:
+mixing, projection multiplicity, and inaccessible degrees of freedom,
+Zenodo (2026), doi:10.5281/zenodo.21814851.
+
+\end{thebibliography}
+
+\end{document}
