@@ -1,7 +1,6 @@
 ﻿# Observation Theory Campaigns
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/ahb-sjsu/observation-theory-campaigns/master)](https://github.com/ahb-sjsu/observation-theory-campaigns/commits/master)
 [![Tracks](https://img.shields.io/badge/tracks-12-blue)](#the-twelve-tracks)
 [![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
