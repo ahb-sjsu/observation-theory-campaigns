@@ -250,6 +250,35 @@ recorded, the same substrate flows toward the family under one
 declared channel and out of it under another. All four or RG-3
 fails. Exploratory label, results/rg3-universality.json.
 
+#### RG-3 results (run 2026-08-06, record sha in the record)
+
+Verdict FAIL on U4, and the failure corrects the declaration's
+picture of the flow. U1 through U3 passed, M1 exactly in-family at
+both steps, M2's residual falling 0.157 to 0.032 to 0.004 under
+decimation, the field model keeping coarse magnetization 0.24
+while the symmetric models hold zero to 1e-14. U4 declared that
+majority blocking would push M2's residual up, and it fell, 0.161
+to 0.014. From an out-of-family start the one-dimensional flow
+toward the trivial fixed point dominates any channel's
+family-violation, majority compresses three sites to one and
+carries the substrate further down the flow than decimation's two
+to one. The channel-relativity that is true, and that RG-0
+measured, is about in-family starts, decimation preserves the
+family exactly and majority departs from it.
+
+#### RG-3b protocol (declared 2026-08-06, before the run)
+
+Identical to RG-3 in U1 through U3. U4 is redeclared with the
+corrected comparison, from the exactly-in-family start, pure
+nearest-neighbor Ising at K = 0.5 on the 12-ring, one decimation
+leaves the family residual below 1e-12 while one
+majority-of-three blocking raises it above 1e-3, the channel
+decides whether the family survives at all, and for the
+out-of-family M2 both channels' residual reductions are recorded
+as measurements of the dominant flow. The named error, RG-3's U4
+assumed the channel's departure would outrun the substrate's
+convergence. Exploratory label, results/rg3b-universality.json.
+
 ### RG-4: Relevance as a channel property
 
 Declared perturbations to the microscopic model. Measured, whether
