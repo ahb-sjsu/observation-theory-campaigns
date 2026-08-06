@@ -1,0 +1,1131 @@
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=none, fill=none},
+    line width=0.9pt}}
+
+\begin{document}
+
+\title{Five Audits Under One Consumer Discipline:\\
+Renormalization, Quantum Darwinism, Lattice Hydrodynamics,
+Fluctuation Theorems, and Gauge Redundancy in Exact Finite Models}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 6, 2026}
+
+\begin{abstract}
+This campaign models observation as consumption.  A consumer reads a
+hidden substrate through a declared channel, spends a declared
+budget, and acts on a declared task, and every claim is settled by
+exact measurement in a declared finite model against bars fixed
+before the run.  This paper applies that one discipline to five
+bodies of physics and reports twenty-seven experiment runs.  In
+renormalization, whether a coarse model represents the substrate is
+set by the declared blocking rule, one rule keeps the coarse family
+exact while another mispredicts a declared correlator by 260 times
+its bar on the same substrate, the correlation length an observer
+reads is the one its channel's symmetry sector selects, and a
+declared perturbation grows under one blocking rule while shrinking
+under another.  In quantum Darwinism, redundant records exist
+exactly where the declared interaction wrote them, a maximally
+scrambled state carries none, the order of interactions alone can
+hand one observer a record, equal-size fragments of one state differ
+in information by a factor of 36, and the rate at which two optimal
+observers agree runs from 0.510 to 1.000 as declared record strength
+grows, every disagreement computed from the declared channels.  In
+lattice hydrodynamics, a reversible gas shows an entropy rise of
+0.637 bits that retraces exactly under reversal, a shear mode
+freezes because of conservation laws the substrate actually has,
+the corrected substrate yields a viscosity of 0.842 that nine
+declared measurement prescriptions reproduce within 0.07 percent,
+and the decayed mode is recovered bit for bit by exact reversal
+while a single flipped bit reduces the recovered amplitude to 0.018
+of its value.  In fluctuation theorems, the Jarzynski and Crooks
+identities hold to machine precision path by path, restricted
+observers break them by exactly the amounts their declared detector
+models predict, correct inference through the true detector model
+restores them to machine precision while a misdeclared model leaves
+a larger defect than no correction at all, and the feedback identity
+holds with the acting controller's information and fails with a
+bystander's.  In gauge theory, three routes to a Wilson loop agree
+to every printed digit, every gauge-fixed observer's link reading
+equals a gauge-invariant loop selected by its declared fixing,
+breaking the constraint is first-order visible in the fiber sector
+while the invariant sector responds at fourth order with measured
+slope 4.000003, and a coupled matter field has no bare identity
+apart from the observer's fiber coordinates.  Six of the
+twenty-seven runs failed their declared bars.  Each failure is
+recorded with its design error named, and each correction was run
+as a separate registration.  Nothing in this paper is a claim about
+any laboratory system.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+This campaign models observation as consumption.  A consumer reads a
+hidden substrate through a declared channel, spends a declared
+budget on the read, and acts on a declared task.  Earlier stages
+measured what such consumers can distinguish in quantum models
+\cite{QuantumPaper}, what entropy they observe in reversible
+classical models
+\cite{SourcesPaper}, how declared prescriptions shape readings of
+rewriting systems \cite{WMPaper}, how declared constraints source
+geometry \cite{RadiativePaper}, and how the same structure plays
+out in games and decisions \cite{GamesPaper}.  The present paper is
+the arc that carries the discipline across five established bodies
+of physics.  The renormalization group of Kadanoff and Wilson
+\cite{Kadanoff1966, Wilson1971, Wilson1975}, the quantum Darwinism
+program of Zurek \cite{Zurek2003, Zurek2009}, the lattice gases of
+Hardy, de~Pazzis, and Pomeau and of Frisch, Hasslacher, and Pomeau
+\cite{HPP1976, FHP1986}, the fluctuation theorems of Jarzynski,
+Crooks, and Sagawa and Ueda \cite{Jarzynski1997, Crooks1999,
+SagawaUeda2010}, and the lattice gauge theory of Wegner and Elitzur
+\cite{Wegner1971, Elitzur1975} each already contain an observer,
+a blocking rule, a fragment, a coarse cell, a work meter, or a
+gauge fixing.  The question asked here is uniform.  Which parts of
+each standard story are properties of the substrate, and which are
+properties of the declared consumer.
+
+The discipline is the same in all five tracks.  Channels, tasks,
+environments, budgets, seeds, and falsification bars are declared
+in a track document before the runs they govern.  Verdicts are
+computed from the declared items, never written first.  Every
+result-bearing run writes an append-only evidence record, and
+every number in this paper is read from those committed records.
+When a run fails its declared bar, the failed verdict is retained
+unchanged, the design error is named, and the corrected
+declaration is run afterward as a separate registration.  Six of
+the twenty-seven runs reported here failed, and
+Sec.~\ref{sec:fails} presents all six with their named errors,
+because the sequence of verdicts is itself part of the evidence.
+
+Three claim types run through the paper and are never conflated.
+Instrument claims state that the declared exact machinery passes
+closed-form controls, and each track opens with one.  Structural
+claims state that a named piece of standard physics is, in the
+declared finite model, a property of the declared consumer rather
+than of the substrate, or measurably is not, and they carry the
+campaign's exploratory label.  Replication claims state that a
+published exact result is reproduced in a declared finite
+instance.  Nothing in this paper is a claim about any laboratory
+system.  Every result is an exact measurement in a declared finite
+model, and no run is labeled as supporting more than that.
+
+The five tracks return one coherent conclusion.  What an observer
+reads is set by its declared structure.  Representability,
+correlation length, and relevance follow the blocking rule.
+Redundancy and inter-observer agreement follow the declared
+interaction.  Apparent dissipation follows the consumer's reversal
+reach.  Fluctuation-identity defects follow the declared detector
+model.  Gauge-variant readings follow the declared fixing.  The
+apparent physics of coarse observers, in these models, is lawful
+consumer arithmetic.
+
+\section{Coarse representability, correlation length, and
+relevance follow the declared channel}
+\label{sec:rg}
+
+The renormalization track asks which parts of the block-spin story
+belong to the substrate and which to the declared blocking
+channel.  Its instrument layer, RG-0, works on the one-dimensional
+Ising ring, exact by transfer matrix and by full enumeration.
+Decimation of every other spin of a 12-ring at coupling $K=0.5$
+reproduces the 6-ring Ising distribution at the closed-form
+coupling
+\begin{equation}
+  K' \;=\; \operatorname{artanh}\!\left(\tanh^2 K\right),
+  \label{eq:decimation}
+\end{equation}
+here $K' = 0.21689$, with maximum deviation $4.2\times10^{-17}$ in
+every configuration probability, the correlation length halves
+exactly, and two decimations equal one decimation at the composed
+coupling to $2.1\times10^{-17}$.  The channel-dependence control is
+the seed of the track.  On the same substrate, majority-rule blocks
+of three produce a coarse distribution whose best nearest-neighbor
+Ising fit mispredicts the coarse next-nearest correlator by
+$0.0260$, which is 260 times the declared $10^{-4}$ bar, while the
+decimation channel's full-distribution residual is
+$4.2\times10^{-17}$.  Whether the microscopic model is
+representable in the coarse family is decided by the declared
+channel, not by the model.
+
+RG-1 measures which long-distance quantity survives a declared
+family of channels.  The substrate is the two-dimensional Ising
+model on a width-4 periodic cylinder at $K=0.3$, exact through the
+$16\times16$ column transfer matrix, and the four declared column
+functionals are decimation to the first spin, majority vote, the
+adjacent pair product, and the column parity.  The transfer matrix
+commutes with the global spin flip, so each channel's correlator is
+a sum over the eigenvectors its output couples to.  The measured
+cross-sector amplitude leakage is exactly zero for all four
+channels, so each channel's decay rate is exactly its sector's
+leading eigenvalue ratio.  The odd-sector correlation length is
+$1.5026$ and the even-sector length is $0.5194$, a factor $2.893$
+apart, and the channel decides which one the observer reads.  The
+recorded verdict of the first run is FAIL.  Its route-agreement bar
+compared the eigenvector sum against direct transfer-matrix powers
+that subtracted order-one means from order-one moments, and at
+separation 8 the connected even-channel correlator is near
+$5\times10^{-8}$, so the declared comparison was numerically
+impossible as written and missed its bar at relative deviation
+$0.0386$.  The redeclared run, RG-1b, applies the mean subtraction
+before the matrix powers, a cancellation-free computation of the
+same quantity, and the two routes agree to $1.3\times10^{-14}$ at
+every measured separation with every physics item unchanged.
+Correlation length in this model is consumer-selected, not
+consumer-invented, and the sectors themselves are the substrate's.
+
+RG-2 transplants the campaign's budget flip.  The budget is one
+bit, a deterministic bipartition of the sixteen column states with
+all 32767 bipartitions enumerated, and the task is predicting the
+sign of a distant column's magnetization.  The fidelity-optimal
+bipartition maximizes the compressed marginal's entropy.  A
+declared theorem fixes the task optimum, and the exhaustive search
+and the theorem certify each other exactly in both runs.  The first
+run's recorded verdict is FAIL because its declared setting, $K=0.3$
+at separation 4, has almost nothing to predict.  The task-optimal
+accuracy measured $0.6000482$ over a baseline of the same size, and
+the fidelity criterion's 840-member tie set contained a partition
+matching it exactly, so the flip was exactly zero.  A flip cannot
+be measured where there is no signal.  The redeclared run, RG-2b,
+moves to $K=0.6$ at separation 2, where the distant sign is
+genuinely predictable, and the flip is positive, task-optimal
+accuracy $0.95766$ against $0.95754$ for the best member of the
+same 840-way tie.  The margin is $1.12\times10^{-4}$ against the
+declared $10^{-4}$ bar, a pass with little room, so in this
+setting the flip is present but thin.  Fifteen of the
+sixteen coarse-state assignments across the two partitions disagree
+with the raw leading-eigenvector sign, the finite-distance
+correction the protocol asked about.
+
+RG-3 is the universality gate.  Three declared microscopic models
+are flowed under declared channels, and the family residual of a
+coarse distribution is its total-variation distance from the best
+nearest-neighbor Ising fit.  The nearest-neighbor model at $K=0.7$
+flows exactly in-family under two decimations, with residuals below
+$7\times10^{-16}$.  The model with an added next-nearest coupling
+flows toward the family, residual $0.157$ to $0.032$ to $0.004$,
+so the extra coupling is measured irrelevant under decimation.
+Symmetry classes do not mix, the field model keeps a coarse
+magnetization of $0.777$ while the symmetric models hold zero
+within $10^{-15}$.  The first run's recorded verdict is FAIL on its
+channel-relativity item, and the failure corrects the declaration's
+picture of the flow.  The declaration predicted that majority
+blocking would push the next-nearest model's residual up, and it
+fell, $0.161$ to $0.0136$, because from an out-of-family start the
+flow toward the trivial fixed point dominates any channel's
+family violation, and majority carries the substrate further down
+that flow than decimation does.  The redeclared run, RG-3b, makes
+the corrected comparison from an exactly-in-family start.  There
+one decimation leaves the family residual at $1.3\times10^{-16}$
+while one majority-of-three blocking raises it to $0.0117$, so the
+channel decides whether the family survives at all, while for the
+out-of-family substrate both channels ride the dominant flow.
+Universality in this model is real but channel-shaped.  What
+converges is convergence itself, and which family it converges
+through is the observer's choice.
+
+\begin{table}[t]
+\caption{RG-4 response multipliers, the induced coarse parameter
+over the microscopic perturbation, from the committed evidence
+record.  The base model is the nearest-neighbor Ising 12-ring at
+$K=0.6$ with perturbation strength $10^{-4}$, and linearity holds
+with relative deviation $9.1\times10^{-5}$.  The two declared
+channels disagree by 24 percent on the field's growth rate and
+disagree in sign on the next-nearest coupling.}
+\label{tab:rg4}
+\begin{ruledtabular}
+\begin{tabular}{lcc}
+Perturbation & decimation & majority \\
+\colrule
+field                 & $+1.834$ & $+2.407$ \\
+next-nearest coupling & $+0.174$ & $-0.071$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+RG-4 measures relevance itself as a channel property.
+Table~\ref{tab:rg4} shows the four response multipliers.  The field
+is relevant under both declared channels but with different
+eigenvalues, $1.834$ under decimation against $2.407$ under
+majority.  The next-nearest coupling's multiplier is $+0.174$ under
+decimation and $-0.071$ under majority.  The perturbation's coarse
+image differs in sign across the declared channels, so the
+direction a perturbation appears to flow is a property of the
+observer's blocking rule, not of the perturbation.
+
+\section{Redundancy is declared or absent and agreement between
+observers tracks record strength}
+\label{sec:qd}
+
+Quantum Darwinism explains agreement between observers by
+redundancy, many environment fragments carrying the same record of
+the system \cite{Zurek2003, Zurek2009}.  That is intrinsically a
+statement about a family of consumers, each reading its own
+fragment.  The track works on one system qubit and six environment
+qubits with exact density matrices, and its instrument layer, QD-0,
+passes four closed-form controls.  A product state carries mutual
+information $3.2\times10^{-16}$.  The GHZ branching state gives the
+classical plateau exactly, one bit for every proper fragment and
+two bits for the whole environment.  A branching state with
+per-qubit record overlap $c$ matches the closed form
+\begin{equation}
+  I(S{:}F_f) = H\!\Big(\tfrac{1+c^{6}}{2}\Big)
+   + H\!\Big(\tfrac{1+c^{f}}{2}\Big)
+   - H\!\Big(\tfrac{1+c^{6-f}}{2}\Big)
+  \label{eq:qdplateau}
+\end{equation}
+bits at every fragment size $f$, with $H$ the binary entropy,
+to $2.2\times10^{-16}$.  The control that frames the track is a
+seeded Haar-random pure state of all seven qubits.  Its mean
+single-qubit fragment information is $0.051$ bits against a system
+entropy of $0.999$ bits, while the full environment carries exactly
+twice the system entropy.  Records are structure, not a generic
+feature of purity.
+
+QD-1 is the emergence gate.  Controlled rotations of declared angle
+$\theta$ from system to each environment qubit produce branching
+states whose fragment informations match Eq.~\eqref{eq:qdplateau}
+with overlap $c = \cos(\theta/2)$ and nothing fitted, measured to
+$2.7\times10^{-15}$ at every angle on the ladder from $\pi/16$ to
+$\pi$.  Redundancy, the number of disjoint single-qubit fragments
+reaching ninety percent of the system entropy, is 0 at every angle
+below $\pi$ and 6 at $\pi$.  The recorded verdict of the first run
+is FAIL on its basis-free control, and the failure is itself a
+measured finding.  The control applied six sequential pairwise
+Haar-random unitaries, system with each environment qubit in turn,
+and ended with system entropy $0.665$ bits and redundancy 1 rather
+than the declared 0.  The last-touched environment qubit carries a
+redundancy-grade record, because the causal order of the
+interactions is itself declared structure.  A sequence is
+structure, and an observer can be handed a record by the schedule
+of interactions alone.  The redeclared run, QD-1b, replaces the
+control with a globally scrambled seeded Haar state with no
+interaction schedule at all, and it carries system entropy
+$0.9945$ bits with redundancy 0.  Redundancy in this model is
+declared or absent.  The plateau appears exactly when and exactly
+as the declared interaction's basis dictates, and maximal
+entanglement without a declared basis carries no redundancy at
+all.
+
+QD-2 measures the consumer's budget.  For the symmetric consumer,
+equal angles on all six qubits, the smallest sufficient fragment
+size is 3 at every one of sixteen grid angles, and the closed form
+says why.  A fragment holding half the environment has record
+overlap equal to its complement's, so its information equals the
+system entropy exactly at any nonzero angle.  The portfolio
+consumer has declared unequal angles, so a fragment's overlap is
+the product over the qubits it holds and fragments of equal size
+are no longer equivalent.  All 62 proper environment subsets match
+their closed forms to $1.1\times10^{-15}$, and the best and worst
+two-qubit fragments carry $1.612$ and $0.045$ bits, a factor of
+$36.0$.  Two consumers with identical fragment counts and
+identical access sizes read the same state with a thirty-six-fold
+information disparity.  A budget is a portfolio, not a number.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 2,
+    vertical sep=38pt},
+  paperaxis, height=0.5\columnwidth]
+\nextgroupplot[xmode=log,
+  xlabel={declared gate angle $\theta$},
+  ylabel={probability},
+  xtick={0.19635,0.3927,0.7854,1.5708,3.1416},
+  xticklabels={$\pi/16$,$\pi/8$,$\pi/4$,$\pi/2$,$\pi$},
+  ymin=0.45, ymax=1.05,
+  legend pos=north west, legend cell align=left]
+\addplot[blue!70!black, mark=*, mark size=2.0pt]
+  table[x=theta, y=pagree] {figdata/gen2_qd3_agreement.dat};
+\addlegendentry{two-observer agreement}
+\addplot[red!70!black, densely dashed, mark=square*,
+  mark size=1.6pt]
+  table[x=theta, y=helstrom] {figdata/gen2_qd3_agreement.dat};
+\addlegendentry{Helstrom marginal}
+\nextgroupplot[ybar, bar width=22pt,
+  ylabel={fragment information (bits)},
+  xtick={1,2},
+  xticklabels={best pair, worst pair},
+  xmin=0.4, xmax=2.6, ymin=0, ymax=1.9,
+  nodes near coords={\pgfmathprintnumber[fixed,
+    precision=3]{\pgfplotspointmeta}},
+  every node near coord/.append style={font=\footnotesize}]
+\addplot[fill=blue!35, draw=blue!70!black]
+  table[x=idx, y=bits] {figdata/gen2_qd2_portfolio.dat};
+\end{groupplot}
+\end{tikzpicture}
+\caption{Agreement and the portfolio in the Darwinism track.  The
+upper panel shows the QD-3 probability that two optimal observers
+of disjoint two-qubit fragments report the same outcome, rising
+from 0.510 to 1.000 along the declared angle ladder, together with
+each observer's Helstrom success probability, which matches its
+closed form to $8.9\times10^{-16}$.  The lower panel shows the
+QD-2 portfolio consumer, whose best and worst two-qubit fragments
+of the same state carry 1.612 and 0.045 bits, a factor of 36.
+Every point is read from the committed evidence records.}
+\label{fig:qd}
+\end{figure}
+
+QD-3 makes agreement itself the measured object.  Two consumers
+hold disjoint two-qubit fragments of the QD-1 branching states and
+each performs its declared optimal two-outcome measurement, the
+Helstrom discrimination of its fragment's branch states.  Each
+marginal success probability matches the Helstrom closed form
+\cite{Helstrom1976} to $8.9\times10^{-16}$ at every angle, and the
+joint outcome distribution computed on the full state and on the
+reduced four-qubit state agree to $6.7\times10^{-16}$.
+Figure~\ref{fig:qd} shows the agreement curve, $0.510$, $0.537$,
+$0.636$, $0.875$, $1.000$ along the angle ladder, exactly 1 at the
+perfect-record point and barely above a coin flip at the weakest.
+Two optimal observers agree exactly to the extent the declared
+interaction wrote records for them.  Objectivity between observers,
+in this model, is record strength made mechanical, and every
+disagreement rate is the declared channels' Born arithmetic, never
+noise.
+
+\section{Shear freezes on HPP, viscosity on FHP is
+prescription-invariant, and dissipation is the consumer's reversal
+reach}
+\label{sec:hd}
+
+The hydrodynamics track asks whether a transport coefficient
+belongs to the substrate or to the declared coarse-graining, and
+whether the second-law appearance at coarse scale is entirely the
+observer's.  The instrument layer, HD-0, runs the HPP lattice gas
+\cite{HPP1976} on a $16\times16$ torus.  Mass 194 and both momentum
+components are integer-exact at every step, double velocity
+reversal reproduces the initial state bit for bit, and rotating
+the initial state commutes with evolution bit for bit.  The
+declared coarse observer's entropy rises $0.637$ bits from the
+ordered start, and on the reversed run the entropy curve retraces
+the forward curve with maximum deviation exactly zero.  The rise is
+the observer's.  The substrate forgets nothing.
+
+HD-1 aims a shear and a sound wave at a 64-torus ensemble, and its
+recorded verdict is FAIL on the shear items.  The failure is the
+substrate's own physics, exactly measured.  The shear amplitude did
+not decay at all, decay ratio exactly $1.0$ at both wavenumbers
+with fitted rates at the $10^{-18}$ floating-point floor.  The
+head-on collision exchanges a north-south pair for an east-west
+pair and streaming keeps each mover on its line, so the transverse
+momentum of every column and the longitudinal momentum of every row
+are separately conserved, and a shear mode can never relax.  These
+are the spurious conservation laws of HPP, the pathology that
+motivated the FHP model \cite{FHP1986}, here measured by the
+declared instrument rather than assumed.  The sound sector passed,
+with measured sound speed $1.008$ and $1.012$ of the lattice
+prediction and dispersion ratio $2.008$.  The redeclared run,
+HD-1b, converts the failure into exact bars.  The per-column
+transverse momentum vector and the per-row longitudinal momentum
+vector are integer-exact constant at every one of 400 steps across
+the full ensemble, and the diffusive-scaling bar is withdrawn as
+unmeasurable on this substrate.  The viscosity question moves to a
+substrate without the spurious invariants.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 2,
+    vertical sep=38pt},
+  paperaxis, height=0.5\columnwidth]
+\nextgroupplot[ymode=log,
+  xlabel={step $t$},
+  ylabel={shear amplitude},
+  xmin=0, xmax=300, ymin=1.5, ymax=40]
+\addplot[blue!70!black, mark=*, mark size=1.3pt]
+  table[x=t, y=amp] {figdata/gen2_hd3_amp.dat};
+\nextgroupplot[
+  xlabel={prescription index},
+  ylabel={fitted rate},
+  xtick={1,2,3,4,5,6,7,8,9},
+  xmin=0.4, xmax=9.6, ymin=0.00810, ymax=0.00812,
+  scaled y ticks=false,
+  yticklabel style={/pgf/number format/.cd, fixed,
+    precision=5}]
+\addplot[only marks, mark=*, mark size=2.2pt,
+  blue!70!black]
+  table[x=idx, y=rate] {figdata/gen2_hd2_prescriptions.dat};
+\end{groupplot}
+\end{tikzpicture}
+\caption{The FHP shear mode and the prescription gate.  The upper
+panel shows the HD-3 forward shear amplitude falling from 25.31 to
+2.15 over 300 steps, the viscous decay of HD-2 reproduced on a new
+seed.  The declared exact inverse returns every one of these
+numbers, the inverse-run sequence equals the forward sequence
+reversed with maximum deviation exactly zero.  The lower panel
+shows the nine declared coarse-graining prescriptions of HD-2
+applied to the same stored momentum series, cell sizes 1, 4, and 8
+columns crossed with sampling cadences 1, 2, and 4 steps.  The
+fitted rates span 0.008107 to 0.008113, a spread of 0.07 percent of
+the mean against the declared ten percent bar.  Every point is read
+from the committed evidence records.}
+\label{fig:hd}
+\end{figure}
+
+HD-2 declares the FHP-I hexagonal gas on a $64\times64$ triangular
+torus and validates it with exact geometry self-tests before any
+physics is read.  The shear that HPP froze relaxes on FHP.  The
+$k=1$ amplitude falls to $0.170$ of its window start and the $k=2$
+amplitude to $0.027$, with rates $0.008114$ and $0.036818$ and a
+rate ratio of $4.538$ inside the declared diffusive band.  The
+measured viscosity is $0.842$ at $k=1$ and $0.955$ at $k=2$, beside
+the FHP-I Boltzmann estimate $0.742$, a comparison and never a bar.
+The prescription gate is the reason this track exists.  Nine
+declared prescriptions, three cell sizes crossed with three
+sampling cadences, applied to the same stored momentum series,
+give fitted rates from $0.008107$ to $0.008113$, a spread of
+$0.07$ percent of the mean against the declared ten percent bar
+(Fig.~\ref{fig:hd}).  The campaign's rewriting-system track found a
+growth rule whose measured dimension moved by 18 percent when the
+bookkeeping prescription changed \cite{WMPaper}.  The contrast is
+the finding.  An exponential hydrodynamic mode's rate survives
+every declared linear cell average and every subsampling cadence,
+so which observables a prescription can touch is itself a measured
+distinction between substrates, not a slogan.
+
+HD-3 is the dissipation gate.  An FHP-I update is a bijection, so
+the exact inverse step is declared, and the forward shear ensemble
+is run 300 steps and then inverted.  The initial state is recovered
+bit for bit in all 50 realizations.  The projected shear amplitude
+fell from $25.31$ to $2.15$ on the way out, ratio $0.085$, and the
+inverse-run amplitude sequence equals the forward sequence reversed
+with maximum deviation exactly zero, float for float
+(Fig.~\ref{fig:hd}).  Every dissipated number came back, so no
+strict dissipative law governs the coarse observable, and the decay
+is the observer's accounting.  One declared bit flipped at the
+turnaround destroys it.  The perturbed inverse returns its
+realization at amplitude $0.437$ against a true initial $24.04$, a
+return ratio of $0.018$ against the declared bar of one half, while
+the 49 untouched realizations return bit for bit, a control inside
+the item.  The Hamming distance between the perturbed and true
+inverse trajectories floods from 1 bit to 3047 by 30 steps and
+11007 by 60, then sits near 11200, which is the full-decorrelation
+value of two occupied fractions on the realization's 24576 bits,
+about 11182.  Dissipation on this substrate is declared or absent
+in the consumer.  The coarse mode's decay is recoverable by any
+observer with exact reversal reach and irrecoverable after the
+loss of one bit.
+
+\section{Restricted observers break the fluctuation identities by
+exactly their declared channels}
+\label{sec:ft}
+
+The Jarzynski equality \cite{Jarzynski1997} and the Crooks relation
+\cite{Crooks1999} are exact identities for an observer who sees the
+full trajectory.  The track asks what happens to them for a
+consumer with a restricted channel.  The instrument layer, FT-0,
+declares a three-state system with a linear energy protocol over
+eight steps and Metropolis kernels in detailed balance, and
+enumerates the full path space of $19683$ paths exactly.  The
+Jarzynski average
+\begin{equation}
+  \bigl\langle e^{-W} \bigr\rangle \;=\; e^{-\Delta F}
+  \label{eq:jarzynski}
+\end{equation}
+holds with deviation exactly zero, and the Crooks relation holds
+path by path, not only on average, with maximum deviation
+$2.2\times10^{-19}$ over all $19683$ paths.  Mean work is
+$-0.0788$ against $\Delta F = -0.1021$, a dissipation of $0.0233$,
+and the frozen protocol yields exactly zero work on every path.
+This is the replication half of the track, the published identities
+reproduced at the finest grain the model has.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.62\columnwidth, ymode=log,
+  xlabel={restricted observer},
+  ylabel={Jarzynski defect},
+  xtick={1,2}, xticklabels={lumped, held},
+  xmin=0.5, xmax=2.5, ymin=1e-17, ymax=1,
+  legend pos=north west, legend cell align=left]
+\addplot[only marks, mark=square*, mark size=2.6pt,
+  red!70!black]
+  table[x=idx, y=naive] {figdata/gen2_ft_defects.dat};
+\addlegendentry{naive apparent work}
+\addplot[only marks, mark=triangle*, mark size=3.2pt,
+  black!60]
+  table[x=idx, y=defect] {figdata/gen2_ft_wrongmodel.dat};
+\addlegendentry{restored, misdeclared model}
+\addplot[only marks, mark=*, mark size=2.6pt,
+  blue!70!black]
+  table[x=idx, y=restored] {figdata/gen2_ft_defects.dat};
+\addlegendentry{restored, true model}
+\addplot[gray!60, densely dashed, domain=0.5:2.5, samples=2]
+  {1e-12};
+\end{axis}
+\end{tikzpicture}
+\caption{The defect ladder and its restoration.  The lumped
+observer's naive Jarzynski defect is $4.33\times10^{-4}$ and the
+held observer's is $0.0324$, while the complete and blind
+observers' defects are exactly zero and sit off this logarithmic
+scale.  Bayes work estimates filtered through the true declared
+detector model restore both identities below the dashed declared
+bar of $10^{-12}$, to $2.2\times10^{-16}$ and
+$1.1\times10^{-15}$.  The same filter built from a misdeclared
+model, kernels at inverse temperature 0.9, leaves the lumped
+observer at $3.27\times10^{-3}$, a larger defect than no
+correction at all.  Every point is read from the committed
+evidence records.}
+\label{fig:ft}
+\end{figure}
+
+FT-1 is the lawful-demon audit.  Four declared observers read the
+same path space.  The complete observer sees the full path and its
+defect is exactly zero.  The blind observer sees nothing, books the
+equilibrium free-energy change as its work, and its defect is also
+exactly zero, because total blindness satisfies the identity
+trivially.  The lumped observer, which merges the two lowest
+states, has defect $4.33\times10^{-4}$, and the held observer,
+which reads the state only at even stages, has defect $0.0324$.
+The defect lives strictly between full sight and total blindness.
+The lawfulness clause is the route agreement.  For both restricted
+observers, the defect computed by full path enumeration equals the
+defect computed independently from the exact hidden-Markov marginal
+over their observed records, to $6.7\times10^{-16}$.  No apparent
+violation is an anomaly.  Each is the declared detector model's
+exact arithmetic.
+
+FT-2 asks whether the identity can be restored.  The declared
+restoration replaces the naive apparent work with the Bayes work
+estimate, minus the log of the conditional expectation of $e^{-W}$
+given the observer's record, computed by exact filtering through
+the declared detector model.  With the true model the restored
+identity holds at $2.2\times10^{-16}$ for the lumped observer and
+$1.1\times10^{-15}$ for the held observer.  With a misdeclared
+filter, the same machinery built from kernels at inverse
+temperature $0.9$, the lumped observer's restored defect is
+$3.27\times10^{-3}$, larger than its naive defect of
+$4.33\times10^{-4}$ (Fig.~\ref{fig:ft}).  Confident wrong
+inference is worse than no inference.  The fluctuation identity for
+a budgeted consumer is an inference theorem, restored exactly by
+lawful inference through the true declared channel and by nothing
+less.
+
+FT-3 replicates the Sagawa-Ueda feedback generalization
+\cite{SagawaUeda2010} and then asks whose information the identity
+contains.  A controller measures the state mid-protocol through a
+declared noisy channel with error rate $0.2$ and switches the
+remaining protocol on one outcome.  The identity
+\begin{equation}
+  \bigl\langle e^{-(W - \Delta F) - I} \bigr\rangle \;=\; 1
+  \label{eq:sagawaueda}
+\end{equation}
+holds to $5.6\times10^{-15}$ with the controller's pointwise
+information.  The bare identity without the information term fails
+by $7.3\times10^{-3}$, efficacy $0.9927$, the feedback demon's
+measured advantage.  The campaign item is the bystander.  Refeeding
+Eq.~\eqref{eq:sagawaueda} with the pointwise information of a
+declared bystander who sees the same measurement through additional
+noise, total error rate $0.4$, leaves a defect of
+$5.3\times10^{-3}$, while the controller's own information restores
+exactness.  The identity knows which observer acts.  The
+information-corrected second law holds with margin $0.489$ nats.
+The information that appears in fluctuation identities, in this
+model, is the acting consumer's, not anyone's.
+
+\section{Gauge-variant readings are invariant loops in the
+observer's coordinates}
+\label{sec:gg}
+
+A gauge orbit is the fiber of a projection, many link
+configurations behind one physical state.  The track asks whether
+gauge symmetry is anything but the fiber structure of the
+observer's projection.  The instrument layer, GG-0, enumerates all
+$2^{18}$ configurations of $\mathbb{Z}_2$ gauge theory
+\cite{Wegner1971} on a $3\times3$ periodic lattice at $K=0.4$.
+Every sampled orbit has size exactly 256 with the action exactly
+constant on it.  The single-plaquette Wilson expectation agrees
+across the full enumeration, a tree-gauge-fixed enumeration, and
+the exact torus closed form
+\begin{equation}
+  \langle W_P \rangle \;=\; \frac{t + t^{8}}{1 + t^{9}},
+  \qquad t = \tanh K,
+  \label{eq:wilson}
+\end{equation}
+to every printed digit, $0.38032051536830963$ on all three routes.
+Every single-link expectation in the full ensemble vanishes
+exactly, Elitzur's theorem \cite{Elitzur1975} at machine precision,
+while the tree-gauge-fixed observer assigns non-tree links the
+reading $0.3803$.  That is no accident.  In tree gauge a non-tree
+link equals a Wilson loop through the tree, so the observer's
+gauge-variant bookkeeping is a gauge-invariant quantity wearing a
+gauge-variant label.
+
+GG-1 makes that mechanism the measured object across a declared
+family of three spanning-tree observers.  Every gauge-invariant
+observable agrees between the full ensemble and every observer's
+slice with deviation exactly zero.  The detector model is exact.
+Every non-tree link reading of every observer equals the
+full-ensemble expectation of the closed loop formed by that link
+and its tree path, deviation exactly zero, contractible loops match
+the area closed form, and all 18 winding loops found by the
+$\mathrm{GF}(2)$ certificate read exactly zero.  The observers
+measurably disagree, maximum pairwise link spread $0.855$, while
+the full-ensemble Elitzur zero stands.  Disagreement between
+observers is exactly the difference in which invariant loops their
+trees select, and nothing any observer reads is outside the
+invariant algebra.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.68\columnwidth,
+  xmode=log, ymode=log,
+  xlabel={deformation strength $\epsilon$},
+  ylabel={response},
+  xmin=5e-4, xmax=2e-1, ymin=1e-13, ymax=1,
+  legend pos=north west, legend cell align=left]
+\addplot[blue!70!black, mark=*, mark size=2.2pt]
+  table[x=eps, y=link] {figdata/gen2_gg2_response.dat};
+\addlegendentry{link expectation, slope 1.0000}
+\addplot[red!70!black, densely dashed, mark=square*,
+  mark size=1.8pt]
+  table[x=eps, y=plaqshift] {figdata/gen2_gg2_response.dat};
+\addlegendentry{plaquette shift, slope 4.000003}
+\end{axis}
+\end{tikzpicture}
+\caption{The GG-2b sector split under the declared link
+deformation.  The maximum link expectation responds at first order,
+measured log-log slope 1.0000, visible at machine precision at
+every positive $\epsilon$.  The plaquette Wilson expectation's
+shift from its undeformed value responds at fourth order, measured
+slope 4.000003, because no two links on this lattice close a loop
+with a plaquette, so the second-order coefficient vanishes
+identically by loop parity.  Both series are read from the
+committed evidence record, the plaquette shift as the difference
+of recorded expectations.}
+\label{fig:gg}
+\end{figure}
+
+GG-2 replays the campaign's declared-or-absent constraint gate in
+gauge language.  The link ensemble is deformed by a gauge-breaking
+link field of strength $\epsilon$ on a declared ladder, all
+$2^{18}$ configurations enumerated at each point.  At $\epsilon=0$
+the zeros are exact.  At every positive $\epsilon$ the maximum link
+expectation responds at first order, measured slope $1.0000$, and
+the deformed action is strictly non-constant on every sampled
+orbit.  The broken constraint is visible at machine precision
+immediately, not asymptotically.  The recorded verdict of the first
+run is FAIL on the invariant sector's window.  The declaration
+assumed a generic quadratic response and declared the window
+$[1.5, 2.5]$ for the plaquette shift's log-log slope, and the
+measured slope is $4.000003$.  The declaration underestimated the
+substrate's silence.  At second order the deformation enters
+through pairs of links, no two links on this lattice close a loop
+with a plaquette, so the second-order coefficient vanishes
+identically and the first surviving response is quartic, four
+deformation links closing a loop.  The redeclared run, GG-2b,
+carries that loop-parity argument as its declared prediction with
+window $[3.5, 4.5]$, and passes (Fig.~\ref{fig:gg}).  Constraint
+structure in this model is an isolated algebraic point, declared or
+absent, with no approximately-gauge ensemble in between, and the
+observer that watches only invariants is fourth-order blind to a
+breaking the fiber sector announces at first order.
+
+GG-3 couples $\mathbb{Z}_2$ matter to the links, $K=0.4$ and
+$J=0.1$.  The unitary-gauge identity, absorbing the matter into the
+links, maps the coupled model onto the GG-2 deformed ensemble at
+$\epsilon = J$, verified on a fully enumerated $2\times2$ torus
+where the partition functions and every dressed correlator agree
+between the two routes with deviation exactly zero, so the
+$3\times3$ coupled theory is computed exactly through the link
+enumeration.  Elitzur for matter holds.  The bare two-point matter
+correlator without its connecting line is exactly zero, while the
+dressed correlator, endpoints joined by the link line, reads
+$0.1008$ on the small torus and $0.1004$ on the large one.  Charge
+exists only as the endpoint of a line.  The observer family splits
+exactly as declared.  The unitary-gauge observer reads bare matter
+as exactly one, the tree-gauge observer reads $0.101$, an observer
+spread of $0.899$, while the dressed observables agree across both
+with deviation exactly zero.  What an observer calls the bare
+matter field is its fiber coordinate, nothing more.
+
+\section{Six runs failed their declared bars and each failure has
+a name}
+\label{sec:fails}
+
+Six of the twenty-seven runs recorded verdict FAIL, every failure
+was located and named, and every correction was run as a separate
+registration with the original record retained unchanged.  The
+campaign's previous paper followed the same pattern for its two
+failures, a residual threshold where a proof was needed and a
+double-counted tie set \cite{GamesPaper}.  The six failures of this
+arc each taught something specific.
+
+RG-1 declared a route-agreement bar that subtracted order-one means
+from order-one moments after powering the transfer matrix, and at
+the declared separation the connected value is near
+$5\times10^{-8}$, so the comparison was numerically impossible as
+written.  The correction subtracts the mean before powering.  A
+declared bar must be computable at the scale it will be compared
+against.
+
+RG-2 declared a prediction task in a setting with almost no signal,
+task accuracy $0.6000482$ over a baseline of the same size, so the
+flip it was built to measure was exactly zero.  The correction
+moves to a setting where the target is genuinely predictable.  A
+flip cannot be measured where there is nothing to predict.
+
+RG-3 predicted the direction of a channel comparison from an
+out-of-family start, and the substrate's own flow toward triviality
+dominated the channel difference.  The correction states the
+channel-relativity claim from an exactly-in-family start, where it
+is measured and stands.  A channel effect must be isolated from the
+flow it rides on.
+
+QD-1 declared a basis-free control that applied its scrambling
+unitaries in sequence, and the causal order imprinted a
+redundancy-grade record on the last-touched qubit.  The correction
+uses a globally scrambled state with no schedule.  A sequence is
+structure, and this failure is itself a finding about how observers
+come to hold records.
+
+HD-1 declared a shear-decay bar on a substrate whose spurious
+conservation laws freeze shear exactly, decay ratio exactly one.
+The correction measures the spurious invariants as exact
+conservation laws and moves viscosity to a substrate without them.
+This failure is a replication of the pathology that motivated FHP
+\cite{FHP1986}, found by the declared instrument.
+
+GG-2 declared a quadratic window for the invariant sector's
+response, and the measured slope is $4.000003$ because loop parity
+closes the quadratic channel identically.  The correction carries
+the loop-parity argument as its prediction.  The declaration
+underestimated how silent the substrate's invariant sector is.
+
+Three of the six failures, QD-1, HD-1, and GG-2, are measurements
+of real structure the declaration did not anticipate, and the other
+three are named bookkeeping errors in the declarations themselves.
+In all six the corrected redeclaration passed with the measured
+physics unchanged, and in all six the failed record is part of the
+evidence.
+
+\section{What this paper establishes}
+\label{sec:claims}
+
+\begin{table*}[t]
+\caption{The ledger of the renormalization and Darwinism tracks.
+Verdicts are recorded exactly as computed from the declared items
+of each run, including the failures.  Measured in model,
+exploratory label, means an exact measurement in a declared finite
+construction with append-only evidence records and pre-declared
+bars, seeds, and tolerances.  Key numbers are quoted from the
+committed records.}
+\label{tab:ledger1}
+\begin{ruledtabular}
+\begin{tabular}{L{1.7cm}lL{10.6cm}L{2.7cm}}
+Run & Verdict & Key measurements & Label \\
+\colrule
+RG-0 instrument & PASS & decimation exact to $4.2\times10^{-17}$
+with the closed-form coupling flow, correlation length halves
+exactly, flow composes, majority-rule nearest-neighbor fit
+mispredicts the next-nearest correlator by 0.0260, 260 times its
+bar & instrument \\
+RG-1 channel family & FAIL & cross-sector leakage exactly zero for
+all four channels, sector correlation lengths 1.5026 and 0.5194,
+route bar failed at 0.0386 by catastrophic cancellation in the
+declared comparison & measured in model, exploratory \\
+RG-1b corrected route & PASS & cancellation-free route agrees to
+$1.3\times10^{-14}$, decay rate is exactly the declared channel's
+sector eigenvalue ratio, length ratio 2.893 & measured in model,
+exploratory \\
+RG-2 budget flip & FAIL & theorem and exhaustive search certify
+each other exactly, declared setting had no signal, accuracy
+0.6000482, flip exactly zero & measured in model, exploratory \\
+RG-2b corrected setting & PASS & flip positive at
+$1.12\times10^{-4}$ against the $10^{-4}$ bar, a pass with little
+room, accuracies 0.95766 against 0.95754 over an 840-way fidelity
+tie & measured in model, exploratory \\
+RG-3 universality gate & FAIL & in-family flow exact, out-of-family
+residual falls 0.157 to 0.032 to 0.004, majority reduced the
+residual 0.161 to 0.0136 where the declaration predicted an
+increase & measured in model, exploratory \\
+RG-3b corrected start & PASS & from the in-family start decimation
+leaves residual $1.3\times10^{-16}$ while majority raises it to
+0.0117, the channel decides whether the family survives & measured
+in model, exploratory \\
+RG-4 relevance & PASS & field multiplier 1.834 against 2.407
+across channels, next-nearest multiplier $+0.174$ against
+$-0.071$, channel-signed, linearity $9.1\times10^{-5}$ & measured
+in model, exploratory \\
+QD-0 instrument & PASS & GHZ plateau exact, partial-record closed
+form to $2.2\times10^{-16}$, Haar control 0.051 bits per fragment
+against system entropy 0.999 & instrument \\
+QD-1 emergence gate & FAIL & branching closed form to
+$2.7\times10^{-15}$ with nothing fitted, sequential scrambling
+control carried redundancy 1, a recency record, itself a finding &
+measured in model, exploratory \\
+QD-1b corrected control & PASS & global Haar state carries entropy
+0.9945 bits with redundancy 0, plateau appears exactly as the
+declared basis dictates & measured in model, exploratory \\
+QD-2 budget knob & PASS & smallest sufficient fragment 3 at every
+angle, half-environment information equals system entropy exactly,
+best against worst equal-size fragments differ by the factor 36.0 &
+measured in model, exploratory \\
+QD-3 agreement audit & PASS & Helstrom marginals to
+$8.9\times10^{-16}$, Born routes to $6.7\times10^{-16}$, agreement
+0.510 to 1.000 along the record-strength ladder & measured in
+model, exploratory \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{The ledger of the hydrodynamics, fluctuation, and gauge
+tracks, continuing Table~\ref{tab:ledger1}, with the scope row of
+the whole arc.}
+\label{tab:ledger2}
+\begin{ruledtabular}
+\begin{tabular}{L{1.7cm}lL{10.6cm}L{2.7cm}}
+Run & Verdict & Key measurements & Label \\
+\colrule
+HD-0 instrument & PASS & conservation integer-exact, double
+reversal bit-exact, entropy rise 0.637 bits retraced with deviation
+exactly zero & instrument \\
+HD-1 transport & FAIL & shear decay ratio exactly 1.0, the spurious
+HPP invariants measured, sound speed 1.008 and 1.012 of prediction,
+dispersion ratio 2.008 & measured in model, exploratory \\
+HD-1b invariants exact & PASS & per-column and per-row momenta
+integer-exact over 400 steps and the full ensemble, diffusive bar
+withdrawn as unmeasurable & measured in model, exploratory \\
+HD-2 FHP viscosity & PASS & viscosity 0.842 beside the Boltzmann
+comparison 0.742, rate ratio 4.538 in the diffusive band, nine
+prescriptions spread 0.07 percent against the ten percent bar &
+measured in model, exploratory \\
+HD-3 dissipation gate & PASS & inverse bit-exact in 50
+realizations, amplitude retrace deviation exactly zero, one flipped
+bit collapses the return to 0.018 with the Hamming lightcone
+flooding to full decorrelation & measured in model, exploratory \\
+FT-0 instrument & PASS & Jarzynski deviation exactly zero, Crooks
+path by path to $2.2\times10^{-19}$ over 19683 paths, dissipation
+0.0233, frozen protocol exact & instrument, and replication \\
+FT-1 lawful demon & PASS & defects, complete 0, lumped
+$4.33\times10^{-4}$, held 0.0324, blind 0, each restricted defect
+predicted by its detector model to $6.7\times10^{-16}$ & measured
+in model, exploratory \\
+FT-2 restoration & PASS & true-model Bayes estimate restores the
+identity to $2.2\times10^{-16}$ and $1.1\times10^{-15}$, a
+misdeclared filter leaves $3.27\times10^{-3}$, worse than naive &
+measured in model, exploratory \\
+FT-3 feedback & PASS & Sagawa-Ueda to $5.6\times10^{-15}$ with the
+controller's information, bare identity off by
+$7.3\times10^{-3}$, bystander's information leaves
+$5.3\times10^{-3}$ & replication, and measured in model,
+exploratory \\
+GG-0 instrument & PASS & Wilson plaquette 0.38032051536830963 on
+three routes to every digit, Elitzur exactly zero, orbits size 256
+with constant action & instrument, and replication \\
+GG-1 observer family & PASS & every non-tree reading equals its
+tree-selected invariant loop with deviation exactly zero, 18
+winding loops read exactly zero, observer spread 0.855 & measured
+in model, exploratory \\
+GG-2 Gauss replay & FAIL & link sector first-order loud, slope
+1.0000, plaquette slope 4.000003 outside the declared quadratic
+window, loop parity closes the second order exactly & measured in
+model, exploratory \\
+GG-2b corrected window & PASS & quartic window declared from the
+loop-parity argument, slope 4.000003 inside it, the invariant
+sector is fourth-order blind & measured in model, exploratory \\
+GG-3 minimal coupling & PASS & unitary-gauge identity exact, bare
+matter correlator exactly zero against dressed 0.1008 and 0.1004,
+observer bare spread 0.899 with dressed agreement exact & measured
+in model, exploratory \\
+Scope & non-claim & nothing in this paper is evidence about
+laboratory renormalization, decoherence experiments, physical
+fluids, thermodynamic experiments, or continuum gauge fields &
+non-claim \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Tables~\ref{tab:ledger1} and \ref{tab:ledger2} register the
+twenty-seven runs with their recorded verdicts.  Read together they answer the arc's question
+inside its declared scope.  In the renormalization models, whether
+a substrate is representable in a coarse family, which correlation
+length an observer reads, whether a coarse theory converges to a
+family, and which perturbations grow are all set by the declared
+channel, down to the sign of a response multiplier.  In the
+Darwinism models, redundancy exists exactly where a declared
+interaction wrote it, budgets are portfolios rather than numbers,
+and agreement between observers is the declared record strength,
+never noise.  In the lattice-gas models, the entropy rise, the
+frozen shear, the viscous decay, and the loss of recoverability
+are each exactly attributable, the rise to the coarse observer,
+the freeze to the substrate's own invariants, the coefficient to
+the substrate with every declared prescription agreeing, and the
+irreversibility to the consumer's reversal reach.  In the
+fluctuation models, every identity defect of a restricted observer
+is its declared channel's arithmetic, restoration is an inference
+theorem, and the information term belongs to the acting consumer.
+In the gauge models, everything any gauge-fixed observer reads is
+an invariant loop its declared fixing selects, constraint
+structure is declared or absent with the invariant sector
+fourth-order blind to its breaking, and bare matter is a fiber
+coordinate.
+
+These are structural results about declared finite models carrying
+the exploratory label of the campaign's evidence-grading scheme.
+They show that in these models the named pieces of standard
+physics are consumer arithmetic.  They do not show that laboratory
+physics works this way, and no run in this paper can bear on that
+question.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+All runs follow the campaign's standing discipline.  Substrates,
+channels, observables, seeds, tolerances, and bars were declared in
+the five track documents before the runs they govern, verdicts are
+computed from the declared items, and every result-bearing run
+writes an append-only JSON evidence record containing the declared
+parameters, the measured outcomes, and a canonical SHA-256 hash of
+the record body.  The records for this paper are
+\texttt{rg0-instrument.json} through \texttt{rg4-relevance.json},
+\texttt{qd0-instrument.json} through \texttt{qd3-agreement.json},
+\texttt{hd0-instrument.json} through
+\texttt{hd3-dissipation-gate.json},
+\texttt{ft0-instrument.json} through \texttt{ft3-feedback.json},
+and \texttt{gg0-instrument.json} through
+\texttt{gg3-minimal-coupling.json} in the campaign repository,
+twenty-seven records in all, with the committed runners alongside
+them.  The failed RG-1, RG-2, RG-3, QD-1, HD-1, and GG-2 records
+are retained unchanged, and each corrected declaration is a
+separate record with its own registration, so the sequence of
+verdicts is itself part of the evidence.  Every number and every
+figure coordinate in this paper is read from those committed
+records.  The figure tables are generated deterministically by a
+committed script, \texttt{make\_figdata\_gen2.py}, with no free
+parameters, whose in-script assertions bind every emitted
+coordinate and every headline number quoted in the text to the
+record values it reads.  A reducer may summarize records but may
+not rewrite them.
+
+\begin{thebibliography}{9}
+
+\bibitem{QuantumPaper}
+A.~H.~Bond,
+Consumer-relative quantum distinguishability on causal boundaries,
+Zenodo (2026), doi:10.5281/zenodo.21789046.
+
+\bibitem{Kadanoff1966}
+L.~P.~Kadanoff,
+Scaling laws for Ising models near $T_c$,
+Physics Physique Fizika \textbf{2}, 263 (1966).
+
+\bibitem{Wilson1971}
+K.~G.~Wilson,
+Renormalization group and critical phenomena. I. Renormalization
+group and the Kadanoff scaling picture,
+Phys. Rev. B \textbf{4}, 3174 (1971).
+
+\bibitem{Wilson1975}
+K.~G.~Wilson,
+The renormalization group: Critical phenomena and the Kondo
+problem,
+Rev. Mod. Phys. \textbf{47}, 773 (1975).
+
+\bibitem{Zurek2003}
+W.~H.~Zurek,
+Decoherence, einselection, and the quantum origins of the
+classical,
+Rev. Mod. Phys. \textbf{75}, 715 (2003).
+
+\bibitem{Zurek2009}
+W.~H.~Zurek,
+Quantum Darwinism,
+Nat. Phys. \textbf{5}, 181 (2009).
+
+\bibitem{Helstrom1976}
+C.~W.~Helstrom,
+\emph{Quantum Detection and Estimation Theory}
+(Academic Press, New York, 1976).
+
+\bibitem{HPP1976}
+J.~Hardy, O.~de~Pazzis, and Y.~Pomeau,
+Molecular dynamics of a classical lattice gas: Transport
+properties and time correlation functions,
+Phys. Rev. A \textbf{13}, 1949 (1976).
+
+\bibitem{FHP1986}
+U.~Frisch, B.~Hasslacher, and Y.~Pomeau,
+Lattice-gas automata for the Navier-Stokes equation,
+Phys. Rev. Lett. \textbf{56}, 1505 (1986).
+
+\bibitem{Jarzynski1997}
+C.~Jarzynski,
+Nonequilibrium equality for free energy differences,
+Phys. Rev. Lett. \textbf{78}, 2690 (1997).
+
+\bibitem{Crooks1999}
+G.~E.~Crooks,
+Entropy production fluctuation theorem and the nonequilibrium work
+relation for free energy differences,
+Phys. Rev. E \textbf{60}, 2721 (1999).
+
+\bibitem{SagawaUeda2010}
+T.~Sagawa and M.~Ueda,
+Generalized Jarzynski equality under nonequilibrium feedback
+control,
+Phys. Rev. Lett. \textbf{104}, 090602 (2010).
+
+\bibitem{Wegner1971}
+F.~J.~Wegner,
+Duality in generalized Ising models and phase transitions without
+local order parameters,
+J. Math. Phys. \textbf{12}, 2259 (1971).
+
+\bibitem{Elitzur1975}
+S.~Elitzur,
+Impossibility of spontaneously breaking local gauge symmetries,
+Phys. Rev. D \textbf{12}, 3978 (1975).
+
+\bibitem{GamesPaper}
+A.~H.~Bond,
+Games and decisions under projection: Blackwell wedges, budget
+flips, and prospect signatures from declared consumers,
+Zenodo (2026), doi:10.5281/zenodo.21818268.
+
+\bibitem{WMPaper}
+A.~H.~Bond,
+Auditing emergent physics claims in rewriting systems: Exact tests
+of dimension, causal invariance, and the second law,
+Zenodo (2026), doi:10.5281/zenodo.21814860.
+
+\bibitem{RadiativePaper}
+A.~H.~Bond,
+Radiative geometry: Matter, the first law, and the failure of
+statics on substrates that pass the area gate,
+Zenodo (2026), doi:10.5281/zenodo.21814858.
+
+\bibitem{SourcesPaper}
+A.~H.~Bond,
+Three sources of observed entropy in reversible hidden dynamics:
+mixing, projection multiplicity, and inaccessible degrees of
+freedom,
+Zenodo (2026), doi:10.5281/zenodo.21814851.
+
+\end{thebibliography}
+
+\end{document}
