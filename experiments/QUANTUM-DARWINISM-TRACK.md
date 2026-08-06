@@ -180,6 +180,21 @@ between the best and worst fragments of size two, the statement
 that a consumer's budget is a portfolio, not a number. Exploratory
 label, results/qd2-budget-knob.json.
 
+#### QD-2 results (run 2026-08-06, record sha 0c441dc6fc92...)
+
+Verdict PASS, all three items, closed forms to machine precision
+throughout. The symmetric budget curve is flat, f* = 3 at every
+grid angle, and the closed form says why, a fragment holding half
+the environment has record overlap equal to its complement's, so
+its information equals the system entropy exactly at any nonzero
+angle, three qubits always suffice and on this grid two never do.
+The portfolio consumer is the sharp result, with declared unequal
+angles the best and worst two-qubit fragments differ by the factor
+36.0 in information, all 62 subset closed forms matching to
+1e-10. Two consumers with identical fragment counts and identical
+access sizes read the same state with a thirty-six-fold
+information disparity, the budget is a portfolio, not a number.
+
 ### QD-3: Multi-consumer agreement audit
 
 Two declared consumers reading disjoint fragments. Measured, when

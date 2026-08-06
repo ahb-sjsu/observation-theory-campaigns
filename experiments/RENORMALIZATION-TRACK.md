@@ -206,6 +206,21 @@ where the odd correlation length makes the distant sign genuinely
 predictable. The named error, RG-2 declared a task with no signal.
 Exploratory label, results/rg2b-flip.json.
 
+#### RG-2b results (run 2026-08-06, record sha 83e9d6170490...)
+
+Verdict PASS, all three items. The theorem partition and the
+exhaustive search agree exactly, the routes agree, and the flip is
+positive, task-optimal accuracy 0.95766 against 0.95754 for the
+best member of the fidelity criterion's 840-way tie, margin
+1.12e-4 against the 1e-4 bar, a pass with little room, recorded as
+such. Fifteen of the sixteen-state assignments disagree with the
+raw leading-odd eigenvector sign across the two partitions'
+borderline states, the finite-distance correction the protocol
+asked about. The one-bit renormalization budget spent on the
+substrate's own entropy criterion is measurably not the budget the
+task wanted, the GD-2 flip in renormalization form, though in this
+regime the wedge is thin.
+
 ### RG-3: Universality gate
 
 Distinct declared microscopic models under one declared channel.

@@ -154,6 +154,19 @@ The named error, GG-2's window assumed a generic response the loop
 structure forbids. Exploratory label,
 results/gg2b-gauss-replay.json.
 
+#### GG-2b results (run 2026-08-06, record sha d3f7b17776ac...)
+
+Verdict PASS, all three items. The zero point exact, the link
+sector first-order loud with response slope 1.0000, every sampled
+orbit strictly non-constant at every positive epsilon, and the
+plaquette response slope 4.000003 inside the corrected window with
+the loop-parity prediction standing. The EG-6 result in gauge
+language is measured, constraint structure is an isolated
+algebraic point, declared or absent, with no approximately-gauge
+ensemble in between, and the observer that watches only invariants
+is fourth-order blind to a breaking the link sector announces at
+first order.
+
 ### GG-3: Minimal-coupling audit
 
 A declared matter field coupled to links. Measured, which coupled
