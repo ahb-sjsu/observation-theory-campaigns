@@ -101,7 +101,7 @@ def main() -> int:
         "plaquette_response_slope": float(plaq_slope),
         "reading": "constraint structure is an isolated algebraic "
                    "point, declared or absent, first-order loud in "
-                   "the link sector and second-order quiet in the "
+                   "the link sector and fourth-order quiet in the "
                    "invariant sector"}
     record["items"] = {k: bool(v) for k, v in items.items()}
     verdict = "PASS" if all(items.values()) else "FAIL"
