@@ -273,6 +273,24 @@ with one correction. C4's declared count of tied fidelity-optimal
 2-cell partitions is three, the double count above is the named
 error. Exploratory label, results/gd2b-budget-flip-game.json.
 
+#### GD-2b results (run 2026-08-05, record sha 2cc051297d42fdb9...)
+
+Verdict PASS, all six items. The stake game stands with its rational
+closed forms, task-optimal 2-cell value exactly 1, every
+fidelity-optimal 2-cell read worth exactly 0.4, the no-information
+value, so the mutual-information-optimal spend of the budget buys
+exactly nothing and the flip is exactly 3/5. The three tied
+fidelity-optimal partitions match the corrected count. The ladders
+are monotone, no partition beats the finest, and at full budget the
+two selection rules agree with the full-information value. The
+ensemble confirms the flip is generic rather than constructed, at
+budget 2 the task-optimal read strictly beat every
+fidelity-optimal read in 193 of 200 random games, median flip 0.070,
+maximum 0.328, and at budget 3 in 188 of 200. The QO-2 flip is now
+measured in a game against an adversary, fidelity-optimal
+information purchases are generically the wrong purchases at scarce
+budget.
+
 ### GD-3: Prospect signatures from budgeted consumers
 
 A declared noisy budgeted estimator of gamble probabilities under a
@@ -338,6 +356,34 @@ loss side is read less compressed. F5, diminishing sensitivity under
 the symmetric environment, coarse second differences of v at lag 5
 units on [5, 80] have maximum at most 0.01 and mean at most -0.01.
 Exploratory label, results/gd3-prospect-signatures.json.
+
+#### GD-3 results (run 2026-08-05, record sha 681bee9bedc132a5...)
+
+Verdict PASS, all eight audits, and all five findings passed their
+declared directional bars. P1 matches its closed form to 6.8e-14
+with curvature 1.5e-14, the sample-budget reader's weighting is
+exactly linear and regressive about the prior mean, prospect
+theory's overweighting of small probabilities and underweighting of
+large ones with no inverse-S curvature. P2 delivers the full
+inverse-S from nothing but a log-odds code, a Gaussian budget, and
+Bayes-optimal reading, crossover exactly 0.5 by symmetry, endpoint
+secant slopes 3.00 against the bar 1.1, middle slope 0.51 against
+the bar 0.9, overweight and underweight margins 0.099 where 0.01 was
+required. The shifted environment moved the crossover to 0.338,
+matching the prediction logistic(-1) to within grid resolution, the
+distortion tracks the environment, not the machinery. P3's
+symmetric-environment read is odd to 1.5e-13, the machinery inserts
+no asymmetry, and the declared loss-heavy environment produced
+-v(-50)/v(50) of 1.208, the loss side read less compressed with
+nothing resembling a loss-aversion coefficient anywhere in the
+model. Diminishing sensitivity is unambiguous, coarse second
+differences all negative with maximum -0.092 and mean -0.402.
+Every distortion shrinks monotonically along every declared budget
+ladder and vanishes exactly at zero noise. The prospect-theoretic
+signature set, regressive weighting, inverse-S, environment-borne
+asymmetry, diminishing sensitivity, emerged in declared budgeted
+consumers with no weighting function, no reference point, and no
+loss-aversion coefficient among the inputs.
 
 ### GD-4: Reference dependence as observer functional choice
 

@@ -27,7 +27,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟫 TB | Type-III bridge | Which consumer-relative objects survive the passage from finite type I models to the type III algebras of quantum field theory? | Complete: TB-0..TB-3 all measured |
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | COMPLETE: EG-0..4 measured, EG-5 forbidden by its own bar; the arc's result is the exact tension between area-law counting and local field structure |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Complete: WM-0..4 + WM-2h measured; the growth rules bookkeeping is prescription-borne |
-| ⬜ GD | Games and decisions | Are the behavioral structures of imperfect-information domains (value of information, prospect-theoretic distortion, reference dependence) consumer-relative phenomena? | GD-0 instrument passing; GD-1 honest FAIL on its bar, GD-1b proved the exhibit; GD-2..5 designed |
+| ⬜ GD | Games and decisions | Are the behavioral structures of imperfect-information domains (value of information, prospect-theoretic distortion, reference dependence) consumer-relative phenomena? | GD-0..3 measured (GD-1/GD-2 honest FAILs on their own bars, GD-1b/GD-2b passed corrected); prospect signatures emerge from budgets alone; GD-4..5 designed |
 
 ## Status ledger, one row per experiment
 
@@ -79,6 +79,9 @@ document in `experiments/SEALS.md`.
 | ⬜ **GD-0** decision instruments | `[demonstrated-in-model]` ✅ | exact experiment values (uninformative and perfect closed forms to 1e-12); Blackwell garbling certificate (declared garble 5.6e-17 vs infeasible reverse 0.26 — nine orders of separation); garbling never raises any of 20 task values (worst gain 1e-16); BSC(e1) above BSC(e2) iff e1<=e2 across the grid; an incomparable pair whose declared tasks reverse preference (+0.05 / -0.15) — the GD-1 seed |
 | ⬜ **GD-1** the flip meets Blackwell | `[refuted]` ✖ its own bar; ensemble stands | verdict FAIL as declared: the exhibit's incomparability bar thresholded a search residual at 0.01 and the measured 0.0045 fell short (the bar's design error, recorded). Controls exact: DPI control over 500 garbles x 205 tasks (worst task gain 3.3e-16); zero wedges among comparable pairs. The measurement: of 2000 random pairs, 767 Blackwell-incomparable, 281 unanimously ordered by all 7 f-divergences, and **281/281** carried a task reversal (max margin 0.078, median 0.021) |
 | ⬜ **GD-1b** exhibit certificate | `[demonstrated-in-model]` ✅ | incomparability proved, not thresholded: conic-hull lower bound 0.00426 on the garbling residual (GD-1's search residual 0.00449 sits 5% above — the search was real), TV monotonicity settles the reverse. The rare-decisive-signal exhibit stands: A above B on every declared f-divergence (min margin 0.429) while the screening task prefers B by 0.0395 — scalar fidelity unanimity guarantees nothing about tasks outside Blackwell comparability |
+| ⬜ **GD-2** budget flip in a game | `[refuted]` ✖ its own bar; values exact | verdict FAIL on one integer: the declaration claimed 6 tied fidelity-optimal partitions, the instrument counted 3 (the declaration tallied each 2-cell partition from both cells). Every closed-form VALUE matched to 1e-15 and H1/H2/C1-C3 passed, flip 0.6 against bar 0.5 |
+| ⬜ **GD-2b** corrected declaration | `[demonstrated-in-model]` ✅ | the stake game exact: task-optimal 2-cell value 1, every MI-optimal 2-cell read worth exactly 0.4 = the no-information value — the fidelity-optimal budget spend buys exactly nothing, flip exactly 3/5. Ensemble: strict flip in **193/200** random games at budget 2 (median 0.070, max 0.328), 188/200 at budget 3 — fidelity-optimal information purchases are generically wrong at scarce budget, now against an adversary |
+| ⬜ **GD-3** prospect signatures | `[demonstrated-in-model]` ✅ all audits + all 5 findings | budgeted consumers with NO weighting function, reference point, or loss-aversion input: sample-budget reader = exactly linear regressive weighting (closed form 6.8e-14, curvature 1.5e-14); log-odds reader = full inverse-S (endpoint secants 3.00 vs bar 1.1, middle 0.51, margins 0.099 vs 0.01); crossover tracks environment (0.5 → 0.338 ≈ logistic(−1)); loss-heavy environment → loss side read less compressed, ratio 1.208; diminishing sensitivity unambiguous (second diffs all negative). Zero-noise reads = exact identity; symmetric environments = exactly symmetric reads (1.5e-13); every distortion shrinks along every budget ladder |
 | 🟨 **WM-2h** hypergraph prescription audit | \[demonstrated-in-model]\ ⚠ prescription-borne | the WM tracks sharpest audit: the flagship growth rules bulk bookkeeping is NOT prescription-invariant — five declared match orders give relation counts 1710–1882, vertex counts 855–941, and dimension estimates 2.43–2.88 (18% spread), so the WM-4 dimension claim inherits a measured prescription caveat at these sizes (unlike the string sorting rule, which was exact under every order); the fork-contraction trap fires with 3 distinct terminals (a bare path is confluent, verified en route) |
 
 Six sealed documents in the ledger (two instrument freezes, four
@@ -499,15 +502,49 @@ never clear the action threshold and B's rare signal does. Scalar
 fidelity unanimity guarantees nothing about tasks outside Blackwell
 comparability, measured at 281 out of 281.
 
-Designed and open. GD-2 (the budget flip in a game), GD-3 (prospect
-signatures from budgeted consumers, either outcome a result), GD-4
-(reference dependence as observer functional choice under the
-lawful-observer clause), GD-5 (the Matejka-McKay logit replication
-and equilibrium with budgeted consumers).
+GD-2 and GD-2b, the budget flip in a game. A player buys a
+coarsening of six hidden states under a cell budget and plays a
+zero-sum stake game against an uninformed adversary, values exact by
+piecewise-linear minimax. GD-2's verdict is FAIL on one integer, the
+declaration double-counted its tied partitions (6 claimed, 3 true),
+while every closed-form value matched to 1e-15. GD-2b corrected the
+count and passed all six items. The stake-game exhibit is exact and
+rational, the task-optimal 2-cell read is worth 1 while every
+mutual-information-optimal 2-cell read is worth exactly 0.4, the
+no-information value, so the fidelity-optimal budget spend buys
+exactly nothing and the flip is exactly 3/5. The ensemble shows the
+flip is generic, not constructed, a strict flip in 193 of 200 random
+games at budget 2 and 188 of 200 at budget 3.
+
+GD-3, prospect signatures from budgeted consumers. Three declared
+consumers containing no weighting function, no reference point, and
+no loss-aversion coefficient. All eight audits and all five declared
+findings passed. A sample-budget reader produces exactly linear
+regressive weighting, overweighting small probabilities and
+underweighting large ones with zero inverse-S curvature, matching
+its closed form to 6.8e-14. A log-odds reader under a Gaussian
+budget produces the full inverse-S, endpoint slopes 3.00, middle
+slope 0.51, and its crossover tracks the declared environment, 0.5
+for the symmetric prior and 0.338 for the shifted one, matching
+logistic(-1). A magnitude reader with a compressive code shows
+unambiguous diminishing sensitivity, and a declared loss-heavy
+environment makes losses read less compressed by the ratio 1.208
+while the symmetric control is odd to 1.5e-13, so the asymmetry is
+environment-borne, never machinery-borne. Every distortion shrinks
+along every declared budget ladder and vanishes exactly at zero
+noise. The signature set of prospect theory emerged from channel,
+task, and budget declarations alone.
+
+Designed and open. GD-4 (reference dependence as observer functional
+choice under the lawful-observer clause), GD-5 (the Matejka-McKay
+logit replication and equilibrium with budgeted consumers).
 
 Key files. `experiments/GAMES-DECISIONS-TRACK.md`,
 `python/gd0_instrument.py`, `python/gd1_flip_blackwell.py`,
-`python/gd1b_exhibit_certificate.py`.
+`python/gd1b_exhibit_certificate.py`,
+`python/gd2_budget_flip_game.py`,
+`python/gd2b_budget_flip_game.py`,
+`python/gd3_prospect_signatures.py`.
 
 ## The evidence discipline (applies to every track)
 
