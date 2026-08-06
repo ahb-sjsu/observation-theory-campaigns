@@ -171,6 +171,49 @@ schema cr0-instrument-v1. If any bar fails the failure is recorded
 with the design error named and a CR-0b correction is declared, the
 b-run pattern used throughout this repository.
 
+#### CR-0 results (run 2026-08-06, record sha 28c9282d42ea...)
+
+Verdict PASS, all five declared items, and every quantity that could
+be exact was exact. S1, all 15 subsets below the declared threshold
+carry mutual information exactly 0.0 bits, not merely inside the
+1e-12 bar, and the posterior on the secret is the uniform prior with
+deviation exactly 0.0 at every field element of every share value.
+The exactness is structural rather than lucky, the informations are
+built from integer count ratios and every below-threshold ratio is
+the integer one. S2, all 10 three-share subsets carry exactly
+log2(31) = 4.954196310386875 bits with conditional entropy exactly
+0.0, and the independent Lagrange route recovered the secret in all
+297910 subset-outcome checks with zero failures. S3, the information
+curve is (0, 0, 4.954196310386875, 4.954196310386875,
+4.954196310386875) bits and the maximum distance from any of the 31
+subsets to the nearer plateau is 0.0, so there is no intermediate
+value anywhere. S5, route agreement across all 83 subsets tested in
+the three schemes is 1.8e-15.
+
+S4 separates leakage from redundancy. The declared short-randomness
+scheme L2 carries 2.6322682154995127 bits in every one of its five
+single-share subsets, matching the closed form log2(31/5) to the last
+bit and clearing the 0.1 bit bar by a factor of 26, so the
+instrument sees leakage when leakage exists and S1's zeros belong to
+the scheme rather than to the measurement. L2's pairs all read
+log2(31), the same step one rung earlier. The drafted control L1 came
+out exactly as the pre-run prediction declared, all six single-share
+informations exactly 0.0, the sixth published value identical to the
+first share at every one of its 961 outcomes, and exactly one of the
+15 pairs uninformative, the pair of identical shares, with the other
+14 determining. Publishing a redundant copy of a share leaks nothing
+to any single consumer.
+
+The track's opening observation, recorded as declared. QD-0's
+partial-record fragment curve rose smoothly, 0.8118, 0.9571, 0.9998,
+1.0426, 1.1878, 1.9996 bits across six environment qubits, a plateau
+whose height and approach are set by how strong the records are. The
+engineered plateau measured here is a step function with exactly
+nothing in between, and the step is placed where the designer put the
+threshold. Nature's redundancy plateau is smooth and
+record-strength-dependent, an engineered one is a step, and the
+difference is that one of them was declared.
+
 ### CR-1: Blackwell ordering of declared leakage channels
 
 A declared key-dependent leakage model is an experiment in

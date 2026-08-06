@@ -18,10 +18,10 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The twelve tracks
+## The thirteen tracks
 
 Each track keeps one color everywhere in this file: 🟦 folds, 🟥
-entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry, 🟨 Wolfram models, ⬜ games and decisions, and the
+entropy, 🟪 quantum, 🟫 the type-III bridge, 🟧 geometry, 🟨 Wolfram models, ⬜ games and decisions, 🔐 cryptography, and the
 second generation of tracks launched from the first, 🔵
 renormalization, ⚫ quantum Darwinism, 🟠 hydrodynamics, 🔴
 fluctuation theorems, 🟤 gauge redundancy. The letter
@@ -36,6 +36,7 @@ codes always accompany the chips, so nothing depends on color alone.
 | 🟧 EG | Entropic geometry | Could spacetime-like structure emerge from how a projection organizes distinguishability? | COMPLETE: EG-0..4 measured, EG-5 forbidden by its own bar; the arc's result is the exact tension between area-law counting and local field structure |
 | 🟨 WM | Wolfram models | Which claimed phenomena of hypergraph and cellular-automaton physics are invariant, and which are observer or prescription artifacts? | Complete: WM-0..4 + WM-2h measured; the growth rules bookkeeping is prescription-borne |
 | ⬜ GD | Games and decisions | Are the behavioral structures of imperfect-information domains (value of information, prospect-theoretic distortion, reference dependence) consumer-relative phenomena? | COMPLETE: GD-0..5 all measured (GD-1/GD-2 honest FAILs on their own bars, GD-1b/GD-2b passed corrected); prospect signatures, reference dependence, and the RI logit all consumer-relative, measured |
+| 🔐 CR | Engineered observation limits | Cryptography declares the observer's channel on purpose, so which of its security statements are consumer-relative bookkeeping and which are substrate facts? | CR-0 measured (PASS, every quantity exact): an engineered redundancy plateau is a step function where QD's natural one is smooth. CR-1..3 declared, protocol only. HARD LIMIT: exact finite models, nothing about computational hardness or any real system |
 | 🔵 RG | Renormalization | Is universality a property of the substrate or of the declared coarse-graining channel? | COMPLETE first pass: RG-0..4 measured (three honest FAILs, all named): correlation length consumer-selected, universality channel-shaped, relevance channel-signed |
 | ⚫ QD | Quantum Darwinism | Is objectivity multi-consumer redundancy, and does it emerge or must it be declared? | COMPLETE first pass: QD-0..3 measured: redundancy declared-or-absent, budget a portfolio (ratio 36), inter-observer agreement = record strength (0.51→1.00) |
 | 🟠 HD | Hydrodynamics | Is a transport coefficient substrate or prescription, and is coarse dissipation entirely the observer's? | HD-0..HD-3 measured, first pass complete (HD-1 honest FAIL = HPP's spurious invariants, exactly): FHP-I relaxes the shear HPP froze, the viscosity is prescription-INVARIANT (spread 0.07% across nine prescriptions vs the 10% bar), and dissipation is declared-or-absent — the coarse decay is bit-exactly recoverable by the complete consumer, one lost bit ends the recovery (return ratio 0.018) |
@@ -129,6 +130,7 @@ document in `experiments/SEALS.md`.
 | 🟨 **WM-2h** hypergraph prescription audit | \[demonstrated-in-model]\ ⚠ prescription-borne | the WM tracks sharpest audit: the flagship growth rules bulk bookkeeping is NOT prescription-invariant — five declared match orders give relation counts 1710–1882, vertex counts 855–941, and dimension estimates 2.43–2.88 (18% spread), so the WM-4 dimension claim inherits a measured prescription caveat at these sizes (unlike the string sorting rule, which was exact under every order); the fork-contraction trap fires with 3 distinct terminals (a bare path is confluent, verified en route) |
 | 🟠 **HD-2** FHP prescription gate | `[demonstrated-in-model]` ✅ prescription-invariant | FHP-I on the triangular lattice relaxes the shear HPP froze: decay to 0.170/0.027 of window start at k=1/2, rate ratio 4.54 inside the declared diffusive band [3.0, 5.0], geometry self-tests exact (6-step displacement, hexagon closure, integer conservation every step). The gate: NINE declared prescriptions (cells {1,4,8} × cadence {1,2,4}) on the same stored series give rates 0.008107–0.008113, spread 0.07% of mean vs the 10% bar — a hydrodynamic transport coefficient, unlike WM-2h's growth bookkeeping, survives every declared linear coarse-graining; ν = 0.842 measured (FHP-I Boltzmann estimate 0.742, comparison only). Verdict from H2a/H2b/H2c; H2d recorded as an individual finding, as declared |
 | 🟠 **HD-3** dissipation declared-or-absent | `[demonstrated-in-model]` ✅ | the FHP-I step inverted exactly (un-stream, then the opposite-chirality collision): the initial state is recovered bit for bit in all 50 realizations and the inverse amplitude sequence equals the forward sequence reversed with deviation exactly 0 — the HD-2 decay (25.31 → 2.15, ratio 0.085) is fully recoverable, the observer's accounting, not a substrate law. ONE flipped bit at time T ends it: return ratio 0.018 vs the 0.5 bar while the 49 untouched realizations return exactly; the Hamming flood runs 1 → 3047 → 11007, saturating at the 2f(1−f) decorrelation value ≈ 11182 of 24576 bits — Loschmidt made mechanical, PE-4 at the level of transport |
+| 🔐 **CR-0** engineered-plateau instruments | `[demonstrated-in-model]` ✅ all 5 items | Shamir over GF(31), t=3, n=5, all 29791 outcomes enumerated with integer counting: every one of the 15 below-threshold subsets carries mutual information **exactly 0.0** with the posterior exactly the uniform prior (deviation 0.0), all 10 threshold subsets exactly log2 31 = 4.954196310386875 bits with conditional entropy exactly 0.0 and the independent Lagrange route 297910/297910, and the curve (0, 0, log2 31, log2 31, log2 31) has **no intermediate value at any subset of any size** (max distance to the nearer plateau 0.0). The declared short-randomness control reads log2(31/5) = 2.6322682154995127 bits per single share to the last bit (bar 0.1) — the instrument sees leakage when it exists. The drafted redundant-share control leaks exactly nothing to any single consumer, its sixth value identical to share one at every outcome and 1 of 15 pairs uninformative: redundancy is not leakage. Route agreement 1.8e-15 across 83 subsets |
 
 Six sealed documents in the ledger (two instrument freezes, four
 preregistrations), every one verifiable by blob hash. Three papers
@@ -680,6 +682,77 @@ gauge-fixed consumer's nonzero link reading is a Wilson loop
 wearing a gauge-variant label. Open, consumer-invariance across the
 gauge-fixed observer family, the Gauss-law replay, the
 minimal-coupling audit.
+
+### 🔐 CR, engineered observation limits
+
+The newest track, and the one whose limits have to be stated before
+anything else. This campaign measures exact finite models, so it can
+say nothing about computational hardness, nothing about asymptotic
+security, and nothing about any real cipher, protocol,
+implementation, or deployed system. No attack is developed and none
+is evaluated. Every model in the track is a declared toy model, and
+what the track audits is evaluation methodology, meaning the
+reasoning that carries a leakage measurement to a security
+conclusion, in settings where every alternative reading can be
+computed instead of argued.
+
+The reason the track exists is that cryptography is the engineering
+discipline of declared observation limits. Everywhere else in this
+program the consumer's channel has to be hunted for inside a physical
+model. Here it is written down on purpose. Three of the field's
+central objects are already campaign objects under other names.
+Semantic security is restricted distinguishability, the QO track's
+subject with a different adversary attached. A side-channel adversary
+is a consumer with a declared channel, the restricted observer of the
+PE and FT tracks. Secret sharing is an engineered redundancy plateau,
+the QD track's object built by hand rather than found in an
+environment. The question is which of cryptography's security
+statements move when the declared channel, task, or budget moves
+while the substrate stays fixed, and which no declared consumer can
+move.
+
+Established so far. CR-0, the instrument layer, measured the
+engineered plateau exactly and passed all five declared items. Shamir
+sharing over GF(31) with threshold three and five shares, all 29791
+outcomes enumerated by integer counting, gives mutual information
+exactly zero on every one of the fifteen subsets below the threshold,
+with the posterior on the secret exactly the uniform prior, and
+exactly log2(31) bits with conditional entropy exactly zero on every
+subset at the threshold, confirmed by an independent Lagrange
+reconstruction route with zero failures in 297910 checks. The
+information curve is a step and nothing else, no subset of any size
+takes an intermediate value. The declared short-randomness control
+reads log2(31/5) bits from a single share to the last bit, so the
+instrument sees leakage when leakage exists and the zeros below the
+threshold belong to the scheme rather than to the measurement. The
+drafted control, which publishes a redundant copy of a share, leaks
+exactly nothing to any single consumer, which is the QD track's
+lesson arriving from the other side, redundancy is not leakage.
+
+The opening observation of the track is a contrast between two
+plateaus. QD-0's naturally occurring one rose smoothly across six
+environment qubits, from 0.8118 to 1.9996 bits, its height and its
+approach set by how strong the records are. The engineered one is a
+step function with exactly nothing in between, and the step sits
+where the designer put the threshold. The difference between them is
+that one was declared.
+
+Open, and protocol only. CR-1, the Blackwell ordering of declared
+leakage channels, which channels are strictly more informative for
+every key-recovery task and which only for some, using the GD-0
+garbling certificate and GD-1b's proof technique rather than a
+thresholded search residual. CR-2, the countermeasure flip, whether
+declared leakage channel pairs exist that every declared
+f-divergence orders one way while a declared key-recovery task orders
+the other, which would be the GD-1b wedge in leakage form and a
+statement about evaluation methodology and nothing else. CR-3,
+min-entropy against Shannon entropy as declared-task entropy, the
+same source read by an averaging consumer and a single-guess
+consumer, connecting to GD-3's finding that the task sets the optimal
+read.
+
+Key files. `experiments/CRYPTO-TRACK.md`,
+`python/cr0_instrument.py`, `results/cr0-instrument.json`.
 
 ## The evidence discipline (applies to every track)
 
