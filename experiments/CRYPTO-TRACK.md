@@ -267,6 +267,38 @@ the declared maximum-likelihood key-guessing task, no garbling ever
 raises a task value by more than 1e-10. All five or CR-1 fails.
 Exploratory label, results/cr1-leakage-ordering.json.
 
+#### CR-1 results (run 2026-08-06, record sha b3ee26a9f818...)
+
+Verdict PASS, all five items, and the proof certificate behaved as
+declared. The identity channel carries 4 bits about the key, the
+Hamming-weight channel 2.0306, the low-bit channel exactly 1, the
+noisy Hamming-weight channel 0.8867, and the constant channel
+exactly 0. The identity channel is above every declared channel,
+each search residual below the feasibility tolerance and each
+conditional mutual information given the identity exactly zero to
+5e-17. Adding declared noise is a garbling, residual 2.2e-16 and
+conditional information 4.8e-17, while the reverse is proved
+impossible without any tolerance argument, the conditional
+information of key and Hamming weight given the noisy reading is
+1.1439 bits and the mutual information gap is the same 1.1439 bits.
+
+The incomparable pair is the useful one. The Hamming-weight channel
+and the low-bit channel each carry information the other does not,
+1.8113 bits of the Hamming weight survive knowing the low bit and
+0.7806 bits of the low bit survive knowing the Hamming weight, so
+neither is a garbling of the other and no scalar comparison can
+order them for every task. The Hamming-weight channel carries twice
+the mutual information of the low-bit channel and is still not
+above it in Blackwell's sense. The data-processing control holds
+across the declared battery of 201 key-recovery tasks with worst
+task gain 5.6e-17.
+
+The certificate technique is the transferable part. A garbling
+leaves nothing conditionally, so a strictly positive conditional
+mutual information is a proof of non-garbling with no tolerance and
+no search, which is what GD-1's residual threshold should have been
+and what GD-1b had to repair after the fact.
+
 ### CR-2: The countermeasure flip
 
 CR-2 asks for declared leakage channel pairs where every declared
@@ -395,6 +427,105 @@ record `results/cr3-task-entropy.json`, schema cr3-task-entropy-v1.
 If any bar fails the failure is recorded with the design error named
 and a CR-3b correction is declared, the b-run pattern used throughout
 this repository. Nothing in CR-3 is a claim about any real
+key-generation system, and the hard limit of section 1 governs.
+
+#### CR-3 results (run 2026-08-06, record sha 865a0373a295...)
+
+Verdict FAIL, on E2 alone, and the failure is in one clause of the
+declaration rather than in the substrate. E1, E3, and E4 passed
+sharply. E1, the summed Shannon entropy agrees with the closed form
+to 8.9e-16 at every one of the ten declared sources, the min-entropy
+computed from the exact numerator and denominator of the largest
+probability agrees with the direct route to 8.9e-16, and the
+exhaustive scan over the alphabet found the declared spike weight as
+the largest probability at every source rather than being told where
+to look. E3, the single-guess success probability found by exhaustive
+maximization equals two to the power minus min-entropy with worst
+deviation 1.4e-17, and eight of the ten sources are bit for bit
+identical. E4, every Huffman code satisfies the Kraft equality
+exactly, the smallest lower margin is exactly 0.0 at the uniform
+member where the mean length is exactly 5 bits and the entropy is
+exactly 5 bits, and the smallest upper margin is 0.0807 bits at
+q = 0.99 where the mean length 1.0497 sits below the entropy plus one
+of 1.1303.
+
+E2 failed on its monotonicity clause and passed everything else. The
+ordering held with the worst value of min-entropy minus Shannon
+entropy exactly 0.0 across all ten sources, and the two entropies
+agree to exactly 0.0 at the uniform member and are separated by more
+than the tolerance at every other ladder point. The measured gap
+along the declared eps ladder is 0.0, 0.3983679711748964,
+1.3367478843916603, 2.2751050863811666, 2.635309539404596,
+2.1128507492677056, 0.599082908339557 bits, so the first four
+increments are positive and the last two are negative.
+
+The design error, named. The declaration extended a fact about the
+near-uniform end of the ladder to the whole ladder without checking
+the other limit. Both entropies go to zero together as the spike
+takes all the mass, since a source with almost all its weight on one
+outcome is almost certain under either accounting, so the additive
+gap has to turn around and its maximum is interior. The declared
+ladder crossed that maximum between eps = 0.30 and eps = 0.60. The
+additive gap was the wrong quantity to ask for monotonicity from, and
+the run says so.
+
+E5, recorded as declared and carrying no bar. For the textbook
+key-material case, half the mass on one outcome and half spread
+uniformly over the remaining 31, the averaging consumer's accounting
+is 3.477098155193437 bits and the single-guess consumer's accounting
+is exactly 1 bit, a ratio of 0.2875961377467552 and a factor of
+3.477098155193437 between the two prices. The single-guess success
+probability is exactly 0.5 and the Huffman mean length is
+3.4838709677419355 bits. The same declared source is worth about
+three and a half bits to one consumer and one bit to the other, and
+neither number is wrong. Which entropy is the right entropy is set by
+the consumer's task rather than by the source, which is the GD-3
+lesson in entropy accounting form. Nothing in this is a claim about
+any real key-generation system.
+
+#### CR-3b protocol (declared 2026-08-06, before the CR-3b run)
+
+The correction replaces the refuted monotonicity clause with the
+monotone statement the substrate actually supports, and adds the
+location of the interior maximum as a measurement. Everything else is
+unchanged, the same two families, the same ladders, the same exact
+rational arithmetic, the same tolerance of 1e-12.
+
+F1 the unchanged items. E1, E3, and E4 are re-run without any change
+to their bars and must pass again.
+
+F2 ordering and limit, corrected. The ordering clause and the
+equality clause are kept unchanged, min-entropy is at most Shannon
+entropy at every declared source and the two agree within 1e-12
+exactly at the uniform member and nowhere else. The monotonicity
+clause becomes a statement about the ratio rather than the
+difference, the ratio of min-entropy to Shannon entropy is strictly
+decreasing along the full eps ladder and strictly decreasing along
+the full q ladder. The additive gap is declared unimodal on the eps
+ladder instead of increasing, meaning the closed-form derivative of
+the gap with respect to the spike weight changes sign exactly once
+across the ladder, the sign change is bracketed strictly between
+eps = 0.30 and eps = 0.60, and the gap increments are positive at
+every ladder step before the bracket and negative at every ladder
+step after it.
+
+F3 the derivative route. The closed-form derivative of the gap with
+respect to the spike weight a is log2((1 - a)/(31a)) + 1/(a ln 2),
+and it must agree with a central finite difference of the measured
+gap to within 1e-6 at every ladder point, so the unimodality claim
+rests on a derivative that has been checked against the quantity it
+differentiates.
+
+F4 the interior maximum, located and recorded without a bar. The
+stationary point is found by bisection on the closed-form derivative
+inside the declared bracket to a width below 1e-12, and the
+maximizing spike weight and the maximum gap are recorded.
+
+Verdict computed from F1, F2, F3, all three or CR-3b fails. F4 and
+E5 are recorded as measurements and carry no bar. Exploratory label,
+measured in model, unsealed. Runner `python/cr3b_task_entropy.py`,
+record `results/cr3b-task-entropy.json`, schema
+cr3b-task-entropy-v1. Nothing in CR-3b is a claim about any real
 key-generation system, and the hard limit of section 1 governs.
 
 ## 7. Non-claims and evidence discipline
