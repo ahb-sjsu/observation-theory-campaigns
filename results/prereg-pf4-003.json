@@ -1,0 +1,123 @@
+{
+  "declared": {
+    "D": 18.0,
+    "E": 0.6,
+    "L": 3.0,
+    "action_band_secondary": [
+      5.654866776461628,
+      11.309733552923255
+    ],
+    "dt": 0.002,
+    "held_P": [
+      1.35,
+      1.65,
+      1.95
+    ],
+    "n_cap": 4000,
+    "plant_disagree_bar": 0.5,
+    "ratio_bar": 4.0,
+    "train_P": [
+      1.2,
+      1.5,
+      1.8,
+      2.1
+    ]
+  },
+  "label": "unevaluable",
+  "outcome": "manifest-design failure: insufficient usable cells (smooth)",
+  "plant": {
+    "fits": null,
+    "held": [
+      {
+        "N_rev": -1.0,
+        "P": 1.35,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.65,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.95,
+        "reversed": false
+      }
+    ],
+    "train": [
+      {
+        "N_rev": -1.0,
+        "P": 1.2,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.5,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.8,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 2.1,
+        "reversed": false
+      }
+    ]
+  },
+  "record_sha256": "49e840843ec3571b2de02051f66270f3a8270065f172ab2cfb9fbe8e81a44ee1",
+  "registration_id": "PREREG-PF4-003",
+  "runtime": {
+    "code_commit": "47aa020",
+    "generated_utc": "2026-08-06T04:29:38.719291+00:00",
+    "hostname": "atlas",
+    "numpy": "2.5.1",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "prereg-pf4-003-run-v1",
+  "smooth": {
+    "fits": null,
+    "held": [
+      {
+        "N_rev": -1.0,
+        "P": 1.35,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.65,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.95,
+        "reversed": false
+      }
+    ],
+    "train": [
+      {
+        "N_rev": -1.0,
+        "P": 1.2,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.5,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 1.8,
+        "reversed": false
+      },
+      {
+        "N_rev": -1.0,
+        "P": 2.1,
+        "reversed": false
+      }
+    ]
+  }
+}
