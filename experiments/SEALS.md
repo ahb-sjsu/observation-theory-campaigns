@@ -17,3 +17,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-PF4-003 | experiments/PREREG-PF4-003.md | 84bd95d | 87b932eaafd0a1e022a48e1f2089b9b260c6f217b75531e086257f2211a70902 | 2026-08-04 | A. H. Bond (session instruction) |
 | PREREG-PF5-001 | experiments/PREREG-PF5-001.md | 15b4971 | 7e77e730d3477b1ed08ac03b796e684bdadfcd6b336eebc9f80c1b2b5ad62fcf | 2026-08-06 | A. H. Bond (session instruction) |
 | PREREG-PF5-002 | experiments/PREREG-PF5-002.md | 69b594d | 53a08c5ccc082f6cad913e0a9e957edc690f1145ad7217f70a13a388eb2e6917 | 2026-08-06 | A. H. Bond (session instruction) |
+| PREREG-PF6-001 | experiments/PREREG-PF6-001.md | 8160039 | 7299902bc0adcc79ac5ce1a6eb4922612e292bf620e727da9303c49661544c3f | 2026-08-06 | A. H. Bond (session instruction) |
