@@ -1,0 +1,141 @@
+{
+  "declared": {
+    "L": 64,
+    "M": 50,
+    "T": 300,
+    "amp": 0.1,
+    "bars": {
+      "D1": "initial state recovered bit for bit in every realization",
+      "D2": "inverse-run amplitude sequence equals the forward sequence reversed exactly, float for float",
+      "D3": "perturbed return amplitude of realization 0 at most half its true initial amplitude, the other 49 realizations return bit for bit"
+    },
+    "f0": 0.35,
+    "flip": {
+      "at_time": 300,
+      "channel": 0,
+      "col": 32,
+      "realization": 0,
+      "row": 32
+    },
+    "hamming_cadence": 30,
+    "inverse": "unstep(m, t) = collide(unstream(m), t+1); un-stream pulls each channel back along its own direction, collide at flipped parity rotates head-on pairs the opposite chirality, three-body flip is its own inverse",
+    "k": 1,
+    "model": "FHP-I of HD-2 unchanged, 64x64 even-r offset triangular torus, 6 channels, imported from hd2_fhp_viscosity (collide, step, geometry)",
+    "seed": 20260825
+  },
+  "items": {
+    "D1_exact_invertibility": true,
+    "D2_loschmidt_account": true,
+    "D3_reversal_reach": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "amp_forward_T": 2.1459310157230367,
+    "amp_forward_every10": [
+      25.30581537445242,
+      23.949362477883184,
+      22.237999193366903,
+      20.47931464702024,
+      18.96313569916259,
+      17.516953712748407,
+      16.168857303250984,
+      14.823338743584582,
+      13.672732720237237,
+      12.520352924384193,
+      11.484739571294023,
+      10.484606217868933,
+      9.559931593376147,
+      8.806420200773251,
+      8.089858549898905,
+      7.390554124947996,
+      6.831295055756502,
+      6.262526429076249,
+      5.635941595208377,
+      5.0648270183244435,
+      4.613889341427791,
+      4.226496883616305,
+      3.847350105262681,
+      3.5749333435218276,
+      3.3215019995477597,
+      3.160360131631095,
+      2.9371331845872075,
+      2.650896959685632,
+      2.4567350813846165,
+      2.272792024710734,
+      2.1459310157230367
+    ],
+    "amp_forward_t0": 25.30581537445242,
+    "amp_r0_perturbed_return": 0.43727553478832126,
+    "amp_r0_true_initial": 24.037711083827787,
+    "forward_decay_ratio": 0.08479991590745065,
+    "hamming_divergence_r0": [
+      [
+        0,
+        1
+      ],
+      [
+        30,
+        3047
+      ],
+      [
+        60,
+        11007
+      ],
+      [
+        90,
+        11093
+      ],
+      [
+        120,
+        11243
+      ],
+      [
+        150,
+        11221
+      ],
+      [
+        180,
+        11153
+      ],
+      [
+        210,
+        11175
+      ],
+      [
+        240,
+        11159
+      ],
+      [
+        270,
+        11217
+      ],
+      [
+        300,
+        11253
+      ]
+    ],
+    "inverse_matches_forward_reversed_exactly": true,
+    "inverse_reversed_max_dev": 0.0,
+    "perturbed_return_ratio": 0.018191230157621526,
+    "reading": "dissipation on this substrate is declared-or-absent in the consumer, exactly PE-4's lesson at the level of transport, the coarse mode's decay is recoverable by any observer with exact reversal reach and irrecoverable after the loss of one bit",
+    "untouched_49_return_bit_exact": true
+  },
+  "record_sha256": "d3f5fafa7cb7dc2292b73a7c8b0b19780be6edcd0a61645c8161b6c3f98082c2",
+  "runtime": {
+    "code_commit": "96d1b5f",
+    "generated_utc": "2026-08-06T06:04:50.740158+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "hd3-dissipation-gate-v1",
+  "verdict": {
+    "computed_from": [
+      "D1_exact_invertibility",
+      "D2_loschmidt_account",
+      "D3_reversal_reach"
+    ],
+    "value": "PASS"
+  }
+}
