@@ -220,6 +220,30 @@ only, never a bar. Runner python/hd2_fhp_viscosity.py, schema
 hd2-fhp-viscosity-v1, exploratory label,
 results/hd2-fhp-viscosity.json.
 
+#### HD-2 results (run 2026-08-06, record sha de87e1801b4b...)
+
+Verdict PASS, all three items. The geometry is exact, the six-step
+displacement equals 6 e_i in every channel, the six-direction
+hexagon closes from both row parities, and mass with both integer
+momentum components is conserved exactly in every realization at
+every step. The shear that HPP froze relaxes on FHP, the k = 1
+amplitude falls to 0.170 of its window start and the k = 2
+amplitude to 0.027, rates 0.008114 and 0.036818 with half-window
+agreement inside the twenty-five percent bar at both wavenumbers,
+and the rate ratio 4.538 sits in the declared diffusive band [3.0,
+5.0]. The measured viscosity is 0.842 at k = 1 and 0.955 at k = 2,
+beside the FHP-I Boltzmann estimate 0.742, comparison only. The
+gate, the nine declared prescriptions on the same stored series
+give rates from 0.008107 to 0.008113, a spread of 0.07 percent of
+the mean against the ten percent bar, so H2d records
+prescription-invariant. The contrast with WM-2h is the finding, an
+exponential hydrodynamic mode's rate survives every declared
+linear cell average and every subsampling cadence, while the
+growth rule's bookkeeping did not survive a change of match order,
+so which observables a prescription can touch is itself a measured
+distinction, not a slogan. Dissipation declared-or-absent moves to
+HD-3 with a validated viscous substrate in hand.
+
 ### HD-3: Dissipation declared-or-absent
 
 An EG-6-style gate. Measured, whether any declared coarse
