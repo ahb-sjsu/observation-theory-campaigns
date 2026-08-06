@@ -1,0 +1,201 @@
+{
+  "cells": {
+    "P0.6_E0.45": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 6.143191864062926e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    },
+    "P0.6_E0.7": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 6.45921810207917e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    },
+    "P0.7_E0.45": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 5.621435795558887e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    },
+    "P0.7_E0.7": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 5.494382224530893e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    },
+    "P0.8_E0.45": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 6.1536312431047e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    },
+    "P0.8_E0.7": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 6.144120139377634e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    },
+    "P0.9_E0.45": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 5.785718850437204e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    },
+    "P0.9_E0.7": {
+      "bad_fraction": 0.0,
+      "bars": {
+        "b1": true,
+        "b2": true,
+        "b3": true
+      },
+      "counts": {
+        "capped": 0,
+        "nonfinite": 0,
+        "reversing": 0,
+        "transmitted": 20000
+      },
+      "evaluable": true,
+      "max_energy_residual": 6.027849349216189e-07,
+      "path_degree_failures": 0,
+      "refused_levels": 0,
+      "reversing_fraction_full_denominator": 0.0
+    }
+  },
+  "declared": {
+    "E_grid": [
+      0.45,
+      0.7
+    ],
+    "P_grid": [
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "f_max": 0.2,
+    "k_poly": 12,
+    "level_mults": [
+      -0.61,
+      -0.26,
+      0.14,
+      0.41,
+      0.69
+    ],
+    "min_evaluable": 6,
+    "n": 20000
+  },
+  "evaluable_cells": 8,
+  "label": "sealed-gate-run",
+  "record_sha256": "073f6e692253bccb892998f9bc3e31eca4536880a1b5686b210fafd92e27bb77",
+  "registration_id": "PREREG-PF5-001",
+  "runtime": {
+    "code_commit": "d551a87",
+    "generated_utc": "2026-08-06T09:55:54.221693+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "prereg-pf5-001-v1",
+  "verdict": {
+    "computed_from": [
+      "b1",
+      "b2",
+      "b3",
+      "bar5-rule"
+    ],
+    "value": "PASS"
+  }
+}

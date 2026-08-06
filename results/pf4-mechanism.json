@@ -1,0 +1,77 @@
+{
+  "cells": [
+    {
+      "E": 0.6,
+      "P": 1.2,
+      "cancellation_ratio": 0.03337768503345696,
+      "extrapolated_slabs_to_reversal": 2062.215474894337,
+      "mean_abs_deposit": 0.017433757165553263,
+      "mean_drift_per_slab": -0.0005818984556216101,
+      "pt_first_last": [
+        1.2638294553169183,
+        1.2289155479796217
+      ],
+      "sign_flip_fraction": 0.5423728813559322
+    },
+    {
+      "E": 1.0,
+      "P": 1.5,
+      "cancellation_ratio": 0.008675726113481082,
+      "extrapolated_slabs_to_reversal": 1969.0181604624822,
+      "mean_abs_deposit": 0.08780832730049264,
+      "mean_drift_per_slab": -0.0007618009981419778,
+      "pt_first_last": [
+        1.6604630727922671,
+        1.6147550129037485
+      ],
+      "sign_flip_fraction": 0.6779661016949152
+    },
+    {
+      "E": 1.5,
+      "P": 2.1,
+      "cancellation_ratio": 0.05031874906906871,
+      "extrapolated_slabs_to_reversal": 217.92257973931115,
+      "mean_abs_deposit": 0.191508135208768,
+      "mean_drift_per_slab": 0.009636449800255279,
+      "pt_first_last": [
+        1.9584325326691507,
+        2.536619520684467
+      ],
+      "sign_flip_fraction": 0.2711864406779661
+    }
+  ],
+  "declared": {
+    "cells": [
+      [
+        0.6,
+        1.2
+      ],
+      [
+        1.0,
+        1.5
+      ],
+      [
+        1.5,
+        2.1
+      ]
+    ],
+    "dt": 0.002,
+    "n_slabs": 60
+  },
+  "finding": {
+    "hypothesis": "alternating slabs cancel deposits",
+    "min_extrapolated_slabs_to_reversal": 217.92257973931115,
+    "supported": false
+  },
+  "label": "exploratory",
+  "record_sha256": "99761a6f45d3e4b1f25cbde67514e5deab0d8ac32d462b65cc5529e81bea1ee1",
+  "runtime": {
+    "code_commit": "5a64656",
+    "generated_utc": "2026-08-06T09:56:58.349045+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-mechanism-v1"
+}
