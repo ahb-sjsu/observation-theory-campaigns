@@ -1,0 +1,60 @@
+{
+  "items": {
+    "H1_shear_decays": false,
+    "H2_diffusive_scaling": false,
+    "H3_sound_dispersion": true,
+    "H4_conservation": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "measured_viscosity_k1": 1.957034366601276e-16,
+    "note": "viscosity and sound speed recorded as values, Boltzmann-level comparison only",
+    "shear": {
+      "1": {
+        "decay_ratio": 1.0,
+        "half1": 2.2006455048229498e-18,
+        "half2": 1.0438429237652388e-18,
+        "nu": 1.957034366601276e-16,
+        "rate": 1.8862456052432693e-18
+      },
+      "2": {
+        "decay_ratio": 1.0,
+        "half1": -4.3729557256600945e-18,
+        "half2": 6.205788293193841e-18,
+        "nu": -0.0,
+        "rate": -0.0
+      }
+    },
+    "shear_rate_ratio_k2_over_k1": -0.0,
+    "sound": {
+      "1": {
+        "c_over_pred": 1.0084642673189756,
+        "omega": 0.07000763573459148
+      },
+      "2": {
+        "c_over_pred": 1.0122791814881102,
+        "omega": 0.14054493450270128
+      }
+    },
+    "sound_freq_ratio": 2.0075657894736847
+  },
+  "record_sha256": "0a60c7ef569845f828707c849835e17e9aa0684630cd27436db58b95e5d2fd90",
+  "runtime": {
+    "code_commit": "6fd0a25",
+    "generated_utc": "2026-08-06T05:03:49.777230+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "hd1-transport-v1",
+  "verdict": {
+    "computed_from": [
+      "H1_shear_decays",
+      "H2_diffusive_scaling",
+      "H3_sound_dispersion",
+      "H4_conservation"
+    ],
+    "value": "FAIL"
+  }
+}

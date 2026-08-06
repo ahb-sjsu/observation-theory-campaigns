@@ -1,0 +1,44 @@
+{
+  "items": {
+    "L1_complete_zero": true,
+    "L2_blind_zero": true,
+    "L3_lumped_broken": true,
+    "L4_route_agreement": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "defect_blind": 0.0,
+    "defect_complete": 0.0,
+    "defect_held": 0.03243638340324573,
+    "defect_lumped": 0.0004330787328576946,
+    "df": -0.10208281751209336,
+    "mean_apparent_work": {
+      "blind": -0.10208281751209336,
+      "complete": -0.07875566499516448,
+      "held": -0.03819795372111808,
+      "lumped": -0.08943981472333148
+    },
+    "reading": "the defect lives strictly between full sight and total blindness",
+    "route_dev_held": 6.661338147750939e-16,
+    "route_dev_lumped": 6.661338147750939e-16
+  },
+  "record_sha256": "26b85886aeb8debfaba12d47e208ec6fd1655f4ec950488d1b9a2a8c3a43077d",
+  "runtime": {
+    "code_commit": "6fd0a25",
+    "generated_utc": "2026-08-06T05:03:50.441022+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "ft1-lawful-demon-v1",
+  "verdict": {
+    "computed_from": [
+      "L1_complete_zero",
+      "L2_blind_zero",
+      "L3_lumped_broken",
+      "L4_route_agreement"
+    ],
+    "value": "PASS"
+  }
+}

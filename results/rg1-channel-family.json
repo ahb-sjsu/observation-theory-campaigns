@@ -1,0 +1,56 @@
+{
+  "items": {
+    "B0_route_agreement": false,
+    "B1_odd_sector": true,
+    "B2_even_sector": true,
+    "B3_sectors_differ": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "amplitude_at_d8": {
+      "decimation": 0.0025202822629383716,
+      "majority": 0.0035688565182843577,
+      "pair": 5.067227181704837e-08,
+      "parity": 3.782871312324074e-08
+    },
+    "cross_sector_leakage": {
+      "decimation": 0.0,
+      "majority": 0.0,
+      "pair": 0.0,
+      "parity": 0.0
+    },
+    "lam1": 23.996400179342306,
+    "lam_even2": 3.4994017157303094,
+    "lam_odd": 12.334539247148218,
+    "leading_amplitude": {
+      "decimation": 0.7187048793428189,
+      "majority": 0.8556817126625443,
+      "pair": 0.49654829475273937,
+      "parity": 0.43005003448348156
+    },
+    "note_b4": "amplitudes within a sector differ across channels, spread recorded, no bar",
+    "route_rel_dev": 0.03859657406146646,
+    "xi_even": 0.5193963877751623,
+    "xi_odd": 1.502628629602521,
+    "xi_ratio": 2.8930286481949565
+  },
+  "record_sha256": "b706b30b833128a7cdcb9b7631b0d5df43f0f1e69adbc7d25911254bf1927f06",
+  "runtime": {
+    "code_commit": "6fd0a25",
+    "generated_utc": "2026-08-06T05:03:38.428997+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "rg1-channel-family-v1",
+  "verdict": {
+    "computed_from": [
+      "B0_route_agreement",
+      "B1_odd_sector",
+      "B2_even_sector",
+      "B3_sectors_differ"
+    ],
+    "value": "FAIL"
+  }
+}

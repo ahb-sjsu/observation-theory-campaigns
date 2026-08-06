@@ -1,0 +1,70 @@
+{
+  "items": {
+    "Q1_closed_form": true,
+    "Q2_monotone_records": true,
+    "Q3_full_plateau": true,
+    "Q4_weak_records_no_redundancy": true,
+    "Q5_basis_free_no_redundancy": false
+  },
+  "label": "exploratory",
+  "measured": {
+    "basis_free": {
+      "redundancy": 1,
+      "system_entropy_bits": 0.6646628562969217
+    },
+    "matched_exhibit": "at theta = pi, S(S) = 1.000000 with R = 6; basis-free S(S) = 0.664663 with R = 0",
+    "q1_max_closed_form_dev": 2.6645352591003757e-15,
+    "theta_ladder": {
+      "0.196350": {
+        "fragment1_mi_bits": 0.03907070706109772,
+        "record_overlap_c": 0.9951847266721969,
+        "redundancy": 0,
+        "system_entropy_bits": 0.10794571110614068
+      },
+      "0.392699": {
+        "fragment1_mi_bits": 0.11507845460534516,
+        "record_overlap_c": 0.9807852804032304,
+        "redundancy": 0,
+        "system_entropy_bits": 0.3070428487891057
+      },
+      "0.785398": {
+        "fragment1_mi_bits": 0.29034460727011446,
+        "record_overlap_c": 0.9238795325112867,
+        "redundancy": 0,
+        "system_entropy_bits": 0.6995227356529176
+      },
+      "1.570796": {
+        "fragment1_mi_bits": 0.6122364544606149,
+        "record_overlap_c": 0.7071067811865476,
+        "redundancy": 0,
+        "system_entropy_bits": 0.9886994082884976
+      },
+      "3.141593": {
+        "fragment1_mi_bits": 1.0,
+        "record_overlap_c": 6.123233995736766e-17,
+        "redundancy": 6,
+        "system_entropy_bits": 1.0
+      }
+    }
+  },
+  "record_sha256": "5f408992318741a4d5900a9480fa378f11aac93cb951cbff2ebed3c85b7ce92f",
+  "runtime": {
+    "code_commit": "6fd0a25",
+    "generated_utc": "2026-08-06T05:03:38.634894+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "qd1-emergence-v1",
+  "verdict": {
+    "computed_from": [
+      "Q1_closed_form",
+      "Q2_monotone_records",
+      "Q3_full_plateau",
+      "Q4_weak_records_no_redundancy",
+      "Q5_basis_free_no_redundancy"
+    ],
+    "value": "FAIL"
+  }
+}

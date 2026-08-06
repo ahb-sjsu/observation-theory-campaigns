@@ -1,0 +1,36 @@
+{
+  "items": {
+    "G1_invariants_agree": true,
+    "G2_detector_model_exact": true,
+    "G3_observers_disagree": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "elitzur_full": 0.0,
+    "g1_max_dev": 0.0,
+    "g2_max_dev": 0.0,
+    "loop_area2_full": 0.14548028783075295,
+    "max_pairwise_link_spread": 0.854519712169247,
+    "wilson_plaquette_full": 0.38032051536830963,
+    "winding_loops_found": 18,
+    "winding_max_reading": 0.0
+  },
+  "record_sha256": "4a0270f847e906180667cbef8566fd779cc636d93f2275c7a2f17209a433a7d8",
+  "runtime": {
+    "code_commit": "6fd0a25",
+    "generated_utc": "2026-08-06T05:03:51.896705+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gg1-observer-family-v1",
+  "verdict": {
+    "computed_from": [
+      "G1_invariants_agree",
+      "G2_detector_model_exact",
+      "G3_observers_disagree"
+    ],
+    "value": "PASS"
+  }
+}
