@@ -1,0 +1,98 @@
+{
+  "declared": {
+    "L": 64,
+    "M": 50,
+    "T": 300,
+    "amp": 0.1,
+    "f0": 0.35,
+    "gate": "9 prescriptions = cells {1,4,8} x cadence {1,2,4} on the stored k=1 per-column series, window [30,250], per-frame slope / cadence",
+    "model": "FHP-I, 64x64 even-r offset triangular torus, 6 channels, head-on pairs rotated +1 on even and -1 on odd steps, three-body 024<->135, collide then stream",
+    "seeds": {
+      "1": 20260821,
+      "2": 20260822
+    },
+    "verdict_split": "verdict from H2a, H2b, H2c only; H2d is a finding with a declared directional bar (spread <= 10 percent of mean), recorded individually",
+    "windows": {
+      "1": [
+        30,
+        250
+      ],
+      "2": [
+        15,
+        120
+      ]
+    }
+  },
+  "findings": {
+    "H2d_prescription_gate": {
+      "bar_passed": true,
+      "hypothesis": "rate is prescription-invariant, spread across the nine at most 10 percent of mean",
+      "outcome": "prescription-invariant",
+      "prescription_rates": {
+        "cell1_cad1": 0.008111129839995464,
+        "cell1_cad2": 0.00811053717419503,
+        "cell1_cad4": 0.008113054258349593,
+        "cell4_cad1": 0.00810839298930731,
+        "cell4_cad2": 0.008107301234409371,
+        "cell4_cad4": 0.00811155665641136,
+        "cell8_cad1": 0.008110055225977401,
+        "cell8_cad2": 0.008108613491743225,
+        "cell8_cad4": 0.00811054076027622
+      },
+      "spread": 5.753023940222035e-06,
+      "spread_over_mean": 0.0007093626148428557
+    }
+  },
+  "items": {
+    "H2a_shear_decays": true,
+    "H2b_diffusive_scaling": true,
+    "H2c_geometry_exact": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "boltzmann_comparison_nu": 0.7419831155038255,
+    "measured_viscosity_k1": 0.841800348142865,
+    "measured_viscosity_k2": 0.9549882872935147,
+    "note": "nu recorded as a value; the FHP-I Boltzmann estimate (1/12)/(f(1-f)^3) - 1/8 is comparison only, never a bar",
+    "selftests": {
+      "T1_displacement": true,
+      "T2_hexagon_closes": true,
+      "T3_conservation": true
+    },
+    "shear": {
+      "1": {
+        "decay_ratio": 0.16997121477773328,
+        "half1": 0.008307272952877082,
+        "half2": 0.007831458851261993,
+        "nu": 0.841800348142865,
+        "rate": 0.008113512129755248
+      },
+      "2": {
+        "decay_ratio": 0.02668792911793412,
+        "half1": 0.03503510767217669,
+        "half2": 0.04190777778269938,
+        "nu": 0.9549882872935147,
+        "rate": 0.03681779923148774
+      }
+    },
+    "shear_rate_ratio_k2_over_k1": 4.5378374546903375
+  },
+  "record_sha256": "de87e1801b4b46476cd7c59775a2fff5a21279b4191674d625f5748945e4443e",
+  "runtime": {
+    "code_commit": "8680384",
+    "generated_utc": "2026-08-06T05:36:44.430782+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "hd2-fhp-viscosity-v1",
+  "verdict": {
+    "computed_from": [
+      "H2a_shear_decays",
+      "H2b_diffusive_scaling",
+      "H2c_geometry_exact"
+    ],
+    "value": "PASS"
+  }
+}
