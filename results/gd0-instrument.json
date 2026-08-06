@@ -1,0 +1,51 @@
+{
+  "C1": {
+    "full_info": 0.578884739999538,
+    "no_info": 0.4813351455667798
+  },
+  "C2": {
+    "max_value_gain_under_garbling": 1.1102230246251565e-16
+  },
+  "C3": {
+    "forward_residual": 5.551115123125783e-17,
+    "reverse_residual": 0.26043015466978003
+  },
+  "C4": {
+    "grid": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45
+    ],
+    "ordering": "e1<=e2 iff garblable"
+  },
+  "C5": {
+    "reversal": true,
+    "task_a_prefers_A_by": 0.04999999999999999,
+    "task_b_prefers_A_by": -0.15000000000000002
+  },
+  "declared": {
+    "battery_size": 20,
+    "bsc_grid": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45
+    ],
+    "feasibility_tol": 1e-07
+  },
+  "label": "exploratory",
+  "record_sha256": "211d45dae0e2bc695a0cd5eddfe9ef27aceaff60bb5f1862dfc14325dfc3a2cb",
+  "runtime": {
+    "code_commit": "a9a5678",
+    "generated_utc": "2026-08-06T02:31:41.852429+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "gd0-instrument-v1",
+  "statement": "the decision-theoretic instrument layer is validated, exact experiment values on closed-form controls, garbling never raising any task value, certified detection with permutation equivalence, the binary-channel ordering reproduced across the grid, and an incomparable pair whose tasks reverse preference, the seed of GD-1; later GD experiments may now be designed against this layer"
+}
