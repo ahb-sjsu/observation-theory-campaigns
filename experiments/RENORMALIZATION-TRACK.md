@@ -188,6 +188,24 @@ where the theorem partition disagrees with the leading-odd
 eigenvector sign, the finite-distance correction to the RG-1
 sector picture. Exploratory label, results/rg2-flip.json.
 
+#### RG-2 results (run 2026-08-06, record sha in the record)
+
+Verdict FAIL on F2, and the failure is the declaration's choice of
+regime. The theorem and the exhaustive search certified each other
+exactly and the routes agreed, but at K = 0.3 and separation 4 the
+task-optimal accuracy is 0.6000482 against a predict-the-majority
+baseline of the same order, a signal at the 5e-5 level, and the
+fidelity criterion's 840-member tie set contains a partition
+matching it exactly, flip exactly zero. A flip cannot be measured
+where there is nothing to predict.
+
+#### RG-2b protocol (declared 2026-08-06, before the run)
+
+Identical to RG-2 except the regime, K = 0.6 and separation 2,
+where the odd correlation length makes the distant sign genuinely
+predictable. The named error, RG-2 declared a task with no signal.
+Exploratory label, results/rg2b-flip.json.
+
 ### RG-3: Universality gate
 
 Distinct declared microscopic models under one declared channel.

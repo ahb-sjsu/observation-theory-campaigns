@@ -130,6 +130,30 @@ watches invariants is second-order blind to the breaking that the
 link sector shouts. Exploratory label,
 results/gg2-gauss-replay.json.
 
+#### GG-2 results (run 2026-08-06, record sha in the record)
+
+Verdict FAIL on W3, and the failure is the declaration
+underestimating the substrate's silence. W1 and W2 passed, the
+zero point exact, every positive epsilon first-order loud in the
+link sector with response slope 1.0000, every sampled orbit
+strictly non-constant. The declared plaquette window [1.5, 2.5]
+assumed a generic quadratic response, but the measured slope is
+4.000003. The quadratic channel is closed exactly, at second order
+the deformation enters through pairs of links, and no two links
+form a closed loop with a plaquette on this graph, so the epsilon
+squared coefficient vanishes identically and the first surviving
+response is quartic, four deformation links closing a loop. The
+invariant sector is not second-order blind, it is fourth-order
+blind.
+
+#### GG-2b protocol (declared 2026-08-06, before the run)
+
+Identical to GG-2 except W3's plaquette window, now [3.5, 4.5],
+with the loop-parity argument above as the declared prediction.
+The named error, GG-2's window assumed a generic response the loop
+structure forbids. Exploratory label,
+results/gg2b-gauss-replay.json.
+
 ### GG-3: Minimal-coupling audit
 
 A declared matter field coupled to links. Measured, which coupled

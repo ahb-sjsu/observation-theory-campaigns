@@ -62,8 +62,11 @@ def restored_defect(paths, probs, works, rec_of_path, model_probs):
             * np.exp(-works[i])
         den[rec] = den.get(rec, 0.0) + model_probs[i]
     est = {rec: num[rec] / den[rec] for rec in num if den[rec] > 0}
+    # paths of exactly zero probability contribute nothing and may
+    # map to records the model never produces, skip them
     return float(sum(probs[i] * est[rec_of_path(p)]
-                     for i, p in enumerate(paths)))
+                     for i, p in enumerate(paths)
+                     if probs[i] > 0))
 
 
 def main() -> int:
