@@ -1,0 +1,42 @@
+{
+  "items": {
+    "S1_spurious_invariants_exact": true,
+    "S2_sound_dispersion": true,
+    "S3_conservation": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "column_py_exactly_conserved": true,
+    "row_px_exactly_conserved": true,
+    "sound": {
+      "1": {
+        "c_over_pred": 1.0084642673189756,
+        "omega": 0.07000763573459148
+      },
+      "2": {
+        "c_over_pred": 1.0122791814881102,
+        "omega": 0.14054493450270128
+      }
+    },
+    "sound_freq_ratio": 2.0075657894736847,
+    "withdrawn": "diffusive-scaling bar unmeasurable on HPP, the spurious invariants freeze shear, viscosity moves to the FHP design of HD-2"
+  },
+  "record_sha256": "cff6ae81ffaabfd193447c38371d07abce95ec3e2e18810be1d3fd473d241b57",
+  "runtime": {
+    "code_commit": "da18f01",
+    "generated_utc": "2026-08-06T05:09:47.001108+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "hd1b-transport-v1",
+  "verdict": {
+    "computed_from": [
+      "S1_spurious_invariants_exact",
+      "S2_sound_dispersion",
+      "S3_conservation"
+    ],
+    "value": "PASS"
+  }
+}
