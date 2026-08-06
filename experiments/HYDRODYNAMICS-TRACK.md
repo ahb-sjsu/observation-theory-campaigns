@@ -124,6 +124,20 @@ substrate without the spurious invariants, deferred to the HD-2
 design which will declare the FHP hexagonal gas. Exploratory
 label, results/hd1b-transport.json.
 
+#### HD-1b results (run 2026-08-05, record sha cff6ae81ffaa...)
+
+Verdict PASS, all three items. The per-column transverse momentum
+vector and the per-row longitudinal momentum vector are
+integer-exact constant at every one of 400 steps across the full
+ensemble, the two spurious invariants are now measured
+conservation laws, and the frozen shear mode of HD-1 is their
+corollary. The sound sector repeats its pass, measured sound speed
+1.008 and 1.012 of the lattice prediction, dispersion ratio 2.008,
+conservation integer-exact. The transport instrument is validated
+on the observables this substrate can relax, and the viscosity
+question moves to the FHP design of HD-2 with the pathology on
+record rather than discovered downstream.
+
 ### HD-2: The prescription gate for viscosity
 
 A declared family of coarse-graining prescriptions (cell size,

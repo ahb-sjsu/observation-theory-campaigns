@@ -133,6 +133,20 @@ R = 0. The named error, QD-1's control declared a sequence, and a
 sequence is structure. Exploratory label,
 results/qd1b-emergence.json.
 
+#### QD-1b results (run 2026-08-05, record sha d4b29d1738be...)
+
+Verdict PASS, all five items. The branching closed form holds to
+2.7e-15 at every angle, records grow monotonically, the full
+plateau appears at theta = pi with R = 6, weak records give R = 0,
+and the global Haar state carries system entropy 0.9945 bits with
+R = 0. The gate's reading, redundancy is declared-or-absent, the
+plateau appears exactly when and exactly as the declared
+interaction's basis dictates, maximal entanglement without a
+declared basis carries no redundancy at all, and QD-1's recorded
+finding stands alongside, even an interaction schedule with no
+declared basis can hand one observer a record through its causal
+order alone.
+
 ### QD-2: The budget knob
 
 Fragment size and interaction strength ladders. Measured, the

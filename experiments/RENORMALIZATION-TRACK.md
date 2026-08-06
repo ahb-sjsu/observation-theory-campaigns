@@ -139,6 +139,19 @@ of the same connected correlator. The named error, RG-1's B0
 subtracted means after powering rather than before. Exploratory
 label, results/rg1b-channel-family.json.
 
+#### RG-1b results (run 2026-08-05, record sha 8192a1c0af50...)
+
+Verdict PASS, all four items. The cancellation-free route agrees
+with the eigen-sum to 1.3e-14 in relative terms at every measured
+separation, and the physics stands as RG-1 measured it, cross-
+sector leakage exactly zero for every channel, leading amplitudes
+order one, sector correlation lengths 1.5026 and 0.5194, ratio
+2.893. The decay rate an observer reads is exactly its sector's
+eigenvalue ratio, and which sector, hence which correlation
+length, is selected by the declared channel. Correlation length is
+consumer-selected, not consumer-invented, the sectors themselves
+are the substrate's.
+
 ### RG-2: The flip in renormalization form
 
 Fidelity-optimal versus task-optimal coarse-grainings at fixed
