@@ -1,4 +1,4 @@
-\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+\documentclass[aps,pre,reprint,nofootinbib,floatfix]{revtex4-2}
 
 \usepackage{amsmath,amssymb,bm}
 \usepackage{array}
@@ -457,15 +457,16 @@ substrate without the spurious invariants.
   table[x=t, y=amp] {figdata/gen2_hd3_amp.dat};
 \nextgroupplot[
   xlabel={prescription index},
-  ylabel={fitted rate},
+  ylabel={fitted rate ($\times 10^{-3}$)},
   xtick={1,2,3,4,5,6,7,8,9},
-  xmin=0.4, xmax=9.6, ymin=0.00810, ymax=0.00812,
+  xmin=0.4, xmax=9.6, ymin=8.100, ymax=8.120,
   scaled y ticks=false,
   yticklabel style={/pgf/number format/.cd, fixed,
-    precision=5}]
+    fixed zerofill, precision=3}]
 \addplot[only marks, mark=*, mark size=2.2pt,
   blue!70!black]
-  table[x=idx, y=rate] {figdata/gen2_hd2_prescriptions.dat};
+  table[x=idx, y expr=\thisrow{rate}*1000]
+  {figdata/gen2_hd2_prescriptions.dat};
 \end{groupplot}
 \end{tikzpicture}
 \caption{The FHP shear mode and the prescription gate.  The upper
