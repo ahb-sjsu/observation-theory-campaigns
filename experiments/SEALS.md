@@ -23,3 +23,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | GENERATOR-G1 | experiments/GENERATOR-G1.md | 5150771 | 99f953d948ce88ba3f1264009bacab0b8ee97e47529739266c793258e27f2761 | 2026-08-07 | A. H. Bond (session instruction) |
 | GENERATOR-DOMAIN-POOL | experiments/GENERATOR-DOMAIN-POOL.md | 5150771 | c3e814a05753cf9fc050390900a908b181fd0f5f9b26c778f5c2398611ac85dd | 2026-08-07 | A. H. Bond (session instruction) |
 | GENERATOR-DOMAIN-POOL-V2 | experiments/GENERATOR-DOMAIN-POOL-V2.md | 9e16022 | 9503db7ed2254a870f3770b5b2d84dcc4071b4d842213a222aa1c18b09ed0ea6 | 2026-08-07 | A. H. Bond (session instruction) |
+| GENERATOR-DOMAIN-POOL-V3 | experiments/GENERATOR-DOMAIN-POOL-V3.md | a5589ae | 1589b0670d3aa6d5a6c161e8e3bf3735711475e4c7941e8103f789be9e5022c1 | 2026-08-07 | A. H. Bond (session instruction) |
