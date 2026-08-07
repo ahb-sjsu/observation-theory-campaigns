@@ -424,3 +424,18 @@ mechanism explained. Each was found by a declared test rather than
 by inspection, and the terminus was declared before the last run so
 that a fourth refinement could not become a search for a wanted
 answer.
+
+## Relation to PF-8
+
+PF-7f and PF-8 were run in the same window and their readings sit
+together. PF-8 measured that a same-species one-to-two decay is
+excluded by parity for complete worldlines, that the parity-even
+zigzag is imitable, and that a blind consumer reads that zigzag as
+a decay with missing energy at counts its own detector model
+predicts exactly. PF-7f measured that the same model carries no
+interference once its own overlap mechanism is accounted for. Taken
+together they place the model precisely, it reproduces the
+kinematics of pair events and the phenomenology of apparent decay
+under restricted observation, and it does not reproduce quantum
+phase structure. Both statements are measured and neither touches
+the kinematic fold theorem.
