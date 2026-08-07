@@ -47,7 +47,7 @@ nothing depends on the icon alone.
 | 🌊 HD | Hydrodynamics | Is a transport coefficient substrate or prescription, and is coarse dissipation entirely the observer's? | HD-0..HD-3 measured, first pass complete (HD-1 honest FAIL = HPP's spurious invariants, exactly): FHP-I relaxes the shear HPP froze, the viscosity is prescription-INVARIANT (spread 0.07% across nine prescriptions vs the 10% bar), and dissipation is declared-or-absent — the coarse decay is bit-exactly recoverable by the complete consumer, one lost bit ends the recovery (return ratio 0.018) |
 | 🌡️ FT | Fluctuation theorems | What happens to Jarzynski and Crooks for a consumer with a restricted channel? | COMPLETE first pass: FT-0..3 measured: fluctuation identities are inference theorems; the information term is the acting consumer's (Sagawa-Ueda exact, bystander fails) |
 | 🔗 GG | Gauge redundancy | Is gauge symmetry anything but the fiber structure of the observer's projection? | COMPLETE first pass: GG-0..3 measured: bookkeeping = relabeled loops, constraint isolated (invariants fourth-order blind), charge = line endpoints, bare matter = fiber coordinates |
-| ⚖️ UN | Uncertainty | Which part of a measurement uncertainty is a consumer's limitation and which part survives every admissible consumer? | Declared with three guards; UN-0 instrument PASS; UN-1 designed and unrun. Not a generator test domain and cannot become one |
+| ⚖️ UN | Uncertainty | Which part of a measurement uncertainty is a consumer's limitation and which part survives every admissible consumer? | UN-0 instrument PASS; UN-1 an honest FAIL on four of six bars, all three errors in the declaration and named; UN-1b PASS on all seven bars, the discriminator is sharp: the same ladder drives estimation error to zero reciprocally for both pairs while leaving single-shot prediction at exactly zero bits for the compatible pair and exactly one bit, unmoved to 3.2e-14, for the incompatible one. Not a generator test domain and cannot become one |
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 
 ## Status ledger, one row per experiment
@@ -810,15 +810,51 @@ five controls: the trivial consumer's record leaves both outcome
 entropies at one bit, a compatible pair reaches zero conditional
 entropy, an incompatible pair costs the full bit, the
 Maassen-Uffink bound is respected at four declared basis angles, and
-estimation error falls with copies. UN-1, the removability
-discriminator, is designed and unrun.
+estimation error falls with copies.
+
+UN-1, the removability discriminator, failed four of its six bars
+and the failures were all mine. The ladder began at one copy, where
+the declared estimation family has no member with finite error for
+a non-commuting pair. The reciprocal law was declared as constancy
+of a product that cannot be constant when the best allocation is an
+integer. And the anti-vacuity check demanded a richness the
+declared family cannot supply at the bottom of the declared ladder,
+so the guard against degenerate bars was itself degenerate. The
+half of the experiment that was in doubt passed and the half that
+is textbook is what broke.
+
+UN-1b, sealed with all three errors named, passes all seven bars.
+Estimation error times budget is constant at 1.5158 and 1.5880 for
+the two pairs across the ladder, sitting on the continuum optima
+the runner computes from the declared state, so budget removes that
+error reciprocally for both. Incompatibility costs about five
+percent more budget there and no floor at all. Single-shot
+prediction is exactly zero bits for the compatible pair at every
+rung including one copy, and exactly one bit for the incompatible
+pair at every rung, moving by 3.2e-14 across six rungs and sitting
+on the Maassen-Uffink value to the same precision.
+
+At the shared rung of four copies, on one substrate and one state,
+estimation says the two pairs cost almost the same and prediction
+says one is free and the other costs a whole bit. That
+disagreement, under one budget, is the result.
+
+The word irreducible here means irreducible across the family
+declared in PREREG-UN1-002 section 5 and means nothing wider, which
+is the track's own second guard applied to its own result. Whether
+the achievable floor sits above the standard bound in general is
+UN-2 and is unrun.
 
 This track supplies no evidence for the generator claim. quant-ph
 is on the exclusion list of the frozen domain pool because the QO
 and QD tracks helped build the kernel.
 
 Key files. `experiments/UNCERTAINTY-TRACK.md`,
-`python/un0_instrument.py`, `results/un0-instrument.json`.
+`experiments/PREREG-UN1-001.md` (failed, unedited) and
+`experiments/PREREG-UN1-002.md` (governing),
+`python/un0_instrument.py`, `python/un1_discriminator.py`,
+`python/un1b_discriminator.py`, and the three records in
+`results/`.
 
 ### 📜 FS, the limits of a formal consumer
 
@@ -917,7 +953,7 @@ Key files. `experiments/GENERATOR-G2.md` (governing),
 2. Claim-bearing results require a sealed preregistration naming the
    claim, the grid, the estimator, and the falsification bar before
    the run. Seals are git-blob hashes in `experiments/SEALS.md`
-   (seventeen entries: two instrument freezes, nine
+   (nineteen entries: two instrument freezes, eleven
    preregistrations, the generator operator and three successive
    domain pools, and one track sealed before it may run, all
    verifiable with `git show <commit>:<path> | sha256sum`).
