@@ -679,6 +679,63 @@ cleared the entry-point clause the Lorentzian could not, and the preregistration
 primary bar is the width universality that both well-conditioned profiles have shown
 at better than one percent.
 
+#### PF4-007 results (run 2026-08-07, record sha e12453effa2f...)
+
+Verdict PASS on all four items, after the same reciprocal-fit import that
+invalidated PF4-008's first execution was found in this runner and corrected. The
+diagnosis of the gate failure is confirmed. The Lorentzian transfer's successive
+relative changes along the span ladder are 1.278, 0.586, 0.130, and 0.015 percent,
+falling steadily, while the sech-squared transfer changes by at most 1e-13 across
+the same ladder, so the effect belongs to algebraic tails and not to the method. The
+exponent is far more robust than the transfer, changing by at most 0.28 percent
+between the nearest and furthest spans, and the Lorentzian width universality
+survives at the furthest span with a spread of 0.36 percent. The tail contribution
+lands in the prefactor and leaves the exponent, which is what the seal turned on.
+
+#### PF4-008b and PF4-008c results (2026-08-07)
+
+PF4-008b refuted its own declared repair. Halving the timestep left the conservation
+drift unchanged at 1.1e-10 and 2.0e-10, so the drift was not integration error and
+the repair was wrong.
+
+PF4-008c diagnosed it exactly. A hyperbolic tangent of twenty rounds to exactly one
+in double precision, so the arcsine form of the Gudermannian tilt saturates while
+its own derivative is still 2.6e-9 at that point. The two become mutually
+inconsistent in the tails, and because the Hamiltonian carries the tilt the
+inconsistency appears as an apparent conservation violation. The predicted size was
+1.115e-10 against a measured 1.12e-10. The sech-squared profile is immune because
+its force at the same point is 1.7e-17.
+
+Evaluating the tilt so that it saturates together with its derivative dropped the
+drift from 1.12e-10 to 7.6e-14, a factor of fifteen hundred, and moved the exponent
+only in its seventh digit, which is what the diagnosis predicted since the defect
+enters the transfer at a relative 1e-8. PF4-008c passes all eight of its items, and
+the discriminator's answer is unchanged, H2 holds and the singularity's order fixes
+the exponent alongside its distance.
+
+#### PREREG-PF4-009, the sealed result (record sha 6a4d6a28d309...)
+
+Verdict PASS on all six bars. The four fitted exponents on a grid disjoint from
+every prior run are -1.929735, -1.924383, -1.916823, and -1.909268 across widths
+spanning a factor of 2.56, a spread of 1.07 percent against a declared bar of two
+percent. Coefficients of determination are 0.9989 or better in every cell. The
+extended Hamiltonian drifts by at most 3.7e-13 against a bar of 1e-11, entry-point
+independence measures 9.2e-9 against 1e-7, every transfer lies inside the declared
+signal window, and no cell is nonfinite or folds.
+
+**The summit question of PREREG-PF4-002 now has a sealed answer.** A constructible
+family has a suppression whose exponent depends only on the adiabaticity built from
+the distance to the field's nearest complex singularity, and is therefore
+width-independent. Each crossing is deterministic with one declared initial
+condition, so no distribution exists whose tail could produce the suppression. The
+exponent is dynamical and it is not a measure tail.
+
+The non-claims of the registration bind the reading. The observable is the
+per-crossing transfer and not an event rate, and the step between them remains
+blocked by the cancellation the mechanism study measured. The constant multiplying
+the adiabaticity is not claimed. Nothing here is a claim about quantum field theory
+or about any physical process.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
