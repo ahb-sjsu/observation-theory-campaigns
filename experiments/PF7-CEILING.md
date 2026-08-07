@@ -216,3 +216,67 @@ ceiling.
 
 This run is post-processing of a committed record and adds no new
 dynamics. Exploratory label, results/pf7c-noise-floor.json.
+
+## PF-7c results (run 2026-08-07, record sha in the record)
+
+Verdict PASS on the three items, and the finding is the one the
+protocol named as the more interesting outcome. The null floor is
+confirmed high, null mean 0.2165 and null ninety-fifth percentile
+0.3310 on a thirty-two point curve at two thousand members per
+cell, so PF-7b's declared bar of 0.15 was indeed below the
+statistic's floor and unattainable by any curve of that length.
+
+The classical statistic 0.3626 sits above the null ninety-fifth
+percentile with a p-value of 0.0262, so the classical arm is not
+consistent with pure binomial noise at the declared level. The
+quantum statistic 0.8702 has a p-value of 0.0 against the same
+null. The ceiling reading is therefore withheld, exactly as the
+protocol required, and the result is escalated.
+
+The reading as it stands. The quantum arm interferes far beyond any
+noise floor. The classical arm carries some delay structure, which
+at a p-value of 0.0262 in a single realization is marginal, and
+whether it is a fluctuation or a mechanism is what PF-7d decides.
+
+## PF-7d protocol (declared 2026-08-07, before the run)
+
+The escalation, with a declared mechanism to test rather than a
+larger sample alone.
+
+The mechanism hypothesis. The hidden oscillator has frequency 1.2
+and therefore a ringing period of about 5.236 in proper time. Two
+pulses separated by a delay meet an oscillator still ringing from
+the first, so the second arrives in or out of phase with that
+ringing and the reversing fraction acquires delay structure at the
+oscillator's period. This is classical memory in a coordinate, not
+interference of amplitudes, and it is a different mechanism from
+the quantum arm's accumulated phase.
+
+The run. The bound field is unchanged. The ensemble is four times
+PF-7b's at eight thousand members per cell so the binomial noise
+halves, and the grid is twenty-four delays uniform in delay from
+8.0 to 20.0, because a ringing signal is periodic in delay while
+the quantum signal is periodic in its square.
+
+Items computing the verdict. R1, the anti-vacuity check, every
+cell's fraction lies strictly inside 0.02 to 0.98. R2, the decision
+is recorded either way.
+
+Findings, recorded individually with either outcome a result. R3,
+the structure survives the larger ensemble when the p-value against
+the same declared null is at most 0.05. R4, the peak sits at the
+ringing frequency when the largest nonzero-frequency bin is the bin
+nearest the oscillator's ringing frequency.
+
+The readings, declared in advance so the run can refute them. If R3
+and R4 both hold, the classical arm has delay structure from
+oscillator ringing, the ceiling stands in corrected form, the
+classical model shows classical memory and not the amplitude
+interference of the quantum arm, and the two are distinguished by
+mechanism rather than by the presence or absence of structure. If
+R3 holds and R4 fails, there is delay structure whose mechanism is
+not the declared one and it needs its own experiment. If R3 fails,
+PF-7c's marginal p-value was a fluctuation and the ceiling stands
+as originally read.
+
+Exploratory label, results/pf7d-ringing-test.json.
