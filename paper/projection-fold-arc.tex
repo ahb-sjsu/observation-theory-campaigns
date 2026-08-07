@@ -980,16 +980,16 @@ leaves the exponent alone.
   legend cell align=left]
 \addplot[gray!70!black, densely dotted, no marks, domain=1.25:4.95,
   samples=2] {-1.9200522391689598};
-\addlegendentry{sealed mean, spread 1.07 percent}
+\addlegendentry{sealed mean}
 \addplot[only marks, mark=*, mark size=2.4pt, blue!70!black]
   table[x=L, y=slope] {figdata/pf4_009_sealed.dat};
-\addlegendentry{sealed run, simple pole}
+\addlegendentry{sealed, simple pole}
 \addplot[only marks, mark=triangle*, mark size=2.6pt, teal!70!black]
   table[x=L, y=slope] {figdata/pf4_008c_gud.dat};
-\addlegendentry{exploratory, same singularity order}
+\addlegendentry{exploratory, simple pole}
 \addplot[only marks, mark=diamond*, mark size=2.6pt, orange!80!black]
   table[x=L, y=slope] {figdata/pf4_005b_lorentz.dat};
-\addlegendentry{exploratory, branch point at first order}
+\addlegendentry{exploratory, branch point}
 \addplot[only marks, mark=square*, mark size=2.0pt, red!70!black]
   table[x=L, y=slope] {figdata/pf4_008c_sech2.dat};
 \addlegendentry{exploratory, double pole}
@@ -998,7 +998,8 @@ leaves the exponent alone.
 \caption{Every fitted exponent of the summit sequence, plotted against
 the declared width of its field profile.  The four sealed values span
 widths differing by a factor of 2.56 and agree within 1.07 percent of
-their mean against a declared bar of two percent, which is the sealed
+their mean, which the dotted line marks, against a declared bar of two
+percent, and that agreement is the sealed
 claim that the exponent depends only on the adiabaticity built from the
 singularity distance and not on the width.  The two exploratory
 families whose nearest singularity is first order sit near the same
