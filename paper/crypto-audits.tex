@@ -47,27 +47,30 @@ secret-sharing scheme over a field of thirty-one elements, enumerated
 by integer counting over all 29791 outcomes, gives an information
 curve that is a step, exactly zero at every subset of shares below the
 declared threshold with the reader's posterior exactly the prior, and
-exactly the whole secret at every subset above it, with no subset of
-any size anywhere in between.  The campaign's naturally occurring
-redundancy plateau rose smoothly from 0.8118 to 1.9996 bits instead,
-so a declared threshold and a physical one differ in shape and the
-difference is that one of them was designed.  A declared control with
-short randomness carries 2.6323 bits to every single reader, so the
-zeros belong to the scheme rather than to the measurement, and a
-drafted control that publishes a redundant copy of a share carries
-exactly nothing, which is why the bar moved to the short-randomness
-control before the run rather than after it.  Declared leakage
-channels are experiments in Blackwell's sense, and a strictly positive
-conditional information proves non-garbling with no tolerance and no
-search, which is the transferable part of this work.  The channel that
-reads a Hamming weight carries twice the information of the channel
-that reads one bit and is still not above it in Blackwell's sense, the
-two conditional informations measuring 1.8113 and 0.7806 bits.  In two
-thousand declared random channel pairs, 268 pairs were ordered
-unanimously by all seven declared divergences while proved
+exactly the whole secret at every subset that reaches it, with no
+subset of any size anywhere in between.  The redundancy plateau the
+campaign found in an environment instead of placing it takes a
+different value at every one of its six fragment sizes, from 0.8118 to
+1.9996 bits, so a declared threshold and a plateau an interaction
+leaves behind differ in shape and the difference is that one of them
+was designed.  A declared control with short randomness carries 2.6323
+bits to each of its five single-share readers, so the zeros belong to
+the scheme rather than to the measurement, and a drafted control that
+publishes a redundant copy of a share carries exactly nothing, which
+is why the bar moved to the short-randomness control before the run
+rather than after it.  Declared leakage channels are experiments in
+Blackwell's sense, and whenever two of them read the same hidden
+quantity a strictly positive conditional information proves
+non-garbling with no tolerance and no search.  The channel that reads
+a Hamming weight carries more than twice the information of the
+channel that reads one bit and is still not above it in Blackwell's
+sense, the two conditional informations measuring 1.8113 and 0.7806
+bits.  In two thousand declared random channel pairs, 268 pairs were
+ordered unanimously by all seven declared divergences while proved
 incomparable, and every one of the 268 carried a declared task that
-strictly prefers the channel every divergence ranks as leakier, with
-no such reversal anywhere among the 867 comparable pairs.  The
+strictly prefers the channel every divergence ranks as the less leaky
+of the two, with no such reversal anywhere among the 867 comparable
+pairs.  The
 measured statement is that a reduction in a scalar leakage measure is
 not a guarantee for a reader's task outside certified comparability,
 and its constructive half is that the conditional information
@@ -113,8 +116,8 @@ oldest statement in the campaign's own language, a statement about
 what a reader can recover from what a reader can see
 \cite{Shannon1949}.
 
-The limit of what can be said here is severe and is stated once here,
-once in the abstract, and once in the ledger of
+The limit of what can be said here is stated once in the abstract,
+once here, and once in the ledger of
 Sec.~\ref{sec:claims}.  This paper measures exact finite models, so it
 can say nothing about computational hardness, nothing about asymptotic
 security, and nothing about any concrete algorithm or deployment.
@@ -124,7 +127,7 @@ is developed and no attack is evaluated.  What remains is
 evaluation methodology, meaning the reasoning that carries a leakage
 measurement to a conclusion about what a reader can do, and that
 reasoning can be audited exactly in settings where every alternative
-reading is computable rather than arguable.
+reading is computable rather than arguable \cite{Standaert2009}.
 
 Three claim types run through the paper and are never conflated.
 Instrument claims state that leakage informativeness, garbling
@@ -145,7 +148,7 @@ entropy measure was added to a battery after seeing the battery's
 verdict.  Channels, tasks, budgets, priors, ladders, seeds, and bars
 were written into the track document before the runs they govern.  One
 bar was moved before its run, because the object it was drafted
-against provably could not fail it, and the move and its reasoning
+against provably could not meet it, and the move and its reasoning
 were recorded in the track document before the run rather than
 afterward.  Sec.~\ref{sec:cr0} reports what that object measured.
 
@@ -156,12 +159,12 @@ secret sharing.  The second orders declared leakage channels by
 Blackwell's relation and replaces a search with a proof.  The third
 measures where a scalar leakage ordering and a task ordering disagree.
 The fourth prices one declared source for two consumers with different
-tasks.  The fourth run failed its declared bar on one clause, the
-failure is reported with the design error named, and the corrected
-registration is reported beside it.
+tasks, and it failed its declared bar on one clause.  That failure is
+reported with the design error named and the corrected registration is
+reported beside it.
 
-\section{An engineered redundancy plateau is a step and a natural one
-is a ramp}
+\section{An engineered redundancy plateau is a step and one left by an
+interaction is not}
 \label{sec:cr0}
 
 The substrate is Shamir's threshold scheme over the prime field with
@@ -228,20 +231,21 @@ $\log_2 31$ bits at three, four, and five, with no subset of any size
 taking an intermediate value.  The other curve is the campaign's
 earlier measurement of how much a fragment of an environment carries
 about a system after a declared interaction has written records into
-it, rising smoothly from 0.8118 to 1.9996 bits with the number of
-environment qubits read.  Both curves are read from committed evidence
-records.}
+it, rising from 0.8118 to 1.9996 bits with the number of environment
+qubits read and taking a different value at every fragment size.  Both
+curves are read from committed evidence records.}
 \label{fig:cr0}
 \end{figure}
 
-Figure~\ref{fig:cr0} places that curve beside the campaign's
-naturally occurring plateau.  In the quantum track a system interacts
+Figure~\ref{fig:cr0} places that curve beside the plateau the campaign
+found rather than placed.  In the quantum track a system interacts
 with an environment and an observer reads a fragment of the
-environment, and the information a fragment carries rose smoothly
+environment, and the information a fragment carries rose
 through 0.8118, 0.9571, 0.9998, 1.0426, 1.1878, and 1.9996 bits as
-the fragment grew from one environment qubit to six \cite{Gen2Paper}.
+the fragment grew from one environment qubit to six, a different value
+at every size \cite{Gen2Paper}.
 The height of that plateau and the speed of the approach to it are set
-by how strong the records the interaction wrote are.  The engineered
+by how strong the records written by the interaction are.  The engineered
 plateau has no approach at all.  It is a step, and it stands exactly
 where the designer put the threshold.  The comparison is between two
 declared models and is not a statement about physical systems.
@@ -258,7 +262,7 @@ five single-share readers carries
   \label{eq:l2}
 \end{equation}
 matching the closed form with deviation exactly $0.0$ and clearing the
-declared bar by a factor of 26, and its two-share readers all sit at
+declared bar by more than a factor of 26, and its two-share readers all sit at
 $\log_2 31$, the same step one rung earlier.  The instrument sees
 leakage when leakage exists.
 
@@ -269,9 +273,10 @@ redundant value formed by adding the secret to the coefficient.  That
 scheme cannot leak to any single reader, because every one of its six
 published values is the secret masked by an independent field-uniform
 quantity and is therefore exactly uniform and exactly independent of
-the secret, and its sixth value is bit for bit the first share.  A
-control that provably cannot fail its bar is not a control, so the
-bar moved to the short-randomness scheme before the run, and the
+the secret, and its sixth value is bit for bit the first share.  A bar
+whose outcome is settled before the run tests nothing, and this one
+was settled against the drafted scheme, so the bar moved to the
+short-randomness scheme before the run, and the
 drafted scheme was measured without a bar with its outcome predicted
 in advance so that the run could refute the prediction.  It did not.
 All six single-share informations came out exactly $0.0$, the sixth
@@ -345,6 +350,12 @@ $A$, so
 \end{equation}
 and a strictly positive left-hand side proves that $B$ is not a
 garbling of $A$ with no tolerance and no search involved.  The
+certificate needs a joint distribution of the key with both channels,
+which exists here because every declared channel reads the same
+substituted value.  Two channels given only as separate matrices have
+no such joint, and for those the campaign's earlier tools apply
+instead, a conic lower bound on the garbling residual and the
+monotonicity of an $f$-divergence.  The
 projected-gradient garbling search used elsewhere in the campaign was
 retained here only as a cross-check.  An earlier run in the campaign
 established incomparability by thresholding that search residual, the
@@ -370,16 +381,16 @@ key-recovery tasks, 200 seeded random utilities on sixteen actions
 plus the maximum-likelihood key-guessing task, with a worst task gain
 under garbling of $5.6 \times 10^{-17}$.
 
-The pair that matters is the incomparable one.  The Hamming-weight
+The remaining pair is the incomparable one.  The Hamming-weight
 channel carries $2.0306$ bits about the key and the low-bit channel
 carries exactly $1$, so a scalar comparison ranks the first above the
 second by better than a factor of two.  Yet $1.8113$ bits of the
 Hamming weight survive knowing the low bit and $0.7806$ bits of the
 low bit survive knowing the Hamming weight, so neither is a garbling
 of the other and no scalar comparison orders them for every task.
-Carrying twice as much information and being better for every task
-are different properties, and in this declared model the first holds
-while the second fails.  The next section measures how often the two
+Carrying more than twice as much information and being better for
+every task are different properties, and in this declared model the
+first holds while the second fails.  The next section measures how often the two
 part company and what happens to a reader's task when they do.
 
 \section{Unanimous scalar leakage orderings carry no task guarantee
@@ -388,34 +399,38 @@ outside certified comparability}
 
 A single declared secret bit, uniform, is read through channels into a
 declared four-symbol alphabet, so every channel is a two by four
-row-stochastic matrix and every scalar fidelity measure between the
-two conditional reading distributions is an $f$-divergence.  The
-declared battery holds seven, the two Kullback-Leibler directions,
-total variation, squared Hellinger, the two chi-squared directions,
-and Jensen-Shannon \cite{CoverThomas2006}.  The declared task battery
-holds 205, two hundred seeded random utilities on three actions and
-five commitment tasks in which a reader must guess the secret bit and
-pays a declared cost of $2$, $5$, $10$, $20$, or $50$ for being
-wrong.  A task reversal is a pair of channels in which all seven
+row-stochastic matrix.  The declared scalar battery compares the two
+conditional reading distributions with seven $f$-divergences, the two
+Kullback-Leibler directions, total variation, squared Hellinger, the
+two chi-squared directions, and Jensen-Shannon \cite{CoverThomas2006}.
+The declared task battery holds 205, two hundred seeded random
+utilities on three actions and five commitment tasks in which a reader
+may either decline or guess the secret bit, gaining $1$ for a correct
+guess and paying a declared cost of $2$, $5$, $10$, $20$, or $50$ for
+a wrong one.  A task reversal is a pair of channels in which all seven
 divergences strictly order one channel above the other and some
-declared task strictly prefers the other.
+declared task strictly prefers the other by more than the declared
+$10^{-6}$.
 
-The declared exhibit contrasts broad mild separation against a rare
-decisive symbol.  Channel $A$ has rows $(0.55, 0.25, 0.15, 0.05)$ and
-$(0.45, 0.25, 0.15, 0.15)$, so its two reading distributions differ a
-little on most symbols.  Channel $B$ has rows
-$(0.49, 0.49, 0.01, 0.01)$ and $(0.49, 0.49, 0.005, 0.015)$, so it is
-nearly blind except on a rare symbol that is three times more likely
-under one value of the secret.  The reasoning was declared before the
-run so that the run could refute it, and the run confirmed it.  All
-seven divergences order $A$ above $B$, the smallest margin being
-$0.0149$, while a declared commitment task prefers $B$ by $0.00212$
-because the rare decisive symbol is the only thing a reader who must
-commit can act on.  The pair is proved incomparable in both
-directions, the conic lower bound on any garbling residual measuring
-$0.00175$ in one direction and the total-variation difference
-measuring $0.095$ in the other, a garbling being unable to raise an
-$f$-divergence.  Neither of those two numbers is a search residual.
+The declared exhibit contrasts two channels that put their separation
+in different places.  Channel $A$
+has rows $(0.55, 0.25, 0.15, 0.05)$ and $(0.45, 0.25, 0.15, 0.15)$, so
+its two reading distributions differ by $0.10$ on the most likely
+symbol and by $0.10$ on the least likely one and agree exactly on the
+other two.  Channel $B$ has rows $(0.49, 0.49, 0.01, 0.01)$ and
+$(0.49, 0.49, 0.005, 0.015)$, so its two reading distributions agree
+exactly on the two symbols carrying almost all the mass and differ by
+$0.005$ on each of the two rare symbols, which are equally likely
+under one value of the secret and stand in the ratio one to three
+under the other.  The exhibit was declared before the run so that the
+run could refute it.  All seven divergences order $A$ above $B$, the
+smallest margin being $0.0149$, and a declared task prefers $B$ by
+$0.00212$, so the exhibit met its bar.  The pair is proved
+incomparable in both directions, the conic lower bound on any garbling
+residual measuring $0.00175$ in one direction and the total-variation
+difference measuring $0.095$ in the other, a garbling being unable to
+raise an $f$-divergence.  Neither of those two numbers is a search
+residual.
 
 \begin{figure}[t]
 \centering
@@ -434,9 +449,10 @@ $f$-divergence.  Neither of those two numbers is a search residual.
 \end{axis}
 \end{tikzpicture}
 \caption{The declared ensemble of 2000 random leakage channel pairs.
-The first three bars partition the ensemble by certificate, comparable
-when a garbling is certified in some direction, incomparable when both
-searches are refused above the declared 0.01, ambiguous otherwise and
+The first three bars partition the ensemble by comparability,
+comparable when one of the two garbling searches lands inside the
+instrument's feasibility tolerance, incomparable when both leave a
+residual above the declared 0.01, ambiguous otherwise and
 excluded as declared.  The last two bars are subsets of the
 incomparable class, pairs ordered unanimously by all seven declared
 divergences and pairs whose unanimous ordering is reversed by a task
@@ -452,10 +468,9 @@ checked them against the full task battery.  No divergence rose under
 any garble, the smallest drop in the required direction measuring
 $0.00262$, and no task value rose by more than
 $3.3 \times 10^{-16}$, which is Blackwell's theorem and the
-data-processing inequality holding inside the instrument.  A
-violation there would have indicted the instrument rather than the
-theorems.  The localization item classified a declared ensemble of
-2000 seeded random channel pairs by certificate and required every
+data-processing inequality holding inside the instrument.
+The localization item classified a declared ensemble of
+2000 seeded random channel pairs by comparability and required every
 task reversal to fall in the incomparable class.
 Figure~\ref{fig:cr2} shows the outcome, 867 comparable, 856
 incomparable, 277 ambiguous, and zero task reversals among the
@@ -477,14 +492,16 @@ reports disagree.  This is a statement about evaluation methodology
 in declared finite models.  It is not a claim that any countermeasure,
 implementation, or system is insecure, and none was modeled.  The
 constructive half of the statement matters as much and is measured by
-the same runs.  Equation~\eqref{eq:cert} decides comparability by
-proof rather than by search, comparability is common rather than rare
-in this ensemble at 867 of 2000 pairs, and Blackwell's theorem held
-exactly where it must, since not one comparable pair carried a
-reversal.  An evaluation that first establishes comparability may
-therefore rely on its scalar ordering for every task, and the
-certificate is cheap enough to compute for any pair of declared
-finite channels.
+the same runs.  Comparability is common rather than rare in this
+ensemble at 867 of 2000 pairs, and Blackwell's theorem held exactly
+where it must, since not one comparable pair carried a reversal.  An
+evaluation that first establishes comparability may therefore rely on
+its scalar ordering for every task.  Establishing it is cheapest when
+the two channels read the same hidden quantity, because
+Eq.~\eqref{eq:cert} then settles the question by proof.  The channels
+of this ensemble are drawn as separate matrices with no shared
+reading, so they were classified by the garbling search against the
+declared tolerances instead.
 
 \section{The difference between two entropy accountings turns over and
 their ratio does not}
@@ -492,12 +509,13 @@ their ratio does not}
 
 The same declared source is read by two consumers.  One averages over
 many independent reads and is charged the Shannon entropy.  One makes
-a single guess and is charged the min-entropy.  Neither accounting is
-a property of the source alone.  This run measures where they
-diverge, and it is the run that failed a declared bar.
+a single guess and is charged the min-entropy.  Both accountings are
+functions of the source alone, and which of them prices the source
+correctly is set by the consumer's task.  This run measures where the
+two part company, and it is the run that failed a declared bar.
 
-Two declared families of sources on an alphabet of 32 outcomes carry
-every probability as an exact rational.  Family $U$ places
+The substrate is two declared families of sources on an alphabet of 32
+outcomes, every probability an exact rational.  Family $U$ places
 $1/32 + \epsilon$ on outcome zero and spreads the rest uniformly, with
 $\epsilon$ on the declared ladder $0$, $0.01$, $0.05$, $0.15$, $0.30$,
 $0.60$, $0.90$, so the first member is exactly uniform and the last is
@@ -509,7 +527,7 @@ distribution is built from exact rationals so the probabilities sum to
 exactly one and the code construction compares rationals rather than
 rounded floats.
 
-Three instrument items passed sharply and were unchanged by the
+Three instrument items passed and were unchanged by the
 correction.  Summed Shannon entropy agrees with its closed form at
 every one of the ten declared sources to $8.9\times10^{-16}$, and the
 min-entropy computed from the exact numerator and denominator of the
@@ -564,7 +582,8 @@ declared ladder.  The top panel shows what the averaging consumer and
 the single-guess consumer are charged.  The middle panel shows the
 number of bits separating them, which rises for four ladder steps and
 falls for two, with the star marking the interior maximum located by
-bisection on the closed-form derivative at spike weight 0.35338, where
+bisection on the closed-form derivative at spike weight 0.35338,
+meaning a spike excess of 0.32213, where
 the separation reaches 2.6398 bits.  The declared ladder came within
 0.0045 bits of that maximum and stepped over it.  The bottom panel
 shows the fraction of the averaging consumer's accounting that
@@ -603,8 +622,9 @@ from.
 
 The correction replaced the refuted clause with a monotone statement
 the substrate supports and added the location of the interior maximum
-as a measurement, changing nothing else.  The ratio of the two
-accountings falls strictly along the whole $\epsilon$ ladder, through
+as a measurement, changing nothing else.  The ratio of the
+single-guess accounting to the averaging accounting falls strictly
+along the whole $\epsilon$ ladder, through
 $1.0$, $0.9203$, $0.7304$, $0.5199$, $0.3769$, $0.2390$, $0.1464$, and
 strictly along the whole $q$ ladder, through $0.2876$, $0.1576$,
 $0.1112$.  The closed-form derivative of the difference with respect
@@ -634,7 +654,7 @@ The measurement that carried no bar in either registration is the
 key-material case.  For a source with half its mass on one outcome and
 half spread uniformly over the remaining 31, the averaging consumer is
 charged $3.477098155193437$ bits and the single-guess consumer is
-charged exactly $1$ bit, a factor of $3.48$ between the two prices.
+charged exactly $1$ bit, a factor of $3.477$ between the two prices.
 The single guess succeeds with probability exactly $0.5$ and a Huffman
 code for the same source averages $3.4839$ bits per symbol.  Both
 numbers are correct readings of one substrate and the disagreement is
@@ -680,7 +700,7 @@ $5.6\times10^{-17}$ & instrument, and measured in model, exploratory \\
 CR-2 scalar orderings against tasks & PASS & exhibit proved
 incomparable, conic bound 0.00175 and total-variation difference
 0.095, all seven divergences ordering $A$ above $B$ by at least
-0.0149 while a declared commitment task prefers $B$ by 0.00212,
+0.0149 while a declared task prefers $B$ by 0.00212,
 garbling control over 500 pairs with worst task gain
 $3.3\times10^{-16}$, ensemble of 2000 pairs giving 867 comparable,
 856 incomparable, 277 ambiguous, 268 unanimous among the
@@ -732,8 +752,8 @@ costs 3.477 bits to a consumer who averages and exactly 1 bit to a
 consumer who guesses once.  How a redundancy plateau approaches its
 height depends on whether a designer placed it, since the engineered
 plateau is a step with nothing in between while the plateau the
-quantum track found rose smoothly with the strength of the records
-that produced it.
+quantum track found takes a different value at every fragment size,
+its height and its approach set by how strong the records are.
 
 Two findings are the opposite, properties no declared consumer moves.
 Below the declared threshold the secret-sharing scheme gives every
@@ -743,30 +763,30 @@ And a garbling never helps any task, which held across every declared
 control here at the level of $10^{-16}$, so wherever comparability is
 certified a scalar ordering is a task ordering.  The constructive
 consequence is stated with the negative one and measured by the same
-runs.  The certificate of Eq.~\eqref{eq:cert} decides comparability by
-proof with no threshold, and an evaluation that establishes
-comparability may rely on its scalar ordering.
+runs.  For two channels that read the same hidden quantity the
+certificate of Eq.~\eqref{eq:cert} decides comparability by proof with
+no threshold, and an evaluation that establishes comparability may
+rely on its scalar ordering.
 
-The run that failed is part of the result.  A declared clause demanded
+A declared clause demanded
 that the number of bits separating two accountings increase along a
 ladder of sources, the ladder was long enough to reach the far end,
 and the difference turned over because both accountings vanish
 together on a source that is almost certain.  The design error was in
 the choice of quantity rather than in the substrate or the
-instrument, and the corrected registration measures the ratio, which
+instrument.  The corrected registration measures the ratio, which
 is monotone, and locates the maximum of the difference, which is
-interior.  A campaign that computes its verdicts from declared items
-records that sequence rather than the endpoint.
+interior.  Both registrations are kept.
 
 These are structural results about declared finite models carrying the
 campaign's exploratory label.  They are about evaluation methodology.
 They do not show that any real cipher, protocol, implementation, or
 deployed system is strong or weak, no experiment reported here can
-bear on that question, and no attack was developed or evaluated.  A
-reader who wants to carry anything from this paper into practice can
-carry one thing, which is that the certificate is computable and
-settles by proof whether a scalar leakage comparison in a declared
-finite model is a comparison for every task.
+bear on that question, and no attack was developed or evaluated.  The
+one object here that does not depend on the substrates measured is the
+certificate, which settles by proof whether a scalar comparison
+between two declared finite channels that read the same hidden
+quantity is a comparison for every task.
 
 \section{Methods and reproducibility}
 \label{sec:methods}
@@ -777,12 +797,11 @@ falsification bars were declared in the track document before the runs
 they govern, per the anti-circularity contract, and verdicts are
 computed from the declared items rather than written first.  One bar
 was moved before its run, when the object it had been drafted against
-was shown to be incapable of failing it, and the move, the reasoning,
+was shown to be incapable of meeting it, and the move, the reasoning,
 and a prediction for the abandoned object were written into the track
 document before the run so that the run could refute the prediction.
-Recording a pre-run deviation is not the same as applying one
-silently, and the record carries both the moved bar and the abandoned
-object's measured values.
+The record carries both the moved bar and the abandoned object's
+measured values.
 
 Every result-bearing run writes an append-only JSON evidence record
 containing the declared parameters, the measured outcomes, the
@@ -800,8 +819,8 @@ corrected declaration is a separate record, so the sequence of
 verdicts is itself part of the evidence.  A reducer may summarize
 records but may not rewrite them.
 
-Every number and every figure coordinate in this paper is read from
-those committed records.  The figure tables are generated
+Every measured number and every figure coordinate in this paper is
+read from those committed records.  The figure tables are generated
 deterministically by a committed script, \texttt{make\_figdata\_cr.py},
 which uses only the Python standard library and has no free
 parameters, and which asserts each value typed in this paper against
@@ -818,9 +837,12 @@ all 29791 outcomes and the CR-3 and CR-3b substrates were built from
 exact rationals, so in those runs the only floating-point operations
 are the logarithms and the compensated sums that turn exact counts and
 exact rationals into bits.  The CR-1 and CR-2 runs compute exact
-finite sums over declared joint distributions.  All five runs
-executed on a single workstation in seconds and require no special
-hardware.
+finite sums over declared joint distributions.  The CR-2 comparability
+classification is made by the projected-gradient garbling search of
+the campaign's decision-theoretic instrument against the declared
+tolerances, and CR-1 uses that search only as a cross-check against
+the certificate.  All five runs executed on a
+single workstation and require no special hardware.
 
 \begin{thebibliography}{9}
 
@@ -867,7 +889,7 @@ A unified framework for the analysis of side-channel key recovery
 attacks,
 in \emph{Advances in Cryptology, EUROCRYPT 2009},
 Lecture Notes in Computer Science Vol.~5479
-(Springer, Berlin, 2009), p.~443.
+(Springer, Berlin, 2009).
 
 \bibitem{GamesPaper}
 A.~H.~Bond,

@@ -107,9 +107,10 @@ assert all(abs(v - l2[0]) == 0.0 for v in l2), "L2 shares differ"
 assert all(abs(v - log2_31) == 0.0
            for v in m0["s4_l2_pair_mi_bits"]), "L2 pairs off plateau"
 check_exact("CR-0 leak bar", cr0["declared"]["leak_bar_bits"], 0.1)
-# The paper says L2 clears its declared bar by a factor of 26.
-assert int(l2[0] / cr0["declared"]["leak_bar_bits"]) == 26, \
-    "L2 bar factor is not 26"
+# The paper says L2 clears its declared bar by more than a factor
+# of 26.
+assert l2[0] / cr0["declared"]["leak_bar_bits"] > 26.0, \
+    "L2 clears its bar by less than a factor of 26"
 CHECKS += 1
 
 check_exact("CR-0 L1 single-share informations",
@@ -127,6 +128,13 @@ check_exact("QD-0 curve carried in the CR-0 record matches QD-0",
 for i, typed in enumerate([0.8118, 0.9571, 0.9998, 1.0426, 1.1878,
                            1.9996]):
     check(f"QD-0 curve point {i}", qd_curve[i], typed, 5e-5)
+# The paper says the environment curve takes a different value at
+# every fragment size while the engineered curve takes two values
+# across all 31 nonempty subsets.
+assert len(set(qd_curve)) == len(qd_curve), "QD-0 curve repeats a value"
+assert len(set(m0["s3_shamir_mi_curve_bits"])) == 2, \
+    "the engineered curve does not take exactly two values"
+CHECKS += 2
 check_declared("CR-0 substrate",
                "Shamir secret sharing over the prime field GF(31) with")
 check_declared("CR-0 threshold and share count",
@@ -155,8 +163,8 @@ check("CR-1 Hamming-weight information", mi["hw"], 2.0306, 5e-5)
 check("CR-1 low-bit information", mi["lsb"], 1.0, 0.0)
 check("CR-1 noisy information", mi["noisy_hw"], 0.8867, 5e-5)
 check("CR-1 constant information", mi["const"], 0.0, 0.0)
-# The paper says the Hamming-weight channel carries twice the
-# low-bit channel's information and is still not above it.
+# The paper says the Hamming-weight channel carries more than twice
+# the low-bit channel's information and is still not above it.
 assert mi["hw"] > 2.0 * mi["lsb"], "hw does not exceed twice lsb"
 CHECKS += 1
 
@@ -393,8 +401,8 @@ check("key-material single-guess accounting", e5["min_entropy_bits"],
       1.0, 0.0)
 check("key-material ratio", e5["min_over_shannon_ratio"], 0.2876,
       5e-5)
-check("key-material factor", e5["shannon_over_min_factor"], 3.48,
-      5e-3)
+check("key-material factor", e5["shannon_over_min_factor"], 3.477,
+      5e-4)
 check("key-material single-guess success", e5["single_guess_success"],
       0.5, 0.0)
 check("key-material Huffman mean length", e5["huffman_mean_length"],

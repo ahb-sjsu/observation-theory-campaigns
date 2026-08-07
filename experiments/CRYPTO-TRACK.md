@@ -382,6 +382,26 @@ wedge, which is Blackwell's theorem holding as it must. GD-1
 measured 281 of 281 in decision form and CR-2 measures 268 of 268
 in leakage form.
 
+Correction to the CR-2 results prose, recorded 2026-08-06 during the
+proofread of the paper. The paragraph above and the drafted exhibit
+reasoning both attributed the task that prefers B to a commitment
+task. That attribution is wrong. Recomputing the declared battery
+from the committed runner and the declared seed, the task that
+prefers B by 0.0021156 is one of the two hundred random three-action
+utilities, and no commitment task prefers B. Four of the five
+commitment tasks value both channels at zero, because with a cost of
+5 or more for a wrong guess neither channel ever makes a commitment
+worth taking, and the fifth, at cost 2, prefers A by 0.025. The
+declared bar F1 asked only that some declared task prefer B by more
+than 0.002, so the bar and the verdict are unaffected and the record
+is unchanged. What is refuted is the second half of the drafted
+reasoning, that the rare decisive symbol is what a high-cost
+commitment task can act on. The commitment tasks carry an abstain
+action, so a reader who is never confident enough to commit simply
+declines, and neither channel reaches the confidence a high cost
+demands. The paper states only what the record holds, that a declared
+task prefers B by 0.00212.
+
 The reading, as declared in advance. A reduction in a scalar
 leakage measure is not a security guarantee outside certified
 Blackwell comparability, because the ordering a scalar measure
