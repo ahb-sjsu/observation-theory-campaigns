@@ -1,4 +1,4 @@
-\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+\documentclass[aps,pre,reprint,nofootinbib,floatfix]{revtex4-2}
 
 \usepackage{amsmath,amssymb,bm}
 \usepackage{array}
@@ -15,7 +15,7 @@
     grid=major, grid style={gray!20},
     tick label style={font=\footnotesize},
     label style={font=\footnotesize},
-    legend style={font=\footnotesize, draw=none, fill=none},
+    legend style={font=\footnotesize, draw=gray!45, fill=white},
     line width=0.9pt}}
 
 \begin{document}
@@ -806,14 +806,17 @@ measured values.
 Every result-bearing run writes an append-only JSON evidence record
 containing the declared parameters, the measured outcomes, the
 computed verdict, and a canonical SHA-256 hash of the record body.
-The records for this paper are \texttt{cr0-instrument.json},
-\texttt{cr1-leakage-ordering.json},
-\texttt{cr2-countermeasure-flip.json},
-\texttt{cr3-task-entropy.json}, and \texttt{cr3b-task-entropy.json} in
+The records for this paper are \texttt{cr0-\allowbreak instrument.json},
+\texttt{cr1-\allowbreak leakage-\allowbreak ordering.json},
+\texttt{cr2-\allowbreak countermeasure-\allowbreak flip.json},
+\texttt{cr3-\allowbreak task-\allowbreak entropy.json}, and
+\texttt{cr3b-\allowbreak task-\allowbreak entropy.json} in
 the campaign repository, with the committed runners
-\texttt{cr0\_instrument.py}, \texttt{cr1\_leakage\_ordering.py},
-\texttt{cr2\_countermeasure\_flip.py},
-\texttt{cr3\_task\_entropy.py}, and \texttt{cr3b\_task\_entropy.py}
+\texttt{cr0\_\allowbreak instrument.py},
+\texttt{cr1\_\allowbreak leakage\_\allowbreak ordering.py},
+\texttt{cr2\_\allowbreak countermeasure\_\allowbreak flip.py},
+\texttt{cr3\_\allowbreak task\_\allowbreak entropy.py}, and
+\texttt{cr3b\_\allowbreak task\_\allowbreak entropy.py}
 alongside them.  The failed CR-3 record is retained unchanged and the
 corrected declaration is a separate record, so the sequence of
 verdicts is itself part of the evidence.  A reducer may summarize
@@ -821,7 +824,8 @@ records but may not rewrite them.
 
 Every measured number and every figure coordinate in this paper is
 read from those committed records.  The figure tables are generated
-deterministically by a committed script, \texttt{make\_figdata\_cr.py},
+deterministically by a committed script,
+\texttt{make\_\allowbreak figdata\_\allowbreak cr.py},
 which uses only the Python standard library and has no free
 parameters, and which asserts each value typed in this paper against
 the record value it came from before it writes anything, so a record
