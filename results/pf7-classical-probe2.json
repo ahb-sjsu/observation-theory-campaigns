@@ -1,0 +1,47 @@
+{
+  "declared": {
+    "candidate_delays": [
+      8.0,
+      11.0,
+      14.0,
+      17.0,
+      20.0
+    ],
+    "rule": "PF-7b binds this delay range only if every probed delay lies inside the window",
+    "stage_one_field": 0.675507688522339,
+    "window": [
+      0.15,
+      0.85
+    ]
+  },
+  "label": "exploratory",
+  "measured": {
+    "E_bound": 0.675507688522339,
+    "fraction_by_delay": {
+      "11.0": 0.4945,
+      "14.0": 0.475,
+      "17.0": 0.4835,
+      "20.0": 0.4955,
+      "8.0": 0.5245
+    },
+    "half_delay_range": [
+      4.0,
+      10.0
+    ],
+    "half_delay_squared_range": [
+      16.0,
+      100.0
+    ],
+    "in_window": true
+  },
+  "record_sha256": "e121b8e1e63fc3dfa7dd4aa8d7b50a9cef53ff2602533a3255dfd91b329b466a",
+  "runtime": {
+    "code_commit": "81a4ba8",
+    "generated_utc": "2026-08-07T00:30:12.401422+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf7-classical-probe2-v1"
+}
