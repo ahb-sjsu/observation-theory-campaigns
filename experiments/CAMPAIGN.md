@@ -520,6 +520,60 @@ halving the timestep each change the transfer by at most 1e-8 relative.
 This run is the prerequisite for a preregistration and not a substitute for one.
 Exploratory and unsealed, `results/pf4-006-gate.json`.
 
+#### PF4-006 gate results (run 2026-08-07, record sha 42e2eb1923c7...)
+
+Verdict FAIL on the entry-point clause, and the gate did the job it exists to do.
+It found a defect in the observable's definition before anything about that profile
+was sealed.
+
+What passed. The conserved quantity of the extended system drifts by at most 8.6e-14
+across every declared crossing, four orders inside its bar. The census is complete
+with no nonfinite member and every crossing transmitted. Translation covariance is
+exact to 8.8e-14, so the transfer does not care where the field is centred.
+
+What failed. Moving the entry point from twenty widths to thirty changes the
+transfer by 1.289, 1.295, and 1.291 percent at the three widths, against a bar of
+1e-10. The changes are nearly identical across widths. The declared diagnosis is
+that the arctangent tilt approaches its asymptote algebraically rather than
+exponentially, so the field never fully turns off and a transfer measured from any
+finite entry carries a tail contribution.
+
+A second clause missed by a smaller margin and for a different reason. Halving the
+timestep changes the transfer by about 3e-7 against the same 1e-10 bar. That is a
+bar set tighter than the declared timestep can deliver and is a fault in the
+declaration rather than in the profile.
+
+The consequence for the summit result. PF4-005b measured its exponents at a span of
+twenty widths, so those numbers carry this tail contribution. Because the
+contribution is nearly common across widths it should move the fitted intercept far
+more than the fitted exponent, but that is a hypothesis and not a measurement, and
+no seal may rest on it until it is measured.
+
+#### PF4-007 protocol (declared 2026-08-07, before the run)
+
+Measure the convergence rather than assume a fix. A declared span ladder of 20, 30,
+45, 65, and 90 widths is applied to one probe cell of each profile, and the
+exponent itself is refitted at the nearest and furthest spans for every width of
+both profiles.
+
+Bars. S1, the Lorentzian transfer converges, its successive relative changes
+decreasing along the ladder. S2, the sech-squared transfer is already converged, its
+successive changes at most 1e-9, which is the control that the effect belongs to
+algebraic tails. S3, the exponent is robust to the span, changing by at most one
+percent between the nearest and furthest spans in every cell of both profiles. S4,
+the width universality survives at the furthest span, the Lorentzian exponents
+agreeing within two percent of their mean.
+
+The reading and what it decides. If S3 and S4 hold, the summit result stands as
+measured, the tail contribution lands in the prefactor rather than the exponent, and
+a preregistration may declare the furthest span with a timestep bar set from the
+measured convergence. If S3 or S4 fails, the exponent measured at twenty widths was
+contaminated, PF4-005b's numbers must be reported as span-dependent, and the summit
+answer weakens to a statement about one declared span rather than about the
+crossing.
+
+Exploratory and unsealed, `results/pf4-007-span.json`.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
