@@ -4,25 +4,38 @@
 The standing rule after PF5-001 and PF6-001 is that every registration
 must cite a probe verifying event presence per bound cell and member,
 and must fix its declared numbers from a committed probe record. PF-8
-needs three numbers it cannot invent. The first is the level window in
-which each bound deterministic member is observed in the pair-creation
-configuration, both worldline endpoints on the same side of the level,
-so the complete observer's unsigned branch count is even and the signed
-count is zero. The second is the distribution of the transverse
-coordinate u at the branch crossings, from which the blind consumer's
-window is declared. The third is the step range in which thermal
-members reverse, from which the PF-8b survival ladder is declared.
+needs three numbers it cannot invent. The first is the level ladder on
+which each bound deterministic member is observed, fine enough to
+resolve the branch-count change across each fold. The second is the
+distribution of the transverse coordinate u at the branch crossings,
+from which the blind consumer's window is declared. The third is the
+step range in which thermal members reverse, from which the PF-8b
+survival ladder is declared.
 
 This probe measures all three and records them. It declares nothing
 and binds nothing.
 
+A first pass of this probe, run at commit aff9b49, placed the levels
+in the window where both worldline endpoints lie on the same side of
+the level, which is the pair-creation configuration with even branch
+count and zero signed count. It measured that window empty. Every one
+of the four bound members ends at its own largest observed time,
+t_end equal to t_max, and starts at its own smallest, so both
+candidate windows have width exactly zero and all nineteen levels
+were refused. The bound members are through-going, one branch in and
+one branch out, which is the configuration a decay question wants
+anyway. The level rule below is the corrected one, a uniform ladder
+across the full observed span from t_start to t_end, and the parity
+statement it supports is that the unsigned branch count changes by an
+even amount across every fold, so a through-going worldline shows an
+odd count at every level and can never read one becoming two.
+
 Arm A. The four PF6-002 probe-verified members, integrated with the
 frozen PF-6 instrument at the sealed step budget. Recorded per member,
 the fold count, the worldline endpoints, the extreme observed times,
-the candidate level windows and their widths, the declared level
-ladder inside the chosen window, and for every level the unsigned
-crossing count together with the sorted u coordinate of each crossing.
-Pooled quantiles of every crossing u follow.
+the fold times, the level ladder, and for every level the unsigned
+crossing count, the signed count, and the sorted u coordinate of each
+crossing. Pooled quantiles of every crossing u follow.
 
 Arm B. One PF5-002 cell, coarse ladder in the step cap, giving the
 cumulative count of thermal members that have reversed by each cap.
@@ -58,14 +71,14 @@ MEMBERS = [(0.60, 0.8957885742187499, 3.0),
            (0.80, 1.2020141601562502, 3.0),
            (0.90, 1.3605468750000003, 2.0)]
 N_STEPS = 40_000
-LEVEL_FRACTIONS = [0.05 * k for k in range(1, 20)]
+LEVEL_FRACTIONS = [k / 100.0 for k in range(1, 100)]
 
 # arm B, one PF5-002 cell
 LADDER_CELL = (0.60, 0.8957885742187499)
 LADDER_N = 1_000
 LADDER_SEED = 8_800_000
-LADDER_CAPS = [4_000, 8_000, 12_000, 16_000, 18_000, 20_000, 22_000,
-               24_000, 28_000, 32_000, 36_000, 60_000]
+LADDER_CAPS = [16_000, 18_000, 20_000, 22_000, 24_000, 26_000,
+               28_000, 32_000, 60_000]
 
 
 def crossing_u(ts, pts, us, level, dt):
@@ -99,16 +112,7 @@ def main() -> int:
         t_min, t_max = float(ts.min()), float(ts.max())
         upper_width = t_max - hi
         lower_width = lo - t_min
-        if upper_width >= lower_width:
-            window = (hi, t_max)
-            side = "upper"
-            width = upper_width
-        else:
-            window = (t_min, lo)
-            side = "lower"
-            width = lower_width
-        levels = [window[0] + f * (window[1] - window[0])
-                  for f in LEVEL_FRACTIONS]
+        levels = [t0 + f * (t1 - t0) for f in LEVEL_FRACTIONS]
         fold_idx = np.nonzero(pts[:-1] * pts[1:] < 0.0)[0]
         per_level = []
         refused = 0
@@ -127,24 +131,32 @@ def main() -> int:
                               "count": len(cr),
                               "signed": signed,
                               "u_sorted": uvals})
+        counts_seq = [d.get("count") for d in per_level]
+        jumps = [b - a for a, b in zip(counts_seq[:-1], counts_seq[1:])
+                 if a is not None and b is not None]
         row = {"P": p, "E": e, "pu0": pu0,
                "fold_count": int(fold_count(pts)),
                "t_start": t0, "t_end": t1,
                "t_min": t_min, "t_max": t_max,
-               "upper_window_width": float(upper_width),
-               "lower_window_width": float(lower_width),
-               "window_side": side,
-               "window": [float(window[0]), float(window[1])],
-               "window_width": float(width),
+               "pair_window_upper_width": float(upper_width),
+               "pair_window_lower_width": float(lower_width),
+               "level_spacing": float(abs(t1 - t0)
+                                      * (LEVEL_FRACTIONS[1]
+                                         - LEVEL_FRACTIONS[0])),
                "fold_times": [float(ts[k]) for k in fold_idx],
                "refused_levels": refused,
+               "count_sequence": counts_seq,
+               "jumps": jumps,
+               "odd_jumps": int(sum(1 for j in jumps if j % 2 != 0)),
                "levels": per_level}
         rows.append(row)
         print(f"P={p} folds={row['fold_count']} t0={t0:.4f} "
-              f"t1={t1:.4f} tmax={t_max:.4f} side={side} "
-              f"width={width:.4f} refused={refused}", flush=True)
-        print("   counts", [d.get("count") for d in per_level],
+              f"t1={t1:.4f} tmin={t_min:.4f} tmax={t_max:.4f} "
+              f"spacing={row['level_spacing']:.4f} "
+              f"refused={refused} odd_jumps={row['odd_jumps']}",
               flush=True)
+        print("   folds at", row["fold_times"], flush=True)
+        print("   counts", counts_seq, flush=True)
 
     arr = np.array(pooled_u, dtype=float) if pooled_u else np.array([0.0])
     quant = {f"q{int(100 * q):02d}": float(np.quantile(arr, q))
@@ -172,11 +184,14 @@ def main() -> int:
     record["declared"] = {
         "members": MEMBERS, "n_steps": N_STEPS,
         "level_fractions": LEVEL_FRACTIONS,
-        "window_rule": "levels sit inside the wider of the two "
-                       "windows in which both worldline endpoints lie "
-                       "on the same side of the level, upper "
-                       "(max(t_start,t_end), t_max) or lower "
-                       "(t_min, min(t_start,t_end))",
+        "window_rule": "levels are t_start + f (t_end - t_start) for "
+                       "the declared fractions f, a uniform ladder "
+                       "across the full observed span of the member",
+        "first_pass_note": "the aff9b49 pass placed levels in the "
+                           "pair-creation window and measured it "
+                           "empty, t_end equals t_max and t_start "
+                           "equals t_min on every bound member, so "
+                           "both candidate windows had width zero",
         "purpose": "fix the PF-8 level ladder, the blind window, and "
                    "the PF-8b survival ladder from measured numbers "
                    "before the governed run"}
