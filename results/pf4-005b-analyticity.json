@@ -1,0 +1,328 @@
+{
+  "declared": {
+    "E": 0.4,
+    "L_grid": [
+      2.0,
+      3.0,
+      4.0
+    ],
+    "absolute_prediction": -2.0,
+    "absolute_tolerance": 0.15,
+    "convergence_tolerance": 0.02,
+    "dt": 0.0002,
+    "kappa_grid": [
+      0.9,
+      1.2,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "named_error_of_the_prior_run": "the velocity grid was declared in absolute velocity, so different widths were compared in different dynamical regimes and partly outside the adiabatic regime where the exponential form is asymptotic",
+    "profiles": {
+      "lorentz": "tilt arctangent, nearest singularity a logarithmic branch point at L",
+      "sech2": "tilt tanh, nearest singularity a simple pole at pi over two times L"
+    },
+    "r2_bar": 0.99,
+    "span_in_L": 20.0,
+    "universality_tolerance": 0.1
+  },
+  "findings": {
+    "F1_sech2_not_width_universal": false,
+    "F2_sech2_below_prediction": true
+  },
+  "items": {
+    "B0_timestep_convergence": true,
+    "B1_exponential_form": false,
+    "B2_lorentz_width_universal": true,
+    "B3_lorentz_matches_prediction": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "absolute_prediction": -2.0,
+    "cells": {
+      "lorentz_L2.0": {
+        "L": 2.0,
+        "e_res": [
+          0.009086254449903615,
+          0.004956288461625593,
+          0.002693428080395027,
+          0.0009836583042731242,
+          0.00034350955103366887,
+          0.00011755952110464006
+        ],
+        "intercept": -2.8233562252083364,
+        "kappa_grid": [
+          0.9,
+          1.2,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "p_values": [
+          2.6666666666666665,
+          2.0,
+          1.5999999999999999,
+          1.2,
+          0.96,
+          0.7999999999999999
+        ],
+        "pole_distance": 2.0,
+        "profile": "lorentz",
+        "pt_final": [
+          2.6632571421751057,
+          1.9975203205967869,
+          1.598315721091409,
+          1.1991800049743668,
+          0.9596421127414406,
+          0.7998457254272567
+        ],
+        "r_squared": 0.9998370552904893,
+        "slope_over_prediction": 1.0330624860626954,
+        "slope_vs_kappa": -2.0661249721253907
+      },
+      "lorentz_L3.0": {
+        "L": 3.0,
+        "e_res": [
+          0.02046153709207011,
+          0.011170770388785528,
+          0.006075550832215178,
+          0.002219947749076946,
+          0.0007782054605975884,
+          0.0002656729616555102
+        ],
+        "intercept": -2.013310160959339,
+        "kappa_grid": [
+          0.9,
+          1.2,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "p_values": [
+          3.9999999999999996,
+          3.0,
+          2.4,
+          1.7999999999999998,
+          1.44,
+          1.2
+        ],
+        "pole_distance": 3.0,
+        "profile": "lorentz",
+        "pt_final": [
+          3.9948813417076128,
+          2.996274099133224,
+          2.3974671841726374,
+          1.7987662750822369,
+          1.439459479078957,
+          1.1997676397533943
+        ],
+        "r_squared": 0.9998284400727598,
+        "slope_over_prediction": 1.031951388419923,
+        "slope_vs_kappa": -2.063902776839846
+      },
+      "lorentz_L4.0": {
+        "L": 4.0,
+        "e_res": [
+          0.036418414425628265,
+          0.019906304178122676,
+          0.010839171994194555,
+          0.003962863639401272,
+          0.0013965960191671123,
+          0.0004753357091987556
+        ],
+        "intercept": -1.4393247116366348,
+        "kappa_grid": [
+          0.9,
+          1.2,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "p_values": [
+          5.333333333333333,
+          4.0,
+          3.1999999999999997,
+          2.4,
+          1.92,
+          1.5999999999999999
+        ],
+        "pole_distance": 4.0,
+        "profile": "lorentz",
+        "pt_final": [
+          5.326500505438345,
+          3.9950203281940913,
+          3.196610964295733,
+          2.398348244321149,
+          1.919272469537355,
+          1.5996883540836975
+        ],
+        "r_squared": 0.9998164661012218,
+        "slope_over_prediction": 1.0303619362812062,
+        "slope_vs_kappa": -2.0607238725624124
+      },
+      "sech2_L2.0": {
+        "L": 2.0,
+        "e_res": [
+          0.04260546072021326,
+          0.03497754147968356,
+          0.027396198248212607,
+          0.01666558763126729,
+          0.009241640771985847,
+          0.00475688280836784
+        ],
+        "intercept": -2.0980905159404744,
+        "kappa_grid": [
+          0.9,
+          1.2,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "p_values": [
+          4.1887902047863905,
+          3.141592653589793,
+          2.5132741228718345,
+          1.8849555921538759,
+          1.5079644737231006,
+          1.2566370614359172
+        ],
+        "pole_distance": 3.141592653589793,
+        "profile": "sech2",
+        "pt_final": [
+          4.178606521111886,
+          3.130439157391613,
+          2.5023497797475147,
+          1.8760933903006216,
+          1.5018234158731063,
+          1.2528459356830468
+        ],
+        "r_squared": 0.9886198526099392,
+        "slope_over_prediction": 0.5245152123135929,
+        "slope_vs_kappa": -1.0490304246271858
+      },
+      "sech2_L3.0": {
+        "L": 3.0,
+        "e_res": [
+          0.09567168719036795,
+          0.07853167685121956,
+          0.061506372196744166,
+          0.03742547739105943,
+          0.020772719464318336,
+          0.010710161526373604
+        ],
+        "intercept": -1.2908186029617414,
+        "kappa_grid": [
+          0.9,
+          1.2,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "p_values": [
+          6.283185307179586,
+          4.71238898038469,
+          3.7699111843077517,
+          2.827433388230814,
+          2.261946710584651,
+          1.8849555921538759
+        ],
+        "pole_distance": 4.71238898038469,
+        "profile": "sech2",
+        "pt_final": [
+          6.267940190364066,
+          4.695694469271783,
+          3.753560655321619,
+          2.8141657040942105,
+          2.2527444334833704,
+          1.879265085436129
+        ],
+        "r_squared": 0.9887303445308351,
+        "slope_over_prediction": 0.5239130443481395,
+        "slope_vs_kappa": -1.047826088696279
+      },
+      "sech2_L4.0": {
+        "L": 4.0,
+        "e_res": [
+          0.16961428511939908,
+          0.13919931590140502,
+          0.10901256139467745,
+          0.06635671845261244,
+          0.03687729207336017,
+          0.019057526151851925
+        ],
+        "intercept": -0.7205131807609343,
+        "kappa_grid": [
+          0.9,
+          1.2,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "p_values": [
+          8.377580409572781,
+          6.283185307179586,
+          5.026548245743669,
+          3.7699111843077517,
+          3.015928947446201,
+          2.5132741228718345
+        ],
+        "pole_distance": 6.283185307179586,
+        "profile": "sech2",
+        "pt_final": [
+          8.357309671696791,
+          6.260991852139299,
+          5.004813897040239,
+          3.7522682341038927,
+          3.0036765524774656,
+          2.505679900624506
+        ],
+        "r_squared": 0.9888822316583884,
+        "slope_over_prediction": 0.5230834508506209,
+        "slope_vs_kappa": -1.0461669017012418
+      }
+    },
+    "convergence_relative_change": 1.7913845551200283e-13,
+    "lorentz_mean_slope": -2.06358387384255,
+    "lorentz_relative_spread": 0.0026173394895362494,
+    "lorentz_slopes": [
+      -2.0661249721253907,
+      -2.063902776839846,
+      -2.0607238725624124
+    ],
+    "prior_run": "results/pf4-005-analyticity.json",
+    "reading": "each cell is placed at a declared adiabaticity so the widths are compared in one dynamical regime, and the exponent in that variable is predicted to be minus two with no free parameter if the field's nearest singularity fixes it",
+    "sech2_mean_slope": -1.0476744716749022,
+    "sech2_relative_spread": 0.002733218192637706,
+    "sech2_slopes": [
+      -1.0490304246271858,
+      -1.047826088696279,
+      -1.0461669017012418
+    ]
+  },
+  "record_sha256": "8da5c1e9dca4a4e4acdac42418a07c96c2c388b25a9f67bbb13aad7eb38c32a2",
+  "runtime": {
+    "code_commit": "8cbf057",
+    "generated_utc": "2026-08-07T07:09:30.002377+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-005b-analyticity-v1",
+  "verdict": {
+    "computed_from": [
+      "B0_timestep_convergence",
+      "B1_exponential_form",
+      "B2_lorentz_width_universal",
+      "B3_lorentz_matches_prediction"
+    ],
+    "value": "FAIL"
+  }
+}
