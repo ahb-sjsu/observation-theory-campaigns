@@ -1,0 +1,198 @@
+{
+  "declared": {
+    "L_grid": [
+      1.5,
+      2.5,
+      3.5
+    ],
+    "bars": {
+      "entry": 1e-06,
+      "hamiltonian": 1e-10,
+      "r_squared": 0.98,
+      "timestep": 1e-05,
+      "universality": 0.02
+    },
+    "dt": 0.0001,
+    "hypotheses": {
+      "H1_distance_only": "the Gudermannian exponent equals the sech-squared exponent within five percent",
+      "H2_order_matters": "the Gudermannian exponent equals the Lorentzian exponent within ten percent"
+    },
+    "kappa_grid": [
+      1.0,
+      1.4,
+      1.8,
+      2.2,
+      2.6,
+      3.2
+    ],
+    "pole_distance_over_L": 1.5707963267948966,
+    "profiles": {
+      "gudermann": "arcsine of tanh tilt, sech force, simple pole at the same distance, exponential tails",
+      "sech2": "tanh tilt, sech squared force, double pole at pi over two times L"
+    },
+    "shift": 3.0,
+    "span_in_L": 20.0
+  },
+  "findings": {
+    "F1_distance_only": false,
+    "F2_order_matters": true,
+    "F3_neither": false
+  },
+  "items": {
+    "P1a_conserved_quantity": false,
+    "P1b_entry_independence": true,
+    "P1c_timestep_independence": true,
+    "P1d_translation_covariance": true,
+    "P1e_census": true,
+    "P2_exponential_form": true,
+    "P3_width_universal": true,
+    "P4_signal_in_range": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "cells": {
+      "gudermann_L1.5": {
+        "L": 1.5,
+        "e_res": [
+          0.013083046048994372,
+          0.0067079819421939245,
+          0.003191539216252156,
+          0.0014598134787007812,
+          0.0006527840418747615,
+          0.00018971207695988365
+        ],
+        "hamiltonian_drift": 1.1202657407193876e-10,
+        "intercept": -2.3225016356508212,
+        "profile": "gudermann",
+        "r_squared": 0.9986584840747477,
+        "slope_vs_kappa": -1.9333484578703095
+      },
+      "gudermann_L2.5": {
+        "L": 2.5,
+        "e_res": [
+          0.03628396508499986,
+          0.018617794527957275,
+          0.008870966584728284,
+          0.004065536323931029,
+          0.0018221142112501455,
+          0.0005315296632204744
+        ],
+        "hamiltonian_drift": 1.989776670352961e-10,
+        "intercept": -1.3080607398352684,
+        "profile": "gudermann",
+        "r_squared": 0.9986828666602144,
+        "slope_vs_kappa": -1.9286346608918925
+      },
+      "gudermann_L3.5": {
+        "L": 3.5,
+        "e_res": [
+          0.0709481610831386,
+          0.03644544254772735,
+          0.0174029960522582,
+          0.007998847334581692,
+          0.0035970193920760313,
+          0.001055119756919888
+        ],
+        "hamiltonian_drift": 1.9859938548435464e-10,
+        "intercept": -0.6457972937792871,
+        "profile": "gudermann",
+        "r_squared": 0.9987187761006397,
+        "slope_vs_kappa": -1.9216624878950228
+      },
+      "sech2_L1.5": {
+        "L": 1.5,
+        "e_res": [
+          0.022581482961262722,
+          0.01681272090618733,
+          0.011586714084480993,
+          0.007483284966193671,
+          0.004578060820971043,
+          0.002013887568341876
+        ],
+        "hamiltonian_drift": 1.2854736474131343e-12,
+        "intercept": -2.5615042330359445,
+        "profile": "sech2",
+        "r_squared": 0.9878639631551293,
+        "slope_vs_kappa": -1.1028169512780353
+      },
+      "sech2_L2.5": {
+        "L": 2.5,
+        "e_res": [
+          0.06262351665714855,
+          0.04662003970208162,
+          0.03213110276809565,
+          0.020759497346594144,
+          0.012709347089931803,
+          0.005601237946855301
+        ],
+        "hamiltonian_drift": 1.465025192480812e-12,
+        "intercept": -1.5434028917341562,
+        "profile": "sech2",
+        "r_squared": 0.9879715735507157,
+        "slope_vs_kappa": -1.1015401045819655
+      },
+      "sech2_L3.5": {
+        "L": 3.5,
+        "e_res": [
+          0.12244283071149051,
+          0.09113676615385938,
+          0.06281913886174827,
+          0.04060868840494696,
+          0.02488828356395678,
+          0.01099891821745104
+        ],
+        "hamiltonian_drift": 2.6255174125470193e-12,
+        "intercept": -0.8757256504029254,
+        "profile": "sech2",
+        "r_squared": 0.988130447424357,
+        "slope_vs_kappa": -1.099650518722841
+      }
+    },
+    "entry_relative_change": 5.7250392456517655e-11,
+    "gudermann_mean_slope": -1.9278818688857415,
+    "gudermann_relative_spread": 0.006061559146277384,
+    "gudermann_slopes": [
+      -1.9333484578703095,
+      -1.9286346608918925,
+      -1.9216624878950228
+    ],
+    "lorentz_reference_pf4_005b": -2.06356,
+    "ratio_gudermann_over_sech2": 1.7504940518750043,
+    "reading": "both profiles carry their nearest singularity at the same distance and differ in its order, so a difference in the exponent is a difference the order makes and an agreement is one the distance makes",
+    "sech2_mean_slope_this_run": -1.1013358581942807,
+    "sech2_reference_pf4_005b": -1.04767,
+    "sech2_relative_spread": 0.002875083501218171,
+    "sech2_slopes": [
+      -1.1028169512780353,
+      -1.1015401045819655,
+      -1.099650518722841
+    ],
+    "timestep_relative_change": 8.74893706045668e-13,
+    "translation_relative_change": 8.017577547579881e-15,
+    "worst_hamiltonian_drift": 1.989776670352961e-10
+  },
+  "record_sha256": "33568fdb22e29d75f274aab1eaa01e84b52678fb58ab4b9f3e1810759abf9c10",
+  "runtime": {
+    "code_commit": "ebefd77",
+    "generated_utc": "2026-08-07T08:38:20.588627+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-008b-pole-order-v1",
+  "verdict": {
+    "computed_from": [
+      "P1a_conserved_quantity",
+      "P1b_entry_independence",
+      "P1c_timestep_independence",
+      "P1d_translation_covariance",
+      "P1e_census",
+      "P2_exponential_form",
+      "P3_width_universal",
+      "P4_signal_in_range"
+    ],
+    "note": "the findings discriminate the two declared hypotheses, either outcome a result",
+    "value": "FAIL"
+  }
+}
