@@ -1,0 +1,57 @@
+{
+  "declared": {
+    "alpha": 0.05,
+    "detrend": "declared asymptote plus exponential approach at the pulse length, removed from the curve and from every null curve alike",
+    "n_members": 8000,
+    "n_null": 20000,
+    "prior_linear_result": "results/pf7e-detrended.json",
+    "seed": 9500000,
+    "source_records": [
+      "results/pf7d-ringing-test.json",
+      "results/pf7b-quantum-ceiling.json"
+    ]
+  },
+  "findings": {
+    "F4_classical_consistent_with_noise_after_smooth_model": true,
+    "F5_trend_is_real": true
+  },
+  "items": {
+    "F1_residual_is_smaller_than_raw_curve": true,
+    "F2_quantum_survives_detrending": true,
+    "F3_decision_recorded": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "binomial_sigma": 0.005588715163847339,
+    "classical_detrended_p_value": 0.75695,
+    "classical_detrended_statistic": 0.21220803826405835,
+    "classical_raw_p_value": 0.02605,
+    "classical_raw_statistic": 0.44804799614485447,
+    "null_detrended_mean": 0.2680597498625852,
+    "null_detrended_q95": 0.4166446597128427,
+    "quantum_detrended_statistic": 0.8724403390866124,
+    "quantum_raw_statistic": 0.8702450277865776,
+    "reading": "the classical arm carries a smooth trend from residual pulse overlap and the declared statistic counted that trend as structure, while the quantum arm's interference sits at a high frequency and is untouched by removing a trend",
+    "trend_drop_over_range": 0.023399999782333036,
+    "trend_in_sigma": 4.18700883768501
+  },
+  "record_sha256": "7c3200608e23c92fa9808007d33d2da8ca411f7f9e0c3432381f5a7739f1f18a",
+  "runtime": {
+    "code_commit": "04c339d",
+    "generated_utc": "2026-08-07T05:04:14.280465+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf7f-smooth-residual-v1",
+  "verdict": {
+    "computed_from": [
+      "F1_residual_is_smaller_than_raw_curve",
+      "F2_quantum_survives_detrending",
+      "F3_decision_recorded"
+    ],
+    "note": "F4 and F5 carry the ceiling reading, either outcome a result",
+    "value": "PASS"
+  }
+}
