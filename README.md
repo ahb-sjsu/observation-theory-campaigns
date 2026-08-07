@@ -828,7 +828,8 @@ projection.
 12. 🔐 Engineered Observation Limits in Exact Finite Models, What
     an Information-Theoretic Audit Certifies, Where It Stops, and
     Where It Does Not (the complete CR arc, CR-0 through CR-7, with
-    its three honest FAILs), DOI pending, held for review.
+    its three honest FAILs),
+    DOI 10.5281/zenodo.21833690.
 
 ## Repository layout
 
