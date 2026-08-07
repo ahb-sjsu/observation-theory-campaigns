@@ -73,17 +73,16 @@ with no such reversal among the 867 comparable
 pairs.  The
 measured statement is that a reduction in a scalar leakage measure is
 not a guarantee for a reader's task outside certified comparability,
-and its constructive half is that the conditional information
-certificate decides comparability by proof, so an evaluation that
-establishes comparability may rely on its scalar ordering.  Two
+and its constructive half is that the same certificate decides
+comparability by proof, so an evaluation that establishes
+comparability may rely on its scalar ordering.  Two
 consumers price one declared source at 3.477 bits and at exactly 1
 bit, both correct, the disagreement lying entirely in the task.  One
 run failed, on a declared clause requiring the difference of the two
-accountings to increase along a ladder of sources.  It measured 0,
-0.398, 1.337, 2.275, 2.635, 2.113, and 0.599 bits and turned over,
-because both accountings vanish together as a source becomes certain,
-and the corrected registration measures the ratio, which falls
-strictly where the difference does not.
+accountings to increase along a ladder of sources.  The difference
+turned over at the far end, because both accountings vanish together
+as a source becomes certain, and the corrected registration measures
+the ratio, which falls strictly where the difference does not.
 The arc then measures where an audit of this kind stops.  A declared
 generator over a toy curve was given two parameter sets, one whose
 relating scalar is known by construction and one whose scalar is
@@ -94,9 +93,9 @@ words, measuring 2.7890 and 2.8002 bits against three, and because the
 recovery loop accepted the first candidate consistent with one
 observed word instead of testing it against the next, predicting at
 0.263 against a declared half.  It also asked the wrong question,
-since the scalar of the second parameter set was recovered by
-enumeration in the same run and every point of a cyclic group has
-one.  A second registration on a larger group of prime order failed
+since every point of a cyclic group has such a scalar and the run
+recovered the second one by enumeration.
+A second registration on a larger group of prime order failed
 one bar from a coding error in an inverse map, measuring 0.0314 where
 the bar was one part in a billion, with its positive control already
 exact.  The corrected registration passes.  A declared one-bit covert
@@ -846,7 +845,6 @@ an audit built from informations is therefore not a shortcoming of
 this instrument or a limit of this toy.  It is what the quantities the
 audit is built from are able to express.
 
-The two halves belong together and the record keeps them together.
 The same audit reads the declared covert channel at exactly 1 bit and
 reads a constant at exactly 0, so a modification that changes an
 output distribution is visible to it and a modification that changes
