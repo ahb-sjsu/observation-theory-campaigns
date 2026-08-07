@@ -1,0 +1,579 @@
+{
+  "adjudication_queue": [],
+  "adjudication_rate": 0.0,
+  "consensus": {
+    "236d3d8aed35/N1": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N10": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N11": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 1,
+      "levels": [
+        3,
+        4,
+        3
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N12": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N13": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N14": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N15": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N2": {
+      "all_five_conditions": false,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": false,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 5,
+      "level_spread": 0,
+      "levels": [
+        5,
+        5,
+        5
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N3": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N4": {
+      "all_five_conditions": false,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": false,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 5,
+      "level_spread": 0,
+      "levels": [
+        5,
+        5,
+        5
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N5": {
+      "all_five_conditions": false,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": false,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 5,
+      "level_spread": 0,
+      "levels": [
+        5,
+        5,
+        5
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N6": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N7": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 1,
+      "levels": [
+        4,
+        4,
+        3
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N8": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 1,
+      "levels": [
+        3,
+        4,
+        3
+      ],
+      "replication_grade": true
+    },
+    "236d3d8aed35/N9": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 1,
+      "levels": [
+        4,
+        4,
+        3
+      ],
+      "replication_grade": true
+    },
+    "9112fcd73af7/N1": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 2,
+      "level_spread": 1,
+      "levels": [
+        2,
+        2,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N10": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N11": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N12": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 1,
+      "levels": [
+        4,
+        3,
+        4
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N13": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N14": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N15": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 1,
+      "levels": [
+        4,
+        3,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N2": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 1,
+      "levels": [
+        4,
+        3,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N3": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N4": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 1,
+      "levels": [
+        4,
+        3,
+        4
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N5": {
+      "all_five_conditions": false,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": false
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N6": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N7": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N8": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 4,
+      "level_spread": 0,
+      "levels": [
+        4,
+        4,
+        4
+      ],
+      "replication_grade": false
+    },
+    "9112fcd73af7/N9": {
+      "all_five_conditions": true,
+      "conditions": {
+        "commits_before_answer": true,
+        "counterfactual_leverage": true,
+        "domain_native_quantity": true,
+        "names_counting_outcome": true,
+        "not_settled_by_setup": true
+      },
+      "consensus_level": 3,
+      "level_spread": 0,
+      "levels": [
+        3,
+        3,
+        3
+      ],
+      "replication_grade": false
+    }
+  },
+  "label": "rehearsal",
+  "n_items": 30,
+  "note": "rehearsal numbers are discarded and count for nothing",
+  "per_bundle_all_five": {
+    "236d3d8aed35": 12,
+    "9112fcd73af7": 14
+  },
+  "per_bundle_level_ge_3": {
+    "236d3d8aed35": 15,
+    "9112fcd73af7": 14
+  },
+  "per_bundle_replication_grade": {
+    "236d3d8aed35": 15,
+    "9112fcd73af7": 0
+  },
+  "record_sha256": "a2fc16913142567065c5d8dcf2b29932126b574cca3719a90afcb88e2a182091",
+  "runtime": {
+    "code_commit": "unknown",
+    "generated_utc": "2026-08-07T10:00:09.405147+00:00",
+    "hostname": "OWNEROW-67O05MG",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]"
+  },
+  "schema": "g1-consensus-v1",
+  "scorers": [
+    "scorer1",
+    "scorer2",
+    "scorer3"
+  ],
+  "unblinding_key": {
+    "236d3d8aed35": "g1-packet-rehearsal-A2.json",
+    "9112fcd73af7": "g1-packet-rehearsal-A1.json"
+  }
+}
