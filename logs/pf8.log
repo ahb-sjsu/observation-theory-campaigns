@@ -1,0 +1,108 @@
+COMMIT=84af03a
+A P=0.6 folds=4 levels=117 complete={'1': 99, '3': 18} blind={'0': 20, '1': 79, '2': 18} apparent_decays=17 odd_jumps=0 hidden=38
+A P=0.7 folds=2 levels=108 complete={'1': 98, '3': 10} blind={'0': 17, '1': 81, '2': 8, '3': 2} apparent_decays=15 odd_jumps=0 hidden=25
+A P=0.8 folds=2 levels=108 complete={'1': 99, '3': 9} blind={'0': 19, '1': 80, '2': 9} apparent_decays=16 odd_jumps=0 hidden=28
+A P=0.9 folds=2 levels=108 complete={'1': 99, '3': 9} blind={'0': 38, '1': 70} apparent_decays=15 odd_jumps=0 hidden=56
+B P=0.6 {'nonfinite': 0, 'reversing': 495, 'transmitted': 4505, 'capped': 0} resid=6.29e-07 kept_rev=12
+B P=0.7 {'nonfinite': 0, 'reversing': 460, 'transmitted': 4540, 'capped': 0} resid=6.23e-07 kept_rev=3
+B P=0.8 {'nonfinite': 0, 'reversing': 454, 'transmitted': 4546, 'capped': 0} resid=6.19e-07 kept_rev=6
+B P=0.9 {'nonfinite': 0, 'reversing': 554, 'transmitted': 4446, 'capped': 0} resid=5.97e-07 kept_rev=11
+  ladder P=0.6 cap=18000 rev=0
+  ladder P=0.6 cap=18500 rev=0
+  ladder P=0.6 cap=19000 rev=0
+  ladder P=0.6 cap=19500 rev=0
+  ladder P=0.6 cap=20000 rev=2
+  ladder P=0.6 cap=20500 rev=8
+  ladder P=0.6 cap=21000 rev=30
+  ladder P=0.6 cap=21500 rev=67
+  ladder P=0.6 cap=22000 rev=110
+  ladder P=0.6 cap=22500 rev=167
+  ladder P=0.6 cap=23000 rev=237
+  ladder P=0.6 cap=23500 rev=320
+  ladder P=0.6 cap=24000 rev=384
+  ladder P=0.6 cap=24500 rev=438
+  ladder P=0.6 cap=25000 rev=481
+  ladder P=0.6 cap=25500 rev=495
+  ladder P=0.6 cap=26000 rev=495
+  ladder P=0.6 cap=26500 rev=495
+  ladder P=0.6 cap=27000 rev=495
+  ladder P=0.6 cap=27500 rev=495
+  ladder P=0.6 cap=28000 rev=495
+  P=0.6 rev_total=495 in_ladder=495 beyond=0 stats={'n': 495, 'mean_tau': 22.983333333333334, 'sd_tau': 1.2096106376585989, 'min_tau': 19.75, 'max_tau': 25.25, 'coefficient_of_variation': 0.05262990446665405, 'cv_minus_one': -0.947370095533346, 'coefficient_of_variation_onset_shifted': 0.37410638278100994, 'exp_fit_sup_deviation': 0.5796014056857017, 'exp_fit_sup_deviation_onset_shifted': 0.32390484981049905}
+  ladder P=0.7 cap=15429 rev=0
+  ladder P=0.7 cap=15857 rev=0
+  ladder P=0.7 cap=16286 rev=0
+  ladder P=0.7 cap=16714 rev=1
+  ladder P=0.7 cap=17143 rev=8
+  ladder P=0.7 cap=17571 rev=13
+  ladder P=0.7 cap=18000 rev=26
+  ladder P=0.7 cap=18429 rev=52
+  ladder P=0.7 cap=18857 rev=88
+  ladder P=0.7 cap=19286 rev=143
+  ladder P=0.7 cap=19714 rev=204
+  ladder P=0.7 cap=20143 rev=281
+  ladder P=0.7 cap=20571 rev=356
+  ladder P=0.7 cap=21000 rev=408
+  ladder P=0.7 cap=21429 rev=441
+  ladder P=0.7 cap=21857 rev=460
+  ladder P=0.7 cap=22286 rev=460
+  ladder P=0.7 cap=22714 rev=460
+  ladder P=0.7 cap=23143 rev=460
+  ladder P=0.7 cap=23571 rev=460
+  ladder P=0.7 cap=24000 rev=460
+  P=0.7 rev_total=460 in_ladder=460 beyond=0 stats={'n': 460, 'mean_tau': 19.759922826086957, 'sd_tau': 1.04818906601113, 'min_tau': 16.5, 'max_tau': 21.643, 'coefficient_of_variation': 0.05304621254022894, 'cv_minus_one': -0.9469537874597711, 'coefficient_of_variation_onset_shifted': 0.32153800010944494, 'exp_fit_sup_deviation': 0.5710950910778223, 'exp_fit_sup_deviation_onset_shifted': 0.3665740657980474}
+  ladder P=0.8 cap=13500 rev=0
+  ladder P=0.8 cap=13875 rev=0
+  ladder P=0.8 cap=14250 rev=0
+  ladder P=0.8 cap=14625 rev=3
+  ladder P=0.8 cap=15000 rev=11
+  ladder P=0.8 cap=15375 rev=26
+  ladder P=0.8 cap=15750 rev=47
+  ladder P=0.8 cap=16125 rev=73
+  ladder P=0.8 cap=16500 rev=100
+  ladder P=0.8 cap=16875 rev=122
+  ladder P=0.8 cap=17250 rev=163
+  ladder P=0.8 cap=17625 rev=199
+  ladder P=0.8 cap=18000 rev=262
+  ladder P=0.8 cap=18375 rev=319
+  ladder P=0.8 cap=18750 rev=370
+  ladder P=0.8 cap=19125 rev=423
+  ladder P=0.8 cap=19500 rev=451
+  ladder P=0.8 cap=19875 rev=454
+  ladder P=0.8 cap=20250 rev=454
+  ladder P=0.8 cap=20625 rev=454
+  ladder P=0.8 cap=21000 rev=454
+  P=0.8 rev_total=454 in_ladder=454 beyond=0 stats={'n': 454, 'mean_tau': 17.565528634361232, 'sd_tau': 1.219420854311101, 'min_tau': 14.4375, 'max_tau': 19.6875, 'coefficient_of_variation': 0.06942124428442771, 'cv_minus_one': -0.9305787557155722, 'coefficient_of_variation_onset_shifted': 0.38983685792253486, 'exp_fit_sup_deviation': 0.5608887000169429, 'exp_fit_sup_deviation_onset_shifted': 0.2970131096988049}
+  ladder P=0.9 cap=12000 rev=0
+  ladder P=0.9 cap=12333 rev=0
+  ladder P=0.9 cap=12667 rev=0
+  ladder P=0.9 cap=13000 rev=2
+  ladder P=0.9 cap=13333 rev=8
+  ladder P=0.9 cap=13667 rev=23
+  ladder P=0.9 cap=14000 rev=52
+  ladder P=0.9 cap=14333 rev=84
+  ladder P=0.9 cap=14667 rev=122
+  ladder P=0.9 cap=15000 rev=185
+  ladder P=0.9 cap=15333 rev=219
+  ladder P=0.9 cap=15667 rev=261
+  ladder P=0.9 cap=16000 rev=306
+  ladder P=0.9 cap=16333 rev=355
+  ladder P=0.9 cap=16667 rev=406
+  ladder P=0.9 cap=17000 rev=458
+  ladder P=0.9 cap=17333 rev=507
+  ladder P=0.9 cap=17667 rev=546
+  ladder P=0.9 cap=18000 rev=554
+  ladder P=0.9 cap=18333 rev=554
+  ladder P=0.9 cap=18667 rev=554
+  P=0.9 rev_total=554 in_ladder=554 beyond=0 stats={'n': 554, 'mean_tau': 15.706988267148015, 'sd_tau': 1.1999482773465433, 'min_tau': 12.8335, 'max_tau': 17.8335, 'coefficient_of_variation': 0.07639582184296258, 'cv_minus_one': -0.9236041781570374, 'coefficient_of_variation_onset_shifted': 0.41759289260558297, 'exp_fit_sup_deviation': 0.5621213829945463, 'exp_fit_sup_deviation_onset_shifted': 0.2866480255319873}
+bars {'D1_complete_observer_parity': True, 'D2_signed_count': True, 'D3_blind_consumer': True, 'D4_anti_vacuity': True}
+measured {'members_audited': 4, 'polylines_audited': 400, 'odd_events': 0, 'parity_failures_deterministic': 0, 'parity_failures_thermal': 0, 'signed_count_failures_deterministic': 0, 'signed_count_failures_thermal': 0, 'signed_count_spread': 0, 'blind_observations': 441, 'blind_detector_mismatches': 0, 'blind_parity_flips': 129, 'blind_parity_flip_fraction': 0.2925170068027211, 'apparent_decay_events': 63, 'hidden_crossings': 147, 'multibranch_levels': 46, 'thermal_reversing_total': 1963, 'thermal_missing_trajectories': 0, 'thermal_max_energy_residual': 6.292478814613626e-07}
+pf8b {'pooled_n': 1963, 'pooled_stats': {'n': 1963, 'mean_tau': 18.921414161996946, 'sd_tau': 3.007495835949735, 'min_tau': 12.8335, 'max_tau': 25.25, 'coefficient_of_variation': 0.1589466733406319, 'cv_minus_one': -0.841053326659368, 'coefficient_of_variation_onset_shifted': 0.49401088056130277, 'exp_fit_sup_deviation': 0.5063960104506926, 'exp_fit_sup_deviation_onset_shifted': 0.23166198287761963}, 'exact_crosscheck_n': 32, 'exact_crosscheck_mean_tau': 18.93625, 'exact_crosscheck_sd_tau': 3.5606805619875725, 'exact_crosscheck_cv': 0.18803514750743006}
+VERDICT PASS
+record_sha256 b375000e2a7015c02489fddd88ea256ae87ffc0421cab4785329d903590a6eb0
+/home/claude/projection-fold-pair-creation/results/pf8-decay-gate.json
+
+real    26m41.121s
+user    26m39.814s
+sys     0m1.142s
+EXIT=0
