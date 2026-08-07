@@ -9,7 +9,7 @@ the transcription. Per AUTHOR-NOTES, PF-3 lives in its own commits.
 
 Martin Land, "Pair production in classical Stueckelberg-Horwitz-Piron
 electrodynamics", arXiv:1604.01625 [physics.gen-ph], v1, 6 Apr 2016.
-Related DOI 10.1088/1742-6596/845/1/012025 (J. Phys.: Conf. Ser. 845,
+Related DOI 10.1088/1742-6596/615/1/012007 (J. Phys.: Conf. Ser. 615,
 012025, 2017, IARD proceedings). Equation numbers below are the arXiv v1
 numbers. The PDF consulted is the arXiv v1 PDF, retrieved 2026-08-04.
 

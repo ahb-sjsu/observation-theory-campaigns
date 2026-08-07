@@ -539,7 +539,7 @@ exponentially, so the field never fully turns off and a transfer measured from a
 finite entry carries a tail contribution.
 
 A second clause missed by a smaller margin and for a different reason. Halving the
-timestep changes the transfer by about 3e-7 against the same 1e-10 bar. That is a
+timestep changes the transfer by about 3e-7 against the same 1e-8 bar. That is a
 bar set tighter than the declared timestep can deliver and is a fault in the
 declaration rather than in the profile.
 
@@ -745,7 +745,7 @@ the exponent alongside its distance.
 
 #### PREREG-PF4-009, the sealed result (record sha 6a4d6a28d309...)
 
-Verdict PASS on all six bars. The four fitted exponents on a grid disjoint from
+Verdict PASS on all eight of its items, which the sealed document groups into six bars. The four fitted exponents on a grid disjoint from
 every prior run are -1.929735, -1.924383, -1.916823, and -1.909268 across widths
 spanning a factor of 2.56, a spread of 1.07 percent against a declared bar of two
 percent. Coefficients of determination are 0.9989 or better in every cell. The
