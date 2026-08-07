@@ -303,6 +303,62 @@ only if a physical detector model predicts the corresponding difference.
 
 ---
 
+### PF4-005: The analyticity exponent (declared 2026-08-07, before the run)
+
+**The summit question.** PREREG-PF4-002 sealed the negative that the Sauter
+family's suppression is a Gaussian measure tail in the effective gap, and left one
+question open, whether any constructible family has a non-measure-tail exponent.
+PREREG-PF4-003 and the PF4-004 probe closed the pulse-train route by measuring that
+family empty at every probed cell, and the mechanism study explained why, its
+deposits cancel between 95 and 99 percent with no fixed sign.
+
+**The route the first hunt probe left open.** A single deterministic crossing has
+one declared initial condition, so there is no distribution whose tail could produce
+a suppression. The first hunt probe already measured the per-crossing transfer to be
+exponential in the inverse velocity with a coefficient of determination of 0.992,
+and it recorded a slope of -7.8186 against a naive estimate of -11.3097, a ratio of
+0.6913. What that probe could not say is whether the exponent is dynamical rather
+than an accident of the fitted range.
+
+**The decisive test.** An exponent set by the field's nearest complex singularity is
+a dynamical quantity, and no measure tail knows where a function's poles are. The
+declared comparison changes the singularity distance while holding the width fixed.
+The tilt tanh with force sech squared has its nearest pole at pi over two times the
+width, and the tilt arctangent with Lorentzian force has its nearest pole at the
+width itself, so at equal width their exponents should stand in the ratio pi over
+two. Both predictions used here are ratios, so neither depends on the absolute
+coefficient the probe found to be 0.69 of the naive estimate.
+
+**Declared run.** Field 0.4, velocities 1.2, 1.5, 2.0, 2.5, 3.0, and 4.0, widths
+2.0, 3.0, and 4.0, both profiles, timestep 2e-4, fourth-order Runge-Kutta, entry and
+exit at twenty widths. The observable is the residual oscillator energy about the
+instantaneous well at exit, which is well defined for both profiles including the
+one whose tails are algebraic.
+
+**Bars.** A0, the timestep control, halving the timestep changes the most suppressed
+measured value by at most two percent. A1, the exponential form holds, the fit of
+the log residual against the inverse velocity has a coefficient of determination of
+at least 0.99 in every one of the six cells. A2, the pole-distance test, at each
+width the ratio of the two profiles' exponents is within ten percent of pi over two.
+A3, the width-scaling test, at each profile the exponent is linear in the width
+within ten percent.
+
+**Measurements with no bar.** A4, the run is deterministic with one declared initial
+condition per cell, so no measure exists whose tail could be responsible. A5, the
+ratio of each measured exponent to the naive estimate, recorded for the question of
+what the correct dynamical formula is.
+
+**Readings, declared in advance.** If A2 and A3 hold, a constructible family has an
+exponent fixed by the field's analytic structure, which is dynamical and cannot be a
+measure tail, and the summit question is answered for the per-crossing transfer. The
+open step from that transfer to an observable event rate remains, and it is blocked
+by the cancellation the mechanism study measured, so no claim about a pair rate
+follows. If A2 or A3 fails, the exponential is not analyticity-controlled and the
+summit stays open, recorded as such.
+
+**Substrate.** Atlas Python, exploratory and unsealed,
+`results/pf4-005-analyticity.json`.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
