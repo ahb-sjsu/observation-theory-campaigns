@@ -1,6 +1,6 @@
 # GG Track: Gauge Redundancy as Consumer Bookkeeping
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip 🟤 GG.
+**Status:** design draft, unsealed, non-claim-bearing. Chip 🔗 GG.
 Everything is measured in declared exact finite models.
 
 ## 1. Question

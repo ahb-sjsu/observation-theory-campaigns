@@ -1,6 +1,6 @@
 # RG Track: Renormalization as Consumer Structure
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip 🔵 RG.
+**Status:** design draft, unsealed, non-claim-bearing. Chip 🔍 RG.
 Everything is measured in declared exact finite models.
 
 ## 1. Question

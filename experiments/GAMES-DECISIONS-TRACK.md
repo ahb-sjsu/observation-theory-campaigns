@@ -1,6 +1,6 @@
 # GD Track: Games and Decisions Under Projection
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip ⬜ GD.
+**Status:** design draft, unsealed, non-claim-bearing. Chip 🎲 GD.
 No claim anywhere in this track is a claim about human beings or
 about empirical behavioral data. Everything is measured in declared
 finite models.

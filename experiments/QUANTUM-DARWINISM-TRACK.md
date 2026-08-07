@@ -1,6 +1,6 @@
 # QD Track: Quantum Darwinism as Multi-Consumer Structure
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip ⚫ QD.
+**Status:** design draft, unsealed, non-claim-bearing. Chip 🧬 QD.
 Everything is measured in declared exact finite models.
 
 ## 1. Question

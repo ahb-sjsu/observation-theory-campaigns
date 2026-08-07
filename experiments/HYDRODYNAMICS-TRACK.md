@@ -1,6 +1,6 @@
 # HD Track: Dissipation as Consumer Structure
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip 🟠 HD.
+**Status:** design draft, unsealed, non-claim-bearing. Chip 🌊 HD.
 Everything is measured in declared exact finite models.
 
 ## 1. Question

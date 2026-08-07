@@ -1,6 +1,6 @@
 # FT Track: Fluctuation Theorems Under Restricted Observation
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip 🔴 FT.
+**Status:** design draft, unsealed, non-claim-bearing. Chip 🌡️ FT.
 Everything is measured in declared exact finite models.
 
 ## 1. Question
