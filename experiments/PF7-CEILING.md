@@ -280,3 +280,54 @@ PF-7c's marginal p-value was a fluctuation and the ceiling stands
 as originally read.
 
 Exploratory label, results/pf7d-ringing-test.json.
+
+## PF-7d results (run 2026-08-07, record sha 684f36dd18bb...)
+
+Verdict PASS on both items, and the two findings split. R3 holds,
+the structure survives the four times larger ensemble with a
+p-value of 0.02605 against the same declared null, essentially
+unchanged from PF-7c's 0.0262 at a quarter of the members, so it is
+not shrinking the way a fluctuation would. R4 fails, the spectral
+peak sits at a period of 12.52 in delay while the declared ringing
+period is 5.236, so the structure is not the oscillator memory the
+protocol proposed.
+
+The declared response to that combination was that the mechanism is
+not the declared one and needs its own experiment, and the record
+says what it is. The peak period 12.52 is the span of the declared
+delay range, so the peak is the lowest nonzero frequency bin, which
+is where a monotone trend lands rather than an oscillation. The
+curve falls from a mean of 0.4942 over the first half of the range
+to 0.4829 over the second, a drop of about five standard errors at
+this ensemble size. Two pulses of length three separated by eight
+still overlap a little and by twenty do not, so the combined kick
+weakens smoothly with delay and the reversing fraction follows it
+down. The mechanism is residual pulse overlap and it is mundane.
+
+The consequence for the ceiling. The declared statistic counts a
+trend as structure, because the lowest nonzero frequency bin
+carries both, so neither PF-7c's p-value nor PF-7d's is evidence
+about oscillation.
+
+## PF-7e protocol (declared 2026-08-07, before the run)
+
+A declared linear trend in delay is removed from the classical
+curve and from every null curve alike, and the statistic is then
+recomputed, so the comparison is about oscillation alone. The same
+treatment is applied to the quantum curve on its own grid, where
+the interference sits at a high frequency and should be untouched.
+
+Items computing the verdict. E1, detrending reduces the classical
+statistic. E2, the quantum statistic survives detrending at or
+above the original 0.30. E3, the decision is recorded either way.
+
+Findings, either outcome a result. E4, the classical arm is
+consistent with noise after detrending when its p-value exceeds
+0.05, which would restore the ceiling reading in its corrected
+form, the classical model carries a smooth overlap trend and no
+oscillation while the quantum model interferes. E5, the trend is
+real, its magnitude at least three standard errors, which records
+the overlap mechanism as a measurement rather than an explanation.
+
+This run is post-processing of committed records and adds no new
+dynamics. Exploratory label, results/pf7e-detrended.json.

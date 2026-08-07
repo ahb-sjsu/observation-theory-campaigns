@@ -800,6 +800,56 @@ computation are invisible to it by a bound rather than by an
 oversight. Scope unchanged and strict. Exploratory label,
 results/cr4c-backdoor-ceiling.json.
 
+### CR-5: Rigidity as designer freedom
+
+#### CR-5 protocol (declared 2026-08-07, before the run)
+
+CR-4c measured that an audit built from informations is blind to a
+trapdoor by an exact bound. What such an audit can see is
+provenance, and provenance is a counting question. A designer who
+may re-roll a derivation until the result lands in a rare weak
+class needs only enough freedom to cover that class's rarity, and
+the artifact records nothing about how many rolls were taken.
+
+Substrate. All non-singular curves over the field of 101 elements,
+group orders computed exactly by counting points. The declared weak
+class is a group order smooth to the bound five, which is a
+weakness because a smooth order splits the discrete logarithm into
+small pieces. Two declared procedures share one declared seed map,
+the first coefficient is the seed squared plus seventeen and the
+second is the seed cubed plus twenty-three, both modulo the field,
+with singular pairs rejected. The rigid procedure may use exactly
+one declared seed. The flexible procedure may use any seed in a
+declared range of 4096.
+
+Bars. P1, the weak-class density is measured exactly over the whole
+space and lies strictly between zero and one. P2, both reachable
+sets are counted, the rigid one at least one curve and the flexible
+one more than one. P3, the manipulation threshold and its
+demonstration, the flexible procedure's distinct reachable count
+times the measured density is at least one, and the search actually
+finds a weak curve inside its declared range.
+
+Measurements with no bar, recorded either way. P4, the artifact
+carries no search count, recorded as the number of weak-producing
+seeds in the range and the expected number of rolls a manipulating
+designer would need, beside the observation that a seed reached on
+the first roll and one reached on the thousandth are the same kind
+of object. P5, whether the rigid procedure sits below the
+threshold. P6, whether the rigid procedure landed in the weak class
+by chance anyway, which would say the parameter space is unsafe
+rather than the designer dishonest.
+
+The connection recorded with the result. Removing the designer's
+freedom to re-roll is what rigid parameter generation does in
+cryptography and what preregistration does in this campaign,
+including in the four vacuity failures this program has recorded
+against itself. They are one idea in two fields, and this
+experiment measures the quantity that both of them bound.
+
+Scope unchanged and strict. Exploratory label,
+results/cr5-rigidity.json.
+
 ## 7. Non-claims and evidence discipline
 
 Seals, labels, append-only records, and falsification bars as in
