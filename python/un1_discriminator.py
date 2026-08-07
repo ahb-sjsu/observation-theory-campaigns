@@ -338,6 +338,24 @@ def main() -> int:
         "bars": {k: bool(v) for k, v in bars.items()},
         "verdict": {"value": verdict, "computed_from": sorted(bars)},
     }
+    # An infinite frontier is a finding of the sealed design and not
+    # a crash, so it is carried into the record explicitly rather
+    # than allowed to break serialization. The bars above already
+    # saw the true float value.
+    def jsonsafe(v):
+        if isinstance(v, float):
+            if math.isinf(v):
+                return {"__nonfinite__": "inf" if v > 0 else "-inf"}
+            if math.isnan(v):
+                return {"__nonfinite__": "nan"}
+            return v
+        if isinstance(v, dict):
+            return {k: jsonsafe(x) for k, x in v.items()}
+        if isinstance(v, list):
+            return [jsonsafe(x) for x in v]
+        return v
+
+    record = jsonsafe(record)
     record["runtime"] = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "python": sys.version, "numpy": np.__version__,
