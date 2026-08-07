@@ -825,6 +825,10 @@ projection.
 11. 🔍🧬🌊🌡️🔗 Five Audits Under One Consumer Discipline (the
     complete second-generation arc, six honest FAILs included),
     DOI 10.5281/zenodo.21821378.
+12. 🔐 Engineered Observation Limits in Exact Finite Models, What
+    an Information-Theoretic Audit Certifies, Where It Stops, and
+    Where It Does Not (the complete CR arc, CR-0 through CR-7, with
+    its three honest FAILs), DOI pending, held for review.
 
 ## Repository layout
 
@@ -832,8 +836,8 @@ projection.
 - `matlab/` - Atlas MATLAB instruments and pilots (`+pf` package).
 - `python/` - reference implementations, quantum instruments, governed
   runners, replications, pilots, and the test suite.
-- `paper/` - seven RevTeX papers, compiled PDFs, and the figure-data
-  generator.
+- `paper/` - twelve RevTeX papers, compiled PDFs, and the figure-data
+  generators.
 - `proofs/` - Lean 4 / Mathlib formalizations (machine-checked
   algebraic cores; build with `lake build` after `lake exe cache get`).
 - `results/` - append-only hashed evidence records.
