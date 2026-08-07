@@ -1,0 +1,98 @@
+{
+  "declared": {
+    "admissible_class": "POVMs on the system alone, which is the narrowest class of the track and is stated with every result",
+    "angles": [
+      0.5235987755982988,
+      0.7853981633974483,
+      1.0471975511965976,
+      1.5707963267948966
+    ],
+    "post_measurement_rule": "Luders instrument",
+    "tolerance": 1e-12
+  },
+  "items": {
+    "C1_trivial_consumer": true,
+    "C2_compatible_pair_zero": true,
+    "C3_incompatible_costs": true,
+    "C4_bound_respected": true,
+    "C5_estimation_improves": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "bound_rows": [
+      {
+        "maassen_uffink": 0.10003137304700817,
+        "max_overlap": 0.9330127018922194,
+        "min_sum_over_probe_states": 1.811278124459133,
+        "theta": 0.5235987755982988
+      },
+      {
+        "maassen_uffink": 0.22844669683638807,
+        "max_overlap": 0.8535533905932737,
+        "min_sum_over_probe_states": 1.600876036692856,
+        "theta": 0.7853981633974483
+      },
+      {
+        "maassen_uffink": 0.4150374992788436,
+        "max_overlap": 0.7500000000000001,
+        "min_sum_over_probe_states": 1.3545789026652701,
+        "theta": 1.0471975511965976
+      },
+      {
+        "maassen_uffink": 0.9999999999999997,
+        "max_overlap": 0.5000000000000001,
+        "min_sum_over_probe_states": 1.0000000000000002,
+        "theta": 1.5707963267948966
+      }
+    ],
+    "compatible_conditional_entropy": 0.0,
+    "estimation_rows": [
+      {
+        "copies": 1,
+        "mse": 1.0
+      },
+      {
+        "copies": 4,
+        "mse": 0.25
+      },
+      {
+        "copies": 16,
+        "mse": 0.0625
+      },
+      {
+        "copies": 64,
+        "mse": 0.015625
+      },
+      {
+        "copies": 256,
+        "mse": 0.00390625
+      }
+    ],
+    "incompatible_conditional_entropy": 1.0,
+    "reading": "the record's machinery separates a consumer that serves a task exactly from one that cannot, and reproduces the declared entropic bound on the probe states",
+    "trivial_consumer_entropies": [
+      1.0,
+      1.0
+    ]
+  },
+  "record_sha256": "c12d58596f0364a042389c89e3976ccbe22ffa4214f63cdcf4f0036939e5ed50",
+  "runtime": {
+    "code_commit": "9149f75",
+    "generated_utc": "2026-08-07T10:38:50.575810+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "un0-instrument-v1",
+  "verdict": {
+    "computed_from": [
+      "C1_trivial_consumer",
+      "C2_compatible_pair_zero",
+      "C3_incompatible_costs",
+      "C4_bound_respected",
+      "C5_estimation_improves"
+    ],
+    "value": "PASS"
+  }
+}
