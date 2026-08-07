@@ -1,0 +1,56 @@
+{
+  "declared": {
+    "alpha": 0.05,
+    "detrend": "declared linear fit in delay, removed from the curve and from every null curve alike",
+    "n_members": 8000,
+    "n_null": 20000,
+    "seed": 9400000,
+    "source_records": [
+      "results/pf7d-ringing-test.json",
+      "results/pf7b-quantum-ceiling.json"
+    ]
+  },
+  "findings": {
+    "E4_classical_consistent_with_noise_after_detrend": false,
+    "E5_trend_is_real": true
+  },
+  "items": {
+    "E1_detrend_reduces_classical": false,
+    "E2_quantum_survives_detrending": true,
+    "E3_decision_recorded": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "binomial_sigma": 0.005588715163847339,
+    "classical_detrended_p_value": 0.01185,
+    "classical_detrended_statistic": 0.501383438601469,
+    "classical_raw_p_value": 0.02605,
+    "classical_raw_statistic": 0.44804799614485447,
+    "null_detrended_mean": 0.2670757770340066,
+    "null_detrended_q95": 0.4104499882325403,
+    "quantum_detrended_statistic": 0.8702048353726198,
+    "quantum_raw_statistic": 0.8702450277865776,
+    "reading": "the classical arm carries a smooth trend from residual pulse overlap and the declared statistic counted that trend as structure, while the quantum arm's interference sits at a high frequency and is untouched by removing a trend",
+    "trend_drop_over_range": 0.023399999782333036,
+    "trend_in_sigma": 4.18700883768501
+  },
+  "record_sha256": "0cb5de4f7913c2645c8d59ebbb2465e4b04d129740fd8d59e585e713745ea512",
+  "runtime": {
+    "code_commit": "1c29ee8",
+    "generated_utc": "2026-08-07T05:02:35.857980+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf7e-detrended-v1",
+  "verdict": {
+    "computed_from": [
+      "E1_detrend_reduces_classical",
+      "E2_quantum_survives_detrending",
+      "E3_decision_recorded"
+    ],
+    "note": "E4 and E5 carry the ceiling reading, either outcome a result",
+    "value": "FAIL"
+  }
+}

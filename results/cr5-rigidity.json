@@ -1,0 +1,69 @@
+{
+  "declared": {
+    "flex_seed_range": 4096,
+    "rigid_seeds": [
+      1
+    ],
+    "scope": "toy parameter space, methodology only, no real standard, no attack, no claim about any system",
+    "seed_map": "a = seed squared plus 17, b = seed cubed plus 23, both modulo the field, singular pairs rejected",
+    "threshold_rule": "freedom times density at least one",
+    "weak_class": "group order smooth to the declared bound"
+  },
+  "findings": {
+    "P4_artifact_carries_no_search_count": true,
+    "P5_rigid_procedure_below_threshold": true,
+    "P6_rigid_procedure_landed_weak_by_chance": false
+  },
+  "items": {
+    "P1_density_measured": true,
+    "P2_reachable_sets_counted": true,
+    "P3_threshold_and_demonstration": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "expected_rolls_to_manipulate": 7.787072243346008,
+    "field": 101,
+    "first_weak_curve": [
+      16,
+      13
+    ],
+    "first_weak_seed": 10,
+    "flexible_freedom_times_density": 22.29950495049505,
+    "flexible_reachable_distinct": 99,
+    "flexible_seed_range": 4096,
+    "nonsingular_curves": 10100,
+    "reading": "the published artifact is a curve and a seed, and a seed that was reached on the first roll is indistinguishable from one reached on the thousandth, so the artifact carries no record of the search and only the procedure's declared freedom is auditable",
+    "rigid_curve": [
+      [
+        18,
+        24
+      ]
+    ],
+    "rigid_freedom_times_density": 0.22524752475247525,
+    "rigid_landed_weak": false,
+    "rigid_reachable": 1,
+    "smoothness_bound": 5,
+    "weak_class_density": 0.22524752475247525,
+    "weak_curves": 2275,
+    "weak_producing_seeds_in_range": 526
+  },
+  "record_sha256": "f83e3ddbfc5112d579aa3c173d617175673e5fd8947152a4b31f2da4fca1a494",
+  "runtime": {
+    "code_commit": "1c29ee8",
+    "generated_utc": "2026-08-07T05:02:31.441422+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr5-rigidity-v1",
+  "verdict": {
+    "computed_from": [
+      "P1_density_measured",
+      "P2_reachable_sets_counted",
+      "P3_threshold_and_demonstration"
+    ],
+    "note": "P4 through P6 are measurements, either outcome a result",
+    "value": "PASS"
+  }
+}
