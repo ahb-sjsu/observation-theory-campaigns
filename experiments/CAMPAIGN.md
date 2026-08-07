@@ -426,6 +426,67 @@ exponent and the summit stays open.
 **Substrate.** Atlas Python, exploratory and unsealed,
 `results/pf4-005b-analyticity.json`.
 
+#### PF4-005b results (run 2026-08-07, record sha 8da5c1e9dca4...)
+
+Verdict FAIL on one bar of four, with the two bars the summit turns on both passing
+and one declared expectation refuted.
+
+The Lorentzian family answered the question it was asked. Its exponent in the
+declared adiabaticity variable is -2.0661, -2.0639, and -2.0607 across the three
+widths, a spread of 0.26 percent, and each value sits 3.3 percent above the
+parameter-free prediction of exactly minus two. Its exponential form is close to
+exact, coefficients of determination 0.99984, 0.99983, and 0.99982. The timestep
+control passed at 1.8e-13.
+
+The declared expectation F1 is refuted, and that is the run's most useful result.
+The sech-squared family is also width-universal once the widths are compared at
+matched adiabaticity, its exponents being -1.0490, -1.0478, and -1.0462, a spread of
+0.27 percent. PF4-005's 39 percent spread was entirely an artifact of the grid it
+declared, not a property of the profile. Both profiles therefore carry an exponent
+fixed by the adiabaticity built from their own singularity distance, and the
+singularity distance is what makes the exponent width-independent.
+
+What the two profiles do not share is the constant. The Lorentzian sits at the naive
+value and the sech-squared sits at 0.524 of it. The sech-squared mean of -1.0477 is
+close to minus pi over three, which is a resemblance and not a claim, because a
+constant recognised after measurement is not a prediction. Testing it would require
+deriving the constant from the singularity type before running, which is the open
+question named in the PF4-005b declaration and is not answered here.
+
+The bar that failed is B1, the exponential form, applied across both profiles at a
+coefficient of determination of 0.99. The Lorentzian cells clear it by three orders
+of margin and the sech-squared cells sit at 0.9886, 0.9887, and 0.9889, just under.
+That shortfall is stable across widths and is itself informative, the suppression of
+the sech-squared profile is close to but not exactly a pure exponential in the
+adiabaticity, which is consistent with its nearest singularity being a simple pole
+where the driving term diverges rather than a logarithmic branch point. The bar was
+declared over both profiles when only one of them was predicted to be exactly
+exponential.
+
+#### The summit question, as it now stands
+
+PREREG-PF4-002 asked whether any constructible family has a non-measure-tail
+exponent. The answer is yes, and it is measured. The crossing is deterministic with
+one declared initial condition, so no distribution exists whose tail could produce a
+suppression. The exponent depends only on the adiabaticity built from the distance
+to the field's nearest complex singularity, which makes it width-universal to a
+quarter of a percent across a factor of two in width, for both declared profiles.
+For the Lorentzian profile it matches a parameter-free prediction to 3.3 percent.
+This is a dynamical exponent and it is not a measure tail.
+
+Three limits are recorded with it. The observable is the per-crossing transfer and
+not an event rate, and the step between them remains blocked by the cancellation the
+mechanism study measured. The constant that multiplies the adiabaticity is not
+predicted for the sech-squared profile and is left as a named open question. And
+nothing here is sealed, so the result is exploratory and would need a
+preregistration before it could carry a claim.
+
+The campaign does not pursue the constant further in this arc. Two runs have already
+corrected two declaration errors of mine, the grid in absolute velocity and a bar
+applied to a profile it was not predicted to fit, and a third refinement aimed at a
+constant that was recognised rather than predicted would be fitting the analysis to
+a wanted answer.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
