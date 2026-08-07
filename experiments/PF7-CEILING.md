@@ -390,3 +390,37 @@ answer.
 
 This run is post-processing of committed records and adds no new
 dynamics. Exploratory label, results/pf7f-smooth-residual.json.
+
+## PF-7f results (run 2026-08-07, record sha 7c3200608e23...)
+
+Verdict PASS on all three items, and both findings hold, so the
+ceiling stands in its corrected form.
+
+Removing the declared smooth model, an asymptote plus an
+exponential approach at the pulse length, drops the classical
+statistic from 0.4480 to 0.2122 with a p-value of 0.757, which sits
+in the middle of the null rather than in its tail. The quantum
+statistic is 0.8724 after the same treatment against 0.8702 before,
+untouched as predicted for a peak at a high frequency. The trend
+remains real at 4.19 standard errors.
+
+The reading, arrived at through three refinements each of which
+corrected a named error of the declaration rather than of the
+model. The classical arm carries exactly the smooth delay
+dependence its own mechanism predicts, two pulses overlapping less
+as they separate, and once that mechanism is accounted for there is
+nothing left in its spectrum that noise does not explain. The
+quantum arm interferes at a level no noise floor approaches. The
+fold model is capped as a classical representation, it does not
+carry the phase structure that produces interference, and this
+caps the model without touching the kinematic fold theorem or any
+measured PF result.
+
+The methodological record is worth as much as the physics here. The
+first statistic mis-specified its grid, the second set a bar below
+its own noise floor, the third counted a real trend as structure,
+and the fourth blamed a linear model for what an exponential
+mechanism explained. Each was found by a declared test rather than
+by inspection, and the terminus was declared before the last run so
+that a fourth refinement could not become a search for a wanted
+answer.
