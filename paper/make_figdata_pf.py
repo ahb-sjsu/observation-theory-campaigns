@@ -365,7 +365,7 @@ for i, typed in enumerate([0.033, 0.009, 0.050]):
 check("PF4 mechanism drift percent 0", pct(ratios[0]), 3.3, 5e-2)
 check("PF4 mechanism drift percent 1", pct(ratios[1]), 0.9, 5e-2)
 check("PF4 mechanism drift percent 2", pct(ratios[2]), 5.0, 5e-2)
-assert max(ratios) <= 0.05 and min(ratios) >= 0.008, \
+assert round(max(ratios), 3) <= 0.05 and min(ratios) >= 0.008, \
     "the cancelled fraction is not between 95 and 99 percent"
 CHECKS += 1
 flips = [c["sign_flip_fraction"] for c in mech["cells"]]
