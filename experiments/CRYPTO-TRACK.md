@@ -850,6 +850,86 @@ experiment measures the quantity that both of them bound.
 Scope unchanged and strict. Exploratory label,
 results/cr5-rigidity.json.
 
+### CR-6: Information against disturbance
+
+#### CR-6 protocol (declared 2026-08-07, before the run)
+
+Why this belongs in this arc. CR-4c measured that an audit built
+from informations is blind to security that lives in computational
+hardness and sighted for security that lives in distributions.
+Quantum key distribution is the second kind by construction, so it
+is exactly where this campaign's instruments have no ceiling, and
+leaving it out would stop the arc one step before the part it can
+speak about most directly.
+
+The contrast with every classical track. PE, HD, and FT all found
+that a restricted consumer's blindness costs the consumer and
+leaves the substrate untouched, most sharply in HD-3 where the
+decayed mode was recovered bit for bit and the substrate forgot
+nothing. A consumer reading a non-orthogonal ensemble cannot do
+that, and this run measures the price exactly.
+
+Substrate. Four declared preparations, the two computational and
+the two conjugate states, chosen uniformly. The declared
+eavesdropping consumer intercepts with probability lambda,
+measures in the computational basis, and resends its outcome, on
+the declared ladder 0, 0.1, 0.25, 0.5, 0.75, 1. Everything is
+enumerated exactly over the finite probability space.
+
+Bars. C1, the classical control, an orthogonal ensemble is read
+perfectly and leaves no trace, the consumer's information exactly
+one bit and the induced error exactly zero. C2, no information
+without disturbance, at every positive lambda both the information
+and the error are strictly positive. C3, the closed forms, the
+measured information equals lambda over two and the measured error
+equals lambda over four, each within 1e-12. C4, at lambda zero both
+are exactly zero. C5, the Holevo quantity of the preparation
+ensemble bounds the consumer's information.
+
+Finding C6, recorded either way, the family fixes the exchange rate
+at exactly two bits of information per unit of induced error.
+Exploratory label, results/cr6-information-disturbance.json.
+
+### CR-7: Monogamy as consumer exclusion
+
+#### CR-7 protocol (declared 2026-08-07, before the run)
+
+This experiment closes a loop the QD track opened. QD measured
+redundancy, many environment fragments carrying the same record,
+with the plateau appearing exactly when the declared interaction
+wrote records for them, and QD-3 measured two disjoint consumers
+agreeing at a rate set by record strength. CR-7 measures the
+boundary of that plateau, the information for which redundancy is
+not merely absent but forbidden.
+
+Substrate. A declared classical control, one bit broadcast to both
+consumers, and a declared three-qubit family carrying one
+excitation shared between the two consumers at a fixed weight
+split, parametrised by an angle on a declared seven-point grid.
+Correlations are measured by the Wootters concurrence of the exact
+reduced states and by the tangle of one party against the rest.
+
+Bars. M1, classical polygamy, the broadcast record gives each
+consumer the whole bit, both mutual informations exactly one. M2,
+the exact tradeoff, the sum of the squared concurrences is exactly
+one across the whole grid, so the inequality that usually bounds
+monogamy is saturated on this family and the tradeoff is an
+identity. M3, exclusion at the extremes, one consumer holding the
+correlation entirely leaves the other with exactly none. M4, the
+Coffman-Kundu-Wootters relation is saturated, the tangle of the
+first party against the rest equals that sum.
+
+Finding M5, recorded either way, the classical informations sum
+past the quantum identity, so the same three parties can share a
+classical record in full and cannot share quantum correlation at
+all.
+
+The reading if the bars hold. Redundancy is what makes a fact
+objective, and it is available exactly for information that has
+already become classical. The QD track found the plateau and this
+run finds its boundary. Exploratory label,
+results/cr7-monogamy.json.
+
 ## 7. Non-claims and evidence discipline
 
 Seals, labels, append-only records, and falsification bars as in
