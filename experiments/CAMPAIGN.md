@@ -487,6 +487,39 @@ applied to a profile it was not predicted to fit, and a third refinement aimed a
 constant that was recognised rather than predicted would be fitting the analysis to
 a wanted answer.
 
+#### PF4-006 gate protocol (declared 2026-08-07, before the run)
+
+Section 6 of this document makes PF-5 and PF-6 mandatory gates before a
+claim-bearing run. Those gates passed on the thermal Sauter family under
+PREREG-PF5-002 and PREREG-PF6-002. The analyticity result uses a field profile
+those gates never saw, an arctangent tilt with a Lorentzian force, in a
+deterministic setting, so the gate content that applies is applied to it here
+before anything about it is sealed.
+
+What applies. The extended system is a canonical autonomous two-degree-of-freedom
+Hamiltonian system in the evolution parameter, so the conservation content of PF-5
+applies directly. The census content applies. The transfer must not depend on where
+the field is centred, which is the translation content of PF-6, nor on the declared
+entry point or timestep, which is what makes it a property of the crossing rather
+than of the integration.
+
+What does not apply, declared rather than quietly passed. The observer and detector
+audit of PF-6 counts events at declared observer offsets, and these crossings
+produce no events at any offset, so that clause is recorded not applicable. The
+gauge clause is recorded not applicable as in PREREG-PF6-002, the profile declaring
+no electromagnetic coupling. A clause with nothing to audit is not a clause that
+passed, and the standing rule earned four times over in this campaign is that a
+vacuous pass is not a pass.
+
+Bars. G1, the conserved quantity of the extended system drifts by at most 1e-10
+relative in every declared crossing. G2, the census is complete with no nonfinite
+member. G3, shifting the field centre by the declared amounts changes the transfer
+by at most 1e-10 relative. G4, moving the entry point half again further out and
+halving the timestep each change the transfer by at most 1e-8 relative.
+
+This run is the prerequisite for a preregistration and not a substitute for one.
+Exploratory and unsealed, `results/pf4-006-gate.json`.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
