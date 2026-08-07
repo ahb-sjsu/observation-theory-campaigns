@@ -1,4 +1,4 @@
-\documentclass[aps,pre,reprint,nofootinbib,floatfix]{revtex4-2}
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
 
 \usepackage{amsmath,amssymb,bm}
 \usepackage{array}
@@ -17,6 +17,8 @@
     label style={font=\footnotesize},
     legend style={font=\footnotesize, draw=gray!45, fill=white},
     line width=0.9pt}}
+
+\raggedbottom
 
 \begin{document}
 
@@ -213,7 +215,7 @@ $1.8 \times 10^{-15}$.
   xlabel={number of parts read},
   ylabel={information about the secret (bits)},
   xtick={1,2,3,4,5,6}, xmin=0.7, xmax=6.3,
-  ymin=-0.25, ymax=6.9,
+  ymin=-0.25, ymax=7.8,
   legend pos=north west, legend cell align=left]
 \addplot[blue!70!black, mark=*, mark size=2.2pt]
   table[x=n, y=mi] {figdata/cr0_step.dat};
