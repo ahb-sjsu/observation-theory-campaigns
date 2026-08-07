@@ -481,7 +481,7 @@ check("PF-6 gauge control canonical shift",
       inst6["P4_gauge_control"]["canonical_shift_dev"], 1.1e-12, 5e-14)
 check_declared("PF-6 gauge clause not applicable",
                "Recorded not-applicable, the Sauter tilt is\n"
-               "declared non-electromagnetic", PREREG["PF6-002"])
+               "   declared non-electromagnetic", PREREG["PF6-002"])
 
 p601 = load("prereg-pf6-001.json")
 check_exact("PF6-001 verdict", p601["verdict"]["value"], "vacuous")
