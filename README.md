@@ -1,16 +1,16 @@
 ﻿# Observation Theory Campaigns
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Tracks](https://img.shields.io/badge/tracks-13-blue)](#the-thirteen-tracks)
+[![Tracks](https://img.shields.io/badge/tracks-15-blue)](#the-fifteen-tracks)
 [![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
 
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, thirteen tracks. The shared question is what an observer with
+One program, fifteen tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
-Each track makes that question concrete in a different setting, and all thirteen run under one evidence discipline with sealed instruments,
+Each track makes that question concrete in a different setting, and all fifteen run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
 
 If you are new here, read this file top to bottom, then the one track
@@ -18,7 +18,7 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The thirteen tracks
+## The fifteen tracks
 
 Each track carries one icon everywhere in this file, chosen for what
 the track studies rather than for a palette. 🔀 PF folds, 🌫️ PE the
@@ -26,8 +26,10 @@ information a projection hides, ⚛️ QO quantum observation, 🌉 TB the
 bridge to type III algebras, 🌌 EG emergent geometry, 🕸️ WM hypergraph
 rewriting, 🎲 GD games and decisions, 🔍 RG changes of scale,
 🧬 QD the replication of records, 🌊 HD lattice fluids, 🌡️ FT
-work and heat, 🔗 GG lattice links, and 🔐 CR engineered
-observation limits. The letter codes always accompany the icons, so
+work and heat, 🔗 GG lattice links, 🔐 CR engineered
+observation limits, ⚖️ UN the floor that survives every
+admissible consumer, and 📜 FS the limits of a formal
+consumer. The letter codes always accompany the icons, so
 nothing depends on the icon alone.
 
 | Track | Short name | Question in one line | Status |
@@ -45,6 +47,8 @@ nothing depends on the icon alone.
 | 🌊 HD | Hydrodynamics | Is a transport coefficient substrate or prescription, and is coarse dissipation entirely the observer's? | HD-0..HD-3 measured, first pass complete (HD-1 honest FAIL = HPP's spurious invariants, exactly): FHP-I relaxes the shear HPP froze, the viscosity is prescription-INVARIANT (spread 0.07% across nine prescriptions vs the 10% bar), and dissipation is declared-or-absent — the coarse decay is bit-exactly recoverable by the complete consumer, one lost bit ends the recovery (return ratio 0.018) |
 | 🌡️ FT | Fluctuation theorems | What happens to Jarzynski and Crooks for a consumer with a restricted channel? | COMPLETE first pass: FT-0..3 measured: fluctuation identities are inference theorems; the information term is the acting consumer's (Sagawa-Ueda exact, bystander fails) |
 | 🔗 GG | Gauge redundancy | Is gauge symmetry anything but the fiber structure of the observer's projection? | COMPLETE first pass: GG-0..3 measured: bookkeeping = relabeled loops, constraint isolated (invariants fourth-order blind), charge = line endpoints, bare matter = fiber coordinates |
+| ⚖️ UN | Uncertainty | Which part of a measurement uncertainty is a consumer's limitation and which part survives every admissible consumer? | Declared with three guards; UN-0 instrument PASS; UN-1 designed and unrun. Not a generator test domain and cannot become one |
+| 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 
 ## Status ledger, one row per experiment
 
@@ -773,6 +777,116 @@ read.
 Key files. `experiments/CRYPTO-TRACK.md`,
 `python/cr0_instrument.py`, `results/cr0-instrument.json`.
 
+### ⚖️ UN, removable and irreducible uncertainty
+
+Every track above holds a substrate fixed, varies the admissible
+consumer, and sees what moves. Pointed at quantum measurement, that
+move suggests a split the usual telling does not make. Some
+uncertainty is a consumer's limitation and more budget removes it.
+Some survives every consumer the class allows. The track measures
+where that line falls.
+
+The design carries three guards written before any experiment,
+because the obvious version of this track would be worthless and
+each guard names a specific way. The first forbids the claim that
+quantum incompatibility survives quantum consumers, which is an
+assumption of the setup restated, not a finding. The second requires
+every claim of irreducibility to name its admissible class in the
+same sentence, since collective measurements, post-selection, and
+system-only projective measurements each give a different frontier.
+The third keeps four adjacent literatures apart by name, because
+conflating Robertson products, entropic relations, error-disturbance
+relations, and uncertainty with quantum side information produces
+confident error.
+
+One distinction decides the answer and is declared in advance.
+Estimating an expectation value from many copies and predicting a
+single-shot outcome from one copy behave oppositely under the same
+budget ladder, so a design that does not say which it means will
+report whichever it happened to implement.
+
+Established so far. UN-0, the exact frontier instrument, passes all
+five controls: the trivial consumer's record leaves both outcome
+entropies at one bit, a compatible pair reaches zero conditional
+entropy, an incompatible pair costs the full bit, the
+Maassen-Uffink bound is respected at four declared basis angles, and
+estimation error falls with copies. UN-1, the removability
+discriminator, is designed and unrun.
+
+This track supplies no evidence for the generator claim. quant-ph
+is on the exclusion list of the frozen domain pool because the QO
+and QD tracks helped build the kernel.
+
+Key files. `experiments/UNCERTAINTY-TRACK.md`,
+`python/un0_instrument.py`, `results/un0-instrument.json`.
+
+### 📜 FS, the limits of a formal consumer
+
+A formal theory is a consumer. Its channel is its axioms and rules,
+its budget is the proof effort it may spend, and its task is to
+decide sentences. Some of what it cannot decide is budget. Some is
+not. The track measures where that boundary sits in finite models,
+and whether the frontier between decided and undecided belongs to
+the theory or to the proof calculus used to search it.
+
+The design claims nothing about the incompleteness theorems. It also
+carries an explicit prohibition, which is that the resemblance
+between second incompleteness and this campaign's own use of frozen
+declarations to certify its runs may be recorded as a resemblance
+and never as a result. Preregistration works by removing degrees of
+freedom from a fallible agent. Incompleteness is a theorem about
+arithmetization and self-reference. Treating them as one principle
+is exactly the flexible reinterpretation the generator experiment
+was built to detect, performed by us, on ourselves, inside the
+program built to detect it.
+
+The track is sealed and may not run. `math.LO` and `cs.LO` are both
+in the frozen generator pool, and every pooled domain touched
+informally is a prospective test domain spent. Sealing the design
+now timestamps it, so it cannot later be presented as having been
+conceived after seeing a draw. If the draw selects either category,
+the track is withdrawn from the campaign and this document becomes a
+disclosed conflict rather than a design.
+
+Key files. `experiments/FORMAL-SYSTEMS-TRACK.md`, sealed at commit
+39f514e.
+
+## The generator experiment
+
+Fourteen tracks reached a similar shape, which invites a question the
+tracks themselves cannot answer. A framework that fits everything
+after the fact fits nothing in advance. So the campaign now tests
+its own kernel prospectively, against the null hypothesis that its
+apparent reach is flexible reinterpretation.
+
+The operator is frozen in `experiments/GENERATOR-G1.md`. It takes a
+domain, decomposes it into a substrate, a consumer with a channel, a
+task, a budget, and an environment, and applies eight question
+operators to produce candidate experiments. Twelve domains are drawn
+from a pool of 140 arXiv categories frozen in
+`GENERATOR-DOMAIN-POOL-V3.md`, seeded by a NIST randomness beacon
+pulse whose value does not yet exist. The primary endpoint is the
+number of domains where the operator's packet yields more items
+meeting all five declared validity conditions than a matched
+comparator's, with success at ten of twelve, ties counted against
+the operator, and scoring on the packets alone.
+
+Two commitments make the result capable of coming out against us.
+The seed is a future public value, so the domains cannot be chosen.
+And no new track may be opened in any pooled category until the
+twelve packets are scored, which is why the FS track above is sealed
+and idle.
+
+A full dry run on a non-pool domain registered seven findings in
+`experiments/GENERATOR-DRYRUN.md`. The most serious is that all
+three scorers marked every comparator item replication-grade and no
+operator item, which suggests the label may be tracking vocabulary
+rather than novelty. Three findings must be closed before the draw.
+
+Key files. `experiments/GENERATOR-G1.md`,
+`experiments/GENERATOR-DOMAIN-POOL-V3.md`,
+`experiments/GENERATOR-DRYRUN.md`, `python/g1_draw.py`.
+
 ## The evidence discipline (applies to every track)
 
 1. Instruments are validated against exact controls and sealed before
@@ -780,8 +894,10 @@ Key files. `experiments/CRYPTO-TRACK.md`,
 2. Claim-bearing results require a sealed preregistration naming the
    claim, the grid, the estimator, and the falsification bar before
    the run. Seals are git-blob hashes in `experiments/SEALS.md`
-   (seven entries: two freezes, five preregistrations, all verifiable
-   with `git show <commit>:<path> | sha256sum`).
+   (seventeen entries: two instrument freezes, nine
+   preregistrations, the generator operator and three successive
+   domain pools, and one track sealed before it may run, all
+   verifiable with `git show <commit>:<path> | sha256sum`).
 3. Every trajectory is counted; no conditioning on success.
 4. Evidence records in `results/` are append-only hashed JSON
    sufficient for independent recomputation; every paper figure
@@ -794,6 +910,12 @@ benchmarks, `[demonstrated-in-model]` sealed bars passed,
 `[exploratory]` unsealed work, `[refuted]` a sealed claim failed. No
 result in this repository is evidence that physical spacetime is a
 projection.
+
+Errors found after publication are in `ERRATA.md`, whether or not
+the published record has been corrected. Two published papers
+carry a wrong journal reference for one cited work; the entry
+says what is wrong, what the replication does and does not
+depend on, and what has not been done about it.
 
 ## Published papers
 
