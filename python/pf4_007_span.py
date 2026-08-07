@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import pf4_pilot as pilot  # noqa: E402
 from pf4_005_analyticity import (  # noqa: E402
-    POLE_DISTANCE, fit_slope, run_cell)
+    POLE_DISTANCE, run_cell)
 from projection_fold import canonical_sha256  # noqa: E402
 
 SPAN_LADDER = [20.0, 30.0, 45.0, 65.0, 90.0]
@@ -49,6 +49,22 @@ KAPPA_GRID = [0.9, 1.2, 1.5, 2.0, 2.5, 3.0]
 L_GRID = [2.0, 3.0, 4.0]
 DT = 2e-4
 EXPONENT_SPANS = [20.0, 90.0]
+
+
+def fit_slope(kappa_values, e_res):
+    """Fit the log transfer against the adiabaticity itself. The
+    first execution of this runner imported a helper that fits
+    against the reciprocal, which is the named error that
+    invalidated its exponent items."""
+    x = np.array(kappa_values, dtype=float)
+    y = np.log(np.asarray(e_res, dtype=float))
+    a = np.vstack([x, np.ones_like(x)]).T
+    coef, *_ = np.linalg.lstsq(a, y, rcond=None)
+    pred = a @ coef
+    ss_res = float(np.sum((y - pred) ** 2))
+    ss_tot = float(np.sum((y - y.mean()) ** 2))
+    r2 = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
+    return float(coef[0]), float(coef[1]), r2
 
 
 def transfer(profile, l_s, kappa, span, dt=DT):
