@@ -923,9 +923,29 @@ assert all(1e-7 < v < 1e-6 for v in step006), \
     "the PF4-006 timestep changes are not near 3e-7"
 CHECKS += 1
 
-a007 = load("pf4-007-span.json")
+a007 = load("pf4-007b-span.json")
 m007 = a007["measured"]
-check_exact("PF4-007 verdict", a007["verdict"]["value"], "PASS")
+check_exact("PF4-007b verdict", a007["verdict"]["value"], "PASS")
+check_exact("PF4-007b supersedes the invalid record",
+            a007["supersedes"].startswith("results/pf4-007-span.json"),
+            True)
+a007bad = load("pf4-007-span.json")
+assert all(v > 0 for v in
+           a007bad["measured"]["lorentz_slopes_at_far_span"]), \
+    "the superseded PF4-007 record no longer carries positive slopes"
+CHECKS += 1
+check("PF4-007 superseded positive slope 0",
+      a007bad["measured"]["lorentz_slopes_at_far_span"][0], 5.30, 5e-3)
+check("PF4-007 superseded positive slope 1",
+      a007bad["measured"]["lorentz_slopes_at_far_span"][1], 5.32, 5e-3)
+check_declared("PF4-007 record defect recorded",
+               "was produced by the runner before the reciprocal-fit\n"
+               "import was found, so its exponent items are invalid",
+               CAMPAIGN)
+check_declared("PF4-007 correction left uncommitted",
+               "The corrected rerun was left in the working tree and "
+               "never\ncommitted, so it was invisible to anything "
+               "reading the repository", CAMPAIGN)
 lad = m007["ladders"]["lorentz"]["successive_relative_change"]
 for i, typed in enumerate([1.278, 0.586, 0.130, 0.015]):
     check(f"PF4-007 Lorentzian successive change {i}", pct(lad[i]),
@@ -935,10 +955,13 @@ check("PF4-007 sech-squared change along the ladder",
       1.1e-13, 6e-15)
 check_exact("PF4-007 declared convergence bar",
             a007["declared"]["bars"]["S2_sech2_convergence"], 1e-9)
-check("PF4-007 worst exponent change",
-      pct(m007["worst_relative_exponent_change"]), 0.28, 5e-3)
-check("PF4-007 universality at the furthest span",
+check("PF4-007b worst exponent change",
+      pct(m007["worst_relative_exponent_change"]), 0.23, 5e-3)
+check("PF4-007b universality at the furthest span",
       pct(m007["lorentz_spread_at_far_span"]), 0.36, 5e-3)
+assert all(v < 0 for v in m007["lorentz_slopes_at_far_span"]), \
+    "the corrected PF4-007b record does not carry negative slopes"
+CHECKS += 1
 
 a008 = load("pf4-008-pole-order.json")
 m008 = a008["measured"]
