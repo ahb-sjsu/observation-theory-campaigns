@@ -19,3 +19,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-PF5-002 | experiments/PREREG-PF5-002.md | 69b594d | 53a08c5ccc082f6cad913e0a9e957edc690f1145ad7217f70a13a388eb2e6917 | 2026-08-06 | A. H. Bond (session instruction) |
 | PREREG-PF6-001 | experiments/PREREG-PF6-001.md | 8160039 | 7299902bc0adcc79ac5ce1a6eb4922612e292bf620e727da9303c49661544c3f | 2026-08-06 | A. H. Bond (session instruction) |
 | PREREG-PF6-002 | experiments/PREREG-PF6-002.md | 5ecda35 | 3a42ce4ce8f22748ce0c9b90a4cdc3c04fc16a607314d3615aaca3264d898602 | 2026-08-06 | A. H. Bond (session instruction) |
+| PREREG-PF4-009 | experiments/PREREG-PF4-009.md | c2d4522 | 58dba9e4c2a112310565d14cc4cd86b2675e0d57f298d0fc1a302e75f78cc282 | 2026-08-07 | A. H. Bond (session instruction) |
