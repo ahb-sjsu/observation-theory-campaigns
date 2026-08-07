@@ -99,12 +99,15 @@ def make_tables(a, b, order):
     base = None
     for x in range(P_FIELD):
         rhs = (x * x * x + a * x + b) % P_FIELD
-        if legendre(rhs) == 1:
-            y = pow(rhs, (P_FIELD + 1) // 4, P_FIELD) \
-                if P_FIELD % 4 == 3 else None
-            if y is not None and (y * y) % P_FIELD == rhs:
-                base = (x, y)
-                break
+        if legendre(rhs) != 1:
+            continue
+        # the field is small, so the root is found by search and no
+        # square-root shortcut is assumed about the modulus
+        y = next((yy for yy in range(1, P_FIELD)
+                  if (yy * yy) % P_FIELD == rhs), None)
+        if y is not None:
+            base = (x, y)
+            break
     assert base is not None, "no base point"
     table = [None] * order
     cur = None
