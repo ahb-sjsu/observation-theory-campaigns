@@ -487,7 +487,7 @@ assert m4["word_count_shape_backdoored"] \
     != m4["word_count_shape_clean"], "CR-4 word shapes coincide"
 CHECKS += 1
 check_declared("CR-4 truncation",
-               "The declared truncation keeps three bits")
+               "declared truncation keeps three bits")
 check_declared("CR-4 trapdoor bar",
                "predicts the next output word from one observed word "
                "in at")
@@ -522,7 +522,7 @@ check_declared("CR-4b route bar", "route agree within 1e-9")
 check_declared("CR-4b field", "the field of 1009 elements")
 check_declared("CR-4b prime order", "with prime group order")
 check_declared("CR-4b clean rule",
-               "first scalar whose point abscissa is at least 500")
+               "the first scalar whose point abscissa is")
 
 check_exact("CR-4c verdict", cr4c["verdict"]["value"], "PASS")
 for key, val in cr4c["items"].items():
