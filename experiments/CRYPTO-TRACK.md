@@ -638,6 +638,60 @@ task rather than by the source, which is the GD-3 lesson in entropy
 accounting form. Nothing in this is a claim about any real
 key-generation system.
 
+### CR-4: The backdoor audit ceiling
+
+#### CR-4 protocol (declared 2026-08-07, before the run)
+
+A backdoor of the Dual-EC shape is a consumer-relative asymmetry,
+two observers read the same output stream and one holds a scalar
+that turns an apparently random stream into a decodable channel.
+CR-1's certificate is the right instrument for that asymmetry, and
+CR-4 asks the prior question, whether an information-theoretic
+audit can tell a parameter set whose scalar is known from one whose
+scalar is merely unknown.
+
+Substrate. The curve y squared equals x cubed plus two x plus three
+over the field of 101 elements, all points enumerated, a generator
+of the full group, and a generator step of the Dual-EC shape where
+the state advances by one point multiplication and the output word
+is the truncation of the abscissa of a second multiplication. The
+declared truncation keeps three bits. Two declared parameter sets,
+one whose second point is the seventh multiple of the generator so
+the scalar is known by construction, and one whose second point is
+fixed by a declared nothing-up-my-sleeve rule with its scalar
+recovered afterwards by enumeration only so the run can state it.
+
+Bars. B1, the trapdoor works, an observer holding the declared
+scalar predicts the next output word from one observed word in at
+least half of the declared seeds. B2, the public word distributions
+of both parameter sets are near uniform, each within 0.15 bits of
+the truncation's uniform entropy. B3, the scalar always exists, the
+enumerated scalar of the clean point reproduces that point. B4, the
+public observer's mutual information with the seed does not exceed
+the seed entropy, an instrument sanity check.
+
+Finding B5, the ceiling measurement, recorded individually with
+either outcome a result. The audit cannot separate the two
+parameter sets when their public entropies agree within 0.15 bits
+and their word-count multisets are identical.
+
+The declared prediction, offered so the run can refute it. The
+scalar relating two points of a cyclic group always exists, so the
+two parameter sets induce the same output distributions and no
+information-theoretic audit separates them. If that prediction
+holds, the security content of this backdoor class is entirely
+computational, the campaign's methods stop exactly there, and the
+boundary is drawn in measured numbers rather than asserted.
+
+Scope, stronger here than anywhere else in the program. The curve
+is a toy chosen for exact enumeration. No real curve, standard,
+protocol, implementation, or deployed system is modeled or
+evaluated. No attack is developed. Nothing measured here is a
+claim about the security of anything, and the trapdoor arm exists
+only to establish that the audit sees a backdoor when one is
+present by construction. Exploratory label,
+results/cr4-backdoor-ceiling.json.
+
 ## 7. Non-claims and evidence discipline
 
 Seals, labels, append-only records, and falsification bars as in
