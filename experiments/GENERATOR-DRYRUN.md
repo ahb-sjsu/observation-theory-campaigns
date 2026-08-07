@@ -14,10 +14,18 @@ that the twelve real packets are not the first time anything runs.
 
 ## Domain
 
-quant-ph, which is on the exclusion list of
-GENERATOR-DOMAIN-POOL-V2.md and can therefore never be drawn.
-Nothing learned here can contaminate the experiment, and no test
-domain is consumed.
+Originally quant-ph, changed to cond-mat.stat-mech before any
+generation ran, for the reason in finding 3 below. Both are on the
+exclusion list and can never be drawn, so nothing learned here can
+contaminate the experiment and no test domain is consumed. The
+description supplied is the frozen one from the taxonomy, "Phase
+transitions, thermodynamics, field theory, non-equilibrium
+phenomena, renormalization group and scaling, integrable models,
+turbulence".
+
+Using a domain the campaign knows well is acceptable here because
+the rehearsal measures whether the harness runs and not whether the
+generator is any good.
 
 ## The rule that governs the rehearsal
 
@@ -73,3 +81,15 @@ item list, and the rubric. Style may leak but direction does not,
 and a scorer with no stake in which arm wins has no lever to
 apply. The residual risk is recorded as a limitation of the
 experiment and must appear in the paper.
+
+### Finding 3, the same defect from another angle
+
+quant-ph was chosen as the rehearsal domain precisely because it is
+excluded, and it turned out to be one of the three categories whose
+published description is the placeholder. It could not supply the
+rehearsal with an input, which is the same defect that
+GENERATOR-DOMAIN-POOL-V3.md removed from the pool, met a second
+time from a different direction. The rehearsal domain was changed
+to cond-mat.stat-mech before any generation ran. Recorded because
+the coincidence is a useful reminder that the defect was not
+hypothetical.
