@@ -22,15 +22,15 @@
 
 \begin{document}
 
-\title{Engineered Observation Limits:\\
-Secret Sharing, Leakage Channels, and Two Entropy Accountings
-in Exact Finite Models}
+\title{Engineered Observation Limits in Exact Finite Models\\
+What an Information-Theoretic Audit Certifies, Where It Stops,
+and Where It Does Not}
 
 \author{Andrew H. Bond}
 \email{andrew.bond@sjsu.edu}
 \thanks{ORCID: 0009-0003-2599-6158}
 \affiliation{San Jos\'e State University, San Jos\'e, California, USA}
-\date{August 6, 2026}
+\date{August 7, 2026}
 
 \begin{abstract}
 Cryptography is the engineering discipline of declared observation
@@ -38,11 +38,12 @@ limits.  Where the rest of this campaign has to find the consumer's
 channel inside a physical model, cryptography writes the channel down
 on purpose and then argues about what a consumer can read through it.
 This paper carries the campaign's consumer-relative audit to that
-argument in four exact finite models and to nothing else.  Every model
-here is a declared toy model small enough to enumerate.  Nothing in
-this paper bears on computational hardness or on asymptotic security,
-no real cipher, protocol, implementation, or deployed system is
-modeled or evaluated, and no attack is developed.  What is measured is
+argument in eleven exact finite models and to nothing else.  Every
+model here is a declared toy model small enough to enumerate.  Nothing
+in this paper bears on computational hardness or on asymptotic
+security, no real cipher, protocol, curve, standard, implementation,
+device, or deployed system is modeled or evaluated, and no attack is
+developed.  What is measured is
 evaluation methodology, meaning the reasoning that carries a leakage
 measurement to a conclusion about what a reader can do.  A threshold
 secret-sharing scheme over a field of thirty-one elements, enumerated
@@ -87,6 +88,56 @@ because both accountings vanish together as a source becomes certain.
 The corrected registration measures the ratio, which falls strictly
 where the difference does not, and locates the interior maximum by
 bisection at spike weight 0.35338 with a difference of 2.6398 bits.
+The arc then measures where an audit of this kind stops.  A declared
+generator over a toy curve was given two parameter sets, one whose
+relating scalar is known by construction and one whose scalar is
+fixed by a declared rule and recovered afterwards by enumeration.
+That run failed two bars.  A group of ninety-six elements cannot
+spread ninety-five seeds near uniformly over eight output words, and
+the measured entropies were 2.7890 and 2.8002 bits against three, and
+the recovery loop accepted the first candidate consistent with one
+observed word instead of testing it against the next word, so it
+predicted at 0.263 against a declared half.  It also asked the wrong
+question, because the scalar of the second parameter set was recovered
+by enumeration in the same run and every point of a cyclic group has
+one.  A second registration on a larger group of prime order failed
+one bar from a coding error in an inverse map, measuring 0.0314 where
+the bar was one part in a billion, with its positive control already
+exact.  The corrected registration passes.  A declared one-bit covert
+channel carries exactly 1 bit of information about the seed bit it was
+given while the unmodified generator carries exactly 0, both parameter
+sets produce output words at 2.9878 and 2.9943 bits against a uniform
+three, and the two routes to one conditional entropy agree exactly.  A
+trapdoor scalar is a constant of the parameter set, so its entropy is
+exactly zero and the information it can carry about any observable is
+bounded by that zero.  That is a bound on what an audit built from
+informations can see and it is not advice about anything.  What such
+an audit can see instead is counted next.  Over all 10100 non-singular
+curves of a toy parameter space, 2275 lie in a declared rare class, a
+density of 0.2252.  A procedure allowed one seed reaches one curve and
+did not land in the class.  A procedure allowed 4096 seeds reaches
+only 99 distinct curves, so its nominal freedom overstates the freedom
+it has, and it reaches the class at its tenth seed with 526 of its
+seeds landing there.  The published artifact is a curve and a seed and
+carries no record of how many seeds were tried, so only a procedure's
+declared freedom is auditable, which is preregistration under another
+name.  The last two runs measure a place where none of this stops.  A
+consumer reading four declared preparations, two of which are not
+orthogonal to the other two, gains information only by disturbing what
+it reads, running from 0.05 bits at an induced error of 0.025 to 0.5
+bits at 0.25, agreeing with declared closed forms to sixteen decimal
+places, at an exchange rate of exactly two bits of information for
+each unit of induced error.  The same structure on an orthogonal
+ensemble reads the whole bit at an induced error of exactly zero.
+Every classical track in this campaign measured the opposite, most
+sharply where a coarse observer's decayed mode was recovered bit for
+bit and the substrate had forgotten nothing.  Finally, a declared
+classical record broadcast to two consumers gives each of them the
+whole bit, so their informations sum to two, while a declared
+three-qubit family gives them correlations whose squared strengths sum
+to exactly one across the whole grid, so a consumer holding all of it
+leaves the other exactly none.  Redundancy is available exactly for
+information that has already become classical.
 \end{abstract}
 
 \maketitle
@@ -123,9 +174,10 @@ once here, and once in the ledger of
 Sec.~\ref{sec:claims}.  This paper measures exact finite models, so it
 can say nothing about computational hardness, nothing about asymptotic
 security, and nothing about any concrete algorithm or deployment.
-Every model is a declared toy model.  No real cipher, protocol,
-implementation, or deployed system is modeled or evaluated.  No attack
-is developed and no attack is evaluated.  What remains is
+Every model is a declared toy model.  No real cipher, protocol, curve,
+standard, implementation, device, or deployed system is modeled or
+evaluated.  No attack is developed and no attack is evaluated.  What
+remains is
 evaluation methodology, meaning the reasoning that carries a leakage
 measurement to a conclusion about what a reader can do, and that
 reasoning can be audited exactly in settings where every alternative
@@ -154,16 +206,34 @@ against provably could not meet it, and the move and its reasoning
 were recorded in the track document before the run rather than
 afterward.  Sec.~\ref{sec:cr0} reports what that object measured.
 
-The paper reports four runs and one correction.  The first is the
-instrument layer, an engineered redundancy plateau computed by exact
-integer counting and validated against the known answer for threshold
-secret sharing.  The second orders declared leakage channels by
-Blackwell's relation and replaces a search with a proof.  The third
-measures where a scalar leakage ordering and a task ordering disagree.
-The fourth prices one declared source for two consumers with different
-tasks, and it failed its declared bar on one clause.  That failure is
-reported with the design error named and the corrected registration is
-reported beside it.
+The paper reports eleven registrations in three movements, and three
+of the eleven are corrections of an earlier registration that failed
+its own declared bar.
+
+The first movement measures what an audit of this kind can certify.
+It runs the instrument layer on an engineered redundancy plateau
+computed by exact integer counting and validated against the known
+answer for threshold secret sharing, orders declared leakage channels
+by Blackwell's relation and replaces a search with a proof, measures
+where a scalar leakage ordering and a task ordering disagree, and
+prices one declared source for two consumers with different tasks.
+
+The second movement measures where the same audit stops.  A trapdoor
+in a declared generator is a constant of the parameter set rather than
+a source of randomness, so its entropy is zero and no quantity built
+from informations can see it, which is a bound rather than a
+shortcoming of any instrument.  What the audit can see instead is
+provenance, and provenance turns out to be a counting question about
+how many results a procedure was free to choose among.
+
+The third movement measures a place where none of that stopping
+happens.  When the states a consumer reads are not distinguishable, a
+consumer that learns anything changes what it read, and the price is
+exact.  When two consumers want the same correlation, one of them
+having all of it leaves the other with none, while a classical record
+of the same size is held in full by both at once.  These are the two
+runs where the campaign's own instruments have no ceiling at all, and
+they are what the earlier movements exist to locate.
 
 \section{An engineered redundancy plateau is a step and one left by an
 interaction is not}
@@ -665,17 +735,404 @@ the consumer's task and not by the source.  Nothing in this section is
 a claim about any real key-generation system, and no such system is
 modeled.
 
+\section{A constant has zero entropy and an audit built from
+informations is blind to it by that bound}
+\label{sec:cr4}
+
+Everything so far measured what an audit built from informations
+certifies.  The next two sections measure where it stops, and the
+first of the two stops it with a bound rather than with a failed
+attempt.
+
+An asymmetry between two readers of one output stream is the object
+here.  Both readers see the same words, and one of them holds a scalar
+the other does not.  The substrate is a declared generator over a toy
+curve, chosen small enough that every point and every state can be
+enumerated.  The state advances by one point multiplication and the
+output word is a declared truncation of the abscissa of a second
+multiplication, keeping three bits, so there are eight output words.
+Two parameter sets were declared, one whose second point is a known
+multiple of the generator and one whose second point is fixed by a
+declared rule and whose relating scalar is recovered afterwards by
+enumeration only so that the run can state it.
+
+\begin{table}[t]
+\caption{The three registrations of the backdoor-ceiling
+question.  The first two failed and are kept.  The output entropies
+are measured against a uniform three bits, the declared covert channel
+writes one seed bit into the output word, and the two routes are the
+public route to a conditional entropy and the route available to a
+reader holding the scalar.  Verdicts and values are read from the
+committed evidence records.}
+\label{tab:cr4}
+\begin{ruledtabular}
+\footnotesize
+\begin{tabular}{lccc}
+             & CR-4    & CR-4b    & CR-4c \\
+\colrule
+verdict                       & FAIL   & FAIL     & PASS \\
+group order                   & $96$   & $1013$   & $1013$ \\
+output entropy, known scalar  & $2.7890$ & $2.9878$ & $2.9878$ \\
+output entropy, declared rule & $2.8002$ & $2.9943$ & $2.9943$ \\
+declared channel (bits)       &        & $1$      & $1$ \\
+unmodified generator (bits)   &        & $0$      & $0$ \\
+route difference (bits)       &        & $0.0314$ & $0$ \\
+scalar entropy (bits)         &        &          & $0$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The first registration failed two of its four bars, and
+Table~\ref{tab:cr4} carries all three registrations together.  Its
+group has 96 elements and its declared truncation has 8 output words,
+so 95 seeds spread over 8 words cannot come near uniform, and the
+measured output entropies of 2.7890 and 2.8002 bits missed the
+declared window of 0.15 bits below a uniform 3 by finite size alone.
+The reader holding the scalar predicted the next word from one
+observed word at a rate of 0.263 against a declared half, because the
+recovery loop accepted the first candidate consistent with one
+observed word instead of testing candidates against the next word.
+Both are errors of declaration and implementation rather than
+properties of the substrate, and both are recorded.
+
+The same run refuted its own question, which is the more useful part
+of it.  The declared finding asked whether the audit can separate a
+parameter set whose scalar is known from one whose scalar is merely
+unknown, and it read False.  Two different second points induce
+genuinely different exact output distributions, and the two recorded
+word-count multisets are not the same multiset, so distributional
+identity was never what the two parameter sets share.  What they share
+is that the scalar of the second point was recovered by enumeration in
+the same run, at the value 41.  Every point of a cyclic group is a
+multiple of the generator, so the two parameter sets are not two
+classes of object at all, and there is nothing for a separation test
+to separate.
+
+The corrected question replaces separation with blindness.  A trapdoor
+scalar is a fixed constant of the parameter set rather than a source
+of randomness, so it cannot change any conditional law of the outputs
+and its whole content is the cost of a computation.  An audit built
+from informations should therefore be exactly blind to it, and the
+measurement is that blindness placed beside a positive control that
+the same audit does detect.  The second registration moved to a
+declared curve over the field of 1009 elements whose group has prime
+order 1013, which makes near uniformity attainable, and its positive
+control came out exact.  A declared generator that writes one seed bit
+into its output word carries exactly 1 bit of mutual information with
+that seed bit, and the unmodified generator carries exactly 0.  The
+output entropies are 2.9878 and 2.9943 bits against a uniform 3, and
+the scalar of the second point was again recovered by enumeration, at
+the value 2.
+
+That registration failed on one bar and the cause is a coding error
+that the record names.  Two routes to one conditional entropy measured
+2.8811 and 2.9125 bits, a difference of 0.0314 where the bar was
+$10^{-9}$.  The route available to a reader holding the scalar
+multiplied the observed point's abscissa as though the abscissa were
+itself a scalar, where the group law requires scalar-multiplying the
+observed point by the inverse of the trapdoor scalar.  The two routes
+are equal by the group law, so the measured disagreement was a
+measurement of the coding error and of nothing about trapdoors.
+
+The third registration corrects the inverse map and passes all five of
+its items.  The two routes now agree exactly, difference $0.0$ rather
+than a small number, on the same substrate and with the same output
+entropies and the same positive control.  The ceiling itself is
+restated in the form that makes it a bound.  Write $T$ for the
+trapdoor scalar and $X$ for any observable an audit can form from the
+output stream.  Then
+\begin{equation}
+  I(T; X) \;\le\; H(T) \;=\; 0,
+  \label{eq:ceiling}
+\end{equation}
+because a constant of the parameter set has exactly zero entropy, and
+the record carries both quantities at exactly zero.  The blindness of
+an audit built from informations is therefore not a shortcoming of
+this instrument or a limit of this toy.  It is what the quantities the
+audit is built from are able to express.
+
+The two halves belong together and the record keeps them together.
+The same audit reads the declared covert channel at exactly 1 bit and
+reads a constant at exactly 0, so a modification that changes an
+output distribution is visible to it and a modification that changes
+only the cost of a computation is not.  This is a statement about
+what quantities of this kind can express and it is not advice about
+inspecting anything.  No real curve, standard, protocol,
+implementation, or deployed system is modeled or evaluated in any of
+the three registrations, the toy curve was chosen only because it can
+be enumerated exactly, and no attack was developed.
+
+\section{Only a procedure's declared freedom is auditable because the
+artifact carries no record of the search}
+\label{sec:cr5}
+
+Equation~\eqref{eq:ceiling} says an audit built from informations
+cannot see a constant.  What such an audit can see is provenance, and
+provenance turns out to be a counting question with three numbers in
+it, the rarity of a declared class, the number of distinct results a
+procedure can reach, and the product of the two.
+
+The substrate is every non-singular curve over the field of 101
+elements, 10100 of them, with the size of each group computed exactly
+by counting points.  The declared class is the set of curves whose
+group order has no prime factor above the declared bound of five.  The
+protocol calls that class weak, and the label is a declaration of the
+protocol rather than anything this run measures.  What the run
+measures about the class is how rare it is and how many of its members
+each declared procedure can reach.  It contains 2275 of the 10100
+curves, a density of 0.2252.
+
+Two declared procedures share one declared seed map, which sends a
+seed to a coefficient pair and rejects the singular pairs.  The rigid
+procedure may use exactly one seed.  It reaches 1 curve, its number of
+reachable results times the measured density is 0.2252, and it did not
+land in the declared class.  The flexible procedure may use any seed
+in a declared range of 4096.  Its declared range is not its freedom.
+Those 4096 seeds reach only 99 distinct curves, so the nominal freedom
+of the procedure overstates the freedom it actually has by a factor of
+more than forty, and the number that matters is the smaller one.  Even
+so, 99 reachable results times a density of 0.2252 is 22.3, and a
+product above one is the point at which choosing among results is
+expected to reach the class.  It does.  The flexible procedure reaches
+the declared class at its tenth seed, and 526 of its 4096 seeds land
+there, an expected 7.787 seeds per success.
+
+The published artifact carries none of that.  It is a curve and a
+seed, and a seed reached on the first try and a seed reached on the
+thousandth try are the same kind of object with the same appearance,
+so the artifact records no search count and nothing in it distinguishes
+one history from another.  What remains auditable is the freedom the
+procedure declared for itself, which is why the product of declared
+freedom and class rarity is the quantity this run computes.  The
+measurement is about a declared toy parameter space with a declared
+toy class.  It is not a finding about any real curve, standard, or
+generation procedure, none is modeled here, and nothing in it says
+that any procedure or parameter set was manipulated.
+
+The connection was recorded in the track document with the result.
+Removing a designer's freedom to try again until the answer is the
+wanted one is what rigid parameter generation does in cryptography and
+what preregistration does in this campaign.  They are one idea in two
+fields and this run computes the quantity that both of them bound.
+The campaign has recorded four failures of its own against exactly
+this, registrations whose declared bars could be met without the event
+they were meant to detect ever occurring, and the standing rule that
+came out of them requires every registration to cite a probe verifying
+that the event is present before a bar can mean anything.  A bar
+chosen after the answer is known and a curve chosen after its
+properties are known are the same freedom being spent in two
+disciplines.
+
+\section{Reading an ensemble that is not orthogonal costs two bits of
+information for each unit of induced error}
+\label{sec:cr6}
+
+The two sections above found a ceiling and a counting argument.  This
+section and the next find the part of the arc where neither applies,
+because the security structure in question lives in distributions
+rather than in the cost of a computation, which is exactly where the
+campaign's instruments have no ceiling.
+
+Every classical track of this campaign measured the same thing about a
+restricted consumer.  Its blindness costs the consumer and leaves the
+substrate untouched.  The sharpest case is the hydrodynamic track,
+where a coarse observer's mode decayed to a small fraction of its
+initial amplitude and the exact reverse of the dynamics returned the
+initial state bit for bit, so the substrate had forgotten nothing and
+only the observer had \cite{Gen2Paper}.  This section measures a
+declared model where that is not available, and it measures the price
+exactly.
+
+The substrate is four declared preparations of one two-level system,
+two of them in one basis and two in the conjugate basis, chosen
+uniformly, so no measurement distinguishes all four.  A declared
+consumer intercepts each preparation with probability $\lambda$,
+measures in the computational basis, and resends the state
+corresponding to its outcome, and the declared ladder for $\lambda$ is
+$0$, $0.1$, $0.25$, $0.5$, $0.75$, and $1$.  The receiving party
+measures in the preparing party's basis, and the induced error is the
+rate at which the receiving party's outcome differs from the prepared
+bit on the occasions when both used the same basis.  Everything is
+enumerated exactly over the finite probability space.  The declared
+structure is the one Bennett and Brassard wrote down
+\cite{BennettBrassard1984}, and the reason a consumer cannot copy what
+it reads and pass the original along untouched is the no-cloning
+theorem \cite{WoottersZurek1982}.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.66\columnwidth,
+  xlabel={error induced in the substrate},
+  ylabel={information reaching the consumer (bits)},
+  xmin=-0.012, xmax=0.275, ymin=-0.05, ymax=1.16,
+  legend pos=south east, legend cell align=left]
+\addplot[gray!70!black, densely dotted, no marks]
+  table[x=qber, y=info] {figdata/cr6_holevo.dat};
+\addlegendentry{Holevo quantity of the ensemble}
+\addplot[only marks, mark=star, mark size=4pt, red!70!black]
+  table[x=qber, y=info] {figdata/cr6_classical.dat};
+\addlegendentry{orthogonal ensemble}
+\addplot[blue!70!black, mark=*, mark size=2pt]
+  table[x=qber, y=info] {figdata/cr6_ladder.dat};
+\addlegendentry{declared ensemble, declared ladder}
+\end{axis}
+\end{tikzpicture}
+\caption{Information against disturbance on the declared ladder.  Each
+circle is one interception rate, plotted at the error the consumer
+induces in the substrate and the information it obtains.  The six
+points lie on a straight line through the origin of slope exactly two
+bits per unit of induced error.  The star on the vertical axis is the
+declared classical control, an orthogonal ensemble read perfectly at
+an induced error of exactly zero, which is the behaviour every
+classical track of this campaign measured.  The dotted line is the
+Holevo quantity of the declared preparation ensemble, 1 bit, which
+bounds every measured value.  All values are read from the committed
+evidence record.}
+\label{fig:cr6}
+\end{figure}
+
+All five declared items passed and Fig.~\ref{fig:cr6} shows the run.
+The classical control is exact.  On an orthogonal ensemble the same
+interception structure gives the consumer 1 full bit at an induced
+error of exactly 0, so reading without leaving a trace is available
+precisely when the states are distinguishable.  On the declared
+ensemble every positive interception rate produces both positive
+information and positive error, and at rate zero both are exactly
+zero.  The measured pairs match their declared closed forms, half the
+interception rate in bits and a quarter of it in error, with a worst
+deviation of $1.1 \times 10^{-16}$ across the ladder, running from
+0.05 bits at an error of 0.025 to 0.5 bits at an error of 0.25.  The
+Holevo quantity of the declared preparation ensemble is 1 bit and
+bounds every measured value, the largest of which is 0.5
+\cite{Holevo1973}.
+
+The finding declared with the bars is the exchange rate.  Every rung
+of the ladder gives exactly 2 bits of information for each unit of
+induced error, to within $1.3 \times 10^{-15}$.  The rate is a
+property of the declared preparation ensemble and the declared
+interception family and it is not a general constant, which is why the
+run declares both before measuring either.
+
+This is the first place in the program where a read is paid for by the
+substrate rather than by the reader.  In the classical tracks a
+consumer that cannot see something loses the information and the
+substrate keeps it, which the hydrodynamic run showed at the level of
+exact reversibility.  Here a consumer that sees something has changed
+what it saw, by an amount fixed to the last digit by how much it saw.
+The declared model is a toy ensemble of four states.  No protocol,
+device, implementation, or deployed system is modeled or evaluated,
+and no attack is developed.
+
+\section{One classical record is held in full by both consumers and
+one shared correlation is held by one}
+\label{sec:cr7}
+
+The campaign's quantum track measured redundancy, meaning many
+fragments of an environment carrying the same record about a system,
+and it measured when redundancy appears.  On the declared ladder of
+record strengths the redundancy of the record was 0 at every rung
+where the interaction wrote a weak record, with the fragment
+informations reading 0.0391, 0.1151, 0.2903, and 0.6122 bits, and it
+became 6 only at the rung where the interaction wrote a full record
+and the fragment information reached 1 bit.  A declared control state
+with no preferred basis carried redundancy 0 at a system entropy of
+0.9945 bits, so redundancy is a property of the declared interaction
+rather than of the entanglement.  A third run measured two disjoint
+consumers agreeing about the system at rates 0.5096, 0.5373, 0.6357,
+0.8750, and 1.0 along the same ladder, so agreement between observers
+is record strength made mechanical \cite{Gen2Paper}.  This section
+measures the boundary of that plateau, meaning the information for
+which redundancy is not merely absent but unavailable.
+
+Two declared substrates are compared.  The classical one is a single
+bit written into a record and given to both consumers.  The quantum
+one is a declared three-qubit family carrying one excitation shared
+between the two consumers at a fixed weight split, parametrised by an
+angle on a declared seven-point grid.  Correlation between two parties
+is measured by the Wootters concurrence of the exact reduced state
+\cite{Wootters1998}, and the correlation of one party against the
+other two is measured by its tangle.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.80\columnwidth,
+  width=0.86\columnwidth,
+  xlabel={correlation held by the first consumer},
+  ylabel={correlation held by the second consumer},
+  xmin=-0.06, xmax=1.22, ymin=-0.06, ymax=1.22,
+  legend pos=south west, legend cell align=left]
+\addplot[gray!70!black, densely dotted, no marks, samples=120,
+  domain=0:90] ({cos(x)}, {sin(x)});
+\addlegendentry{sum of squares equal to one}
+\addplot[only marks, mark=*, mark size=2.2pt, blue!70!black]
+  table[x=cab, y=cae] {figdata/cr7_grid.dat};
+\addlegendentry{declared quantum family}
+\addplot[only marks, mark=star, mark size=4pt, red!70!black]
+  table[x=cab, y=cae] {figdata/cr7_classical.dat};
+\addlegendentry{declared classical record}
+\end{axis}
+\end{tikzpicture}
+\caption{What two consumers can hold at once.  Each circle is one
+point of the declared angle grid, plotted by the correlation each
+consumer holds with the first party.  The seven points lie on the
+quarter circle where the two squared correlations sum to one, so every
+unit one consumer gains is a unit the other loses, and at the two ends
+one consumer holds all of it and the other holds none.  The star is
+the declared classical control, one bit of record held in full by both
+consumers at once, which sits outside the curve because a record can
+be copied.  The two axes carry different quantities, a concurrence for
+the quantum family and a mutual information in bits for the classical
+record, and each is plotted against its own maximum of one.  All
+values are read from the committed evidence record.}
+\label{fig:cr7}
+\end{figure}
+
+All four declared items passed and Fig.~\ref{fig:cr7} shows the run.
+The broadcast classical record gives each consumer the whole bit, both
+mutual informations exactly 1 and their sum exactly 2.  The declared
+quantum family obeys its tradeoff as an identity rather than as an
+inequality.  The sum of the two squared concurrences is 1 across the
+whole grid with a worst deviation of $1.9 \times 10^{-10}$, so the
+relation of Coffman, Kundu, and Wootters, which in general bounds the
+correlation two parties can share against a third, is saturated on
+this family to the same precision \cite{CKW2000}.  At one end of the
+grid the first consumer holds concurrence exactly 1 and the second
+holds exactly 0, and at the other end the second holds exactly 1 while
+the first measures $6.1 \times 10^{-17}$.  The grid interpolates
+smoothly between the two ends and the equal split puts both at
+$0.7071$.  The deviations of $10^{-10}$ are the accumulated arithmetic
+of eigenvalues taken in double precision and they are the checks the
+run declares, not a spread in the underlying quantities.
+
+The classical informations sum to 2 while the quantum squared
+correlations sum to 1, and that is the whole comparison.  Three
+parties can share a classical record in full and cannot share a
+quantum correlation at all.  Redundancy, which is what makes a fact
+objective by letting many consumers read it independently and agree,
+is available exactly for information that has already become
+classical.  The quantum track found the plateau and its dependence on
+record strength, and this run finds why the plateau has a boundary.
+Objectivity is cheap for facts and unavailable for superpositions.
+The identity measured here is a property of the declared family on the
+declared grid and it is not a general identity, the general relation
+being an inequality.  No protocol, device, implementation, or deployed
+system is modeled or evaluated, and the two tracks were declared
+months apart without either one knowing it would meet the other here.
+
 \section{What this paper establishes}
 \label{sec:claims}
 
 \begin{table*}[t]
-\caption{The ledger of the crypto arc.  Verdicts are recorded exactly
-as computed from the declared items of each run, including the
-failure.  Measured in model, exploratory label, means an exact
-measurement in a declared finite construction with append-only
-evidence records and bars, seeds, ladders, and batteries fixed before
-the run.  Key numbers are quoted from the committed records.  The
-last row is the scope of the whole arc and is a non-claim.}
+\caption{The ledger of the arc's first movement, what an audit built
+from informations certifies.  Verdicts are recorded exactly as
+computed from the declared items of each run, including the failure.
+Measured in model, exploratory label, means an exact measurement in a
+declared finite construction with append-only evidence records and
+bars, seeds, ladders, and batteries fixed before the run.  Key numbers
+are quoted from the committed records.  Table~\ref{tab:ledger2}
+carries the other two movements and the scope of the whole arc.}
 \label{tab:ledger}
 \begin{ruledtabular}
 \begin{tabular}{L{2.6cm}lL{9.6cm}L{2.9cm}}
@@ -727,68 +1184,185 @@ width $5.5\times10^{-13}$ places the interior maximum at spike weight
 0.35338 with separation 2.6398 bits, and the declared key-material
 source is charged 3.477 bits and exactly 1 bit by the two consumers &
 measured in model, exploratory \\
-Scope & non-claim & the models here are exact finite toy models, this
-paper says nothing about computational hardness or asymptotic
-security, no real cipher, protocol, implementation, or deployed system
-is modeled or evaluated, no attack is developed, and every result is
-about evaluation methodology in declared finite models & non-claim \\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
 
-Table~\ref{tab:ledger} registers the runs with their recorded
-verdicts.  Read together they answer the arc's question inside its
-declared scope, which of the security statements available in these
-models are bookkeeping relative to a declared consumer and which are
-properties of the substrate no declared consumer can move.
+\begin{table*}[t]
+\caption{The ledger of the arc's second and third movements, where an
+audit built from informations stops and where it does not, with the
+scope of the whole arc in the last row.  Verdicts are recorded exactly
+as computed from the declared items of each run, including the two
+failures.  Key numbers are quoted from the committed records.  The
+last row is a non-claim and governs every row above it and every row
+of Table~\ref{tab:ledger}.}
+\label{tab:ledger2}
+\begin{ruledtabular}
+\begin{tabular}{L{2.6cm}lL{9.6cm}L{2.9cm}}
+Run & Verdict & Key measurements & Label \\
+\colrule
+CR-4 backdoor audit ceiling & FAIL & a group of 96 elements and 8
+declared output words put the measured output entropies at 2.7890 and
+2.8002 bits against a uniform 3, outside the declared 0.15 bit window
+by finite size alone, and the reader holding the scalar predicted at
+0.263 against a declared 0.5 because the recovery loop accepted the
+first candidate consistent with one observed word, the scalar of the
+declared-rule point was recovered by enumeration at 41 and the
+word-count multisets of the two parameter sets differ, so the declared
+separation question read False and was the wrong question & measured
+in model, exploratory \\
+CR-4b corrected question & FAIL & on a group of prime order 1013 the
+positive control is exact, the declared one-bit covert channel
+carrying exactly 1 bit about the seed bit and the unmodified generator
+exactly 0, output entropies 2.9878 and 2.9943 bits against a uniform
+3, scalar of the declared-rule point recovered by enumeration at 2,
+but the two routes to one conditional entropy read 2.8811 and 2.9125
+bits, a difference of 0.0314 against a $10^{-9}$ bar, from an inverse
+map that multiplied an abscissa as though it were a scalar & measured
+in model, exploratory \\
+CR-4c corrected inverse map and exact bound & PASS & same substrate
+and same positive control, the two routes now agree at exactly 0, and
+the ceiling is recorded as a bound rather than as an agreement within
+tolerance, a trapdoor scalar being a constant of the parameter set
+with entropy exactly 0 and therefore an information bound of exactly 0
+about any observable, beside a declared covert channel the same audit
+reads at exactly 1 bit & measured in model, exploratory \\
+CR-5 designer freedom against class rarity & PASS & exact over all
+10100 non-singular curves, 2275 in the declared class for a density of
+0.2252, the rigid procedure reaching 1 curve at a freedom times
+density of 0.2252 and not landing in the class, the flexible
+procedure's declared range of 4096 seeds reaching only 99 distinct
+curves at a freedom times density of 22.3, landing in the class at
+seed 10 with 526 of 4096 seeds landing there and an expected 7.787
+seeds per success, and the published artifact carrying no search count
+& measured in model, exploratory \\
+CR-6 information against disturbance & PASS & the orthogonal control
+read at exactly 1 bit with induced error exactly 0, every positive
+interception rate giving both positive information and positive error
+and rate zero giving exactly zero of both, measured pairs matching
+their declared closed forms to $1.1\times10^{-16}$ from 0.05 bits at
+error 0.025 up to 0.5 bits at error 0.25, the Holevo quantity of the
+declared ensemble at 1 bit bounding every value, and the exchange rate
+exactly 2 bits per unit of induced error at every rung & measured in
+model, exploratory \\
+CR-7 one record for both consumers and one correlation for one & PASS
+& the broadcast classical record giving both consumers exactly 1 bit
+for a sum of exactly 2, the declared family's squared concurrences
+summing to 1 across the whole grid with worst deviation
+$1.9\times10^{-10}$ and the Coffman-Kundu-Wootters relation saturated
+to the same precision, and at the two ends of the grid one consumer at
+concurrence exactly 1 leaving the other at 0 and at
+$6.1\times10^{-17}$ & measured in model, exploratory \\
+Scope & non-claim & the models here are exact finite toy models, this
+paper says nothing about computational hardness or asymptotic
+security, no real cipher, protocol, curve, standard, implementation,
+device, or deployed system is modeled or evaluated, no attack is
+developed, and every result is about evaluation methodology in
+declared finite models & non-claim \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
 
-Three findings are consumer-relative in the precise sense that a
-declared change moves them with the substrate held fixed.  Which of
-two leakage channels is better depends on the reader's task whenever
-the two are incomparable, and incomparability is not rare, since 856
-of 2000 declared random pairs were certified incomparable and 268 of
-them were ordered unanimously by every scalar measure in the battery
-while a declared task reversed that order.  Which entropy prices a
-source depends on the consumer's task, and the same declared source
-costs 3.477 bits to a consumer who averages and exactly 1 bit to a
-consumer who guesses once.  How a redundancy plateau approaches its
-height depends on whether a designer placed it, since the engineered
-plateau is a step with nothing in between while the plateau the
-quantum track found takes a different value at every fragment size,
-its height and its approach set by how strong the records are.
+Tables~\ref{tab:ledger} and \ref{tab:ledger2} register the eleven runs
+with their recorded verdicts.  Read together they answer the arc's
+question inside its declared scope, which of the security statements
+available in these models are bookkeeping relative to a declared
+consumer and which are properties of the substrate no declared
+consumer can move.
 
-Two findings are the opposite, properties no declared consumer moves.
-Below the declared threshold the secret-sharing scheme gives every
-reader exactly the prior, and that zero is exact rather than small, so
-no choice of task, budget, or reading strategy reaches the secret.
-And a garbling never helps any task, which held across every declared
-control here at the level of $10^{-16}$, so wherever comparability is
-certified a scalar ordering is a task ordering.  The constructive
-consequence is stated with the negative one and measured by the same
-runs.  For two channels that read the same hidden quantity the
-certificate of Eq.~\eqref{eq:cert} decides comparability by proof with
-no threshold, and an evaluation that establishes comparability may
-rely on its scalar ordering.
+Three findings of the first movement are consumer-relative in the
+precise sense that a declared change moves them with the substrate
+held fixed.  Which of two leakage channels is better depends on the
+reader's task whenever the two are incomparable, and incomparability
+is not rare, since 856 of 2000 declared random pairs were certified
+incomparable and 268 of them were ordered unanimously by every scalar
+measure in the battery while a declared task reversed that order.
+Which entropy prices a source depends on the consumer's task, and the
+same declared source costs 3.477 bits to a consumer who averages and
+exactly 1 bit to a consumer who guesses once.  How a redundancy
+plateau approaches its height depends on whether a designer placed it,
+since the engineered plateau is a step with nothing in between while
+the plateau the quantum track found takes a different value at every
+fragment size, its height and its approach set by how strong the
+records are.
 
-A declared clause demanded
+Two findings of the first movement are the opposite, properties no
+declared consumer moves.  Below the declared threshold the
+secret-sharing scheme gives every reader exactly the prior, and that
+zero is exact rather than small, so no choice of task, budget, or
+reading strategy reaches the secret.  And a garbling never helps any
+task, which held across every declared control here at the level of
+$10^{-16}$, so wherever comparability is certified a scalar ordering
+is a task ordering.  The constructive consequence is stated with the
+negative one and measured by the same runs.  For two channels that
+read the same hidden quantity the certificate of Eq.~\eqref{eq:cert}
+decides comparability by proof with no threshold, and an evaluation
+that establishes comparability may rely on its scalar ordering.
+
+The second movement locates where these instruments stop, and the stop
+is a bound rather than a difficulty.  A constant of a parameter set
+has zero entropy, so every quantity built from informations reads
+exactly zero about it, while the same quantities read a declared
+one-bit covert channel at exactly one bit.  Whatever content a
+constant of that kind has is the cost of a computation, and this
+campaign measures no such thing anywhere.  Where information-theoretic
+quantities do keep working is provenance, and the measurement is a
+count.  A procedure's declared freedom times a declared class's
+measured rarity is the quantity that decides whether choosing among
+results reaches the class, it stood at 0.2252 for the rigid procedure
+and 22.3 for the flexible one, and the artifact each procedure
+publishes records nothing about how many results were tried.  The
+declared range of the flexible procedure was 4096 and its reachable
+set was 99, so nominal freedom and effective freedom are different
+numbers and only the second one governs.
+
+The third movement is the part of the arc where none of that stopping
+occurs, and it is where the campaign's own instruments meet a
+substrate that answers back.  A consumer reading a declared ensemble
+whose states are not all distinguishable obtains information only by
+changing what it read, at exactly two bits per unit of induced error
+on the declared family, while the same structure on a distinguishable
+ensemble reads the whole bit and changes nothing.  Every classical
+track of this campaign measured the opposite, most sharply where an
+exactly reversible substrate returned a coarse observer's decayed mode
+bit for bit.  And a classical record is held in full by two consumers
+at once, informations exactly one and one, while a shared quantum
+correlation on the declared family obeys an exact identity that leaves
+a second consumer with nothing when the first holds all of it.  The
+quantum track measured that redundancy appears exactly when a declared
+interaction writes records and that two disjoint consumers agree at a
+rate set by record strength.  This movement measures why that plateau
+has a boundary.  Redundancy is available exactly for information that
+has already become classical.
+
+Three registrations failed and all three are kept.  A declared clause
+demanded
 that the number of bits separating two accountings increase along a
 ladder of sources, the ladder was long enough to reach the far end,
 and the difference turned over because both accountings vanish
 together on a source that is almost certain.  The design error was in
 the choice of quantity rather than in the substrate or the
-instrument.  The corrected registration measures the ratio, which
-is monotone, and locates the maximum of the difference, which is
-interior.  Both registrations are kept.
+instrument.  A second registration asked whether an audit can separate
+two parameter sets that are not two classes of object, on a group too
+small for its own uniformity bar and with a recovery loop that
+accepted a candidate it had not finished testing.  A third failed on a
+coding error in an inverse map, which the record names, and measured
+that error rather than anything about its subject.  Each correction is
+a separate registration with its own declared items, and the sequence
+of verdicts is part of the evidence rather than a step on the way to
+it.
 
 These are structural results about declared finite models carrying the
 campaign's exploratory label.  They are about evaluation methodology.
-They do not show that any real cipher, protocol, implementation, or
-deployed system is strong or weak, no experiment reported here can
-bear on that question, and no attack was developed or evaluated.  The
-one object here that does not depend on the substrates measured is the
-certificate, which settles by proof whether a scalar comparison
-between two declared finite channels that read the same hidden
-quantity is a comparison for every task.
+They do not show that any real cipher, protocol, curve, standard,
+implementation, device, or deployed system is strong or weak, no
+experiment reported here can bear on that question, and no attack was
+developed or evaluated.  Two objects here do not depend on the
+substrates measured.  The first is the certificate, which settles by
+proof whether a scalar comparison between two declared finite channels
+that read the same hidden quantity is a comparison for every task.
+The second is Eq.~\eqref{eq:ceiling}, which is not a measurement at
+all but a bound on what the measurements of this kind can express.
 
 \section{Methods and reproducibility}
 \label{sec:methods}
@@ -811,16 +1385,28 @@ computed verdict, and a canonical SHA-256 hash of the record body.
 The records for this paper are \texttt{cr0-\allowbreak instrument.json},
 \texttt{cr1-\allowbreak leakage-\allowbreak ordering.json},
 \texttt{cr2-\allowbreak countermeasure-\allowbreak flip.json},
-\texttt{cr3-\allowbreak task-\allowbreak entropy.json}, and
-\texttt{cr3b-\allowbreak task-\allowbreak entropy.json} in
+\texttt{cr3-\allowbreak task-\allowbreak entropy.json},
+\texttt{cr3b-\allowbreak task-\allowbreak entropy.json},
+\texttt{cr4-\allowbreak backdoor-\allowbreak ceiling.json},
+\texttt{cr4b-\allowbreak backdoor-\allowbreak ceiling.json},
+\texttt{cr4c-\allowbreak backdoor-\allowbreak ceiling.json},
+\texttt{cr5-\allowbreak rigidity.json},
+\texttt{cr6-\allowbreak information-\allowbreak disturbance.json}, and
+\texttt{cr7-\allowbreak monogamy.json} in
 the campaign repository, with the committed runners
 \texttt{cr0\_\allowbreak instrument.py},
 \texttt{cr1\_\allowbreak leakage\_\allowbreak ordering.py},
 \texttt{cr2\_\allowbreak countermeasure\_\allowbreak flip.py},
-\texttt{cr3\_\allowbreak task\_\allowbreak entropy.py}, and
-\texttt{cr3b\_\allowbreak task\_\allowbreak entropy.py}
-alongside them.  The failed CR-3 record is retained unchanged and the
-corrected declaration is a separate record, so the sequence of
+\texttt{cr3\_\allowbreak task\_\allowbreak entropy.py},
+\texttt{cr3b\_\allowbreak task\_\allowbreak entropy.py},
+\texttt{cr4\_\allowbreak backdoor\_\allowbreak ceiling.py},
+\texttt{cr4b\_\allowbreak backdoor\_\allowbreak ceiling.py},
+\texttt{cr4c\_\allowbreak backdoor\_\allowbreak ceiling.py},
+\texttt{cr5\_\allowbreak rigidity.py},
+\texttt{cr6\_\allowbreak information\_\allowbreak disturbance.py}, and
+\texttt{cr7\_\allowbreak monogamy.py}
+alongside them.  The three failed records are retained unchanged and
+each corrected declaration is a separate record, so the sequence of
 verdicts is itself part of the evidence.  A reducer may summarize
 records but may not rewrite them.
 
@@ -834,9 +1420,11 @@ the record value it came from before it writes anything, so a record
 that changed would break the build rather than disagree quietly with
 the text.  The comparison curve of Fig.~\ref{fig:cr0} is carried in
 the CR-0 record itself and is checked against the quantum track's own
-record by the same script.  The declared channel matrices, ladders,
-and costs quoted in the text are checked against the track document
-that declared them.
+record by the same script, and the quantum track's redundancy ladder
+and agreement curve quoted in Sec.~\ref{sec:cr7} are checked against
+their own records the same way.  The declared channel matrices,
+ladders, grids, rules, and costs quoted in the text are checked
+against the track document that declared them.
 
 The CR-0 substrate was enumerated exactly with integer counting over
 all 29791 outcomes and the CR-3 and CR-3b substrates were built from
@@ -847,7 +1435,16 @@ finite sums over declared joint distributions.  The CR-2 comparability
 classification is made by the projected-gradient garbling search of
 the campaign's decision-theoretic instrument against the declared
 tolerances, and CR-1 uses that search only as a cross-check against
-the certificate.  All five runs executed on a
+the certificate.  The three CR-4 runs and CR-5 do integer arithmetic
+on enumerated group elements and enumerated coefficient pairs, with
+every point addition and every group order computed by counting rather
+than by any closed form, and the curve orders of CR-5 are obtained by
+scanning the whole field for each of the 10100 curves.  CR-6 and CR-7
+enumerate finite state vectors in double precision and every measured
+quantity in them is checked against a declared closed form or a
+declared identity, so the deviations of $1.1\times10^{-16}$ and
+$1.9\times10^{-10}$ recorded in those runs are the values of those
+checks.  All eleven runs executed on a
 single workstation and require no special hardware.
 
 \begin{thebibliography}{9}
@@ -896,6 +1493,34 @@ attacks,
 in \emph{Advances in Cryptology, EUROCRYPT 2009},
 Lecture Notes in Computer Science Vol.~5479
 (Springer, Berlin, 2009).
+
+\bibitem{BennettBrassard1984}
+C.~H.~Bennett and G.~Brassard,
+Quantum cryptography: Public key distribution and coin tossing,
+in \emph{Proceedings of the IEEE International Conference on
+Computers, Systems and Signal Processing}
+(IEEE, New York, 1984), p.~175.
+
+\bibitem{WoottersZurek1982}
+W.~K.~Wootters and W.~H.~Zurek,
+A single quantum cannot be cloned,
+Nature \textbf{299}, 802 (1982).
+
+\bibitem{Holevo1973}
+A.~S.~Holevo,
+Bounds for the quantity of information transmitted by a quantum
+communication channel,
+Probl. Inf. Transm. \textbf{9}, 177 (1973).
+
+\bibitem{Wootters1998}
+W.~K.~Wootters,
+Entanglement of formation of an arbitrary state of two qubits,
+Phys. Rev. Lett. \textbf{80}, 2245 (1998).
+
+\bibitem{CKW2000}
+V.~Coffman, J.~Kundu, and W.~K.~Wootters,
+Distributed entanglement,
+Phys. Rev. A \textbf{61}, 052306 (2000).
 
 \bibitem{GamesPaper}
 A.~H.~Bond,

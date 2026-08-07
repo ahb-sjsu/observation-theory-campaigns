@@ -445,5 +445,310 @@ write("cr3_max.dat", "eps sepbits",
 write("cr3_deriv.dat", "eps deriv",
       list(zip(eps_ladder, m3b["f2_gap_derivative_ladder"])))
 
+# ---------------------------------------------------------------
+# CR-4, CR-4b, CR-4c, the backdoor audit ceiling.
+# ---------------------------------------------------------------
+cr4 = load("cr4-backdoor-ceiling.json")
+cr4b = load("cr4b-backdoor-ceiling.json")
+cr4c = load("cr4c-backdoor-ceiling.json")
+m4, m4b, m4c = cr4["measured"], cr4b["measured"], cr4c["measured"]
+
+check_exact("CR-4 verdict", cr4["verdict"]["value"], "FAIL")
+check_exact("CR-4 trapdoor bar", cr4["items"]["B1_trapdoor_predicts"],
+            False)
+check_exact("CR-4 uniformity bar",
+            cr4["items"]["B2_public_entropies_near_uniform"], False)
+check_exact("CR-4 scalar always exists",
+            cr4["items"]["B3_scalar_always_exists"], True)
+check_exact("CR-4 instrument sanity",
+            cr4["items"]["B4_public_information_is_small"], True)
+check_exact("CR-4 separation finding",
+            cr4["findings"][
+                "B5_audit_cannot_separate_backdoored_from_clean"],
+            False)
+check_exact("CR-4 field", m4["field"], 101)
+check_exact("CR-4 group order", m4["group_order"], 96)
+check_exact("CR-4 output values", cr4["declared"]["out_mask"] + 1, 8)
+check_exact("CR-4 declared seeds",
+            cr4["declared"]["n_seeds_for_trapdoor"], 95)
+check("CR-4 backdoored public entropy",
+      m4["public_entropy_bits_backdoored"], 2.7890, 5e-5)
+check("CR-4 clean public entropy", m4["public_entropy_bits_clean"],
+      2.8002, 5e-5)
+check("CR-4 uniform entropy", m4["uniform_entropy_bits"], 3.0, 0.0)
+check("CR-4 trapdoor prediction rate", m4["trapdoor_prediction_rate"],
+      0.263, 5e-4)
+check_exact("CR-4 clean scalar recovered by enumeration",
+            m4["clean_point_scalar_computed_by_enumeration"], 41)
+# The paper says the two word-count multisets are not identical, which
+# is why the drafted separation question was the wrong question.
+check_exact("CR-4 shapes not identical", m4["shapes_identical"], False)
+assert m4["word_count_shape_backdoored"] \
+    != m4["word_count_shape_clean"], "CR-4 word shapes coincide"
+CHECKS += 1
+check_declared("CR-4 truncation",
+               "The declared truncation keeps three bits")
+check_declared("CR-4 trapdoor bar",
+               "predicts the next output word from one observed word "
+               "in at")
+check_declared("CR-4 uniformity window", "within 0.15 bits of")
+
+check_exact("CR-4b verdict", cr4b["verdict"]["value"], "FAIL")
+check_exact("CR-4b failing item",
+            cr4b["items"]["B3_trapdoor_confers_no_information"], False)
+for key in ("B1_audit_detects_a_leak", "B2_near_uniform",
+            "B4_scalar_recovered_by_enumeration"):
+    check_exact(f"CR-4b item {key}", cr4b["items"][key], True)
+check_exact("CR-4b field", m4b["field"], 1009)
+check_exact("CR-4b group order", m4b["group_order"], 1013)
+check("CR-4b backdoored public entropy",
+      m4b["public_entropy_backdoored"], 2.9878, 5e-5)
+check("CR-4b clean public entropy", m4b["public_entropy_clean"],
+      2.9943, 5e-5)
+check("CR-4b uniform entropy", m4b["uniform_entropy"], 3.0, 0.0)
+check("CR-4b declared leak information",
+      m4b["mutual_information_leaky_bits"], 1.0, 0.0)
+check("CR-4b unmodified generator information",
+      m4b["mutual_information_clean_bits"], 0.0, 0.0)
+check_exact("CR-4b clean scalar recovered",
+            m4b["clean_scalar_recovered"], 2)
+check("CR-4b public route", m4b["conditional_entropy_public"], 2.8811,
+      5e-5)
+check("CR-4b trapdoor route",
+      m4b["conditional_entropy_trapdoor_route"], 2.9125, 5e-5)
+check("CR-4b route difference",
+      m4b["conditional_entropy_difference"], 0.0314, 5e-5)
+check_declared("CR-4b route bar", "route agree within 1e-9")
+check_declared("CR-4b field", "the field of 1009 elements")
+check_declared("CR-4b prime order", "with prime group order")
+check_declared("CR-4b clean rule",
+               "first scalar whose point abscissa is at least 500")
+
+check_exact("CR-4c verdict", cr4c["verdict"]["value"], "PASS")
+for key, val in cr4c["items"].items():
+    check_exact(f"CR-4c item {key}", val, True)
+for key, val in cr4c["findings"].items():
+    check_exact(f"CR-4c finding {key}", val, True)
+check("CR-4c route difference", m4c["conditional_entropy_difference"],
+      0.0, 0.0)
+check("CR-4c trapdoor entropy", m4c["trapdoor_entropy_bits"], 0.0, 0.0)
+check("CR-4c information bound",
+      m4c["trapdoor_information_bound_bits"], 0.0, 0.0)
+check("CR-4c declared leak information",
+      m4c["mutual_information_leaky_bits"], 1.0, 0.0)
+check("CR-4c unmodified generator information",
+      m4c["mutual_information_clean_bits"], 0.0, 0.0)
+check("CR-4c backdoored public entropy",
+      m4c["public_entropy_backdoored"], 2.9878, 5e-5)
+check("CR-4c clean public entropy", m4c["public_entropy_clean"],
+      2.9943, 5e-5)
+check_exact("CR-4c and CR-4b share the substrate",
+            [m4c["field"], m4c["group_order"], m4c["curve"]],
+            [m4b["field"], m4b["group_order"], m4b["curve"]])
+check_exact("CR-4c public route unchanged",
+            m4c["conditional_entropy_public"],
+            m4b["conditional_entropy_public"])
+check_exact("CR-4c trapdoor route equals the public route",
+            m4c["conditional_entropy_trapdoor_route"],
+            m4c["conditional_entropy_public"])
+
+# ---------------------------------------------------------------
+# CR-5, designer freedom against class rarity.
+# ---------------------------------------------------------------
+cr5 = load("cr5-rigidity.json")
+m5 = cr5["measured"]
+check_exact("CR-5 verdict", cr5["verdict"]["value"], "PASS")
+for key, val in cr5["items"].items():
+    check_exact(f"CR-5 item {key}", val, True)
+check_exact("CR-5 finding P4", cr5["findings"][
+    "P4_artifact_carries_no_search_count"], True)
+check_exact("CR-5 finding P5", cr5["findings"][
+    "P5_rigid_procedure_below_threshold"], True)
+check_exact("CR-5 finding P6", cr5["findings"][
+    "P6_rigid_procedure_landed_weak_by_chance"], False)
+check_exact("CR-5 field", m5["field"], 101)
+check_exact("CR-5 smoothness bound", m5["smoothness_bound"], 5)
+check_exact("CR-5 non-singular curves", m5["nonsingular_curves"], 10100)
+check_exact("CR-5 weak curves", m5["weak_curves"], 2275)
+check("CR-5 weak-class density", m5["weak_class_density"], 0.2252,
+      5e-5)
+check_exact("CR-5 rigid reachable", m5["rigid_reachable"], 1)
+check("CR-5 rigid freedom times density",
+      m5["rigid_freedom_times_density"], 0.2252, 5e-5)
+check_exact("CR-5 rigid landed weak", m5["rigid_landed_weak"], False)
+check_exact("CR-5 flexible seed range", m5["flexible_seed_range"], 4096)
+check_exact("CR-5 flexible reachable distinct",
+            m5["flexible_reachable_distinct"], 99)
+check("CR-5 flexible freedom times density",
+      m5["flexible_freedom_times_density"], 22.3, 5e-3)
+check_exact("CR-5 first weak seed", m5["first_weak_seed"], 10)
+check_exact("CR-5 weak-producing seeds", m5[
+    "weak_producing_seeds_in_range"], 526)
+check("CR-5 expected rolls", m5["expected_rolls_to_manipulate"],
+      7.787, 5e-4)
+# The paper says the declared seed range overstates the number of
+# curves the flexible procedure can reach.
+assert m5["flexible_seed_range"] > 40 * m5[
+    "flexible_reachable_distinct"], \
+    "the declared range overstates the reachable set by under forty"
+assert m5["rigid_freedom_times_density"] < 1.0 <= \
+    m5["flexible_freedom_times_density"], "CR-5 threshold bookkeeping"
+CHECKS += 2
+check_declared("CR-5 weak class",
+               "a group order smooth to the bound five")
+check_declared("CR-5 rigid procedure",
+               "The rigid procedure may use exactly")
+check_declared("CR-5 flexible procedure",
+               "The flexible procedure may use any seed in a")
+check_declared("CR-5 seed map",
+               "the first coefficient is the seed squared plus "
+               "seventeen and the")
+check_declared("CR-5 preregistration connection",
+               "the four vacuity failures this program has recorded")
+
+# ---------------------------------------------------------------
+# CR-6, information against disturbance.
+# ---------------------------------------------------------------
+cr6 = load("cr6-information-disturbance.json")
+m6 = cr6["measured"]
+check_exact("CR-6 verdict", cr6["verdict"]["value"], "PASS")
+for key, val in cr6["items"].items():
+    check_exact(f"CR-6 item {key}", val, True)
+check_exact("CR-6 finding C6", cr6["findings"][
+    "C6_tradeoff_is_exactly_two_bits_per_unit_error"], True)
+check("CR-6 classical control information",
+      m6["classical_control"]["eve_information_bits"], 1.0, 0.0)
+check("CR-6 classical control induced error",
+      m6["classical_control"]["qber"], 0.0, 0.0)
+check("CR-6 Holevo quantity", m6["holevo_bound_bits"], 1.0, 0.0)
+check("CR-6 largest measured information",
+      m6["max_eve_information_bits"], 0.5, 0.0)
+check("CR-6 worst closed-form deviation",
+      m6["worst_closed_form_deviation"], 1.1e-16, 5e-18)
+lad6 = m6["ladder"]
+check_exact("CR-6 ladder length", len(lad6), 6)
+check_exact("CR-6 declared ladder",
+            [r["lambda"] for r in lad6],
+            cr6["declared"]["lambdas"])
+check_exact("CR-6 declared ladder as typed",
+            [r["lambda"] for r in lad6],
+            [0.0, 0.1, 0.25, 0.5, 0.75, 1.0])
+check("CR-6 information at the first positive rung",
+      lad6[1]["eve_information_bits"], 0.05, 0.0)
+check("CR-6 induced error at the first positive rung", lad6[1]["qber"],
+      0.025, 5e-16)
+check("CR-6 information at the top rung",
+      lad6[-1]["eve_information_bits"], 0.5, 0.0)
+check("CR-6 induced error at the top rung", lad6[-1]["qber"], 0.25,
+      5e-16)
+check("CR-6 information at zero", lad6[0]["eve_information_bits"], 0.0,
+      0.0)
+check("CR-6 induced error at zero", lad6[0]["qber"], 0.0, 0.0)
+for i, r in enumerate(m6["information_per_unit_qber"]):
+    check(f"CR-6 exchange rate rung {i}", r, 2.0, 5e-15)
+check("CR-6 worst exchange-rate deviation",
+      max(abs(r - 2.0) for r in m6["information_per_unit_qber"]),
+      1.3e-15, 1e-16)
+assert all(r["eve_information_bits"] > 0.0 and r["qber"] > 0.0
+           for r in lad6[1:]), "a positive rung reads zero"
+assert all(r["eve_information_bits"] <= m6["holevo_bound_bits"]
+           for r in lad6), "a rung passes the Holevo quantity"
+CHECKS += 2
+check_declared("CR-6 declared ladder",
+               "declared ladder 0, 0.1, 0.25, 0.5, 0.75, 1")
+check_declared("CR-6 consumer",
+               "eavesdropping consumer intercepts with probability "
+               "lambda")
+
+write("cr6_ladder.dat", "qber info",
+      [(r["qber"], r["eve_information_bits"]) for r in lad6])
+write("cr6_classical.dat", "qber info",
+      [(m6["classical_control"]["qber"],
+        m6["classical_control"]["eve_information_bits"])])
+write("cr6_holevo.dat", "qber info",
+      [(0.0, m6["holevo_bound_bits"]),
+       (0.26, m6["holevo_bound_bits"])])
+
+# ---------------------------------------------------------------
+# CR-7, one record for both consumers and one correlation for one.
+# ---------------------------------------------------------------
+cr7 = load("cr7-monogamy.json")
+m7 = cr7["measured"]
+check_exact("CR-7 verdict", cr7["verdict"]["value"], "PASS")
+for key, val in cr7["items"].items():
+    check_exact(f"CR-7 item {key}", val, True)
+check_exact("CR-7 finding M5", cr7["findings"][
+    "M5_classical_sum_exceeds_the_quantum_identity"], True)
+bc = m7["classical_broadcast"]
+check("CR-7 first consumer information", bc["i_ab_bits"], 1.0, 0.0)
+check("CR-7 second consumer information", bc["i_ae_bits"], 1.0, 0.0)
+check("CR-7 classical sum", bc["sum_bits"], 2.0, 0.0)
+check("CR-7 worst identity deviation", m7["worst_identity_deviation"],
+      1.9e-10, 5e-12)
+check("CR-7 worst CKW deviation", m7["worst_ckw_deviation"], 1.9e-10,
+      5e-12)
+fam = m7["quantum_family"]
+check_exact("CR-7 grid length", len(fam), 7)
+check_exact("CR-7 declared grid", [r["phi"] for r in fam],
+            cr7["declared"]["phi_grid"])
+check("CR-7 first consumer at the first extreme", fam[0]["c_ab"], 1.0,
+      0.0)
+check("CR-7 second consumer at the first extreme", fam[0]["c_ae"], 0.0,
+      0.0)
+check("CR-7 second consumer at the second extreme", fam[-1]["c_ae"],
+      1.0, 0.0)
+check("CR-7 first consumer at the second extreme", fam[-1]["c_ab"],
+      6.1e-17, 5e-19)
+check("CR-7 equal split", fam[3]["c_ab"], 0.7071067811865477, 0.0)
+check("CR-7 equal split, second consumer", fam[3]["c_ae"],
+      0.7071067811865476, 0.0)
+check("CR-7 equal split as typed", fam[3]["c_ab"], 0.7071, 5e-5)
+check("CR-7 equal split as typed, second consumer", fam[3]["c_ae"],
+      0.7071, 5e-5)
+for i, r in enumerate(fam):
+    check(f"CR-7 identity at grid point {i}", r["sum_of_squares"], 1.0,
+          2e-10)
+    check(f"CR-7 CKW at grid point {i}",
+          r["tangle_a_vs_rest"] - r["sum_of_squares"], 0.0, 2e-10)
+assert bc["sum_bits"] > fam[0]["sum_of_squares"], \
+    "the classical sum does not exceed the quantum identity"
+CHECKS += 1
+check_declared("CR-7 declared grid",
+               "an angle on a declared seven-point grid")
+check_declared("CR-7 declared family",
+               "a declared three-qubit family carrying one")
+
+write("cr7_grid.dat", "cab cae",
+      [(r["c_ab"], r["c_ae"]) for r in fam])
+write("cr7_classical.dat", "cab cae",
+      [(bc["i_ab_bits"], bc["i_ae_bits"])])
+
+# ---------------------------------------------------------------
+# The cross-track comparisons quoted in the closing sections.
+# ---------------------------------------------------------------
+qd1b = load("qd1b-emergence.json")
+qd3 = load("qd3-agreement.json")
+check_exact("QD-1b verdict", qd1b["verdict"]["value"], "PASS")
+check_exact("QD-3 verdict", qd3["verdict"]["value"], "PASS")
+ladder_qd = qd1b["measured"]["theta_ladder"]
+for key, typed in [("0.196350", 0.0391), ("0.392699", 0.1151),
+                   ("0.785398", 0.2903), ("1.570796", 0.6122),
+                   ("3.141593", 1.0)]:
+    check(f"QD-1b fragment information at {key}",
+          ladder_qd[key]["fragment1_mi_bits"], typed, 5e-5)
+for key in ("0.196350", "0.392699", "0.785398", "1.570796"):
+    check_exact(f"QD-1b redundancy at {key}",
+                ladder_qd[key]["redundancy"], 0)
+check_exact("QD-1b redundancy at the fully decohering rung",
+            ladder_qd["3.141593"]["redundancy"], 6)
+check_exact("QD-1b basis-free redundancy",
+            qd1b["measured"]["basis_free_global_haar"]["redundancy"], 0)
+check("QD-1b basis-free system entropy",
+      qd1b["measured"]["basis_free_global_haar"]["system_entropy_bits"],
+      0.9945, 5e-5)
+for i, typed in enumerate([0.5096, 0.5373, 0.6357, 0.8750, 1.0]):
+    check(f"QD-3 agreement point {i}",
+          qd3["measured"]["agreement_curve"][i], typed, 5e-5)
+
 print(f"all figure data written, {CHECKS} paper values bound "
       f"to committed records")
