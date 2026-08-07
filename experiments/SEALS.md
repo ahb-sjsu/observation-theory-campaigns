@@ -24,3 +24,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | GENERATOR-DOMAIN-POOL | experiments/GENERATOR-DOMAIN-POOL.md | 5150771 | c3e814a05753cf9fc050390900a908b181fd0f5f9b26c778f5c2398611ac85dd | 2026-08-07 | A. H. Bond (session instruction) |
 | GENERATOR-DOMAIN-POOL-V2 | experiments/GENERATOR-DOMAIN-POOL-V2.md | 9e16022 | 9503db7ed2254a870f3770b5b2d84dcc4071b4d842213a222aa1c18b09ed0ea6 | 2026-08-07 | A. H. Bond (session instruction) |
 | GENERATOR-DOMAIN-POOL-V3 | experiments/GENERATOR-DOMAIN-POOL-V3.md | a5589ae | 1589b0670d3aa6d5a6c161e8e3bf3735711475e4c7941e8103f789be9e5022c1 | 2026-08-07 | A. H. Bond (session instruction) |
+| FORMAL-SYSTEMS-TRACK (sealed unrun) | experiments/FORMAL-SYSTEMS-TRACK.md | 39f514e | d6e8578b0e7b482ed621ba86e15b5fd5a045318f79887fb1ee497332b2cfc293 | 2026-08-07 | A. H. Bond (session instruction) |
