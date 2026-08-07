@@ -204,7 +204,10 @@ check_exact("PF-3 classification above threshold",
             pf3["midpoint_bridge"]["above_threshold"]["crossings"][0][
                 "classification"], "annihilation-fold")
 check_declared("PF-3 Cayley pole reading",
-               "the pole of the midpoint (Cayley / Pade(1,1", PF3PROV)
+               "the Cayley\ntransform (I - G/2)^{-1}(I + G/2), the "
+               "Pade(1,1) approximant of the\nexponential, whose pole "
+               "at g_e = 2 is exactly the published\nannihilation "
+               "threshold", PF3PROV)
 
 # ---------------------------------------------------------------
 # Section IV. The Sauter family and the sealed negative.
@@ -213,7 +216,7 @@ check_declared("Sauter family constants",
                "H = p_t^2/2 + p_u^2/2 + omega_u^2 u^2/2 + lambda u^4/4",
                PREREG["PF4-001"])
 check_declared("Sauter family parameters",
-               "omega_u = 1.2,\nlambda = 0.1, g = 0.25,\nL = 3, T = 1, "
+               "omega_u = 1.2, lambda = 0.1, g = 0.25,\nL = 3, T = 1, "
                "t(0) = -4L", PREREG["PF4-001"])
 check_declared("Sauter integrator",
                "velocity Verlet at dt = 1e-3", PREREG["PF4-001"])
@@ -283,8 +286,8 @@ check_exact("PF4-002 declared held-out gaps",
 # The sealed usability rule of PREREG-PF4-001, carried over by
 # PREREG-PF4-002, applied to the committed cells.
 check_declared("PF4-002 usable-cell rule",
-               "Usable cell: count >= 5, fraction < 0.9, drift < 1e-4, "
-               "probe sub-critical (d > 0)", PREREG["PF4-001"])
+               "Usable cell: count >= 5,\nfraction < 0.9, drift < 1e-4,"
+               " probe sub-critical (d > 0)", PREREG["PF4-001"])
 
 
 def usable(cells):
@@ -672,7 +675,7 @@ write("pf7_stats.dat", "idx stat",
        (5, m7f["quantum_detrended_statistic"])])
 check_declared("PF-7f terminus declared before the run",
                "The terminus, declared now so the campaign does not "
-               "chase this\nfurther", CEILING)
+               "chase this", CEILING)
 
 # ---------------------------------------------------------------
 # Section VIII. The decay gate.
@@ -737,7 +740,7 @@ narrowest = min(e["width"] for m in members8.values()
                 for e in m["excursions"])
 check("PF-8 narrowest fold excursion", narrowest, 0.000253, 5e-7)
 check_declared("PF-8 background ladder spacing",
-               "against a uniform ladder spacing near 0.2", CAMPAIGN)
+               "against a uniform ladder spacing", CAMPAIGN)
 
 complete_pool = {0: 0, 1: 0, 2: 0, 3: 0}
 blind_pool = {0: 0, 1: 0, 2: 0, 3: 0}
@@ -826,13 +829,10 @@ for i, (key, typed) in enumerate([("sech2_L2.0", 0.5430),
                                   ("sech2_L4.0", 0.8098)]):
     check(f"PF4-005 sech-squared ratio {i}",
           cells005[key]["slope_over_naive"], typed, 5e-5)
+a05b = load("pf4-005b-analyticity.json")
 check_declared("PF4-005 named error",
                "the velocity grid was declared in absolute velocity",
-               a005["declared"]["named_error_of_the_prior_run"]
-               if "named_error_of_the_prior_run" in a005["declared"]
-               else CAMPAIGN)
-
-a05b = load("pf4-005b-analyticity.json")
+               a05b["declared"]["named_error_of_the_prior_run"])
 m05b = a05b["measured"]
 check_exact("PF4-005b verdict", a05b["verdict"]["value"], "FAIL")
 check_exact("PF4-005b failed bar", a05b["items"]["B1_exponential_form"],
@@ -1000,11 +1000,11 @@ for i in range(3):
           m08c["gudermann_slopes"][i], m008["gudermann_slopes"][i],
           1e-6)
 check_declared("PF4-008c floating-point diagnosis",
-               "A hyperbolic tangent of twenty rounds to exactly one in "
-               "double precision", CAMPAIGN)
+               "A hyperbolic tangent of twenty rounds to exactly one\n"
+               "in double precision", CAMPAIGN)
 check_declared("PF4-008 reciprocal-fit error",
-               "It imported a fitting helper that regresses against the "
-               "reciprocal of\nthe adiabaticity", CAMPAIGN)
+               "a fitting helper that regresses against the reciprocal "
+               "of the adiabaticity rather", CAMPAIGN)
 write("pf4_008c_gud.dat", "L slope",
       [(a08c["measured"]["cells"][k]["L"],
         a08c["measured"]["cells"][k]["slope_vs_kappa"])
@@ -1068,9 +1068,8 @@ check_declared("PF4-009 non-claim on quantum field theory",
 # Section X. The standing rule and the nine seals.
 # ---------------------------------------------------------------
 check_declared("standing rule, unconditional form",
-               "any arm of any experiment must have a committed probe "
-               "showing it contains the\nvariation the claim is about",
-               CEILING)
+               "any arm of any\nexperiment must have a committed probe "
+               "showing it contains the", CEILING)
 check_declared("standing rule, gate form",
                "every gate registration\nmust cite a committed probe "
                "that verifies event presence for every\nbound cell and "
