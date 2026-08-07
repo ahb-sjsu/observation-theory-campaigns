@@ -22,3 +22,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-PF4-009 | experiments/PREREG-PF4-009.md | c2d4522 | 58dba9e4c2a112310565d14cc4cd86b2675e0d57f298d0fc1a302e75f78cc282 | 2026-08-07 | A. H. Bond (session instruction) |
 | GENERATOR-G1 | experiments/GENERATOR-G1.md | 5150771 | 99f953d948ce88ba3f1264009bacab0b8ee97e47529739266c793258e27f2761 | 2026-08-07 | A. H. Bond (session instruction) |
 | GENERATOR-DOMAIN-POOL | experiments/GENERATOR-DOMAIN-POOL.md | 5150771 | c3e814a05753cf9fc050390900a908b181fd0f5f9b26c778f5c2398611ac85dd | 2026-08-07 | A. H. Bond (session instruction) |
+| GENERATOR-DOMAIN-POOL-V2 | experiments/GENERATOR-DOMAIN-POOL-V2.md | 9e16022 | 9503db7ed2254a870f3770b5b2d84dcc4071b4d842213a222aa1c18b09ed0ea6 | 2026-08-07 | A. H. Bond (session instruction) |
