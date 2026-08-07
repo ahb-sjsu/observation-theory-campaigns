@@ -196,3 +196,100 @@ than the one this track defines. No claim of irreducibility
 extends beyond its declared admissible class. Seals, labels,
 append-only records, and falsification bars as in CAMPAIGN.md.
 Substrate, exact finite models in Python on Atlas.
+
+---
+
+## 8. UN-1 and UN-1b, measured 2026-08-07
+
+### UN-1, an honest failure of the declaration
+
+PREREG-UN1-001 was sealed at commit b549a29 and run as declared.
+It failed four of its six bars. The record is
+`results/un1-discriminator.json`, record sha e5c85c97444cf61f.
+
+Every failure was in the declaration and none was in the model.
+Three errors, named in PREREG-UN1-002 section 1. The ladder began
+at one copy, where the declared estimation family has no member
+with finite error for a non-commuting pair, because every copy
+spent on one observable is a copy not spent on the other and there
+is only one. The reciprocal law was declared as constancy of the
+error times the budget, which holds exactly for the commuting pair
+through its joint member and cannot hold for the non-commuting one,
+whose best allocation is an integer that jitters around the
+continuum optimum. And the anti-vacuity bar demanded three members
+with distinct finite errors at every cell, which the declared
+family cannot supply at the bottom of the declared ladder, so the
+check built to catch degenerate bars was itself unsatisfiable by
+construction.
+
+The half of the experiment that was in doubt passed. The half that
+is textbook is what failed.
+
+### UN-1b, the corrected run
+
+PREREG-UN1-002 sealed at commit ce0b05a, record
+`results/un1b-discriminator.json`, record sha d2fd40c5dbe586cb.
+**PASS on all seven bars.**
+
+**Type I, estimation, is removable.** The frontier error times the
+budget is constant at 1.515768964 for the compatible pair and
+1.587977341 for the incompatible pair across N from four to
+sixty-four, sitting on the continuum optima of 1.515768964 and
+1.587785252 that the runner computes from the declared state. At
+N of 128 the integer allocation lands one step off and the product
+moves to 1.587865719, still inside the declared band. The error
+falls reciprocally for both pairs, so budget removes it.
+
+**Incompatibility costs a factor here, not a floor.** The ratio of
+the incompatible frontier to the compatible one is 1.047638 at
+every rung, and at the top rung it differs from the asymptotic
+1.047511 by five parts in a hundred thousand. Measuring two
+non-commuting expectations costs about five percent more budget
+than two commuting ones. It does not cost a floor.
+
+**Type II, single-shot prediction, is not removable.** The
+compatible frontier is exactly zero at every rung including one
+copy, because the common eigenbasis serves both tasks at once. The
+incompatible frontier is one bit at every rung, varying by
+3.2e-14 across the whole ladder, and sits on the Maassen-Uffink
+value of one bit to within 3.2e-14. Six budget rungs move it by
+nothing.
+
+**The anchor.** At four copies on the same substrate, the
+compatible pair costs 0.3789 in estimation and zero in prediction,
+and the incompatible pair costs 0.3970 in estimation and one bit
+in prediction. Identical budget, identical state, and the two task
+types disagree about whether the pair is hard.
+
+**The boundary.** At one copy the compatible estimation frontier is
+finite and the incompatible one is not. Bar 7 states this as a
+claim rather than leaving it to be met by accident, which is what
+UN-1 did.
+
+### What this does and does not establish
+
+It establishes that on this substrate and across the family of
+PREREG-UN1-002 section 5, the two kinds of uncertainty separate
+sharply, and that the separation is a property of the observable
+pair and the task type rather than of the budget. The word
+irreducible here means irreducible across that family and means
+nothing wider, which is guard 2.2 applied to this track's own
+result.
+
+It does not establish that the achievable floor equals the
+Maassen-Uffink bound in general. It coincides with it here on two
+mutually unbiased qubit bases, where the bound is known to be
+tight. Whether the floor sits above the bound elsewhere, and
+whether any gap is a function of the overlap alone, is UN-2 and is
+unrun.
+
+### An instrument note
+
+The first execution of the UN-1b runner failed bar 4 at 2.1e-10.
+The cause was the runner and not the model. It pruned records
+whose probability fell below 1e-12 from inside the exact sum, which
+discards mass and undercounts the entropy, while the sealed family
+requires summation over the whole record space. That threshold
+belongs to bar 5's count of live records and not to the sum.
+Corrected, the spread fell to 3.2e-14. The invalid execution was
+never committed.
