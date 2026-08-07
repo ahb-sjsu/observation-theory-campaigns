@@ -1,0 +1,201 @@
+{
+  "declared": {
+    "L_grid": [
+      2.0,
+      3.0,
+      4.0
+    ],
+    "bars": {
+      "S2_sech2_convergence": 1e-09,
+      "S3_exponent_change": 0.01,
+      "S4_universality_spread": 0.02
+    },
+    "dt": 0.0002,
+    "exponent_spans": [
+      20.0,
+      90.0
+    ],
+    "kappa_grid": [
+      0.9,
+      1.2,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "purpose": "decide the span and the bars a preregistration on this profile must declare",
+    "span_ladder": [
+      20.0,
+      30.0,
+      45.0,
+      65.0,
+      90.0
+    ]
+  },
+  "items": {
+    "S1_lorentz_converges": true,
+    "S2_sech2_already_converged": true,
+    "S3_exponent_robust_to_span": true,
+    "S4_universality_survives": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "exponents_by_span": {
+      "lorentz_L2.0": {
+        "20.0": {
+          "intercept": -2.8233562252083364,
+          "r_squared": 0.9998370552904893,
+          "slope": -2.0661249721253907
+        },
+        "90.0": {
+          "intercept": -2.8124622801087087,
+          "r_squared": 0.9998980676523413,
+          "slope": -2.07095154831018
+        },
+        "intercept_change": 0.010893945099627711,
+        "relative_slope_change": 0.0023360523927186197
+      },
+      "lorentz_L3.0": {
+        "20.0": {
+          "intercept": -2.013310160959339,
+          "r_squared": 0.9998284400727598,
+          "slope": -2.063902776839846
+        },
+        "90.0": {
+          "intercept": -2.0037909459319705,
+          "r_squared": 0.9998991963591289,
+          "slope": -2.0677638706682977
+        },
+        "intercept_change": 0.00951921502736841,
+        "relative_slope_change": 0.0018707731157587377
+      },
+      "lorentz_L4.0": {
+        "20.0": {
+          "intercept": -1.4393247116366348,
+          "r_squared": 0.9998164661012218,
+          "slope": -2.0607238725624124
+        },
+        "90.0": {
+          "intercept": -1.4313167589173577,
+          "r_squared": 0.9998985404776104,
+          "slope": -2.063526499453977
+        },
+        "intercept_change": 0.008007952719277123,
+        "relative_slope_change": 0.0013600205873674257
+      },
+      "sech2_L2.0": {
+        "20.0": {
+          "intercept": -2.0980905159404744,
+          "r_squared": 0.9886198526099392,
+          "slope": -1.0490304246271858
+        },
+        "90.0": {
+          "intercept": -2.098090515940495,
+          "r_squared": 0.9886198526099428,
+          "slope": -1.049030424627176
+        },
+        "intercept_change": 2.042810365310288e-14,
+        "relative_slope_change": 9.313326274758445e-15
+      },
+      "sech2_L3.0": {
+        "20.0": {
+          "intercept": -1.2908186029617414,
+          "r_squared": 0.9887303445308351,
+          "slope": -1.047826088696279
+        },
+        "90.0": {
+          "intercept": -1.2908186029619595,
+          "r_squared": 0.9887303445308487,
+          "slope": -1.0478260886961497
+        },
+        "intercept_change": 2.1804780203638074e-13,
+        "relative_slope_change": 1.233314969540013e-13
+      },
+      "sech2_L4.0": {
+        "20.0": {
+          "intercept": -0.7205131807609343,
+          "r_squared": 0.9888822316583884,
+          "slope": -1.0461669017012418
+        },
+        "90.0": {
+          "intercept": -0.7205131807607873,
+          "r_squared": 0.988882231658381,
+          "slope": -1.0461669017013524
+        },
+        "intercept_change": 1.4699352846037073e-13,
+        "relative_slope_change": 1.0569844359714209e-13
+      }
+    },
+    "ladders": {
+      "lorentz": {
+        "successive_relative_change": [
+          0.012784361320207965,
+          0.0058630750013356015,
+          0.0012975768552818206,
+          0.00015216271320186295
+        ],
+        "values": [
+          0.006074867750738119,
+          0.006153536788438711,
+          0.006117668439544359,
+          0.006125616898255859,
+          0.006126549130594135
+        ]
+      },
+      "sech2": {
+        "successive_relative_change": [
+          8.574004901640266e-14,
+          2.2224723231883815e-14,
+          1.0446748077523991e-13,
+          3.824457449547266e-14
+        ],
+        "values": [
+          0.06150637219674411,
+          0.06150637219673884,
+          0.06150637219673747,
+          0.061506372196743896,
+          0.06150637219674154
+        ]
+      }
+    },
+    "lorentz_slopes_at_far_span": [
+      -2.07095154831018,
+      -2.0677638706682977,
+      -2.063526499453977
+    ],
+    "lorentz_spread_at_far_span": 0.00359146690205839,
+    "probe_cell": {
+      "L": 3.0,
+      "kappa": 1.5
+    },
+    "reading": "the transfer of a profile with algebraic tails carries a tail contribution from any finite entry point, and the question a seal turns on is whether that contribution is common enough across the grid to leave the exponent alone",
+    "span_ladder": [
+      20.0,
+      30.0,
+      45.0,
+      65.0,
+      90.0
+    ],
+    "worst_relative_exponent_change": 0.0023360523927186197
+  },
+  "record_sha256": "310fa6fda398180065016f1c6624093b4b21ac4de3907d8996acbf9a9f67548f",
+  "runtime": {
+    "code_commit": "ebefd77",
+    "generated_utc": "2026-08-07T09:05:15.556115+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-007b-span-v1",
+  "supersedes": "results/pf4-007-span.json (record sha e12453effa2f), which was produced by the runner that regressed against the reciprocal of the adiabaticity and whose exponent items are therefore invalid",
+  "verdict": {
+    "computed_from": [
+      "S1_lorentz_converges",
+      "S2_sech2_already_converged",
+      "S3_exponent_robust_to_span",
+      "S4_universality_survives"
+    ],
+    "value": "PASS"
+  }
+}
