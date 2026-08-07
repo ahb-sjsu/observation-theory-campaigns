@@ -157,7 +157,8 @@ check_exact("PF-2 mean folds", ens["mean_folds"], 12.0)
 check_exact("PF-2 total folds", ens["total_folds"], 12000)
 assert all(v == 12 for v in ens["sample_fold_counts"]), \
     "PF-2 sampled member fold counts are not all 12"
-assert sum(ens["fold_histogram"]) == 0, \
+hist = ens["fold_histogram"]
+assert [i for i, v in enumerate(hist) if v] == [12] and hist[12] == 1000, \
     "PF-2 fold histogram records dispersion"
 CHECKS += 2
 check("PF-2 ensemble mean relative drift",
