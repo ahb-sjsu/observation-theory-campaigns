@@ -1,0 +1,506 @@
+{
+  "bar_detail": {
+    "anchor": {
+      "N": 4,
+      "cells": [
+        {
+          "frontier": 0.3789422410414077,
+          "pair": "compatible_ZI_IZ",
+          "task": "I_estimation"
+        },
+        {
+          "frontier": 0.39699433520835065,
+          "pair": "incompatible_ZI_XI",
+          "task": "I_estimation"
+        },
+        {
+          "frontier": 0.0,
+          "pair": "compatible_ZI_IZ",
+          "task": "II_prediction"
+        },
+        {
+          "frontier": 0.9999999999999981,
+          "pair": "incompatible_ZI_XI",
+          "task": "II_prediction"
+        }
+      ]
+    },
+    "bar1": [
+      {
+        "continuum_optimum": 1.515768964165631,
+        "pair": "compatible_ZI_IZ",
+        "rungs": [
+          {
+            "N": 4,
+            "err_times_N": 1.515768964165631,
+            "hi": 2.2736534462484466,
+            "in_band": true,
+            "lo": 1.515768964165631
+          },
+          {
+            "N": 8,
+            "err_times_N": 1.515768964165631,
+            "hi": 1.8947112052070385,
+            "in_band": true,
+            "lo": 1.515768964165631
+          },
+          {
+            "N": 16,
+            "err_times_N": 1.515768964165631,
+            "hi": 1.7052400846863347,
+            "in_band": true,
+            "lo": 1.515768964165631
+          },
+          {
+            "N": 32,
+            "err_times_N": 1.515768964165631,
+            "hi": 1.6105045244259828,
+            "in_band": true,
+            "lo": 1.515768964165631
+          },
+          {
+            "N": 64,
+            "err_times_N": 1.515768964165631,
+            "hi": 1.5631367442958068,
+            "in_band": true,
+            "lo": 1.515768964165631
+          },
+          {
+            "N": 128,
+            "err_times_N": 1.515768964165631,
+            "hi": 1.5394528542307189,
+            "in_band": true,
+            "lo": 1.515768964165631
+          }
+        ]
+      },
+      {
+        "continuum_optimum": 1.5877852522924722,
+        "pair": "incompatible_ZI_XI",
+        "rungs": [
+          {
+            "N": 4,
+            "err_times_N": 1.5879773408334026,
+            "hi": 2.3816778784387083,
+            "in_band": true,
+            "lo": 1.5877852522924722
+          },
+          {
+            "N": 8,
+            "err_times_N": 1.5879773408334026,
+            "hi": 1.9847315653655904,
+            "in_band": true,
+            "lo": 1.5877852522924722
+          },
+          {
+            "N": 16,
+            "err_times_N": 1.5879773408334026,
+            "hi": 1.7862584088290312,
+            "in_band": true,
+            "lo": 1.5877852522924722
+          },
+          {
+            "N": 32,
+            "err_times_N": 1.5879773408334026,
+            "hi": 1.6870218305607518,
+            "in_band": true,
+            "lo": 1.5877852522924722
+          },
+          {
+            "N": 64,
+            "err_times_N": 1.5879773408334026,
+            "hi": 1.637403541426612,
+            "in_band": true,
+            "lo": 1.5877852522924722
+          },
+          {
+            "N": 128,
+            "err_times_N": 1.5878657185767273,
+            "hi": 1.6125943968595422,
+            "in_band": true,
+            "lo": 1.5877852522924722
+          }
+        ]
+      }
+    ],
+    "bar2": {
+      "asymptotic_target": 1.0475113884961245,
+      "ratios": [
+        {
+          "N": 4,
+          "ratio": 1.0476381152898981
+        },
+        {
+          "N": 8,
+          "ratio": 1.0476381152898981
+        },
+        {
+          "N": 16,
+          "ratio": 1.0476381152898981
+        },
+        {
+          "N": 32,
+          "ratio": 1.0476381152898981
+        },
+        {
+          "N": 64,
+          "ratio": 1.0476381152898981
+        },
+        {
+          "N": 128,
+          "ratio": 1.0475644746102732
+        }
+      ],
+      "top_rung_relative_gap": 5.0678316944119704e-05
+    },
+    "bar3": {
+      "frontiers": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max": 0.0
+    },
+    "bar4": {
+      "frontiers": [
+        0.9999999999999999,
+        0.9999999999999997,
+        0.999999999999999,
+        0.9999999999999981,
+        0.9999999999999919,
+        0.9999999999999679
+      ],
+      "gap_above_bound": -3.2085445411667024e-14,
+      "maassen_uffink": 1.0,
+      "spread": 3.197442310920451e-14,
+      "tolerance": 1e-11
+    },
+    "bar5": {
+      "failed_cells": [],
+      "min_distinct_members": 3,
+      "min_live_records": 4
+    },
+    "bar6": {
+      "boundary_cells": 2,
+      "expected_cells": 24,
+      "found": 24
+    },
+    "bar7": {
+      "compatible_finite": true,
+      "incompatible_finite": false,
+      "reading": "at one copy the declared family cannot serve two non-commuting estimation tasks at all"
+    }
+  },
+  "bars": {
+    "bar1_type1_reciprocal_band": true,
+    "bar2_type1_ratio_bounded": true,
+    "bar3_type2_compatible_zero": true,
+    "bar4_type2_incompatible_immobile": true,
+    "bar5_anti_vacuity": true,
+    "bar6_census": true,
+    "bar7_boundary": true
+  },
+  "boundary": {
+    "compatible_ZI_IZ": {
+      "attaining_member": "joint",
+      "finite": true,
+      "frontier": 1.515768964165631
+    },
+    "incompatible_ZI_XI": {
+      "attaining_member": "split k=0",
+      "finite": false,
+      "frontier": {
+        "__nonfinite__": "inf"
+      }
+    }
+  },
+  "cells": [
+    {
+      "N": 4,
+      "attaining_member": "joint",
+      "distinct_finite_members": 4,
+      "frontier": 0.3789422410414077,
+      "pair": "compatible_ZI_IZ",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 8,
+      "attaining_member": "joint",
+      "distinct_finite_members": 8,
+      "frontier": 0.18947112052070386,
+      "pair": "compatible_ZI_IZ",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 16,
+      "attaining_member": "joint",
+      "distinct_finite_members": 16,
+      "frontier": 0.09473556026035193,
+      "pair": "compatible_ZI_IZ",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 32,
+      "attaining_member": "joint",
+      "distinct_finite_members": 32,
+      "frontier": 0.047367780130175965,
+      "pair": "compatible_ZI_IZ",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 64,
+      "attaining_member": "joint",
+      "distinct_finite_members": 64,
+      "frontier": 0.023683890065087983,
+      "pair": "compatible_ZI_IZ",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 128,
+      "attaining_member": "joint",
+      "distinct_finite_members": 128,
+      "frontier": 0.011841945032543991,
+      "pair": "compatible_ZI_IZ",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 4,
+      "attaining_member": "split k=3",
+      "distinct_finite_members": 3,
+      "frontier": 0.39699433520835065,
+      "pair": "incompatible_ZI_XI",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 8,
+      "attaining_member": "split k=6",
+      "distinct_finite_members": 7,
+      "frontier": 0.19849716760417532,
+      "pair": "incompatible_ZI_XI",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 16,
+      "attaining_member": "split k=12",
+      "distinct_finite_members": 15,
+      "frontier": 0.09924858380208766,
+      "pair": "incompatible_ZI_XI",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 32,
+      "attaining_member": "split k=24",
+      "distinct_finite_members": 31,
+      "frontier": 0.04962429190104383,
+      "pair": "incompatible_ZI_XI",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 64,
+      "attaining_member": "split k=48",
+      "distinct_finite_members": 63,
+      "frontier": 0.024812145950521915,
+      "pair": "incompatible_ZI_XI",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 128,
+      "attaining_member": "split k=97",
+      "distinct_finite_members": 127,
+      "frontier": 0.012405200926380682,
+      "pair": "incompatible_ZI_XI",
+      "records_live": null,
+      "task": "I_estimation"
+    },
+    {
+      "N": 1,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 22,
+      "frontier": 0.0,
+      "pair": "compatible_ZI_IZ",
+      "records_live": 4,
+      "task": "II_prediction"
+    },
+    {
+      "N": 2,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 22,
+      "frontier": 0.0,
+      "pair": "compatible_ZI_IZ",
+      "records_live": 16,
+      "task": "II_prediction"
+    },
+    {
+      "N": 3,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 22,
+      "frontier": 0.0,
+      "pair": "compatible_ZI_IZ",
+      "records_live": 64,
+      "task": "II_prediction"
+    },
+    {
+      "N": 4,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 22,
+      "frontier": 0.0,
+      "pair": "compatible_ZI_IZ",
+      "records_live": 256,
+      "task": "II_prediction"
+    },
+    {
+      "N": 5,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 22,
+      "frontier": 0.0,
+      "pair": "compatible_ZI_IZ",
+      "records_live": 1024,
+      "task": "II_prediction"
+    },
+    {
+      "N": 6,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 22,
+      "frontier": 0.0,
+      "pair": "compatible_ZI_IZ",
+      "records_live": 4096,
+      "task": "II_prediction"
+    },
+    {
+      "N": 1,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 18,
+      "frontier": 0.9999999999999999,
+      "pair": "incompatible_ZI_XI",
+      "records_live": 4,
+      "task": "II_prediction"
+    },
+    {
+      "N": 2,
+      "attaining_member": "theta_first=0.000000,theta_rest=2.094395",
+      "distinct_finite_members": 18,
+      "frontier": 0.9999999999999997,
+      "pair": "incompatible_ZI_XI",
+      "records_live": 16,
+      "task": "II_prediction"
+    },
+    {
+      "N": 3,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 18,
+      "frontier": 0.999999999999999,
+      "pair": "incompatible_ZI_XI",
+      "records_live": 64,
+      "task": "II_prediction"
+    },
+    {
+      "N": 4,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.000000",
+      "distinct_finite_members": 20,
+      "frontier": 0.9999999999999981,
+      "pair": "incompatible_ZI_XI",
+      "records_live": 256,
+      "task": "II_prediction"
+    },
+    {
+      "N": 5,
+      "attaining_member": "theta_first=0.000000,theta_rest=0.916298",
+      "distinct_finite_members": 21,
+      "frontier": 0.9999999999999919,
+      "pair": "incompatible_ZI_XI",
+      "records_live": 1024,
+      "task": "II_prediction"
+    },
+    {
+      "N": 6,
+      "attaining_member": "theta_first=0.785398,theta_rest=0.000000",
+      "distinct_finite_members": 23,
+      "frontier": 0.9999999999999679,
+      "pair": "incompatible_ZI_XI",
+      "records_live": 4096,
+      "task": "II_prediction"
+    }
+  ],
+  "declared": {
+    "admissible_class": "the family of PREREG-UN1-002 section 5, enumerated in full; every floor here is a floor across that family and nothing wider",
+    "anchor_N": 4,
+    "boundary_N": 1,
+    "continuum_optima": {
+      "compatible_ZI_IZ": 1.515768964165631,
+      "incompatible_ZI_XI": 1.5877852522924722
+    },
+    "ladder_type1": [
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "ladder_type2": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "state_angles": [
+      0.6283185307179586,
+      0.4487989505128276
+    ],
+    "theta_grid_points": 25,
+    "variances": {
+      "compatible_ZI_IZ": [
+        0.9045084971874737,
+        0.6112604669781572
+      ],
+      "incompatible_ZI_XI": [
+        0.9045084971874737,
+        0.09549150281252605
+      ]
+    }
+  },
+  "governed_by": {
+    "prereg": "experiments/PREREG-UN1-002.md",
+    "sealed_blob_sha256": "f1e1ac999210f42b2820243d976ae16c3fba135bc64ab9120328abb659b7c25d",
+    "sealing_commit": "ce0b05a",
+    "supersedes": "results/un1-discriminator.json"
+  },
+  "record_sha256": "d2fd40c5dbe586cbd62ca1ceca6c1b751e62cc4ba4502ea099ddf16e6c3b1b42",
+  "runtime": {
+    "code_commit": "27f45d9",
+    "generated_utc": "2026-08-07T11:24:02.565531+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "un1b-discriminator-v1",
+  "verdict": {
+    "computed_from": [
+      "bar1_type1_reciprocal_band",
+      "bar2_type1_ratio_bounded",
+      "bar3_type2_compatible_zero",
+      "bar4_type2_incompatible_immobile",
+      "bar5_anti_vacuity",
+      "bar6_census",
+      "bar7_boundary"
+    ],
+    "value": "PASS"
+  }
+}
