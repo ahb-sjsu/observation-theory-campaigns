@@ -1,0 +1,160 @@
+{
+  "declared": {
+    "L_grid": [
+      1.8,
+      2.8,
+      3.8,
+      4.6
+    ],
+    "bars": {
+      "entry": 1e-07,
+      "hamiltonian": 1e-11,
+      "r_squared": 0.995,
+      "timestep": 1e-05,
+      "universality": 0.02
+    },
+    "dt": 0.0001,
+    "hypotheses": {
+      "H1_distance_only": "the Gudermannian exponent equals the sech-squared exponent within five percent",
+      "H2_order_matters": "the Gudermannian exponent equals the Lorentzian exponent within ten percent"
+    },
+    "kappa_grid": [
+      1.05,
+      1.45,
+      1.85,
+      2.25,
+      2.65,
+      3.05
+    ],
+    "pole_distance_over_L": 1.5707963267948966,
+    "profiles": {
+      "gudermann": "arcsine of tanh tilt, sech force, simple pole at the same distance, exponential tails",
+      "sech2": "tanh tilt, sech squared force, double pole at pi over two times L"
+    },
+    "shift": 3.0,
+    "span_in_L": 20.0
+  },
+  "findings": {
+    "exploratory_reference_pf4_008c": -1.04767,
+    "note": "the constant is not claimed by this registration"
+  },
+  "items": {
+    "P1a_conserved_quantity": true,
+    "P1b_entry_independence": true,
+    "P1c_timestep_independence": true,
+    "P1d_translation_covariance": true,
+    "P1e_census": true,
+    "P2_exponential_form": true,
+    "P3_width_universal": true,
+    "P4_signal_in_range": true
+  },
+  "label": "sealed-claim-run",
+  "measured": {
+    "cells": {
+      "gudermann_L1.8": {
+        "L": 1.8,
+        "e_res": [
+          0.017427422969634364,
+          0.008829036010716744,
+          0.004175609049812073,
+          0.0019042479266297985,
+          0.0008501325130536516,
+          0.00037383776470594453
+        ],
+        "hamiltonian_drift": 1.2346547674570538e-13,
+        "intercept": -1.9579413398144443,
+        "profile": "gudermann",
+        "r_squared": 0.998940663189414,
+        "slope_vs_kappa": -1.929735108503875
+      },
+      "gudermann_L2.8": {
+        "L": 2.8,
+        "e_res": [
+          0.04209557549409368,
+          0.0213472928996203,
+          0.010113766103845529,
+          0.004622894076509537,
+          0.0020692884206707507,
+          0.0009125416236348965
+        ],
+        "hamiltonian_drift": 3.691963563662618e-13,
+        "intercept": -1.0825258374839284,
+        "profile": "gudermann",
+        "r_squared": 0.998963307064546,
+        "slope_vs_kappa": -1.924382719863062
+      },
+      "gudermann_L3.8": {
+        "L": 3.8,
+        "e_res": [
+          0.077338352186505,
+          0.03927381330264344,
+          0.01865311353535696,
+          0.008553832357292637,
+          0.0038431159758251163,
+          0.001701612179767359
+        ],
+        "hamiltonian_drift": 1.8285290486775167e-13,
+        "intercept": -0.4834341559463678,
+        "profile": "gudermann",
+        "r_squared": 0.9989951119180336,
+        "slope_vs_kappa": -1.9168233063624782
+      },
+      "gudermann_L4.6": {
+        "L": 4.6,
+        "e_res": [
+          0.11304242664111958,
+          0.05748452283466496,
+          0.027370109730520356,
+          0.012591957295093076,
+          0.005678463486638016,
+          0.002524373684819392
+        ],
+        "hamiltonian_drift": 1.0429819739183681e-13,
+        "intercept": -0.11301250220438507,
+        "profile": "gudermann",
+        "r_squared": 0.999026682228161,
+        "slope_vs_kappa": -1.9092678219464239
+      }
+    },
+    "entry_relative_change": 9.16305423631659e-09,
+    "gudermann_mean_slope": -1.9200522391689598,
+    "gudermann_relative_spread": 0.010659755052450969,
+    "gudermann_slopes": [
+      -1.929735108503875,
+      -1.924382719863062,
+      -1.9168233063624782,
+      -1.9092678219464239
+    ],
+    "lorentz_reference_pf4_005b": -2.06356,
+    "reading": "both profiles carry their nearest singularity at the same distance and differ in its order, so a difference in the exponent is a difference the order makes and an agreement is one the distance makes",
+    "sech2_reference_pf4_005b": -1.04767,
+    "timestep_relative_change": 2.1474431677587263e-13,
+    "translation_relative_change": 4.8025885540929986e-15,
+    "worst_hamiltonian_drift": 3.691963563662618e-13
+  },
+  "record_sha256": "6a4d6a28d3091f4519396c22929291ec67a2a2a1a9e57714d10dd053c891f09e",
+  "registration_id": "PREREG-PF4-009",
+  "runtime": {
+    "code_commit": "91ecd63",
+    "generated_utc": "2026-08-07T09:02:35.743228+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "prereg-pf4-009-v1",
+  "verdict": {
+    "computed_from": [
+      "P1a_conserved_quantity",
+      "P1b_entry_independence",
+      "P1c_timestep_independence",
+      "P1d_translation_covariance",
+      "P1e_census",
+      "P2_exponential_form",
+      "P3_width_universal",
+      "P4_signal_in_range"
+    ],
+    "note": "the findings discriminate the two declared hypotheses, either outcome a result",
+    "value": "PASS"
+  }
+}
