@@ -210,8 +210,8 @@ $1.8 \times 10^{-15}$.
   xlabel={number of parts read},
   ylabel={information about the secret (bits)},
   xtick={1,2,3,4,5,6}, xmin=0.7, xmax=6.3,
-  ymin=-0.25, ymax=5.4,
-  legend pos=south east, legend cell align=left]
+  ymin=-0.25, ymax=6.9,
+  legend pos=north west, legend cell align=left]
 \addplot[blue!70!black, mark=*, mark size=2.2pt]
   table[x=n, y=mi] {figdata/cr0_step.dat};
 \addlegendentry{engineered threshold scheme}
@@ -319,8 +319,10 @@ channels, which proves each is a garbling of the identity.  All
 values are from the committed evidence record.}
 \label{tab:cr1}
 \begin{ruledtabular}
+\footnotesize
 \begin{tabular}{lcc}
-Channel & information (bits) & conditional info.\ given identity \\
+Channel & information & conditional information \\
+        & (bits)      & given the identity (bits) \\
 \colrule
 identity           & $4$        &          \\
 Hamming weight     & $2.0306$   & $0$ \\
@@ -534,8 +536,8 @@ length $1.0497$ sits below the entropy plus one of $1.1303$.
     vertical sep=30pt},
   paperaxis, height=0.40\columnwidth,
   xmin=-0.03, xmax=0.93, xlabel={declared spike excess $\epsilon$}]
-\nextgroupplot[ylabel={bits}, ymin=0, ymax=5.6,
-  legend pos=south west, legend cell align=left]
+\nextgroupplot[ylabel={bits}, ymin=0, ymax=5.9,
+  legend pos=north east, legend cell align=left]
 \addplot[blue!70!black, mark=*, mark size=1.8pt]
   table[x=eps, y=shannon] {figdata/cr3_ladder.dat};
 \addlegendentry{averaging consumer}
@@ -543,8 +545,8 @@ length $1.0497$ sits below the entropy plus one of $1.1303$.
   mark size=1.5pt]
   table[x=eps, y=minent] {figdata/cr3_ladder.dat};
 \addlegendentry{single-guess consumer}
-\nextgroupplot[ylabel={difference (bits)}, ymin=-0.2, ymax=3.1,
-  legend pos=south west, legend cell align=left]
+\nextgroupplot[ylabel={difference (bits)}, ymin=-0.2, ymax=4.3,
+  legend pos=north west, legend cell align=left]
 \addplot[blue!70!black, mark=*, mark size=1.8pt]
   table[x=eps, y=sepbits] {figdata/cr3_ladder.dat};
 \addlegendentry{declared ladder}
