@@ -537,6 +537,46 @@ monotone, player one's equilibrium information falls from 0.6884 to
 better-informed opponent makes attention more valuable in the
 coordination game, exactly as declared.
 
+## 4b. Certificate techniques and their scope (recorded
+2026-08-06)
+
+Three registrations in this program have needed to prove that one
+channel is not a garbling of another, and they used three
+techniques of increasing quality. The record of which technique
+applies where is written here because the next registration should
+not have to rediscover it.
+
+GD-1 thresholded the residual of a projected-gradient search. That
+was the wrong object, a search residual is evidence about the
+search, and the registration failed its own bar at 0.0045 against a
+threshold of 0.01 while the pair was genuinely incomparable.
+
+GD-1b replaced the threshold with two proofs, a conic lower bound
+on the residual computed from the columns of the garbler, and the
+monotonicity of total variation for the other direction. Both are
+exact, need no tolerance argument, and apply to any pair of
+abstract experiments, meaning any two row-stochastic matrices with
+no shared substrate.
+
+CR-1 used a third technique, the conditional mutual information of
+the hidden variable and the second channel given the first. A
+garbling leaves nothing conditionally, so a strictly positive
+conditional information is a proof of non-garbling with no
+tolerance and no search at all, which is the cleanest of the three.
+
+The scope boundary matters and is easy to miss. The conditional
+information technique needs a declared joint distribution of the
+hidden variable and both channels, which exists when the channels
+are co-defined, meaning both read the same underlying quantity, as
+the CR-1 leakage channels read the same substituted value. Two
+abstract experiments given only as separate matrices have no
+canonical joint, so the technique does not apply to them and the
+GD-1b bounds remain the right tool there. A registration that
+compares co-defined channels should use the conditional
+information certificate. A registration that compares abstract
+experiment pairs should use the conic bound and the total-variation
+gap. Neither should threshold a search residual.
+
 ## 5. Evidence discipline and non-claims
 
 Seals, labels, append-only records, and falsification bars as in
