@@ -20,3 +20,5 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-PF6-001 | experiments/PREREG-PF6-001.md | 8160039 | 7299902bc0adcc79ac5ce1a6eb4922612e292bf620e727da9303c49661544c3f | 2026-08-06 | A. H. Bond (session instruction) |
 | PREREG-PF6-002 | experiments/PREREG-PF6-002.md | 5ecda35 | 3a42ce4ce8f22748ce0c9b90a4cdc3c04fc16a607314d3615aaca3264d898602 | 2026-08-06 | A. H. Bond (session instruction) |
 | PREREG-PF4-009 | experiments/PREREG-PF4-009.md | c2d4522 | 58dba9e4c2a112310565d14cc4cd86b2675e0d57f298d0fc1a302e75f78cc282 | 2026-08-07 | A. H. Bond (session instruction) |
+| GENERATOR-G1 | experiments/GENERATOR-G1.md | 5150771 | 99f953d948ce88ba3f1264009bacab0b8ee97e47529739266c793258e27f2761 | 2026-08-07 | A. H. Bond (session instruction) |
+| GENERATOR-DOMAIN-POOL | experiments/GENERATOR-DOMAIN-POOL.md | 5150771 | c3e814a05753cf9fc050390900a908b181fd0f5f9b26c778f5c2398611ac85dd | 2026-08-07 | A. H. Bond (session instruction) |
