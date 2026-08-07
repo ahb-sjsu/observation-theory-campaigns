@@ -1,0 +1,493 @@
+{
+  "schema": "g1-packet-v1",
+  "label": "rehearsal",
+  "domain": "cond-mat.stat-mech",
+  "domain_description": "Phase transitions, thermodynamics, field theory, non-equilibrium phenomena, renormalization group and scaling, integrable models, turbulence",
+  "arm": "A1",
+  "packet": {
+    "substrate": "Omega = (X, C, T, B, E). X is the microstate trajectory of a driven classical many-body field on a finite lattice of linear size L in d dimensions: X = {phi_i(t)} for i in Lambda_L, t in [0, t_max], evolved by a declared microscopic rule (family F1: Metropolis single-spin-flip Ising-like scalar field at inverse temperature beta; family F2: stochastically forced incompressible Navier-Stokes-like shell/lattice hydrodynamics at Reynolds number Re; family F3: an integrable-by-construction chain with a declared complete set of local conserved charges Q_1..Q_M). Hidden from whom: X in full is hidden from every consumer except the maximal consumer C_max. What is hidden is specifically (a) microstate labels below the coarse-graining scale a_C of the consumer's channel, (b) the phase of Fourier modes above the consumer's cutoff k_C, (c) the identity of which particular realization of the noise seed produced the record, and (d) for F3, the values of all conserved charges Q_m with m greater than the consumer's charge budget. Nothing about X is hidden from the simulator that generates it; hiddenness is a property of the channel, not of physics. The declared family of Omegas is indexed by (family in {F1,F2,F3}, L, d, control parameter g in {beta, Re, anisotropy}, channel, task, budget B, and intervention set E).",
+    "consumer_family": [
+      {
+        "name": "C_null",
+        "role": "null consumer",
+        "reads": "nothing; the record is the empty string for every microstate",
+        "purpose": "any observable that is nonzero for C_null is an artifact of the analysis pipeline, not of the substrate-consumer pair; C_null fixes the zero of every consumer-relative quantity"
+      },
+      {
+        "name": "C_max",
+        "role": "maximal consumer",
+        "reads": "the entire trajectory X at full spatial and temporal resolution in double precision, including the noise seed",
+        "purpose": "upper bound on every consumer-relative quantity; any quantity a substrate invariant claims to be must be reproduced exactly by C_max"
+      },
+      {
+        "name": "C_block(a)",
+        "role": "real-space block consumer",
+        "reads": "block averages of phi over cubes of side a, sampled every tau time units, quantized to n_bits per block",
+        "purpose": "the standard experimental coarse-grainer; a is the knob for Q1"
+      },
+      {
+        "name": "C_spec(k_C)",
+        "role": "spectral consumer",
+        "reads": "Fourier amplitudes |phi_k| and phases for |k| < k_C only, discarding all modes above the cutoff",
+        "purpose": "the scattering/spectroscopy consumer; matched to C_block by equal record bit rate, not by equal cutoff"
+      },
+      {
+        "name": "C_two",
+        "role": "two-point consumer",
+        "reads": "only the connected two-point function G(r,t) = <phi(0,0)phi(r,t)>_c estimated from the trajectory, discarding all higher cumulants",
+        "purpose": "the Gaussian-truncation consumer; deliberately blind to the non-Gaussian structure that carries intermittency"
+      },
+      {
+        "name": "C_charge(M')",
+        "role": "conserved-charge consumer (F3 only, extended to F1/F2 as energy-and-momentum-only)",
+        "reads": "the time series of the first M' local conserved charges Q_1..Q_M' and nothing else",
+        "purpose": "the hydrodynamic/GHD consumer; M' is the knob distinguishing integrable from non-integrable substrates"
+      },
+      {
+        "name": "C_thresh(theta)",
+        "role": "threshold/event consumer",
+        "reads": "only the times and locations at which a declared local field exceeds threshold theta (event list), with no amplitude information",
+        "purpose": "the detector-with-a-trigger consumer; deliberately discards amplitudes and keeps only extreme-event geometry"
+      }
+    ],
+    "channels": [
+      {
+        "name": "ch_null",
+        "map": "K_null : X -> {}, the constant map to the empty record. Record length 0 bits.",
+        "consumer": "C_null"
+      },
+      {
+        "name": "ch_id",
+        "map": "K_id : X -> X, the identity map, record = full trajectory plus seed. Record length = N_sites * N_times * 64 bits.",
+        "consumer": "C_max"
+      },
+      {
+        "name": "ch_block",
+        "map": "K_block(a, tau, n_bits) : X -> R, where R_{Ib,s} = Quant_{n_bits}( a^{-d} sum_{i in block Ib} phi_i(s*tau) ). Blocks tile Lambda_L; Quant is uniform quantization on [-phi_sat, phi_sat] with declared saturation. Record length = (L/a)^d * (t_max/tau) * n_bits bits.",
+        "consumer": "C_block(a)"
+      },
+      {
+        "name": "ch_spec",
+        "map": "K_spec(k_C, tau, n_bits) : X -> R, where R_{k,s} = Quant_{n_bits}( phi_hat_k(s*tau) ) for all |k| <= k_C, and R is undefined (not zero) for |k| > k_C. Record length = |{k : |k|<=k_C}| * (t_max/tau) * 2 * n_bits bits (real and imaginary parts).",
+        "consumer": "C_spec(k_C)"
+      },
+      {
+        "name": "ch_two",
+        "map": "K_two : X -> R, where R = ( Ghat(r,t) )_{r,t} with Ghat the empirical connected two-point function averaged over the trajectory and over lattice translations, stored at 32 bits per (r,t) bin. All higher cumulants are discarded by construction, so K_two is many-to-one on any ensemble with nonzero third cumulant.",
+        "consumer": "C_two"
+      },
+      {
+        "name": "ch_charge",
+        "map": "K_charge(M') : X -> R, where R = ( Q_m(s*tau) )_{m<=M', s} at 32 bits each, Q_m the declared local conserved densities integrated over declared hydrodynamic cells of size l_hydro. Record length = M' * (L/l_hydro)^d * (t_max/tau) * 32 bits.",
+        "consumer": "C_charge(M')"
+      },
+      {
+        "name": "ch_thresh",
+        "map": "K_thresh(theta) : X -> R, where R = the sorted list of (i, t) with |phi_i(t)| > theta, or for F2 with local dissipation epsilon_i(t) > theta. Amplitudes are NOT recorded. Record length = N_events * (log2 N_sites + log2 N_times) bits, which is data-dependent and must be measured, not assumed.",
+        "consumer": "C_thresh(theta)"
+      }
+    ],
+    "tasks": [
+      {
+        "name": "T_loc",
+        "statement": "Locate the critical control parameter: from the record alone, output an estimate g_hat of the transition point g_c (beta_c for F1, the onset of a declared bifurcation for F2, the isotropic point for F3). Loss = |g_hat - g_c| in units of the declared parameter step.",
+        "type": "point estimation"
+      },
+      {
+        "name": "T_exp",
+        "statement": "Estimate the two independent scaling exponents (nu, eta) for F1, or the inertial-range structure-function exponents (zeta_2, zeta_6) for F2, from the record alone. Loss = max over the two of |exponent_hat - exponent_ref| where exponent_ref is the C_max estimate on the same trajectories.",
+        "type": "exponent estimation"
+      },
+      {
+        "name": "T_ext",
+        "statement": "Predict the probability that the maximum of the declared local field over the next window W exceeds a declared level u, i.e. one-sided extreme-event forecasting. Loss = Brier score against the realized indicator.",
+        "type": "forecasting"
+      },
+      {
+        "name": "T_work",
+        "statement": "Estimate the mean work (or mean energy injection) required to drive the system through a declared protocol at declared speed, from the record alone. Loss = relative error in the mean, plus a separate calibration check on the variance.",
+        "type": "thermodynamic accounting"
+      },
+      {
+        "non_monotonicity_declaration": "T_exp and T_ext are declared non-monotone in one another, and the packet is void if this is not enforced. T_exp depends on the second and low-order cumulants of the coarse field across scales; T_ext depends on the far tail and on event geometry. C_two is by construction near-optimal for T_exp (it retains exactly what T_exp reads) and near-worst for T_ext (it discards all higher cumulants). C_thresh(theta) is by construction near-optimal for T_ext and near-worst for T_exp (it retains no amplitudes at all, so it cannot form a structure function). Therefore the ranking of {C_two, C_thresh} reverses between the two tasks, which is exactly the Q2 content. T_loc and T_work are the third and fourth tasks and are used to check that reversals are not universal (see I5)."
+      }
+    ],
+    "budget": {
+      "parameter": "B = record bit rate in bits per unit substrate volume per unit substrate time, B = (record length in bits) / (L^d * t_max). Every channel is tuned so that its record rate equals B exactly, by adjusting n_bits, tau, and the block size or cutoff. This is the scarcity parameter: it is the price the consumer pays for looking.",
+      "ladder": "B in {2^-6, 2^-4, 2^-2, 2^0, 2^2, 2^4, 2^6, 2^8, 2^10, B_full} bits per site per unit time, ten rungs, declared before any run. B_full is the identity-channel rate, 64 bits per site per time step, achieved only by C_max.",
+      "scarcity_vanishes_at": "B >= B_sat, declared as B_sat = 64 bits per site per unit time with tau equal to the microscopic time step and a equal to one lattice spacing, i.e. the identity channel. At B_sat every channel in the family becomes injective on X (no two microstates share a record), so every consumer can reconstruct X exactly and every consumer-relative observable must collapse onto the corresponding substrate invariant. The packet declares a weaker practical saturation point B_sat_task, defined per task as the smallest ladder rung at which the task loss of every non-null consumer is within the declared bar of the C_max loss. B_sat_task is NOT known in advance and is a measured quantity; predicting it is part of the packet. The prediction registered here is B_sat_task(T_exp) <= 2^2 and B_sat_task(T_ext) >= 2^6, i.e. extreme-event forecasting saturates at least sixteen times later on the ladder than exponent estimation.",
+      "secondary_scarcity": "a secondary budget B_comp = wall-clock core-hours per Omega instance, capped as declared in stopping_rules, used only to bound the experiment and never as a scientific parameter."
+    },
+    "consumer_relative_observables": [
+      {
+        "name": "O1_task_loss",
+        "definition": "L(C, T, B, Omega) = expected task loss of the best decoder allowed to read only K_C(X) at record rate B. Estimated by training a declared decoder class (declared in anti_circularity) on a declared training split and evaluating on held-out realizations."
+      },
+      {
+        "name": "O2_effective_exponent",
+        "definition": "nu_eff(C, B) and eta_eff(C, B): the exponents a consumer would report from its own record using the declared standard estimator (finite-size-scaling collapse for F1, structure-function log-log slopes for F2). These are consumer-relative because two channels at the same B can report different values from the same substrate."
+      },
+      {
+        "name": "O3_apparent_transition_point",
+        "definition": "g_c_eff(C, B): the location of the peak of the consumer's own susceptibility-analogue computed from its record. Consumer-relative because coarse-graining shifts the apparent peak."
+      },
+      {
+        "name": "O4_apparent_intermittency",
+        "definition": "The flatness (fourth over squared-second moment) of the consumer's reconstructed local field increments at the consumer's smallest resolvable separation. Consumer-relative and, for practitioners, directly the intermittency measure they would quote."
+      },
+      {
+        "name": "O5_apparent_irreversibility",
+        "definition": "sigma_eff(C, B) = the entropy-production rate estimated by the consumer from time-forward versus time-reversed record log-likelihood ratio, in units of k_B per site per unit time. Consumer-relative because coarser channels can hide the arrow of time."
+      },
+      {
+        "name": "O6_apparent_charge_count",
+        "definition": "M_eff(C, B) = the number of independent slow modes the consumer can resolve in its record, estimated as the number of eigenvalues of the record's time-correlation matrix with relaxation time above a declared cut. Consumer-relative count of 'how integrable the system looks'."
+      },
+      {
+        "name": "O7_ranking_vector",
+        "definition": "R(T, B) = the ordered list of consumers by O1 on task T at budget B. This is the object whose reversals Q2 asks about."
+      }
+    ],
+    "substrate_invariants": [
+      {
+        "name": "S1_true_exponents",
+        "definition": "nu, eta (F1) or zeta_2, zeta_6 (F2) as computed by C_max at B_full with the declared reference estimator and declared extrapolation in L. Claimed invariant: independent of channel at B >= B_sat."
+      },
+      {
+        "name": "S2_true_transition_point",
+        "definition": "g_c as located by C_max with the declared reference estimator, extrapolated in L."
+      },
+      {
+        "name": "S3_total_entropy_production",
+        "definition": "The trajectory-level entropy production computed from the microscopic transition rates, sigma_micro, available only from the generating dynamics, not from any record. Claimed invariant and claimed to be an upper bound: sigma_eff(C,B) <= sigma_micro for every C and B, with equality only at B_sat."
+      },
+      {
+        "name": "S4_true_charge_count",
+        "definition": "M, the number of independent local conserved charges built into the F3 generator, and zero-plus-declared-hydrodynamic-count for F1/F2. Known by construction, not measured."
+      },
+      {
+        "name": "S5_injected_power",
+        "definition": "The mean energy injection rate set by the driving protocol, known exactly from the generator. Practitioner-meaningful and independent of any consumer."
+      },
+      {
+        "name": "S6_universality_class_label",
+        "definition": "The declared symmetry and dimensionality data (order parameter symmetry group, d, range of interactions) that the generator was built with. Known by construction."
+      }
+    ],
+    "equivalence_and_orderings": [
+      {
+        "name": "E1_record_equivalence",
+        "statement": "X ~_C X' iff K_C(X) = K_C(X'). Each channel induces a partition of trajectory space. ch_null has one cell, ch_id has singleton cells. The packet measures cell coarseness as the log of the expected number of trajectories per cell, estimated by the record entropy deficit relative to the C_max record entropy."
+      },
+      {
+        "name": "E2_task_equivalence",
+        "statement": "X ~_{C,T} X' iff the optimal decoder's action is identical on both records AND the realized task loss differs by less than the declared bar. Strictly coarser than E1. Two channels that induce the same task-equivalence for all four tasks are declared task-indistinguishable at that budget."
+      },
+      {
+        "name": "E3_information_order",
+        "statement": "C <=_info C' iff K_C factors through K_C' (there is a map post-processing C' records into C records). ch_null <=_info everything <=_info ch_id. ch_block(2a) <=_info ch_block(a) when a divides 2a and quantization nests. ch_two and ch_thresh are declared INCOMPARABLE under <=_info: neither factors through the other, and the packet requires an explicit demonstration of two trajectory pairs, one separated by ch_two but not ch_thresh and one the reverse."
+      },
+      {
+        "name": "E4_decision_order",
+        "statement": "C <=_{T} C' iff L(C,T,B) >= L(C',T,B) for the declared task at declared budget. The packet asks (Q6) whether the numerical order <=_{T} is backed by <=_info. Where a numerical ordering exists without a corresponding information ordering, the packet records that as a scalar-only ordering and does not treat it as structural."
+      },
+      {
+        "name": "E5_blackwell_style_check",
+        "statement": "For any pair (C, C') claimed ordered, the packet requires the order to hold for ALL FOUR declared tasks simultaneously before calling it an information ordering. A pair ordered on one task and reversed on another is recorded as decision-order-only."
+      }
+    ],
+    "positive_controls": [
+      {
+        "name": "P1_quantization_kill",
+        "statement": "Set n_bits = 1 with the quantization threshold placed at the field mean, in ch_block, at the coarsest block size, for T_exp. The consumer then sees a binary field with the amplitude structure destroyed. The effect (degradation of nu_eff away from S1) MUST appear: |nu_eff - nu| must exceed 3x the bar. If it does not, the estimator is not reading amplitude structure at all and the whole exponent axis of the packet is measuring pipeline noise."
+      },
+      {
+        "name": "P2_tail_kill",
+        "statement": "Winsorize the field at the 99th percentile before the channel, then run T_ext. Brier score of every consumer MUST degrade by at least the declared bar relative to un-winsorized, because the target event is defined in the removed tail. Failure means T_ext is not actually a tail task as declared."
+      },
+      {
+        "name": "P3_charge_kill",
+        "statement": "Add a declared integrability-breaking perturbation of strength lambda to F3, large enough that all but the declared hydrodynamic charges decay within t_max/10. M_eff read by C_charge(M') MUST drop toward the hydrodynamic count. If M_eff does not move, O6 is not measuring conserved structure."
+      },
+      {
+        "name": "P4_arrow_kill",
+        "statement": "Run F1 at zero drive (detailed balance exactly satisfied). sigma_eff MUST be statistically indistinguishable from zero for every consumer at every budget, and sigma_micro is exactly zero. A nonzero sigma_eff here is pure estimator bias and calibrates the bias floor used everywhere else."
+      },
+      {
+        "name": "P5_saturation",
+        "statement": "At B = B_full with ch_id, every consumer-relative observable MUST equal its substrate invariant within the bar. This is the Q3 positive control and is required to pass before any scarcity claim is reported."
+      }
+    ],
+    "negative_controls": [
+      {
+        "name": "N1_null_consumer_zero",
+        "statement": "C_null must achieve exactly the trivial baseline loss on every task (the loss of the best constant predictor). Any consumer-relative observable computed for C_null other than the declared baseline is an artifact. If any pipeline reports nontrivial O2, O4, O5, or O6 for C_null, all results from that pipeline are void."
+      },
+      {
+        "name": "N2_seed_relabel",
+        "statement": "Relabelling noise seeds (a permutation of realizations) must change no reported quantity beyond Monte Carlo error. A dependence on seed labelling means the decoder memorized realizations."
+      },
+      {
+        "name": "N3_shuffled_substrate",
+        "statement": "Replace X by a phase-randomized surrogate with identical two-point function. All consumer-relative observables that the packet claims are driven by higher-order structure (O4, O5, T_ext performance gaps) MUST collapse to their Gaussian values, and the ranking reversal claimed in Q2 MUST disappear. If the reversal survives on a Gaussian surrogate, it is a channel artifact, not a substrate effect."
+      },
+      {
+        "name": "N4_off_critical",
+        "statement": "Run F1 deep in the disordered phase where the correlation length is one lattice spacing. Consumer-relative exponent spread MUST be at or below the bias floor: with no scale separation there is nothing for coarse-graining to hide."
+      },
+      {
+        "name": "N5_budget_matched_relabel",
+        "statement": "Two channels differing only by an invertible relabelling of record symbols at the same B must produce identical O1 within Monte Carlo error. Any difference is decoder-implementation artifact."
+      },
+      {
+        "name": "N6_pure_noise_substrate",
+        "statement": "Replace X by iid noise with matched variance. All consumers must tie on all tasks at all budgets. Any ordering here is spurious."
+      }
+    ],
+    "anti_circularity": [
+      {
+        "name": "A1_no_task_in_channel",
+        "rule": "No channel definition may reference the task, the loss function, the target g_c, the target exponents, or the event threshold u used in T_ext. Channel parameters (a, k_C, theta, M', n_bits, tau) are fixed from the budget ladder and the substrate's own lattice scale only. theta in ch_thresh is set from the record's own empirical quantile, not from the T_ext level u, and the packet declares theta at the 95th percentile and u at the 99.9th percentile so the two are not the same number."
+      },
+      {
+        "name": "A2_no_substrate_in_decoder",
+        "rule": "The decoder for any consumer may not receive the microstate, the seed, the control parameter value g, the generator's parameters, or sigma_micro. It receives only the record and the declared training split of records with task labels."
+      },
+      {
+        "name": "A3_declared_decoder_class",
+        "rule": "The decoder class is fixed in advance and identical across consumers: (i) the domain-standard estimator (finite-size-scaling collapse, structure-function fit, log-likelihood-ratio for irreversibility) and (ii) one declared generic learner, a temporal convolutional network of declared width, depth, and training budget. No per-consumer architecture search. Any consumer whose result depends on which of (i) or (ii) is used has that result reported as decoder-dependent and excluded from ordering claims."
+      },
+      {
+        "name": "A4_no_reference_leakage",
+        "rule": "S1 and S2 are computed once, on a held-out set of trajectories never used for any consumer's estimation, and are frozen before consumer runs begin. Bars are stated in absolute units in this packet, not as fractions of a to-be-measured spread."
+      },
+      {
+        "name": "A5_no_post_hoc_ladder",
+        "rule": "The ten budget rungs and the four tasks are fixed here. No rung may be added after seeing results. If a claimed effect appears only between two rungs, it is reported as unresolved, not refined."
+      },
+      {
+        "name": "A6_universality_not_assumed",
+        "rule": "The packet may not assume that any two members of the Omega family share exponents. Every claimed equality of exponents across substrates must be a measured result with its own bar."
+      }
+    ],
+    "expected_failure": "I expect the prediction in I5 to fail. I5 registers that the consumer ranking on T_loc (locating the transition) reverses between C_block and C_spec at some budget rung, in the same way the {C_two, C_thresh} ranking reverses between T_exp and T_ext. I expect it not to. My reasoning is that T_loc is a low-order, single-scalar task and I expect both C_block and C_spec to extract essentially the same low-order information at matched bit rate, so I expect their T_loc losses to agree within the bar at every rung with no crossing. If that is what happens, it means task-dependent ranking reversal is not a generic property of consumer families but requires tasks that read genuinely different cumulant orders, which would narrow the packet's central claim from 'rankings are task-relative' to 'rankings are cumulant-order-relative'. I am registering this as expected to fail so that the narrowing is a recorded outcome and not a retreat.",
+    "quantitative_tests": [
+      {
+        "id": "QT1",
+        "test": "Exponent spread across consumers at fixed budget. Compute nu_eff (F1) for C_block, C_spec, C_two, C_thresh at each of the ten rungs, L in {32, 64, 128}, 200 independent realizations per cell.",
+        "bar": "Claim of channel-dependence holds only if max_C nu_eff - min_C nu_eff > 0.05 at rung B = 2^-2, with bootstrap 95 percent CI on the spread excluding 0.02. The bias floor from P4/N1 must be below 0.01."
+      },
+      {
+        "id": "QT2",
+        "test": "Convergence to invariant with budget. Fit |nu_eff(C,B) - nu| versus B on the ladder.",
+        "bar": "Q3 claim holds only if for every non-null consumer |nu_eff(C,B) - nu| <= 0.02 for all B >= 2^2, and the spread across consumers at B = 2^6 is <= 0.01. If any consumer is still off by more than 0.02 at B_full, the channel implementation is wrong and results are void."
+      },
+      {
+        "id": "QT3",
+        "test": "Ranking reversal between T_exp and T_ext. Compute Kendall tau between the consumer ranking R(T_exp, B) and R(T_ext, B) at each rung.",
+        "bar": "Reversal claim holds only if Kendall tau <= -0.5 at some rung with B <= 2^0, with a permutation-test p < 0.01 over 10^4 realization resamples, AND the specific pair (C_two, C_thresh) swaps order with non-overlapping bootstrap CIs on both losses."
+      },
+      {
+        "id": "QT4",
+        "test": "Saturation asymmetry between tasks. Measure B_sat_task for T_exp and for T_ext as defined in the budget block.",
+        "bar": "Registered prediction: B_sat_task(T_exp) <= 2^2 and B_sat_task(T_ext) >= 2^6, i.e. a ratio of at least 16. The claim fails if the measured ratio is below 4."
+      },
+      {
+        "id": "QT5",
+        "test": "Entropy production bound. Compare sigma_eff(C,B) to sigma_micro across all consumers, budgets, and drive strengths in F1 driven mode.",
+        "bar": "The bound sigma_eff <= sigma_micro must hold in every one of the 10 rungs x 6 consumers x 4 drive strengths = 240 cells, allowing violations only within 2 standard errors and in at most 12 cells (5 percent). A systematic violation in more than 12 cells falsifies the claim that the channel can only hide, never manufacture, irreversibility."
+      },
+      {
+        "id": "QT6",
+        "test": "Apparent charge count versus true charge count. In F3 with M = 8 built-in charges, measure M_eff for C_block, C_spec, C_charge(2), C_charge(8) across the ladder, and repeat with integrability broken (P3).",
+        "bar": "M_eff for C_charge(8) at B >= 2^4 must be within 1 of 8 in the integrable case and must drop to within 1 of the declared hydrodynamic count (declared as 3) under P3. C_block and C_spec are predicted to report M_eff <= 4 at B <= 2^0 even in the integrable case; the claim fails if they report M_eff >= 7."
+      },
+      {
+        "id": "QT7",
+        "test": "Overlap consistency (Q4). For consumer pairs whose channels share a common refinement (C_block(a) and C_block(2a); C_spec(k) and C_spec(k/2)), require that the exponent estimates be mutually consistent through the declared post-processing map.",
+        "bar": "|nu_eff(C_block(2a)) - nu_eff(post-process of C_block(a) to scale 2a)| <= 0.015 at every rung. A violation above 0.03 means the coarse-graining map and the estimator do not commute, which is a reportable structural constraint, not a bug, and must be reported as such with the size of the non-commutation."
+      },
+      {
+        "id": "QT8",
+        "test": "Surrogate destruction (N3). Recompute QT3 on phase-randomized surrogates.",
+        "bar": "Kendall tau between R(T_exp) and R(T_ext) on surrogates must be >= 0.0 (no reversal), and the (C_two, C_thresh) loss gap on T_ext must shrink by at least a factor of 4 relative to the true substrate. Failure to shrink falsifies the claim that the reversal is carried by higher-order substrate structure."
+      },
+      {
+        "id": "QT9",
+        "test": "Q8 representation invariance. Re-run the entire T_exp and T_ext pipeline with the substrate represented in an alternative exact form: for F1, the dual/loop representation of the same partition function; for F2, a Fourier-space shell representation of the same dynamics; for F3, the exact Bethe-type mode-occupancy representation. Channels are re-derived to have matched bit rate in the new representation.",
+        "bar": "S1 exponents must agree across representations to 0.02. The consumer-relative spread QT1 must agree across representations to 0.03. If the spread changes by more than 0.05, the effect is a representation artifact and the corresponding item is withdrawn."
+      },
+      {
+        "id": "QT10",
+        "test": "Structural-source deletion (Q7). Delete the proposed structural source of the reversal, namely the non-Gaussian tail, by running F2 at Re low enough that the declared flatness O4 measured by C_max is below 3.2 (near-Gaussian). Repeat QT3.",
+        "bar": "Kendall tau must rise above -0.2, i.e. the reversal must be destroyed. If the reversal persists at flatness < 3.2 with tau <= -0.5, the proposed structural source is wrong and I1/I2 are falsified."
+      }
+    ],
+    "falsification_conditions": [
+      {
+        "claim": "Channel choice at fixed budget changes the reported exponents.",
+        "falsifier": "QT1 spread <= 0.02 at every rung with the bias floor below 0.01. Then exponents are effectively channel-invariant at these budgets and the packet's central consumer-relative axis for T_exp is dead."
+      },
+      {
+        "claim": "Consumer-relative structure vanishes as scarcity vanishes.",
+        "falsifier": "QT2 shows any consumer with |nu_eff - nu| > 0.02 at B_full, or a cross-consumer spread that does not decrease monotonically (within CI) along the ladder. A non-vanishing spread at the injective-channel limit falsifies the scarcity framing entirely."
+      },
+      {
+        "claim": "Consumer rankings are task-dependent (reverse between tasks).",
+        "falsifier": "QT3 Kendall tau > -0.2 at every rung, or the (C_two, C_thresh) CIs overlap at every rung."
+      },
+      {
+        "claim": "Extreme-event tasks require far more budget than exponent tasks.",
+        "falsifier": "QT4 measured B_sat_task ratio below 4."
+      },
+      {
+        "claim": "Channels can hide but not manufacture irreversibility.",
+        "falsifier": "QT5 systematic sigma_eff > sigma_micro beyond the allowed 12 cells, or a nonzero sigma_eff in P4 above the declared bias floor."
+      },
+      {
+        "claim": "Apparent conserved-charge count is consumer-relative, and its collapse tracks true integrability breaking.",
+        "falsifier": "QT6: either C_block/C_spec recover M_eff >= 7 at low budget (no consumer-relativity), or M_eff for C_charge(8) fails to drop under P3 (the observable does not track the substrate)."
+      },
+      {
+        "claim": "Overlapping consumers must agree, and this agreement constrains the model.",
+        "falsifier": "QT7 non-commutation above 0.03 that does not shrink with budget, which would mean the constraint is vacuous because no model can satisfy it; or non-commutation below 0.005 at every rung, which would mean the constraint is vacuous because it is automatically satisfied and rules nothing out. Either extreme falsifies Q4's usefulness here."
+      },
+      {
+        "claim": "The reversal is carried by higher-order (non-Gaussian) substrate structure.",
+        "falsifier": "QT8 surrogate reversal persists, or QT10 low-flatness reversal persists."
+      },
+      {
+        "claim": "The findings are properties of the substrate, not of one representation.",
+        "falsifier": "QT9 spread differs by more than 0.05 across exact representations."
+      },
+      {
+        "claim": "Numerical consumer orderings reflect genuine information orderings.",
+        "falsifier": "E5: if for every consumer pair the ordering holds on some tasks and reverses on others, then no information ordering survives and all orderings are demoted to scalar-only, which falsifies the claim that the consumer family carries a partial information order beyond the trivial null-to-max chain."
+      }
+    ],
+    "stopping_rules": "Compute limit: 20000 CPU core-hours plus 400 GPU-hours total across all substrates, channels, budgets, and tasks, hard cap, no extension. Pre-allocated: 45 percent to F1 (Ising-like, all ten rungs, three sizes), 35 percent to F2 (hydrodynamic, ten rungs, two Reynolds numbers), 20 percent to F3 (integrable, ten rungs) plus all controls. Controls (P1-P5, N1-N6) run FIRST and consume up to 15 percent of the allocation; if any positive control fails or any negative control shows a spurious effect above its bar, the run halts and the packet reports the control failure as the primary result with no consumer claims made. Per-cell stopping: 200 realizations per (substrate, consumer, budget, task) cell, fixed in advance, with no optional stopping; if the bootstrap CI on a headline quantity is wider than the bar after 200, the cell is reported as underpowered rather than extended, except that a single pre-declared extension to 600 realizations is permitted for the QT3 reversal cells only and must be declared before the first 200 are examined. Wall-clock stopping: the campaign halts at 21 days regardless of completion, and any incomplete cell is reported as not run. Sequence: controls, then QT1/QT2 (F1), then QT3/QT4 (F1 and F2), then QT5, QT6, QT7, then QT8/QT9/QT10 as the destruction battery. If the compute cap is reached before the destruction battery, the packet reports its structural claims as untested-for-source and does not assert Q7 or Q8. No result is reported before its controls pass. No bar in this packet may be changed after the first non-control run begins."
+  },
+  "items": [
+    {
+      "id": "I1",
+      "operator": "Q1",
+      "statement": "Hold the substrate (F1 Ising-like at the C_max-determined critical point) and the task (T_exp, estimate nu and eta) fixed, and vary the channel across C_block, C_spec, C_two, C_thresh at matched record bit rate B. What moves: the reported exponents nu_eff and eta_eff, and specifically I claim C_thresh reports a nu_eff biased high because event-list records retain only the geometry of level sets and lose the amplitude information the finite-size-scaling collapse relies on. What does not move: the location of the peak in each consumer's own susceptibility-analogue, g_c_eff, which I claim is stable across channels because it is a low-order feature. The practitioner-meaningful quantity is nu itself, quoted as a critical exponent in the usual convention, not in any consumer vocabulary.",
+      "quantitative_test": "QT1. Four consumers x ten budget rungs x three lattice sizes x 200 realizations. nu_eff from the declared finite-size-scaling collapse; g_c_eff from the peak of the record's own variance-per-site.",
+      "bars": "Channel-dependence of nu is claimed only if max-min spread across consumers exceeds 0.05 at rung B = 2^-2 with bootstrap 95 percent CI excluding 0.02, against a bias floor below 0.01 established by P4/N1. Channel-invariance of g_c_eff is claimed only if the cross-consumer spread in g_c_eff is below 0.3 percent of g_c at the same rung.",
+      "falsifier": "If the nu spread is <= 0.02 at every rung, the 'what moves' half is false. If the g_c_eff spread exceeds 1 percent of g_c at rung 2^-2, the 'what does not move' half is false. Either outcome counts against the proposed decomposition, because I have committed to a specific split of which quantities the channel touches and which it does not, and getting the split backwards would show the decomposition is not tracking cumulant order at all."
+    },
+    {
+      "id": "I2",
+      "operator": "Q2",
+      "statement": "Hold the substrate (F2 hydrodynamic at the higher declared Reynolds number) and the channel family fixed, and vary the task between T_exp (inertial-range exponents zeta_2, zeta_6) and T_ext (probability of a dissipation excursion above the 99.9th percentile in the next window). I claim the ranking of C_two and C_thresh reverses: C_two beats C_thresh on T_exp by a wide margin because the structure function is a functional of exactly what C_two retains, and C_thresh beats C_two on T_ext because event geometry predicts recurrence of extreme events while a Gaussian-truncated record cannot represent the tail at all. The practitioner-meaningful quantities are zeta_6 (an intermittency exponent quoted in the turbulence literature convention zeta_p) and the Brier score of an extreme-dissipation forecast.",
+      "quantitative_test": "QT3. Kendall tau between R(T_exp,B) and R(T_ext,B) at every rung, plus the paired bootstrap on the (C_two, C_thresh) loss difference on each task separately.",
+      "bars": "Reversal is claimed only if Kendall tau <= -0.5 at some rung with B <= 2^0 with permutation p < 0.01 over 10^4 resamples, AND the (C_two, C_thresh) pair swaps order with non-overlapping bootstrap 95 percent CIs on both tasks. The T_exp margin must be at least 0.04 in zeta_6 and the T_ext margin at least 0.02 in Brier score.",
+      "falsifier": "Kendall tau > -0.2 at every rung, or overlapping CIs on either task at every rung. This does not follow from the definitions: C_thresh is not defined in terms of the T_ext event level (theta is the 95th percentile of the record's own field, u is the 99.9th percentile of a different declared field, per A1), so it is genuinely open whether an amplitude-free event list carries enough information to beat a full two-point function on a tail forecast."
+    },
+    {
+      "id": "I3",
+      "operator": "Q3",
+      "statement": "Ask whether consumer-relative structure vanishes as scarcity vanishes. Scarcity is B, and it vanishes at B_sat = 64 bits per site per unit time where every channel becomes injective. I claim all consumer-relative observables collapse onto their substrate invariants there, but I further claim the collapse is task-asymmetric: exponent estimation saturates early on the ladder and extreme-event forecasting saturates late. The practitioner-meaningful statement is that measuring a critical exponent to two decimal places needs far less measurement bandwidth than forecasting a rare dissipation burst on the same flow.",
+      "quantitative_test": "QT2 and QT4. Fit |nu_eff(C,B) - nu| and the T_ext Brier gap versus B along the ten rungs; extract B_sat_task per task as the first rung at which every non-null consumer is within its bar of C_max.",
+      "bars": "Collapse: every non-null consumer within 0.02 of nu for all B >= 2^2, cross-consumer spread <= 0.01 at B = 2^6, and exactly zero spread beyond Monte Carlo error at B_full. Asymmetry: registered prediction B_sat_task(T_exp) <= 2^2 and B_sat_task(T_ext) >= 2^6, ratio at least 16.",
+      "falsifier": "Any consumer more than 0.02 off nu at B_full falsifies the collapse claim and voids the scarcity framing. A measured B_sat_task ratio below 4 falsifies the asymmetry claim. The asymmetry is not definitional: nothing in how C_two, C_thresh, C_block, or C_spec was defined fixes where on the ladder each task saturates, and the ratio could plausibly be 1."
+    },
+    {
+      "id": "I4",
+      "operator": "Q4",
+      "statement": "Ask whether requiring agreement across overlapping consumers constrains the model. C_block(a) and C_block(2a) overlap because the coarser record is an exact post-processing of the finer one; likewise C_spec(k) and C_spec(k/2). Requiring that the exponent a consumer reports be consistent under this post-processing is a nontrivial constraint on the estimator-plus-channel pair, because the coarse-graining map and the finite-size-scaling estimator need not commute. I claim they do not commute exactly and that the size of the non-commutation is itself a measurable, budget-dependent quantity that shrinks as B grows. The practitioner-meaningful quantity is the systematic error in an exponent induced by choosing the wrong block size, quoted in exponent units.",
+      "quantitative_test": "QT7. Compare nu_eff(C_block(2a)) computed directly from the coarse channel against nu_eff computed by post-processing the C_block(a) record down to scale 2a, at every rung, and the same for the spectral pair.",
+      "bars": "Consistency is claimed if the difference is <= 0.015 at every rung. Non-commutation is claimed as a real structural constraint if the difference exceeds 0.03 at rung B <= 2^0 AND shrinks below 0.015 by rung 2^4 (so it is a scarcity effect, not a bug).",
+      "falsifier": "The constraint is declared vacuous, and Q4 recorded as producing nothing here, in either of two cases: difference below 0.005 at every rung (automatically satisfied, rules nothing out), or difference above 0.03 at every rung including B_full (no model can satisfy it, so it discriminates nothing). Both outcomes count against the proposal that overlap-consistency is a live constraint."
+    },
+    {
+      "id": "I5",
+      "operator": "Q2",
+      "statement": "This is the item I expect to fail. Same operator as I2 but applied to a different task pair: hold the F1 substrate and channel family fixed and vary the task between T_loc (locate g_c) and T_work (estimate mean work under the declared protocol). I register the prediction that the C_block versus C_spec ranking reverses between these two tasks at some rung with B <= 2^0, on the reasoning that spectral records at matched bit rate concentrate their bits on long wavelengths, which should favor locating a transition, while block records preserve local energy densities, which should favor work accounting. I expect this to fail: I expect both tasks to be low-order enough that the two channels tie within the bar at every rung. The practitioner-meaningful quantities are the located beta_c in absolute units and the mean work in units of the coupling constant per site.",
+      "quantitative_test": "QT3 machinery applied to the (T_loc, T_work) pair with consumers restricted to C_block and C_spec, ten rungs, 200 realizations, paired bootstrap on the loss difference.",
+      "bars": "Reversal is claimed only if the sign of L(C_block) - L(C_spec) differs between T_loc and T_work at the same rung with non-overlapping 95 percent CIs on both, and with each margin at least 2 percent of the respective baseline loss. No reversal is recorded if the CIs overlap at every rung.",
+      "falsifier": "Overlapping CIs at every rung falsifies the registered prediction, which is the outcome I expect. If it fails as expected, the packet records the narrowed claim: ranking reversal requires task pairs that read different cumulant orders, not merely different tasks, which makes I2 a claim about cumulant order rather than about task-relativity in general. If instead a reversal appears here, the broader task-relativity claim is supported and I2's mechanism story (specifically the tail mechanism in QT10) becomes suspect as the sole explanation."
+    },
+    {
+      "id": "I6",
+      "operator": "Q5",
+      "statement": "Ask which quantities survive every admissible consumer. I propose exactly three survivors and one non-survivor. Survivors: the sign of the susceptibility-analogue divergence (whether the consumer sees a peak at all, a binary), the ordering of two substrates by their true correlation length at fixed L (every consumer that resolves anything should get this order right), and the inequality sigma_eff <= sigma_micro. Non-survivor: the numerical value of any exponent, which I claim does not survive C_thresh at low budget. The practitioner-meaningful survivor is the entropy-production bound, which is a statement a stat-mech practitioner would recognize as a claim that coarse-graining cannot create an arrow of time.",
+      "quantitative_test": "QT5 for the bound across all 240 cells, plus a survivor check on the correlation-length ordering: for a declared pair of substrates with true correlation lengths differing by a factor of 2, count the fraction of (consumer, budget) cells in which the consumer's own estimated correlation length orders them correctly.",
+      "bars": "The bound survives if violations beyond 2 standard errors occur in at most 12 of 240 cells. The ordering survives if it is correct in at least 95 percent of non-null cells at every rung with B >= 2^-4. The exponent value is declared a non-survivor if C_thresh's nu_eff differs from nu by more than 0.05 at rung 2^-2 (which is the same measurement as QT1 and must agree with it).",
+      "falsifier": "Systematic violation of sigma_eff <= sigma_micro in more than 12 cells falsifies the strongest survivor claim and would mean a channel can manufacture apparent irreversibility, which counts directly against the framing that channels only lose information. If instead the exponent value also survives every consumer (QT1 spread <= 0.02 everywhere), then the survivor set is larger than proposed and the consumer-relative decomposition is doing less work than claimed."
+    },
+    {
+      "id": "I7",
+      "operator": "Q6",
+      "statement": "Ask whether the apparent scalar ordering of consumers is backed by an ordering of experiments or only by a number. I claim that the chain C_null <=_info C_thresh? and C_null <=_info C_two? is NOT an information ordering, because ch_two and ch_thresh are incomparable: neither record can be computed from the other. I therefore predict that any scalar ordering between them on a single task is decision-order-only, and that this is detectable as a task-dependent sign flip (I2). Conversely I claim that C_block(2a) <=_info C_block(a) IS a genuine information ordering and predicts a sign-consistent loss ordering on all four tasks. The practitioner-meaningful content is the difference between 'this measurement setup is strictly better' and 'this measurement setup scored better on my particular figure of merit'.",
+      "quantitative_test": "E3 plus E5. Construct explicitly two trajectory pairs demonstrating incomparability of ch_two and ch_thresh (one pair separated by ch_two and not ch_thresh, one the reverse), then check the sign of L(C_block(a)) - L(C_block(2a)) on all four tasks at all ten rungs.",
+      "bars": "The nesting ordering is confirmed only if L(C_block(a)) <= L(C_block(2a)) on all four tasks at all ten rungs, allowing at most 2 of 40 cells to violate within 1 standard error. The incomparability is confirmed only if the explicit separating pairs are exhibited AND the (C_two, C_thresh) loss sign flips across tasks per QT3.",
+      "falsifier": "If the nesting ordering is violated in more than 2 of 40 cells (a finer channel losing to a coarser one on some task beyond noise), the claim that <=_info implies decision dominance fails at these budgets and estimator classes, which would mean scalar orderings and information orderings come apart even for nested channels, undercutting the whole ordering apparatus. If the (C_two, C_thresh) sign never flips, they behave as if ordered despite being formally incomparable, and Q6's distinction produces nothing observable here."
+    },
+    {
+      "id": "I8",
+      "operator": "Q7",
+      "statement": "Ask whether deleting the proposed structural source destroys the effect. The proposed structural source of the I2 ranking reversal is the non-Gaussian tail of the local dissipation field in F2. Two deletions are declared. Deletion 1: phase randomization producing a Gaussian surrogate with identical two-point function. Deletion 2: lowering Re until the C_max-measured flatness of the local field falls below 3.2. I claim both deletions destroy the reversal. The practitioner-meaningful quantity is the flatness (kurtosis) of velocity-gradient-like increments, a standard intermittency diagnostic.",
+      "quantitative_test": "QT8 and QT10. Recompute QT3's Kendall tau and the (C_two, C_thresh) loss gap on the Gaussian surrogate and at low Re.",
+      "bars": "Destruction is claimed only if Kendall tau rises above -0.2 in both deletions AND the T_ext loss gap between C_two and C_thresh shrinks by at least a factor of 4 relative to the true high-Re substrate. Partial destruction (tau between -0.5 and -0.2, or gap shrinkage between 2x and 4x) is reported as partial and the source is declared contributory but not sole.",
+      "falsifier": "If tau remains <= -0.5 under either deletion, the proposed structural source is wrong and I2's mechanism is falsified even if the reversal itself is real. That is the sharpest self-directed falsifier in the packet: it can leave the headline phenomenon standing while killing my explanation of it, and I am committing to report that outcome as the explanation being wrong rather than reinterpreting the deletion."
+    },
+    {
+      "id": "I9",
+      "operator": "Q8",
+      "statement": "Ask whether the phenomenon survives an alternative exact representation of the same content. Three re-representations are declared, each exactly content-preserving: for F1, the dual/loop representation of the same partition function; for F2, a shell representation in Fourier space of the same dynamics; for F3, the mode-occupancy representation of the same integrable model. Channels are re-derived in each representation to have matched bit rate. I claim the substrate invariants (exponents, transition point) are representation-independent to within tight bars, but I claim the consumer-relative spread is only approximately representation-independent, because 'a block of side a' means something different in a dual representation. The practitioner-meaningful quantity is again nu, which no practitioner would accept as representation-dependent.",
+      "quantitative_test": "QT9. Full re-run of QT1 and QT3 in each alternative representation.",
+      "bars": "Invariants must agree across representations to 0.02 in nu. Consumer-relative spread must agree to 0.03. The reversal in QT3 must be present in the alternative representation with Kendall tau <= -0.4 (slightly relaxed from -0.5 to allow representation-induced jitter).",
+      "falsifier": "If nu differs across exact representations by more than 0.02, either the representation is not exact as claimed or the estimator is broken; either way all exponent claims in the packet are void. If the consumer-relative spread changes by more than 0.05, or the reversal is absent in the alternative representation, the effect is a representation artifact and I1 and I2 are withdrawn. This is a genuine risk rather than a formality, because the block-consumer's channel is defined in terms of a specific real-space geometry that has no canonical image in the dual description."
+    },
+    {
+      "id": "I10",
+      "operator": "Q1",
+      "statement": "Hold substrate (F3 integrable chain with M = 8 built-in local conserved charges) and task fixed, and vary the channel, asking what moves in the apparent conserved-charge count. I claim M_eff is strongly channel-dependent at low budget: C_charge(8) recovers 8, while C_block and C_spec at matched bit rate recover 4 or fewer because their records mix charges into a small number of slowly relaxing modes. I further claim what does not move is the relaxation rate of the slowest mode, which every consumer should recover because it dominates any record. The practitioner-meaningful quantity is the number of independent slow hydrodynamic modes, which is what decides whether a practitioner would model the system with generalized hydrodynamics or ordinary hydrodynamics.",
+      "quantitative_test": "QT6. Count eigenvalues of the record's time-correlation matrix with relaxation time above the declared cut, for C_block, C_spec, C_charge(2), C_charge(8) across ten rungs, in the integrable case and under the P3 integrability-breaking perturbation.",
+      "bars": "Channel-dependence is claimed if C_block and C_spec report M_eff <= 4 at rungs B <= 2^0 while C_charge(8) reports M_eff within 1 of 8 at B >= 2^4. Invariance of the slowest rate is claimed if the slowest relaxation time agrees across all non-null consumers to within 10 percent at every rung with B >= 2^-4.",
+      "falsifier": "If C_block or C_spec report M_eff >= 7 at low budget, the channel-dependence claim fails and generic coarse channels see integrability as well as a purpose-built charge channel. If C_charge(8) fails to drop toward 3 under P3, the observable does not track the substrate and O6 is measuring the channel rather than the physics, which voids this item entirely. Note this is not settled by definition: C_charge(8) is given the charge time series but at matched bit rate it must spend its bits across the same total, so it is open whether reading 8 charges coarsely beats reading the field finely."
+    },
+    {
+      "id": "I11",
+      "operator": "Q3",
+      "statement": "A second Q3 item, on irreversibility rather than exponents. Ask whether the consumer-relativity of apparent entropy production vanishes as scarcity vanishes, and how it approaches zero. I claim sigma_eff(C,B) increases monotonically in B for every consumer, converging to sigma_micro from below, and that the approach is a power law in B with a consumer-dependent prefactor but a consumer-independent exponent. The practitioner-meaningful quantity is the entropy production rate in k_B per site per unit time, the central object of stochastic thermodynamics.",
+      "quantitative_test": "QT5 plus a fit of sigma_micro - sigma_eff(C,B) = A_C * B^(-p_C) over the seven rungs from 2^-2 to 2^8, for each of C_block, C_spec, C_two, C_thresh, in F1 driven mode at four drive strengths.",
+      "bars": "Monotonicity is claimed if sigma_eff is non-decreasing in B in at least 26 of 28 consecutive-rung comparisons per consumer. Convergence is claimed if sigma_micro - sigma_eff <= 5 percent of sigma_micro at B = 2^8 for every consumer. Common-exponent is claimed if the fitted p_C values for the four consumers agree within 0.15 with fit R-squared above 0.9 for each.",
+      "falsifier": "Non-monotonicity beyond 2 comparisons falsifies the 'channels only hide' picture. Fitted p_C values spanning more than 0.4 falsify the common-exponent claim, which would mean the rate at which a measurement recovers the arrow of time is channel-specific rather than substrate-specific. Either result counts against the decomposition, since the packet proposes that the prefactor is the consumer's and the exponent is the substrate's, and that split is exactly what this test can break."
+    },
+    {
+      "id": "I12",
+      "operator": "Q5",
+      "statement": "A second Q5 item, asked negatively: which proposed survivor fails first as the consumer family is widened. The declared widening adds C_thresh at a very high threshold (99.99th percentile, so almost no events are recorded) and C_spec at k_C equal to one mode. I claim the correlation-length ordering survivor from I6 breaks first, before the entropy bound and before the peak-existence binary, and that it breaks at a predictable place, namely when the consumer's record contains fewer than roughly 10^3 independent degrees of freedom. The practitioner-meaningful statement is a minimum data requirement for ranking two systems by correlation length, expressible as a number of effective independent samples.",
+      "quantitative_test": "Extend the correlation-length-ordering check of I6 to the two extreme consumers across the ladder, and record the effective sample size (independent degrees of freedom in the record, estimated by the record's own autocorrelation) at which the ordering accuracy first falls below 95 percent.",
+      "bars": "The claim holds if the ordering accuracy for the extreme consumers falls below 95 percent at an effective sample size between 300 and 3000, while the entropy bound and the peak-existence binary remain intact (bound violated in at most 12 of 240 cells, peak correctly detected in at least 95 percent of cells) for the same consumers at the same rungs.",
+      "falsifier": "If the entropy bound or the peak binary fails before the correlation-length ordering does, the proposed hierarchy of robustness is wrong. If the ordering survives down to fewer than 300 effective samples, the proposed threshold is wrong by an order of magnitude. Both are recorded as failures of this item rather than adjusted, per A5."
+    },
+    {
+      "id": "I13",
+      "operator": "Q4",
+      "statement": "A second Q4 item, asked where overlap is genuinely partial rather than nested. C_spec(k_C) and C_block(a) overlap partially: both determine the field's variance at scales coarser than max(1/k_C, a), but neither determines the other's record. Requiring that their agreed-upon overlap region be consistent is a real constraint on any model of the substrate the packet might fit. I claim the constraint bites: at low budget the two consumers will disagree about the variance in the shared scale range by more than the bar, and the disagreement is a measurable quantification of how much the channel choice, not the substrate, sets the answer. The practitioner-meaningful quantity is the energy contained in a declared band of scales, quoted in the substrate's own energy units.",
+      "quantitative_test": "For each rung, compute the band energy in the shared scale range (from the coarser of the two resolutions to L) from the C_spec record and from the C_block record independently, on the same trajectories, and take the relative difference. F1 and F2 both.",
+      "bars": "The constraint is declared to bite if the relative difference exceeds 8 percent at rung B <= 2^-2 and falls below 2 percent by rung 2^4. It is declared vacuous if the difference is below 2 percent at every rung, and declared uninformative (structurally unsatisfiable) if it exceeds 8 percent even at B_full.",
+      "falsifier": "A difference below 2 percent everywhere falsifies the claim that overlap consistency constrains anything at these budgets, and would mean Q4 yields nothing beyond I4 for this domain. A difference above 8 percent at B_full means the two channel implementations are not measuring the same physical quantity and the item, and possibly the whole spectral-versus-block comparison in I1, is void."
+    },
+    {
+      "id": "I14",
+      "operator": "Q7",
+      "statement": "A second Q7 item, deleting a different structural source. The proposed structural source of the exponent spread in I1 is the presence of a scale separation, that is a correlation length much larger than the lattice spacing but much smaller than L. Deletion: run F1 deep in the disordered phase where the correlation length is one lattice spacing (this is N4). I claim the exponent spread across consumers collapses to the bias floor there, because with no scale separation coarse-graining removes nothing that mattered. The practitioner-meaningful quantity is the ratio xi over a, the number of lattice spacings in a correlation length, which is what a practitioner would call the amount of critical structure available to measure.",
+      "quantitative_test": "N4. Repeat QT1 at three correlation lengths: xi/a approximately 1, approximately 8, and approximately L/4, and regress the cross-consumer exponent spread on log(xi/a).",
+      "bars": "The claim holds if the spread at xi/a approximately 1 is at or below 0.01 (the bias floor), the spread at xi/a approximately L/4 exceeds 0.05, and the regression slope of spread on log(xi/a) is positive with 95 percent CI excluding zero.",
+      "falsifier": "A spread above 0.02 at xi/a approximately 1 falsifies the claim that scale separation is the source, and would instead indicate the spread is an estimator artifact present regardless of physics, which would in turn undercut I1 and I3. A non-positive regression slope falsifies the proposed monotone dependence on scale separation."
+    },
+    {
+      "id": "I15",
+      "operator": "Q6",
+      "statement": "A second Q6 item, aimed at the budget ladder itself. The scarcity parameter B is a scalar and the packet orders records by it. Ask whether this scalar ordering is backed by an ordering of experiments. I claim it is only partially: two channels at the same B are not interchangeable (that is I1), and moreover a channel at higher B need not dominate the same channel family at lower B once the decoder's training data is fixed, because more bits per record with a fixed number of realizations can hurt a finite-sample estimator. I predict a non-monotone loss-versus-B curve for at least one (consumer, task) pair, specifically C_spec on T_ext, where increasing k_C at fixed realization count adds noisy high-wavenumber modes faster than it adds signal. The practitioner-meaningful quantity is the plain statement that a higher-resolution instrument can give a worse answer at fixed run time.",
+      "quantitative_test": "For every (consumer, task) pair, check monotonicity of L versus B across the ten rungs at fixed 200 realizations, and separately at 600 realizations for the QT3 reversal cells, to distinguish a genuine finite-sample non-monotonicity from noise.",
+      "bars": "Non-monotonicity is claimed only if some pair shows a loss increase between consecutive rungs of at least 5 percent of the baseline loss with non-overlapping 95 percent CIs, AND that increase shrinks by at least half when realizations are tripled to 600 (confirming it is finite-sample, not structural). If it does not shrink, it is reported as a structural non-monotonicity, a stronger and more surprising result.",
+      "falsifier": "If every (consumer, task) loss curve is monotone non-increasing in B within noise across all sixty curves, the claim fails and B is backed by a genuine experiment ordering after all, which would strengthen the scarcity framing while falsifying this item. This is not settled by definition: nothing in the channel definitions forces or forbids a finite-sample non-monotonicity, and the outcome depends on the interaction between record dimensionality and the fixed realization count."
+    }
+  ],
+  "operators_not_applicable": []
+}
