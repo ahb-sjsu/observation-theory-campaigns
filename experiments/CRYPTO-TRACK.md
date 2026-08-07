@@ -890,6 +890,28 @@ Finding C6, recorded either way, the family fixes the exchange rate
 at exactly two bits of information per unit of induced error.
 Exploratory label, results/cr6-information-disturbance.json.
 
+#### CR-6 results (run 2026-08-07, record sha 5f2b47b62612...)
+
+Verdict PASS, all five bars, and the finding holds. The classical
+control is exact, an orthogonal ensemble gives the consumer one
+full bit at an induced error of exactly zero, so reading without a
+trace is possible precisely when the ensemble is distinguishable.
+On the non-orthogonal ensemble every positive interception rate
+produces both positive information and positive error, at zero
+both vanish exactly, and the measured pairs match their closed
+forms with a worst deviation of 1.1e-16 across the ladder, running
+from 0.05 bits at error 0.025 to 0.5 bits at error 0.25. The
+Holevo quantity of the preparation ensemble is 1 bit and bounds
+every measured value.
+
+The exchange rate is exactly two bits of information per unit of
+induced error at every point on the ladder. This is the first
+place in the program where reading has a price paid by the
+substrate rather than by the reader. Every classical track
+measured the opposite, most sharply in HD-3 where a coarse
+observer's decayed mode was recovered bit for bit and the
+substrate had forgotten nothing.
+
 ### CR-7: Monogamy as consumer exclusion
 
 #### CR-7 protocol (declared 2026-08-07, before the run)
@@ -929,6 +951,32 @@ objective, and it is available exactly for information that has
 already become classical. The QD track found the plateau and this
 run finds its boundary. Exploratory label,
 results/cr7-monogamy.json.
+
+#### CR-7 results (run 2026-08-07, record sha 4119dd1d4d14...)
+
+Verdict PASS, all four bars, and the finding holds. The broadcast
+classical record gives each consumer the whole bit, both mutual
+informations exactly one, summing to two. The quantum family obeys
+its tradeoff as an identity rather than an inequality, the sum of
+squared concurrences equal to one across the whole grid with a
+worst deviation of 1.9e-10, and the Coffman-Kundu-Wootters relation
+is saturated to the same precision. At the extremes the exclusion
+is total, one consumer holding the correlation at concurrence one
+leaves the other at exactly zero, and the grid interpolates
+smoothly between them.
+
+The cross-track statement the campaign has been circling. QD
+measured that redundancy appears exactly when a declared
+interaction writes records, that maximal entanglement without a
+declared basis carries no redundancy at all, and that two disjoint
+consumers agree at a rate set by record strength. CR-7 measures why
+that plateau has a boundary. A classical record is held in full by
+every consumer at once and quantum correlation cannot be held by
+two consumers at all, so redundancy is available exactly for
+information that has already become classical. Objectivity is
+cheap for facts and forbidden for superpositions, and the two
+tracks were built months apart without knowing they would meet
+here.
 
 ## 7. Non-claims and evidence discipline
 
