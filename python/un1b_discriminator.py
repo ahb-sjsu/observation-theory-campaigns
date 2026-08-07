@@ -130,9 +130,11 @@ def type2_error(theta_first, theta_rest, n, ref, rho1):
             w = p1
             for c in combo:
                 w *= rest_probs[c]
-            if w <= TOL_ZERO:
-                continue
-            live_records += 1
+            # The sealed family says exact summation over the whole
+            # record space, so every record contributes. TOL_ZERO is
+            # bar 5's counting threshold and is not a cutoff here.
+            if w > TOL_ZERO:
+                live_records += 1
             total += w * (ea + eb)
     return total, live_records
 
