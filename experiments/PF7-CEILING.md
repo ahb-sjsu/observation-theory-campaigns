@@ -153,3 +153,66 @@ measured 0.5245, 0.4945, 0.4750, 0.4835, and 0.4955 at delays 8.0,
 so PF-7b binds the field 0.675507688522339 and the half-delay range
 whose square runs from 16.0 to 100.0, thirty-two points uniform in
 that square, delays 8.0 through 20.0.
+
+## PF-7b results (run 2026-08-07, record sha 7f2d5ed1df1a...)
+
+Verdict PASS on all three instrument bars. The single-passage
+control now measures within 1.49e-3 of the Landau-Zener closed
+form, inside the declared 2e-3, so the asymptotic-range correction
+worked. The quantum oscillation statistic rose from 0.2238 under
+the old grid to 0.8702 under the grid uniform in the square of the
+half-delay, well past the declared 0.30, which confirms that the
+earlier failure was the grid and not the physics. The two-level
+norm is conserved to 5.5e-14.
+
+The classical arm now varies as the probes promised, reversing
+fractions between 0.4645 and 0.5245 across the thirty-two delays,
+so the anti-vacuity check passes and the ceiling measurement is
+about something. The ceiling finding itself failed its declared
+bar. The classical oscillation statistic measured 0.3626 against a
+declared 0.15, and the quantum-to-classical ratio 2.40 against a
+declared 3.0.
+
+The bar was unattainable as declared, and the reason is a property
+of the statistic rather than of the model. On a thirty-two point
+curve the statistic is the largest of sixteen nonzero-frequency
+powers divided by their total, which is a sizable fraction even for
+pure noise, and each delay cell's fraction carries binomial noise
+of about 0.011 from its two thousand members while the whole curve
+spans only 0.06. A bar of 0.15 was therefore below the statistic's
+noise floor and could not have been met by any curve of this
+length and ensemble size, whether or not the classical arm
+oscillates.
+
+## PF-7c protocol (declared 2026-08-07, before the run)
+
+The measurement that PF-7b's bar should have been. The question is
+whether the measured classical statistic is a signal or the floor,
+and it is decided against the statistic's own null distribution
+rather than against a number chosen in advance.
+
+The null. Each delay cell measured its fraction from two thousand
+independent declared members, so under the hypothesis of no delay
+dependence the counts are binomial at the curve's mean fraction.
+Twenty thousand declared null curves are drawn at seed 9100000, the
+statistic is computed for each, and the measured statistic is
+placed in that distribution. The classical arm is judged consistent
+with noise when its p-value exceeds 0.05.
+
+Items. N1, the statistic recomputed from the committed PF-7b curve
+matches the committed value within 1e-12. N2, the null floor is
+confirmed high, the null mean is at least 0.15, which is the
+diagnosis of PF-7b's bar written as a measurement. N3, the decision
+is recorded either way.
+
+Findings, recorded individually with either outcome a result. The
+classical arm shows no interference beyond noise when its p-value
+exceeds 0.05, and the quantum arm exceeds the same null when its
+p-value is below 0.05. If instead the classical p-value is small,
+a classical ensemble carries delay structure that the declaration
+did not expect, and that is the more interesting outcome and would
+be escalated with a larger ensemble rather than reported as a
+ceiling.
+
+This run is post-processing of a committed record and adds no new
+dynamics. Exploratory label, results/pf7c-noise-floor.json.
