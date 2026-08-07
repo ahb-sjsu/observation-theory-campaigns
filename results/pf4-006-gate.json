@@ -1,0 +1,151 @@
+{
+  "declared": {
+    "L_grid": [
+      2.0,
+      3.0,
+      4.0
+    ],
+    "dt": 0.0002,
+    "hamiltonian_bar": 1e-10,
+    "kappa_grid": [
+      0.9,
+      1.5,
+      3.0
+    ],
+    "purpose": "prerequisite gate content for a preregistration on the Lorentzian profile, not a substitute for one",
+    "shift_bar": 1e-10,
+    "shifts": [
+      -3.0,
+      1.5,
+      4.0
+    ],
+    "span_in_L": 20.0,
+    "stability_bar": 1e-08
+  },
+  "items": {
+    "G1_conserved_quantity": true,
+    "G2_complete_census": true,
+    "G3_translation_covariance": true,
+    "G4_entry_and_timestep_independence": false
+  },
+  "label": "exploratory",
+  "measured": {
+    "cells": {
+      "L2.0_kappa0.9": {
+        "class": "transmitted",
+        "e_res": 0.009085321371919978,
+        "folds": 0,
+        "h_drift": 4.049090299576223e-14,
+        "pt_final": 2.6632568901466938
+      },
+      "L2.0_kappa1.5": {
+        "class": "transmitted",
+        "e_res": 0.00269319159863274,
+        "folds": 0,
+        "h_drift": 7.202931995642553e-14,
+        "pt_final": 1.598314406720642
+      },
+      "L2.0_kappa3.0": {
+        "class": "transmitted",
+        "e_res": 0.00011755952110464006,
+        "folds": 0,
+        "h_drift": 2.3092638912203256e-14,
+        "pt_final": 0.7998457254272567
+      },
+      "L3.0_kappa0.9": {
+        "class": "transmitted",
+        "e_res": 0.02045934397416499,
+        "folds": 0,
+        "h_drift": 1.6045884690203687e-14,
+        "pt_final": 3.994880988522207
+      },
+      "L3.0_kappa1.5": {
+        "class": "transmitted",
+        "e_res": 0.006074867750738119,
+        "folds": 0,
+        "h_drift": 2.7728827006297242e-14,
+        "pt_final": 2.397465272583405
+      },
+      "L3.0_kappa3.0": {
+        "class": "transmitted",
+        "e_res": 0.0002656729616555102,
+        "folds": 0,
+        "h_drift": 4.551914400963142e-14,
+        "pt_final": 1.1997676397533943
+      },
+      "L4.0_kappa0.9": {
+        "class": "transmitted",
+        "e_res": 0.03641430050856992,
+        "folds": 0,
+        "h_drift": 3.6980602840684166e-14,
+        "pt_final": 5.326500077488457
+      },
+      "L4.0_kappa1.5": {
+        "class": "transmitted",
+        "e_res": 0.010837602894306998,
+        "folds": 0,
+        "h_drift": 4.87196305680656e-14,
+        "pt_final": 3.196608541330691
+      },
+      "L4.0_kappa3.0": {
+        "class": "transmitted",
+        "e_res": 0.0004753357091987556,
+        "folds": 0,
+        "h_drift": 8.642741305353137e-14,
+        "pt_final": 1.5996883540836975
+      }
+    },
+    "census": {
+      "nonfinite": 0,
+      "reversing": 0,
+      "transmitted": 9
+    },
+    "profile": "lorentz",
+    "reading": "the conservation and census content of PF-5 applies to this profile and is checked exactly, the transfer is independent of where the field is centred and of the declared entry point and timestep, and the event-count clauses of PF-6 have nothing to audit here and are recorded not applicable",
+    "stability_relative_changes": {
+      "L2.0_entry": 0.01289155153875997,
+      "L2.0_timestep": 3.1601708281920865e-07,
+      "L3.0_entry": 0.012949917747762333,
+      "L3.0_timestep": 2.8268598281600775e-07,
+      "L4.0_entry": 0.012908134749397757,
+      "L4.0_timestep": 5.699337936498379e-07
+    },
+    "translation_relative_changes": {
+      "L2.0_shift-3.0": 8.824367205418085e-14,
+      "L2.0_shift1.5": 4.3799778829812394e-14,
+      "L2.0_shift4.0": 2.9629262149578973e-14,
+      "L3.0_shift-3.0": 3.426688870583624e-15,
+      "L3.0_shift1.5": 5.711148117639374e-16,
+      "L3.0_shift4.0": 5.711148117639373e-15,
+      "L4.0_shift-3.0": 7.491053092410421e-14,
+      "L4.0_shift1.5": 1.4726001805593135e-14,
+      "L4.0_shift4.0": 4.0336439728363805e-14
+    },
+    "worst_hamiltonian_drift": 8.642741305353137e-14,
+    "worst_stability_change": 0.012949917747762333,
+    "worst_translation_change": 8.824367205418085e-14
+  },
+  "not_applicable": {
+    "G5_observer_detector": "the declared crossings produce no events at any observer offset, so there are no observer-dependent counts to audit and this clause is recorded not applicable rather than passed",
+    "G6_gauge": "the profile declares no electromagnetic coupling, as in PREREG-PF6-002"
+  },
+  "record_sha256": "42e2eb1923c707bc3b53deab8aac08c8abbde3c09f370f48597dd41572ff10e6",
+  "runtime": {
+    "code_commit": "b29f008",
+    "generated_utc": "2026-08-07T07:34:59.972724+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-006-gate-v1",
+  "verdict": {
+    "computed_from": [
+      "G1_conserved_quantity",
+      "G2_complete_census",
+      "G3_translation_covariance",
+      "G4_entry_and_timestep_independence"
+    ],
+    "value": "FAIL"
+  }
+}
