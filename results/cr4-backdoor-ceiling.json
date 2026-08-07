@@ -1,0 +1,76 @@
+{
+  "declared": {
+    "n_seeds_for_trapdoor": 95,
+    "n_words": 6,
+    "out_mask": 7,
+    "scope": "toy curve, methodology only, no real standard, no attack"
+  },
+  "findings": {
+    "B5_audit_cannot_separate_backdoored_from_clean": false
+  },
+  "items": {
+    "B1_trapdoor_predicts": false,
+    "B2_public_entropies_near_uniform": false,
+    "B3_scalar_always_exists": true,
+    "B4_public_information_is_small": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "clean_point_scalar_computed_by_enumeration": 41,
+    "curve": [
+      2,
+      3
+    ],
+    "declared_known_scalar": 7,
+    "field": 101,
+    "group_order": 96,
+    "public_entropy_bits_backdoored": 2.7889733855395336,
+    "public_entropy_bits_clean": 2.8002022234477537,
+    "public_mutual_information_bits": 2.788973385539534,
+    "reading": "the scalar relating two points of a cyclic group always exists, so a parameter set whose scalar is known and one whose scalar is merely unknown induce the same distributions and no information-theoretic audit separates them",
+    "seed_entropy_bits": 6.569855608330948,
+    "shapes_identical": false,
+    "trapdoor_prediction_rate": 0.2631578947368421,
+    "uniform_entropy_bits": 3.0,
+    "word_count_shape_backdoored": [
+      4,
+      4,
+      10,
+      10,
+      10,
+      16,
+      17,
+      24
+    ],
+    "word_count_shape_clean": [
+      2,
+      6,
+      10,
+      10,
+      12,
+      16,
+      19,
+      20
+    ]
+  },
+  "record_sha256": "462a3f75361edda38ac98896f28ab2cfa45a174409d1f415e00f669b2ccad480",
+  "runtime": {
+    "code_commit": "bdafc73",
+    "generated_utc": "2026-08-07T01:10:22.375757+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr4-backdoor-ceiling-v1",
+  "verdict": {
+    "computed_from": [
+      "B1_trapdoor_predicts",
+      "B2_public_entropies_near_uniform",
+      "B3_scalar_always_exists",
+      "B4_public_information_is_small"
+    ],
+    "note": "B5 is the ceiling measurement, either outcome a result",
+    "value": "FAIL"
+  }
+}
