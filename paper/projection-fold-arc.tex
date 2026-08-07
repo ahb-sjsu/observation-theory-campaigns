@@ -1,0 +1,1667 @@
+\documentclass[aps,pre,reprint,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.15,
+  paperaxis/.style={
+    width=\columnwidth, height=0.58\columnwidth,
+    grid=major, grid style={gray!20},
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=gray!45, fill=white},
+    line width=0.9pt}}
+
+\raggedbottom
+
+\begin{document}
+
+\title{What a Projection Fold Can and Cannot Imitate\\
+The Complete Arc of a Campaign's Founding Question, from a Kinematic
+Theorem to a Sealed Analyticity Exponent}
+
+\author{Andrew H. Bond}
+\email{andrew.bond@sjsu.edu}
+\thanks{ORCID: 0009-0003-2599-6158}
+\affiliation{San Jos\'e State University, San Jos\'e, California, USA}
+\date{August 7, 2026}
+
+\begin{abstract}
+A smooth worldline in a hidden manifold, observed through a projection
+that folds with respect to a detector's time, produces two apparent
+branches of opposite orientation where there was one.  That is a
+theorem about maps.  Whether any local hidden dynamics makes such folds
+at a rate with the structure physical pair production has is not a
+theorem, and this paper reports the whole attempt to find out, across
+twenty-nine runs on declared finite models, with every failure kept.  The
+instrument net reproduces the exact controls and refuses the traps, a
+degenerate critical point is never classified as a fold, and a thousand
+perturbed members of the negative control each produce exactly twelve
+folds, which is what a rate set by the initial-condition measure looks
+like.  In the one populated family the campaign could seal, suppression
+of time reversal is organized by a Gaussian tail in a measured
+effective gap and the Schwinger-shaped variable fails to compete, the
+first predicting held-out cells at 0.38 of its own training error and
+the second at 3.14 times the first.  The family built to escape that
+verdict turned out to contain no events at all, empty at every one of
+twelve probed cells, because its alternating slabs cancel between 95
+and 99 percent of every deposit with no fixed sign.  Both mandatory
+gates then passed their bars on grids that contained none of the events
+their claims were about, and both had to be rerun on probe-placed
+cells, where conservation holds with every census summing exactly to
+twenty thousand and the orientation charge rule failing zero times.
+The model carries no quantum phase structure.  A two-level mode swept
+twice through an avoided crossing interferes at a level no noise floor
+approaches, while the matched classical ensemble carries only the
+smooth trend its own pulse overlap predicts, its residual sitting in
+the middle of its null.  Reaching that statement took four corrections,
+each to an error of the declaration rather than of the model.  A
+same-species decay of one particle into two is excluded by parity
+rather than missed, since across 441 generic levels on four folding
+worldlines the observed branch count changed by minus two, zero, or
+plus two and never by anything else.  Declaring one branch class
+invisible produced 63 apparent decays with missing energy whose counts
+the consumer's own detector model predicted exactly, so apparent decay
+here measures what a consumer cannot see.  Lifetimes in this family are
+not memoryless, their coefficient of variation measuring 0.159 against
+the value one an exponential requires.  The founding question is then
+answered under seal for one observable.  A deterministic crossing of a
+declared field profile is exponentially suppressed with an exponent
+fixed by the distance to the field's nearest complex singularity, four
+fitted values agreeing within 1.07 percent across widths spanning a
+factor of 2.56, with no distribution anywhere whose tail could be
+responsible.  The observable is a per-crossing transfer and not an
+event rate, and nothing here is evidence that physical pair creation or
+decay works this way.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Take a curve in some space of hidden states and look at it only
+through a map into spacetime.  A detector picks a time function on
+spacetime, and the observed history of the curve is the sequence of
+places where it meets each level of that time function.  If the time
+function increases along the curve everywhere, the observer sees one
+particle moving forward.  If it has a nondegenerate critical point, the
+observer sees one branch turn into three, or none into two, at a single
+instant, and the two new branches run in opposite directions of the
+detector's time.  Under the standard identification of the direction of
+proper time with the sign of charge, that is an apparent pair event
+\cite{Stueckelberg1941, Feynman1949}.
+
+This is where the campaign that produced this paper started, and it
+separates three claims that must never be run together.  The first is
+kinematic.  A nondegenerate fold of the observed time along a smooth
+worldline produces exactly two extra branches of opposite orientation,
+and the signed count is unchanged.  This is a theorem about smooth maps
+and it holds wherever its smoothness hypotheses hold
+\cite{Whitney1955, ArnoldGZ}.  The second is dynamical and holds only
+inside a declared model.  It asserts that some specified local hidden
+dynamics produces such folds at a stable rate that is not put in by
+hand.  The third is physical.  It asserts that the rate and the
+observables reproduce quantum field theory, including the exponential
+suppression Sauter and Schwinger computed for a constant field
+\cite{Sauter1931, HeisenbergEuler1936, Schwinger1951, Dunne2004}.  A
+successful demonstration of the first is not evidence for the second,
+and a successful demonstration of the second in one declared family is
+not evidence for the third.  Every section below says which of the
+three it is about.
+
+An anti-circularity contract was written before any run and governs all
+of them.  No candidate model may contain a command to fold at a wanted
+rate, may take the Schwinger exponent as an input probability, may be
+fitted to a target rate on the range it is then evaluated on, may
+postselect the trajectories that fold or escape or resemble particles,
+may use observer-specific coordinates that are not transformed along
+with the observer, or may assign energy and charge after inspecting
+which branch pairing would be convenient.  What a model may contain is
+local fields, a metric or an action, a projection, and a
+source distribution fixed before the claim-bearing sweep.  Claims are
+carried only by sealed preregistrations whose bars, grids, estimators,
+and stopping rules are fixed in advance and whose file hashes are
+recorded in a seal ledger before the governed runner executes, which is
+the discipline the whole campaign runs under
+\cite{ZenodoGames, ZenodoGen2, ZenodoCrypto}.
+
+The arc has one further discipline that it did not start with and had
+to earn.  Five separate runs in this arc passed or reported on manifests
+that contained none of the events their claims were about, and each
+time the error was in the manifest rather than in the instrument.  The
+rule that came out of them is now unconditional in this campaign.  Every
+registration must cite a committed probe verifying that its manifest
+contains the variation its claim is about, for every bound cell and
+every bound member, and any arm of any experiment must do the same
+even when the arm is a new construction rather than an inherited grid.
+Section~\ref{sec:spine} reports all five as record facts and names the
+design error in each, together with four bars that failed for reasons
+belonging to the declaration rather than to the model.
+
+The scope of the whole paper is fixed here and repeated in the ledger
+of Sec.~\ref{sec:claims}.  Every dynamical statement below is measured
+in a declared finite model with declared constants, integrated
+numerically at a declared step, and it is labeled as such.  Two prior
+papers of this campaign carry parts of this arc in full detail and are
+cited rather than restated, one on the replication of a published
+classical pair event \cite{ZenodoCayley} and one on the sealed
+Schwinger-scaling negative \cite{ZenodoSchwinger}.  No result reported
+here is evidence that physical pair creation or physical particle decay
+works this way, no claim about quantum field theory is made or implied,
+and the one sealed positive result of the arc is about a per-crossing
+energy transfer in a declared one-dimensional model and not about an
+event rate.
+
+\section{The instrument net and the negative control}
+\label{sec:net}
+
+Let the hidden state be $z(\tau)$ on a smooth manifold, let
+$\pi$ carry it to spacetime, and let a detector declare the time
+functional $T_u(x) = u_\mu x^\mu$.  An apparent pair event is a
+nondegenerate critical point of the observed time,
+\begin{equation}
+  \frac{d}{d\tau}T_u\bigl(x(\tau)\bigr) = 0,
+  \qquad
+  \frac{d^2}{d\tau^2}T_u\bigl(x(\tau)\bigr) \neq 0,
+  \label{eq:fold}
+\end{equation}
+near which the observed time has the normal form
+$T_u - t_0 = \sigma (\tau - \tau_0)^2$ with $\sigma = \pm 1$.  Crossing
+such a point, the unsigned number of preimages of a constant-time slice
+changes by exactly two while the signed number, counting each preimage
+with the sign of $dT_u/d\tau$, does not change at all.  That is the
+kinematic claim, and it is the only statement in this paper with the
+label \texttt{[proved]}.
+
+The instrument that finds these points was validated against exact
+controls before any dynamics ran, and the tolerances were then frozen
+and sealed.  The controls are a monotone null, an exact creation fold,
+an exact annihilation fold, a degenerate cubic critical point, and a
+double fold, in that order the cases the classifier must find, must
+find with the opposite orientation, must refuse, and must find twice
+\cite{Whitney1955}.  On the monotone null the instrument reports one
+branch and zero critical points at every slice.  On the creation fold
+the branch count runs 0, 1, 2 while the signed count stays 0 at every
+slice, and on the annihilation fold it runs the other way.  The cubic
+control produces one critical point which is classified degenerate and
+is never counted as a fold.  The double fold $t = \tau^3 - \tau$
+produces band counts 1, 3, 3, 3, 1 with signed count $+1$ everywhere
+and both critical points located at $\pm 1/\sqrt{3}$ with the correct
+types.  The fitted separation exponent of the square-root law agrees
+with $1/2$ to better than $10^{-12}$, and the two independent
+implementations agree on branch locations to $4.5 \times 10^{-16}$.
+
+The classifier constants are derived from those margins rather than
+chosen.  The first-derivative tolerance sits at $10^{-9}$ against a
+worst measured residual of $4.6 \times 10^{-13}$ at located events, and
+the second-derivative tolerance sits at $10^{-8}$ against the smallest
+genuine fold curvature of $0.208$ found anywhere in the committed
+evidence, so no regular point can be read as critical and no fold and
+degenerate point can be exchanged.  The freeze states its own
+invalidation condition, that a claim-bearing model whose fold
+curvatures approach $10^{-5}$ in campaign units forces a re-freeze
+before use.
+
+Structural stability was measured next, because a fold that does not
+survive perturbation is a coincidence rather than a phenomenon.  The
+exact fold was perturbed by bounded random smooth terms at twelve
+perturbation norms from $10^{-5}$ to $0.316$, with 500 independent
+trials at each.  Fold persistence is exactly 1 at every norm up to
+$0.123$ and falls to $0.956$ at the largest, where 22 of 500 trials
+lose the fold, and no trial at any norm produced a degenerate
+classification.  The median fitted separation exponent stays at
+$0.5$ across the whole sweep, departing from it by at most
+$2.8 \times 10^{-6}$ at the largest perturbation.  Simple folds persist,
+which is what singularity theory predicts and what makes the rest of the
+arc worth running.
+
+The negative control is the campaign's most useful early measurement.
+A bounded local Hamiltonian with an oscillator in the observed time, an
+anharmonic hidden coordinate, and a bilinear coupling produces folds
+readily, and the folds are rigid.  A single member integrated by
+velocity Verlet at step $10^{-3}$ produces exactly 12 folds, with 7
+positively oriented and 6 negatively oriented segments and a relative
+energy drift of $1.3 \times 10^{-7}$.  A thousand-member ensemble with
+perturbed initial conditions produces exactly 12 folds in every single
+member, 12000 folds in total with zero dispersion, at a mean relative
+drift of $6.7 \times 10^{-10}$.  The same scenario run on a second
+machine in a container reproduces the outcome hash bit for bit.
+
+That uniformity is the point.  A rate is a property of the
+initial-condition measure and the dynamics together, and in a bounded
+Hamiltonian with a smooth measure there is nothing to make it
+exponentially small.  Exponentially suppressed pair production
+therefore requires large-deviation structure somewhere, and the
+anti-circularity contract forbids inserting it.  From this measurement
+onward the campaign expected a disciplined negative, and said so in
+writing before the first sealed run.
+
+\section{A published classical pair event, replicated}
+\label{sec:pf3}
+
+Before extending anything the campaign reproduced an existing result.
+Stueckelberg-Horwitz-Piron electrodynamics evolves events under a
+parameter-dependent five-potential, so the mass shell is not fixed and
+$dt/d\tau$ may change sign along one worldline
+\cite{Stueckelberg1941, HorwitzPiron1973}.  Land's impulsive Coulomb
+scattering configuration was transcribed equation by equation with its
+conventions recorded, and its closed-form final velocity agrees with a
+numerical solution of the linear system it came from to
+$5.7 \times 10^{-14}$, its two published forms of the time component
+agree to $1.4 \times 10^{-14}$, and its Rutherford limit reproduces the
+published half-angle relation exactly \cite{Land2016}.  The reversal
+threshold sits exactly at dimensionless coupling 2 as published.
+
+The replication also produced a finding the campaign kept.  With the
+source's own frozen-point convention the kick generator exponentiates
+to hyperbolic evolution that never reverses the time velocity, while
+the source's impulsive midpoint closure applies the same generator
+through a Cayley transform whose pole sits exactly at coupling 2.  The
+published threshold is a property of the impulsive closure of the
+interaction rather than of continuous accumulation of the same force.
+Twenty-seven cells of the sweep have spacelike outgoing velocity, which
+is Stueckelberg's own requirement that a reversing worldline cross the
+spacelike region twice rather than a transcription error, and the
+committed record lists all of them.  Below threshold the smoothed
+worldline has zero crossings of the observed time and above it exactly
+one, classified an annihilation fold by the sealed classifier, which is
+what ties the published pair event to the kinematics of
+Sec.~\ref{sec:net}.  The full analysis is a separate paper of this
+campaign \cite{ZenodoCayley} and its consequence for what follows is
+one clause.  Any candidate whose reversals survive only because its
+interactions are closed impulsively is reproducing a Cayley pole and
+not a dynamical rate, so every claim-bearing run in this arc integrates
+continuously through every interaction.
+
+\section{The Schwinger challenge and its disciplined negative}
+\label{sec:pf4}
+
+The first family capable of carrying a physical claim is a
+Stueckelberg-type system in which a hidden anharmonic coordinate is
+tilted by a Sauter slab,
+\begin{equation}
+  H = \tfrac12 p_t^2 + \tfrac12 p_u^2
+    + \tfrac12 \omega_u^2 u^2 + \tfrac{\lambda}{4} u^4
+    + g E L \tanh(t/L)\, u ,
+  \label{eq:sauter}
+\end{equation}
+with $\omega_u = 1.2$, $\lambda = 0.1$, $g = 0.25$, $L = 3$, thermal
+initialization in the shifted well at temperature 1, entry at
+$t = -4L$, and velocity Verlet at step $10^{-3}$.  A member reverses
+when $p_t$ reaches zero, which is the fold of Eq.~\eqref{eq:fold} in
+this model.  The question is whether the fraction that reverses is
+organized by the Schwinger-shaped combination or by something else.
+
+The pilot answered a prior question first.  Across eighteen cells at
+$5 \times 10^4$ members each, with relative drift uniformly near
+$6 \times 10^{-7}$, the family has a critical field above which the
+deterministic crossing kick alone reverses the event, and below it
+reversal is fluctuation driven.  The transition is razor sharp.  At gap
+$0.5$ the reversing fraction moves from $2.8 \times 10^{-4}$ at field
+$0.65$ to $0.9115$ at field $0.80$, three decades across a fifteen
+percent step in the field, and only two of the eighteen cells landed in
+the measurable band at all.  Fixed rectangular grids therefore buy
+bounds rather than measurements, and every later manifest in this
+family is placed by bisecting a deterministic probe to a declared
+target.
+
+Two variables were then declared and compared.  Writing $d(P, E)$ for
+the deterministic minimum of the time momentum measured by a
+thermal-free probe, which is the effective gap the fluctuation must
+cover, and $f$ for the reversing fraction, the two competing models are
+\begin{equation}
+  -\log f = \alpha + \beta \Bigl(\frac{d}{E}\Bigr)^{2}
+  \quad\text{and}\quad
+  -\log f = \alpha' + \beta' \frac{d^{2}}{E},
+  \label{eq:axes}
+\end{equation}
+the first a Gaussian tail in the effective gap and the second the shape
+the Schwinger exponent has.  Both are fitted by weighted least squares
+on training gaps and asked to predict held-out gaps that are disjoint
+in the gap variable.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.62\columnwidth,
+  xlabel={effective-gap variable, $(d/E)^2$},
+  ylabel={$-\log f$},
+  xmin=0.04, xmax=0.235, ymin=-0.5, ymax=9.6,
+  legend pos=north west, legend cell align=left]
+\addplot[gray!70!black, densely dotted, no marks, domain=0.04:0.235,
+  samples=2] {-0.12429061298285399 + 43.176187880553684*x};
+\addlegendentry{effective-gap fit, training cells}
+\addplot[only marks, mark=*, mark size=2.1pt, blue!70!black]
+  table[x=xg, y=nlogf] {figdata/pf4_train.dat};
+\addlegendentry{training gaps 0.55, 0.75, 0.95}
+\addplot[only marks, mark=square*, mark size=2.1pt, red!70!black]
+  table[x=xg, y=nlogf] {figdata/pf4_held.dat};
+\addlegendentry{held-out gaps 0.65, 0.85}
+\end{axis}
+\end{tikzpicture}
+\caption{The sealed axis comparison of PREREG-PF4-002.  Each point is
+one probe-placed cell of $5 \times 10^4$ members, plotted at the
+declared effective-gap variable against the measured suppression.  The
+dotted line is the weighted fit made on the training cells alone.  The
+held-out cells lie on it, and the model's held-out weighted error is
+0.38 of its own training error against a declared bar of 2, while the
+Schwinger-shaped variable of Eq.~\eqref{eq:axes} is 3.14 times worse on
+the same held-out cells against the same bar.  Ten of twelve training
+and seven of eight held-out cells met the sealed usability rule and are
+shown.  All values are read from the committed evidence record.}
+\label{fig:pf4}
+\end{figure}
+
+The first sealed attempt returned the third branch its own
+preregistration had defined.  All twenty probe-placed cells landed in
+the measurable band, both prescription controls agreed per member
+exactly at $z = 0.00$ under fourth-order Runge-Kutta and under step
+halving, the zero-field null produced zero reversals, and the fitted
+effective-gap slope of $41.24$ confirmed the pilot's two-point
+prediction.  The effective-gap model beat the Schwinger-shaped model by
+a factor of $3.28$ on held-out weighted error.  But the declared bar
+required a held-out weighted mean squared error of at most 4 and the
+measurement was $81.22$, because at that ensemble size the residual gap
+dependence of the suppression at fixed effective-gap variable is many
+binomial standard errors.  The verdict was neither-axis, and the
+recorded reading is that the bars had been written in binomial units
+and were therefore testing a model nobody had claimed.
+
+The second attempt declared in writing, before it existed, that it
+would set every bar against the model's own training inadequacy rather
+than against binomial noise, and it passed both.  The effective-gap
+model's held-out weighted error is $0.3842$ of its training error
+against a bar of 2, so it generalizes to gaps it never saw better than
+it fits the gaps it trained on, and the Schwinger-shaped model is
+$3.1398$ times worse on the same held-out cells against the same bar.
+The fitted effective-gap slope is $43.18$, ten of twelve training and
+seven of eight held-out cells were usable under the sealed rule, both
+prescription controls again agreed at $z = 0.00$, and the zero-field
+null again produced zero reversals.  Figure~\ref{fig:pf4} shows the
+comparison.
+
+The label this earns is \texttt{[demonstrated-in-model]} and its
+content is narrow.  In this declared family the suppression of time
+reversal is a Gaussian tail of the initial-condition measure in a
+measured effective gap, and the Schwinger-shaped variable fails to
+compete.  That is a negative about a model family.  It is not a
+statement about other families and it is not a statement about physical
+pair production.  What it left open is the construction question, which
+became the summit of the whole arc.  Does any constructible family have
+an exponent that is not a measure tail?  The detailed treatment of this
+negative is a separate paper \cite{ZenodoSchwinger}.
+
+\section{The family built to answer the summit was empty}
+\label{sec:pf4b}
+
+A measure tail exists because there is a measure.  The obvious way to
+remove it is to remove the ensemble, so the next family is a single
+deterministic event crossing an alternating train of Sauter slabs,
+\begin{equation}
+  \mathrm{tilt}(t) = g E L \sum_k (-1)^k
+    \tanh\!\Bigl(\frac{t - kD}{L}\Bigr),
+  \label{eq:train}
+\end{equation}
+at field $0.6$, slab length 3, spacing 18, integrated continuously by
+fourth-order Runge-Kutta.  Each crossing deposits an
+analyticity-suppressed residual, the deposits accumulate, and the
+observable is the slab count at reversal.  With one declared initial
+condition there is no distribution anywhere, so an exponential in this
+family could not be a measure tail.
+
+The sealed run sealed itself unevaluable.  Every one of the four
+training and three held-out velocities capped at 4000 slabs without a
+single reversal, and so did every cell of the mandatory planted
+control, so no fit existed to read and the record carries a
+manifest-design failure rather than a pass or a refutation.  The
+diagnosis was that the manifest had been placed from a probe of a
+different observable at different constants, and the repair was a
+direct-observable probe run with the sealed dynamics verbatim.  That
+probe measured the reversal count at twelve cells, three field
+strengths crossed with four velocities, and found zero reversals in all
+twelve at a cap of 300 slabs.  The template registration that would
+have succeeded PF4-003 therefore cannot bind, because its own
+verification clause requires every manifest cell to have reversed below
+half the probe cap, and no cell reversed at all.
+
+A separate study measured why, and its declared compound flag read
+False in a way that separates cleanly.  The declared hypothesis had two
+halves, that the alternating slabs cancel the deposits and that the
+extrapolated slab count to reversal exceeds the cap.  Cancellation is
+confirmed and it is strong.  The net drift per slab is $3.3$, $0.9$,
+and $5.0$ percent of the mean deposit magnitude in the three declared
+cells, so between 95 and 99 percent of every deposit is undone by the
+slabs that follow, with the sign of consecutive deposits flipping on
+$54$, $68$, and $27$ percent of steps.  The second half failed because
+it was written against the absolute drift, and the third cell's drift
+is positive at $+0.0096$ per slab, carrying the trajectory away from
+reversal rather than toward it.  The corrected reading is stronger than
+the declaration.  The pulse train does not merely deposit too slowly.
+Its residual after cancellation has no fixed sign, and at the largest
+declared field it accelerates the event away from the fold, which is
+why every probed cell is empty.
+
+\section{Two mandatory gates, each of which had to be run twice}
+\label{sec:gates}
+
+The campaign sequence makes conservation and covariance mandatory gates
+before any further claim, not optional follow-up analyses.  Both gates
+were built, validated on exact controls, sealed, run, and passed.  Both
+first runs then turned out to have certified nothing about the events
+they were about, and both had to be redeclared on probe-placed
+manifests.
+
+The conservation instrument provides a complete census in which every
+trajectory ends in exactly one declared class, numerically failed,
+reversing, transmitted, or capped, so the missing-trajectory count is
+zero by construction and every reported statistic carries an explicit
+denominator with a flag that fires whenever a deletion would change a
+number.  It tracks the conserved Hamiltonian every twenty-five steps
+for every member including failed members up to their failure step.
+And it declares the orientation charge to be the sign of $dt/d\tau$
+before any claim run, with the conservation statement written as a
+path-degree rule, that the signed crossing count of any generic level
+equals the endpoint bookkeeping, which is exactly the statement that
+folds make orientation charge only in cancelling pairs.  Its controls
+all pass.  A harmonic control drifts by $4.4 \times 10^{-7}$ against a
+control bar of $10^{-6}$, a field-free cell classifies 2000 of 2000
+transmitted, a deterministically reversing cell classifies 2000 of 2000
+reversing, an absurd step size counts 200 of 200 numerically failed
+with zero missing, a short cap counts 100 of 100 capped, the analytic
+double fold obeys the path-degree rule at all 41 generic levels, and
+the deliberate deletion trap is mechanically flagged.
+
+The first sealed gate run passed every bar and tested nothing.  Its
+eight cells are all evaluable, every census sums exactly to 20000 with
+zero missing trajectories, the largest relative energy residual across
+cells is $6.5 \times 10^{-7}$ against the sealed bar of $10^{-5}$, and
+the path-degree rule holds at every generic level on all 96 declared
+polyline members with zero failures and zero refused levels.  The same
+census also records zero reversing trajectories in every cell.  All
+160000 members transmitted.  The sealed claim was about the accounting
+of apparent pair events and this grid contained none, so what the run
+certifies is the accounting machinery on transmitted worldlines.  The
+named error is the manifest.  A product grid of gaps against fields was
+declared where the sealed family's own cells had been placed by
+bisection, which is how the manifest landed outside the regime where
+reversals occur.
+
+The repair binds cells from a committed placement probe that bisects
+the field at each declared gap until the reversing fraction lands
+inside a declared window, measuring $0.1000$, $0.0970$, $0.0995$, and
+$0.1030$ at the four bound cells, and it adds one bar that makes a
+vacuous pass impossible, that every evaluable cell must record a
+reversing count above zero and the run must record at least two
+thousand reversals in total.  The rerun passes all of it.  The four
+cells record $1998$, $1952$, $1881$, and $2237$ reversing members out
+of 20000 each, 8068 audited apparent pair events in total, every census
+exact with zero missing, the largest relative energy residual
+$7.3 \times 10^{-7}$ against the same $10^{-5}$ bar, and zero
+path-degree failures and zero refused levels on all 48 declared
+polyline members.  Conservation and complete accounting hold on cells
+that contain the events.
+
+The covariance instrument audits five things, and four of them applied
+here.  Translation covariance shifts the field profile and the initial
+data together and requires every event worldpoint to move by exactly
+the offset, measured at $2.7 \times 10^{-13}$ on its validation
+members.  Reparametrization invariance scales the Hamiltonian and
+requires the per-worldline event count to be exactly invariant while
+the rate per unit parameter scales by the declared factor, which it
+does exactly, and the witness this freezes is that the physical rate of
+this model class is per worldline and never per parameter tick.  The
+boost audit runs on the family with genuine hyperbolic structure, the
+replication of Sec.~\ref{sec:pf3}, where flow and boosts commute at
+$4.5 \times 10^{-13}$, the invariant is conserved at
+$7.1 \times 10^{-11}$, and the future-cone margin stays positive across
+the declared rapidity grid, so the never-reverses finding of that
+family is boost invariant.  The observer audit measures the event count
+twice for a declared family of detector time functionals, once from the
+observer's own record and once from the model's detector prediction,
+and requires exact agreement at every declared observer.  The gauge
+clause is recorded not applicable rather than passed, because the
+Sauter tilt is declared non-electromagnetic and has no field tensor,
+and the gauge machinery stands validated on a separate electromagnetic
+control at $2.2 \times 10^{-13}$ for the physical history and
+$1.1 \times 10^{-12}$ for the predicted canonical shift.
+
+The first sealed covariance run returned vacuous, and its own
+anti-vacuity bar is what caught it.  The declared deterministic member
+at each bound cell produces zero folds, so four cells were audited for
+the covariance of events that were not there.  The named error is the
+member rather than the cell.  The thermal ensemble reverses about ten
+percent of the time at these cells, so the members that reverse carry
+transverse momentum in the tail while the declared member did not.  A
+committed member probe then scanned the initial transverse momentum at
+each cell and bound the members that fold, with verified fold counts 4,
+2, 2, and 2.  The rerun passes.  Fold counts are exactly the probe's,
+10 folds in total and every count even, translation shifts move the
+first-fold worldpoint by exactly the offset to
+$3.1 \times 10^{-14}$, the reparametrized rate ratio deviates from the
+declared factor by exactly zero, the boost audit repeats its values,
+and the observer count read from the observer's own record equals the
+detector-model prediction at every one of the six declared observers on
+every member.  Observer-dependent particle number survives in this
+model, lawfully, because a declared detector model predicts every count
+exactly.
+
+\section{The model carries no quantum phase structure}
+\label{sec:pf7}
+
+With both gates cleared the ceiling test is ungated.  Its question is
+whether the fold model reproduces more than a classical worldline
+picture, and its discriminator was declared with the reasoning that
+makes it refutable.  A quantum mode swept twice through an avoided
+crossing accumulates a relative phase between the two passages, so its
+excitation probability oscillates with the delay between them, which is
+Landau-Zener-Stueckelberg interferometry
+\cite{Landau1932, Zener1932, Stueckelberg1932, Shevchenko2010}.  A
+classical ensemble of independent trajectories has no phase to
+accumulate.  Both arms are reduced to one statistic, the largest
+nonzero-frequency power of the mean-removed discrete Fourier spectrum
+of the curve divided by its total power.
+
+The quantum arm is a two-level mode with declared gap $0.30$ and sweep
+rate 1, integrated by fourth-order Runge-Kutta, whose single-passage
+control must match the closed form
+\begin{equation}
+  P = \exp\Bigl(-\frac{\pi\,\Delta^{2}}{2 v}\Bigr) = 0.868167
+  \label{eq:lz}
+\end{equation}
+at the declared gap and sweep rate.  The classical arm is the pilot
+fold dynamics with the single slab replaced by two Sauter pulses
+separated by the same delay, with the reversing fraction of a seeded
+thermal ensemble as its observable.
+
+The first run failed two instrument bars and its apparent ceiling
+finding was vacuous.  The single-passage control measured $0.8631$
+against Eq.~\eqref{eq:lz}, a deviation of $5.06 \times 10^{-3}$ against
+a declared $2 \times 10^{-3}$, because the declared sweep range of
+forty natural units does not reach the asymptotic regime at that gap.
+The quantum oscillation statistic measured $0.2238$ against a declared
+$0.30$ while the recorded curve plainly oscillates, because the
+Stueckelberg phase between crossings at plus and minus a half-delay is
+the integral of the detuning between them and is therefore quadratic in
+the half-delay, so a grid uniform in the delay undersamples a chirp and
+spreads its power across bins.  The norm of the two-level state is
+conserved to $5.5 \times 10^{-14}$, so the mode holds at most one
+excitation exactly.  And the classical arm returned a reversing
+fraction of exactly $1.0$ at every one of the twenty-four delays, all
+2000 members of every cell reversing, so its oscillation statistic was
+computed on a constant curve and was zero for a reason with nothing to
+do with interference.  The declared field was strong enough that two
+pulses reverse everything.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=1 by 3, vertical sep=32pt},
+  paperaxis, height=0.36\columnwidth]
+\nextgroupplot[xlabel={squared half-delay},
+  ylabel={excitation probability},
+  xmin=14, xmax=102, ymin=-0.03, ymax=0.46]
+\addplot[blue!70!black, mark=*, mark size=1.5pt]
+  table[x=t2, y=p] {figdata/pf7_quantum.dat};
+\nextgroupplot[xlabel={delay between pulses},
+  ylabel={reversing fraction},
+  xmin=7.6, xmax=20.4, ymin=0.470, ymax=0.524,
+  scaled y ticks=false,
+  y tick label style={/pgf/number format/fixed,
+    /pgf/number format/precision=3}]
+\addplot[red!70!black, mark=square*, mark size=1.5pt]
+  table[x=d, y=f] {figdata/pf7_classical.dat};
+\nextgroupplot[ybar, bar width=11pt, ylabel={oscillation statistic},
+  xtick={1,2,3,4,5},
+  xticklabels={null mean, null 95th, classical raw,
+    classical residual, quantum},
+  x tick label style={rotate=28, anchor=east, font=\footnotesize},
+  xmin=0.4, xmax=5.6, ymin=0, ymax=1.02,
+  nodes near coords,
+  every node near coord/.append style={font=\footnotesize,
+    /pgf/number format/fixed, /pgf/number format/precision=4}]
+\addplot[fill=blue!35, draw=blue!70!black]
+  table[x=idx, y=stat] {figdata/pf7_stats.dat};
+\end{groupplot}
+\end{tikzpicture}
+\caption{The ceiling measurement after its four corrections.  The top
+panel is the quantum arm's excitation probability on the grid uniform
+in the squared half-delay, where the chirp becomes a single frequency.
+The middle panel is the classical arm's reversing fraction at eight
+thousand members per delay, whose whole range is 0.0425 and which falls
+smoothly as the two pulses stop overlapping.  The bottom panel places
+the declared statistic against the null distribution built from the
+same binomial counts, showing the null mean, the null ninety-fifth
+percentile, the raw classical value, the classical value after the
+declared smooth overlap model is removed from the curve and from every
+null curve alike, and the quantum value.  The classical residual sits
+below the null mean at a p-value of 0.757 and the quantum value sits
+past every null draw.  All values are read from committed evidence
+records.}
+\label{fig:pf7}
+\end{figure}
+
+Three corrections followed, each to a named error.  The sweep range
+became 120 natural units, the delay grid became uniform in the squared
+half-delay, and the classical field was bound from a committed probe
+that bisects it to a reversing fraction near one half and then verifies
+the fraction at the extreme delays.  That probe rejected the originally
+declared delay range by its own window rule, because at the shortest
+delay the two pulse centres sit closer together than the pulse length
+and the pulses act as one stronger pulse, returning a fraction of
+exactly 1.  A second probe measured $0.5245$, $0.4945$, $0.4750$,
+$0.4835$, and $0.4955$ across the candidate range, all inside the
+declared window, and the corrected run bound that range.
+
+The corrected run passed all three instrument bars.  The single-passage
+control now measures within $1.49 \times 10^{-3}$ of Eq.~\eqref{eq:lz},
+the quantum oscillation statistic rose from $0.2238$ to $0.8702$ under
+the grid uniform in the squared half-delay, which confirms that the
+earlier failure was the grid rather than the physics, and the norm is
+conserved to $5.9 \times 10^{-14}$.  The classical arm varies as the
+probes promised, between $0.4645$ and $0.5245$ across thirty-two
+delays.  The ceiling finding then failed its own declared bar.  The
+classical statistic measured $0.3626$ against a declared $0.15$ and the
+quantum-to-classical ratio $2.40$ against a declared 3.
+
+That bar was unattainable as declared, and the reason belongs to the
+statistic.  On a thirty-two point curve the statistic is the largest of
+sixteen powers divided by their sum, which is a sizable fraction even
+for pure noise, and each cell carries binomial noise of about $0.011$
+from two thousand members while the whole curve spans only $0.06$.  The
+next run measured that floor instead of asserting it, drawing twenty
+thousand null curves from binomial counts at the curve's own mean.  The
+null mean is $0.2165$ and its ninety-fifth percentile is $0.3310$, so
+the declared bar of $0.15$ sat below the statistic's floor and could
+not have been met by any curve of that length.  Against that null the
+classical statistic has a p-value of $0.0262$ and the quantum statistic
+a p-value of $0.0$.  The protocol had declared in advance that a small
+classical p-value would be escalated rather than read as a ceiling, and
+it was.
+
+The escalation quadrupled the ensemble to eight thousand members per
+delay and tested a declared mechanism, that the hidden oscillator rings
+at its own period and meets the second pulse in or out of phase with
+that ringing.  The structure survived the larger ensemble at a p-value
+of $0.02605$, essentially unchanged from $0.0262$ at a quarter of the
+members, so it is not shrinking the way a fluctuation would.  The
+mechanism was refuted.  The spectral peak sits at a period of $12.52$
+in delay while the declared ringing period is $5.236$, and $12.52$ is
+the span of the delay range, so the peak is the lowest nonzero
+frequency bin, which is where a monotone trend lands rather than an
+oscillation.  The curve falls from a mean of $0.4942$ over the first
+half of the range to $0.4829$ over the second.  Two pulses of length
+three separated by eight still overlap and by twenty do not, so the
+combined kick weakens smoothly with delay.  The consequence recorded
+with it is that the declared statistic counts a trend as structure, so
+neither p-value was evidence about oscillation.
+
+Removing a declared linear trend from the curve and from every null
+curve alike then failed its own first item and refuted the diagnosis
+that produced it.  The classical statistic rose from $0.4480$ to
+$0.5014$ and its p-value fell from $0.02605$ to $0.01185$, while the
+quantum statistic was untouched at $0.8702$ before and after, as
+predicted for a peak sitting at a high frequency.  The trend itself is
+real, a drop of $0.0234$ across the range against a standard error of
+$0.0056$, which is $4.19$ standard errors.  The arithmetic of the rise
+is plain, since removing power from the lowest bin shrinks the total
+and a peak elsewhere takes a larger share.  What the failure showed is
+that a linear model does not absorb an exponential approach to an
+asymptote, and that the null, which draws every cell at one common
+mean, counts any smooth departure from a straight line as structure.
+
+The last refinement declared its model from the mechanism rather than
+fitting it blind.  Two pulses of declared length three overlap by an
+amount falling exponentially with their separation, so the declared
+model is an asymptote plus an exponential approach at that length,
+linear in its two free coefficients, removed from the curve and from
+every null curve alike.  It passed all three items and both findings
+hold.  The classical statistic drops from $0.4480$ to $0.2122$ with a
+p-value of $0.757$, which sits in the middle of the null rather than in
+its tail, the quantum statistic is $0.8724$ after the same treatment,
+and the trend remains real at $4.19$ standard errors.
+Figure~\ref{fig:pf7} shows the corrected picture.
+
+The terminus was declared before that run so that a fourth refinement
+could not become a search for a wanted answer, and the reading it fixed
+is the one that holds.  The classical arm carries exactly the smooth
+delay dependence its own mechanism predicts, and once that mechanism is
+accounted for there is nothing left in its spectrum that noise does not
+explain.  The quantum arm interferes at a level no noise floor
+approaches.  The fold model is capped as a classical representation.
+It does not carry the phase structure that produces interference, and
+this caps the model without touching the kinematic claim of
+Sec.~\ref{sec:net} or any measured result of this arc.
+
+\section{Decay is excluded by parity and imitated by blindness}
+\label{sec:pf8}
+
+A fold changes the observed branch count by exactly two.  A
+same-species decay of one particle into two is a change of exactly one.
+Those two sentences settle the decay question for complete continuous
+worldlines under generic projections before any run, and the run
+measures whether the model obeys its own arithmetic and what a
+restricted observer sees instead.
+
+The design had assumed the pair-creation configuration, in which the
+worldline begins and ends on one side of the observed level so the
+branch count is even.  A committed probe measured that configuration
+absent on every bound member, since all four members end at their own
+largest observed time and begin at their own smallest, making both
+candidate windows exactly zero wide.  The bound members are
+through-going, one branch in and one branch out, which is the
+configuration a decay question wants anyway.  On a through-going
+worldline the complete observer's unsigned branch count is odd at every
+generic level, and a fold changes it by two, so a sweep reads one
+branch, then three, then one.  The reframing was declared before the
+run.  The same probe fixed the level ladder, because it measured the
+fold excursions to be as narrow as $0.000253$ in observed time against
+a uniform ladder spacing near $0.2$, so a uniform ladder steps over the
+three-branch fibers almost everywhere.  The declared ladder merges a
+uniform background with nine levels inside each interval spanned by a
+consecutive pair of fold times.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, ybar, bar width=9pt, height=0.56\columnwidth,
+  xlabel={branches recorded at a generic level},
+  ylabel={observations},
+  xtick={0,1,2,3}, xmin=-0.6, xmax=3.6, ymin=0, ymax=470,
+  legend pos=north east, legend cell align=left,
+  nodes near coords, every node near coord/.append style={
+    font=\scriptsize, /pgf/number format/1000 sep={}}]
+\addplot[fill=blue!35, draw=blue!70!black]
+  table[x=n, y=count] {figdata/pf8_complete.dat};
+\addlegendentry{complete observer}
+\addplot[fill=red!30, draw=red!70!black]
+  table[x=n, y=count] {figdata/pf8_blind.dat};
+\addlegendentry{declared blind consumer}
+\end{axis}
+\end{tikzpicture}
+\caption{What two observers of the same four worldlines record, pooled
+over all 441 generic levels of the declared ladder.  The complete
+observer records only 1 or 3 branches, which is the parity fixed by the
+worldline endpoints, and every change between adjacent levels is minus
+two, zero, or plus two.  The consumer declared blind to branches whose
+transverse coordinate lies in a fixed window records 0, 1, 2, or 3, so
+its parity is not conserved and 63 of its transitions are a rise by
+exactly one, which is what a decay of one particle into two looks like.
+Every one of its 441 counts was predicted exactly by its own detector
+model.  All values are read from the committed evidence record.}
+\label{fig:pf8}
+\end{figure}
+
+The complete-observer arm passed with zero odd events.  Four
+deterministic members were audited on 441 generic levels and 400 kept
+thermal polylines on five levels each.  The complete observer's
+unsigned branch count took only the values 1 and 3 and every change
+between adjacent levels was minus two, zero, or plus two, giving zero
+odd events and zero parity failures on either arm, with fold counts 4,
+2, 2, 2, all even.  The frozen path-degree rule reported zero failures
+on all 441 deterministic levels and all 2000 thermal polyline checks,
+and the signed count on every member was exactly $+1$ at every level
+with spread zero, so no fold moved it.  Folds make orientation charge
+only in cancelling pairs, measured rather than assumed.
+
+The blind consumer is where the phenomenology appears.  The declared
+consumer fails to record any branch whose transverse coordinate at the
+crossing lies in a closed window fixed from the probe record before the
+run, which the probe measured to hide 147 of 533 pooled crossings,
+$27.6$ percent, some but not all.  Across 441 observations that
+consumer failed to record 147 crossings and read a parity different
+from the complete observer on 129 of them, a flip fraction of
+$0.2925$.  Sixty-three of those were apparent decay events, meaning
+adjacent levels across which the blind count rose by exactly one, one
+particle becoming two with missing energy.  Every single apparent count
+matched the detector-model prediction exactly, zero mismatches on 441
+observations, computed by an independent route from the consumer's own
+record.  On the member where all three branches of the zigzag lie
+inside the window the consumer sees nothing at all where the complete
+observer sees three.  Figure~\ref{fig:pf8} shows both observers.
+The anti-vacuity clause holds throughout, every member folding, the
+ladder resolving 46 multibranch levels, the consumer hiding 147
+crossings, and the thermal census containing 1963 reversing members
+with the census summing exactly to 20000 and a largest relative energy
+residual of $6.3 \times 10^{-7}$.
+
+Lifetimes were measured with an expected negative declared in advance.
+Real decay is memoryless, so the survival curve of a memoryless process
+has a coefficient of variation of exactly one.  Re-running the frozen
+census at a ladder of step caps with the seed held fixed gives the
+exact cumulative distribution of the first-reversal time over the same
+members.  Pooling the four cells, 1963 first-reversal times have mean
+proper time $18.92$ and standard deviation $3.01$, a coefficient of
+variation of $0.159$.  Per cell it is $0.0526$, $0.0530$, $0.0694$, and
+$0.0764$, and the pooled figure is larger only because the four cells
+have different means.  The largest deviation between the empirical
+survival curve and the exponential whose mean matches it is $0.506$
+pooled and near $0.57$ in every cell, most of the available range, and
+shifting to the measured onset does not rescue it, giving a shifted
+coefficient of variation of $0.494$ and a shifted deviation of
+$0.232$.  An exact cross-check on 32 first-reversal steps read from
+kept polylines gives mean $18.94$ and coefficient of variation
+$0.188$.  First-reversal time in this family has a hard onset set by
+when the trajectory reaches the slab and a narrow spread after it,
+which is not a hazard at all, and it is the negative control's lesson
+again, that fold statistics are borne by the declared measure.
+
+The answer the arc records is therefore two-sided.  For the decay
+everyone means, no.  A complete observer of a continuous worldline
+under a generic projection cannot see one particle become two, and that
+is parity rather than a limit of the search.  For a decay nobody can
+distinguish from it without seeing every branch, yes.  The parity-even
+zigzag of a parent plus a created pair reads as a decay with missing
+energy the moment one branch class goes unrecorded, at counts the
+consumer's own detector model predicts exactly.  Apparent decay in this
+model is a measurement of consumer blindness and never a property of
+the worldline.  This is the same structure the campaign's entropy track
+measured as an invisible leak \cite{ZenodoEntropy}, and it is the
+phenomenology of decays with unobserved products without any of the
+physics.  The caveats belong beside it.  This is four members and one
+declared blind window, so the counts of apparent decays are counts on
+one ladder and not a rate, the kept thermal polylines are half
+worldlines because the frozen census stops a member at its first
+reversal, and nothing in this section is sealed.
+
+\section{The summit question, answered under seal for one observable}
+\label{sec:summit}
+
+The open question left by the sealed negative was whether any
+constructible family has an exponent that is not a measure tail.  A
+single deterministic crossing has one declared initial condition, so
+there is no distribution whose tail could produce a suppression, and an
+exploratory probe had already measured the per-crossing energy transfer
+of such a crossing to be exponential in the inverse velocity with a
+coefficient of determination of $0.9921$, at a slope of $-7.8186$
+against a naive estimate of $-11.3097$.  What that probe could not say
+is whether the exponent is dynamical or an accident of a fitted range.
+
+The decisive property is analyticity.  An exponent set by the field's
+nearest complex singularity is a dynamical quantity, because no measure
+tail knows where a function's poles are, and the adiabatic
+exponentiation of a two-level crossing is controlled exactly by that
+distance \cite{Dykhne1962, DavisPechukas1976}.  Writing $d$ for the
+distance from the real axis to the nearest complex singularity of the
+force profile and $P$ for the crossing velocity, the natural variable
+is the adiabaticity
+\begin{equation}
+  \kappa = \frac{\omega_u\, d}{P},
+  \label{eq:kappa}
+\end{equation}
+and in that variable the parameter-free estimate for the log transfer
+is a slope of exactly $-2$.  The observable throughout is the residual
+oscillator energy about the instantaneous well at exit, which is well
+defined for every profile tested including the ones with algebraic
+tails.
+
+The first run declared its cells at fixed velocities and failed three
+of four bars.  The timestep control passed at
+$6.9 \times 10^{-11}$, so nothing in it was numerical, and the
+sech-squared cell at width three reproduced the earlier probe's slope,
+$-7.8154$ against $-7.8186$, an independent replication by a separate
+runner.  The Lorentzian profile behaved as an analyticity-controlled
+exponent should, with coefficients of determination $0.99997$,
+$0.99991$, and $0.99933$ and measured exponents $1.0095$, $1.0344$, and
+$1.0658$ times the naive estimate, while the sech-squared profile gave
+$0.5430$, $0.6910$, and $0.8098$ and drifted with width.  The named
+error is the grid.  Velocities were declared in absolute terms and
+applied to every width, so the three widths were compared in different
+dynamical regimes and the narrowest cells sat partly outside the
+adiabatic regime where the exponential form is asymptotic.
+
+Placing each cell at a declared adiabaticity instead removed the drift
+entirely and refuted a declared expectation.  The Lorentzian exponents
+in the variable of Eq.~\eqref{eq:kappa} are $-2.0661$, $-2.0639$, and
+$-2.0607$ across a factor of two in width, a spread of $0.26$ percent,
+each sitting $3.3$ percent above the parameter-free value, at
+coefficients of determination of $0.9998$.  The sech-squared exponents
+are $-1.0490$, $-1.0478$, and $-1.0462$, a spread of $0.27$ percent.
+The declared expectation that the sech-squared profile is not
+width-universal is refuted, and the earlier 39 percent spread was
+entirely an artifact of the grid.  Both profiles carry an exponent
+fixed by the adiabaticity built from their own singularity distance.
+What they do not share is the constant, the Lorentzian sitting at the
+naive value and the sech-squared at $0.524$ of it.  The run's verdict
+is nonetheless FAIL, on a bar requiring a coefficient of determination
+of $0.99$ applied to both profiles when only one of them was predicted
+to be exactly exponential, and the sech-squared cells sit at $0.9886$,
+$0.9887$, and $0.9889$.
+
+Applying the gate content to the new profile then found a defect in the
+observable's definition before anything about it was sealed, which is
+what a gate exists to do.  The conserved quantity of the extended
+system drifts by at most $8.6 \times 10^{-14}$, the census is complete
+with every crossing transmitted and no nonfinite member, and
+translation covariance is exact to $8.8 \times 10^{-14}$, so the
+transfer does not care where the field is centred.  But moving the
+entry point from twenty widths to thirty changes the transfer by
+$1.289$, $1.295$, and $1.291$ percent at the three widths against a bar
+of $10^{-10}$.  The diagnosis is that the arctangent tilt approaches
+its asymptote algebraically rather than exponentially, so the field
+never fully turns off and a transfer measured from any finite entry
+carries a tail contribution.  A second clause missed for a different
+reason, halving the timestep changing the transfer by about
+$3 \times 10^{-7}$ against the same $10^{-10}$, which is a bar set
+tighter than the declared timestep can deliver and is a fault in the
+declaration.
+
+The span was then measured rather than assumed.  Along a declared
+ladder of entry spans the Lorentzian transfer's successive relative
+changes are $1.278$, $0.586$, $0.130$, and $0.015$ percent, falling
+steadily, while the sech-squared transfer is unchanged to the digits
+recorded, so the effect belongs to algebraic tails and not to the
+method.  The exponent is far more robust than the transfer, changing by
+at most $0.28$ percent between the nearest and furthest spans, and the
+width universality survives at the furthest span with a spread of
+$0.36$ percent.  The tail contribution lands in the prefactor and
+leaves the exponent alone.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[paperaxis, height=0.62\columnwidth,
+  xlabel={declared profile width},
+  ylabel={fitted exponent in the adiabaticity},
+  xmin=1.25, xmax=4.95, ymin=-2.16, ymax=-0.95,
+  legend style={font=\footnotesize, draw=gray!45, fill=white,
+    at={(0.02,0.30)}, anchor=west}, legend cell align=left]
+\addplot[gray!70!black, densely dotted, no marks, domain=1.25:4.95,
+  samples=2] {-1.9200522391689598};
+\addlegendentry{sealed mean, spread 1.07 percent}
+\addplot[only marks, mark=*, mark size=2.4pt, blue!70!black]
+  table[x=L, y=slope] {figdata/pf4_009_sealed.dat};
+\addlegendentry{sealed run, simple pole}
+\addplot[only marks, mark=triangle*, mark size=2.6pt, teal!70!black]
+  table[x=L, y=slope] {figdata/pf4_008c_gud.dat};
+\addlegendentry{exploratory, same singularity order}
+\addplot[only marks, mark=diamond*, mark size=2.6pt, orange!80!black]
+  table[x=L, y=slope] {figdata/pf4_005b_lorentz.dat};
+\addlegendentry{exploratory, branch point at first order}
+\addplot[only marks, mark=square*, mark size=2.0pt, red!70!black]
+  table[x=L, y=slope] {figdata/pf4_008c_sech2.dat};
+\addlegendentry{exploratory, double pole}
+\end{axis}
+\end{tikzpicture}
+\caption{Every fitted exponent of the summit sequence, plotted against
+the declared width of its field profile.  The four sealed values span
+widths differing by a factor of 2.56 and agree within 1.07 percent of
+their mean against a declared bar of two percent, which is the sealed
+claim that the exponent depends only on the adiabaticity built from the
+singularity distance and not on the width.  The two exploratory
+families whose nearest singularity is first order sit near the same
+value while the family whose nearest singularity is a double pole at
+the same distance sits at about 1.1, so distance alone does not fix the
+exponent.  All values are read from committed evidence records.}
+\label{fig:summit}
+\end{figure}
+
+Separating the singularity's order from its tail behaviour was the last
+exploratory step, and it was declared with two mutually exclusive
+hypotheses so the run would discriminate rather than confirm.  A
+Gudermannian tilt has a first-order pole at the same distance as the
+sech-squared family's double pole and has exponentially decaying tails,
+so the comparison holds the distance fixed and varies the order.  The
+entry-point clause the Lorentzian profile failed at
+$1.3 \times 10^{-2}$ is passed by this one at $5.7 \times 10^{-11}$,
+with the timestep and translation clauses at $4.9 \times 10^{-13}$ and
+$6.5 \times 10^{-15}$.  The discriminator answered for the order.  The
+Gudermannian exponents are $-1.9333$, $-1.9286$, and $-1.9217$, a
+spread of $0.61$ percent, while the sech-squared exponents on the
+identical grid are $-1.1028$, $-1.1015$, and $-1.0997$, a spread of
+$0.29$ percent, a ratio of $1.75$.  Two profiles whose nearest
+singularities sit at the same distance and differ only in order carry
+different exponents, so the distance alone does not fix it.
+
+That run nonetheless failed on conservation, drifting at
+$1.9 \times 10^{-10}$ against a bar of $10^{-10}$, and the declared
+repair refuted itself.  Halving the timestep left the drift at
+$2.0 \times 10^{-10}$, so the drift was not integration error.  The
+diagnosis is a floating-point inconsistency in the tilt.  A hyperbolic
+tangent of twenty rounds to exactly one in double precision while its
+own derivative is still nonzero at that point, so the tilt and the
+force become mutually inconsistent in the tails, and because the
+Hamiltonian carries the tilt the inconsistency reads as an apparent
+conservation violation.  The sech-squared profile is immune because its
+force at the same point is far smaller.  Evaluating the tilt so that it
+saturates together with its derivative dropped the worst drift to
+$2.6 \times 10^{-12}$ and moved the exponents only in their seventh
+digit, exactly as the diagnosis predicted, and that run passes all
+eight of its items with entry-point independence at
+$3.0 \times 10^{-9}$, timestep independence at $6.6 \times 10^{-13}$,
+and translation covariance at $2.5 \times 10^{-15}$.
+
+The sealed registration then bound the Gudermannian profile on a
+manifest disjoint from every prior run, four widths spanning a factor
+of $2.56$ crossed with six declared adiabaticities, with every bar set
+at the precision the prior measurements support rather than at the
+precision they appeared to have.  It passes all six.  The four fitted
+exponents are $-1.929735$, $-1.924383$, $-1.916823$, and $-1.909268$, a
+spread of $1.07$ percent against a declared bar of two percent.
+Coefficients of determination are $0.9989$ or better in every cell.
+The extended Hamiltonian drifts by at most $3.7 \times 10^{-13}$
+against a bar of $10^{-11}$, entry-point independence measures
+$9.2 \times 10^{-9}$ against $10^{-7}$, every transfer lies inside the
+declared signal window, and no cell is nonfinite and none folds.
+Figure~\ref{fig:summit} places those four values beside every
+exploratory exponent of the sequence.
+
+The summit question has a sealed answer for one observable.  A
+constructible family has a suppression whose exponent depends only on
+the adiabaticity built from the distance to the field's nearest complex
+singularity, and is therefore independent of the width.  Each crossing
+is deterministic with one declared initial condition, so no
+distribution exists whose tail could produce the suppression.  The
+exponent is dynamical and it is not a measure tail.
+
+The registration's own non-claims bind that reading and are repeated
+here because they are the whole scope of the result.  The observable is
+the per-crossing energy transfer and not an event rate, and the step
+between them remains blocked by the cancellation measured in
+Sec.~\ref{sec:pf4b}.  The constant multiplying the adiabaticity is not
+claimed, and the exploratory observation that a first-order singularity
+gives close to minus two while a second-order pole gives about
+$-1.1$ is not sealed.  Nothing in this section is a claim about quantum
+field theory or about any physical process.  The campaign also stopped
+here deliberately.  Two runs had already corrected two declaration
+errors, and a third refinement aimed at a constant that was recognised
+after measurement rather than predicted before it would have been
+fitting the analysis to a wanted answer.
+
+\section{Five vacuous runs and four bars that failed for the
+declaration}
+\label{sec:spine}
+
+This arc contains the densest failure record in the campaign, and the
+record is load-bearing rather than decorative, so it is reported here
+as a sequence of facts with each design error named.
+
+Five runs passed or reported on manifests containing none of the events
+their claims were about.  The pulse-train registration of
+Sec.~\ref{sec:pf4b} sealed itself unevaluable because every cell capped
+without a reversal, and the direct-observable probe then measured the
+family empty at all twelve probed cells.  The first conservation gate
+passed all four of its bars on a product grid whose eight cells
+recorded zero reversing trajectories, so its claim about the accounting
+of apparent pair events was untested by its own pass.  The first
+covariance gate ran its audits on four deterministic members that
+produce no folds, and only its own anti-vacuity bar caught it.  The
+first ceiling run computed its classical oscillation statistic on a
+curve that was exactly constant, because the declared field reversed
+every member at every delay.  And the first summit run compared three
+widths in different dynamical regimes, so its cross-profile ratio test
+was contaminated and could not be read.
+
+The rule that came out of them tightened three times and is now
+unconditional.  After the empty family it required a manifest to be
+placed from a probe of the same observable at identical constants.
+After the event-free grid it applied to gate runs as well as to summit
+runs.  After the fold-free members it required a probe verifying event
+presence for every bound cell and every bound member.  And after the
+saturated classical arm, which was a new construction rather than an
+inherited manifest and so slipped past the rule's earlier wording, it
+became a requirement on any arm of any experiment.  Every registration
+in this campaign must now cite a committed probe showing that its
+manifest contains the variation its claim is about.
+
+Four further bars failed for reasons belonging to the declaration
+rather than to the model, and each is a different mistake.  The first
+sealed axis comparison set its bars in binomial units, which tested a
+model nobody had claimed, and the correction declared in writing that
+its bars would be ratios to the model's own training inadequacy before
+that registration existed.  The first ceiling bar of $0.15$ sat below
+its own statistic's noise floor, which a later null measurement put at
+a mean of $0.2165$ on a curve of that length, so no curve could have
+met it.  The gate on the Lorentzian profile set a timestep bar of
+$10^{-10}$ that the declared timestep could not deliver, missing at
+$3 \times 10^{-7}$ for a reason with nothing to do with the profile.
+And a conservation bar of $10^{-10}$ was missed by a factor of two,
+its declared repair of halving the timestep was refuted by the rerun,
+and the drift turned out to be a floating-point inconsistency in the
+tilt, so the bar was eventually met by fixing an evaluation rather than
+by integrating harder.
+
+Two more entries belong in the same record.  A bar requiring a
+coefficient of determination of $0.99$ was declared over two profiles
+when only one of them was predicted to be exactly exponential, and the
+other missed it at $0.9886$, which is itself informative about the
+order of its singularity.  And two runners in the summit sequence
+imported a fitting helper that regresses against the reciprocal of the
+adiabaticity rather than the adiabaticity itself, which produced
+positive exponents for a quantity already committed as negative.  The
+error was found by comparison against a committed record, the runners
+were corrected, and the declared protocols were rerun with no bar and
+no design changed.
+
+None of this is offered as evidence of rigor.  It is offered because
+the sequence of verdicts is part of the evidence and because five of
+these failures would have been reported as successes by a pipeline that
+did not check whether its manifest contained its events.
+
+\section{What this paper establishes}
+\label{sec:claims}
+
+\begin{table*}[t]
+\caption{The ledger of the instrument layer and the sealed Schwinger
+negative.  Verdicts are recorded exactly as computed from the declared
+items of each run.  Proved means a statement about smooth maps under
+its stated hypotheses.  Measured in model means an exact measurement in
+a declared finite construction with append-only evidence records and
+bars, grids, seeds, and estimators fixed before the run.  Key numbers
+are quoted from the committed records.  Tables~\ref{tab:ledger2} and
+\ref{tab:ledger3} carry the gates, the ceiling, the decay gate, the
+summit sequence, and the scope of the whole arc.}
+\label{tab:ledger}
+\begin{ruledtabular}
+\footnotesize
+\begin{tabular}{L{2.5cm}lL{9.4cm}L{3.0cm}}
+Run & Verdict & Key measurements & Label \\
+\colrule
+Fold kinematics & proved & a nondegenerate critical point of the
+observed time changes the unsigned branch count by exactly two and the
+signed count by exactly zero, under the stated smoothness and
+genericity hypotheses & proved \\
+PF0-FREEZE-001 instrument net & SEALED & branch counts 0, 1, 2 across
+the creation fold with signed count 0 at every slice, the reverse order
+across the annihilation fold, the cubic critical point classified
+degenerate and never a fold, the double fold giving band counts 1, 3,
+3, 3, 1 with signed count $+1$ and both critical points at
+$\pm 1/\sqrt3$, separation exponent within $10^{-12}$ of one half,
+cross-language branch locations agreeing to $4.5\times10^{-16}$,
+classifier tolerances derived from a worst residual of
+$4.6\times10^{-13}$ and a smallest fold curvature of 0.208 &
+instrument \\
+PF-1 structural stability & PASS & 500 trials at each of twelve
+perturbation norms from $10^{-5}$ to 0.316, fold persistence exactly 1
+through norm 0.123 and 0.956 at the largest with 22 of 500 lost, zero
+degenerate classifications anywhere, median separation exponent 0.5
+throughout and within $2.8\times10^{-6}$ of it at the largest
+perturbation & measured in model, exploratory \\
+PF-2 negative control & measured & a single member gives exactly 12
+folds with 7 positive and 6 negative orientation segments at relative
+drift $1.3\times10^{-7}$, and a 1000-member perturbed ensemble gives
+exactly 12 folds in every member, 12000 in total with zero dispersion,
+at mean relative drift $6.7\times10^{-10}$, with the same scenario
+reproducing its outcome hash bit for bit on a second substrate &
+measured in model, exploratory \\
+PF-3 prior-art replication & replicated & the published closed form
+agrees with the linear system it came from to $5.7\times10^{-14}$ and
+with its own published time component to $1.4\times10^{-14}$, the
+reversal threshold sits exactly at coupling 2, 27 sweep cells have
+spacelike outgoing velocity and are recorded, the smoothed worldline
+has zero observed-time crossings below threshold and exactly one above,
+classified an annihilation fold & replicated \\
+PF-4 pilot & measured & 18 cells at $5\times10^4$ members with drift
+uniformly near $6\times10^{-7}$, a razor-sharp transition from
+$2.8\times10^{-4}$ at field 0.65 to 0.9115 at field 0.80 at gap 0.5,
+only 2 of 18 cells in the measurable band, so every later manifest in
+this family is probe-placed & measured in model, exploratory \\
+PREREG-PF4-001 axis discrimination & neither-axis & all 20 probe-placed
+cells measurable, both prescription controls agreeing per member at
+$z=0.00$, zero-field null exactly zero, fitted effective-gap slope
+41.24, the effective-gap model beating the Schwinger-shaped model by
+3.28 on held-out error, but held-out weighted error 81.22 against a bar
+of 4 because the bars were written in binomial units & measured in
+model, exploratory \\
+PREREG-PF4-002 bars against model error & PASS & held-out weighted
+error 0.3842 of training error against a bar of 2, the Schwinger-shaped
+model 3.1398 times worse against the same bar, fitted slope 43.18, ten
+of twelve training and seven of eight held-out cells usable, controls
+at $z=0.00$, zero-field null exactly zero & demonstrated in model \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{The ledger of the empty family, the two mandatory gates, the
+ceiling sequence, and the decay gate.  Both gates are recorded twice
+because both first runs met every bar on a manifest containing none of
+the events their claims were about.  The ceiling sequence is recorded
+in full because four of its six runs corrected an error of the
+declaration.  Key numbers are quoted from the committed records.}
+\label{tab:ledger2}
+\begin{ruledtabular}
+\footnotesize
+\begin{tabular}{L{2.5cm}lL{9.4cm}L{3.0cm}}
+Run & Verdict & Key measurements & Label \\
+\colrule
+PREREG-PF4-003 pulse train & unevaluable & every one of four training
+and three held-out cells capped at 4000 slabs without a reversal, and
+every cell of the mandatory planted control likewise, so no fit exists
+and the record carries a manifest-design failure & measured in model,
+exploratory \\
+PF4-004 direct probe & empty & zero reversals at all twelve probed
+cells, three fields crossed with four velocities at identical
+constants, at a cap of 300 slabs, so the successor registration cannot
+bind under its own verification clause & measured in model,
+exploratory \\
+PF4 mechanism study & flag False & net drift per slab 3.3, 0.9, and 5.0
+percent of the mean deposit magnitude, so 95 to 99 percent of every
+deposit is cancelled, sign flips on 54, 68, and 27 percent of
+consecutive deposits, and the third cell's drift is $+0.0096$ per slab,
+carrying the event away from the fold & measured in model,
+exploratory \\
+PREREG-PF5-001 conservation & PASS, content untested & all 8 cells
+evaluable, every census summing exactly to 20000 with zero missing,
+largest relative energy residual $6.5\times10^{-7}$ against a bar of
+$10^{-5}$, path-degree rule holding at every generic level on all 96
+declared members with zero failures and zero refused levels, and zero
+reversing trajectories in every cell, all 160000 members transmitted &
+measured in model, exploratory \\
+PREREG-PF5-002 probe-placed & PASS & 1998, 1952, 1881, and 2237
+reversing members out of 20000 each, 8068 audited apparent pair events,
+every census exact with zero missing, largest relative residual
+$7.3\times10^{-7}$ against $10^{-5}$, zero path-degree failures and
+zero refused levels on all 48 declared members & demonstrated in
+model \\
+PREREG-PF6-001 covariance & vacuous & every declared deterministic
+member produced zero folds, so all four cells were audited for the
+covariance of events that were not present, and the run's own
+anti-vacuity bar recorded it vacuous rather than passing & measured in
+model, exploratory \\
+PREREG-PF6-002 probe-placed & PASS & fold counts 4, 2, 2, 2 matching
+the member probe, 10 folds in total and every count even, first-fold
+worldpoints equivariant under the declared shifts to
+$3.1\times10^{-14}$, reparametrized rate ratio deviating from the
+declared factor by exactly 0, boost commutation
+$4.5\times10^{-13}$ and invariant drift $7.1\times10^{-11}$ with a
+positive future-cone margin, and the observer count equal to the
+detector-model prediction at all six declared observers on every member
+& demonstrated in model \\
+PF-7 ceiling, first attempt & FAIL & single-passage control
+$5.06\times10^{-3}$ from the closed form against a bar of
+$2\times10^{-3}$, quantum statistic 0.2238 against 0.30 because a grid
+uniform in delay undersamples a chirp quadratic in delay, norm
+conserved to $5.5\times10^{-14}$, and the classical arm returning
+exactly 1.0 at every one of 24 delays so its statistic was computed on
+a constant curve & measured in model, exploratory \\
+PF-7b corrected grid and bound field & PASS, ceiling bar failed &
+single-passage control within $1.49\times10^{-3}$, quantum statistic
+0.8702 under the grid uniform in the squared half-delay, norm
+$5.9\times10^{-14}$, classical fractions varying from 0.4645 to 0.5245,
+but the classical statistic 0.3626 against a declared 0.15 and the
+ratio 2.40 against 3 & measured in model, exploratory \\
+PF-7c noise floor & PASS & the null floor measured rather than
+asserted, null mean 0.2165 and ninety-fifth percentile 0.3310 over
+20000 draws, so the declared 0.15 was unattainable, classical p-value
+0.0262 and quantum p-value 0.0, and the ceiling reading withheld and
+escalated exactly as the protocol required & measured in model,
+exploratory \\
+PF-7d ringing test & PASS, mechanism refuted & structure survives four
+times the ensemble at p-value 0.02605 against 0.0262 at a quarter of
+the members, but the spectral peak sits at period 12.52 against a
+declared ringing period of 5.236, which is the lowest nonzero bin and
+therefore a trend, the curve falling from 0.4942 to 0.4829 across the
+range & measured in model, exploratory \\
+PF-7e linear detrend & FAIL & removing a declared linear trend raised
+the classical statistic from 0.4480 to 0.5014 and lowered its p-value
+from 0.02605 to 0.01185, refuting the diagnosis, while the trend is
+real at 4.19 standard errors and the quantum statistic is untouched at
+0.8702 & measured in model, exploratory \\
+PF-7f declared smooth model & PASS & removing an asymptote plus an
+exponential approach at the declared pulse length drops the classical
+statistic from 0.4480 to 0.2122 at a p-value of 0.757, the quantum
+statistic measures 0.8724 after the same treatment, and the trend
+remains real at 4.19 standard errors & measured in model,
+exploratory \\
+PF-8 decay gate & PASS & 441 generic levels on four members and 400
+thermal polylines, complete-observer counts only 1 and 3 with every
+change minus two, zero, or plus two, zero odd events and zero parity
+failures, zero path-degree failures on 441 deterministic and 2000
+thermal checks with signed count exactly $+1$ and spread 0, the blind
+consumer hiding 147 of 533 crossings, flipping parity on 129 of 441
+observations, producing 63 apparent decays, and matching its own
+detector model on all 441 with zero mismatches, and lifetimes with
+coefficient of variation 0.159 against the 1 a memoryless process
+requires & measured in model, exploratory \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{The ledger of the summit sequence and the scope of the whole
+arc.  The exploratory runs are kept because three of them failed and
+each failure named the error that the next run corrected.  The last row
+is a non-claim and governs every row of this table and of
+Tables~\ref{tab:ledger} and \ref{tab:ledger2}.}
+\label{tab:ledger3}
+\begin{ruledtabular}
+\footnotesize
+\begin{tabular}{L{2.5cm}lL{9.4cm}L{3.0cm}}
+Run & Verdict & Key measurements & Label \\
+\colrule
+PF4-005 analyticity, velocity grid & FAIL & timestep control
+$6.9\times10^{-11}$, the sech-squared cell at width three replicating
+the earlier probe's slope at $-7.8154$ against $-7.8186$, Lorentzian
+coefficients of determination 0.99997, 0.99991, and 0.99933 with
+exponent ratios 1.0095, 1.0344, and 1.0658 against sech-squared ratios
+0.5430, 0.6910, and 0.8098, but the velocity grid compared three widths
+in different dynamical regimes & measured in model, exploratory \\
+PF4-005b adiabaticity grid & FAIL & Lorentzian exponents $-2.0661$,
+$-2.0639$, and $-2.0607$, a spread of 0.26 percent, 3.3 percent above
+the parameter-free value, at coefficients of determination 0.9998,
+sech-squared exponents $-1.0490$, $-1.0478$, and $-1.0462$, a spread of
+0.27 percent, refuting the declared expectation, timestep control
+$1.8\times10^{-13}$, and the failed bar a coefficient of determination
+of 0.99 declared over both profiles when only one was predicted to be
+exactly exponential & measured in model, exploratory \\
+PF4-006 gate content & FAIL & conserved quantity drifting at
+$8.6\times10^{-14}$, complete census with every crossing transmitted,
+translation covariance $8.8\times10^{-14}$, but moving the entry point
+from twenty widths to thirty changing the transfer by 1.289, 1.295, and
+1.291 percent against a bar of $10^{-10}$ because the tilt approaches
+its asymptote algebraically, and a timestep bar the declared timestep
+could not deliver, missing at about $3\times10^{-7}$ & measured in
+model, exploratory \\
+PF4-007 span ladder & PASS & Lorentzian successive relative changes
+1.278, 0.586, 0.130, and 0.015 percent along the declared span ladder
+while the sech-squared transfer is unchanged to the digits recorded,
+the exponent changing by at most 0.28 percent between the nearest and
+furthest spans, and width universality surviving at the furthest span
+with a spread of 0.36 percent & measured in model, exploratory \\
+PF4-008 pole order & FAIL & the entry clause the Lorentzian failed at
+$1.3\times10^{-2}$ passed at $5.7\times10^{-11}$, Gudermannian
+exponents $-1.9333$, $-1.9286$, and $-1.9217$ at a spread of 0.61
+percent against sech-squared exponents $-1.1028$, $-1.1015$, and
+$-1.0997$ on the identical grid, a ratio of 1.75 refuting the
+distance-only hypothesis, but conservation drifting at
+$1.9\times10^{-10}$ against a bar of $10^{-10}$ & measured in model,
+exploratory \\
+PF4-008b halved timestep & FAIL & the declared repair refuted itself,
+the drift measuring $2.0\times10^{-10}$ at half the step, so the drift
+was not integration error and the repair was wrong & measured in model,
+exploratory \\
+PF4-008c corrected tilt evaluation & PASS & evaluating the tilt so that
+it saturates together with its derivative dropped the worst drift to
+$2.6\times10^{-12}$ and moved the exponents only in their seventh
+digit, with entry-point independence $3.0\times10^{-9}$, timestep
+independence $6.6\times10^{-13}$, and translation covariance
+$2.5\times10^{-15}$, and all eight items passing & measured in model,
+exploratory \\
+PREREG-PF4-009 sealed exponent & PASS & four fitted exponents
+$-1.929735$, $-1.924383$, $-1.916823$, and $-1.909268$ across widths
+spanning a factor of 2.56, a spread of 1.07 percent against a declared
+bar of two percent, coefficients of determination 0.9989 or better in
+every cell, Hamiltonian drift at most $3.7\times10^{-13}$ against
+$10^{-11}$, entry-point independence $9.2\times10^{-9}$ against
+$10^{-7}$, every transfer inside the declared window, and no cell
+nonfinite and none folding & demonstrated in model \\
+Scope & non-claim & the kinematic statement is a theorem and everything
+else here is measured in declared finite models at declared constants
+and a declared step, the sealed observable is a per-crossing energy
+transfer and not an event rate, the constant multiplying the
+adiabaticity is not claimed, apparent decay here is a measurement of
+consumer blindness and never a property of the worldline, and no result
+in this paper is evidence that physical pair creation or physical
+particle decay works this way & non-claim \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Tables~\ref{tab:ledger}, \ref{tab:ledger2}, and \ref{tab:ledger3}
+register every run of the arc with its recorded verdict.  Read together
+they answer the founding question inside its declared scope, and the
+answer has four parts.
+
+The kinematic part is settled and is the only part that is a theorem.
+A fold of the observed time makes exactly two branches of opposite
+orientation and leaves the signed count alone.  The instrument that
+finds them was validated against exact controls before any dynamics
+ran, its tolerances were derived from measured margins rather than
+chosen, and the folds it finds survive perturbation.
+
+The dynamical part is a negative in the one family the campaign could
+populate and seal.  Reversal suppression there is a Gaussian tail of
+the initial-condition measure in a measured effective gap, and the
+Schwinger-shaped variable does not compete.  The family constructed to
+escape that verdict by removing the measure entirely turned out to
+contain no events, because its alternating slabs cancel almost all of
+every deposit and the residual has no fixed sign.  Both mandatory gates
+hold on cells that contain events, conservation with every census exact
+and the orientation charge rule never failing, and covariance with
+every count invariant under the declared passive transformations and
+every observer-dependent count predicted exactly by a declared detector
+model.
+
+The ceiling part is a measured limit.  The model reproduces the
+kinematics of pair events and the phenomenology of apparent decay under
+restricted observation, and it does not reproduce quantum phase
+structure.  A two-level mode interferes at a level no noise floor
+approaches while the matched classical ensemble carries only the smooth
+delay dependence its own pulse overlap predicts.  This caps the model
+as a classical representation and does not touch the kinematic
+statement or any other measured result here.
+
+The fourth part is the one sealed positive and it is narrow.  There
+exists a constructible family whose suppression exponent is fixed by
+the distance to the field's nearest complex singularity, independent of
+the profile's width across a factor of 2.56 to within 1.07 percent,
+measured on deterministic crossings where no distribution exists whose
+tail could produce it.  That answers the construction question the
+sealed negative left open, for the per-crossing transfer and for
+nothing else.  The step from a transfer to an event rate is blocked by
+the cancellation the mechanism study measured, and no claim about a
+pair production rate follows.
+
+Three objects here do not depend on the substrates measured.  The first
+is the parity argument of Sec.~\ref{sec:pf8}, which excludes a
+same-species decay of one particle into two for complete continuous
+worldlines under generic projections by arithmetic rather than by
+search.  The second is the lawful-observer clause, which allows
+observer-dependent particle number exactly when a declared detector
+model predicts every count, and which held on 441 observations with
+zero mismatches for a consumer that was blind by declaration.  The
+third is the standing rule of Sec.~\ref{sec:spine}, which five failures
+in this arc paid for.
+
+Nothing above is evidence that physical spacetime is a projection, that
+physical pair creation proceeds by folding, or that physical particle
+decay is a measurement artifact.  Every dynamical statement here is
+about a declared finite model, and the paper's scope row says so once
+more.
+
+\section{Methods and reproducibility}
+\label{sec:methods}
+
+All runs follow the campaign's standing discipline.  Model families,
+constants, grids, seeds, integrators, tolerances, estimators, stopping
+rules, and falsification bars were declared in the track documents
+before the runs they govern, and claim-bearing runs are governed by a
+preregistration whose file hash is recorded in an append-only seal
+ledger at its sealing commit, verifiable against the repository's git
+history.  The nine sealed documents of this arc are the tolerance
+freeze, three registrations on the Schwinger question, two on
+conservation, two on covariance, and the sealed analyticity exponent.
+Verdicts are computed from the declared items by the governed runner
+rather than written afterward.
+
+Every result-bearing run writes an append-only JSON evidence record
+containing the declared parameters, the measured outcomes, the computed
+verdict, the code commit, the dependency versions, and a canonical
+SHA-256 hash of the record body.  The records for this paper are the
+instrument-net and ensemble records, the structural-stability pilot,
+the replication record, the pilot and the three sealed records of the
+Schwinger question, the direct probe and the mechanism study of the
+pulse-train family, the two conservation instrument and gate records
+with their placement probe, the two covariance instrument and gate
+records with their member probe, the six ceiling records with their two
+field probes, the decay gate with its blind probe, the eight records of
+the summit sequence, and the sealed analyticity record, all in
+\texttt{results/} in the campaign repository, each with its committed
+runner beside it.  Failed and vacuous records are retained unchanged
+and each corrected declaration is a separate record, so the sequence of
+verdicts is itself part of the evidence.  A reducer may summarize
+records but may not rewrite them.
+
+Every measured number and every figure coordinate in this paper is read
+from those committed records.  The figure tables are generated
+deterministically by a committed script,
+\texttt{make\_\allowbreak figdata\_\allowbreak pf.py}, which uses only
+the Python standard library, has no free parameters, and asserts each
+value typed in this paper against the record value it came from before
+it writes anything, so a record that changed would break the build
+rather than disagree quietly with the text.  Declared parameters quoted
+in the text, including the instrument-net controls, the frozen
+classifier tolerances, the seal ledger entries, and the bars of every
+registration, are checked the same way against the track documents and
+preregistrations that declared them.
+
+The instrument layer runs in two independent implementations, one in
+MATLAB with event-located adaptive integration and one in Python with
+fixed-step symplectic integration, and the frozen tolerances bind both
+paths separately, with an adaptive path at relative tolerance
+$10^{-10}$ and a fixed-step path at step $10^{-3}$ valid to evolution
+parameter 40 \cite{HairerLubichWanner}.  Cross-substrate determinism is
+part of the freeze, and the same scenario on a workstation and in a
+container reproduces both its scenario hash and its outcome hash bit
+for bit.  The Sauter-family ensembles are brute-force with no
+importance sampling and no adaptive seeding, with seeds derived from
+declared formulas in the governed runners, and every trajectory is
+counted in every denominator including the numerically failed, the
+capped, and the transmitted.  The summit sequence integrates single
+deterministic crossings by fourth-order Runge-Kutta at declared steps
+of $2\times10^{-4}$ and $10^{-4}$, with the extended
+two-degree-of-freedom Hamiltonian's drift, the entry-point
+independence, the timestep independence, and the translation covariance
+all measured per run rather than assumed.  All runs executed on a
+single workstation and require no special hardware.
+
+\begin{thebibliography}{99}
+
+\bibitem{Whitney1955}
+H.~Whitney,
+On singularities of mappings of Euclidean spaces I. Mappings of the
+plane into the plane,
+Ann. Math. \textbf{62}, 374 (1955).
+
+\bibitem{ArnoldGZ}
+V.~I.~Arnold, S.~M.~Gusein-Zade, and A.~N.~Varchenko,
+\emph{Singularities of Differentiable Maps, Volume 1}
+(Birkh\"auser, Boston, 1985).
+
+\bibitem{Stueckelberg1941}
+E.~C.~G.~Stueckelberg,
+La signification du temps propre en m\'ecanique ondulatoire,
+Helv. Phys. Acta \textbf{14}, 588 (1941).
+
+\bibitem{Feynman1949}
+R.~P.~Feynman,
+The theory of positrons,
+Phys. Rev. \textbf{76}, 749 (1949).
+
+\bibitem{HorwitzPiron1973}
+L.~P.~Horwitz and C.~Piron,
+Relativistic dynamics,
+Helv. Phys. Acta \textbf{46}, 316 (1973).
+
+\bibitem{Land2016}
+M.~Land,
+Pair production in classical Stueckelberg-Horwitz-Piron
+electrodynamics,
+J. Phys.: Conf. Ser. \textbf{845}, 012025 (2017),
+arXiv:1604.01625.
+
+\bibitem{Sauter1931}
+F.~Sauter,
+\"Uber das Verhalten eines Elektrons im homogenen elektrischen Feld
+nach der relativistischen Theorie Diracs,
+Z. Phys. \textbf{69}, 742 (1931).
+
+\bibitem{HeisenbergEuler1936}
+W.~Heisenberg and H.~Euler,
+Folgerungen aus der Diracschen Theorie des Positrons,
+Z. Phys. \textbf{98}, 714 (1936).
+
+\bibitem{Schwinger1951}
+J.~Schwinger,
+On gauge invariance and vacuum polarization,
+Phys. Rev. \textbf{82}, 664 (1951).
+
+\bibitem{Dunne2004}
+G.~V.~Dunne,
+Heisenberg-Euler effective Lagrangians: Basics and extensions,
+in \emph{From Fields to Strings: Circumnavigating Theoretical Physics}
+(World Scientific, Singapore, 2005),
+arXiv:hep-th/0406216.
+
+\bibitem{Landau1932}
+L.~D.~Landau,
+Zur Theorie der Energie\"ubertragung II,
+Phys. Z. Sowjetunion \textbf{2}, 46 (1932).
+
+\bibitem{Zener1932}
+C.~Zener,
+Non-adiabatic crossing of energy levels,
+Proc. R. Soc. London A \textbf{137}, 696 (1932).
+
+\bibitem{Stueckelberg1932}
+E.~C.~G.~Stueckelberg,
+Theorie der unelastischen St\"osse zwischen Atomen,
+Helv. Phys. Acta \textbf{5}, 369 (1932).
+
+\bibitem{Shevchenko2010}
+S.~N.~Shevchenko, S.~Ashhab, and F.~Nori,
+Landau-Zener-St\"uckelberg interferometry,
+Phys. Rep. \textbf{492}, 1 (2010).
+
+\bibitem{Dykhne1962}
+A.~M.~Dykhne,
+Adiabatic perturbation of discrete spectrum states,
+Sov. Phys. JETP \textbf{14}, 941 (1962).
+
+\bibitem{DavisPechukas1976}
+J.~P.~Davis and P.~Pechukas,
+Nonadiabatic transitions induced by a time-dependent Hamiltonian in the
+semiclassical/adiabatic limit: The two-state case,
+J. Chem. Phys. \textbf{64}, 3129 (1976).
+
+\bibitem{HairerLubichWanner}
+E.~Hairer, C.~Lubich, and G.~Wanner,
+\emph{Geometric Numerical Integration}, 2nd ed.
+(Springer, Berlin, 2006).
+
+\bibitem{ZenodoEntropy}
+A.~H.~Bond,
+Entropy across singular projections: Fiber multiplicity, caustics, and
+observer-relative information,
+Zenodo (2026), doi:10.5281/zenodo.21789011.
+
+\bibitem{ZenodoCayley}
+A.~H.~Bond,
+The pair-creation threshold of impulsive Stueckelberg-Horwitz-Piron
+scattering is a Cayley-transform pole,
+Zenodo (2026), doi:10.5281/zenodo.21790096.
+
+\bibitem{ZenodoSchwinger}
+A.~H.~Bond,
+A sealed negative for Schwinger scaling in a resolved-field
+hidden-dynamics family,
+Zenodo (2026), doi:10.5281/zenodo.21798545.
+
+\bibitem{ZenodoGames}
+A.~H.~Bond,
+Games and decisions under projection: Blackwell wedges, budget flips,
+and prospect signatures from declared consumers,
+Zenodo (2026), doi:10.5281/zenodo.21818268.
+
+\bibitem{ZenodoGen2}
+A.~H.~Bond,
+Five audits under one consumer discipline: Renormalization, quantum
+Darwinism, lattice hydrodynamics, fluctuation theorems, and gauge
+redundancy in exact finite models,
+Zenodo (2026), doi:10.5281/zenodo.21821378.
+
+\bibitem{ZenodoCrypto}
+A.~H.~Bond,
+Engineered observation limits in exact finite models,
+Zenodo (2026), doi:10.5281/zenodo.21833690.
+
+\end{thebibliography}
+
+\end{document}
