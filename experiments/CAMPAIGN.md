@@ -692,6 +692,36 @@ between the nearest and furthest spans, and the Lorentzian width universality
 survives at the furthest span with a spread of 0.36 percent. The tail contribution
 lands in the prefactor and leaves the exponent, which is what the seal turned on.
 
+#### PF4-007, a bookkeeping defect and its correction
+
+The record committed as `results/pf4-007-span.json`, sha
+e12453effa2f, was produced by the runner before the reciprocal-fit
+import was found, so its exponent items are invalid. Its Lorentzian
+slopes are positive, which is the signature of that defect. It
+stays in the record unedited.
+
+The corrected rerun was left in the working tree and never
+committed, so it was invisible to anything reading the repository.
+It is now committed separately as `results/pf4-007b-span.json`,
+which supersedes the invalid record and names it. The runner writes
+to the new path so that a rerun can no longer overwrite a committed
+record's file.
+
+What changes and what does not. The span ladder itself does not
+pass through the fit, so the convergence numbers are identical in
+both records and the diagnosis of algebraic tails stands. The
+exponent items move slightly, the worst relative exponent change
+from 0.00278 to 0.00234 and the Lorentzian spread at the furthest
+span from 0.00356 to 0.00359, and both remain far inside their
+bars, so no verdict changes.
+
+The defect is mine and it is the second of its family today. A
+committed record was produced by a runner that was later found
+defective, and the correction was then left uncommitted where the
+paper could not see it. The rule the campaign already applies to
+declarations now applies to records as well, a rerun writes to a new
+path and never over a committed one.
+
 #### PF4-008b and PF4-008c results (2026-08-07)
 
 PF4-008b refuted its own declared repair. Halving the timestep left the conservation

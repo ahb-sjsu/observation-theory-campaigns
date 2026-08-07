@@ -95,7 +95,7 @@ def exponent_at_span(profile, l_s, span):
 
 
 def main() -> int:
-    record: dict = {"schema": "pf4-007-span-v1",
+    record: dict = {"schema": "pf4-007b-span-v1",
                     "label": "exploratory"}
     items = {}
 
@@ -184,7 +184,7 @@ def main() -> int:
     record["record_sha256"] = canonical_sha256(
         {k: v for k, v in record.items() if k != "runtime"})
     out = Path(__file__).resolve().parents[1] / "results" \
-        / "pf4-007-span.json"
+        / "pf4-007b-span.json"
     out.write_text(json.dumps(record, indent=2, sort_keys=True),
                    encoding="utf-8")
     print("lorentz successive changes", lor_rel)
