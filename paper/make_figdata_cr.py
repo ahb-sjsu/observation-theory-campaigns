@@ -750,5 +750,18 @@ for i, typed in enumerate([0.5096, 0.5373, 0.6357, 0.8750, 1.0]):
     check(f"QD-3 agreement point {i}",
           qd3["measured"]["agreement_curve"][i], typed, 5e-5)
 
+hd3 = load("hd3-dissipation-gate.json")
+check_exact("HD-3 verdict", hd3["verdict"]["value"], "PASS")
+check_exact("HD-3 exact invertibility",
+            hd3["items"]["D1_exact_invertibility"], True)
+check_exact("HD-3 reversed run matches the forward run",
+            hd3["measured"]["inverse_matches_forward_reversed_exactly"],
+            True)
+# The paper says the coarse mode decayed to a small fraction of its
+# initial amplitude before the exact reversal returned the state.
+assert hd3["measured"]["forward_decay_ratio"] < 0.1, \
+    "the HD-3 coarse mode did not decay to a small fraction"
+CHECKS += 1
+
 print(f"all figure data written, {CHECKS} paper values bound "
       f"to committed records")

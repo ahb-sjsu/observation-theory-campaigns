@@ -38,7 +38,7 @@ limits.  Where the rest of this campaign has to find the consumer's
 channel inside a physical model, cryptography writes the channel down
 on purpose and then argues about what a consumer can read through it.
 This paper carries the campaign's consumer-relative audit to that
-argument in eleven exact finite models, each a declared toy model
+argument in eleven registered runs, each on a declared toy model
 small enough to enumerate, and to nothing else.  Nothing
 in this paper bears on computational hardness or on asymptotic
 security, no real cipher, protocol, curve, standard, implementation,
@@ -78,8 +78,8 @@ comparability by proof, so an evaluation that establishes
 comparability may rely on its scalar ordering.  Two
 consumers price one declared source at 3.477 bits and at exactly 1
 bit, both correct, the disagreement lying entirely in the task.  One
-run failed, on a declared clause requiring the difference of the two
-accountings to increase along a ladder of sources.  The difference
+of those runs failed, on a declared clause requiring the difference of
+the two accountings to increase along a ladder of sources.  The difference
 turned over at the far end, because both accountings vanish together
 as a source becomes certain, and the corrected registration measures
 the ratio, which falls strictly where the difference does not.
@@ -124,14 +124,13 @@ bits at 0.25, agreeing with declared closed forms to sixteen decimal
 places, at an exchange rate of exactly two bits of information for
 each unit of induced error.  The same structure on an orthogonal
 ensemble reads the whole bit at an induced error of exactly zero,
-which is what every classical track in this campaign measured, most
-sharply where a coarse observer's decayed mode was recovered bit for
-bit.  A declared
+which is what the campaign's hydrodynamic track measured when a coarse
+observer's decayed mode was recovered bit for bit.  A declared
 classical record broadcast to two consumers gives each of them the
 whole bit, so their informations sum to two, while a declared
 three-qubit family gives them correlations whose squared strengths sum
-to exactly one across the whole grid, so a consumer holding all of it
-leaves the other exactly none.  Redundancy is available exactly for
+to one across the whole grid to ten decimal places, so a consumer
+holding all of it leaves the other none.  Redundancy is available exactly for
 information that has already become classical.
 \end{abstract}
 
@@ -744,7 +743,8 @@ does not.  The substrate is a declared generator over a toy
 curve, chosen small enough that every point and every state can be
 enumerated.  The state advances by one point multiplication and the
 output word is a declared truncation of the abscissa of a second
-multiplication, keeping three bits, so there are eight output words.
+multiplication, keeping three bits, so there are eight possible output
+words.
 Two parameter sets were declared, one whose second point is a known
 multiple of the generator and one whose second point is fixed by a
 declared rule and whose relating scalar is recovered afterwards by
@@ -778,8 +778,9 @@ scalar entropy (bits)         &        &          & $0$ \\
 
 The first registration failed two of its four bars, and
 Table~\ref{tab:cr4} carries all three registrations together.  Its
-group has 96 elements and its declared truncation has 8 output words,
-so 95 seeds spread over 8 words cannot come near uniform, and the
+group has 96 elements and its declared truncation has 8 possible
+output words, so 95 seeds spread over 8 words cannot come near
+uniform, and the
 measured output entropies of 2.7890 and 2.8002 bits missed the
 declared window of 0.15 bits below a uniform 3 by finite size alone.
 The reader holding the scalar predicted the next word from one
@@ -789,10 +790,10 @@ observed word instead of testing candidates against the next word.
 Both are errors of declaration and implementation rather than
 properties of the substrate, and both are recorded.
 
-The same run refuted its own question, which is the more useful part
-of it.  The declared finding asked whether the audit can separate a
-parameter set whose scalar is known from one whose scalar is merely
-unknown, and it read False.  Two different second points induce
+The same run refuted its own question.  The declared finding stated
+that the audit cannot separate a parameter set whose scalar is known
+from one whose scalar is merely unknown, and it read
+False.  Two different second points induce
 genuinely different exact output distributions, and the two recorded
 word-count multisets are not the same multiset, so distributional
 identity was never what the two parameter sets share.  What they share
@@ -869,8 +870,8 @@ The substrate is every non-singular curve over the field of 101
 elements, 10100 of them, with the size of each group computed exactly
 by counting points.  The declared class is the set of curves whose
 group order has no prime factor above the declared bound of five.  The
-protocol calls that class weak, and the label is a declaration of the
-protocol rather than anything this run measures.  What the run
+registration names that class weak, and the name is a declaration
+rather than anything this run measures.  What the run
 measures about the class is how rare it is and how many of its members
 each declared procedure can reach.  It contains 2275 of the 10100
 curves, a density of 0.2252.
@@ -925,13 +926,12 @@ because the security structure in question lives in distributions
 rather than in the cost of a computation, which is exactly where the
 campaign's instruments have no ceiling.
 
-Every classical track of this campaign measured the same thing about a
-restricted consumer.  Its blindness costs the consumer and leaves the
-substrate untouched.  The sharpest case is the hydrodynamic track,
-where a coarse observer's mode decayed to a small fraction of its
-initial amplitude and the exact reverse of the dynamics returned the
-initial state bit for bit, so the substrate had forgotten nothing and
-only the observer had \cite{Gen2Paper}.  This section measures a
+The campaign's hydrodynamic track measured what a restricted consumer
+loses when the substrate is exactly reversible.  A coarse observer's
+mode decayed to a small fraction of its initial amplitude and the
+exact reverse of the dynamics returned the initial state bit for bit,
+so the substrate had forgotten nothing and only the observer had
+\cite{Gen2Paper}.  This section measures a
 declared model where that is not available, and it measures the price
 exactly.
 
@@ -946,7 +946,7 @@ measures in the preparing party's basis, and the induced error is the
 rate at which the receiving party's outcome differs from the prepared
 bit on the occasions when both used the same basis.  Everything is
 enumerated exactly over the finite probability space.  The declared
-structure is the one Bennett and Brassard wrote down
+preparation ensemble is the one Bennett and Brassard wrote down
 \cite{BennettBrassard1984}, and the reason a consumer cannot copy what
 it reads and pass the original along untouched is the no-cloning
 theorem \cite{WoottersZurek1982}.
@@ -954,11 +954,15 @@ theorem \cite{WoottersZurek1982}.
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}
-\begin{axis}[paperaxis, height=0.56\columnwidth,
+\begin{axis}[paperaxis, height=0.62\columnwidth,
   xlabel={error induced in the substrate},
   ylabel={information reaching the consumer (bits)},
-  xmin=-0.012, xmax=0.275, ymin=-0.05, ymax=1.16,
-  legend pos=south east, legend cell align=left]
+  xmin=-0.012, xmax=0.275, ymin=-0.05, ymax=1.62,
+  xtick={0,0.05,0.1,0.15,0.2,0.25}, ytick={0,0.5,1},
+  scaled x ticks=false,
+  x tick label style={/pgf/number format/fixed,
+    /pgf/number format/precision=2},
+  legend pos=north west, legend cell align=left]
 \addplot[gray!70!black, densely dotted, no marks]
   table[x=qber, y=info] {figdata/cr6_holevo.dat};
 \addlegendentry{Holevo quantity of the ensemble}
@@ -976,8 +980,7 @@ induces in the substrate and the information it obtains.  The six
 points lie on a straight line through the origin of slope exactly two
 bits per unit of induced error.  The star on the vertical axis is the
 declared classical control, an orthogonal ensemble read perfectly at
-an induced error of exactly zero, which is the behaviour every
-classical track of this campaign measured.  The dotted line is the
+an induced error of exactly zero.  The dotted line is the
 Holevo quantity of the declared preparation ensemble, 1 bit, which
 bounds every measured value.  All values are read from the committed
 evidence record.}
@@ -1007,9 +1010,9 @@ interception family and it is not a general constant, which is why the
 run declares both before measuring either.
 
 This is the first place in the program where a read is paid for by the
-substrate rather than by the reader.  In the classical tracks a
-consumer that cannot see something loses the information and the
-substrate keeps it.  Here a consumer that sees something has changed
+substrate rather than by the reader.  Where the substrate is exactly
+reversible a consumer that cannot see something loses the information
+and the substrate keeps it.  Here a consumer that sees something has changed
 what it saw, by an amount fixed to the last digit by how much it saw.
 The declared model is a toy ensemble of four states.  No protocol,
 device, implementation, or deployed system is modeled or evaluated,
@@ -1039,7 +1042,7 @@ which redundancy is not merely absent but unavailable.
 Two declared substrates are compared.  The classical one is a single
 bit written into a record and given to both consumers.  The quantum
 one is a declared three-qubit family carrying one excitation shared
-between the two consumers at a fixed weight split, parametrised by an
+between the two consumers at a fixed weight split, parametrized by an
 angle on a declared seven-point grid.  Correlation between two parties
 is the Wootters concurrence of the exact reduced state
 \cite{Wootters1998}, and the correlation of one party against the
@@ -1098,19 +1101,18 @@ of eigenvalues taken in double precision and they are the checks the
 run declares, not a spread in the underlying quantities.
 
 The classical informations sum to 2 while the quantum squared
-correlations sum to 1, and that is the whole comparison.  Three
-parties can share a classical record in full and cannot share a
-quantum correlation at all.  Redundancy, which is what makes a fact
+correlations sum to 1, and that is the whole comparison.  Two
+consumers can hold one classical record in full and cannot hold the
+declared correlation at once.  Redundancy, which is what makes a fact
 objective by letting many consumers read it independently and agree,
 is available exactly for information that has already become
-classical.  The quantum track found the plateau and this run finds
-why the plateau has a boundary.  Objectivity is cheap for facts and
-unavailable for superpositions.
+classical.  The quantum track found the plateau and this run measures
+its boundary.
 The identity measured here is a property of the declared family on the
 declared grid and it is not a general identity, the general relation
 being an inequality.  No protocol, device, implementation, or deployed
-system is modeled or evaluated, and the two tracks were declared
-months apart without either one knowing it would meet the other here.
+system is modeled or evaluated, and the quantum track's declarations
+were fixed and run before this one was written.
 
 \section{What this paper establishes}
 \label{sec:claims}
@@ -1193,14 +1195,15 @@ of Table~\ref{tab:ledger}.}
 Run & Verdict & Key measurements & Label \\
 \colrule
 CR-4 backdoor audit ceiling & FAIL & a group of 96 elements and 8
-declared output words put the output entropies at 2.7890 and 2.8002
+possible output words put the output entropies at 2.7890 and 2.8002
 bits against a uniform 3, outside the declared 0.15 bit window by
 finite size alone, and the reader holding the scalar predicted at
 0.263 against a declared 0.5 because the recovery loop accepted the
 first candidate consistent with one observed word, and the scalar of
 the declared-rule point was itself recovered by enumeration at 41, so
-the declared separation question read False and was the wrong
-question & measured in model, exploratory \\
+the declared finding that the audit cannot separate the two parameter
+sets read False and was the wrong question & measured in model,
+exploratory \\
 CR-4b corrected question & FAIL & on a group of prime order 1013 the
 positive control is exact, the declared one-bit covert channel
 carrying exactly 1 bit about the seed bit and the unmodified generator
@@ -1306,10 +1309,9 @@ occurs.  A consumer reading a declared ensemble
 whose states are not all distinguishable obtains information only by
 changing what it read, at exactly two bits per unit of induced error
 on the declared family, while the same structure on a distinguishable
-ensemble reads the whole bit and changes nothing.  Every classical
-track of this campaign measured the opposite, most sharply where an
-exactly reversible substrate returned a coarse observer's decayed mode
-bit for bit.  And a classical record is held in full by two consumers
+ensemble reads the whole bit and changes nothing.  The campaign's
+hydrodynamic track measured the opposite, an exactly reversible
+substrate returning a coarse observer's decayed mode bit for bit.  And a classical record is held in full by two consumers
 at once, informations exactly one and one, while a shared quantum
 correlation on the declared family obeys an exact identity that leaves
 a second consumer with nothing when the first holds all of it.
@@ -1388,8 +1390,9 @@ that changed would break the build rather than disagree quietly with
 the text.  The comparison curve of Fig.~\ref{fig:cr0} is carried in
 the CR-0 record itself and is checked against the quantum track's own
 record by the same script, and the quantum track's redundancy ladder
-and agreement curve quoted in Sec.~\ref{sec:cr7} are checked against
-their own records the same way.  The declared channel matrices,
+and agreement curve quoted in Sec.~\ref{sec:cr7} and the hydrodynamic
+track's exact reversal quoted in Sec.~\ref{sec:cr6} are checked
+against their own records the same way.  The declared channel matrices,
 ladders, grids, rules, and costs quoted in the text are checked
 against the track document that declared them.
 
@@ -1459,13 +1462,13 @@ A unified framework for the analysis of side-channel key recovery
 attacks,
 in \emph{Advances in Cryptology, EUROCRYPT 2009},
 Lecture Notes in Computer Science Vol.~5479
-(Springer, Berlin, 2009).
+(Springer, Berlin, 2009), p.~443.
 
 \bibitem{BennettBrassard1984}
 C.~H.~Bennett and G.~Brassard,
 Quantum cryptography: Public key distribution and coin tossing,
 in \emph{Proceedings of the IEEE International Conference on
-Computers, Systems and Signal Processing}
+Computers, Systems and Signal Processing, Bangalore, India}
 (IEEE, New York, 1984), p.~175.
 
 \bibitem{WoottersZurek1982}
@@ -1477,7 +1480,8 @@ Nature \textbf{299}, 802 (1982).
 A.~S.~Holevo,
 Bounds for the quantity of information transmitted by a quantum
 communication channel,
-Probl. Inf. Transm. \textbf{9}, 177 (1973).
+Probl. Peredachi Inf. \textbf{9}, 3 (1973)
+[Probl. Inf. Transm. \textbf{9}, 177 (1973)].
 
 \bibitem{Wootters1998}
 W.~K.~Wootters,
