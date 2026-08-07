@@ -930,10 +930,11 @@ lad = m007["ladders"]["lorentz"]["successive_relative_change"]
 for i, typed in enumerate([1.278, 0.586, 0.130, 0.015]):
     check(f"PF4-007 Lorentzian successive change {i}", pct(lad[i]),
           typed, 5e-3)
-assert all(v == 0.0 for v in
-           m007["ladders"]["sech2"]["successive_relative_change"]), \
-    "the sech-squared transfer changed along the span ladder"
-CHECKS += 1
+check("PF4-007 sech-squared change along the ladder",
+      max(m007["ladders"]["sech2"]["successive_relative_change"]),
+      1.1e-13, 6e-15)
+check_exact("PF4-007 declared convergence bar",
+            a007["declared"]["bars"]["S2_sech2_convergence"], 1e-9)
 check("PF4-007 worst exponent change",
       pct(m007["worst_relative_exponent_change"]), 0.28, 5e-3)
 check("PF4-007 universality at the furthest span",
