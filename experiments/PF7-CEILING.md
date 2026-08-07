@@ -331,3 +331,62 @@ the overlap mechanism as a measurement rather than an explanation.
 
 This run is post-processing of committed records and adds no new
 dynamics. Exploratory label, results/pf7e-detrended.json.
+
+## PF-7e results (run 2026-08-07, record sha in the record)
+
+Verdict FAIL on E1, and the failure refutes the diagnosis that
+produced it. Removing a declared linear trend raised the classical
+statistic from 0.4480 to 0.5014 and lowered its p-value from 0.0261
+to 0.0119, so the structure is not the trend. The trend itself is
+real, a drop of 0.0234 across the range against a standard error of
+0.0056, which is 4.19 standard errors, and the quantum statistic is
+untouched at 0.8702 before and after, as predicted for a peak that
+sits at a high frequency.
+
+The arithmetic of the rise is plain. Removing the trend removes
+power from the lowest bin, which shrinks the total, so a peak
+elsewhere takes a larger share. The classical arm therefore carries
+both a real overlap trend and something else that a linear model
+does not absorb.
+
+The likely reason the residual still reads as structure is the
+null, not the curve. The null draws every cell at one common mean,
+so any smooth departure from a straight line, which an exponential
+approach to an asymptote certainly is, is counted as structure
+because the null cannot produce it. That is a model error in the
+comparison rather than a measurement of oscillation.
+
+## PF-7f protocol (declared 2026-08-07, before the run)
+
+The smooth model is declared from the mechanism rather than fitted
+blind. Two sech-squared pulses of the declared length three overlap
+by an amount that falls exponentially with their separation, so the
+declared model is an asymptote plus an exponential approach at that
+length, linear in its two free coefficients. It is removed from the
+classical curve and from every null curve alike, and the statistic
+is recomputed on the residual.
+
+Items computing the verdict. F1, the residual has smaller spread
+than the raw curve, so the model absorbed something. F2, the
+quantum statistic survives the same treatment at or above 0.30. F3,
+the decision is recorded either way.
+
+Findings, either outcome a result. F4, the classical residual is
+consistent with noise when its p-value exceeds 0.05. F5, the trend
+is real at three standard errors or more.
+
+The terminus, declared now so the campaign does not chase this
+further. If F4 holds, the ceiling reading stands in its corrected
+form, the classical arm carries the smooth overlap behaviour its
+mechanism predicts and no oscillation, while the quantum arm
+interferes at a level no noise floor reaches. If F4 fails again,
+the campaign records that the classical arm carries delay structure
+of unidentified origin, the ceiling question is left open, and no
+further refinement of the statistic is attempted in this arc. An
+open question honestly recorded is the correct terminus, and three
+successive refinements of one statistic is already the point at
+which further tuning would be fitting the analysis to a wanted
+answer.
+
+This run is post-processing of committed records and adds no new
+dynamics. Exploratory label, results/pf7f-smooth-residual.json.
