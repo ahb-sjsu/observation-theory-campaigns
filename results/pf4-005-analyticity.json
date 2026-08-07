@@ -1,0 +1,235 @@
+{
+  "declared": {
+    "E": 0.4,
+    "L_grid": [
+      2.0,
+      3.0,
+      4.0
+    ],
+    "P_grid": [
+      1.2,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      4.0
+    ],
+    "convergence_tolerance": 0.02,
+    "dt": 0.0002,
+    "predictions": {
+      "pole_ratio": "pi over two",
+      "width_scaling": "linear in L"
+    },
+    "profiles": {
+      "lorentz": "tilt arctangent, force Lorentzian, nearest pole at L",
+      "sech2": "tilt tanh, force sech squared, nearest pole at pi over two times L"
+    },
+    "r2_bar": 0.99,
+    "ratio_tolerance": 0.1,
+    "span_in_L": 20.0
+  },
+  "findings": {
+    "A4_no_measure_exists": true,
+    "A5_naive_prediction_overestimates": false
+  },
+  "items": {
+    "A0_timestep_convergence": true,
+    "A1_exponential_form": false,
+    "A2_exponent_tracks_pole_distance": false,
+    "A3_exponent_scales_with_width": false
+  },
+  "label": "exploratory",
+  "measured": {
+    "cells": {
+      "lorentz_L2.0": {
+        "L": 2.0,
+        "e_res": [
+          0.0009842789619659738,
+          0.002230252944475099,
+          0.004956288461625593,
+          0.00812792099167909,
+          0.011163672509919216,
+          0.016606540819788043
+        ],
+        "intercept": -2.8808676661754666,
+        "naive_prediction": -4.8,
+        "pole_distance_over_L": 1.0,
+        "profile": "lorentz",
+        "pt_final": [
+          1.1991768853775755,
+          1.4985124278008695,
+          1.9975203205967869,
+          2.496746716667671,
+          2.996276465428871,
+          3.9958462097631644
+        ],
+        "r_squared": 0.9999744547583813,
+        "slope_over_naive": 1.0095413850050752,
+        "slope_vs_inv_p": -4.845798648024361
+      },
+      "lorentz_L3.0": {
+        "L": 3.0,
+        "e_res": [
+          0.0002656729616555102,
+          0.0009470260283670415,
+          0.003289043189959446,
+          0.00688967687485563,
+          0.011170770388785528,
+          0.020461537092070103
+        ],
+        "intercept": -2.009300193521048,
+        "naive_prediction": -7.199999999999999,
+        "pole_distance_over_L": 1.0,
+        "profile": "lorentz",
+        "pt_final": [
+          1.1997676397533943,
+          1.4993685172529867,
+          1.9983548031599383,
+          2.497242614244282,
+          2.996274099133224,
+          3.994881341707613
+        ],
+        "r_squared": 0.999912817206878,
+        "slope_over_naive": 1.0343659245068544,
+        "slope_vs_inv_p": -7.447434656449351
+      },
+      "lorentz_L4.0": {
+        "L": 4.0,
+        "e_res": [
+          5.016805546317893e-05,
+          0.00032057576710870644,
+          0.0016941866487684906,
+          0.004685316991816756,
+          0.008986703080349857,
+          0.019906304178122676
+        ],
+        "intercept": -1.2990769726372426,
+        "naive_prediction": -9.6,
+        "pole_distance_over_L": 1.0,
+        "profile": "lorentz",
+        "pt_final": [
+          1.1999242170577782,
+          1.4997862679390217,
+          1.9991527275660523,
+          2.498125173128615,
+          2.997002936409493,
+          3.9950203281940913
+        ],
+        "r_squared": 0.9993320719858877,
+        "slope_over_naive": 1.0657704048665793,
+        "slope_vs_inv_p": -10.23139588671916
+      },
+      "sech2_L2.0": {
+        "L": 2.0,
+        "e_res": [
+          0.0038954279663261683,
+          0.009088267706859374,
+          0.018853288315808722,
+          0.027203005738415158,
+          0.03351597934078969,
+          0.041558648109566415
+        ],
+        "intercept": -2.0310578884885233,
+        "naive_prediction": -7.5398223686155035,
+        "pole_distance_over_L": 1.5707963267948966,
+        "profile": "sech2",
+        "pt_final": [
+          1.19674940738108,
+          1.4939288686505177,
+          1.9905510351078668,
+          2.4890950139609407,
+          2.9888071268180636,
+          3.9895968096765198
+        ],
+        "r_squared": 0.9886295912554388,
+        "slope_over_naive": 0.5430052660836543,
+        "slope_vs_inv_p": -4.09416325149355
+      },
+      "sech2_L3.0": {
+        "L": 3.0,
+        "e_res": [
+          0.0007183313103896541,
+          0.0034330718591533763,
+          0.013562069332706185,
+          0.02777398827119106,
+          0.04233355499255845,
+          0.06628149138569983
+        ],
+        "intercept": -0.55953356946977,
+        "naive_prediction": -11.309733552923255,
+        "pole_distance_over_L": 1.5707963267948966,
+        "profile": "sech2",
+        "pt_final": [
+          1.1994012411946555,
+          1.4977095366863975,
+          1.9932074305839265,
+          2.488865609762502,
+          2.985855470383087,
+          3.983395162073481
+        ],
+        "r_squared": 0.9921771608293043,
+        "slope_over_naive": 0.6910297698430132,
+        "slope_vs_inv_p": -7.815362574062362
+      },
+      "sech2_L4.0": {
+        "L": 4.0,
+        "e_res": [
+          6.205061924102057e-05,
+          0.0007439622081521144,
+          0.0061445479510275625,
+          0.018641480940781212,
+          0.03626824472384849,
+          0.07504721974991811
+        ],
+        "intercept": 0.7594828323331825,
+        "naive_prediction": -15.079644737231007,
+        "pole_distance_over_L": 1.5707963267948966,
+        "profile": "sech2",
+        "pt_final": [
+          1.1999482900365006,
+          1.4995039431704429,
+          1.9969253626756978,
+          2.492532254178157,
+          2.9878861274415276,
+          3.981193986795767
+        ],
+        "r_squared": 0.9922703515975081,
+        "slope_over_naive": 0.8097559880681424,
+        "slope_vs_inv_p": -12.210832623913058
+      }
+    },
+    "convergence_relative_change": 6.88850280156616e-11,
+    "pole_distance_ratio_by_width": {
+      "2.0": 0.8448892636434134,
+      "3.0": 1.0494033092716553,
+      "4.0": 1.193466928570646
+    },
+    "predicted_pole_ratio": 1.5707963267948966,
+    "reading": "the crossing is deterministic and has one declared initial condition, so no distribution exists whose tail could produce the suppression, and the exponent is compared against the field's complex singularity structure by two parameter-free ratios",
+    "width_scaling_ratios": {
+      "lorentz_3.0_over_2.0": 1.5368848764456364,
+      "lorentz_4.0_over_2.0": 2.111395175466177,
+      "sech2_3.0_over_2.0": 1.908903503349877,
+      "sech2_4.0_over_2.0": 2.9824977349055506
+    }
+  },
+  "record_sha256": "91358f459661ffa461a61ae92d01b3ff7a9df2d65eaf2eb130023f0d8d3bb92d",
+  "runtime": {
+    "code_commit": "cd9a6c1",
+    "generated_utc": "2026-08-07T06:59:31.232083+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf4-005-analyticity-v1",
+  "verdict": {
+    "computed_from": [
+      "A0_timestep_convergence",
+      "A1_exponential_form",
+      "A2_exponent_tracks_pole_distance",
+      "A3_exponent_scales_with_width"
+    ],
+    "value": "FAIL"
+  }
+}
