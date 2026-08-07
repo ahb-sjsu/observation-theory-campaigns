@@ -38,8 +38,8 @@ limits.  Where the rest of this campaign has to find the consumer's
 channel inside a physical model, cryptography writes the channel down
 on purpose and then argues about what a consumer can read through it.
 This paper carries the campaign's consumer-relative audit to that
-argument in eleven exact finite models and to nothing else.  Every
-model here is a declared toy model small enough to enumerate.  Nothing
+argument in eleven exact finite models, each a declared toy model
+small enough to enumerate, and to nothing else.  Nothing
 in this paper bears on computational hardness or on asymptotic
 security, no real cipher, protocol, curve, standard, implementation,
 device, or deployed system is modeled or evaluated, and no attack is
@@ -84,22 +84,21 @@ bit, both correct, the disagreement lying entirely in the task.  One
 run failed, on a declared clause requiring the difference of the two
 accountings to increase along a ladder of sources.  It measured 0,
 0.398, 1.337, 2.275, 2.635, 2.113, and 0.599 bits and turned over,
-because both accountings vanish together as a source becomes certain.
-The corrected registration measures the ratio, which falls strictly
-where the difference does not, and locates the interior maximum by
-bisection at spike weight 0.35338 with a difference of 2.6398 bits.
+because both accountings vanish together as a source becomes certain,
+and the corrected registration measures the ratio, which falls
+strictly where the difference does not.
 The arc then measures where an audit of this kind stops.  A declared
 generator over a toy curve was given two parameter sets, one whose
 relating scalar is known by construction and one whose scalar is
 fixed by a declared rule and recovered afterwards by enumeration.
-That run failed two bars.  A group of ninety-six elements cannot
-spread ninety-five seeds near uniformly over eight output words, and
-the measured entropies were 2.7890 and 2.8002 bits against three, and
-the recovery loop accepted the first candidate consistent with one
-observed word instead of testing it against the next word, so it
-predicted at 0.263 against a declared half.  It also asked the wrong
-question, because the scalar of the second parameter set was recovered
-by enumeration in the same run and every point of a cyclic group has
+That run failed two bars, because a group of ninety-six elements
+cannot spread ninety-five seeds near uniformly over eight output
+words, measuring 2.7890 and 2.8002 bits against three, and because the
+recovery loop accepted the first candidate consistent with one
+observed word instead of testing it against the next, predicting at
+0.263 against a declared half.  It also asked the wrong question,
+since the scalar of the second parameter set was recovered by
+enumeration in the same run and every point of a cyclic group has
 one.  A second registration on a larger group of prime order failed
 one bar from a coding error in an inverse map, measuring 0.0314 where
 the bar was one part in a billion, with its positive control already
@@ -110,8 +109,8 @@ sets produce output words at 2.9878 and 2.9943 bits against a uniform
 three, and the two routes to one conditional entropy agree exactly.  A
 trapdoor scalar is a constant of the parameter set, so its entropy is
 exactly zero and the information it can carry about any observable is
-bounded by that zero.  That is a bound on what an audit built from
-informations can see and it is not advice about anything.  What such
+bounded by that zero.  That is a bound on what such an audit can see
+and not advice about anything.  What such
 an audit can see instead is counted next.  Over all 10100 non-singular
 curves of a toy parameter space, 2275 lie in a declared rare class, a
 density of 0.2252.  A procedure allowed one seed reaches one curve and
@@ -128,10 +127,10 @@ it reads, running from 0.05 bits at an induced error of 0.025 to 0.5
 bits at 0.25, agreeing with declared closed forms to sixteen decimal
 places, at an exchange rate of exactly two bits of information for
 each unit of induced error.  The same structure on an orthogonal
-ensemble reads the whole bit at an induced error of exactly zero.
-Every classical track in this campaign measured the opposite, most
+ensemble reads the whole bit at an induced error of exactly zero,
+which is what every classical track in this campaign measured, most
 sharply where a coarse observer's decayed mode was recovered bit for
-bit and the substrate had forgotten nothing.  Finally, a declared
+bit and the substrate had forgotten nothing.  A declared
 classical record broadcast to two consumers gives each of them the
 whole bit, so their informations sum to two, while a declared
 three-qubit family gives them correlations whose squared strengths sum
@@ -1202,24 +1201,22 @@ of Table~\ref{tab:ledger}.}
 Run & Verdict & Key measurements & Label \\
 \colrule
 CR-4 backdoor audit ceiling & FAIL & a group of 96 elements and 8
-declared output words put the measured output entropies at 2.7890 and
-2.8002 bits against a uniform 3, outside the declared 0.15 bit window
-by finite size alone, and the reader holding the scalar predicted at
+declared output words put the output entropies at 2.7890 and 2.8002
+bits against a uniform 3, outside the declared 0.15 bit window by
+finite size alone, and the reader holding the scalar predicted at
 0.263 against a declared 0.5 because the recovery loop accepted the
-first candidate consistent with one observed word, the scalar of the
-declared-rule point was recovered by enumeration at 41 and the
-word-count multisets of the two parameter sets differ, so the declared
-separation question read False and was the wrong question & measured
-in model, exploratory \\
+first candidate consistent with one observed word, and the scalar of
+the declared-rule point was itself recovered by enumeration at 41, so
+the declared separation question read False and was the wrong
+question & measured in model, exploratory \\
 CR-4b corrected question & FAIL & on a group of prime order 1013 the
 positive control is exact, the declared one-bit covert channel
 carrying exactly 1 bit about the seed bit and the unmodified generator
 exactly 0, output entropies 2.9878 and 2.9943 bits against a uniform
-3, scalar of the declared-rule point recovered by enumeration at 2,
-but the two routes to one conditional entropy read 2.8811 and 2.9125
-bits, a difference of 0.0314 against a $10^{-9}$ bar, from an inverse
-map that multiplied an abscissa as though it were a scalar & measured
-in model, exploratory \\
+3, but the two routes to one conditional entropy read 2.8811 and
+2.9125 bits, a difference of 0.0314 against a $10^{-9}$ bar, from an
+inverse map that multiplied an abscissa as though it were a
+scalar & measured in model, exploratory \\
 CR-4c corrected inverse map and exact bound & PASS & same substrate
 and same positive control, the two routes now agree at exactly 0, and
 the ceiling is recorded as a bound rather than as an agreement within
