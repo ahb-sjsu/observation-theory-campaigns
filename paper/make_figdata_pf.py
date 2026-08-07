@@ -236,6 +236,10 @@ check("PF-4 pilot fraction at gap 0.5 field 0.80", razor[(0.5, 0.80)],
       0.9115, 5e-5)
 measurable = [c for c in pcells if 0.0 < c["fraction"] < 0.9]
 check_exact("PF-4 pilot measurable cells", len(measurable), 2)
+check("PF-4 pilot decades across the transition",
+      math.log10(razor[(0.5, 0.80)] / razor[(0.5, 0.65)]), 3.5, 5e-2)
+check("PF-4 pilot field step across the transition", 0.80 - 0.65, 0.15,
+      1e-12)
 
 p401 = load("prereg-pf4-001.json")
 check_exact("PF4-001 verdict", p401["label"], "neither-axis")
@@ -401,6 +405,8 @@ check_declared("PF-5 charge assignment",
                "charge = sign(dt/dtau)", PREREG["PF5-001"])
 check_exact("PF-5 declared energy bar", inst5["declared"]["energy_bar"],
             1e-5)
+check_declared("PF-5 residual tracking cadence",
+               "tracked every 25", PF5DOC)
 
 p501 = load("prereg-pf5-001.json")
 check_exact("PF5-001 verdict", p501["verdict"]["value"], "PASS")
@@ -482,6 +488,10 @@ check("PF-6 gauge control canonical shift",
 check_declared("PF-6 gauge clause not applicable",
                "Recorded not-applicable, the Sauter tilt is\n"
                "   declared non-electromagnetic", PREREG["PF6-002"])
+audits6 = [k for k in inst6 if k.startswith("P") and k[1].isdigit()]
+check_exact("PF-6 the instrument audits five things", len(audits6), 5)
+check_exact("PF-6 audits that applied to this family",
+            len([k for k in audits6 if "gauge" not in k]), 4)
 
 p601 = load("prereg-pf6-001.json")
 check_exact("PF6-001 verdict", p601["verdict"]["value"], "vacuous")
@@ -553,6 +563,14 @@ CHECKS += 2
 check_declared("PF-7 chirp diagnosis",
                "oscillation is a chirp whose local frequency grows "
                "linearly with\ndelay", CEILING)
+check_declared("PF-7 single-passage bar",
+               "closed form within 2e-3", CEILING)
+check_declared("PF-7 declared sweep range",
+               "The declared sweep\nrange of forty natural units",
+               CEILING)
+check_declared("PF-7b corrected sweep range",
+               "The sweep range of the single-passage control becomes "
+               "120 natural\nunits", CEILING)
 
 cp1 = load("pf7-classical-probe.json")
 check_exact("PF-7 first probe rejected its range",
@@ -603,6 +621,8 @@ check("PF-7c classical p-value", m7c["classical_p_value"], 0.0262,
       5e-5)
 check_exact("PF-7c quantum p-value", m7c["quantum_p_value"], 0.0)
 check_exact("PF-7c points", m7c["n_points"], 32)
+check_exact("PF-7c nonzero frequency bins on a curve of that length",
+            m7c["n_points"] // 2, 16)
 
 pf7d = load("pf7d-ringing-test.json")
 m7d = pf7d["measured"]
@@ -712,6 +732,10 @@ check_exact("PF-8 blind window", pf8["declared"]["blind_window_u"],
 check_exact("PF-8 members audited", m8["members_audited"], 4)
 check_exact("PF-8 observations", m8["blind_observations"], 441)
 check_exact("PF-8 polylines audited", m8["polylines_audited"], 400)
+check_declared("PF-8 levels per kept polyline",
+               "400 kept thermal polylines audited on five", CAMPAIGN)
+check_exact("PF-8 thermal polyline checks in total",
+            5 * m8["polylines_audited"], 2000)
 check_exact("PF-8 odd events", m8["odd_events"], 0)
 check_exact("PF-8 deterministic parity failures",
             m8["parity_failures_deterministic"], 0)
@@ -750,7 +774,9 @@ narrowest = min(e["width"] for m in members8.values()
                 for e in m["excursions"])
 check("PF-8 narrowest fold excursion", narrowest, 0.000253, 5e-7)
 check_declared("PF-8 background ladder spacing",
-               "against a uniform ladder spacing", CAMPAIGN)
+               "against a uniform ladder spacing\nnear 0.2", CAMPAIGN)
+check_exact("PF-8 levels inside each fold interval",
+            len(pf8["declared"]["excursion_fractions"]), 9)
 
 complete_pool = {0: 0, 1: 0, 2: 0, 3: 0}
 blind_pool = {0: 0, 1: 0, 2: 0, 3: 0}
@@ -839,6 +865,12 @@ for i, (key, typed) in enumerate([("sech2_L2.0", 0.5430),
                                   ("sech2_L4.0", 0.8098)]):
     check(f"PF4-005 sech-squared ratio {i}",
           cells005[key]["slope_over_naive"], typed, 5e-5)
+s2ratios = [cells005[k]["slope_over_naive"]
+            for k in ("sech2_L2.0", "sech2_L3.0", "sech2_L4.0")]
+check("PF4-005 sech-squared spread across widths",
+      pct((max(s2ratios) - min(s2ratios))
+          / (sum(s2ratios) / len(s2ratios))), 39.0, 0.5)
+
 a05b = load("pf4-005b-analyticity.json")
 check_declared("PF4-005 named error",
                "the velocity grid was declared in absolute velocity",
@@ -921,6 +953,11 @@ check_exact("PF4-006 declared shift bar",
             a006["declared"]["shift_bar"], 1e-10)
 check_exact("PF4-006 declared stability bar",
             a006["declared"]["stability_bar"], 1e-8)
+check_exact("PF4-006 declared entry span in widths",
+            a006["declared"]["span_in_L"], 20.0)
+check_declared("PF4-006 the entry span the clause moves it to",
+               "Moving the entry point from twenty widths to thirty",
+               CAMPAIGN)
 entry006 = [m006["stability_relative_changes"][f"L{L}_entry"]
             for L in (2.0, 3.0, 4.0)]
 for i, typed in enumerate([1.289, 1.295, 1.291]):
@@ -945,6 +982,12 @@ assert all(v > 0 for v in
 CHECKS += 1
 check_exact("PF4-007 superseded record sha",
             a007bad["record_sha256"][:12], "e12453effa2f")
+check("PF4-007 superseded worst exponent change",
+      pct(a007bad["measured"]["worst_relative_exponent_change"]), 0.28,
+      5e-3)
+check("PF4-007 superseded spread at the furthest span",
+      pct(a007bad["measured"]["lorentz_spread_at_far_span"]), 0.356,
+      5e-4)
 check_declared("PF4-007 record defect recorded",
                "was produced by the runner before the reciprocal-fit\n"
                "import was found, so its exponent items are invalid",
@@ -966,6 +1009,8 @@ check("PF4-007b worst exponent change",
       pct(m007["worst_relative_exponent_change"]), 0.23, 5e-3)
 check("PF4-007b universality at the furthest span",
       pct(m007["lorentz_spread_at_far_span"]), 0.36, 5e-3)
+check("PF4-007b spread at the furthest span, third digit",
+      pct(m007["lorentz_spread_at_far_span"]), 0.359, 5e-4)
 assert all(v < 0 for v in m007["lorentz_slopes_at_far_span"]), \
     "the corrected PF4-007b record does not carry negative slopes"
 CHECKS += 1
@@ -1112,6 +1157,53 @@ sealed_rows = [line for line in SEALS.splitlines()
                or line.startswith("| PREREG-PF5-")
                or line.startswith("| PREREG-PF6-")]
 check_exact("nine sealed documents in this arc", len(sealed_rows), 9)
+
+# ---------------------------------------------------------------
+# Section XII. The counts the Methods section and the ledger quote.
+# ---------------------------------------------------------------
+CEILING_RECORDS = ["pf7-quantum-ceiling.json", "pf7b-quantum-ceiling.json",
+                   "pf7c-noise-floor.json", "pf7d-ringing-test.json",
+                   "pf7e-detrended.json", "pf7f-smooth-residual.json"]
+SUMMIT_RECORDS = ["pf4-hunt-probe1.json", "pf4-005-analyticity.json",
+                  "pf4-005b-analyticity.json", "pf4-006-gate.json",
+                  "pf4-007-span.json", "pf4-007b-span.json",
+                  "pf4-008-pole-order.json", "pf4-008b-pole-order.json",
+                  "pf4-008c-pole-order.json"]
+for name in CEILING_RECORDS + SUMMIT_RECORDS:
+    assert (ROOT / "results" / name).exists(), f"{name} is not committed"
+CHECKS += 1
+check_exact("six ceiling records", len(CEILING_RECORDS), 6)
+check_exact("nine records of the summit sequence", len(SUMMIT_RECORDS),
+            9)
+# PF-7 declared the sequence and PF-7d tested a mechanism. The other
+# four each corrected an error of the declaration that preceded them.
+CORRECTED_DECLARATION = ["pf7b-quantum-ceiling.json",
+                         "pf7c-noise-floor.json", "pf7e-detrended.json",
+                         "pf7f-smooth-residual.json"]
+assert set(CORRECTED_DECLARATION) < set(CEILING_RECORDS), \
+    "a ceiling correction is not one of the six ceiling records"
+CHECKS += 1
+check_exact("four of the six ceiling runs corrected a declaration",
+            len(CORRECTED_DECLARATION), 4)
+summit_steps = sorted({load(n)["declared"]["dt"] for n in SUMMIT_RECORDS
+                       if "dt" in load(n).get("declared", {})},
+                      reverse=True)
+check_exact("the declared steps of the summit sequence", summit_steps,
+            [5e-4, 2e-4, 1e-4])
+# One ledger row per run, across the three tables, beside the kinematic
+# theorem in the first and the scope non-claim in the third.
+LEDGER_RUNS = [
+    "PF0-FREEZE-001", "PF-1", "PF-2", "PF-3", "PF-4 pilot",
+    "PREREG-PF4-001", "PREREG-PF4-002",
+    "PREREG-PF4-003", "PF4-004", "PF4 mechanism", "PREREG-PF5-001",
+    "PREREG-PF5-002", "PREREG-PF6-001", "PREREG-PF6-002", "PF-7",
+    "PF-7b", "PF-7c", "PF-7d", "PF-7e", "PF-7f", "PF-8",
+    "PF4-005", "PF4-005b", "PF4-006", "PF4-007", "PF4-008", "PF4-008b",
+    "PF4-008c", "PREREG-PF4-009"]
+check_exact("no ledger run is listed twice", len(set(LEDGER_RUNS)),
+            len(LEDGER_RUNS))
+check_exact("twenty-nine runs in the three ledgers", len(LEDGER_RUNS),
+            29)
 
 print(f"all figure data written, {CHECKS} paper values bound "
       f"to committed records and declarations")
