@@ -1,0 +1,90 @@
+{
+  "declared": {
+    "E_bracket": [
+      0.05,
+      1.2020141601562502
+    ],
+    "edge_delays": [
+      4.0,
+      15.5
+    ],
+    "iters": 12,
+    "mid_delay": 10.0,
+    "rule": "PF-7b binds the classical field only if every probed delay lies inside the window",
+    "target": 0.5,
+    "window": [
+      0.15,
+      0.85
+    ]
+  },
+  "label": "exploratory",
+  "measured": {
+    "E_selected": 0.675507688522339,
+    "bisection_trace": [
+      {
+        "E": 0.6260070800781251,
+        "frac": 0.0
+      },
+      {
+        "E": 0.9140106201171876,
+        "frac": 1.0
+      },
+      {
+        "E": 0.7700088500976563,
+        "frac": 0.9775
+      },
+      {
+        "E": 0.6980079650878908,
+        "frac": 0.696
+      },
+      {
+        "E": 0.662007522583008,
+        "frac": 0.3235
+      },
+      {
+        "E": 0.6800077438354494,
+        "frac": 0.55
+      },
+      {
+        "E": 0.6710076332092287,
+        "frac": 0.4335
+      },
+      {
+        "E": 0.675507688522339,
+        "frac": 0.4975
+      },
+      {
+        "E": 0.6777577161788941,
+        "frac": 0.5105
+      },
+      {
+        "E": 0.6766327023506166,
+        "frac": 0.516
+      },
+      {
+        "E": 0.6760701954364778,
+        "frac": 0.507
+      },
+      {
+        "E": 0.6757889419794084,
+        "frac": 0.5105
+      }
+    ],
+    "frac_at_edge_delays": {
+      "15.5": 0.475,
+      "4.0": 1.0
+    },
+    "frac_at_mid_delay": 0.4975,
+    "in_window": false
+  },
+  "record_sha256": "784d1f9c652f7b62c3fafe1ce9aa7d19c3c677efc9336ad9ab165b831951f92e",
+  "runtime": {
+    "code_commit": "9da26a4",
+    "generated_utc": "2026-08-07T00:22:20.921642+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf7-classical-probe-v1"
+}
