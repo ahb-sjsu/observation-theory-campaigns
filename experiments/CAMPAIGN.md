@@ -624,6 +624,61 @@ the one that failed.
 
 Exploratory and unsealed, `results/pf4-008-pole-order.json`.
 
+#### PF4-008 results (run 2026-08-07, record sha b0727e164dd5...)
+
+The first execution of this runner was invalid and is recorded as such. It imported
+a fitting helper that regresses against the reciprocal of the adiabaticity rather
+than the adiabaticity itself, which is the named error, and it produced positive
+exponents with poor fits for both profiles including one whose exponent is already
+committed as negative. The dynamics were untouched by the error, so the quantities
+that do not pass through the fit are identical in both executions. The runner was
+corrected and the declared protocol rerun with no bar or design changed.
+
+The rehabilitation worked. The clause the Lorentzian profile failed at 1.3e-2 is
+passed by the Gudermannian profile at 5.7e-11, four orders inside its bar, and the
+timestep and translation clauses pass at 4.9e-13 and 6.5e-15. Exponential tails
+remove the entry-point defect exactly as the declaration predicted, and the census
+is complete.
+
+The discriminator answered, and it answered H2. The Gudermannian exponents are
+-1.9333, -1.9286, and -1.9217 across the three widths, a spread of 0.61 percent, at
+coefficients of determination of 0.9987. The sech-squared exponents on the identical
+grid are -1.1028, -1.1015, -1.0997, a spread of 0.29 percent. The Gudermannian value
+is 84 percent away from the sech-squared reference and 6.6 percent from the
+Lorentzian reference, so H1 is refuted and H2 holds within its declared tolerance.
+
+The reading. Two profiles whose nearest singularities sit at the same distance and
+differ only in order carry different exponents, in the ratio 1.75. The distance
+alone does not fix the exponent. The order fixes it too, and a first-order
+singularity gives close to the parameter-free value of minus two whether it is a
+pole, as here, or a branch point, as in the Lorentzian, while a second-order pole
+gives about 1.1.
+
+Two caveats belong beside that. The Gudermannian's clean value of -1.9279 sits 6.6
+percent below the Lorentzian's -2.0636, and the Lorentzian's number carries the tail
+contamination its gate found, so the well-conditioned value is the smaller one. And
+the sech-squared exponent measured -1.1013 on this grid against -1.0477 on
+PF4-005b's, a 5 percent difference across two disjoint grids, which is larger than
+either run's internal spread and says the exponent is not quite grid-independent at
+this precision.
+
+The verdict is FAIL, on the conservation bar alone. The Gudermannian cells drift by
+1.9e-10 against a bar of 1e-10, while the sech-squared cells on the same grid drift
+by 9e-13. The bar was set from the Sauter family's 8.6e-14 and is too tight for a
+broader force at this timestep. This is a numerical bar missed by a factor of two,
+not a physical failure, and the principled repair is a smaller timestep rather than
+a larger bar, since fourth-order integration should bring the drift to about 1e-11
+when the step is halved.
+
+#### PF4-008b, the remaining step
+
+Identical in every declared object and bar, with the timestep halved to 1e-4 so the
+conservation bar is met by integration rather than by relaxation. Nothing else
+changes. If it passes, the seal binds to the Gudermannian profile, which has now
+cleared the entry-point clause the Lorentzian could not, and the preregistration's
+primary bar is the width universality that both well-conditioned profiles have shown
+at better than one percent.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
