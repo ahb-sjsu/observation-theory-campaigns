@@ -359,6 +359,73 @@ summit stays open, recorded as such.
 **Substrate.** Atlas Python, exploratory and unsealed,
 `results/pf4-005-analyticity.json`.
 
+#### PF4-005 results (run 2026-08-07, record sha 91358f459661...)
+
+Verdict FAIL on three of four bars, and the failure separates the two profiles
+cleanly rather than condemning the idea. The timestep control passed with a relative
+change of 6.9e-11, so nothing here is numerical. The sech-squared cell at width
+three reproduced the first hunt probe's slope, -7.8154 against its -7.8186, an
+independent replication of that record by a separate runner.
+
+The Lorentzian profile behaved exactly as an analyticity-controlled exponent should.
+Its three fits have coefficients of determination 0.99997, 0.99991, and 0.99933, its
+measured exponents are 1.0095, 1.0344, and 1.0658 times the naive estimate of twice
+the frequency times the pole distance, and its width scaling is 1.537 and 2.111
+against predictions of 1.5 and 2.0. The sech-squared profile did not. Its ratios to
+the same naive estimate are 0.5430, 0.6910, and 0.8098, drifting with width, and its
+width scalings are 1.909 and 2.982 against the same 1.5 and 2.0.
+
+The named error is the grid. Velocities were declared in absolute terms and applied
+to every width, so the three widths were compared in different dynamical regimes and
+the narrowest cells sat partly outside the adiabatic regime where the exponential
+form is asymptotic, which is also why the only coefficient of determination below
+the bar is the narrowest sech-squared cell at 0.9886. The cross-profile ratio test
+inherited that contamination and cannot be read.
+
+What the committed numbers already show once they are placed in the natural
+variable. Writing the adiabaticity as the frequency times the pole distance divided
+by the velocity, the Lorentzian exponents are -2.019, -2.069, and -2.132, a spread
+of 5.4 percent about a parameter-free prediction of exactly minus two, while the
+sech-squared exponents are -1.086, -1.382, and -1.619, a spread of 39 percent.
+
+#### PF4-005b protocol (declared 2026-08-07, before the run)
+
+Each cell is placed at a declared adiabaticity rather than a declared velocity, so
+every width is compared in one dynamical regime. The declared adiabaticity grid is
+0.9, 1.2, 1.5, 2.0, 2.5, and 3.0, and the velocity of each cell follows from it and
+from that profile's own pole distance. In that variable the analyticity estimate is
+a parameter-free prediction of exactly minus two.
+
+Bars. B0, the timestep control, unchanged. B1, the exponential form holds in every
+one of the six cells. B2, the Lorentzian exponent is width-universal, its three
+fitted values agreeing within ten percent of their mean. B3, the Lorentzian exponent
+matches the parameter-free prediction within fifteen percent at every width.
+
+Findings, with expectations declared in advance from PF4-005's committed record so
+this run can refute them. F1, the sech-squared exponent is not width-universal. F2,
+the sech-squared exponent is smaller in magnitude than the prediction.
+
+The named hypothesis for the difference, recorded and not tested here. The tilt that
+generates the sech-squared force is a hyperbolic tangent, whose nearest singularity
+is a simple pole at which the driving term diverges, while the tilt that generates
+the Lorentzian force is an arctangent, whose nearest singularity is a logarithmic
+branch point at which it diverges far more slowly. A constant-frequency estimate
+should survive the milder singularity and fail at the stronger one. Testing that
+would need a family that varies the strength of the divergence at fixed distance,
+which is a later experiment.
+
+**Readings, declared in advance.** If B2 and B3 hold, a constructible family has a
+deterministic exponent fixed by the distance to the field's nearest complex
+singularity, with no distribution present whose tail could be responsible, and the
+summit question of PREREG-PF4-002 is answered for the per-crossing transfer. The
+step from that transfer to an observable event rate is not taken here and remains
+blocked by the cancellation the mechanism study measured, so no claim about a pair
+rate follows. If B2 or B3 fails, no family has yet shown an analyticity-controlled
+exponent and the summit stays open.
+
+**Substrate.** Atlas Python, exploratory and unsealed,
+`results/pf4-005b-analyticity.json`.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
