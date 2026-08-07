@@ -1,0 +1,107 @@
+{
+  "declared": {
+    "family": "one excitation shared between the two consumers at the declared weight split",
+    "phi_grid": [
+      0.0,
+      0.2617993877991494,
+      0.5235987755982988,
+      0.7853981633974483,
+      1.0471975511965976,
+      1.3089969389957472,
+      1.5707963267948966
+    ],
+    "scope": "toy three-qubit family, methodology only, no real protocol or device, no claim about any system",
+    "tolerance": 1e-12,
+    "weight_a_squared": 0.5
+  },
+  "findings": {
+    "M5_classical_sum_exceeds_the_quantum_identity": true
+  },
+  "items": {
+    "M1_classical_record_is_shareable": true,
+    "M2_exact_tradeoff_identity": true,
+    "M3_exclusion_at_the_extreme": true,
+    "M4_ckw_saturated_on_this_class": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "classical_broadcast": {
+      "i_ab_bits": 1.0,
+      "i_ae_bits": 1.0,
+      "sum_bits": 2.0
+    },
+    "quantum_family": [
+      {
+        "c_ab": 1.0,
+        "c_ae": 0.0,
+        "phi": 0.0,
+        "sum_of_squares": 1.0,
+        "tangle_a_vs_rest": 0.9999999999999996
+      },
+      {
+        "c_ab": 0.9659258262890682,
+        "c_ae": 0.2588190447376675,
+        "phi": 0.2617993877991494,
+        "sum_of_squares": 0.999999999811138,
+        "tangle_a_vs_rest": 0.9999999999999996
+      },
+      {
+        "c_ab": 0.8660254037844385,
+        "c_ae": 0.4999999999999999,
+        "phi": 0.5235987755982988,
+        "sum_of_squares": 0.9999999999999996,
+        "tangle_a_vs_rest": 0.9999999999999998
+      },
+      {
+        "c_ab": 0.7071067811865477,
+        "c_ae": 0.7071067811865476,
+        "phi": 0.7853981633974483,
+        "sum_of_squares": 1.0000000000000004,
+        "tangle_a_vs_rest": 0.9999999999999996
+      },
+      {
+        "c_ab": 0.5000000000000001,
+        "c_ae": 0.8660254037844385,
+        "phi": 1.0471975511965976,
+        "sum_of_squares": 0.9999999999999998,
+        "tangle_a_vs_rest": 0.9999999999999996
+      },
+      {
+        "c_ab": 0.2588190447376675,
+        "c_ae": 0.9659258262890682,
+        "phi": 1.3089969389957472,
+        "sum_of_squares": 0.999999999811138,
+        "tangle_a_vs_rest": 0.9999999999999996
+      },
+      {
+        "c_ab": 6.123233995736769e-17,
+        "c_ae": 1.0,
+        "phi": 1.5707963267948966,
+        "sum_of_squares": 1.0,
+        "tangle_a_vs_rest": 0.9999999999999996
+      }
+    ],
+    "reading": "a classical record is held in full by every consumer at once, which is the redundancy the QD track measured, while quantum correlation obeys an exact tradeoff on this family so a consumer that holds all of it excludes every other consumer entirely",
+    "worst_ckw_deviation": 1.8886159303121985e-10,
+    "worst_identity_deviation": 1.888620371204297e-10
+  },
+  "record_sha256": "4119dd1d4d1468eea08b7aae98eb953cf782af33723c56920bb87b9911ba4a79",
+  "runtime": {
+    "code_commit": "a4e8ac0",
+    "generated_utc": "2026-08-07T05:26:57.573032+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr7-monogamy-v1",
+  "verdict": {
+    "computed_from": [
+      "M1_classical_record_is_shareable",
+      "M2_exact_tradeoff_identity",
+      "M3_exclusion_at_the_extreme",
+      "M4_ckw_saturated_on_this_class"
+    ],
+    "value": "PASS"
+  }
+}

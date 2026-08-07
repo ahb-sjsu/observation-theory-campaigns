@@ -1,0 +1,114 @@
+{
+  "declared": {
+    "closed_forms": "information equals lambda over two, error equals lambda over four",
+    "eavesdropper": "intercept with probability lambda, measure in the computational basis, resend the collapsed state",
+    "lambdas": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "scope": "toy ensemble, methodology only, no real protocol or device, no claim about any system",
+    "tolerance": 1e-12
+  },
+  "findings": {
+    "C6_tradeoff_is_exactly_two_bits_per_unit_error": true
+  },
+  "items": {
+    "C1_orthogonal_reads_without_trace": true,
+    "C2_no_information_without_disturbance": true,
+    "C3_closed_form_tradeoff": true,
+    "C4_zero_disturbance_zero_information": true,
+    "C5_holevo_bound_respected": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "classical_control": {
+      "eve_information_bits": 1.0,
+      "qber": 0.0
+    },
+    "holevo_bound_bits": 1.0,
+    "information_per_unit_qber": [
+      2.0000000000000013,
+      2.000000000000001,
+      2.000000000000001,
+      2.000000000000001,
+      2.000000000000001
+    ],
+    "ladder": [
+      {
+        "closed_form_information": 0.0,
+        "closed_form_qber": 0.0,
+        "eve_information_bits": 0.0,
+        "information_over_qber": null,
+        "lambda": 0.0,
+        "qber": 0.0
+      },
+      {
+        "closed_form_information": 0.05,
+        "closed_form_qber": 0.025,
+        "eve_information_bits": 0.05,
+        "information_over_qber": 2.0000000000000013,
+        "lambda": 0.1,
+        "qber": 0.024999999999999988
+      },
+      {
+        "closed_form_information": 0.125,
+        "closed_form_qber": 0.0625,
+        "eve_information_bits": 0.125,
+        "information_over_qber": 2.000000000000001,
+        "lambda": 0.25,
+        "qber": 0.06249999999999997
+      },
+      {
+        "closed_form_information": 0.25,
+        "closed_form_qber": 0.125,
+        "eve_information_bits": 0.25,
+        "information_over_qber": 2.000000000000001,
+        "lambda": 0.5,
+        "qber": 0.12499999999999994
+      },
+      {
+        "closed_form_information": 0.375,
+        "closed_form_qber": 0.1875,
+        "eve_information_bits": 0.375,
+        "information_over_qber": 2.000000000000001,
+        "lambda": 0.75,
+        "qber": 0.18749999999999992
+      },
+      {
+        "closed_form_information": 0.5,
+        "closed_form_qber": 0.25,
+        "eve_information_bits": 0.5,
+        "information_over_qber": 2.000000000000001,
+        "lambda": 1.0,
+        "qber": 0.2499999999999999
+      }
+    ],
+    "max_eve_information_bits": 0.5,
+    "reading": "an orthogonal ensemble is read perfectly and leaves no trace, while every consumer that learns anything about a non-orthogonal ensemble disturbs it, at a rate this family fixes exactly at two bits of information per unit of induced error",
+    "worst_closed_form_deviation": 1.1102230246251565e-16
+  },
+  "record_sha256": "5f2b47b62612da7de32c95726ff68166a917932657d67b7d8038e509db843f52",
+  "runtime": {
+    "code_commit": "a4e8ac0",
+    "generated_utc": "2026-08-07T05:26:57.363752+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr6-information-disturbance-v1",
+  "verdict": {
+    "computed_from": [
+      "C1_orthogonal_reads_without_trace",
+      "C2_no_information_without_disturbance",
+      "C3_closed_form_tradeoff",
+      "C4_zero_disturbance_zero_information",
+      "C5_holevo_bound_respected"
+    ],
+    "value": "PASS"
+  }
+}
