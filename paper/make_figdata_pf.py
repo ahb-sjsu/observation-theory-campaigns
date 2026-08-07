@@ -551,7 +551,7 @@ assert all(v == 2000 for v in
     "the first ceiling run did not reverse every member"
 CHECKS += 2
 check_declared("PF-7 chirp diagnosis",
-               "the oscillation is a chirp whose local frequency grows "
+               "oscillation is a chirp whose local frequency grows "
                "linearly with\ndelay", CEILING)
 
 cp1 = load("pf7-classical-probe.json")
