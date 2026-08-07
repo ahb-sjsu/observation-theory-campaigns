@@ -44,11 +44,27 @@ EXCLUSIONS = {
 }
 
 
+PLACEHOLDER = "Description coming soon"
+
+
+def fetch_descriptions(html):
+    """Map category to its published description, exactly as
+    printed. A category whose description is the placeholder has no
+    description at all."""
+    import re as _re
+    blocks = _re.findall(
+        r"<h4>([a-zA-Z.\-]+)\s*<span>.*?</span></h4>.*?<p>(.*?)</p>",
+        html, _re.S)
+    return {c: _re.sub(r"<[^>]+>", "", d).strip()
+            for c, d in blocks}
+
+
 def fetch_categories():
     req = urllib.request.Request(
         TAXONOMY_URL, headers={"User-Agent": "g1-pool-builder"})
     with urllib.request.urlopen(req, timeout=60) as fh:
         html = fh.read().decode("utf-8", "replace")
+    globals()["_HTML"] = html
     found = set(re.findall(
         r"\b([a-z-]+(?:\.[A-Za-z-]+)?)\b(?=</span>)", html))
     # keep only identifiers that look like arXiv categories
@@ -71,11 +87,22 @@ def main() -> int:
     record: dict = {"schema": "g1-domain-pool-v2",
                     "label": "infrastructure"}
     cats = fetch_categories()
+    desc = fetch_descriptions(globals()["_HTML"])
+    # a category whose published description is the placeholder
+    # cannot supply the experiment's required input, so it is
+    # removed. The criterion is an exact match on the placeholder
+    # and not a length threshold, because a length threshold would
+    # also have removed stat.CO, whose description is terse but
+    # real, and choosing a threshold after seeing the data is the
+    # discretion this pool exists to eliminate.
+    no_description = sorted(
+        c for c in cats if desc.get(c, "").strip() == PLACEHOLDER)
     strata = {}
     for name, archives in GROUPS.items():
         keep = sorted({
             c for c in cats
             if archive_of(c) in archives and c not in EXCLUSIONS
+            and c not in no_description
             and (("." in c) or c in ("nucl-ex", "nucl-th"))})
         strata[name] = keep
         print(f"stratum {name}: {len(keep)} categories", flush=True)
@@ -84,6 +111,11 @@ def main() -> int:
     record["fetched_utc"] = datetime.now(timezone.utc).isoformat()
     record["groups"] = GROUPS
     record["exclusions"] = sorted(EXCLUSIONS)
+    record["removed_no_published_description"] = no_description
+    record["placeholder_string"] = PLACEHOLDER
+    record["descriptions"] = {
+        c: desc.get(c, "")
+        for st in strata.values() for c in st}
     record["strata"] = strata
     record["counts"] = {k: len(v) for k, v in strata.items()}
     record["notes"] = (
