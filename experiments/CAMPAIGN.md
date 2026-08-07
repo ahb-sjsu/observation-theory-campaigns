@@ -574,6 +574,56 @@ crossing.
 
 Exploratory and unsealed, `results/pf4-007-span.json`.
 
+#### PF4-008 protocol (declared 2026-08-07, before the run)
+
+The rehabilitation. The property that made the Lorentzian profile interesting was a
+first-order singularity, and the property that broke its gate was an algebraic tail.
+Those are separable, and the Gudermannian tilt separates them. Written as the
+arcsine of a hyperbolic tangent it runs from minus one to plus one, its force is a
+hyperbolic secant whose nearest singularity is a simple pole at pi over two times
+the width, the same distance as the sech-squared family's double pole, and its tails
+decay exponentially so the entry-point defect cannot arise.
+
+That makes the comparison controlled. Two profiles, one distance, two orders. What
+the distance fixes and what the order fixes are separated by construction rather
+than by argument.
+
+Two hypotheses, mutually exclusive and declared here before the run so the run
+discriminates rather than confirms. H1, the distance is what matters, and the
+Gudermannian exponent equals the sech-squared exponent of minus 1.04767 within five
+percent. H2, the order matters, and the Gudermannian exponent equals the Lorentzian
+exponent of minus 2.06356 within ten percent. Both references are from the committed
+PF4-005b record. If neither holds that is recorded as a third outcome and the
+question stays open.
+
+Grid, disjoint from every prior run. Widths 1.5, 2.5, and 3.5, adiabaticities 1.0,
+1.4, 1.8, 2.2, 2.6, and 3.2, timestep 2e-4, span twenty widths, with the
+sech-squared profile rerun on the identical grid so the comparison is side by side
+rather than across records.
+
+Bars, with the gate content folded in because this profile has never been gated.
+P1a, the conserved quantity of the extended system drifts by at most 1e-10. P1b,
+moving the entry point half again further out changes the transfer by at most 1e-6
+relative, which is the clause the Lorentzian failed at 1.3e-2 and which exponential
+tails should now satisfy. P1c, halving the timestep changes it by at most 1e-5, a
+bar set from the 3e-7 measured in PF4-006 rather than from optimism. P1d,
+translation covariance at 1e-6. P1e, the census is complete. P2, the exponential
+form holds at a coefficient of determination of at least 0.98, a bar low enough to
+admit either profile's behaviour since the answer is not known in advance. P3, both
+profiles are width-universal within two percent. P4, every transfer lies between
+1e-12 and 1, so no fit rests on numerical noise.
+
+**Readings.** If the bars hold and H2 holds, the exponent is fixed by the order of
+the singularity as well as its distance, the Lorentzian's agreement with the
+parameter-free value is reproduced by a profile that passes its gate, and the summit
+result rests on a well-conditioned family. If the bars hold and H1 holds, the
+distance alone fixes the exponent, the Lorentzian's differing value was the tail
+contamination the gate found, and the summit statement narrows accordingly. Either
+way the entry-point defect is gone and the seal binds to this profile rather than to
+the one that failed.
+
+Exploratory and unsealed, `results/pf4-008-pole-order.json`.
+
 ### PF-7: Quantum-structure ceiling tests
 
 **Question.** Can the model reproduce more than a classical worldline picture?
