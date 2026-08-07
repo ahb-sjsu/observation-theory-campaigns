@@ -50,6 +50,7 @@ import json
 import os
 import platform
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -72,6 +73,9 @@ MEMBERS = [(0.60, 0.8957885742187499, 3.0),
            (0.90, 1.3605468750000003, 2.0)]
 N_STEPS = 40_000
 LEVEL_FRACTIONS = [k / 100.0 for k in range(1, 100)]
+EXCURSION_FRACTIONS = [0.1 * k for k in range(1, 10)]
+COST_N = 5_000
+COST_STEPS = 24_000
 
 # arm B, one PF5-002 cell
 LADDER_CELL = (0.60, 0.8957885742187499)
@@ -105,6 +109,7 @@ def main() -> int:
                     "label": "exploratory"}
     rows = []
     pooled_u = []
+    multi_u = []
     for p, e, pu0 in MEMBERS:
         ts, pts, us, pus = integrate(p, e, n_steps=N_STEPS, pu0=pu0)
         t0, t1 = float(ts[0]), float(ts[-1])
@@ -112,8 +117,20 @@ def main() -> int:
         t_min, t_max = float(ts.min()), float(ts.max())
         upper_width = t_max - hi
         lower_width = lo - t_min
-        levels = [t0 + f * (t1 - t0) for f in LEVEL_FRACTIONS]
         fold_idx = np.nonzero(pts[:-1] * pts[1:] < 0.0)[0]
+        fold_ts = [float(ts[k]) for k in fold_idx]
+        background = [t0 + f * (t1 - t0) for f in LEVEL_FRACTIONS]
+        excursions = []
+        exc_levels = []
+        for j in range(0, len(fold_ts) - 1, 2):
+            a, b = fold_ts[j], fold_ts[j + 1]
+            elo, ehi = min(a, b), max(a, b)
+            excursions.append({"fold_pair": [a, b],
+                               "lo": elo, "hi": ehi,
+                               "width": ehi - elo})
+            exc_levels += [elo + f * (ehi - elo)
+                           for f in EXCURSION_FRACTIONS]
+        levels = sorted(background + exc_levels)
         per_level = []
         refused = 0
         for lv in levels:
@@ -131,6 +148,9 @@ def main() -> int:
                               "count": len(cr),
                               "signed": signed,
                               "u_sorted": uvals})
+            if len(cr) > 1:
+                multi_u.append({"P": p, "level": float(lv),
+                                "count": len(cr), "u_sorted": uvals})
         counts_seq = [d.get("count") for d in per_level]
         jumps = [b - a for a, b in zip(counts_seq[:-1], counts_seq[1:])
                  if a is not None and b is not None]
@@ -140,10 +160,12 @@ def main() -> int:
                "t_min": t_min, "t_max": t_max,
                "pair_window_upper_width": float(upper_width),
                "pair_window_lower_width": float(lower_width),
-               "level_spacing": float(abs(t1 - t0)
-                                      * (LEVEL_FRACTIONS[1]
-                                         - LEVEL_FRACTIONS[0])),
-               "fold_times": [float(ts[k]) for k in fold_idx],
+               "background_spacing": float(abs(t1 - t0)
+                                          * (LEVEL_FRACTIONS[1]
+                                             - LEVEL_FRACTIONS[0])),
+               "fold_times": fold_ts,
+               "excursions": excursions,
+               "n_levels": len(levels),
                "refused_levels": refused,
                "count_sequence": counts_seq,
                "jumps": jumps,
@@ -151,12 +173,13 @@ def main() -> int:
                "levels": per_level}
         rows.append(row)
         print(f"P={p} folds={row['fold_count']} t0={t0:.4f} "
-              f"t1={t1:.4f} tmin={t_min:.4f} tmax={t_max:.4f} "
-              f"spacing={row['level_spacing']:.4f} "
+              f"t1={t1:.4f} nlev={len(levels)} "
               f"refused={refused} odd_jumps={row['odd_jumps']}",
               flush=True)
-        print("   folds at", row["fold_times"], flush=True)
-        print("   counts", counts_seq, flush=True)
+        print("   excursions", excursions, flush=True)
+        print("   count histogram",
+              {c: counts_seq.count(c) for c in set(counts_seq)},
+              flush=True)
 
     arr = np.array(pooled_u, dtype=float) if pooled_u else np.array([0.0])
     quant = {f"q{int(100 * q):02d}": float(np.quantile(arr, q))
@@ -167,7 +190,22 @@ def main() -> int:
         "n_crossings": int(arr.size),
         "min": float(arr.min()), "max": float(arr.max()),
         "mean": float(arr.mean()), "quantiles": quant}
+    record["arm_a_multibranch_levels"] = multi_u
     print("pooled u quantiles", quant, flush=True)
+    print("multibranch levels", len(multi_u), flush=True)
+    for m in multi_u:
+        print("   ", m, flush=True)
+
+    t_cost = time.time()
+    cost = census_run(*LADDER_CELL, COST_N, LADDER_SEED,
+                      max_steps=COST_STEPS)
+    t_cost = time.time() - t_cost
+    record["arm_b_cost"] = {
+        "n": COST_N, "max_steps": COST_STEPS,
+        "wall_seconds": float(t_cost),
+        "seconds_per_step": float(t_cost / cost["steps_run"]),
+        "counts": cost["counts"]}
+    print("cost", record["arm_b_cost"], flush=True)
 
     ladder = []
     p, e = LADDER_CELL
@@ -184,9 +222,14 @@ def main() -> int:
     record["declared"] = {
         "members": MEMBERS, "n_steps": N_STEPS,
         "level_fractions": LEVEL_FRACTIONS,
-        "window_rule": "levels are t_start + f (t_end - t_start) for "
-                       "the declared fractions f, a uniform ladder "
-                       "across the full observed span of the member",
+        "excursion_fractions": EXCURSION_FRACTIONS,
+        "window_rule": "the ladder is a uniform background at "
+                       "t_start + f (t_end - t_start) for the declared "
+                       "fractions f, merged with levels placed at the "
+                       "declared excursion fractions inside each "
+                       "interval spanned by a consecutive pair of "
+                       "fold times, because the fold excursions are "
+                       "far narrower than the background spacing",
         "first_pass_note": "the aff9b49 pass placed levels in the "
                            "pair-creation window and measured it "
                            "empty, t_end equals t_max and t_start "
