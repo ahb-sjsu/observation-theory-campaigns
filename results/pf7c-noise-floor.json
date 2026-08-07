@@ -1,0 +1,56 @@
+{
+  "declared": {
+    "alpha": 0.05,
+    "n_members": 2000,
+    "n_null": 20000,
+    "seed": 9100000,
+    "source_record": "results/pf7b-quantum-ceiling.json"
+  },
+  "findings": {
+    "Q3c_classical_no_interference_beyond_noise": false,
+    "Q3c_quantum_exceeds_null": true
+  },
+  "items": {
+    "N1_measured_recomputed": true,
+    "N2_null_floor_is_high": true,
+    "N3_decision_made": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "binomial_sigma": 0.011177350057007027,
+    "classical_consistent_with_noise": false,
+    "classical_p_value": 0.0262,
+    "classical_statistic": 0.36257977332594876,
+    "curve_range": [
+      0.4645,
+      0.5245
+    ],
+    "mean_fraction": 0.4884375,
+    "n_points": 32,
+    "null_mean": 0.2164708202367656,
+    "null_median": 0.2055595916996134,
+    "null_q95": 0.3309883913431661,
+    "null_q99": 0.40781469468235576,
+    "quantum_p_value": 0.0,
+    "quantum_statistic": 0.8702450277865776
+  },
+  "record_sha256": "0a25fffe9d88e1525e97157717bdc7d7ddd782fa7b0c2dff52ccb28144d93ab7",
+  "runtime": {
+    "code_commit": "bbfd994",
+    "generated_utc": "2026-08-07T00:58:42.056851+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "pf7c-noise-floor-v1",
+  "verdict": {
+    "computed_from": [
+      "N1_measured_recomputed",
+      "N2_null_floor_is_high",
+      "N3_decision_made"
+    ],
+    "note": "the findings carry the ceiling reading, either outcome a result",
+    "value": "PASS"
+  }
+}
