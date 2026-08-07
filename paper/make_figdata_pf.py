@@ -934,10 +934,8 @@ assert all(v > 0 for v in
            a007bad["measured"]["lorentz_slopes_at_far_span"]), \
     "the superseded PF4-007 record no longer carries positive slopes"
 CHECKS += 1
-check("PF4-007 superseded positive slope 0",
-      a007bad["measured"]["lorentz_slopes_at_far_span"][0], 5.30, 5e-3)
-check("PF4-007 superseded positive slope 1",
-      a007bad["measured"]["lorentz_slopes_at_far_span"][1], 5.32, 5e-3)
+check_exact("PF4-007 superseded record sha",
+            a007bad["record_sha256"][:12], "e12453effa2f")
 check_declared("PF4-007 record defect recorded",
                "was produced by the runner before the reciprocal-fit\n"
                "import was found, so its exponent items are invalid",
