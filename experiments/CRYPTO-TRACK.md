@@ -692,6 +692,67 @@ only to establish that the audit sees a backdoor when one is
 present by construction. Exploratory label,
 results/cr4-backdoor-ceiling.json.
 
+#### CR-4 results (run 2026-08-07, record sha in the record)
+
+Verdict FAIL on two bars, and the analysis of the failure sharpened
+the question. The group had ninety-six elements while the declared
+truncation has eight output values, so ninety-five seeds spread
+over eight bins cannot approach uniform and the measured public
+entropies, 2.7890 and 2.8002 bits against three, missed the
+declared 0.15-bit window by finite size alone. The trapdoor arm
+predicted at 0.263 against a declared 0.5 because the recovery loop
+accepted the first candidate consistent with one observed word
+instead of testing candidates against the next word.
+
+The finding B5 read False, and it was the wrong question. Two
+different second points induce genuinely different exact output
+distributions, so asking whether the backdoored and clean parameter
+sets are distributionally identical was never the ceiling. The
+scalar of the clean point was recovered by enumeration in the same
+run, which shows why. Every point has a scalar, so the two
+parameter sets are not two classes at all.
+
+#### CR-4b protocol (declared 2026-08-07, before the run)
+
+The corrected question. A trapdoor scalar is a constant of the
+parameter set and not a source of randomness, so it cannot change
+any conditional law of the outputs. Its whole content is the cost
+of a computation. An audit built from informations must therefore
+be exactly blind to it, and the measurement is that blindness
+placed beside a positive control the same audit does detect.
+
+Substrate. The first declared curve over the field of 1009 elements
+with prime group order, a base point taken by the declared
+first-abscissa rule, and the generator step of CR-4 unchanged with
+three output bits. The clean second point is fixed by a declared
+nothing-up-my-sleeve rule, the first scalar whose point abscissa is
+at least 500, with the scalar recovered by enumeration only so the
+run can state it.
+
+Bars. B1, the positive control, a declared generator that writes
+one seed bit into its output word carries at least 0.5 bits of
+mutual information with that seed bit while the unmodified
+generator carries at most 0.05. B2, both parameter sets are near
+uniform within 0.05 bits of the truncation's uniform entropy, which
+the larger group makes attainable. B3, the trapdoor confers no
+information, the conditional entropy of the second word given the
+first computed by the public route and by the trapdoor holder's
+inverse-map route agree within 1e-9. B4, the clean point's scalar
+is recovered by enumeration, so both parameter sets sit in one
+class.
+
+Findings, recorded individually with either outcome a result. B5,
+the audit is blind to the trapdoor. B6, the same audit sees the
+declared leak and not the trapdoor, the two measurements together.
+
+The reading if they hold. This campaign's machinery detects
+backdoors that are leakage and is exactly blind to backdoors that
+are trapdoors, because the first changes a distribution and the
+second changes only the cost of a computation. The boundary is
+where computational assumptions must take over, and it is drawn in
+measured numbers. Scope as in CR-4, unchanged and strict.
+Exploratory label, results/cr4b-backdoor-ceiling.json.
+
 ## 7. Non-claims and evidence discipline
 
 Seals, labels, append-only records, and falsification bars as in
