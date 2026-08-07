@@ -859,8 +859,10 @@ after the fact fits nothing in advance. So the campaign now tests
 its own kernel prospectively, against the null hypothesis that its
 apparent reach is flexible reinterpretation.
 
-The operator is frozen in `experiments/GENERATOR-G1.md`. It takes a
-domain, decomposes it into a substrate, a consumer with a channel, a
+The operator is frozen in `experiments/GENERATOR-G2.md`, which
+supersedes the first version after a dry run found three defects in
+it. G1 stays in the repository unedited as the record of what was
+declared first. The operator takes a domain, decomposes it into a substrate, a consumer with a channel, a
 task, a budget, and an environment, and applies eight question
 operators to produce candidate experiments. Twelve domains are drawn
 from a pool of 140 arXiv categories frozen in
@@ -878,12 +880,33 @@ twelve packets are scored, which is why the FS track above is sealed
 and idle.
 
 A full dry run on a non-pool domain registered seven findings in
-`experiments/GENERATOR-DRYRUN.md`. The most serious is that all
-three scorers marked every comparator item replication-grade and no
-operator item, which suggests the label may be tracking vocabulary
-rather than novelty. Three findings must be closed before the draw.
+`experiments/GENERATOR-DRYRUN.md`, three of them defects in the
+operator rather than the plumbing. The operator's text was
+underdetermined, so two faithful implementations could differ. The
+level ladder did not discriminate, with two of its six levels never
+used by any scorer. And most seriously, all three scorers marked
+every comparator item replication-grade and no operator item, a
+split too clean to be about content, which suggests the label was
+tracking vocabulary rather than novelty.
 
-Key files. `experiments/GENERATOR-G1.md`,
+G2 closes all three. The arm and scorer texts are now sealed
+verbatim. The ladder is not recalibrated, since rewriting level
+definitions after seeing which levels got used is the tuning this
+experiment exists to detect; instead a scorer assigning level two
+or above must name what stops the item being level one, and must
+pass a calibration probe on an excluded domain first. And a scorer
+marking an item replication-grade must name the established result
+it restates, with the same naming requirement placed on the one
+validity condition a scorer could otherwise satisfy on impression.
+
+That last repair makes the primary endpoint harder for the arm
+writing in unfamiliar vocabulary, which is the arm under test. The
+primary endpoint itself is carried over untouched, because the dry
+run had the operator ahead and adjusting a bar after seeing that
+would be tuning in either direction.
+
+Key files. `experiments/GENERATOR-G2.md` (governing),
+`experiments/GENERATOR-G1.md` (superseded, unedited),
 `experiments/GENERATOR-DOMAIN-POOL-V3.md`,
 `experiments/GENERATOR-DRYRUN.md`, `python/g1_draw.py`.
 
