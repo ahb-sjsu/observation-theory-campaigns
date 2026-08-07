@@ -93,3 +93,65 @@ time from a different direction. The rehearsal domain was changed
 to cond-mat.stat-mech before any generation ran. Recorded because
 the coincidence is a useful reminder that the defect was not
 hypothetical.
+
+### Finding 4, harness result, positive
+
+The primary endpoint is measurable with three scorers. Across
+thirty items the adjudication rate was zero. Twenty-one items drew
+identical levels from all three scorers and nine differed by one
+level, and no item differed by more than one, so the adjudication
+path never fired. Inter-scorer agreement is not the bottleneck the
+rehearsal was designed to look for.
+
+### Finding 5, operator defect, G2 item
+
+The level taxonomy does not discriminate. Consensus levels were one
+item at two, twelve at three, fourteen at four, and three at five.
+Levels zero and one were never used by any scorer on any item. A
+six-level ladder on which four levels never appear is not measuring
+what it was built to measure, and either the ladder is
+miscalibrated for packets that were written to a rubric or scorers
+are lenient in a way the rubric does not restrain.
+
+This matters less than it might because the primary endpoint counts
+the five validity conditions rather than levels, and those did
+discriminate, failing three times on counterfactual leverage and
+once on being settled by the setup. The secondary endpoints that
+use levels are weakened. G2 must either recalibrate the ladder or
+demote level-based endpoints.
+
+### Finding 6, operator defect, G2 item, and the most serious
+
+Replication-grade may be tracking vocabulary rather than novelty.
+All three scorers independently marked every one of the fifteen
+comparator items replication-grade and none of the fifteen kernel
+items. A split that clean across three independent scorers is
+unlikely to be about the content alone.
+
+The plausible mechanism is that a packet phrased in the standard
+vocabulary of a domain reads as a restatement of that domain's
+textbook results, while the same substance phrased in unfamiliar
+vocabulary reads as new. If that is what happened, then
+replication-grade is measuring which arm wrote the packet, which is
+precisely the confound the blinding was meant to remove, and the
+same mechanism could inflate the domain-native condition in the
+opposite direction.
+
+The repair belongs to G2 because the rubric is a sealed field. A
+scorer marking an item replication-grade must name the established
+result it restates, and an unnamed mark does not count. That
+converts a judgment into a checkable claim. G2 should apply the
+same requirement to any condition that a scorer can satisfy on
+impression.
+
+### Finding 7, recorded for calibration, not a defect
+
+On a domain this campaign knows intimately, and where the kernel
+should therefore look best, the primary endpoint separated the arms
+by two items, fourteen against twelve. Effect sizes in the real
+experiment may be small. This is a reason to be glad the primary
+endpoint is a sign test across domains, which asks only which arm
+is ahead in each domain and not by how much, and a reason not to
+expect a decisive margin from any single domain.
+
+All rehearsal scores are discarded and count for nothing.
