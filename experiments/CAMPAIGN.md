@@ -478,6 +478,91 @@ because the trajectory cannot reverse before it reaches the slab and the onset
 is set by the geometry, not by a hazard. Either outcome is a result and the
 measured shape is recorded either way.
 
+#### PF-8 results (run 2026-08-06, record sha b375000e2a70...)
+
+Verdict PASS on all four bars, exploratory and unsealed, runner at code commit
+84af03a, record `results/pf8-decay-gate.json`.
+
+**D1, complete-observer parity, zero odd events.** Four deterministic members
+audited on 441 generic levels and 400 kept thermal polylines audited on five
+levels each. The complete observer's unsigned branch count took only the values
+1 and 3, and every change between adjacent levels was -2, 0, or +2. Zero odd
+events, zero parity failures on either arm. Fold counts 4, 2, 2, 2, all even.
+The three-branch fibers are narrow, the excursions measuring 0.005314, 0.007744,
+0.04449, 0.025922, and 0.000253 in observed time, which is why the ladder places
+levels inside them.
+
+**D2, signed count, zero failures.** The frozen path-degree rule reported zero
+failures on all 441 deterministic levels and all 2000 thermal polyline checks.
+The signed count on every arm A member was exactly +1 at every level, spread
+zero, so no fold moved it. Folds make orientation charge only in cancelling
+pairs, measured here rather than assumed.
+
+**D3, the blind consumer.** Across 441 observations the consumer blind to
+branches with u in [-0.70, +0.70] failed to record 147 crossings and read a
+parity different from the complete observer on 129 observations, a flip fraction
+of 0.2925. Sixty-three of those were apparent decay events, adjacent levels
+across which the blind count rose by exactly one, one particle becoming two with
+missing energy. Every single apparent count matched the detector-model
+prediction exactly, zero mismatches on 441 observations, computed by an
+independent route from the observer's own record. The P = 0.90 member is the
+extreme case, all three branches of its zigzag lie inside the window, so that
+consumer sees nothing at all where the complete observer sees three.
+
+**D4, anti-vacuity.** Every member folded, the ladder resolved 46 multibranch
+levels, the consumer hid 147 crossings, and the thermal census contained 1963
+reversing members. The thermal census summed exactly to 20000 with zero missing
+trajectories and a maximum relative energy residual of 6.3e-7 against the PF-5
+bar of 1e-5.
+
+**PF-8b, lifetimes, memorylessness fails.** The expected negative is what the
+run measured. Pooling the four cells, 1963 first-reversal times have mean proper
+time 18.92 and standard deviation 3.01, a coefficient of variation of 0.159
+against the value 1 that a memoryless exponential requires, so the deviation is
+-0.841. Per cell the coefficient of variation is 0.0526, 0.0530, 0.0694, and
+0.0764, and the pooled figure is larger only because the four cells have
+different means. The sup deviation between the empirical survival curve and the
+exponential whose mean matches it is 0.506 pooled and near 0.57 in every cell,
+which is most of the available range. Shifting to the measured onset does not
+rescue it, the shifted coefficient of variation is 0.494 pooled and the shifted
+sup deviation 0.232. An exact cross-check on 32 first-reversal steps read from
+the kept polylines gives mean 18.94 and coefficient of variation 0.188, matching
+the binned ladder. First-reversal time in this family has a hard onset set by
+when the trajectory reaches the slab and a narrow spread after it, which is not
+a hazard at all. This is the PF-2 lesson again, fold statistics are borne by the
+declared measure.
+
+**Can folding account for particle decay.** No for the decay everyone means, yes
+for a decay nobody can distinguish from it without seeing every branch.
+
+What is excluded. A same-species one-to-two decay is a change of exactly one in
+the observed branch count. Every fold changes that count by exactly two. Across
+441 generic levels on four folding worldlines the measured change was never
+anything but -2, 0, or +2, and the signed count never moved. So a complete
+observer of a continuous worldline under a generic projection cannot see one
+particle become two. This is not a limit of the search, it is parity.
+
+What is imitable. The one-to-three zigzag, parent plus created pair, which the
+run found at 46 levels where the neighbouring levels showed one branch. Folding
+imitates pair creation because pairs are what folds make, and it imitates decay
+only by adding a pair to a branch that was already there.
+
+What the blind consumer showed. Declaring one branch class invisible turns the
+one-to-three event into a one-to-two reading, and the run produced 63 of them.
+Their apparent counts were predicted exactly by the consumer's detector model,
+zero mismatches, which is the PF-6 lawful-observer clause holding for decay as
+it did for particle number. Apparent decay in this model is therefore a
+measurement of what the consumer cannot see, never a property of the worldline.
+That is the same structure as the PE track's invisible leak, and it is the
+phenomenology of decays with unobserved neutrinos without any of the physics.
+
+Caveats. Arm A is four members and one declared blind window, so the counts of
+apparent decays are counts on this ladder and not a rate. The frozen census
+stops a member at its first reversal, so the kept thermal polylines are half
+worldlines and carry the endpoint form of the parity statement rather than the
+even-fold-count form, which is why arm B's parity clause was written against the
+endpoints before the run. Nothing here is sealed.
+
 ### PF-4 summit, closed on the pulse-train family (2026-08-06)
 
 Three records close the summit attempt on the thermal-free pulse-train family.
