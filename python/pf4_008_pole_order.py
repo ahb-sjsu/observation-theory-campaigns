@@ -37,7 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import pf4_pilot as pilot  # noqa: E402
 from pf4_005_analyticity import (  # noqa: E402
-    E_FIELD, equilibrium, fit_slope, potential)
+    E_FIELD, equilibrium, potential)
 from projection_fold import canonical_sha256  # noqa: E402
 
 L_GRID = [1.5, 2.5, 3.5]
@@ -57,6 +57,22 @@ SECH2_REFERENCE = -1.04767      # PF4-005b, record 8da5c1e9dca4
 LORENTZ_REFERENCE = -2.06356    # PF4-005b, same record
 H1_TOL = 0.05
 H2_TOL = 0.10
+
+
+def fit_slope(kappa_values, e_res):
+    """Fit the log transfer against the adiabaticity itself. The
+    first execution of this runner imported a helper that fits
+    against the reciprocal instead, which is the named error that
+    invalidated it."""
+    x = np.array(kappa_values, dtype=float)
+    y = np.log(np.asarray(e_res, dtype=float))
+    a = np.vstack([x, np.ones_like(x)]).T
+    coef, *_ = np.linalg.lstsq(a, y, rcond=None)
+    pred = a @ coef
+    ss_res = float(np.sum((y - pred) ** 2))
+    ss_tot = float(np.sum((y - y.mean()) ** 2))
+    r2 = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
+    return float(coef[0]), float(coef[1]), r2
 
 
 def tilt_and_force(t, l_s, profile):
