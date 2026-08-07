@@ -753,6 +753,53 @@ where computational assumptions must take over, and it is drawn in
 measured numbers. Scope as in CR-4, unchanged and strict.
 Exploratory label, results/cr4b-backdoor-ceiling.json.
 
+#### CR-4b results (run 2026-08-07, record sha in the record)
+
+Verdict FAIL on B3, from a code error, with the other three bars
+passing and the positive control exact. The larger group delivered
+near uniformity as designed, public entropies 2.9878 and 2.9943
+bits against three, and the clean point's scalar was recovered by
+enumeration. The declared leak carried exactly 1.0 bits of mutual
+information with the seed bit while the unmodified generator
+carried exactly 0.0, so the audit sees an information-theoretic
+backdoor immediately and the positive control is sharp.
+
+B3 compared two routes to one conditional entropy and measured
+2.8811 against 2.9125, a difference of 0.0314 where the bar was
+1e-9. The named error is in the inverse map, the trapdoor route
+multiplied the observed point's abscissa as though it were a scalar
+instead of scalar-multiplying the observed point by the inverse of
+the trapdoor scalar. The two routes are equal by the group law, so
+the disagreement measured the bug and nothing about trapdoors.
+
+#### CR-4c protocol (declared 2026-08-07, before the run)
+
+Two corrections, the second of which is the better statement of the
+ceiling.
+
+The inverse map is corrected, the trapdoor route now multiplies the
+observed point by the inverse scalar as the group law requires, and
+the route agreement becomes B3b with the same 1e-9 bar. This checks
+the arithmetic and claims nothing more.
+
+The ceiling itself becomes B3a and it is exact rather than
+empirical. A trapdoor scalar is a fixed constant of the parameter
+set, so its entropy is exactly zero, and the information any
+constant can carry about any observable is bounded by its own
+entropy. The audit's blindness is therefore not a limitation of
+this instrument or this toy, it is a bound.
+
+The findings stand unchanged in meaning and sharper in form. B5,
+the audit is blind to the trapdoor, recorded as an exact zero bound
+rather than an agreement within tolerance. B6, the same audit sees
+the declared one-bit leak and is blind to the trapdoor.
+
+The reading. Backdoors that change a distribution are visible to
+this machinery and backdoors that change only the cost of a
+computation are invisible to it by a bound rather than by an
+oversight. Scope unchanged and strict. Exploratory label,
+results/cr4c-backdoor-ceiling.json.
+
 ## 7. Non-claims and evidence discipline
 
 Seals, labels, append-only records, and falsification bars as in
