@@ -953,10 +953,10 @@ Key files. `experiments/GENERATOR-G2.md` (governing),
 2. Claim-bearing results require a sealed preregistration naming the
    claim, the grid, the estimator, and the falsification bar before
    the run. Seals are git-blob hashes in `experiments/SEALS.md`
-   (nineteen entries: two instrument freezes, eleven
-   preregistrations, the generator operator and three successive
-   domain pools, and one track sealed before it may run, all
-   verifiable with `git show <commit>:<path> | sha256sum`).
+   (twenty entries: two instrument freezes, twelve
+   preregistrations, two versions of the generator operator and
+   three successive domain pools, and one track sealed before it may
+   run, all verifiable with `git show <commit>:<path> | sha256sum`).
 3. Every trajectory is counted; no conditioning on success.
 4. Evidence records in `results/` are append-only hashed JSON
    sufficient for independent recomputation; every paper figure
