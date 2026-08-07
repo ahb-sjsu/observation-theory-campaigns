@@ -355,6 +355,129 @@ negative with the measured shape recorded either way.
 and PF-6 gate runs, in sequence position after PF-6, sharing PF-7's substrate
 options.
 
+#### PF-8 protocol, declared 2026-08-06 before the run
+
+Both mandatory gates cleared, so PF-8 is ungated and this is its concrete
+protocol. The run is exploratory and unsealed. Runner `python/pf8_decay_gate.py`,
+record `results/pf8-decay-gate.json`, schema `pf8-decay-gate-v1`. Instruments are
+frozen and unmodified, `integrate` and `fold_count` from `python/pf6_covariance.py`,
+`census_run` and `signed_count_rule` from `python/pf5_accounting.py`, and
+`polyline_level_crossings` from `python/projection_fold.py`.
+
+**The probe, and what it changed.** The standing rule is that a registration
+must cite a probe verifying event presence per bound cell and member.
+`python/pf8_blind_probe.py` ran first and is committed, record
+`results/pf8-blind-probe.json`, sha `6dce4c52a31e43cb`. It changed two things
+in the design above, and both changes are declared here before the run rather
+than discovered after.
+
+The first change is the observation configuration. The design above speaks of a
+branch count that is even with signed count zero, which is the pair-creation
+configuration where the worldline both begins and ends on one side of the
+observed level. The probe measured that configuration absent on every bound
+member. All four end at their own largest observed time and begin at their own
+smallest, t_end equal to t_max and t_start equal to t_min, so both candidate
+windows have width exactly zero. The bound members are through-going, one branch
+in and one branch out, which is the configuration a decay question wants anyway.
+The parity invariant on a through-going worldline is that the complete
+observer's unsigned branch count is ODD at every level, and a fold changes it by
+exactly two, so the sweep reads one branch, then three, then one. A same-species
+one-to-two decay would be a change of exactly one and is excluded by the same
+arithmetic. Every bar below is stated in this form, and the deviation from the
+design's "even count, zero signed count" wording is exactly this reframing.
+
+The second change is the level ladder. The probe measured the fold excursions as
+narrow as 0.000253 in observed time on the P = 0.90 member, and 0.005314,
+0.007744, 0.04449, and 0.025922 on the others, against a uniform ladder spacing
+near 0.2. A uniform ladder therefore steps over the three-branch fibers almost
+everywhere. The declared ladder merges a uniform background at fractions
+0.01 through 0.99 of the span from t_start to t_end with nine levels at
+fractions 0.1 through 0.9 inside each interval spanned by a consecutive pair of
+fold times. On this ladder the probe found 46 three-branch levels across the
+four members and zero refused levels.
+
+**Bound members and cells.** Arm A takes the four members PREREG-PF6-002 bound
+from its own member probe, gap, field, and initial transverse momentum equal to
+(0.60, 0.8957885742187499, 3.0), (0.70, 1.0448364257812501, 3.0),
+(0.80, 1.2020141601562502, 3.0), and (0.90, 1.3605468750000003, 2.0), step
+budget 40000, verified to fold with counts 4, 2, 2, 2. Arm B takes the four
+PREREG-PF5-002 cells at the same gaps and fields, ensemble 5000 per cell, seeds
+8800000, 8801000, 8802000, and 8803000, keeping the polylines of the first 100
+members per cell.
+
+**The declared blind consumer.** The blind consumer fails to record any branch
+whose transverse coordinate u at the crossing lies in the closed window
+[-0.70, +0.70]. The window is fixed from the probe record and nothing about it
+is tuned after the run. The probe pooled 533 crossings with u running from
+-2.68598 to 2.714888 and quantiles q30 = -0.9930224 and q70 = 1.0100054, so the
+declared window sits inside the bulk and hides 147 of the 533 crossings, 27.6
+percent, some but not all. At the three-branch levels the probe measured the
+middle branch inside the window and the outer two outside it on the P = 0.60,
+0.70, and 0.80 members, while on the P = 0.90 member all three branches lie
+inside [-0.33, +0.33] and the window hides the whole zigzag.
+
+**D1, complete-observer parity.** Every audited member's fold count is even. At
+every declared generic level the complete observer's unsigned branch count has
+the parity fixed by the worldline endpoints, and every change in that count
+between adjacent declared levels is even. The bar is zero odd events, where an
+odd event is a count change of odd size, which is what a one-to-two decay would
+be. Reported are the number of members audited, the number of kept thermal
+polylines audited, and the number of odd events, which must be zero. The frozen
+census stops a member at its first reversal, so a reversing member's kept
+polyline is half a worldline and carries the endpoint form of the parity
+statement rather than the even-fold-count form. That is an instrument fact, not
+a result, and it is why arm B's parity clause is written against the endpoints.
+
+**D2, signed count.** The frozen `signed_count_rule` reports zero failures on
+every audited member at every declared generic level, on both arms, and the
+signed count on each arm A member is constant across the whole ladder. This is
+the statement that a fold changes the signed count by exactly zero, that folds
+make orientation charge only in cancelling pairs. The bar is zero failures and
+zero spread.
+
+**D3, the blind consumer, the loophole made mechanical.** Per member and per
+level the apparent count is measured twice by independent routes. The blind
+consumer's own record scans its samples for sign changes of the observed time
+against the level and interpolates u there by index arithmetic, then drops the
+branches inside its window. The detector model takes the frozen crossing
+instrument's list, reads u at the evolution parameter it returns, and predicts
+the complete count minus the number of crossings whose u lies in the window. The
+bar has two halves. The two routes agree exactly on every member and every
+level, zero mismatches, which is the PF-6 lawful-observer clause applied to
+decay. And the fraction of observations whose apparent parity differs from the
+complete observer's is strictly greater than zero, which is the loophole. Also
+reported and not barred is the count of apparent decay events, adjacent declared
+levels across which the blind consumer's count rises by exactly one, the
+mechanical imitation of one particle becoming two.
+
+**D4, anti-vacuity.** Every audited arm A member has at least one fold, the
+ladder resolves at least one multibranch level, the blind consumer hides at
+least one crossing, and arm B's census contains at least one reversing member.
+A run failing any of these is recorded vacuous rather than passing.
+
+**Verdict** is computed from D1, D2, D3, and D4 by the runner. PF-8b carries no
+bar.
+
+**PF-8b protocol, measurement with an expected negative.** On arm B the survival
+curve is measured by re-running the frozen census at a ladder of step caps with
+the seed held fixed, so the count of members that have reversed by each cap is
+the exact cumulative distribution of the first-reversal step over the same 5000
+members. The caps are fractions 0.900 through 1.400 in steps of 0.025 of the
+nominal slab-arrival step |T_START| / (P dt), which the probe placed correctly,
+measuring the first reversal at cap 20000 and saturation by cap 26000 on the
+P = 0.60 cell against a nominal 20000. Reversal times are binned at the ladder
+spacing and reported as proper time. Recorded are the mean, the standard
+deviation, the coefficient of variation, the coefficient of variation after
+shifting to the measured onset, and the sup deviation between the empirical
+survival curve and the exponential whose mean matches it, both raw and
+onset-shifted. A cross-check sample of exact first-reversal steps comes from the
+kept polylines, which end on the step at which the census classified them. The
+discriminating statistic is the coefficient of variation, which equals one
+exactly for a memoryless exponential. Memorylessness is expected to FAIL,
+because the trajectory cannot reverse before it reaches the slab and the onset
+is set by the geometry, not by a hazard. Either outcome is a result and the
+measured shape is recorded either way.
+
 ### PF-4 summit, closed on the pulse-train family (2026-08-06)
 
 Three records close the summit attempt on the thermal-free pulse-train family.
