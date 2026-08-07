@@ -668,12 +668,21 @@ check("PF-7f trend in standard errors", m7f["trend_in_sigma"], 4.19,
 assert m7f["classical_detrended_statistic"] < m7f["null_detrended_mean"], \
     "the PF-7f residual does not sit below the null mean"
 CHECKS += 1
+assert m7f["quantum_detrended_statistic"] > m7f["null_detrended_q95"], \
+    "the PF-7f quantum value does not sit past the null 95th percentile"
+CHECKS += 1
+# Every bar of the third panel is measured after the same removal, so
+# the raw classical value, whose null is the one before the removal, is
+# reported in the text and not plotted beside these.
+check("PF-7f null mean after removal", m7f["null_detrended_mean"],
+      0.2681, 5e-5)
+check("PF-7f null 95th percentile after removal",
+      m7f["null_detrended_q95"], 0.4166, 5e-5)
 write("pf7_stats.dat", "idx stat",
       [(1, m7f["null_detrended_mean"]),
        (2, m7f["null_detrended_q95"]),
-       (3, m7f["classical_raw_statistic"]),
-       (4, m7f["classical_detrended_statistic"]),
-       (5, m7f["quantum_detrended_statistic"])])
+       (3, m7f["classical_detrended_statistic"]),
+       (4, m7f["quantum_detrended_statistic"])])
 check_declared("PF-7f terminus declared before the run",
                "The terminus, declared now so the campaign does not "
                "chase this", CEILING)

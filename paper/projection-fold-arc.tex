@@ -188,7 +188,8 @@ and sealed.  The controls are a monotone null, an exact creation fold,
 an exact annihilation fold, a degenerate cubic critical point, and a
 double fold, in that order the cases the classifier must find, must
 find with the opposite orientation, must refuse, and must find twice
-\cite{Whitney1955}.  On the monotone null the instrument reports one
+\cite{Whitney1955, ArnoldGZ}.  On the monotone null the instrument
+reports one
 branch and zero critical points at every slice.  On the creation fold
 the branch count runs 0, 1, 2 while the signed count stays 0 at every
 slice, and on the annihilation fold it runs the other way.  The cubic
@@ -252,8 +253,9 @@ Before extending anything the campaign reproduced an existing result.
 Stueckelberg-Horwitz-Piron electrodynamics evolves events under a
 parameter-dependent five-potential, so the mass shell is not fixed and
 $dt/d\tau$ may change sign along one worldline
-\cite{Stueckelberg1941, HorwitzPiron1973}.  Land's impulsive Coulomb
-scattering configuration was transcribed equation by equation with its
+\cite{Stueckelberg1941, HorwitzPiron1973, SaadHorwitzArshansky1989}.
+Land's impulsive Coulomb scattering configuration was transcribed from
+the preprint equation by equation with its
 conventions recorded, and its closed-form final velocity agrees with a
 numerical solution of the linear system it came from to
 $5.7 \times 10^{-14}$, its two published forms of the time component
@@ -622,12 +624,11 @@ pulses reverse everything.
     /pgf/number format/precision=3}]
 \addplot[red!70!black, mark=square*, mark size=1.5pt]
   table[x=d, y=f] {figdata/pf7_classical.dat};
-\nextgroupplot[ybar, bar width=11pt, ylabel={oscillation statistic},
-  xtick={1,2,3,4,5},
-  xticklabels={null mean, null 95th, classical raw,
-    classical residual, quantum},
+\nextgroupplot[ybar, bar width=13pt, ylabel={oscillation statistic},
+  xtick={1,2,3,4},
+  xticklabels={null mean, null 95th, classical residual, quantum},
   x tick label style={rotate=28, anchor=east, font=\footnotesize},
-  xmin=0.4, xmax=5.6, ymin=0, ymax=1.02,
+  xmin=0.4, xmax=4.6, ymin=0, ymax=1.02,
   nodes near coords,
   every node near coord/.append style={font=\footnotesize,
     /pgf/number format/fixed, /pgf/number format/precision=4}]
@@ -642,13 +643,14 @@ The middle panel is the classical arm's reversing fraction at eight
 thousand members per delay, whose whole range is 0.0425 and which falls
 smoothly as the two pulses stop overlapping.  The bottom panel places
 the declared statistic against the null distribution built from the
-same binomial counts, showing the null mean, the null ninety-fifth
-percentile, the raw classical value, the classical value after the
-declared smooth overlap model is removed from the curve and from every
-null curve alike, and the quantum value.  The classical residual sits
-below the null mean at a p-value of 0.757 and the quantum value sits
-past every null draw.  All values are read from committed evidence
-records.}
+same binomial counts, with the declared smooth overlap model removed
+from the curve and from every null curve alike, so all four bars are
+measured after the same treatment.  The classical residual sits below
+that null's mean at a p-value of 0.757 and the quantum value sits past
+every null draw.  The classical value before the removal is 0.4480 and
+belongs with the null before the removal, so it is reported in the text
+and not plotted beside these.  All values are read from committed
+evidence records.}
 \label{fig:pf7}
 \end{figure}
 
@@ -890,9 +892,11 @@ is whether the exponent is dynamical or an accident of a fitted range.
 
 The decisive property is analyticity.  An exponent set by the field's
 nearest complex singularity is a dynamical quantity, because no measure
-tail knows where a function's poles are, and the adiabatic
-exponentiation of a two-level crossing is controlled exactly by that
-distance \cite{Dykhne1962, DavisPechukas1976}.  Writing $d$ for the
+tail knows where a function's poles are, and the adiabatic exponent of
+a two-level crossing is set by the nearest complex degeneracy of its
+adiabatic levels, which for an analytic force profile is fixed by that
+profile's nearest singularity
+\cite{Dykhne1962, DavisPechukas1976}.  Writing $d$ for the
 distance from the real axis to the nearest complex singularity of the
 force profile and $P$ for the crossing velocity, the natural variable
 is the adiabaticity
@@ -1579,12 +1583,14 @@ Ann. Math. \textbf{62}, 374 (1955).
 
 \bibitem{ArnoldGZ}
 V.~I.~Arnold, S.~M.~Gusein-Zade, and A.~N.~Varchenko,
-\emph{Singularities of Differentiable Maps, Volume 1}
+\emph{Singularities of Differentiable Maps, Volume 1. The
+Classification of Critical Points, Caustics and Wave Fronts}
 (Birkh\"auser, Boston, 1985).
 
 \bibitem{Stueckelberg1941}
 E.~C.~G.~Stueckelberg,
-La signification du temps propre en m\'ecanique ondulatoire,
+Remarque \`a propos de la cr\'eation de paires de particules en
+th\'eorie de la relativit\'e,
 Helv. Phys. Acta \textbf{14}, 588 (1941).
 
 \bibitem{Feynman1949}
@@ -1597,12 +1603,18 @@ L.~P.~Horwitz and C.~Piron,
 Relativistic dynamics,
 Helv. Phys. Acta \textbf{46}, 316 (1973).
 
+\bibitem{SaadHorwitzArshansky1989}
+D.~Saad, L.~P.~Horwitz, and R.~I.~Arshansky,
+Off-shell electromagnetism in manifestly covariant relativistic quantum
+mechanics,
+Found. Phys. \textbf{19}, 1125 (1989).
+
 \bibitem{Land2016}
 M.~Land,
 Pair production in classical Stueckelberg-Horwitz-Piron
 electrodynamics,
-J. Phys.: Conf. Ser. \textbf{845}, 012025 (2017),
-arXiv:1604.01625.
+arXiv:1604.01625 (2016),
+published as J. Phys.: Conf. Ser. \textbf{615}, 012007 (2015).
 
 \bibitem{Sauter1931}
 F.~Sauter,
