@@ -155,3 +155,33 @@ is ahead in each domain and not by how much, and a reason not to
 expect a decisive margin from any single domain.
 
 All rehearsal scores are discarded and count for nothing.
+
+---
+
+## Closure of the operator defects
+
+Findings 1, 5 and 6 were operator defects and could not be fixed in
+G1, which is sealed and is never edited. They are closed by
+`GENERATOR-G2.md`, sealed 2026-08-07, which supersedes G1 as the
+governing specification and names each repair against the finding
+it closes.
+
+Finding 1 is closed by making the verbatim arm and scorer texts
+sealed fields of G2. Finding 5 is closed without recalibrating the
+ladder, by requiring a scorer who assigns level two or above to
+name what stops the item being level one, and by a calibration
+probe on the excluded domain that a scorer must pass before
+scoring anything real. Finding 6 is closed by requiring a scorer
+marking an item replication-grade to name the established result it
+restates, with the same naming requirement placed on the
+domain-native validity condition, which is the other condition a
+scorer can satisfy on impression.
+
+The naming requirement on the domain-native condition makes the
+primary endpoint harder for the arm writing in unfamiliar
+vocabulary, which is the arm under test. That the repair runs
+against the hypothesis is stated in G2 section 4.2 rather than
+noticed afterwards.
+
+Findings 2, 3, 4 and 7 needed no operator change. Finding 2 is a
+limitation carried into G2 section 4.3 and into the paper.
