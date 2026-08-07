@@ -1,0 +1,64 @@
+{
+  "declared": {
+    "clean_rule": "first scalar whose point abscissa is at least 500",
+    "leak_bit": 1,
+    "out_mask": 7,
+    "scope": "toy curve, methodology only, no real standard, no attack, no claim about any system"
+  },
+  "findings": {
+    "B5_audit_blind_to_trapdoor": false,
+    "B6_audit_sees_leak_but_not_trapdoor": false
+  },
+  "items": {
+    "B1_audit_detects_a_leak": true,
+    "B2_near_uniform": true,
+    "B3_trapdoor_confers_no_information": false,
+    "B4_scalar_recovered_by_enumeration": true
+  },
+  "label": "exploratory",
+  "measured": {
+    "base_point": [
+      0,
+      425
+    ],
+    "clean_scalar_recovered": 2,
+    "conditional_entropy_clean": 2.872554731135655,
+    "conditional_entropy_difference": 0.031445366216548365,
+    "conditional_entropy_public": 2.881079331279527,
+    "conditional_entropy_trapdoor_route": 2.9125246974960755,
+    "curve": [
+      1,
+      14
+    ],
+    "declared_known_scalar": 7,
+    "field": 1009,
+    "group_order": 1013,
+    "mutual_information_clean_bits": 0.0,
+    "mutual_information_leaky_bits": 1.0,
+    "output_bits": 3,
+    "public_entropy_backdoored": 2.9877875013204465,
+    "public_entropy_clean": 2.9943055838077797,
+    "reading": "a trapdoor scalar is a constant of the parameter set and not a source of randomness, so it changes no conditional law and an audit built from informations is exactly blind to it, while the same audit sees a declared one-bit leak immediately",
+    "uniform_entropy": 3.0
+  },
+  "record_sha256": "d8fcedb729821156facbc2604648154b1233ebb8f4fefd1e8d0e1a210bf77450",
+  "runtime": {
+    "code_commit": "5f322f3",
+    "generated_utc": "2026-08-07T01:14:43.221315+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "cr4b-backdoor-ceiling-v1",
+  "verdict": {
+    "computed_from": [
+      "B1_audit_detects_a_leak",
+      "B2_near_uniform",
+      "B3_trapdoor_confers_no_information",
+      "B4_scalar_recovered_by_enumeration"
+    ],
+    "note": "B5 and B6 are the ceiling measurements, either outcome a result",
+    "value": "FAIL"
+  }
+}
