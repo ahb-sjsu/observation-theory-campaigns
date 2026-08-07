@@ -135,3 +135,21 @@ Bars otherwise unchanged, Q1 and Q2 and Q4 compute the verdict, Q3
 is the ceiling measurement recorded individually with either
 outcome a result. Exploratory label,
 results/pf7b-quantum-ceiling.json.
+
+### Bound from the probes, before the run
+
+Stage one (results/pf7-classical-probe.json, record sha
+784d1f9c652f...) bisected the field to 0.675507688522339, measuring
+a reversing fraction of 0.4975 at the middle delay and 0.475 at
+delay 15.5, and rejected the declared delay range by its own window
+rule because delay 4.0 returned exactly 1.0. At that delay the two
+pulse centres sit at plus and minus 2.0 while the pulse length is
+3.0, so the pulses overlap and act as one stronger pulse.
+
+Stage two (results/pf7-classical-probe2.json, record sha
+e121b8e1e63f...) probed the candidate range at the bound field and
+measured 0.5245, 0.4945, 0.4750, 0.4835, and 0.4955 at delays 8.0,
+11.0, 14.0, 17.0, and 20.0, every one inside the declared window,
+so PF-7b binds the field 0.675507688522339 and the half-delay range
+whose square runs from 16.0 to 100.0, thirty-two points uniform in
+that square, delays 8.0 through 20.0.
