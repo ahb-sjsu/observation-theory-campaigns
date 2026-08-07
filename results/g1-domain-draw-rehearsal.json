@@ -1,0 +1,61 @@
+{
+  "derived_seed": "9314319368701370709056769859275616991340014614380159972550240050612919940490697206399966736326816549870252817145424814551620782857586103034040958151668977",
+  "drawn_by_stratum": {
+    "A": [
+      "q-bio.PE",
+      "q-bio.GN",
+      "econ.EM",
+      "eess.IV"
+    ],
+    "F": [
+      "math.AC",
+      "math.GR",
+      "cs.CC",
+      "cs.MM"
+    ],
+    "N": [
+      "physics.gen-ph",
+      "physics.pop-ph",
+      "nlin.SI",
+      "cond-mat.quant-gas"
+    ]
+  },
+  "drawn_twelve": [
+    "physics.gen-ph",
+    "physics.pop-ph",
+    "nlin.SI",
+    "cond-mat.quant-gas",
+    "math.AC",
+    "math.GR",
+    "cs.CC",
+    "cs.MM",
+    "q-bio.PE",
+    "q-bio.GN",
+    "econ.EM",
+    "eess.IV"
+  ],
+  "label": "rehearsal",
+  "pool_record_sha256": "5101708b206e884f1f16544b7acd3ca8d700cec0a76164a08e63e9295b8c5192",
+  "protocol": "experiments/GENERATOR-DOMAIN-POOL-V2.md",
+  "pulse": {
+    "outputValue": "B1D771D831B4F61E89351560FF79CD287C436014B3C100D2E6E292A306EF9766C0188FF6465915D9EB448B688BD78383DC3D7295A0D464A2D2FAED8FCEEDB4F1",
+    "pulseIndex": 702393,
+    "timeStamp": "2024-03-01T12:00:00.000Z",
+    "uri": "https://beacon.nist.gov/beacon/2.0/chain/2/pulse/702393"
+  },
+  "record_sha256": "91c38088b66aeee5733e96c83669cf0c4031d58a45848c32f31139be78d9f2a7",
+  "requested_timestamp": "2024-03-01T12:00:00Z",
+  "runtime": {
+    "code_commit": "d7e06de",
+    "generated_utc": "2026-08-07T09:29:09.340319+00:00",
+    "hostname": "atlas",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "g1-domain-draw-v1",
+  "stratum_sizes": {
+    "A": 25,
+    "F": 75,
+    "N": 42
+  }
+}
