@@ -200,10 +200,61 @@ GO-P-2026-021. Third, that the gap between two defensible choices of `G` is
 LARGE, roughly 0.3 in overlap on one attention head, per C-4 and C-10 in
 readscope, so the index is not a technicality.
 
-## 8. Open, if anyone wants it
+## 8. The Bregman kernel question, checked against the literature
 
-The non-local scoring rule literature is the right place to look for a
-characterisation theorem that survives a kernel. Dropping locality admits the
-whole Bregman family, and asking which Bregman divergence is compatible with a
-prescribed `ker P_C` is well posed and, as far as this note's author knows,
-unasked in this form. It would need a literature check before being called open.
+The question raised in an earlier draft, which Bregman divergence is compatible
+with a prescribed `ker P_C`, splits into two cases with different answers. The
+earlier draft called it possibly unasked. For the fixed-kernel case that was
+wrong, and the correction is recorded here rather than removed.
+
+### 8.1 Fixed kernel: elementary, and not open
+
+Require `D_phi(x + k, y) = D_phi(x, y)` for all `k` in a fixed subspace `K`.
+Expanding,
+
+```
+phi(x + k) - phi(x) = <grad phi(y), k>
+```
+
+The left side does not depend on `y`, so `<grad phi(y), k>` is constant in `y`.
+Bregman generators are defined only modulo affine terms, so that constant can be
+normalised away, leaving `phi` constant along `K`. Hence
+
+```
+D_phi is K-blind   iff   phi is affine along K   iff   phi = psi . pi
+```
+
+for `psi` convex on the quotient `X / K` and `pi` the projection, and then
+`D_phi` is exactly the pullback of the Bregman divergence `D_psi` on the
+quotient. Its Hessian has `K` in the kernel, which is `P_C`'s structure.
+
+This is an exercise, not a research question. The neighbouring published object
+is Nielsen's SUB-DIMENSIONAL and CURVED REPRESENTATIONAL Bregman divergences
+(arXiv:2504.05654), which restrict the DOMAIN to an affine subset rather than
+quotienting, so they are related but not the same construction.
+
+### 8.2 Varying kernel: this is the live case, and it is ours
+
+`P_C = J(x)^T G J(x)` depends on position through `J`, and C-11c MEASURED that
+the read operator moves along the sequence. So `ker P_C(x)` is a distribution of
+subspaces rather than a fixed one, and section 8.1 does not apply.
+
+A divergence blind to a varying kernel requires the blindness to foliate, so by
+Frobenius the kernel distribution must be INVOLUTIVE, meaning `[X, Y]` lies in
+the distribution whenever `X` and `Y` do. If it is not involutive there is no
+generator blind to it, and something sharper also fails: consumer equivalence
+stops being an equivalence relation on states, because a commutator walks along
+directions the consumer cannot see and arrives somewhere it can distinguish.
+
+Literature position, from a search that is not a review. The closest formal
+treatment is "Statistical manifold with degenerate metric" (Information Geometry,
+Springer 2024, arXiv:2310.18599), which introduces QUASI-CODAZZI structures for
+possibly degenerate metrics and generalises contrast functions to weak contrast
+functions. On its abstract it does NOT treat position-varying kernels and does
+not discuss Frobenius integrability. Singular Fisher information is discussed
+elsewhere as the feature map failing to be an immersion, which is the fixed-rank
+picture rather than the varying-distribution one.
+
+So 8.2 looks under-treated. It is also MEASURABLE with an instrument this
+programme already has, and the test is declared in
+`experiments/PF-INVOLUTIVITY-DECLARATION.md`.
