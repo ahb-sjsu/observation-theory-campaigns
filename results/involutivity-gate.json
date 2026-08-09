@@ -1,0 +1,134 @@
+{
+  "analytic_precheck": "ker P_C = span{q_i}^perp for softmax attention; the queries do not depend on the perturbed key and softmax weights are strictly positive, so every c_i > 0 and the span, hence the kernel, is constant over key space. V1 is predicted to fail.",
+  "bars": {
+    "V0_instrument_live": true,
+    "V1_kernel_varies_GATE": false
+  },
+  "declaration": "experiments/PF-INVOLUTIVITY-DECLARATION.md",
+  "declaration_correction": "the declaration's premise conflated two variations. C-11c's drift is over DECODE POSITION, which indexes a family of consumers; it is not motion over the manifold the kernel is a distribution on, so it does not make the kernel distribution non-involutive.",
+  "declared": {
+    "V0_contact_bar": 0.5,
+    "V0_invol_bar": 0.05,
+    "V1_vary_bar": 0.02,
+    "d_head": 128,
+    "eps": 0.001,
+    "n_base": 32,
+    "n_pairs": 24,
+    "n_queries": 24,
+    "seed": 20260808
+  },
+  "record_sha256": "979ff5f2d8dff9684c9e6934b6e25505272e6916c0dc0ef61f9e7beda17e8dbf",
+  "results": {
+    "V0": {
+      "contact_tau": 0.8809841850881095,
+      "fixed_tau": 0.0,
+      "pass": true
+    },
+    "V1": {
+      "cells": [
+        {
+          "cell": 0,
+          "kernel_dim": 106,
+          "proj_variation_max": 1.0569579592345493,
+          "proj_variation_median": 0.01805219820605691,
+          "tau_median": 0.0005502831127386939
+        },
+        {
+          "cell": 1,
+          "kernel_dim": 104,
+          "proj_variation_max": 1.009660255043814,
+          "proj_variation_median": 0.028776972788767355,
+          "tau_median": 0.00010558150841179493
+        },
+        {
+          "cell": 2,
+          "kernel_dim": 104,
+          "proj_variation_max": 1.414246837787808,
+          "proj_variation_median": 0.06614238294680157,
+          "tau_median": 8.627563003440003e-06
+        },
+        {
+          "cell": 3,
+          "kernel_dim": 104,
+          "proj_variation_max": 0.9999999999999993,
+          "proj_variation_median": 0.030540613612914172,
+          "tau_median": 9.380527571008409e-11
+        },
+        {
+          "cell": 4,
+          "kernel_dim": 105,
+          "proj_variation_max": 1.0113240650767086,
+          "proj_variation_median": 0.007834141341077981,
+          "tau_median": 4.941276641432758e-10
+        },
+        {
+          "cell": 5,
+          "kernel_dim": 106,
+          "proj_variation_max": 1.0579938263541122,
+          "proj_variation_median": 0.02684185119258932,
+          "tau_median": 1.184372732126131e-05
+        },
+        {
+          "cell": 6,
+          "kernel_dim": 104,
+          "proj_variation_max": 1.002340945052677,
+          "proj_variation_median": 0.014900668606269924,
+          "tau_median": 3.93202901144169e-12
+        },
+        {
+          "cell": 7,
+          "kernel_dim": 106,
+          "proj_variation_max": 1.4028686533945665,
+          "proj_variation_median": 0.016662045264332452,
+          "tau_median": 2.4183166061687933e-12
+        },
+        {
+          "cell": 8,
+          "kernel_dim": 104,
+          "proj_variation_max": 1.0000000000000022,
+          "proj_variation_median": 0.006087100115672222,
+          "tau_median": 9.56527764347926e-07
+        },
+        {
+          "cell": 9,
+          "kernel_dim": 107,
+          "proj_variation_max": 1.7531468843157387,
+          "proj_variation_median": 0.05447223951895601,
+          "tau_median": 2.479210012045283e-07
+        },
+        {
+          "cell": 10,
+          "kernel_dim": 109,
+          "proj_variation_max": 1.4033247701319864,
+          "proj_variation_median": 0.014381025149640465,
+          "tau_median": 3.038236074432191e-09
+        },
+        {
+          "cell": 11,
+          "kernel_dim": 104,
+          "proj_variation_max": 1.001763092533271,
+          "proj_variation_median": 0.018917076297891338,
+          "tau_median": 1.3144900767794388e-12
+        }
+      ],
+      "pass": false,
+      "variation_median": 0.018484637251974124
+    }
+  },
+  "runtime": {
+    "code_commit": "0f6491c",
+    "generated_utc": "2026-08-09T02:47:51.177462+00:00",
+    "hostname": "atlas",
+    "numpy": "1.26.4",
+    "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]"
+  },
+  "schema": "involutivity-gate-v1",
+  "verdict": {
+    "computed_from": [
+      "V0_instrument_live",
+      "V1_kernel_varies_GATE"
+    ],
+    "value": "VOID_KERNEL_CONSTANT"
+  }
+}
