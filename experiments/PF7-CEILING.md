@@ -439,3 +439,24 @@ kinematics of pair events and the phenomenology of apparent decay
 under restricted observation, and it does not reproduce quantum
 phase structure. Both statements are measured and neither touches
 the kinematic fold theorem.
+
+## PF-7 letter allocation
+
+The Landau-Zener-Stueckelberg arc above uses the letters through f. A second
+and independent line of attack on the same declared question, whether the model
+reproduces more than a classical worldline picture, uses the letters g, h and i,
+and is declared separately.
+
+- PF-7g, `PF7G-BELL-DECLARATION.md`, first Bell ceiling attempt. VOID on two
+  declaration errors of the author's, kept because naming them is the point.
+- PF-7h, `PF7H-BELL-DECLARATION.md`, corrected instrument. PASS 7/7, though
+  three of its bars were later found to be code checks rather than measurements.
+- PF-7i, `PF7I-BELL-DECLARATION.md`, the same test on the sealed PF4-009
+  dynamics with the hidden variable harvested rather than posited. PASS 9/9.
+
+Where the LZS arc asks whether the fold reproduces quantum INTERFERENCE, the
+Bell arc asks whether it reproduces quantum CORRELATION. Both are instances of
+this document's question and neither supersedes the other. The Bell arc's
+result is that the fold carries the conservation signature of a pair and not
+the contextual one, with the distance to the quantum angular law measured at a
+median of 0.24, so PF-7's interpretation clause applies from that side too.

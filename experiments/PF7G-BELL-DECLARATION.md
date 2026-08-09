@@ -1,4 +1,4 @@
-# PF-7a declaration: the Bell ceiling
+# PF-7g declaration: the Bell ceiling
 
 Written and committed before the run. Bars are numerical and fixed here. The
 verdict is computed from the data by `python/pf7_bell_ceiling.py` and is not

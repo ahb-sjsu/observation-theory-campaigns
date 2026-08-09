@@ -1,26 +1,26 @@
-# PF-7b declaration: the Bell ceiling, corrected instrument
+# PF-7h declaration: the Bell ceiling, corrected instrument
 
-Written and committed before the PF-7b run. Bars are numerical and fixed here.
+Written and committed before the PF-7h run. Bars are numerical and fixed here.
 The verdict is computed from the data by `python/pf7b_bell_ceiling.py`.
 
-Supersedes the bar structure of `PF7-BELL-DECLARATION.md` (PF-7a). It does not
-supersede PF-7a's record, which stands as a VOID with its two declaration
+Supersedes the bar structure of `PF7-BELL-DECLARATION.md` (PF-7g). It does not
+supersede PF-7g's record, which stands as a VOID with its two declaration
 errors named, per the programme's practice of keeping honest negatives.
 
-## 1. What PF-7a got wrong, and how it was found
+## 1. What PF-7g got wrong, and how it was found
 
-PF-7a returned VOID_INSTRUMENT_NOT_LIVE. Both failures were declaration errors,
+PF-7g returned VOID_INSTRUMENT_NOT_LIVE. Both failures were declaration errors,
 not results about folds.
 
-**B0 barred every cell on a quantity the substrate varies.** PF-7a required each
+**B0 barred every cell on a quantity the substrate varies.** PF-7g required each
 of P1, P2, P3 to exceed 2.0 at every one of sixteen configurations. Measured,
 they fire 14/16, 15/16 and 10/16. This is the same rule the programme has now
-learned four times, most explicitly at C-3c and C-6, and PF-7a quoted the rule
+learned four times, most explicitly at C-3c and C-6, and PF-7g quoted the rule
 in its own section 2 before breaking it in section 4.
 
 **B3b compared against the unscaled sawtooth.** The parent harness compares
 `rms_vs_scaled_sawtooth` against `rms_vs_quantum`, the scale being fitted to the
-mean detection product. PF-7a barred the unscaled mean absolute deviation at
+mean detection product. PF-7g barred the unscaled mean absolute deviation at
 0.05, which the skewed measures cannot meet. Under the parent's own comparison
 the scaled sawtooth is closer than quantum in 15 of 16 cells, not 16.
 
@@ -70,14 +70,14 @@ must give |E(theta = 0)| >= 0.99.
 least 14 of 16 configurations, `rms_vs_scaled_sawtooth < rms_vs_quantum`, that
 is the fold's angular law is closer to a scaled classical sign law than to the
 quantum cosine. The threshold is 14 rather than 16 because the instrument study
-measured 15 of 16 under PF-7a's data and the skewed cells are the marginal ones.
+measured 15 of 16 under PF-7g's data and the skewed cells are the marginal ones.
 The distance `max_gap_vs_quantum` is REPORTED as a distribution, not barred,
-because PF-7a passed that bar by 0.0011 and a margin that thin is not evidence.
+because PF-7g passed that bar by 0.0011 and a margin that thin is not evidence.
 
 **B4, no signalling residual <= 0.01 in P0.** A code check.
 
 **B5, the blind consumer, PF-8's clause for correlations.** The 1->3 zigzag arm
-must give S_postselected > 2.0 while S_all_counted <= 2 + 3 sigma. PF-7a
+must give S_postselected > 2.0 while S_all_counted <= 2 + 3 sigma. PF-7g
 measured 2.259 against 1.003, so this bar is known reachable; it is retained to
 confirm it under the corrected instrument.
 

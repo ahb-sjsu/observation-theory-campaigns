@@ -1,18 +1,18 @@
-# PF-7c declaration: the Bell ceiling on the sealed PF4-009 dynamics
+# PF-7i declaration: the Bell ceiling on the sealed PF4-009 dynamics
 
 Written and committed before the run. Bars are numerical and fixed here. The
 verdict is computed by `python/pf7c_bell_dynamics.py`.
 
-PF-7a stands as VOID, PF-7b as PASS. This run replaces PF-7b's synthetic
+PF-7g stands as VOID, PF-7h as PASS. This run replaces PF-7h's synthetic
 orientation source with the hidden measure the sealed family actually produces,
-which is the only part of the question PF-7b left open.
+which is the only part of the question PF-7h left open.
 
 Binding inheritance. PREREG-PF4-009's non-claims apply here unchanged. Nothing
 in this run is a claim about quantum field theory or about any physical process.
 
-## 1. What PF-7b actually established, corrected
+## 1. What PF-7h actually established, corrected
 
-PF-7b returned PASS 7/7. On preparing this declaration, two of its bars were
+PF-7h returned PASS 7/7. On preparing this declaration, two of its bars were
 found to be structurally forced rather than measured, and that is recorded here
 rather than left standing.
 
@@ -20,8 +20,8 @@ rather than left standing.
 matched settings give `A . B = -1` identically for ANY measure. The measured
 `E(0) = -1.000000` in all sixteen cells therefore tested the response rule, not
 the fold's parity. The statement that signed count zero buys exact
-anti correlation is a property of the model as constructed and PF-7b did not
-test it. **B1 and B4 were already declared code checks.** So of PF-7b's seven
+anti correlation is a property of the model as constructed and PF-7h did not
+test it. **B1 and B4 were already declared code checks.** So of PF-7h's seven
 bars, three carried no information, and the informative ones were B0 and B0b,
 the instrument, B3, the angular law, and B5, the blind consumer.
 
@@ -32,7 +32,7 @@ a failed bar.
 ## 2. The source, harvested not posited
 
 `pf4_009_run.run_cell` integrates `(t, pt, u, pu)` with `dt/dtau = pt` under the
-Gudermannian tilt, and returns only the residual oscillator energy. PF-7c uses a
+Gudermannian tilt, and returns only the residual oscillator energy. PF-7i uses a
 harvesting twin that returns the exit oscillator state as well. The hidden
 variable is the exit phase
 
@@ -46,7 +46,7 @@ produces. This is the fold's own measure rather than a chosen one.
 **Structural limitation, stated in advance.** The manifest starts every
 trajectory at `u = u_star, pu = 0`, so the only freedom is kappa and `phi` is a
 deterministic function of it. The hidden variable is therefore one dimensional,
-a circle, not the sphere PF-7b swept. The P0 ceiling is a theorem for any
+a circle, not the sphere PF-7h swept. The P0 ceiling is a theorem for any
 measure in any dimension, so this cannot change the ceiling. What it can change
 is the angular law, which is what this run is for.
 
@@ -80,7 +80,7 @@ the bar D3 should have been, because it can fail.
 **D5, the discriminator, the informative bar.** Using the parent harness's own
 comparison, `rms_vs_scaled_sawtooth < rms_vs_quantum` in at least 4 of the 5
 cells (four widths plus pooled). `max_gap_vs_quantum` is REPORTED as a
-distribution and not barred, because PF-7a passed such a bar by 0.0011.
+distribution and not barred, because PF-7g passed such a bar by 0.0011.
 
 **D6, no signalling residual <= 0.01** in P0. A code check.
 
