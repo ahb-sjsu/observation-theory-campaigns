@@ -52,10 +52,32 @@ so `x F'(x)` is constant, hence `F'(x) = c / x` and `F(x) = c log x + d`. With
 `F` strictly decreasing, `c < 0`, which is the negative logarithm.
 
 This is not new with the video. It is the characterisation of the logarithmic
-score as the unique LOCAL strictly proper scoring rule, due to Shuford, Albert
-and Massengill (1966) and Bernardo (1979), for alphabets of size at least three.
-**Citation to be verified before any use in a paper.** The relevant point for us
-is not the attribution but the hypothesis: locality is doing all the work.
+score as the unique LOCAL proper scoring rule. **Attribution now verified
+against Gneiting and Raftery, JASA 2007, and one earlier claim in this note was
+wrong.**
+
+- Savage (1971, JASA) has the finite outcome space version. For MORE THAN TWO
+  mutually exclusive events the only local proper scoring rules are the
+  logarithmic family. The two event case is genuinely excluded, so the "at
+  least three" caveat is real.
+- Bernardo (1979, Annals of Statistics) has the density version. Gneiting and
+  Raftery state it directly, that under regularity conditions every proper
+  local scoring rule is equivalent to the logarithmic score, local meaning the
+  score sees the predictive density only through its value at the event that
+  materialises.
+- Shuford, Albert and Massengill (1966, Psychometrika) was cited in an earlier
+  draft of this note for the locality result. THAT WAS WRONG. Gneiting and
+  Raftery cite it for a related and less general result about the two event
+  representation. It is not the locality theorem.
+
+The relevant point for us is still not the attribution but the hypothesis.
+Locality is doing all the work.
+
+Two further checks from the same review support section 5 below rather than
+this one. When the outcome space is finite and the entropy function is smooth
+enough, the divergence attached to a proper scoring rule IS a Bregman
+divergence (Bregman 1967), and Savage (1971) is also the landmark for
+conditions under which a divergence is a score divergence.
 
 ## 2. First attempt, consumer weights on a local loss
 
