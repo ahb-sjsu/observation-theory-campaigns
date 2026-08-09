@@ -41,10 +41,20 @@ the paper sources are corrected, so any future build is right. The
 PF arc paper, drafted after the error was found, cites the
 preprint with the published version named correctly.
 
-**What was not done.** The two published records on Zenodo still
-carry the wrong journal reference. Issuing corrected versions is
-the author's decision and has not been taken. Until it is, this
-entry is the correction of record.
+**What was done on Zenodo, 2026-08-09.** The Cayley-pole paper was
+reissued as version 2, DOI 10.5281/zenodo.21837523 under the
+unchanged concept DOI 10.5281/zenodo.21790095. The corrected Land
+reference appears in the version 2 record, both in the deposited PDF
+and in the record description, and the description's change list
+names the superseded reference explicitly so a reader of version 1
+can see what moved. Version 1 remains published and unaltered, as
+Zenodo versions are immutable.
+
+**What is still not done.** The sealed Schwinger negative, DOI
+10.5281/zenodo.21798545, still carries the wrong journal reference
+in its published record. Its source is corrected in this repository,
+so any future build is right, but no corrected version has been
+issued. For that paper this entry remains the correction of record.
 
 ---
 
@@ -59,7 +69,11 @@ at the page of the pair-creation note, Helv. Phys. Acta 14, 588
 pair-creation note, so the page is right and the title was wrong.
 
 **Where it appears.** `paper/cayley-pole-pair-threshold.tex`,
-published as DOI 10.5281/zenodo.21790096.
+published as DOI 10.5281/zenodo.21790096, which is version 1.
+
+**Status.** The corrected entry ships in version 2, DOI
+10.5281/zenodo.21837523, issued 2026-08-09. Version 1 is immutable
+and still carries the wrong title.
 
 **Confidence.** Lower than E1. Helvetica Physica Acta is not
 indexed in the services used to verify E1, so this rests on the

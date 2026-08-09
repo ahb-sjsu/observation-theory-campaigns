@@ -218,7 +218,8 @@ five PF preregistrations and instrument documents in `experiments/`,
 `matlab/`, `python/shp_land2016.py`, `python/pf4_pilot.py`,
 `python/pf4_frozen_run.py`, `python/pf5_accounting.py`,
 `python/pf6_covariance.py`.
-Papers. The Cayley-pole paper, DOI 10.5281/zenodo.21790096, and A
+Papers. The Cayley-pole paper, concept DOI 10.5281/zenodo.21790095
+(current version v2, 10.5281/zenodo.21837523), and A
 Sealed Negative for Schwinger Scaling, DOI 10.5281/zenodo.21798545.
 
 ### 🌫️ PE, projection entropy
@@ -984,7 +985,8 @@ depend on, and what has not been done about it.
    (QO track), concept DOI 10.5281/zenodo.21789046.
 3. 🔀 The Pair-Creation Threshold of Impulsive
    Stueckelberg-Horwitz-Piron Scattering Is a Cayley-Transform Pole
-   (PF track), DOI 10.5281/zenodo.21790096.
+   (PF track), concept DOI 10.5281/zenodo.21790095, current
+   version v2.
 4. 🌉 Consumer-Relative Distinguishability in the Thermodynamic Limit
    (TB track, completed with the TB-3 wedge-family reformulation, the
    fully Lean-verified Pauli-rotation exactness theorem, and the

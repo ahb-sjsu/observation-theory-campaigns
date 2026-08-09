@@ -26,9 +26,9 @@ keywords:
   - preregistration
   - reproducibility
 identifiers:
-  - description: "Cayley-pole paper"
+  - description: "Cayley-pole paper (concept DOI, resolves to newest version)"
     type: doi
-    value: "10.5281/zenodo.21790096"
+    value: "10.5281/zenodo.21790095"
   - description: "A Sealed Negative for Schwinger Scaling"
     type: doi
     value: "10.5281/zenodo.21798545"
