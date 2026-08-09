@@ -56,19 +56,38 @@ score as the unique LOCAL proper scoring rule. **Attribution now verified
 against Gneiting and Raftery, JASA 2007, and one earlier claim in this note was
 wrong.**
 
-- Savage (1971, JASA) has the finite outcome space version. For MORE THAN TWO
-  mutually exclusive events the only local proper scoring rules are the
-  logarithmic family. The two event case is genuinely excluded, so the "at
-  least three" caveat is real.
-- Bernardo (1979, Annals of Statistics) has the density version. Gneiting and
-  Raftery state it directly, that under regularity conditions every proper
-  local scoring rule is equivalent to the logarithmic score, local meaning the
-  score sees the predictive density only through its value at the event that
-  materialises.
-- Shuford, Albert and Massengill (1966, Psychometrika) was cited in an earlier
-  draft of this note for the locality result. THAT WAS WRONG. Gneiting and
-  Raftery cite it for a related and less general result about the two event
-  representation. It is not the locality theorem.
+**Bernardo (1979, Ann. Statist. 686-690), READ IN THE ORIGINAL.** Theorem 2,
+page 689, verbatim: "If u is a smooth, proper, local utility function and
+p†_psi(.) is a density in L_2 then, for some constant A and function B,
+u{p†_psi(.), psi} = A log p†_psi(psi) + B(psi)." Locality is Definition 3 on
+page 688, the utility sees the reported density only through its value at the
+outcome that occurs. Conditions are smooth, proper, local, and L_2, with the
+precise smoothness deferred to Jeffreys and Jeffreys 1972 chapter 10.
+
+**His proof is the same argument as section 1 above**, a calculus of variations
+extremum with a multiplier, his equation (4). So the derivation reconstructed
+here is Bernardo's, which is a useful independent check on it.
+
+**The discrete case is Aczel and Pfanzagl (1966, Metrika 11, 91-105).** Bernardo
+attributes it on page 689, noting Good (1952) proved the binomial case and
+McCarthy (1956) mentioned the result.
+
+Two attributions in earlier drafts of this note were wrong and are kept visible.
+
+- Shuford, Albert and Massengill (1966) was cited first. Wrong. Gneiting and
+  Raftery cite it for a less general two outcome result, not for locality.
+- Savage (1971) was then cited for the discrete case. Not what the primary
+  source says. Bernardo credits Aczel and Pfanzagl. Later literature does
+  credit Savage with a more than two outcome version, and that may be
+  defensible, but the Savage paper is paywalled and was NOT read, so it is not
+  relied on here.
+
+The "more than two outcomes" caveat holds for a structural reason needing no
+citation. With two outcomes the second probability is one minus the first, so
+every rule is trivially local and locality constrains nothing, which is why
+Brier and spherical also qualify there. This sits awkwardly beside Bernardo's
+remark that Good proved a binomial case, and the tension is recorded unresolved
+rather than smoothed over.
 
 The relevant point for us is still not the attribution but the hypothesis.
 Locality is doing all the work.
