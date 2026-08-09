@@ -127,7 +127,10 @@ for ge in (0.0, 0.5, 1.0, 1.5, 1.9, 2.1, 3.0, 5.0):
     velocity = final_velocity(TDOT_IN, V_REF, RHAT_REF, ge)
     w_f = velocity[1] * RHAT_REF[0] + velocity[2] * RHAT_REF[1]
     invariant = (velocity[0] + 1.0) ** 2 - w_f**2
-    assert abs(invariant - C2) < 1e-9, "Cayley left the invariant set"
+    # Cayley of an so(1,1) element is in SO(1,1) exactly, so this residual is
+    # pure arithmetic. It is <= 6.3e-15 away from the pole and reaches 4.1e-13
+    # at ge = 1.9 and 2.1, where (1 - ge^2/4)^-1 costs about three digits.
+    assert abs(invariant - C2) < 1e-12, "Cayley left the invariant set"
     rows.append((ge, w_f, velocity[0] + 1.0))
 write("pf3_cayley_points.dat", "ge w tplus", rows)
 

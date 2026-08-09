@@ -45,7 +45,13 @@ the exponential map.  The published threshold is the pole of that
 approximant.  Integrating the same generator continuously instead gives
 hyperbolic evolution that conserves a quadratic form and provably never
 reverses the time velocity from physical initial data, at any interaction
-strength.  In group language, the continuous flow stays in the identity
+strength.  The conserved form is bounded below on physical data, which
+sharpens that statement to the time velocity never falling below its rest
+value.  Because the reduced generator is a constant matrix, the
+continuously accumulated map is moreover the exact solution for every
+smooth unit-mass kernel at every width, so it is the common limit of all
+smooth regularizations of the impulse and the midpoint map beyond the pole
+is the limit of none.  In group language, the continuous flow stays in the identity
 component of the invariance group of the conserved form, while beyond the
 pole the Cayley transform lands in the disconnected component containing
 the simultaneous reversal of time velocity and radial velocity, which no
@@ -66,7 +72,15 @@ statistics can be created by a discretization prescription alone.
 Stueckelberg proposed that a single classical worldline can describe pair
 annihilation if its laboratory time coordinate, viewed as a function of an
 independent evolution parameter, turns around \cite{Stueckelberg1941,
-Stueckelberg1942}.  The framework of Horwitz and Piron gives this idea a
+Stueckelberg1942}.  A worldline that turns carries one segment running
+backward in laboratory time, read as the antiparticle in Feynman's
+treatment of the same picture \cite{Feynman1949}, and the vertex at the
+turn is a creation or an annihilation according to the direction in
+which the line is traversed.  Both names are used in the literature for
+the one event, the source replicated here calls it production
+\cite{Land2016}, and this paper uses the terms interchangeably for the
+single reversal.  No distinction is intended anywhere below.
+The framework of Horwitz and Piron gives this idea a
 covariant Hamiltonian mechanics \cite{HorwitzPiron1973}, and its
 gauge-invariant electrodynamics permits the mass exchange with the field
 that a turnaround requires \cite{LandBook}.  Within that theory, Land
@@ -207,10 +221,17 @@ $g_{e} = 2$ is the published threshold.
 \begin{proposition}[Conservation and no reversal]
 \label{prop:conserve}
 The continuous flow $\exp(sG)$ conserves
-$Q = (\dot t + 1)^{2} - w^{2}$.  For physical initial data, meaning
-$\dot t_{\mathrm{in}} + 1 > |w_{\mathrm{in}}|$, the continuously
-accumulated kick satisfies $\dot t(s) + 1 \geq \sqrt{Q} > 0$ for all
-$s$ and all $g_{e}$, so the time velocity never reverses.
+$Q = (\dot t + 1)^{2} - w^{2}$.  For physical incoming data, meaning
+$w_{\mathrm{in}} = v \dot t_{\mathrm{in}} \hat R_{x}$ with
+$|\hat R_{x}| \leq 1$ and $|v| < 1$, the invariant is bounded below,
+\begin{equation}
+Q \;\geq\; 2\left(\dot t_{\mathrm{in}} + 1\right) \;\geq\; 4,
+\label{eq:Qbound}
+\end{equation}
+and the continuously accumulated kick satisfies
+$\dot t(s) + 1 \geq \sqrt{Q} \geq 2$ for all $s$ and all $g_{e}$.  Hence
+$\dot t(s) \geq 1$ throughout.  The time velocity therefore not only
+never reverses, it never falls below its rest value.
 \end{proposition}
 
 \begin{proof}
@@ -219,13 +240,32 @@ $\eta = \mathrm{diag}(1, -1)$, so $\exp(sG)$ lies in the invariance
 group of $Q$.  In light-cone coordinates $(\dot t + 1) \pm w$ the flow
 is diagonal with factors $e^{\mp g_{e} s}$, so their product $Q$ is
 constant and both coordinates remain positive if they start positive.
-Incoming data has $\dot t_{\mathrm{in}} + 1 > 1 > |w_{\mathrm{in}}|$
+Incoming data has
+$\dot t_{\mathrm{in}} + 1 > \dot t_{\mathrm{in}} > |w_{\mathrm{in}}|$
 whenever $|v| < 1$, since
-$|w_{\mathrm{in}}| \le v \dot t_{\mathrm{in}} < \dot t_{\mathrm{in}}$.
-The closed form
+$|w_{\mathrm{in}}| \le v \dot t_{\mathrm{in}} < \dot t_{\mathrm{in}}$,
+so both light-cone coordinates start positive and stay positive.
+
+The bound \eqref{eq:Qbound} is algebraic.  Using
+$|\hat R_{x}| \leq 1$ and the identity
+$v^{2} \dot t_{\mathrm{in}}^{2} = \dot t_{\mathrm{in}}^{2} - 1$,
+\begin{equation*}
+Q = (\dot t_{\mathrm{in}} + 1)^{2} - w_{\mathrm{in}}^{2}
+\;\geq\; (\dot t_{\mathrm{in}} + 1)^{2}
+- \left(\dot t_{\mathrm{in}}^{2} - 1\right)
+= 2\left(\dot t_{\mathrm{in}} + 1\right),
+\end{equation*}
+and $\dot t_{\mathrm{in}} \geq 1$ gives $Q \geq 4$.  The first
+inequality is saturated when the interaction point lies along the
+incoming motion, and the second as the event approaches rest.  Taking
+the positive root, $\dot t(s) + 1 \geq \sqrt{Q} \geq 2$.  The closed
+form
 $\dot t(s) + 1 = (\dot t_{\mathrm{in}} + 1)\cosh(g_{e} s) -
 w_{\mathrm{in}} \sinh(g_{e} s)$ was verified against an independent
-fixed-step integration to $10^{-9}$.
+fixed-step integration to $10^{-9}$.  Over the ninety-cell sweep of
+Sec.~\ref{sec:verify} the smallest invariant is $Q = 4.0445$, attained
+at the smallest sampled velocity with the interaction point most nearly
+along the motion, where the bound \eqref{eq:Qbound} reads $4.0412$.
 \end{proof}
 
 \begin{proposition}[Component structure]
@@ -250,6 +290,51 @@ cannot equal a map with negative eigenvalues.  Branch preservation and
 branch exchange follow from the sign of the eigenvalues on the
 light-cone coordinates.
 \end{proof}
+
+The two closures are often described as competing conventions of equal
+standing.  For this reduced system they are not, and the reason is that
+the generator is constant.
+
+\begin{proposition}[Regularization]
+\label{prop:regular}
+Let $\delta_{\epsilon}$ be any smooth family of unit-mass kernels
+converging to the impulse.  Driving the reduced system
+\eqref{eq:generator} with $\delta_{\epsilon}$ gives the exact solution
+map $\exp(G)$ for every $\epsilon$, independent of the width and of the
+shape of the kernel.  The continuous closure is therefore the common
+limit of every smooth regularization of the impulsive potential, and
+for $g_{e} > 2$ the midpoint closure is the limit of none of them.
+\end{proposition}
+
+\begin{proof}
+Driving the system with the kernel gives
+$dV/d\tau = \delta_{\epsilon}(\tau)\, G\, V$ with $G$ the constant
+matrix of Eq.~\eqref{eq:generator}.  The generator at one parameter
+value commutes with the generator at every other, since both are
+multiples of the same fixed matrix, so the time-ordered exponential
+collapses to an ordinary one and
+\begin{equation*}
+V(+\infty)
+= \exp\!\left(G \int \delta_{\epsilon}(\tau)\, d\tau\right) V(-\infty)
+= \exp(G)\, V(-\infty)
+\end{equation*}
+by unit mass.  The result contains no reference to $\epsilon$ or to the
+profile, so the limit $\epsilon \to 0$ is $\exp(G)$ exactly rather than
+in the sense of an approximation.  By
+Proposition~\ref{prop:component} the midpoint map has two negative
+eigenvalues for $g_{e} > 2$ while $\exp(G)$ has two positive ones at
+every coupling, so beyond the pole the midpoint map is not the limit of
+any such family.
+\end{proof}
+
+The scope of Proposition~\ref{prop:regular} is exactly the scope of the
+reduction.  It uses only that the kick generator is a fixed matrix
+during the interaction, which is what the frozen-point delta collapse
+supplies.  In a setting where the generator varies with the event's
+own position or velocity the commutator no longer vanishes, the
+time-ordering does not collapse, and the argument gives nothing.  That
+boundary is where a reader should press, and Sec.~\ref{sec:scope}
+states what remains open on the other side of it.
 
 \begin{figure}[t]
 \centering
@@ -303,8 +388,14 @@ code.}
 upper branch of the invariant hyperbola.  The continuous flow moves
 along that branch and cannot leave it.  The Cayley images move along the
 upper branch as the coupling grows toward two, then reappear on the
-lower branch beyond the pole.  Every plotted Cayley image satisfies the
-invariant to $10^{-9}$, verified in the committed data script.}
+lower branch beyond the pole.  The Cayley transform of an
+$\mathfrak{so}(1,1)$ element preserves the invariant exactly, so the
+residual here measures arithmetic and nothing else.  Every plotted
+image satisfies the invariant to $4.1 \times 10^{-13}$, asserted at
+$10^{-12}$ in the committed data script.  The residual is at most
+$6 \times 10^{-15}$ at couplings away from the pole and reaches the
+quoted size only at $g_{e} = 1.9$ and $g_{e} = 2.1$, where the factor
+$(1 - g_{e}^{2}/4)^{-1}$ costs about three digits to cancellation.}
 \label{fig:hyperbola}
 \end{figure}
 
@@ -323,11 +414,22 @@ $\hat R_{x} = 0.8$ the two closures give outgoing time velocities of
 $2.02$ against $1.82$ at coupling one, $-5.60$ against $+16.55$ at
 coupling three, and $-3.35$ against $+350.4$ at coupling six, the
 midpoint values approaching the printed asymptote from below while the
-continuous values grow exponentially.  The sweep also finds spacelike
-outgoing velocities in thirty percent of its cells at intermediate
-coupling, which is not an error, since a worldline that reverses its
-time direction must cross the spacelike region, and the source's
-timelike statement applies to its large-coupling limit.
+continuous values grow exponentially.
+
+One further reading of the sweep deserves to be stated on its own
+rather than listed among the guards.  Exactly twenty-seven of the
+ninety cells, thirty percent, have spacelike outgoing velocities at
+intermediate coupling.  This is neither a numerical failure nor a
+defect of the source.  A worldline whose time velocity changes sign
+must pass through $\dot t = 0$, and there the outgoing velocity cannot
+be timelike, so any mechanism that produces reversal by turning a
+coupling continuously must produce spacelike outgoing data on the way
+through.  The spacelike window is part of the reversal mechanism, not
+an artifact beside it.  The source's timelike statement is a
+large-coupling statement and is consistent with this.  The practical
+edge is for campaigns that count reversals, since a filter that
+discards spacelike outgoing states will also discard part of the very
+effect being counted.
 
 \section{What is and is not implied}
 \label{sec:scope}
@@ -348,14 +450,27 @@ produces a reversal.  The classical pair event of this configuration is
 therefore a property of the closure prescription, not of the
 accumulated force.
 
-Whether that observation deflates the physical picture or refines it is
-an open dynamical question that the impulse limit cannot settle.  The
-full theory evolves the potential with the moving event, includes
-radiation, and determines the interaction window self-consistently, and
-none of that structure survives in the frozen-point kick.  A
-configuration in which the full pre-Maxwell field dynamics produces or
-forbids a reversal threshold would decide the question, and we state it
-as such rather than prejudge it.
+Within the reduced system we can say more than that the closure
+decides.  Proposition~\ref{prop:regular} shows that the continuous
+closure is not one convention among two but the exact solution for
+every smooth kernel of unit mass, at every width, so it is the common
+limit of all of them.  The midpoint map beyond the pole is not that
+limit for any of them, because it sits in the wrong component.  Inside
+the reduction, then, the question of which closure represents an
+impulsive but physical field is not open, and the continuous one wins
+it on uniqueness rather than on taste.
+
+What stays open is whether the reduction survives.  The argument uses
+only that the generator is a fixed matrix during the interaction, which
+is what the frozen-point delta collapse supplies and what the full
+theory does not.  There the potential evolves with the moving event,
+radiation is present, and the interaction window is determined
+self-consistently, so the generator varies along the trajectory, the
+commutator that made the time-ordering collapse no longer vanishes, and
+Proposition~\ref{prop:regular} says nothing.  A configuration in which
+the full pre-Maxwell field dynamics produces or forbids a reversal
+threshold would decide the physical question, and we state it as such
+rather than prejudge it.
 
 There is also a practical corollary for any simulation campaign that
 counts time reversals, including ours.  A discretization prescription
