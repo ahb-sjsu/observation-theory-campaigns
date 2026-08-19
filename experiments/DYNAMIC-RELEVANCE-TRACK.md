@@ -2,10 +2,12 @@
 
 **Status:** Chip 🕒 DR. **DR-1 measured — ALL PASS 7/7 under seal**
 ([`PREREG-DR1-001`](PREREG-DR1-001.md), sealed `4a3a304`, governed seed
-20260905, class `[predicted]`; see §8). DR-2/DR-3 remain design-stage:
-their thresholds are PENDING PILOT and no run may be sealed against
-them until disclosed pilots fix them (PROTOCOL §5.1, power before
-bars).
+20260905, class `[predicted]`; §8). **DR-2 measured — ALL PASS 5/5
+under seal** ([`PREREG-DR2-001`](PREREG-DR2-001.md), sealed `997c31f`,
+governed seed 20260915, class `[predicted]`; §9). DR-3 remains
+design-stage: its thresholds are PENDING PILOT and no run may be
+sealed against them until disclosed pilots fix them (PROTOCOL §5.1,
+power before bars).
 
 ## 1. Question
 
@@ -167,8 +169,41 @@ disagreement point is preregisterable in closed form, and the effect is
 direction-borne. What this does NOT claim: any scheduling advantage
 (DR-3's question, disciplined by the Sun–Polyanskiy–Uysal anchor).
 
-## 9. Roadmap
+## 9. DR-2 governed result (ALL PASS 5/5, seed 20260915, class [predicted])
 
-DR-2 (the staleness flip) and DR-3 (scheduling at matched budgets):
-disclosed calibration pilots → power analysis → freeze floors → seal →
-single governed run each, same discipline as DR-1.
+Sealed [`PREREG-DR2-001`](PREREG-DR2-001.md) at `997c31f` (SEALS row
+`8ba572a`) after one disclosed pilot (seed 20260910: flip 20/20
+predicted and measured, no design changes); harness
+[`python/dr2_staleness_flip.py`](../python/dr2_staleness_flip.py)
+importing the sealed DR-1 machinery unmodified; single governed run on
+20 fresh draws ([`results/DR2-governed.json`](../results/DR2-governed.json)):
+
+- **F1 coverage**: the closed form predicted the two-consumer flip in
+  **19/20** systems (gate ≥ 80%). The 20th is an honest and priced
+  outcome: the fixed 15°/75° canonical window did not straddle that
+  system's crossover, the closed form said NO flip — and the
+  measurement agreed. The prediction machinery was right in both
+  directions.
+- **F2 measurement**: realized-loss inversion in **19/19** predicted
+  systems (gate ≥ 90%): consumer 1 found the OLD history fresher,
+  consumer 2 the FRESH one, on identical data with identical AoI.
+- **F3 margin**: pooled min relative staleness gap **0.388** (gate
+  ≥ 0.10; smallest single system 0.056) — the flip rests on
+  operationally large margins, not ties.
+- **F4 instrument integrity**: max residual **0.0075** (gate ≤ 0.02).
+- **F5 null**: trace orderings consistent in all 20 — a consumer-blind
+  scalar cannot invert; direction is what disagrees.
+
+The claim licensed at `[predicted]`: **freshness orderings are
+consumer-relative** over the declared system class — no consumer-blind
+freshness clock (AoI-style) can serve two consumers whose read
+geometries straddle the crossover. WHERE (EC-2) and WHEN (DR-2) now
+both flip.
+
+## 10. Roadmap
+
+DR-3 (scheduling at matched budgets): disclosed calibration pilots →
+power analysis → freeze floors → seal → single governed run, same
+discipline; the Sun–Polyanskiy–Uysal anchor sets its admissible claim
+(directional must beat the best isotropic signal-aware policy, not
+merely age).

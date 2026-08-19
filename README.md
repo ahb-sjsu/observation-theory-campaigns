@@ -53,7 +53,7 @@ nothing depends on the icon alone.
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 | 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
 | 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-2/3/4/5 measured ALL PASS; EC-6 measured ALL PASS (the multi-consumer tax exists with the predicted angular shape: free at 0 deg, 14.9% at orthogonality); EC-7 PROMOTED on its third seal (EC7-003, analytic effort matching: +8.4% consumer-penalty win, 99.5% blind capture; the two instrument misses stay on the record); all seven campaigns resolved; hardware endpoint open |
-| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | **DR-1 measured, ALL PASS 7/7 under seal** (PREREG-DR1-001, governed seed 20260905): over 20 random systems, age-based freshness and directional staleness disagree in every one — the older observation wins below a crossing angle predicted in closed form before rollout (gap median 0.67 grid steps), instrument residual ≤1%, isotropic null clean (direction is the mechanism). DR-2 (staleness flip) and DR-3 (scheduling at matched budgets) design-stage, bars PENDING PILOT |
+| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | **DR-1 + DR-2 measured, both ALL PASS under seal**: DR-1 (7/7, seed 20260905) — age and directional staleness disagree in 20/20 systems at a crossing angle predicted in closed form (gap median 0.67 grid steps); DR-2 (5/5, seed 20260915) — the two-consumer staleness FLIP: on identical histories with identical AoI, consumer 1 calls the OLD one fresher and consumer 2 the FRESH one, predicted 19/20 (the 20th correctly predicted as no-flip) and measured 19/19, pooled margin 0.39. Freshness is consumer-relative. DR-3 (scheduling at matched budgets) design-stage, bars PENDING PILOT |
 
 ## Status ledger, one row per experiment
 
@@ -167,10 +167,11 @@ document in `experiments/SEALS.md`.
 | 🎯 **EC-7** consumer-derived LQG penalty | **honest FAIL (integrity)** ❌ sealed PREREG-EC7-001 (seal e773056) | predictions passed numerically (K1 +8.3% at matched effort, K2 blind capture 1.037 — the recovered penalty beat the oracle pooled, K3 +7.7% vs best hand-tuned diagonal; every loop stable) but the effort-matching integrity gate FAILED: held-out efforts strayed >30% from target in 2/20 systems, common-mode across arms (the 3-bundle matching shortcut under-powers target transfer) — per the sealed falsification clause NO COMPARISON IS CLAIMED; successor EC7-002 sealed and run (seed 20260830): predictions passed AGAIN (K1 +9.4%, K2 1.026, K3 +8.6%) but the respecified cross-arm spread gate FAILED at 0.322 vs 0.15 in 1/20 systems — ARM-DIFFERENTIAL this time (iso arms undershot effort ~35% while oracle/blind matched), refining the v1 common-mode story: the rho-bisection instrument can contaminate the comparison, which is what the gate exists to catch. TWO consecutive instrument misses; claims remain unclaimed; EC7-003 (analytic Lyapunov matching, instrument residual 1e-5) sealed and run: **ALL PASS 8/8** (seed 20260901) — K1 +8.4% at matched effort, K2 blind capture 0.995, K3 +7.7% vs best hand-tuned diagonal, held-out spread 0.0407 <= 0.10; Campaign 7 PROMOTED at [predicted] on the third seal, predictions having passed in all three runs and the two instrument misses staying on the record as context; seeds 20260828/20260830/20260901 |
 | 🎯 **EC7-003** the third seal | [predicted] + sealed ✅ PREREG-EC7-003 (seal 49ddef5) | ANALYTIC effort matching (joint second-moment propagation; cross-arm analytic spread 1e-5): consumer-derived LQG penalty +8.4% vs isotropic on the consumer endpoint at matched effort, blind capture 99.5%, +7.7% vs endpoint-tuned diagonal (structure-beyond-diagonal measured); all loops stable; ALL PASS 8/8, seed 20260901 |
 | 🕒 **DR-1** the crossover exhibit | `[predicted]` + sealed ✅ PREREG-DR1-001 (seal 4a3a304) | age-based freshness vs directional staleness over 20 random 2-mode systems: crossover predicted by closed form in 20/20, measured (exactly one realized-loss flip) in 20/20, \|θ*_pred − θ*_meas\| median 0.665 / max 1.435 grid steps (bars 1.5/4.0), instrument residual 0.0096 ≤ 0.02, isotropic-null flips 0/20, the OLDER observation wins below the crossing in all 20; ALL PASS 7/7, seed 20260905; two disclosed pilots |
+| 🕒 **DR-2** the staleness flip | `[predicted]` + sealed ✅ PREREG-DR2-001 (seal 997c31f) | freshness is consumer-relative: canonical consumers at 15°/75° (declared before any draw), old-slow vs fresh-fast histories with identical AoI — verdict inversion predicted by closed form in 19/20 (the 20th correctly predicted no-flip: the fixed window missed its crossover, priced by F1), measured in 19/19, pooled min relative gap 0.388 ≥ 0.10, residual 0.0075 ≤ 0.02, trace-null consistent 20/20; ALL PASS 5/5, seed 20260915; one disclosed pilot, no design changes |
 
-Twenty-nine sealed documents in the ledger (two instrument freezes,
+Thirty sealed documents in the ledger (two instrument freezes,
 five generator documents, one sealed-unrun track document, and
-twenty-one preregistrations), every one verifiable by blob hash
+twenty-two preregistrations), every one verifiable by blob hash
 against `experiments/SEALS.md`.
 
 ### 🔀 PF, projection folds (the founding track)
@@ -960,10 +961,19 @@ steps (max 1.435 vs bar 4.0); instrument residual 0.0096 ≤ 0.02;
 isotropic-null flips 0/20; the OLDER observation genuinely won below
 the crossing in all 20. Age-based freshness and directional staleness
 measurably disagree, the disagreement point is preregisterable, and
-the effect is direction-borne. No scheduling claim yet: DR-2 and DR-3
-are design-stage (bars PENDING PILOT per PROTOCOL 5.1), and DR-3 is
-disciplined by its own anchor — signal-aware sampling already beats
-age-optimal (Sun–Polyanskiy–Uysal 2020), so only
+the effect is direction-borne. **DR-2, the staleness flip, is also
+measured — ALL PASS 5/5 under seal** (PREREG-DR2-001 sealed `997c31f`,
+governed seed 20260915, one disclosed pilot with no design changes):
+two consumers at canonical angles declared before any draw, reading
+identical histories with identical AoI profiles, return OPPOSITE
+freshness verdicts — predicted by closed form in 19/20 systems (the
+20th correctly predicted as no-flip and measured as none, the honest
+edge of the fixed window, priced by its own gate), measured in 19/19,
+on pooled margins of 0.39. Freshness is consumer-relative: WHERE
+(EC-2) and WHEN (DR-2) both flip. No scheduling claim yet: DR-3 is
+design-stage (bars PENDING PILOT per PROTOCOL 5.1), disciplined by its
+own anchor — signal-aware sampling already beats age-optimal
+(Sun–Polyanskiy–Uysal 2020), so only
 directional-beats-isotropic-signal-aware would count. The paper
 commits in advance to the boundary outcome: if long-horizon structure
 dominates, S_C remains a feature or terminal metric, and that verdict
