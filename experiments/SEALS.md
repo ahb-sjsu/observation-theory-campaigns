@@ -32,3 +32,5 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | GO-P-2026-088 (migrated; orig. seal @705f068, amendment @7e68dba) | experiments/GO-P-2026-088-consumer-flip-sensing.md | 897fd96 | d172d1aba8b2ed28409d08d213dfb4e991ffcdf535a2274a7227e9d1e1ef0335 | 2026-08-19 | A. H. Bond (session instruction) |
 | GO-P-2026-089 (migrated; orig. seal @705f068) | experiments/GO-P-2026-089-operational-trigger.md | 897fd96 | b69e446cf62f0859669bd9cc79e02722aadcaad683544a9bce0cb32e96040e26 | 2026-08-19 | A. H. Bond (session instruction) |
 | PREREG-EC5-001 | experiments/PREREG-EC5-001.md | d77dbd9 | c501af6b17b8607befa3d2451f622b8463e687133963b59bdbbf3d95c89882cf | 2026-08-19 | A. H. Bond (session instruction) |
+| PREREG-EC6-001 | experiments/PREREG-EC6-001.md | e773056 | f32b3d30d8fa77df8a1569ca259a302082929323851886783429688a1b576312 | 2026-08-19 | A. H. Bond (session instruction) |
+| PREREG-EC7-001 | experiments/PREREG-EC7-001.md | e773056 | 05c994bff7735f029423c443dd1d989921272e0bf21bcdf2e8371e3f54e891f2 | 2026-08-19 | A. H. Bond (session instruction) |

@@ -1,16 +1,16 @@
 ﻿# Observation Theory Campaigns
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Tracks](https://img.shields.io/badge/tracks-15-blue)](#the-fifteen-tracks)
+[![Tracks](https://img.shields.io/badge/tracks-17-blue)](#the-seventeen-tracks)
 [![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
 
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, fifteen tracks. The shared question is what an observer with
+One program, seventeen tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
-Each track makes that question concrete in a different setting, and all fifteen run under one evidence discipline with sealed instruments,
+Each track makes that question concrete in a different setting, and all seventeen run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
 
 If you are new here, read this file top to bottom, then the one track
@@ -18,7 +18,7 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The fifteen tracks
+## The seventeen tracks
 
 Each track carries one icon everywhere in this file, chosen for what
 the track studies rather than for a palette. 🔀 PF folds, 🌫️ PE the
@@ -28,8 +28,9 @@ rewriting, 🎲 GD games and decisions, 🔍 RG changes of scale,
 🧬 QD the replication of records, 🌊 HD lattice fluids, 🌡️ FT
 work and heat, 🔗 GG lattice links, 🔐 CR engineered
 observation limits, ⚖️ UN the floor that survives every
-admissible consumer, and 📜 FS the limits of a formal
-consumer. The letter codes always accompany the icons, so
+admissible consumer, 📜 FS the limits of a formal
+consumer, 🌐 RT routing telemetry under projection, and
+🎯 EC estimation and control. The letter codes always accompany the icons, so
 nothing depends on the icon alone.
 
 | Track | Short name | Question in one line | Status |
@@ -49,6 +50,7 @@ nothing depends on the icon alone.
 | 🔗 GG | Gauge redundancy | Is gauge symmetry anything but the fiber structure of the observer's projection? | COMPLETE first pass: GG-0..3 measured: bookkeeping = relabeled loops, constraint isolated (invariants fourth-order blind), charge = line endpoints, bare matter = fiber coordinates |
 | ⚖️ UN | Uncertainty | Which part of a measurement uncertainty is a consumer's limitation and which part survives every admissible consumer? | UN-0 instrument PASS; UN-1 an honest FAIL on four of six bars, all three errors in the declaration and named; UN-1b PASS on all seven bars, the discriminator is sharp: the same ladder drives estimation error to zero reciprocally for both pairs while leaving single-shot prediction at exactly zero bits for the compatible pair and exactly one bit, unmoved to 3.2e-14, for the incompatible one. Not a generator test domain and cannot become one |
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
+| 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
 | 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-5 physical-model FSO consumer measured (94.1% before-the-run physical ordering, +12.5% coupling-loss win, 89.8% blind capture); hardware endpoint open |
 
 ## Status ledger, one row per experiment
@@ -894,6 +896,20 @@ Key files. `experiments/FORMAL-SYSTEMS-TRACK.md`, sealed at commit
 39f514e.
 
 
+
+### 🌐 RT, routing telemetry under projection
+
+The one track whose consumers exist whether or not anyone is writing
+a paper: BGP route selection (RFC 4271), origin-change detectors, RPKI
+validators, churn-based anomaly pipelines, all reading the same
+collector archive. The question is whether one discard can be lossless
+for one of them and destructive for another, provably and measurably.
+Status: design draft, unsealed, non-claim-bearing --- every bar is
+PENDING PILOT per PROTOCOL 5.1. What exists: the track document
+([`experiments/ROUTING-TELEMETRY-TRACK.md`](experiments/ROUTING-TELEMETRY-TRACK.md))
+and a machine-checked lemma (`proofs/Proofs/CollectorPrune.lean`):
+redundant-update pruning is lossless for the route-selection consumer.
+
 ### 🎯 EC, estimation and control
 
 The estimation-and-control face of the program, migrated here from
@@ -911,7 +927,8 @@ operator load-bearing) seals next, in this repository.
 
 ## The generator experiment
 
-Fourteen tracks reached a similar shape, which invites a question the
+Fifteen tracks (all but the sealed-unrun FS and the design-draft RT)
+reached a similar shape, which invites a question the
 tracks themselves cannot answer. A framework that fits everything
 after the fact fits nothing in advance. So the campaign now tests
 its own kernel prospectively, against the null hypothesis that its
