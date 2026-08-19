@@ -123,6 +123,16 @@ check("EC7B-closedloop.json", lambda c, m: {
     "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
     "C_anti": bool(m["anti_ok"]),
 })
+check("EC7C-closedloop.json", lambda c, m: {
+    "K1_consumer_penalty_wins": m["K1"] >= c["delta_k1"],
+    "K2_blind_capture": m["K2"] >= 1 - c["eps_k2"],
+    "K3_vs_hand_diag": m["K3"] >= c["delta_k3"],
+    "I_stable": bool(m["stable"]),
+    "I_bounded": bool(m["bounded"]),
+    "I2_effort_spread": bool(m["spread_ok"]),
+    "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
+    "C_anti": bool(m["anti_ok"]),
+})
 
 print("=" * 60)
 if failures:

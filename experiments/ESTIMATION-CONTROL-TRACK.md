@@ -143,10 +143,32 @@ sealed seeds make the runs deterministic).
   equations, deterministic, no calibration-to-heldout transfer error at
   all (the instrument that should have been built first).
 
+- **EC7-003 (ALL PASS 8/8, governed seed 20260901) — Campaign 7 promoted
+  on the third seal** ([`PREREG-EC7-003`](PREREG-EC7-003.md), sealed
+  `49ddef5`; harness [`python/ec7c_closedloop.py`](../python/ec7c_closedloop.py)).
+  The v3 instrument is **analytic**: the Kalman recursion is
+  control-independent, so expected effort follows exactly from joint
+  second-moment propagation of (x, x̂) — the cross-arm **analytic** spread
+  measured **1e-5** (the v1/v2 error class gone by construction and by
+  measurement), leaving the held-out spread gate to pure CRN evaluation
+  scatter (0.0407 ≤ 0.10). On the finally-fair comparison: the
+  consumer-derived LQG penalty beats the isotropic penalty by **+8.4%**
+  on the consumer endpoint at matched control effort (gate 4%); the
+  probe-charged blind penalty captures **99.5%** of the oracle advantage
+  (gate 60%); full geometry beats the best endpoint-tuned diagonal by
+  **+7.7%** (gate 0 — structure beyond diagonal measured, the
+  operationally-unnecessary boundary NOT reached); every loop stable and
+  bounded. Prediction bars were inherited unchanged through all three
+  seals, and the predictions passed in all three runs (K1
+  0.083/0.094/0.084) — promoted only when the instrument finally held.
+  The two misses stay on the record as context, never as evidence.
+
 ## Open
 
-- **EC7-003** — analytic (Lyapunov) effort matching; the third and, if the
-  instrument is finally right, decisive seal for Campaign 7.
+- EC-5 hardware endpoint (real link; own future seal); harder cliffs.
+- m > 2 consumers, asymmetric priorities, layered descriptions (EC-6
+  follow-on); nonlinear consumers inside MPC where P_C(x) moves the
+  estimator itself (Interface 1 proper, per Proposition 1's failure mode).
 - EC-5 hardware endpoint (real link; own future seal); harder cliffs (BER
   waterfalls, deep fades).
 - m > 2 consumers, asymmetric priorities, layered/refined descriptions
