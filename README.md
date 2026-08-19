@@ -53,7 +53,7 @@ nothing depends on the icon alone.
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 | 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
 | 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-2/3/4/5 measured ALL PASS; EC-6 measured ALL PASS (the multi-consumer tax exists with the predicted angular shape: free at 0 deg, 14.9% at orthogonality); EC-7 PROMOTED on its third seal (EC7-003, analytic effort matching: +8.4% consumer-penalty win, 99.5% blind capture; the two instrument misses stay on the record); all seven campaigns resolved; hardware endpoint open |
-| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); Paper VIII §IX states the conjecture and the boundary outcome it will honor |
+| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); pilot 1 disclosed 2026-08-19: the crossover exhibit exists in minimal 2-mode form — a 6×-older slow-mode observation beats the fresh fast-mode one for every read direction below ≈44°, the flip angle predicted in closed form to 5e-4 rad of the measured value, instrument residual ≤1e-2 at n=2e5, isotropic null clean (no flip) |
 
 ## Status ledger, one row per experiment
 
@@ -953,9 +953,17 @@ registered null on isotropic consumers. Status: design draft,
 unsealed, non-claim-bearing --- every bar PENDING PILOT per PROTOCOL
 5.1. Track document:
 [`experiments/DYNAMIC-RELEVANCE-TRACK.md`](experiments/DYNAMIC-RELEVANCE-TRACK.md).
-The paper commits in advance to the boundary outcome: if long-horizon
-structure dominates, S_C remains a feature or terminal metric, and
-that verdict is reported at equal prominence.
+Pilot 1 (disclosed, 2026-08-19) established the DR-1 crossover exhibit
+in its minimal form: two-mode plant, an old slow-mode observation
+against a fresh fast-mode one --- age ranks the old one stale forever,
+directional staleness flips exactly once, at an angle predicted in
+closed form before any rollout (θ* = 0.7684 rad predicted, 0.7679
+measured at n = 200,000; instrument residual ≤ 1e-2; isotropic null
+clean). Harness `python/dr1_crossover.py`, results
+`results/dr1-pilot1.json`. The paper commits in advance to the
+boundary outcome: if long-horizon structure dominates, S_C remains a
+feature or terminal metric, and that verdict is reported at equal
+prominence.
 
 ## The generator experiment
 

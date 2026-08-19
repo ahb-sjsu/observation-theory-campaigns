@@ -107,7 +107,37 @@ json.dump; anti-controls specified in load-bearing pooled form;
 single governed run per seal at a sealed seed, outcome recorded
 regardless of sign.
 
-## 7. Roadmap
+## 7. Disclosed pilots
+
+**Pilot 1 (2026-08-19, seed 20260819, n=200,000; harness
+[`python/dr1_crossover.py`](../python/dr1_crossover.py), results
+[`results/dr1-pilot1.json`](../results/dr1-pilot1.json)).** The DR-1
+crossover exhibit in its minimal form: 2-mode plant (a = 0.999/0.97,
+q = 0.0005/0.02), an OLD scalar measurement of the slow mode (age 30)
+vs a FRESH one of the fast mode (age 5), read direction g(θ) swept
+over [0, π/2].
+
+- P2 crossover: exists and is predicted before rollout — θ*_pred =
+  0.7684 rad from the closed form, θ*_meas = 0.7679 from 200k-rollout
+  realized losses; gap 5.0e-4 rad, well inside one grid step
+  (8.7e-3); exactly one sign change on the grid. The 6×-older
+  observation wins at every θ below ≈44° — age ranks it stale, the
+  read geometry does not.
+- P1 instrument: analytic g'Σg vs Monte-Carlo realized loss, max
+  relative residual 1.9e-3 (arm A) / 9.8e-3 (arm B) — consistent with
+  MC scatter at this n; calibrates the residual bar for a future seal
+  (a 1e-2-scale bar at n=2e5 would be scatter-limited, not
+  instrument-limited; drive n up or bar down accordingly).
+- P3 isotropic null: PASS — trace ordering constant across the grid,
+  MC agrees with the analytic gap (+0.016). Remove direction, remove
+  the effect.
+
+Calibration lessons carried forward: the exhibit needs no dynamics
+beyond diagonal 2-mode to exist; the closed-form θ* is grid-accurate
+at n=2e5, so a DR-1 seal can put a tight bar on |θ*_pred − θ*_meas|;
+arm-B residual scale sets the instrument-gate floor.
+
+## 8. Roadmap
 
 Disclosed calibration pilots → power analysis → freeze floors → seal
 (PREREG-DR1-001 naming, SEALS.md discipline, "Authorized by: A. H.

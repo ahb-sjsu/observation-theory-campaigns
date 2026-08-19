@@ -1,0 +1,63 @@
+{
+  "pilot": "DR1-pilot1 (disclosed calibration; NOT claim-bearing)",
+  "seed": 20260819,
+  "n_mc": 200000,
+  "design": {
+    "A": [
+      0.999,
+      0.97
+    ],
+    "Q": [
+      0.0005,
+      0.02
+    ],
+    "r_meas": 0.01,
+    "age_old_slow": 30,
+    "age_fresh_fast": 5
+  },
+  "covariances": {
+    "Sigma_A": [
+      [
+        0.02362855156323712,
+        0.0
+      ],
+      [
+        0.0,
+        0.33840947546531325
+      ]
+    ],
+    "Sigma_B": [
+      [
+        0.2501250625312697,
+        0.0
+      ],
+      [
+        0.0,
+        0.09602075031551055
+      ]
+    ],
+    "difference_diag": [
+      -0.22649651096803258,
+      0.2423887251498027
+    ]
+  },
+  "P2_crossover": {
+    "exists_analytically": true,
+    "theta_pred_rad": 0.7684481111249994,
+    "theta_meas_rad": 0.767944870877505,
+    "n_sign_changes_on_grid": 1,
+    "gap_rad": 0.0005032402474944853,
+    "grid_step_rad": 0.008726646259971648
+  },
+  "P1_instrument": {
+    "max_rel_residual_arm_A": 0.0018686827524943491,
+    "max_rel_residual_arm_B": 0.009758187924718054
+  },
+  "P3_isotropic_null": {
+    "trace_gap_analytic": 0.015892214181770115,
+    "mc_trace_A": 0.362367911057714,
+    "mc_trace_B": 0.3482886887913471,
+    "ordering_flip_observed": false
+  },
+  "age_ordering": "B fresher than A at every theta by construction (ages 5 vs 30); age never flips"
+}
