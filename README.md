@@ -49,6 +49,7 @@ nothing depends on the icon alone.
 | 🔗 GG | Gauge redundancy | Is gauge symmetry anything but the fiber structure of the observer's projection? | COMPLETE first pass: GG-0..3 measured: bookkeeping = relabeled loops, constraint isolated (invariants fourth-order blind), charge = line endpoints, bare matter = fiber coordinates |
 | ⚖️ UN | Uncertainty | Which part of a measurement uncertainty is a consumer's limitation and which part survives every admissible consumer? | UN-0 instrument PASS; UN-1 an honest FAIL on four of six bars, all three errors in the declaration and named; UN-1b PASS on all seven bars, the discriminator is sharp: the same ladder drives estimation error to zero reciprocally for both pairs while leaving single-shot prediction at exactly zero bits for the compatible pair and exactly one bit, unmoved to 3.2e-14, for the incompatible one. Not a generator test domain and cannot become one |
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
+| 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-5 physical consumer next |
 
 ## Status ledger, one row per experiment
 
@@ -154,6 +155,9 @@ document in `experiments/SEALS.md`.
 | 🔐 **CR-6** information against disturbance | `[demonstrated-in-model]` ✅ all 5 bars + finding | the classical control is exact — an orthogonal ensemble is read perfectly at induced error **exactly 0**, so reading without a trace is possible precisely when the ensemble is distinguishable. On the non-orthogonal ensemble every positive interception gives positive information AND positive error, closed forms matched to **1.1e-16** across the ladder, Holevo bound (1 bit) respected. The exchange rate is exactly **2 bits of information per unit of induced error**. First place in the program where reading has a price paid by the substrate rather than by the reader — the exact opposite of HD-3 |
 | 🔐 **CR-7** monogamy as consumer exclusion | `[demonstrated-in-model]` ✅ all 4 bars + finding | **the boundary of the QD plateau.** A broadcast classical record gives every consumer the whole bit at once (both informations exactly 1, summing to 2); the quantum family obeys its tradeoff as an **identity** — squared concurrences summing to 1 across the grid to 1.9e-10, CKW saturated to the same precision — so at the extremes one consumer holding the correlation leaves the other exactly zero. Redundancy is available exactly for information that has already become classical: objectivity is cheap for facts and forbidden for superpositions. QD found the plateau months ago; this finds its edge |
 | 🔀 **PF-7 → PF-7f** quantum ceiling | `[demonstrated-in-model]` ✅ after four declared corrections | the ceiling stands: the classical fold model carries exactly the smooth delay dependence its own overlap mechanism predicts, and once that is removed its residual sits at p = **0.757** in the noise, while the quantum arm's Landau-Zener-Stückelberg interference measures **0.872** (p = 0.0), untouched by the same treatment. The model is capped as a classical representation without touching the kinematic fold theorem. Four named declaration errors on the way: a grid that smeared a chirp (the phase is quadratic in delay), a bar set below its own noise floor, a real 4.19σ trend counted as structure, and a linear model blamed for an exponential mechanism — each caught by a declared test, with the terminus declared before the last run |
+| 🎯 **EC-3** blind recovery -> scheduling | [predicted] + sealed ✅ GO-P-2026-087 (orig. seal geometric-observation@63a6f56) | query-only probed P_C x Kalman covariance schedules sensors: 94.6% of analytic-optimum gain captured blind (gate 75%), +16.3% over consumer-agnostic on black-box consumers (gate 8%), ordering 86.9%/61 pairs; probe cost charged; ALL PASS 5/5, seed 20260819 |
+| 🎯 **EC-2** the flip in sensing | [predicted] + sealed ✅ GO-P-2026-088 (orig. seal @705f068, amendment @7e68dba) | full two-consumer verdict inversion 100% of trace-matched systems, composition-predicted ordering 100%, gap 31.8%; two exact-at-bar passes noted; invocation-2 reproduced the amended invocation-1 line-for-line; ALL PASS 6/6, seed 20260821 |
+| 🎯 **EC-4** operational triggering | [predicted] + sealed ✅ GO-P-2026-089 (orig. seal @705f068) | signal-aware e-weighted trigger beats periodic/iso 20.0%/33.3% at matched realized budgets, blind capture 86.9%; pilot 1 = registered covariance-null finding (triggers must be signal-aware); ALL PASS 6/6, seed 20260822 |
 
 Six sealed documents in the ledger (two instrument freezes, four
 preregistrations), every one verifiable by blob hash. Three papers
@@ -887,6 +891,22 @@ disclosed conflict rather than a design.
 
 Key files. `experiments/FORMAL-SYSTEMS-TRACK.md`, sealed at commit
 39f514e.
+
+
+### 🎯 EC, estimation and control
+
+The estimation-and-control face of the program, migrated here from
+geometric-observation on 2026-08-19 (the paper, Lean proofs, and
+prior-art sweep remain there as Paper VIII). Full track document:
+[experiments/ESTIMATION-CONTROL-TRACK.md](experiments/ESTIMATION-CONTROL-TRACK.md)
+— including the provenance table with the original sealing commits, whose
+timestamps remain the binding registrations. Three campaigns measured
+(EC-2 flip-in-sensing, EC-3 blind-recovery flagship with its
+recover/match positive control, EC-4 signal-aware triggering), all
+governed single runs, all gates passed; verification:
+python python/verify_ec_gates.py re-derives every gate from the
+committed artifacts. EC-5 (physical FSO consumer, belief-averaged read
+operator load-bearing) seals next, in this repository.
 
 ## The generator experiment
 
