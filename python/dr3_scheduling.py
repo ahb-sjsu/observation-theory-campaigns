@@ -71,13 +71,18 @@ T_BURN = 50        # burn-in steps (not counted)
 N_CAL = 100        # calibration trajectories for threshold bisection
 BISECT_ITERS = 45
 
+# Frozen 2026-08-19 from two disclosed pilots (seeds 20260920/20260921:
+# pooled dir-over-iso +0.195/+0.175, dir-over-periodic +0.66/+0.66,
+# anti -0.33/-0.37, budget spread max 0.0055/0.0037, half-sample
+# 0.001/0.0004, Spearman -0.872). Bars set with margin BELOW pilot
+# performance per PROTOCOL 5.1; sealed in PREREG-DR3-001.
 GATES = {
-    "D1_dir_vs_iso_pooled_min": None,
-    "D2_dir_vs_periodic_pooled_min": None,
-    "D3_anti_not_better_than_iso": None,
-    "D4_budget_spread_max": None,
-    "D5_residual_halfsample_max": None,
-    "D6_spearman_theta_vs_impr_max": None,  # angle structure: advantage
+    "D1_dir_vs_iso_pooled_min": 0.08,
+    "D2_dir_vs_periodic_pooled_min": 0.30,
+    "D3_anti_not_better_than_iso": True,
+    "D4_budget_spread_max": 0.02,
+    "D5_residual_halfsample_max": 0.02,
+    "D6_spearman_theta_vs_impr_max": -0.5,  # angle structure: advantage
     # shrinks as g rotates toward the fast mode (disclosed after pilot 1
     # surfaced the monotone structure; confirmed by pilot 2 before any
     # bar was frozen)
