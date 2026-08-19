@@ -28,3 +28,6 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | GENERATOR-G2 (governing, supersedes G1) | experiments/GENERATOR-G2.md | dbe2aa7 | dce0477c4eb66c7310f5108933a58edd2ed083e20b16857168f3faafc1ff03be | 2026-08-07 | A. H. Bond (session instruction) |
 | PREREG-UN1-001 | experiments/PREREG-UN1-001.md | b549a29 | 3c22bc0d0ed56369acae9b5da816a46381768c6b589ccbd799d006112e5ae317 | 2026-08-07 | A. H. Bond (session instruction) |
 | PREREG-UN1-002 | experiments/PREREG-UN1-002.md | ce0b05a | f1e1ac999210f42b2820243d976ae16c3fba135bc64ab9120328abb659b7c25d | 2026-08-07 | A. H. Bond (session instruction) |
+| GO-P-2026-087 (migrated; orig. seal geometric-observation@63a6f56) | experiments/GO-P-2026-087-blind-recovery-scheduling.md | 897fd96 | eaf66f590d63bd2187338880fb7a066fbd99f8c97280cac3909cf8d999eb619e | 2026-08-19 | A. H. Bond (session instruction) |
+| GO-P-2026-088 (migrated; orig. seal @705f068, amendment @7e68dba) | experiments/GO-P-2026-088-consumer-flip-sensing.md | 897fd96 | d172d1aba8b2ed28409d08d213dfb4e991ffcdf535a2274a7227e9d1e1ef0335 | 2026-08-19 | A. H. Bond (session instruction) |
+| GO-P-2026-089 (migrated; orig. seal @705f068) | experiments/GO-P-2026-089-operational-trigger.md | 897fd96 | b69e446cf62f0859669bd9cc79e02722aadcaad683544a9bce0cb32e96040e26 | 2026-08-19 | A. H. Bond (session instruction) |
