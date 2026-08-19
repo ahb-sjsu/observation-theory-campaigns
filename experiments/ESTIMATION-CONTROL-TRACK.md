@@ -124,10 +124,29 @@ sealed seeds make the runs deterministic).
   absolute target transfer) is the designated rehabilitation, not yet
   sealed.
 
+- **EC7-002 (FAIL — integrity again, governed seed 20260830; no comparison
+  claimed)** — ([`PREREG-EC7-002`](PREREG-EC7-002.md), sealed `3f953c4`;
+  harness [`python/ec7b_closedloop.py`](../python/ec7b_closedloop.py)).
+  The rehabilitation's predictions passed a second time (K1 +9.4%, K2
+  capture 1.026, K3 +8.6%; every loop stable) but the respecified
+  **cross-arm spread gate failed**: 0.322 vs the 0.15 band, in exactly
+  **1 of 20 systems — and arm-differential this time** (oracle/blind
+  efforts ≈ 0.85 near the 0.946 target while iso/hand-diag undershot to
+  ≈ 0.62), so the consumer-aligned arms held an effort advantage there.
+  This REFINES the v1 story: the ρ-bisection instrument's failure mode is
+  not benignly common-mode — it can contaminate the comparison, which is
+  precisely what the integrity gate exists to catch. Two consecutive
+  instrument misses; the EC-7 claims remain **unclaimed** despite passing
+  numerically in both runs. Designated successor **EC7-003**: replace
+  simulation-bisection effort matching with **analytic matching** —
+  expected `‖u‖²` computed exactly from the closed-loop Lyapunov
+  equations, deterministic, no calibration-to-heldout transfer error at
+  all (the instrument that should have been built first).
+
 ## Open
 
-- **EC7-002** — the effort-matching rehabilitation seal (registered miss →
-  successor pattern, as 020→021 and 032→033 in the parent program).
+- **EC7-003** — analytic (Lyapunov) effort matching; the third and, if the
+  instrument is finally right, decisive seal for Campaign 7.
 - EC-5 hardware endpoint (real link; own future seal); harder cliffs (BER
   waterfalls, deep fades).
 - m > 2 consumers, asymmetric priorities, layered/refined descriptions

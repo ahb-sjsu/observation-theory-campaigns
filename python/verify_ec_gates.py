@@ -100,8 +100,9 @@ check("EC6-multiconsumer.json", lambda c, m: {
     "C_dedicated_sane": bool(m["dedicated_sane"]),
     "C_random_worst": bool(m["random_worst"]),
 })
-# EC-7's committed verdict is FAIL (integrity gate); the self-consistency
-# check re-derives that FAIL — verification is sign-agnostic.
+# EC-7's committed verdicts are FAIL (integrity gates, v1 and v2); the
+# self-consistency checks re-derive those FAILs — verification is
+# sign-agnostic.
 check("EC7-closedloop.json", lambda c, m: {
     "K1_consumer_penalty_wins": m["K1"] >= c["delta_k1"],
     "K2_blind_capture": m["K2"] >= 1 - c["eps_k2"],
@@ -109,6 +110,16 @@ check("EC7-closedloop.json", lambda c, m: {
     "I_stable": bool(m["stable"]),
     "I_bounded": bool(m["bounded"]),
     "I_effort_matched": bool(m["effort_matched"]),
+    "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
+    "C_anti": bool(m["anti_ok"]),
+})
+check("EC7B-closedloop.json", lambda c, m: {
+    "K1_consumer_penalty_wins": m["K1"] >= c["delta_k1"],
+    "K2_blind_capture": m["K2"] >= 1 - c["eps_k2"],
+    "K3_vs_hand_diag": m["K3"] >= c["delta_k3"],
+    "I_stable": bool(m["stable"]),
+    "I_bounded": bool(m["bounded"]),
+    "I2_effort_spread": bool(m["spread_ok"]),
     "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
     "C_anti": bool(m["anti_ok"]),
 })
