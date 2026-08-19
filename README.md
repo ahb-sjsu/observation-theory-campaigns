@@ -51,7 +51,7 @@ nothing depends on the icon alone.
 | ⚖️ UN | Uncertainty | Which part of a measurement uncertainty is a consumer's limitation and which part survives every admissible consumer? | UN-0 instrument PASS; UN-1 an honest FAIL on four of six bars, all three errors in the declaration and named; UN-1b PASS on all seven bars, the discriminator is sharp: the same ladder drives estimation error to zero reciprocally for both pairs while leaving single-shot prediction at exactly zero bits for the compatible pair and exactly one bit, unmoved to 3.2e-14, for the incompatible one. Not a generator test domain and cannot become one |
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 | 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
-| 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-5 physical-model FSO consumer measured (94.1% before-the-run physical ordering, +12.5% coupling-loss win, 89.8% blind capture); hardware endpoint open |
+| 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-2/3/4/5 measured ALL PASS; EC-6 measured ALL PASS (the multi-consumer tax exists with the predicted angular shape: free at 0 deg, 14.9% at orthogonality); EC-7 an HONEST FAIL on its effort-matching integrity gate (predictions passed numerically, no comparison claimed; successor EC7-002 designated); hardware endpoint open |
 
 ## Status ledger, one row per experiment
 
@@ -161,6 +161,8 @@ document in `experiments/SEALS.md`.
 | 🎯 **EC-2** the flip in sensing | [predicted] + sealed ✅ GO-P-2026-088 (orig. seal @705f068, amendment @7e68dba) | full two-consumer verdict inversion 100% of trace-matched systems, composition-predicted ordering 100%, gap 31.8%; two exact-at-bar passes noted; invocation-2 reproduced the amended invocation-1 line-for-line; ALL PASS 6/6, seed 20260821 |
 | 🎯 **EC-4** operational triggering | [predicted] + sealed ✅ GO-P-2026-089 (orig. seal @705f068) | signal-aware e-weighted trigger beats periodic/iso 20.0%/33.3% at matched realized budgets, blind capture 86.9%; pilot 1 = registered covariance-null finding (triggers must be signal-aware); ALL PASS 6/6, seed 20260822 |
 | 🎯 **EC-5** physical-model FSO consumer | [predicted] + sealed ✅ PREREG-EC5-001 (native seal d77dbd9) | belief-averaged smoothed probe of a black-box optical-link model: physical-loss ordering of trace-matched schedules predicted BEFORE the run 94.1%/17 pairs (gate 80%/8), charged aligned schedule +12.5% coupling loss vs best agnostic (gate 4%), lavish-reference blind capture 89.8% (gate 70%); narrowed SPIE prior-art posture sealed with the prereg; ALL PASS 6/6, seed 20260824 |
+| 🎯 **EC-6** the multi-consumer tax | `[predicted]` + sealed ✅ PREREG-EC6-001 (seal e773056) | consumer pairs at controlled principal angles: egalitarian best-shared-over-utopia tax 1.000 / 1.037 / 1.123 / 1.149 at 0/30/60/90 deg (sharing exactly free when aligned, 14.9% tax at orthogonality); consumer-aware sharing beats agnostic by 12.5% pooled on worst-of-two; joint dominates time-sharing 72/80 cells (exploratory, not gated); ALL PASS 6/6, seed 20260826 |
+| 🎯 **EC-7** consumer-derived LQG penalty | **honest FAIL (integrity)** ❌ sealed PREREG-EC7-001 (seal e773056) | predictions passed numerically (K1 +8.3% at matched effort, K2 blind capture 1.037 — the recovered penalty beat the oracle pooled, K3 +7.7% vs best hand-tuned diagonal; every loop stable) but the effort-matching integrity gate FAILED: held-out efforts strayed >30% from target in 2/20 systems, common-mode across arms (the 3-bundle matching shortcut under-powers target transfer) — per the sealed falsification clause NO COMPARISON IS CLAIMED; successor EC7-002 designated (more bundles; gate respecified to cross-arm spread); seed 20260828 |
 
 Six sealed documents in the ledger (two instrument freezes, four
 preregistrations), every one verifiable by blob hash. Three papers
@@ -917,13 +919,17 @@ geometric-observation on 2026-08-19 (the paper, Lean proofs, and
 prior-art sweep remain there as Paper VIII). Full track document:
 [experiments/ESTIMATION-CONTROL-TRACK.md](experiments/ESTIMATION-CONTROL-TRACK.md)
 — including the provenance table with the original sealing commits, whose
-timestamps remain the binding registrations. Three campaigns measured
+timestamps remain the binding registrations. Six campaigns measured
 (EC-2 flip-in-sensing, EC-3 blind-recovery flagship with its
-recover/match positive control, EC-4 signal-aware triggering), all
-governed single runs, all gates passed; verification:
-python python/verify_ec_gates.py re-derives every gate from the
-committed artifacts. EC-5 (physical FSO consumer, belief-averaged read
-operator load-bearing) seals next, in this repository.
+recover/match positive control, EC-4 signal-aware triggering, EC-5
+physical-model FSO consumer through the belief-averaged operator,
+EC-6 the multi-consumer tax with its predicted angular shape), all
+governed single runs, all gates passed; and EC-7, an honest FAIL on
+its effort-matching integrity gate — the predictions passed
+numerically but no comparison is claimed, successor EC7-002
+designated. Verification: `python python/verify_ec_gates.py`
+re-derives every gate (including EC-7's FAIL) from the committed
+artifacts, sign-agnostic.
 
 ## The generator experiment
 
@@ -1016,6 +1022,12 @@ says what is wrong, what the replication does and does not
 depend on, and what has not been done about it.
 
 ## Published papers
+
+🎯 *In draft (no DOI yet): Observation Theory for Estimation and
+Control — Paper VIII of the geometric series, maintained in
+`geometric-observation` with its Lean-verified boundary results;
+its evidence base is this repository's EC track (six campaigns
+measured, one honest integrity FAIL on the record).*
 
 1. 🌫️ Entropy Across Singular Projections (PE track),
    DOI 10.5281/zenodo.21789011.

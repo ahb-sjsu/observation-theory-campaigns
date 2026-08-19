@@ -92,6 +92,26 @@ check("EC5-fso-consumer.json", lambda c, m: {
     "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
     "C_anti_worst": bool(m["anti_worst"]),
 })
+check("EC6-multiconsumer.json", lambda c, m: {
+    "M1_free_when_aligned": m["M1"] <= 1 + c["m1_band"],
+    "M2_tax_rises": m["M2"] >= c["m2_gap"],
+    "M3_tax_at_orthogonal": m["M3"] >= 1 + c["m3_tax"],
+    "M4_geometry_beats_blind": m["M4"] >= c["m4_impr"],
+    "C_dedicated_sane": bool(m["dedicated_sane"]),
+    "C_random_worst": bool(m["random_worst"]),
+})
+# EC-7's committed verdict is FAIL (integrity gate); the self-consistency
+# check re-derives that FAIL — verification is sign-agnostic.
+check("EC7-closedloop.json", lambda c, m: {
+    "K1_consumer_penalty_wins": m["K1"] >= c["delta_k1"],
+    "K2_blind_capture": m["K2"] >= 1 - c["eps_k2"],
+    "K3_vs_hand_diag": m["K3"] >= c["delta_k3"],
+    "I_stable": bool(m["stable"]),
+    "I_bounded": bool(m["bounded"]),
+    "I_effort_matched": bool(m["effort_matched"]),
+    "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
+    "C_anti": bool(m["anti_ok"]),
+})
 
 print("=" * 60)
 if failures:

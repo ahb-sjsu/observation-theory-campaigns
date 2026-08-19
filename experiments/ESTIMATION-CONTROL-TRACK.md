@@ -92,9 +92,43 @@ sealed seeds make the runs deterministic).
   conceded false. Scope: physics-based SIMULATED consumer — a step toward,
   not the arrival at, hardware.
 
+- **EC-6 (ALL PASS 6/6, governed seed 20260826)** —
+  ([`PREREG-EC6-001`](PREREG-EC6-001.md), sealed `e773056`; harness
+  [`python/ec6_multiconsumer.py`](../python/ec6_multiconsumer.py)). **The
+  multi-consumer tax exists and has the predicted angular shape**: for
+  consumer pairs at controlled principal angles, the egalitarian
+  best-shared-over-utopia ratio runs **1.000 / 1.037 / 1.123 / 1.149** at
+  0°/30°/60°/90° — sharing exactly free when geometries coincide, a
+  **14.9% tax at orthogonality** (gates: ≤1.05 at 0°, rise ≥0.05, ≥1.05 at
+  90°); consumer-aware sharing beats agnostic sharing by 12.5% pooled on
+  worst-of-two (gate 5%). Exploratory, reported not claimed: scalarized
+  joint scheduling dominates time-sharing at every angle at this budget
+  (72/80 cells). The two-observer coding theorem motivated, and was not
+  imported as, the result. Two disclosed pilots.
+- **EC-7 (FAIL — integrity gate, governed seed 20260828; no comparison
+  claimed)** — ([`PREREG-EC7-001`](PREREG-EC7-001.md), sealed `e773056`;
+  harness [`python/ec7_closedloop.py`](../python/ec7_closedloop.py)). The
+  sealed predictions all passed numerically (K1 oracle-penalty vs
+  iso-penalty +8.3%; K2 blind capture 1.037 — the recovered penalty beat
+  the oracle pooled; K3 +7.7% vs the best hand-tuned diagonal), stability
+  and boundedness passed, controls passed — **but the effort-matching
+  integrity gate failed**: realized held-out efforts strayed >30% from the
+  common target in 2 of 20 systems (6 arm-cells, all **common-mode** — all
+  four arms drifting together, so within-system comparisons stayed
+  effort-consistent; the 3-bundle matching shortcut under-powers
+  per-system target transfer). Per the sealed falsification clause, **no
+  comparison is claimed**, and the numerically-passing predictions are
+  NOT promoted. The miss stays on the record; the successor seal
+  (EC7-002: more matching bundles, and the integrity gate respecified to
+  cross-arm effort spread — the fair-comparison quantity — rather than
+  absolute target transfer) is the designated rehabilitation, not yet
+  sealed.
+
 ## Open
 
+- **EC7-002** — the effort-matching rehabilitation seal (registered miss →
+  successor pattern, as 020→021 and 032→033 in the parent program).
 - EC-5 hardware endpoint (real link; own future seal); harder cliffs (BER
   waterfalls, deep fades).
-- EC-6 multi-consumer state service; EC-7 closed-loop control — per the
-  paper's campaign section.
+- m > 2 consumers, asymmetric priorities, layered/refined descriptions
+  (EC-6 follow-on).
