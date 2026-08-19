@@ -1,16 +1,16 @@
 ﻿# Observation Theory Campaigns
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Tracks](https://img.shields.io/badge/tracks-17-blue)](#the-seventeen-tracks)
+[![Tracks](https://img.shields.io/badge/tracks-18-blue)](#the-eighteen-tracks)
 [![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
 
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, seventeen tracks. The shared question is what an observer with
+One program, eighteen tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
-Each track makes that question concrete in a different setting, and all seventeen run under one evidence discipline with sealed instruments,
+Each track makes that question concrete in a different setting, and all eighteen run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
 
 If you are new here, read this file top to bottom, then the one track
@@ -18,7 +18,7 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The seventeen tracks
+## The eighteen tracks
 
 Each track carries one icon everywhere in this file, chosen for what
 the track studies rather than for a palette. 🔀 PF folds, 🌫️ PE the
@@ -29,8 +29,9 @@ rewriting, 🎲 GD games and decisions, 🔍 RG changes of scale,
 work and heat, 🔗 GG lattice links, 🔐 CR engineered
 observation limits, ⚖️ UN the floor that survives every
 admissible consumer, 📜 FS the limits of a formal
-consumer, 🌐 RT routing telemetry under projection, and
-🎯 EC estimation and control. The letter codes always accompany the icons, so
+consumer, 🌐 RT routing telemetry under projection,
+🎯 EC estimation and control, and 🕒 DR the age of operationally
+relevant uncertainty. The letter codes always accompany the icons, so
 nothing depends on the icon alone.
 
 | Track | Short name | Question in one line | Status |
@@ -52,6 +53,7 @@ nothing depends on the icon alone.
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 | 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
 | 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-2/3/4/5 measured ALL PASS; EC-6 measured ALL PASS (the multi-consumer tax exists with the predicted angular shape: free at 0 deg, 14.9% at orthogonality); EC-7 PROMOTED on its third seal (EC7-003, analytic effort matching: +8.4% consumer-penalty win, 99.5% blind capture; the two instrument misses stay on the record); all seven campaigns resolved; hardware endpoint open |
+| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); Paper VIII §IX states the conjecture and the boundary outcome it will honor |
 
 ## Status ledger, one row per experiment
 
@@ -936,9 +938,28 @@ misses on the record. All seven campaigns are resolved. Verification: `python py
 re-derives every gate (including EC-7's FAIL) from the committed
 artifacts, sign-agnostic.
 
+### 🕒 DR, dynamic relevance
+
+The third interface of Paper VIII, stated there as an explicit
+conjecture: an observation is stale when the uncertainty it leaves in
+the consumer's read directions becomes operationally expensive ---
+S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ|I_t)], age of information weighted by
+operational geometry rather than by the clock. The track's novelty
+discipline is set by its own anchors: signal-aware sampling already
+beats age-optimal (Sun-Polyanskiy-Uysal 2020), so the only admissible
+claim is that DIRECTIONAL staleness beats both the age-based line and
+the best isotropic signal-aware policy at matched budgets, with a
+registered null on isotropic consumers. Status: design draft,
+unsealed, non-claim-bearing --- every bar PENDING PILOT per PROTOCOL
+5.1. Track document:
+[`experiments/DYNAMIC-RELEVANCE-TRACK.md`](experiments/DYNAMIC-RELEVANCE-TRACK.md).
+The paper commits in advance to the boundary outcome: if long-horizon
+structure dominates, S_C remains a feature or terminal metric, and
+that verdict is reported at equal prominence.
+
 ## The generator experiment
 
-Fifteen tracks (all but the sealed-unrun FS and the design-draft RT)
+Fifteen tracks (all but the sealed-unrun FS and the design-drafts RT and DR)
 reached a similar shape, which invites a question the
 tracks themselves cannot answer. A framework that fits everything
 after the fact fits nothing in advance. So the campaign now tests

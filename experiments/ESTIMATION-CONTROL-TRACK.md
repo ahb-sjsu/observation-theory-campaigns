@@ -165,11 +165,14 @@ sealed seeds make the runs deterministic).
 
 ## Open
 
-- EC-5 hardware endpoint (real link; own future seal); harder cliffs.
-- m > 2 consumers, asymmetric priorities, layered descriptions (EC-6
-  follow-on); nonlinear consumers inside MPC where P_C(x) moves the
-  estimator itself (Interface 1 proper, per Proposition 1's failure mode).
-- EC-5 hardware endpoint (real link; own future seal); harder cliffs (BER
-  waterfalls, deep fades).
+- EC-5 hardware endpoint (real link; own future seal); harder cliffs
+  (BER waterfalls, deep fades).
 - m > 2 consumers, asymmetric priorities, layered/refined descriptions
-  (EC-6 follow-on).
+  (EC-6 follow-on); nonlinear consumers inside MPC where P_C(x) moves the
+  estimator itself (Interface 1 proper, per Proposition 1's failure mode).
+- Recursive/filtering form of the tilted-mean estimator (the open problem
+  as narrowed by verification pass VI-11 in geometric-observation's
+  claims ledger).
+- Dynamic relevance S_C(Δ) — spun out as its own track:
+  [`DYNAMIC-RELEVANCE-TRACK.md`](DYNAMIC-RELEVANCE-TRACK.md) (design
+  draft, PROTOCOL 5.1).
