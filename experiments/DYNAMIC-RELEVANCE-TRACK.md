@@ -1,9 +1,11 @@
 # DR Track: Dynamic Relevance — the Age of Operationally Relevant Uncertainty
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip 🕒 DR.
-No bar in this document is calibrated yet; every threshold below is
-marked PENDING PILOT and no run may be sealed against it until a
-disclosed pilot fixes it (PROTOCOL §5.1, power before bars).
+**Status:** Chip 🕒 DR. **DR-1 measured — ALL PASS 7/7 under seal**
+([`PREREG-DR1-001`](PREREG-DR1-001.md), sealed `4a3a304`, governed seed
+20260905, class `[predicted]`; see §8). DR-2/DR-3 remain design-stage:
+their thresholds are PENDING PILOT and no run may be sealed against
+them until disclosed pilots fix them (PROTOCOL §5.1, power before
+bars).
 
 ## 1. Question
 
@@ -137,9 +139,36 @@ beyond diagonal 2-mode to exist; the closed-form θ* is grid-accurate
 at n=2e5, so a DR-1 seal can put a tight bar on |θ*_pred − θ*_meas|;
 arm-B residual scale sets the instrument-gate floor.
 
-## 8. Roadmap
+## 8. DR-1 governed result (ALL PASS 7/7, seed 20260905, class [predicted])
 
-Disclosed calibration pilots → power analysis → freeze floors → seal
-(PREREG-DR1-001 naming, SEALS.md discipline, "Authorized by: A. H.
-Bond (session instruction)") → single governed run each. Until a seal
-exists, nothing in this document is claim-bearing.
+Sealed [`PREREG-DR1-001`](PREREG-DR1-001.md) at `4a3a304` (SEALS row
+`b22ca45`) after the two disclosed pilots; single governed run on 20
+fresh generator draws, n = 200,000 rollouts per arm
+([`results/DR1-governed.json`](../results/DR1-governed.json)):
+
+- **G1/G2 existence and measurement**: the closed form predicted a
+  crossover in **20/20** systems (gate ≥ 80%) and **20/20** showed
+  exactly one sign change of the realized loss difference (gate ≥ 90%).
+- **G3 preregistered accuracy**: |θ*_pred − θ*_meas| median **0.665**
+  grid steps (gate ≤ 1.5), max **1.435** (gate ≤ 4.0) — the crossing
+  is predicted before any rollout to sub-degree accuracy.
+- **G4 instrument integrity**: max analytic-vs-MC residual **0.0096**
+  (gate ≤ 0.02) — the analytic instrument holds; no other gate needed
+  its protection.
+- **G5 isotropic null**: **0** trace-ordering flips in 20 (gate 0) —
+  remove direction, remove the effect.
+- **G6 age is wrong below the crossing**: the older observation's
+  realized loss was lower on a nonempty part of the grid in **all 20**
+  measured-crossover systems.
+
+The track's vocabulary is licensed: age-based freshness and directional
+staleness measurably disagree over a declared random system class, the
+disagreement point is preregisterable in closed form, and the effect is
+direction-borne. What this does NOT claim: any scheduling advantage
+(DR-3's question, disciplined by the Sun–Polyanskiy–Uysal anchor).
+
+## 9. Roadmap
+
+DR-2 (the staleness flip) and DR-3 (scheduling at matched budgets):
+disclosed calibration pilots → power analysis → freeze floors → seal →
+single governed run each, same discipline as DR-1.
