@@ -53,7 +53,7 @@ nothing depends on the icon alone.
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 | 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
 | 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-2/3/4/5 measured ALL PASS; EC-6 measured ALL PASS (the multi-consumer tax exists with the predicted angular shape: free at 0 deg, 14.9% at orthogonality); EC-7 PROMOTED on its third seal (EC7-003, analytic effort matching: +8.4% consumer-penalty win, 99.5% blind capture; the two instrument misses stay on the record); all seven campaigns resolved; hardware endpoint open |
-| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | **DR-1 + DR-2 measured, both ALL PASS under seal**: DR-1 (7/7, seed 20260905) — age and directional staleness disagree in 20/20 systems at a crossing angle predicted in closed form (gap median 0.67 grid steps); DR-2 (5/5, seed 20260915) — the two-consumer staleness FLIP: on identical histories with identical AoI, consumer 1 calls the OLD one fresher and consumer 2 the FRESH one, predicted 19/20 (the 20th correctly predicted as no-flip) and measured 19/19, pooled margin 0.39. Freshness is consumer-relative. DR-3 (scheduling at matched budgets) design-stage, bars PENDING PILOT |
+| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | **All three campaigns measured, ALL PASS under seal**: DR-1 (7/7) — age and directional staleness disagree at a crossing angle predicted in closed form; DR-2 (5/5) — the two-consumer staleness FLIP on identical histories with identical AoI; DR-3 (6/6, seed 20260925) — the operational claim: the directional trigger beats the best isotropic signal-aware policy by **+16.3% pooled at matched realized budgets** (20/20 positive; +65% over periodic as context; anti-control 61% worse; angle structure Spearman −0.93 as sealed). WHEN is consumer-relative: the orderings disagree, consumers disagree, and acting on the directional ordering wins at matched cost. Open: blind probe-charged arm, random-delay channels |
 
 ## Status ledger, one row per experiment
 
@@ -168,10 +168,11 @@ document in `experiments/SEALS.md`.
 | 🎯 **EC7-003** the third seal | [predicted] + sealed ✅ PREREG-EC7-003 (seal 49ddef5) | ANALYTIC effort matching (joint second-moment propagation; cross-arm analytic spread 1e-5): consumer-derived LQG penalty +8.4% vs isotropic on the consumer endpoint at matched effort, blind capture 99.5%, +7.7% vs endpoint-tuned diagonal (structure-beyond-diagonal measured); all loops stable; ALL PASS 8/8, seed 20260901 |
 | 🕒 **DR-1** the crossover exhibit | `[predicted]` + sealed ✅ PREREG-DR1-001 (seal 4a3a304) | age-based freshness vs directional staleness over 20 random 2-mode systems: crossover predicted by closed form in 20/20, measured (exactly one realized-loss flip) in 20/20, \|θ*_pred − θ*_meas\| median 0.665 / max 1.435 grid steps (bars 1.5/4.0), instrument residual 0.0096 ≤ 0.02, isotropic-null flips 0/20, the OLDER observation wins below the crossing in all 20; ALL PASS 7/7, seed 20260905; two disclosed pilots |
 | 🕒 **DR-2** the staleness flip | `[predicted]` + sealed ✅ PREREG-DR2-001 (seal 997c31f) | freshness is consumer-relative: canonical consumers at 15°/75° (declared before any draw), old-slow vs fresh-fast histories with identical AoI — verdict inversion predicted by closed form in 19/20 (the 20th correctly predicted no-flip: the fixed window missed its crossover, priced by F1), measured in 19/19, pooled min relative gap 0.388 ≥ 0.10, residual 0.0075 ≤ 0.02, trace-null consistent 20/20; ALL PASS 5/5, seed 20260915; one disclosed pilot, no design changes |
+| 🕒 **DR-3** scheduling at matched budgets | `[predicted]` + sealed ✅ PREREG-DR3-001 (seal b7ed62b) | the operational claim, disciplined by its anchor (signal-aware already beats age — Sun et al. 2020 — so only directional-beats-isotropic counts): pooled consumer-loss improvement of the (gᵀe)²-trigger over the ‖e‖²-trigger at matched realized budgets **+16.3%** (gate 8%), positive 20/20; +65.3% over periodic (gate 30%, context); anti-control −61.5% (direction-borne in every system); budget-integrity spread 0.58% ≤ 2%, half-sample 0.0009 ≤ 0.02; sealed angle-structure prediction Spearman −0.928 ≤ −0.5; ALL PASS 6/6, seed 20260925; two disclosed pilots (D6 added after pilot 1 surfaced the structure, confirmed by pilot 2 pre-freeze) |
 
-Thirty sealed documents in the ledger (two instrument freezes,
+Thirty-one sealed documents in the ledger (two instrument freezes,
 five generator documents, one sealed-unrun track document, and
-twenty-two preregistrations), every one verifiable by blob hash
+twenty-three preregistrations), every one verifiable by blob hash
 against `experiments/SEALS.md`.
 
 ### 🔀 PF, projection folds (the founding track)
@@ -969,12 +970,21 @@ identical histories with identical AoI profiles, return OPPOSITE
 freshness verdicts — predicted by closed form in 19/20 systems (the
 20th correctly predicted as no-flip and measured as none, the honest
 edge of the fixed window, priced by its own gate), measured in 19/19,
-on pooled margins of 0.39. Freshness is consumer-relative: WHERE
-(EC-2) and WHEN (DR-2) both flip. No scheduling claim yet: DR-3 is
-design-stage (bars PENDING PILOT per PROTOCOL 5.1), disciplined by its
-own anchor — signal-aware sampling already beats age-optimal
-(Sun–Polyanskiy–Uysal 2020), so only
-directional-beats-isotropic-signal-aware would count. The paper
+on pooled margins of 0.39. **And DR-3, the operational claim, is
+measured — ALL PASS 6/6 under seal** (PREREG-DR3-001 sealed `b7ed62b`,
+governed seed 20260925, two disclosed pilots): at matched realized
+transmit budgets, the directional trigger beats the best isotropic
+signal-aware policy by **+16.3% pooled** consumer loss (positive in
+20/20 systems; the bar was set against the honest baseline — the
+anchor, Sun–Polyanskiy–Uysal 2020, already beats age-optimal with
+signal-aware sampling, so beating periodic (+65%) was context, never
+the claim); the anti-control is 61% worse; and the sealed geometric
+prediction held at Spearman −0.93: the advantage shrinks exactly where
+the directional and isotropic triggers converge. The DR arc is
+complete: the orderings disagree predictably (DR-1), consumers
+disagree with each other (DR-2), and acting on the directional
+ordering wins at matched cost (DR-3). Open: the blind probe-charged
+recovery arm, random-delay channels, nonlinear plants. The paper
 commits in advance to the boundary outcome: if long-horizon structure
 dominates, S_C remains a feature or terminal metric, and that verdict
 is reported at equal prominence.

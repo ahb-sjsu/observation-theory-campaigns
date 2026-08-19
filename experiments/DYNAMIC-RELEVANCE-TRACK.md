@@ -1,13 +1,15 @@
 # DR Track: Dynamic Relevance — the Age of Operationally Relevant Uncertainty
 
-**Status:** Chip 🕒 DR. **DR-1 measured — ALL PASS 7/7 under seal**
-([`PREREG-DR1-001`](PREREG-DR1-001.md), sealed `4a3a304`, governed seed
-20260905, class `[predicted]`; §8). **DR-2 measured — ALL PASS 5/5
-under seal** ([`PREREG-DR2-001`](PREREG-DR2-001.md), sealed `997c31f`,
-governed seed 20260915, class `[predicted]`; §9). DR-3 remains
-design-stage: its thresholds are PENDING PILOT and no run may be
-sealed against them until disclosed pilots fix them (PROTOCOL §5.1,
-power before bars).
+**Status:** Chip 🕒 DR. **ALL THREE CAMPAIGNS MEASURED, ALL PASS,
+under seal, class `[predicted]`**: DR-1 the crossover exhibit
+([`PREREG-DR1-001`](PREREG-DR1-001.md), `4a3a304`, seed 20260905, 7/7;
+§8), DR-2 the staleness flip ([`PREREG-DR2-001`](PREREG-DR2-001.md),
+`997c31f`, seed 20260915, 5/5; §9), DR-3 scheduling at matched budgets
+([`PREREG-DR3-001`](PREREG-DR3-001.md), `b7ed62b`, seed 20260925, 6/6;
+§11). The arc: the orderings disagree predictably (DR-1), consumers
+disagree with each other (DR-2), and acting on the directional
+ordering wins at matched cost (DR-3). Open: blind probe-charged arm,
+random-delay channels, nonlinear plants (§12).
 
 ## 1. Question
 
@@ -236,11 +238,40 @@ angle structure is a sealable prediction (D6: ρ ≤ −0.5); the
 structural null (P_C = I makes dir ≡ iso identically) is stated, not
 measured.
 
-## 11. Roadmap
+## 11. DR-3 governed result (ALL PASS 6/6, seed 20260925, class [predicted])
 
-DR-3 seal (PREREG-DR3-001): freeze the bars above → seal → single
-governed run; the Sun–Polyanskiy–Uysal anchor sets the admissible
-claim (directional must beat the best isotropic signal-aware policy,
-not merely age). Optional future arm before or after: blind
-probe-charged P̂_C (EC-track machinery) capturing a preregistered
-fraction of the planted-consumer advantage.
+Sealed [`PREREG-DR3-001`](PREREG-DR3-001.md) at `b7ed62b` (SEALS row
+`23a719c`) after the two disclosed pilots; single governed run on 20
+fresh systems ([`results/DR3-governed.json`](../results/DR3-governed.json)):
+
+- **D1 (the claim)**: pooled relative consumer-loss improvement of the
+  directional trigger over the best isotropic signal-aware policy at
+  matched realized budgets: **+16.3%** (gate ≥ 8%), positive in 20/20
+  systems (per-system range +0.1% to +49.2%).
+- **D2 (context)**: **+65.3%** over periodic/age (gate ≥ 30%) — the
+  anchor's expected result, not the novelty claim.
+- **D3 anti-control**: triggering on the orthogonal component is
+  **61.5% worse** than isotropic pooled — the advantage is
+  direction-borne, in every system.
+- **D4/D5 integrity**: budget spread max **0.58%** absolute (gate 2%);
+  half-sample stability **0.0009** (gate 0.02). The instrument held.
+- **D6 angle structure**: Spearman ρ(θ_g, improvement) = **−0.928**
+  (gate ≤ −0.5) — the advantage shrinks exactly as predicted as the
+  read direction rotates toward the noise-dominant mode, where the
+  directional and isotropic triggers converge.
+
+The operational claim licensed at `[predicted]`: **WHEN to spend an
+update budget is consumer-relative** — at identical realized cost, the
+schedule that watches the consumer's read direction beats the schedule
+that watches error magnitude, by a margin with predictable geometric
+structure, and the paper's boundary outcome (S_C as feature, not
+policy) did NOT occur in this system class.
+
+## 12. Open
+
+- Blind probe-charged P̂_C arm (EC-track recovery machinery) capturing
+  a preregistered fraction of the planted-consumer advantage — own seal.
+- Random-delay channels (where the age-based line has its native
+  force); multi-consumer update scheduling (DR × EC-6).
+- Nonlinear plants / non-Gaussian posteriors; belief-averaged P̄_C
+  triggers for cliff consumers (DR × Paper VIII §VI).
