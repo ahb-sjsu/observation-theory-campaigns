@@ -200,10 +200,47 @@ freshness clock (AoI-style) can serve two consumers whose read
 geometries straddle the crossover. WHERE (EC-2) and WHEN (DR-2) now
 both flip.
 
-## 10. Roadmap
+## 10. DR-3 disclosed pilots (2026-08-19; harness
+[`python/dr3_scheduling.py`](../python/dr3_scheduling.py))
 
-DR-3 (scheduling at matched budgets): disclosed calibration pilots →
-power analysis → freeze floors → seal → single governed run, same
-discipline; the Sun–Polyanskiy–Uysal anchor sets its admissible claim
-(directional must beat the best isotropic signal-aware policy, not
-merely age).
+Smart-sensor update scheduling (EC-4 idealization): exogenous 2-mode
+plant (CRN exact across policies), monitor error e ← Ae + w between
+transmissions, e ← 0 on transmit, consumer loss (gᵀe)² with θ_g ~
+U[10°, 80°] per system; four causal policies at matched realized
+budgets (β = 0.10; thresholds bisected on separate calibration
+streams): periodic (≡ age-threshold here — deterministic channel),
+isotropic ‖e‖² > τ, directional (gᵀe)² > τ, anti (g⊥ᵀe)² > τ.
+
+- **Pilot 1** (seed 20260920, 20 systems,
+  [`results/dr3-pilot1.json`](../results/dr3-pilot1.json)): pooled
+  dir-over-iso **+19.5%** (positive in 20/20, range +0.1% to +61.5%),
+  dir-over-periodic +66%, anti −33% pooled, budget spread max 0.55%
+  absolute, half-sample stability 0.001. Pilot 1 SURFACED the angle
+  structure: the advantage shrinks monotonically as g rotates toward
+  the fast mode (where the isotropic trigger and the directional one
+  converge). Disclosed design change: the Spearman correlation
+  ρ(θ_g, improvement) added to the harness as metric D6.
+- **Pilot 2** (seed 20260921, fresh draws, D6 active,
+  [`results/dr3-pilot-seed20260921.json`](../results/dr3-pilot-seed20260921.json)):
+  confirms — pooled dir-over-iso **+17.5%**, dir-over-periodic +65.8%,
+  anti −37%, budget spread max 0.37%, half-sample 0.0004, **Spearman
+  −0.872**. One system at θ_g = 71° measured dir/iso −0.4% — the
+  near-coincidence regime, confirming the load-bearing form is POOLED
+  improvement (the 088 lesson), never per-system positivity.
+
+Calibration lessons for the seal: pooled dir-over-iso is the D1
+quantity (bar must sit well below ~0.17–0.20); budget integrity
+transfers at ≤ 0.6% absolute spread (D4 bar can sit at 2%); n_eval =
+200 is stability-limited at 1e-3 (D5 bar 0.02 is conservative); the
+angle structure is a sealable prediction (D6: ρ ≤ −0.5); the
+structural null (P_C = I makes dir ≡ iso identically) is stated, not
+measured.
+
+## 11. Roadmap
+
+DR-3 seal (PREREG-DR3-001): freeze the bars above → seal → single
+governed run; the Sun–Polyanskiy–Uysal anchor sets the admissible
+claim (directional must beat the best isotropic signal-aware policy,
+not merely age). Optional future arm before or after: blind
+probe-charged P̂_C (EC-track machinery) capturing a preregistered
+fraction of the planted-consumer advantage.
