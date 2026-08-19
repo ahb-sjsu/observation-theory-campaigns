@@ -84,6 +84,14 @@ check("GO89-operational-trigger.json", lambda c, m: {
     "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
     "C_anti_worst": bool(m["anti_worst"]),
 })
+check("EC5-fso-consumer.json", lambda c, m: {
+    "E1_prediction": (m["E1"] == m["E1"]) and m["E1"] >= c["q_pred"],
+    "I_min_pairs": m["E1_pairs"] >= c["min_pairs"],
+    "E2_win": m["E2"] >= c["delta_e2"],
+    "E3_capture": m["E3"] >= 1 - c["eps_e3"],
+    "C_shuffled_no_free_lunch": m["shuffled_gap"] >= -0.02,
+    "C_anti_worst": bool(m["anti_worst"]),
+})
 
 print("=" * 60)
 if failures:

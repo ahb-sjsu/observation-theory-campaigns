@@ -72,12 +72,29 @@ Verification: `python python/verify_ec_gates.py` re-derives every gate and
 the EC-3 headline metrics from the committed result JSONs (no re-run; the
 sealed seeds make the runs deterministic).
 
+- **EC-5 (ALL PASS 6/6, governed seed 20260824) — the first native seal in
+  this repository** ([`PREREG-EC5-001`](PREREG-EC5-001.md), sealed
+  `d77dbd9`; harness [`python/ec5_fso_consumer.py`](../python/ec5_fso_consumer.py),
+  sha256 `315c5fa9…65e8d`). A physics-based FSO link consumer (Gaussian
+  far-field + fiber rolloff over a hidden state→physical map), black box,
+  probed with the paper §VI **belief-averaged smoothed metric**: the
+  physical-loss ordering of trace-matched schedules is predicted by
+  `tr(P̄_C Σ̄)` **before the run** in **94.1%** of 17 pairs (gate ≥ 80%/8);
+  the charged aligned schedule beats the best agnostic by **12.5%** mean
+  coupling loss (gate ≥ 4%); blind capture of the lavish reference
+  **89.8%** (gate ≥ 70%). Three disclosed pilots (anti-control respecified
+  to its load-bearing form from the per-policy diagnostic). The prereg
+  seals the **narrowed prior-art posture** from the SPIE-targeted sweep:
+  static-budget flow-down (JPL IPN 42-161, 2005), coupling-surface
+  probing-for-control (nutation/SPGD), and covariance scheduling without
+  FSO (Al Ahdab et al., ICML 2025) are the named nearest neighbors; the
+  loose "nobody derives estimator requirements from the link" claim is
+  conceded false. Scope: physics-based SIMULATED consumer — a step toward,
+  not the arrival at, hardware.
+
 ## Open
 
-- **EC-5 — physical consumer** (free-space-optical link geometry pulled
-  back into the navigation estimator; the belief-averaged read operator is
-  load-bearing because the endpoints are threshold-like). A SPIE-targeted
-  prior-art pass on the pointing-acquisition-tracking literature gates any
-  gap assertion. Next to be sealed, in this repository under this track.
+- EC-5 hardware endpoint (real link; own future seal); harder cliffs (BER
+  waterfalls, deep fades).
 - EC-6 multi-consumer state service; EC-7 closed-loop control — per the
   paper's campaign section.
