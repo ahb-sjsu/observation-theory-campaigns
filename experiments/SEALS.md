@@ -35,3 +35,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-EC6-001 | experiments/PREREG-EC6-001.md | e773056 | f32b3d30d8fa77df8a1569ca259a302082929323851886783429688a1b576312 | 2026-08-19 | A. H. Bond (session instruction) |
 | PREREG-EC7-001 | experiments/PREREG-EC7-001.md | e773056 | 05c994bff7735f029423c443dd1d989921272e0bf21bcdf2e8371e3f54e891f2 | 2026-08-19 | A. H. Bond (session instruction) |
 | PREREG-EC7-002 | experiments/PREREG-EC7-002.md | 3f953c4 | feb475635e5a57566334ddc41a3c130f18c90c8efea8d361258495d36f5ba8b8 | 2026-08-19 | A. H. Bond (session instruction) |
+| PREREG-EC7-003 | experiments/PREREG-EC7-003.md | 49ddef5 | 9ccbf32374107618034d21919a15b452ef06c2b623ed0b1dcc28c43283edccee | 2026-08-19 | A. H. Bond (session instruction) |
