@@ -153,9 +153,47 @@ endpoints drift); smoothing width for probes must span the boundary
 peak (grid step 0.05 resolved it cleanly); probe budget trivial at
 this scale (~100 requests/model/leg).
 
-## 9. Roadmap
+## 9. LM-1 pilot 1 — blind recovery works, and the deviations are the story
+(2026-08-19, disclosed; harness
+[`python/lm1_probe.py`](../python/lm1_probe.py) collects raw losses,
+[`python/lm1_analyze.py`](../python/lm1_analyze.py) scores offline;
+raw log [`results/lm1-pilot1-probe-log.json`](../results/lm1-pilot1-probe-log.json),
+analysis [`results/lm1-pilot1-analysis.json`](../results/lm1-pilot1-analysis.json);
+1216 requests, 124k tokens, 0 failures)
 
-Pilot 1+: LM-1 recover/match design calibration on gemma-small
-(probe-recovered P̂_C vs planted oracle subspace; flip pair). Then
-freeze → seal (PREREG-LM1-001) → single governed run → LM-2 → LM-3.
-Nothing here is claim-bearing until sealed.
+Two planted consumers on gemma-small, 32 prior draws, central-difference
+probing where the step h IS the smoothing width; P̂ = mean gradient
+outer-product; fixed-truth loss L(x̂; x) = −logprob(correct-for-x |
+prompt(x̂)) — the consumer misled by a perturbed estimate.
+
+- **Consumer A** (2s1−s2 vs s4; oracle dir ∝ (2,−1,0,−1,0,0)): top-eig
+  alignment **0.942** (h=0.1) / 0.890 (h=0.25); split-half stability
+  0.940/0.902; trace on oracle support axes 0.916/0.973.
+- **Consumer B** (s3+s5 vs 1): alignment **0.907**, top-2 diagonal =
+  the support exactly, split-half 0.883.
+- **Flip precursor**: recovered top components fully disjoint across
+  consumers ({1,2} vs {5,3}).
+- **The consumer ≠ the task — and P̂ measures the consumer.** The
+  recovered geometry says gemma-small UNDER-reads s4 (eigvec coeff
+  0.14 vs the task's 0.41; consistent with its 92% accuracy) and, at
+  fine probe width, carries SPURIOUS sensitivity to the irrelevant s6
+  (diag 0.325 ≈ relevant s4's 0.316); the wider probe (h=0.25)
+  suppresses the spurious channel (s6 → 0.023) at some alignment
+  cost. These deviations are measurements about the consumer — the
+  operational geometry OT claims exists — and they are exactly why
+  LM-2's allocation arm must be driven by P̂ (consumer geometry), not
+  by the task oracle.
+
+Calibration notes for the seal: candidate bars R1 alignment ≥ 0.75,
+split-half ≥ 0.75, support-axes trace fraction ≥ 0.7, disjointness of
+flip supports as a boolean gate; probe width in [0.1, 0.25] with the
+width choice frozen at seal (or both widths run and gated separately);
+n_states = 32 gives split-half ~0.88–0.94, so 48–64 for margin.
+
+## 10. Roadmap
+
+Pilot 2 (if needed): n_states and width finalization. Then freeze →
+seal (PREREG-LM1-001, recover/match + flip on gemma-small) → single
+governed run → LM-2 (matched-budget allocation vs CompactPrompt-style
+uniform + perplexity comparators) → LM-3. Nothing here is
+claim-bearing until sealed.

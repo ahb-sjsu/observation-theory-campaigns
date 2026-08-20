@@ -1,0 +1,115 @@
+{
+  "A@h=0.1": {
+    "n_states_used": 32,
+    "R1_align_top_eig_vs_oracle": 0.9418,
+    "R2_trace_frac_support_axes": 0.9161,
+    "R2_trace_frac_oracle_dir": 0.7573,
+    "R3_topk_precision": 0.6666666666666666,
+    "R4_splithalf_align": 0.9402,
+    "diag_Phat": [
+      4.66,
+      1.09789,
+      0.12646,
+      0.31582,
+      0.10497,
+      0.32503
+    ],
+    "top_eigvec": [
+      -0.8992,
+      0.3678,
+      0.0836,
+      0.1408,
+      -0.0005,
+      0.1712
+    ],
+    "eig_spectrum": [
+      5.63585,
+      0.60927,
+      0.16516,
+      0.1164,
+      0.06038,
+      0.04313
+    ]
+  },
+  "A@h=0.25": {
+    "n_states_used": 32,
+    "R1_align_top_eig_vs_oracle": 0.8898,
+    "R2_trace_frac_support_axes": 0.9725,
+    "R2_trace_frac_oracle_dir": 0.7508,
+    "R3_topk_precision": 0.6666666666666666,
+    "R4_splithalf_align": 0.9021,
+    "diag_Phat": [
+      8.39566,
+      1.99263,
+      0.2546,
+      0.13879,
+      0.02003,
+      0.0226
+    ],
+    "top_eigvec": [
+      -0.9034,
+      0.4076,
+      0.1257,
+      -0.0349,
+      0.0079,
+      0.026
+    ],
+    "eig_spectrum": [
+      10.22615,
+      0.38364,
+      0.12121,
+      0.06236,
+      0.01603,
+      0.01491
+    ]
+  },
+  "B@h=0.15": {
+    "n_states_used": 32,
+    "R1_align_top_eig_vs_oracle": 0.9067,
+    "R2_trace_frac_support_axes": 0.8535,
+    "R2_trace_frac_oracle_dir": 0.6783,
+    "R3_topk_precision": 1.0,
+    "R4_splithalf_align": 0.8834,
+    "diag_Phat": [
+      0.25012,
+      0.09375,
+      0.84848,
+      0.34245,
+      3.48388,
+      0.0574
+    ],
+    "top_eigvec": [
+      -0.1449,
+      -0.075,
+      0.3753,
+      -0.0794,
+      0.9069,
+      0.0606
+    ],
+    "eig_spectrum": [
+      4.14729,
+      0.50156,
+      0.31258,
+      0.05839,
+      0.03862,
+      0.01764
+    ]
+  },
+  "R5_flip_precursor": {
+    "A_top3_components": [
+      1,
+      2,
+      6
+    ],
+    "B_top2_components": [
+      5,
+      3
+    ],
+    "disjoint": true
+  },
+  "ledger": {
+    "req": 1216,
+    "tok": 124416,
+    "fail": 0
+  }
+}
