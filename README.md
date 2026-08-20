@@ -1082,11 +1082,22 @@ depend on, and what has not been done about it.
 
 ## Published papers
 
-🎯 *In draft (no DOI yet): Observation Theory for Estimation and
-Control — Paper VIII of the geometric series, maintained in
-`geometric-observation` with its Lean-verified boundary results;
-its evidence base is this repository's EC track (six campaigns
-measured, one honest integrity FAIL on the record).*
+🎯🕒 *In draft, evidence-complete (no DOI yet): Observation Theory
+for Estimation and Control — Paper VIII of the geometric series,
+maintained in `geometric-observation`. Its evidence base is this
+repository's EC track (all seven campaigns resolved: six measured
+ALL PASS, the closed-loop seventh promoted on its third seal with
+two registered instrument misses on the record) and DR track (all
+three campaigns measured ALL PASS — the preregisterable
+age/staleness crossover, the two-consumer staleness flip, and the
++16.3% matched-budget scheduling win over the isotropic
+signal-aware threshold). Both boundary propositions are
+machine-checked in Lean 4/Mathlib, and every load-bearing closed
+form and instrument has passed independent fresh-context R-IND-5
+derivation review (verification incidents VI-11 through VI-15 in
+the geometric-observation claims ledger, sharpenings folded in).
+All 34 references quote-verified against primary sources.
+Remaining before submission: venue selection.*
 
 1. 🌫️ Entropy Across Singular Projections (PE track),
    DOI 10.5281/zenodo.21789011.
