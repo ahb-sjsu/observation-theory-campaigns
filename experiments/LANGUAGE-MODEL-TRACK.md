@@ -243,9 +243,50 @@ preregistered margin, without reference to planted supports).
 Task-oracle alignment drops to a reported diagnostic. No bar may be
 set without a fresh disclosed pilot of the new gates.
 
-## 12. Roadmap
+## 12. LM1-002 pilots — the consumer-anchored gates, calibrated the hard way
+(2026-08-19, four disclosed pilots; harness pair
+[`python/lm1b_recover.py`](../python/lm1b_recover.py) /
+[`python/lm1b_gates.py`](../python/lm1b_gates.py); logs and analyses
+`results/lm1b-pilot{1..4}-*.json`; ~10.1k requests, ~1.03M tokens
+total, 0 failures)
 
-LM1-002 pilot → freeze → seal → single governed run. LM-2 (allocation)
-and LM-3 (staleness) remain design-stage and now inherit the anchor
-lesson: all comparison gates anchor to measured consumer behavior,
-never to task ideals. Nothing in this track is claim-bearing.
+The successor's central gate — does the probed operator PREDICT the
+consumer's response to held-out perturbations — took four pilot
+iterations to specify honestly, each miss disclosed:
+
+1. **v1** (one fresh state per fresh direction): Spearman −0.07/−0.29.
+   Realized (D_uL)² at a single state is dominated by that state's
+   distance to the decision cliff, not by u — state-position noise
+   swamps the direction signal.
+2. **v2** (direction-mean over 12 independent states per direction):
+   A 0.55 / B 0.05 — the unshared state draws were still the variance.
+3. **v3** (CRN: 16 shared states across all directions): A −0.09 /
+   B 0.46 — pairing fixed the state noise and exposed the next layer:
+   Spearman over n_dirs = 16 has SE ≈ 0.26; the METRIC was now the
+   binding noise. (The program's oldest lesson — CRN — and its
+   second-oldest — power before bars — in one pilot.)
+4. **v4** (48 directions × 16 CRN states): **A 0.684 / B 0.516**, both
+   > 3σ from zero at SE ≈ 0.15. The consumer-anchored predictive claim
+   is real and measurable at this budget.
+
+Constant across all pilots: stability 0.80–0.90; flip operator
+distance 0.34–0.48; instrument clean (repeat |Δloss| ≤ 0.148, parse
+1.00, fail 0); oracle alignment 0.86–0.98 as the ungated diagnostic.
+Persistent finding: the full-vs-diagonal margin sits at ~0 or below —
+off-diagonal operator estimates are noise-limited at this probe
+budget — so H2 is DEMOTED to an ungated diagnostic (recorded, not
+gated).
+
+**Bars frozen in the gate evaluator** (pending seal): H1 ≥ 0.30 both
+consumers (cal 0.684/0.516); H3 flip distance ≥ 0.25 (cal 0.468);
+H4 stability ≥ 0.70 both (cal 0.80/0.87); H5 repeat ≤ 0.50 (cal
+0.124); H6 parse ≥ 0.98; H7 fail ≤ 0.01. Governed seed 20261028 in
+the harness. NOT yet sealed; seal is the next instruction.
+
+## 13. Roadmap
+
+Seal PREREG-LM1-002 → single governed run at 20261028. LM-2
+(allocation) and LM-3 (staleness) remain design-stage and inherit the
+anchor lesson: all comparison gates anchor to measured consumer
+behavior, never to task ideals. Nothing in this track is
+claim-bearing.
