@@ -357,9 +357,46 @@ H1b per-consumer floor ≥ 0.30; H3 ≥ 0.25; H4 ≥ 0.70; H5 ≤ 0.50;
 H6 ≥ 0.98; H7 ≤ 0.01. Governed seed 20261105 in the harness. NOT yet
 sealed.
 
-## 15. Roadmap
+## 15. LM1-003 governed run: **ALL PASS 7/7 — Campaign LM-1 promoted
+on the third seal** (class [predicted])
 
-Seal PREREG-LM1-003 → single governed run at 20261105. LM-2
-(allocation) and LM-3 (staleness) remain design-stage; they inherit
-the anchor lesson AND the across-draw bar-calibration lesson. Nothing
-in this track is claim-bearing.
+Sealed [`PREREG-LM1-003`](PREREG-LM1-003.md) at `011bc61` (SEALS
+`65b5a04`), governed seed 20261105, single run
+([`results/LM1C-governed-log.json`](../results/LM1C-governed-log.json),
+[`results/LM1C-governed-analysis.json`](../results/LM1C-governed-analysis.json);
+5,880 requests, 600k tokens, 0 failures):
+
+- **H1 pooled held-out prediction 0.6077** (bar ≥ 0.45; two-draw cal
+  0.644/0.658) — the recovered operator rank-predicts the consumer's
+  own realized response to fresh perturbation directions.
+- **H1b floors**: A 0.460 / B 0.755 (bar 0.30) — B's fifth consecutive
+  powered result above 0.45; A held with the canonical axis block.
+- **H3 flip 0.406** (bar 0.25): the two consumers' measured geometries
+  separate with no reference to planted supports.
+- **H4 stability 0.934 / 0.770** (bar 0.70); **H5–H7 instrument
+  clean** (repeat max 0.112, parse 1.00, fail 0).
+- Ungated diagnostics: oracle alignment 0.939/0.877; H2 margin
+  −0.013/+0.066 (off-diagonal structure remains budget-limited).
+
+**The claim licensed at `[predicted]`**: the read geometry of a
+frozen, hosted, black-box LLM over serialized numeric state is
+recoverable by query-only logprob probing, and the recovered operator
+predicts the consumer's own held-out behavior — pooled and per
+consumer — with the two consumers' geometries measurably distinct.
+Promoted on the third seal with both misses on the record as context,
+never as evidence (the EC-7 precedent): LM1-001 fell to a task-oracle
+anchor its own pilots had warned against; LM1-002 fell to
+single-draw bar calibration; LM1-003 carried both lessons and passed
+every gate with margin. Paper VIII's sharpest claim — the conjunction
+under query access only — now has its first neural-consumer
+instantiation, at a marginal compute cost of ~31k gateway requests
+(~3.2M tokens) and zero owned-hardware GPU time.
+
+## 16. Roadmap
+
+LM-2 (matched-budget precision allocation vs the CompactPrompt-style
+uniform baseline and perplexity comparator — the operational claim,
+now standing on a licensed recovery instrument) and LM-3 (staleness)
+proceed to design pilots, inheriting the anchor and across-draw
+lessons. Multi-model transfer (qwen3-small under tolerance-banded
+paired gates) is the designated breadth arm.

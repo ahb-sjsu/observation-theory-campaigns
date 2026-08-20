@@ -1,0 +1,96 @@
+{
+  "campaign": "LM1-003 consumer-anchored recovery, multi-draw calibration (successor to PREREG-LM1-002)",
+  "mode": "governed",
+  "seed": 20261105,
+  "gates": {
+    "H1_pooled_spearman_min": 0.45,
+    "H1b_per_consumer_floor": 0.3,
+    "H3_flip_operator_distance_min": 0.25,
+    "H4_splithalf_norm_min_both": 0.7,
+    "H5_repeat_dloss_max": 0.5,
+    "H6_parse_rate_min": 0.98,
+    "H7_fail_rate_max": 0.01
+  },
+  "verdicts": {
+    "H1": true,
+    "H1b": true,
+    "H3": true,
+    "H4": true,
+    "H5": true,
+    "H6": true,
+    "H7": true,
+    "ALL": true
+  },
+  "metrics": {
+    "A": {
+      "n_probe_states": 48,
+      "n_heldout_directions": 48,
+      "H1_heldout_spearman": 0.4603,
+      "H2_structure_margin": -0.0134,
+      "rho_diag_only": 0.4736,
+      "H4_splithalf_norm": 0.9335
+    },
+    "B": {
+      "n_probe_states": 48,
+      "n_heldout_directions": 48,
+      "H1_heldout_spearman": 0.755,
+      "H2_structure_margin": 0.0656,
+      "rho_diag_only": 0.6894,
+      "H4_splithalf_norm": 0.77
+    }
+  },
+  "H1_pooled_spearman": 0.6077,
+  "H3_flip_operator_distance": 0.4059,
+  "diagnostics_ungated": {
+    "A": {
+      "oracle_align_DIAGNOSTIC": 0.9388,
+      "diag_P": [
+        6.22735,
+        6.48359,
+        0.22977,
+        3.97233,
+        0.09085,
+        0.08639
+      ],
+      "top_eigvec": [
+        -0.5782,
+        0.6461,
+        -0.001,
+        0.4972,
+        -0.0304,
+        0.0126
+      ]
+    },
+    "B": {
+      "oracle_align_DIAGNOSTIC": 0.877,
+      "diag_P": [
+        0.60946,
+        0.19036,
+        1.03843,
+        0.44134,
+        3.65818,
+        0.15283
+      ],
+      "top_eigvec": [
+        -0.217,
+        0.0511,
+        0.3278,
+        0.0647,
+        0.9126,
+        0.0768
+      ]
+    }
+  },
+  "instrument": {
+    "repeat_pairs": 24,
+    "repeat_dloss_max": 0.11196017265319824,
+    "repeat_dloss_mean": 0.013723586918786168,
+    "parse_rate": 1.0,
+    "fail_rate": 0.0
+  },
+  "ledger": {
+    "req": 5880,
+    "tok": 599784,
+    "fail": 0
+  }
+}
