@@ -1,0 +1,79 @@
+{
+  "campaign": "LM1-003 consumer-anchored recovery, multi-draw calibration (successor to PREREG-LM1-002)",
+  "mode": "pilotA",
+  "seed": 20261030,
+  "gates": null,
+  "verdicts": null,
+  "metrics": {
+    "A": {
+      "n_probe_states": 48,
+      "n_heldout_directions": 48,
+      "H1_heldout_spearman": 0.61,
+      "H2_structure_margin": -0.0077,
+      "rho_diag_only": 0.6177,
+      "H4_splithalf_norm": 0.8193
+    },
+    "B": {
+      "n_probe_states": 48,
+      "n_heldout_directions": 48,
+      "H1_heldout_spearman": 0.6781,
+      "H2_structure_margin": 0.1982,
+      "rho_diag_only": 0.4799,
+      "H4_splithalf_norm": 0.8481
+    }
+  },
+  "H1_pooled_spearman": 0.6441,
+  "H3_flip_operator_distance": 0.4384,
+  "diagnostics_ungated": {
+    "A": {
+      "oracle_align_DIAGNOSTIC": 0.9805,
+      "diag_P": [
+        3.6566,
+        2.17793,
+        0.53585,
+        0.74207,
+        0.0553,
+        0.08975
+      ],
+      "top_eigvec": [
+        -0.7867,
+        0.5351,
+        -0.0802,
+        0.2931,
+        0.0317,
+        0.0375
+      ]
+    },
+    "B": {
+      "oracle_align_DIAGNOSTIC": 0.9897,
+      "diag_P": [
+        0.51783,
+        0.10159,
+        1.68188,
+        0.35081,
+        1.95224,
+        0.06443
+      ],
+      "top_eigvec": [
+        -0.0221,
+        -0.0824,
+        0.6586,
+        -0.0991,
+        0.741,
+        -0.0064
+      ]
+    }
+  },
+  "instrument": {
+    "repeat_pairs": 24,
+    "repeat_dloss_max": 0.09533137083053589,
+    "repeat_dloss_mean": 0.011365336055556933,
+    "parse_rate": 1.0,
+    "fail_rate": 0.0
+  },
+  "ledger": {
+    "req": 5880,
+    "tok": 599784,
+    "fail": 0
+  }
+}

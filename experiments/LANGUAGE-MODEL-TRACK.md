@@ -327,9 +327,39 @@ u with top-eigvector-plane u) so dominant-direction consumers
 contribute rankable signal. No bar may be set without the fresh
 disclosed pilots.
 
-## 14. Roadmap
+## 14. LM1-003 pilots — two independent powered draws; the fixes hold
+(2026-08-20, disclosed; harness pair
+[`python/lm1c_recover.py`](../python/lm1c_recover.py) /
+[`python/lm1c_gates.py`](../python/lm1c_gates.py); artifacts
+`results/lm1c-pilot{A,B}-*.json`; 11,760 requests, ~1.2M tokens, 0
+failures)
 
-LM1-003 pilots → freeze from across-draw calibration → seal → single
-governed run. LM-2 (allocation) and LM-3 (staleness) remain
-design-stage; they inherit the anchor lesson AND the across-draw
-bar-calibration lesson. Nothing in this track is claim-bearing.
+Design per the LM1-002 designation: K = 24 shared CRN states; the
+48-direction set leads with the 6 canonical coordinate axes (declared
+pre-draw; gives dominant-direction consumers rankable dynamic range);
+pooled H1 load-bearing with per-consumer floors secondary; and — the
+new lesson made structural — bars frozen only from the ACROSS-DRAW
+calibration of two independent powered draws:
+
+| | draw A (20261030) | draw B (20261101) |
+|---|---|---|
+| pooled H1 | 0.644 | 0.658 |
+| consumer A ρ | 0.610 | 0.569 |
+| consumer B ρ | 0.678 | 0.747 |
+| flip distance | 0.438 | 0.472 |
+| stability | 0.819/0.848 | 0.815/0.868 |
+| repeat max | 0.095 | 0.065 |
+
+The axis block stabilized consumer A (previously 0.25–0.68 across
+draws; now 0.57–0.61), and the pooled quantity is tight (0.644/0.658).
+**Bars frozen in the gate evaluator** (pending seal): H1 pooled ≥ 0.45;
+H1b per-consumer floor ≥ 0.30; H3 ≥ 0.25; H4 ≥ 0.70; H5 ≤ 0.50;
+H6 ≥ 0.98; H7 ≤ 0.01. Governed seed 20261105 in the harness. NOT yet
+sealed.
+
+## 15. Roadmap
+
+Seal PREREG-LM1-003 → single governed run at 20261105. LM-2
+(allocation) and LM-3 (staleness) remain design-stage; they inherit
+the anchor lesson AND the across-draw bar-calibration lesson. Nothing
+in this track is claim-bearing.
