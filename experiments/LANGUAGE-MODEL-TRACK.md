@@ -283,10 +283,53 @@ H4 stability ≥ 0.70 both (cal 0.80/0.87); H5 repeat ≤ 0.50 (cal
 0.124); H6 parse ≥ 0.98; H7 fail ≤ 0.01. Governed seed 20261028 in
 the harness. NOT yet sealed; seal is the next instruction.
 
-## 13. Roadmap
+## 13. LM1-002 governed run: **FAIL (5/6 gates; no claim made)**
 
-Seal PREREG-LM1-002 → single governed run at 20261028. LM-2
-(allocation) and LM-3 (staleness) remain design-stage and inherit the
-anchor lesson: all comparison gates anchor to measured consumer
-behavior, never to task ideals. Nothing in this track is
-claim-bearing.
+Sealed [`PREREG-LM1-002`](PREREG-LM1-002.md) at `9ef831b` (SEALS
+`8a89122`), governed seed 20261028, single run
+([`results/LM1B-governed-log.json`](../results/LM1B-governed-log.json),
+[`results/LM1B-governed-analysis.json`](../results/LM1B-governed-analysis.json);
+4344 requests, 443k tokens, 0 failures):
+
+- **H1 FAIL**: A's held-out Spearman **0.248** vs the 0.30 bar; B
+  passed at **0.502**. Per the sealed clause no claim is made — and
+  the clause's own words apply: the operator failed to predict the
+  consumer's held-out behavior *on its own terms* for consumer A at
+  this probe budget and bar.
+- Passed: H3 flip distance 0.475 ≥ 0.25; H4 stability 0.893/0.860 ≥
+  0.70; H5/H6/H7 instrument clean (repeat max 0.127, parse 1.00,
+  fail 0). Ungated diagnostics: H2 margin POSITIVE this draw
+  (+0.109/+0.137 — the first draw where full beat diag); oracle
+  alignment 0.986/0.873.
+
+**Diagnosis, recorded not defended.** The H1 bar was set from ONE
+powered pilot draw (A 0.684) with the Spearman-null SE (~0.15) as the
+noise scale; A's own across-draw history at power (0.55, 0.684, now
+0.248) shows variance well beyond that null. Mechanism: A's measured
+geometry is one dominant direction (s1) plus weak ones — u'Pu then
+varies little across random directions except through the dominant
+component, so the ranking is largely a ranking of noise-level
+directions, and the realized direction-means remain heavy-tailed at
+K = 16. B, whose geometry spreads over two comparable directions
+(s3, s5), scored 0.516 / 0.502 on consecutive powered draws — the
+predictive claim is plainly real where the geometry has usable spread.
+Bar-setting lesson (new, general): **calibrate bars from the
+ACROSS-DRAW distribution at final power (≥ 2 independent powered
+draws), never from one draw plus a null-SE formula.**
+
+**Designated successor (LM1-003, not yet sealed):** (a) two or more
+independent powered calibration draws; bars set below their minimum
+with margin; (b) K raised (24–32 shared states) to cut realized-mean
+noise; (c) consider the pooled-across-consumers form of H1 as the
+load-bearing quantity (the 088 lesson) with per-consumer floors as
+secondary; (d) optionally a spread-aware direction sample (mix random
+u with top-eigvector-plane u) so dominant-direction consumers
+contribute rankable signal. No bar may be set without the fresh
+disclosed pilots.
+
+## 14. Roadmap
+
+LM1-003 pilots → freeze from across-draw calibration → seal → single
+governed run. LM-2 (allocation) and LM-3 (staleness) remain
+design-stage; they inherit the anchor lesson AND the across-draw
+bar-calibration lesson. Nothing in this track is claim-bearing.

@@ -1,0 +1,93 @@
+{
+  "campaign": "LM1-002 consumer-anchored recovery (successor to PREREG-LM1-001)",
+  "mode": "governed",
+  "seed": 20261028,
+  "gates": {
+    "H1_heldout_spearman_min_both": 0.3,
+    "H3_flip_operator_distance_min": 0.25,
+    "H4_splithalf_norm_min_both": 0.7,
+    "H5_repeat_dloss_max": 0.5,
+    "H6_parse_rate_min": 0.98,
+    "H7_fail_rate_max": 0.01
+  },
+  "verdicts": {
+    "H1": false,
+    "H3": true,
+    "H4": true,
+    "H5": true,
+    "H6": true,
+    "H7": true,
+    "ALL": false
+  },
+  "metrics": {
+    "A": {
+      "n_probe_states": 48,
+      "n_heldout_directions": 48,
+      "H1_heldout_spearman": 0.2484,
+      "H2_structure_margin": 0.109,
+      "rho_diag_only": 0.1394,
+      "H4_splithalf_norm": 0.8931
+    },
+    "B": {
+      "n_probe_states": 48,
+      "n_heldout_directions": 48,
+      "H1_heldout_spearman": 0.5024,
+      "H2_structure_margin": 0.1373,
+      "rho_diag_only": 0.3651,
+      "H4_splithalf_norm": 0.8595
+    }
+  },
+  "H3_flip_operator_distance": 0.4747,
+  "diagnostics_ungated": {
+    "A": {
+      "oracle_align_DIAGNOSTIC": 0.9857,
+      "diag_P": [
+        8.15006,
+        1.21413,
+        0.97574,
+        2.28037,
+        0.16057,
+        0.07922
+      ],
+      "top_eigvec": [
+        -0.8815,
+        0.2567,
+        0.0039,
+        0.3947,
+        0.0299,
+        -0.0178
+      ]
+    },
+    "B": {
+      "oracle_align_DIAGNOSTIC": 0.8732,
+      "diag_P": [
+        0.23797,
+        0.04395,
+        1.28734,
+        0.14698,
+        5.28128,
+        0.01776
+      ],
+      "top_eigvec": [
+        -0.0744,
+        -0.0185,
+        -0.2784,
+        -0.0423,
+        -0.9564,
+        0.0034
+      ]
+    }
+  },
+  "instrument": {
+    "repeat_pairs": 24,
+    "repeat_dloss_max": 0.1265406608581543,
+    "repeat_dloss_mean": 0.027348669961308286,
+    "parse_rate": 1.0,
+    "fail_rate": 0.0
+  },
+  "ledger": {
+    "req": 4344,
+    "tok": 443112,
+    "fail": 0
+  }
+}
