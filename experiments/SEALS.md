@@ -37,5 +37,5 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-EC7-002 | experiments/PREREG-EC7-002.md | 3f953c4 | feb475635e5a57566334ddc41a3c130f18c90c8efea8d361258495d36f5ba8b8 | 2026-08-19 | A. H. Bond (session instruction) |
 | PREREG-EC7-003 | experiments/PREREG-EC7-003.md | 49ddef5 | 9ccbf32374107618034d21919a15b452ef06c2b623ed0b1dcc28c43283edccee | 2026-08-19 | A. H. Bond (session instruction) |
 | PREREG-DR1-001 | experiments/PREREG-DR1-001.md | 4a3a304 | 12909466f579449f4832935341946f4760b8e6b9d7e858cb258ba97c61b262f0 | 2026-08-19 | A. H. Bond (session instruction) |
-| PREREG-DR2-001 | experiments/PREREG-DR2-001.md | 997c31f | 3284c9ea6cfc3fba4be35aaa6a35cbf00e49f188a0acfdadc1ce53f3f218ce83 | 2026-08-19 | A. H. Bond (session instruction) |
-| PREREG-DR3-001 | experiments/PREREG-DR3-001.md | b7ed62b | b05064481a319982f38476987694b4b64c451ba154b99a8fa6e3555800fdc0cc | 2026-08-19 | A. H. Bond (session instruction) |
+| PREREG-DR2-001 (post-run wording clarification @357a9a2, VI-14) | experiments/PREREG-DR2-001.md | 997c31f | 3284c9ea6cfc3fba4be35aaa6a35cbf00e49f188a0acfdadc1ce53f3f218ce83 | 2026-08-19 | A. H. Bond (session instruction) |
+| PREREG-DR3-001 (post-run wording clarification @357a9a2, VI-15) | experiments/PREREG-DR3-001.md | b7ed62b | b05064481a319982f38476987694b4b64c451ba154b99a8fa6e3555800fdc0cc | 2026-08-19 | A. H. Bond (session instruction) |
