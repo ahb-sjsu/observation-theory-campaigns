@@ -500,8 +500,44 @@ rather than wishfully tight. **Bars frozen**: O1 pooled ≥ 0.12; O1b
 floor ≥ 0.05; O2 capture ≥ 0.60; O3 ≤ +0.10; O5 ≤ 0.50; O6 ≥ 0.98;
 O7 ≤ 0.01. Governed seed 20261125 in the harness. NOT yet sealed.
 
-## 19. Roadmap
+## 19. LM2-002 governed run: **ALL PASS 7/7 — Campaign LM-2 promoted
+on the second seal** (class [predicted])
 
-Seal PREREG-LM2-002 → single governed run at 20261125. Then LM-3
-(staleness) and the multi-model transfer arm. Perplexity-proxy
-comparator remains deferred (needs a local proxy LM).
+Sealed [`PREREG-LM2-002`](PREREG-LM2-002.md) at `f1ebcb1` (SEALS
+`016a835`), governed seed 20261125, single run
+([`results/LM2B-governed-log.json`](../results/LM2B-governed-log.json),
+[`results/LM2B-governed-analysis.json`](../results/LM2B-governed-analysis.json);
+2,904 requests, 275k tokens, 0 failures; probe capital 1,152 req /
+117.5k tok logged):
+
+- **O1 pooled +26.4%** over the degeneracy-proof mean-4 task-blind
+  baseline (bar ≥ 0.12; cal 0.244/0.297).
+- **O1b floors**: A 0.130 / B 0.398 (bar 0.05) — no coincidence
+  possible this time, by construction.
+- **O2 blind capture 1.004** (bar 0.60): the probed allocation matched
+  or edged the oracle allocation in BOTH cells — probing the black box
+  is operationally as good as knowing the read components.
+- **O3 anti −38.6%** pooled (bar ≤ +0.10); **O5–O7 clean**.
+- Ungated finding this draw: quantize-the-unread appeared for B
+  (aligned 0.322 vs all-fine 0.467) but not A (all-fine 0.433 <
+  aligned 0.503) — the effect is real but consumer-dependent;
+  reported, never gated.
+
+**The claim licensed at `[predicted]`**: at matched serialization
+budgets, precision allocated by the probed read geometry of a frozen
+hosted black-box LLM beats task-blind allocation on the consumer's
+held-out loss, capturing the full oracle advantage — the
+tr(P̂ Σ)-composition's resource-allocation consequence, demonstrated
+on a real neural consumer. Promoted on the second seal with the
+LM2-001 baseline-degeneracy miss on the record as context, never as
+evidence. The LM track now carries TWO promoted campaigns (LM-1
+recovery; LM-2 allocation) and three honest sealed misses, each
+diagnosed to a named class.
+
+## 20. Roadmap
+
+LM-3 (staleness / refresh scheduling — the DR × LM cross) and the
+multi-model transfer arm (qwen3-small, tolerance-banded paired gates)
+are the remaining designed campaigns. Perplexity-proxy comparator
+remains deferred (needs a local proxy LM). Folding the LM arc into
+Paper VIII's evidence section is ready whenever instructed.
