@@ -8,8 +8,16 @@ under seal, class `[predicted]`**: DR-1 the crossover exhibit
 ([`PREREG-DR3-001`](PREREG-DR3-001.md), `b7ed62b`, seed 20260925, 6/6;
 §11). The arc: the orderings disagree predictably (DR-1), consumers
 disagree with each other (DR-2), and acting on the directional
-ordering wins at matched cost (DR-3). Open: blind probe-charged arm,
-random-delay channels, nonlinear plants (§12).
+ordering wins at matched cost (DR-3). **All three passed independent
+R-IND-5 fresh-context verification 2026-08-19** (geometric-observation
+claims ledger VI-14/VI-15: bitwise reproduction, independent
+re-derivations and reimplementation, budget-skew bound 0.1pp vs 8.3pp
+margin; one structural sharpening — DR-1's G1 existence is PROVABLE
+for the class, not sampled; wording clarifications appended to the
+DR-2/DR-3 preregs). Protocol lesson adopted for future seals in this
+instrument class: gate the SIGNED MEAN cross-arm budget skew, not only
+the max spread. Open: blind probe-charged arm, random-delay channels,
+nonlinear plants (§12).
 
 ## 1. Question
 
@@ -51,7 +59,7 @@ be a scientific boundary, not a failure to be patched."
 scheduling with signal-aware sampling, *beating AoI is not a finding.*
 The only claim this track may aim at is that **directional** staleness
 (consumer geometry in the loop) beats BOTH the age-based line AND the
-best isotropic signal-aware policy at matched update budgets — and
+matched-budget isotropic signal-aware threshold — and
 that the advantage disappears when the consumer's read geometry is
 isotropic (that null is the control, not a failure).
 
@@ -245,9 +253,10 @@ Sealed [`PREREG-DR3-001`](PREREG-DR3-001.md) at `b7ed62b` (SEALS row
 fresh systems ([`results/DR3-governed.json`](../results/DR3-governed.json)):
 
 - **D1 (the claim)**: pooled relative consumer-loss improvement of the
-  directional trigger over the best isotropic signal-aware policy at
+  directional trigger over the isotropic signal-aware threshold at
   matched realized budgets: **+16.3%** (gate ≥ 8%), positive in 20/20
-  systems (per-system range +0.1% to +49.2%).
+  systems (per-system range +0.1% to +49.2%; both arms are
+  matched-budget heuristics — no optimality claim, per the prereg).
 - **D2 (context)**: **+65.3%** over periodic/age (gate ≥ 30%) — the
   anchor's expected result, not the novelty claim.
 - **D3 anti-control**: triggering on the orthogonal component is

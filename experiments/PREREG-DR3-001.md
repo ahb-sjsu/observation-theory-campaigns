@@ -116,3 +116,25 @@ has its native force, are future work. Exact-linear plant; no
 optimality claim for any threshold policy (all four are matched-budget
 heuristics); no claim that the directional trigger is the optimal
 directional policy.
+
+## Post-run clarification (2026-08-19; wording only, no verdict touched)
+
+The independent R-IND-5 verification pass (geometric-observation claims
+ledger, VI-15) confirmed the promotion (bitwise reproduction; CRN
+pairing exact by derivation; signed budget skew −0.0098% mean, AGAINST
+the directional arm; independent reimplementation +16.5% / Spearman
+−0.93) and flagged two wording imprecisions in the sealed prose:
+(1) the structural-null sentence "for an isotropic consumer (P_C = I)
+the dir policy IS the iso policy" is true for the e′P_C e trigger
+family with isotropic P_C, which the harness does not parameterize (it
+implements the rank-one form (g′e)²); the measurable analog — the two
+triggers converging as g rotates into the noise-dominant mode — is
+what D6 tests. (2) "the best isotropic signal-aware policy" in claim
+prose overstates: only the ‖e‖²-threshold heuristic at matched budget
+is tested, exactly as the non-claims section above already limits.
+Protocol recommendation adopted for future seals in this instrument
+class: gate the SIGNED MEAN cross-arm budget skew, not only the max
+spread (measured sensitivity ≈10 relative-% per 1% absolute budget
+means a spread at the 2% bar could be worth 10–20 relative-%). The
+sealed body above is unmodified; this section is a dated addition and
+the SEALS ledger row is annotated with the clarification commit.

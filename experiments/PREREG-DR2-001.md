@@ -96,3 +96,19 @@ scheduling claim, no matched-budget advantage claim (DR-3). Exact-linear
 plant. The 15°/75° window was chosen for coverage of the generator's
 crossover distribution as observed in DR-1's disclosed pilots — that
 choice is itself part of the sealed design, and F1 prices it honestly.
+
+## Post-run clarification (2026-08-19; wording only, no verdict touched)
+
+The independent R-IND-5 verification pass (geometric-observation
+claims ledger, VI-14) flagged that F3's phrase "pooled min relative
+staleness gap … ≥ 0.10" tolerates a per-system-minimum misreading.
+The sealed meaning — fixed by the harness code sealed at the same
+commit and by the calibration value 0.395 (the pilot's MEAN of
+per-system minimum gaps; its smallest single system, 0.107, is listed
+separately) — is the POOLED MEAN over predicted-flip systems of each
+system's smaller consumer gap. The governed run passes under the
+sealed reading (0.388 ≥ 0.10); under the stricter misreading it would
+not (one system at 0.056). Recorded at the verifier's recommendation
+so no future reader can mistake which bar was sealed. The sealed body
+above is unmodified; this section is a dated addition and the SEALS
+ledger row is annotated with the clarification commit.

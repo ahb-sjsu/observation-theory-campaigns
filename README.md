@@ -53,7 +53,7 @@ nothing depends on the icon alone.
 | 📜 FS | Formal systems | Where does the boundary sit between what more proof budget reaches and what it never does, and does the frontier belong to the theory or to the search? | SEALED UNRUN. Execution blocked until the generator packets are scored, because its arXiv categories are in the frozen draw pool |
 | 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
 | 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-2/3/4/5 measured ALL PASS; EC-6 measured ALL PASS (the multi-consumer tax exists with the predicted angular shape: free at 0 deg, 14.9% at orthogonality); EC-7 PROMOTED on its third seal (EC7-003, analytic effort matching: +8.4% consumer-penalty win, 99.5% blind capture; the two instrument misses stay on the record); all seven campaigns resolved; hardware endpoint open |
-| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | **All three campaigns measured, ALL PASS under seal**: DR-1 (7/7) — age and directional staleness disagree at a crossing angle predicted in closed form; DR-2 (5/5) — the two-consumer staleness FLIP on identical histories with identical AoI; DR-3 (6/6, seed 20260925) — the operational claim: the directional trigger beats the best isotropic signal-aware policy by **+16.3% pooled at matched realized budgets** (20/20 positive; +65% over periodic as context; anti-control 61% worse; angle structure Spearman −0.93 as sealed). WHEN is consumer-relative: the orderings disagree, consumers disagree, and acting on the directional ordering wins at matched cost. Open: blind probe-charged arm, random-delay channels |
+| 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | **All three campaigns measured, ALL PASS under seal**: DR-1 (7/7) — age and directional staleness disagree at a crossing angle predicted in closed form; DR-2 (5/5) — the two-consumer staleness FLIP on identical histories with identical AoI; DR-3 (6/6, seed 20260925) — the operational claim: the directional trigger beats the matched-budget isotropic signal-aware threshold by **+16.3% pooled** (20/20 positive; +65% over periodic as context; anti-control 61% worse; angle structure Spearman −0.93 as sealed). WHEN is consumer-relative: the orderings disagree, consumers disagree, and acting on the directional ordering wins at matched cost. Open: blind probe-charged arm, random-delay channels |
 
 ## Status ledger, one row per experiment
 
@@ -949,7 +949,7 @@ operational geometry rather than by the clock. The track's novelty
 discipline is set by its own anchors: signal-aware sampling already
 beats age-optimal (Sun-Polyanskiy-Uysal 2020), so the only admissible
 claim is that DIRECTIONAL staleness beats both the age-based line and
-the best isotropic signal-aware policy at matched budgets, with a
+the matched-budget isotropic signal-aware threshold, with a
 registered null on isotropic consumers. Status: design draft,
 Track document:
 [`experiments/DYNAMIC-RELEVANCE-TRACK.md`](experiments/DYNAMIC-RELEVANCE-TRACK.md).
@@ -973,8 +973,8 @@ edge of the fixed window, priced by its own gate), measured in 19/19,
 on pooled margins of 0.39. **And DR-3, the operational claim, is
 measured — ALL PASS 6/6 under seal** (PREREG-DR3-001 sealed `b7ed62b`,
 governed seed 20260925, two disclosed pilots): at matched realized
-transmit budgets, the directional trigger beats the best isotropic
-signal-aware policy by **+16.3% pooled** consumer loss (positive in
+transmit budgets, the directional trigger beats the isotropic
+signal-aware threshold by **+16.3% pooled** consumer loss (positive in
 20/20 systems; the bar was set against the honest baseline — the
 anchor, Sun–Polyanskiy–Uysal 2020, already beats age-optimal with
 signal-aware sampling, so beating periodic (+65%) was context, never
