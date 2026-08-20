@@ -434,9 +434,44 @@ pending seal): O1 pooled ≥ 0.15; O1b floor ≥ 0.05; O2 capture ≥ 0.60;
 O3 anti pooled ≤ 0.0; O5 ≤ 0.50; O6 ≥ 0.98; O7 ≤ 0.01. Governed seed
 20261115 in the harness. NOT yet sealed.
 
-## 17. Roadmap
+## 17. LM2-001 governed run: **FAIL (6/7 gates; no claim made)**
 
-Seal PREREG-LM2-001 → single governed run at 20261115. Then LM-3
-(staleness) and the multi-model transfer arm. A perplexity-proxy
-comparator needs a local proxy LM and is deferred with disclosure
-(the random-subset baseline carries the task-blind role here).
+Sealed [`PREREG-LM2-001`](PREREG-LM2-001.md) at `253c1f3` (SEALS
+`9f6fa28`), governed seed 20261115, single run
+([`results/LM2-governed-log.json`](../results/LM2-governed-log.json),
+[`results/LM2-governed-analysis.json`](../results/LM2-governed-analysis.json);
+2,328 requests, 0 failures):
+
+- **O1b FAIL by construction**: consumer A's seed-drawn task-blind
+  subset came out **identical to the aligned allocation** ([0,1,3]) —
+  a 1-in-20-per-consumer coincidence none of the four pilot cells hit
+  — so A's improvement was structurally ~0 (−0.003, endpoint noise
+  between identical prompts) against the 0.05 floor.
+- Every substantive gate passed: **O1 pooled +22.0%** (bar 0.15);
+  **O2 capture 0.9997**; O3 anti −24.9% pooled; O5–O7 clean (repeat
+  max 0.052, parse 1.00, fail 0). Consumer B, whose baseline drew a
+  distinct subset, measured aligned **+44.3%** vs task-blind with
+  capture 1.000. The quantize-the-unread finding **replicated**
+  (B: aligned 0.480 vs all-fine 0.680).
+
+Per the sealed clause NO CLAIM IS MADE. **Diagnosis, recorded not
+defended**: baseline degeneracy — the per-consumer floor is
+undefined-in-spirit when the task-blind draw coincides with the
+aligned set; the coincidence probability (C(6,3) = 20 subsets) was
+calculable at design time and was not handled. Design-class miss; the
+phenomenon itself appeared at full strength wherever the comparison
+was non-degenerate.
+
+**Designated successor (LM2-002, not yet sealed)**: the task-blind
+baseline becomes the MEAN over four seed-drawn DISTINCT subsets (none
+equal to the aligned or oracle sets — conditioning that only makes the
+test harder), degenerate comparisons thereby impossible and baseline
+variance reduced; floors evaluated against that mean. Everything else
+unchanged. Requires its own disclosed powered draws before bars
+freeze (the across-draw lesson stands).
+
+## 18. Roadmap
+
+LM2-002 pilots → across-draw bars → seal → single governed run. Then
+LM-3 (staleness) and the multi-model transfer arm. Perplexity-proxy
+comparator remains deferred (needs a local proxy LM).

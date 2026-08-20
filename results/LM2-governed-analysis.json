@@ -1,0 +1,156 @@
+{
+  "campaign": "LM-2 matched-budget precision allocation (on the LM1-003-licensed instrument)",
+  "mode": "governed",
+  "seed": 20261115,
+  "gates": {
+    "O1_aligned_vs_random_pooled_min": 0.15,
+    "O1b_per_consumer_floor": 0.05,
+    "O2_capture_pooled_min": 0.6,
+    "O3_anti_vs_random_pooled_max": 0.0,
+    "O5_repeat_dloss_max": 0.5,
+    "O6_parse_rate_min": 0.98,
+    "O7_fail_rate_max": 0.01
+  },
+  "verdicts": {
+    "O1": true,
+    "O1b": false,
+    "O2": true,
+    "O3": true,
+    "O5": true,
+    "O6": true,
+    "O7": true,
+    "ALL": false
+  },
+  "pooled": {
+    "O1_aligned_vs_random": 0.22,
+    "O2_capture": 0.9997,
+    "O3_anti_vs_random": -0.2491
+  },
+  "metrics": {
+    "A": {
+      "mean_loss_by_arm": {
+        "aligned": 0.5125,
+        "oracle": 0.51096,
+        "anti": 0.7991,
+        "random": 0.51096,
+        "allcoarse": 0.96226,
+        "allfine": 0.47945
+      },
+      "impr_aligned_vs_random": -0.003,
+      "impr_anti_vs_random": -0.5639,
+      "capture_of_oracle": null,
+      "bracket_ok": true,
+      "allocations": {
+        "aligned": [
+          0,
+          1,
+          3
+        ],
+        "oracle": [
+          0,
+          1,
+          3
+        ],
+        "anti": [
+          2,
+          4,
+          5
+        ],
+        "random": [
+          0,
+          1,
+          3
+        ],
+        "allcoarse": [],
+        "allfine": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "diag_Phat": [
+        0.51222,
+        1.12728,
+        0.1229,
+        0.53931,
+        0.08077,
+        0.06317
+      ]
+    },
+    "B": {
+      "mean_loss_by_arm": {
+        "aligned": 0.48048,
+        "oracle": 0.48036,
+        "anti": 0.80611,
+        "random": 0.86282,
+        "allcoarse": 0.66616,
+        "allfine": 0.68013
+      },
+      "impr_aligned_vs_random": 0.4431,
+      "impr_anti_vs_random": 0.0657,
+      "capture_of_oracle": 0.9997,
+      "bracket_ok": false,
+      "allocations": {
+        "aligned": [
+          1,
+          2,
+          4
+        ],
+        "oracle": [
+          1,
+          2,
+          4
+        ],
+        "anti": [
+          0,
+          3,
+          5
+        ],
+        "random": [
+          3,
+          4,
+          5
+        ],
+        "allcoarse": [],
+        "allfine": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "diag_Phat": [
+        0.53553,
+        1.53633,
+        5.22906,
+        1.15917,
+        10.13135,
+        0.13436
+      ]
+    }
+  },
+  "instrument": {
+    "repeat_pairs": 24,
+    "repeat_dloss_max": 0.05193221569061279,
+    "parse_rate": 1.0,
+    "fail_rate": 0.0,
+    "probe_cost": {
+      "probe_req": 1152,
+      "probe_tok": 117504,
+      "total_req": 2328,
+      "total_tok": 223368
+    }
+  },
+  "ledger": {
+    "req": 2328,
+    "tok": 223368,
+    "fail": 0,
+    "probe_req": 1152,
+    "probe_tok": 117504
+  }
+}
