@@ -1,0 +1,131 @@
+# LM Track: Language-Model Consumers
+
+**Status:** design draft, unsealed, non-claim-bearing. Chip 🤖 LM.
+No bar in this document is calibrated yet; every threshold below is
+marked PENDING PILOT and no run may be sealed against it until a
+disclosed pilot fixes it (PROTOCOL §5.1, power before bars).
+
+## 1. Question
+
+An LLM is the canonical query-access-only consumer: no gradients, no
+attention access, often not even your model — exactly the third access
+regime Paper VIII argues is the open one. The track's question: does
+the program's sharpest claim survive contact with a real neural
+consumer? Concretely — can a quadratic read geometry P_C = JᵀGJ of a
+FROZEN LLM's task loss over a serialized numeric state be recovered by
+query-only probing (logprob readout), composed with the quantization
+covariance Σ that a serialization-precision choice induces, and used
+to prospectively allocate per-component token/precision budget at
+matched total budgets, probe cost charged — beating the baselines the
+prior-art sweep says must be beaten?
+
+## 2. Anchors ([`LM-PRIOR-ART-SWEEP.md`](LM-PRIOR-ART-SWEEP.md), 2026-08-19)
+
+Structural ancestors, conceded: **LODL** (NeurIPS 2022; sampled-
+perturbation quadratic surrogates of a black-box decision loss — the
+estimator's mathematical heart) and **HAWQ-V2** (NeurIPS 2020;
+Hessian-trace-weighted precision allocation, for weights). Nearest
+applied neighbor and **required baseline**: **CompactPrompt**
+(uniform, sensitivity-blind quantization of numeric prompt fields).
+Second required comparator: **LLMLingua-style** proxy-perplexity
+pruning. MeZO establishes forward-only finite-difference probing of
+LLMs as practical. The open conjunction (and the ONLY claim this
+track may aim at) is the assembly: probed quadratic metric over
+serialized state × Σ composition × prospective matched-budget
+allocation × probe cost charged × out of sample.
+
+## 3. Compute posture (binding; user constraint 2026-08-19)
+
+Heavy compute runs on **NRP's managed ellm gateway**
+(`ellm.nrp-nautilus.io/v1`), not on Atlas (electricity cost — see the
+project feedback memory). Feasibility verified 2026-08-19: gateway
+reachable, catalog live at 14 models (IDs drift; re-check
+`GET /v1/models` per run and record the catalog in the artifact),
+**logprobs + top-5 alternatives returned** on chat completions at
+temperature 0. Atlas is orchestration only (the probe driver, token
+custody in `~/.primer.env`); a local cu128 torch venv + cached Qwen
+models exist as a declared fallback if gateway instability breaks
+gate design. Fair-use rules are encoded as **code guards in the
+harness** (accounting, not recall): per-model concurrency caps
+(kimi/glm-5 = 2; minimax-m2/gemma-small = 8; qwen3/gpt-oss = 16),
+max_tokens ≤ context/16, exponential backoff on 4xx/5xx, and a
+per-run request budget printed in the artifact.
+
+## 4. Reproducibility posture (replaces bitwise reproduction)
+
+Hosted endpoints are not bitwise-reproducible (batching, backend
+drift). The seal discipline adapts as it would for hardware: the
+governed artifact logs EVERY prompt and EVERY returned logprob
+verbatim, so the entire analysis pipeline is bitwise-reproducible
+FROM THE LOGS; the model-side instrument gate is **repeat-query
+agreement** (a preregistered fraction of queries issued twice at
+temperature 0; agreement rate and logprob deviation measured as their
+own diagnostic, EC7-003 style). Model ID, catalog snapshot, and query
+timestamps are recorded. Comparison gates are PAIRED and ordinal
+wherever possible (same prompts across arms).
+
+## 5. The claim, in three types, never conflated
+
+**Instrument claim.** Repeat-query logprob agreement above its bar;
+probe-response cliffs handled by the Paper VIII §VI belief-averaged
+smoothed operator (token discreteness makes the raw loss a staircase;
+the smoothed finite-perturbation probe is what gets measured).
+PENDING PILOT: agreement bar, smoothing width, probe design.
+
+**Structural claim (LM-1).** The recovered P̂_C is real geometry, not
+noise: on planted tasks whose oracle read direction is KNOWN (the
+question reads only components in a declared subspace), blind
+recovery matches the oracle (EC-3's recover/match positive control);
+and the two-consumer flip transfers (two questions over the same
+state, opposite precision-allocation verdicts — the EC-2/DR-2
+pattern).
+
+**Operational claim (LM-2).** At matched total token budgets,
+tr(P̂_C Σ(a))-driven per-component precision allocation beats
+(i) uniform quantization (the CompactPrompt baseline), (ii)
+proxy-perplexity allocation (the LLMLingua-style comparator), and
+(iii) the anti-aligned allocation (pooled load-bearing form), on
+held-out task loss, probe cost charged in tokens against the gains.
+Oracle-vs-blind capture fraction preregistered. PENDING PILOT: all
+bars.
+
+## 6. Candidate campaign designs
+
+- **LM-1 (recover/match + flip; the licensing campaign).** State
+  x ∈ R^d (d ≈ 6–8) drawn from a declared prior; serialized as a
+  labeled numeric record with per-component decimal precision; task =
+  a question whose correct answer is a planted functional of a known
+  subspace (threshold/comparison/lookup forms); consumer loss =
+  −log p(correct answer tokens | prompt) at temperature 0. Probe:
+  belief-averaged finite differences at declared per-component scales.
+  Metrics: oracle-alignment of P̂_C (principal-angle / trace-overlap),
+  flip prediction vs measurement across two planted questions.
+- **LM-2 (matched-budget allocation; the operational campaign).**
+  Precision vectors a with Σ(a) = diag(quantization variances
+  step(a_i)²/12); allocation arms: aligned (tr P̂_C Σ greedy), oracle,
+  uniform, perplexity-proxy, anti; matched total serialized-token
+  count; held-out states; probe cost charged. Multi-model transfer
+  arm across the ellm catalog (paired gates, per-model rows).
+- **LM-3 (staleness/refresh; DR × LM).** Directional staleness of a
+  cached serialized state for an LLM agent: refresh-by-S_C vs
+  refresh-by-age at matched refresh budgets. Design-stage only until
+  LM-1/LM-2 license the vocabulary.
+
+## 7. Inherited discipline (EC + DR lessons, binding)
+
+Sealed preregs with frozen gates and single governed runs, outcomes
+reported regardless of sign; disclosed pilots before any bar; pooled
+load-bearing anti-control forms (the 088 lesson); analytic instrument
+quantities wherever possible and the instrument residual as its own
+gate (EC7-003 / VI-13); signed-mean budget-skew gate for any
+matched-budget comparison (the VI-15 protocol recommendation);
+generator/task family frozen at seal; numpy bools cast before
+json.dump; `git commit -F` for messages with quotes.
+
+## 8. Roadmap
+
+Pilot 0 (instrument): repeat-query agreement + logprob-cliff
+characterization + smoothing-width calibration on 2–3 catalog models.
+Pilot 1+: LM-1 design calibration. Then freeze → seal
+(PREREG-LM1-001) → single governed run → LM-2 → LM-3. Nothing here is
+claim-bearing until sealed.

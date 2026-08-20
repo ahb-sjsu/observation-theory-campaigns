@@ -1,16 +1,16 @@
 ﻿# Observation Theory Campaigns
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Tracks](https://img.shields.io/badge/tracks-18-blue)](#the-eighteen-tracks)
+[![Tracks](https://img.shields.io/badge/tracks-19-blue)](#the-nineteen-tracks)
 [![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
 
 Formerly `projection-fold-pair-creation`; renamed 2026-08-04 when the
 work outgrew its first question. GitHub redirects the old name.
 
-One program, eighteen tracks. The shared question is what an observer with
+One program, nineteen tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
-Each track makes that question concrete in a different setting, and all eighteen run under one evidence discipline with sealed instruments,
+Each track makes that question concrete in a different setting, and all nineteen run under one evidence discipline with sealed instruments,
 preregistered claims, and append-only evidence records.
 
 If you are new here, read this file top to bottom, then the one track
@@ -18,7 +18,7 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
-## The eighteen tracks
+## The nineteen tracks
 
 Each track carries one icon everywhere in this file, chosen for what
 the track studies rather than for a palette. 🔀 PF folds, 🌫️ PE the
@@ -30,9 +30,10 @@ work and heat, 🔗 GG lattice links, 🔐 CR engineered
 observation limits, ⚖️ UN the floor that survives every
 admissible consumer, 📜 FS the limits of a formal
 consumer, 🌐 RT routing telemetry under projection,
-🎯 EC estimation and control, and 🕒 DR the age of operationally
-relevant uncertainty. The letter codes always accompany the icons, so
-nothing depends on the icon alone.
+🎯 EC estimation and control, 🕒 DR the age of operationally
+relevant uncertainty, and 🤖 LM language-model consumers. The letter
+codes always accompany the icons, so nothing depends on the icon
+alone.
 
 | Track | Short name | Question in one line | Status |
 |---|---|---|---|
@@ -54,6 +55,7 @@ nothing depends on the icon alone.
 | 🌐 RT | Routing telemetry | Is the same archival discard lossless for one deployed BGP consumer and destructive for another, provably and measurably? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1: power before bars); one Lean-proved lemma so far (CollectorPrune: redundant-update pruning lossless for the RFC 4271 route-selection consumer) |
 | 🎯 EC | Estimation & control | Does a consumer-recovered read geometry, composed with the Kalman covariance, allocate sensing and communication better than reconstruction at probe-charged matched budgets? | EC-2/3/4 measured (governed, ALL PASS: blind pipeline recovers 94.6% of the analytic optimum and wins +16.3% on black-box consumers; the flip transfers to sensor schedules; signal-aware triggering beats periodic/isotropic 20-33% with 86.9% blind capture); EC-2/3/4/5 measured ALL PASS; EC-6 measured ALL PASS (the multi-consumer tax exists with the predicted angular shape: free at 0 deg, 14.9% at orthogonality); EC-7 PROMOTED on its third seal (EC7-003, analytic effort matching: +8.4% consumer-penalty win, 99.5% blind capture; the two instrument misses stay on the record); all seven campaigns resolved; hardware endpoint open |
 | 🕒 DR | Dynamic relevance | Does scheduling updates by directional staleness S_C(Δ) = tr[P_C(t+Δ)Σ(t+Δ\|I_t)] beat both age-based and the best isotropic signal-aware policies at matched update budgets — or is S_C a feature, not a policy? | **All three campaigns measured, ALL PASS under seal**: DR-1 (7/7) — age and directional staleness disagree at a crossing angle predicted in closed form; DR-2 (5/5) — the two-consumer staleness FLIP on identical histories with identical AoI; DR-3 (6/6, seed 20260925) — the operational claim: the directional trigger beats the matched-budget isotropic signal-aware threshold by **+16.3% pooled** (20/20 positive; +65% over periodic as context; anti-control 61% worse; angle structure Spearman −0.93 as sealed). WHEN is consumer-relative: the orderings disagree, consumers disagree, and acting on the directional ordering wins at matched cost. Open: blind probe-charged arm, random-delay channels |
+| 🤖 LM | Language-model consumers | Can the read geometry of a frozen black-box LLM's task loss over serialized state be recovered by query-only logprob probing, composed with quantization covariance as tr(P_C Σ), and used to allocate per-component precision at matched token budgets — beating uniform quantization and perplexity pruning, probe cost charged? | Design draft, unsealed, non-claim-bearing (PROTOCOL 5.1); prior-art sweep done (LODL + HAWQ-V2 conceded as structural ancestors; CompactPrompt the required baseline); compute posture: NRP ellm gateway (fair-use caps as code guards), logged-response reproducibility with repeat-query agreement as the instrument gate |
 
 ## Status ledger, one row per experiment
 
@@ -989,10 +991,34 @@ commits in advance to the boundary outcome: if long-horizon structure
 dominates, S_C remains a feature or terminal metric, and that verdict
 is reported at equal prominence.
 
+### 🤖 LM, language-model consumers
+
+The program's sharpest claim, sent to meet a real neural consumer: an
+LLM is the canonical query-access-only observer — no gradients, no
+attention access, often not even your model. The track asks whether a
+quadratic read geometry of a frozen LLM's task loss over serialized
+numeric state can be recovered by logprob probing, composed with the
+quantization covariance a precision choice induces, and used to
+allocate per-component token budget prospectively — beating the
+baselines its own prior-art sweep says must be beaten
+([`experiments/LM-PRIOR-ART-SWEEP.md`](experiments/LM-PRIOR-ART-SWEEP.md):
+LODL and HAWQ-V2 conceded as structural ancestors, CompactPrompt
+uniform quantization and LLMLingua-style perplexity pruning as
+required comparators; the conjunction was not found assembled
+anywhere). Status: design draft, unsealed, non-claim-bearing —
+PROTOCOL 5.1, every bar PENDING PILOT. Track document:
+[`experiments/LANGUAGE-MODEL-TRACK.md`](experiments/LANGUAGE-MODEL-TRACK.md).
+Compute runs on NRP's managed ellm gateway (fair-use caps encoded as
+harness code guards); governed artifacts log every prompt and logprob
+verbatim so analysis is bitwise-reproducible from the record, with
+repeat-query agreement as the instrument gate — the seal discipline's
+first adaptation to hosted, non-bitwise-reproducible consumers, a
+dress rehearsal for hardware.
+
 ## The generator experiment
 
 Fifteen tracks (all but the sealed-unrun FS, the design-draft RT, and
-DR, which opened after the generator was frozen)
+DR and LM, which opened after the generator was frozen)
 reached a similar shape, which invites a question the
 tracks themselves cannot answer. A framework that fits everything
 after the fact fits nothing in advance. So the campaign now tests
