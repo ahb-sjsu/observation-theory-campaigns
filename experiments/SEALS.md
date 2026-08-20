@@ -40,3 +40,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-DR2-001 (post-run wording clarification @357a9a2, VI-14) | experiments/PREREG-DR2-001.md | 997c31f | 3284c9ea6cfc3fba4be35aaa6a35cbf00e49f188a0acfdadc1ce53f3f218ce83 | 2026-08-19 | A. H. Bond (session instruction) |
 | PREREG-DR3-001 (post-run wording clarification @357a9a2, VI-15) | experiments/PREREG-DR3-001.md | b7ed62b | b05064481a319982f38476987694b4b64c451ba154b99a8fa6e3555800fdc0cc | 2026-08-19 | A. H. Bond (session instruction) |
 | PREREG-LM1-001 | experiments/PREREG-LM1-001.md | 2a66fa5 | ce016794a366620afc4b496f1c48dc5bef5e0aa4309114fcd941e0a116fc68e3 | 2026-08-19 | A. H. Bond (session instruction) |
+| PREREG-LM1-002 | experiments/PREREG-LM1-002.md | 9ef831b | c04c4bdb3c4dcd47278441061c0c7844b3d265b15fce805cea648118c8c6f448 | 2026-08-20 | A. H. Bond (session instruction) |
