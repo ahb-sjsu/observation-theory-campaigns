@@ -470,8 +470,38 @@ variance reduced; floors evaluated against that mean. Everything else
 unchanged. Requires its own disclosed powered draws before bars
 freeze (the across-draw lesson stands).
 
-## 18. Roadmap
+## 18. LM2-002 pilots — the degeneracy-proof baseline, calibrated
+(2026-08-20, two disclosed powered draws; harness pair
+[`python/lm2b_alloc.py`](../python/lm2b_alloc.py) /
+[`python/lm2b_gates.py`](../python/lm2b_gates.py); artifacts
+`results/lm2b-pilot{A,B}-*.json`; 5,808 requests, ~550k tokens, 0
+failures)
 
-LM2-002 pilots → across-draw bars → seal → single governed run. Then
-LM-3 (staleness) and the multi-model transfer arm. Perplexity-proxy
+The LM2-001 fix: the task-blind baseline is the MEAN over four
+seed-drawn subsets, each rejection-sampled distinct from the aligned
+and oracle sets and pairwise distinct — degeneracy impossible by
+construction, baseline variance halved as a bonus.
+
+|                          | draw A (20261120) | draw B (20261122) |
+|--------------------------|-------------------|-------------------|
+| pooled aligned-vs-base   | +24.4%            | +29.7%            |
+| per-consumer aligned     | 0.249 / 0.238     | 0.267 / 0.328     |
+| blind capture            | 0.997             | 1.001             |
+| pooled anti              | −6.5%             | −35.9%            |
+| repeat max               | 0.087             | 0.057             |
+
+Blind allocation now MATCHES the oracle in every cell (0.98–1.01);
+per-consumer minimum 0.238 (vs 0.123 under the old single-subset
+baseline); **the quantize-the-unread finding replicated in all four
+cells**. Calibration note taken seriously: pooled anti ranged to
+−0.065 with per-cell positive swings across LM-2 history, so O3's bar
+is ≤ +0.10 ("anti must not meaningfully beat blind"), documented
+rather than wishfully tight. **Bars frozen**: O1 pooled ≥ 0.12; O1b
+floor ≥ 0.05; O2 capture ≥ 0.60; O3 ≤ +0.10; O5 ≤ 0.50; O6 ≥ 0.98;
+O7 ≤ 0.01. Governed seed 20261125 in the harness. NOT yet sealed.
+
+## 19. Roadmap
+
+Seal PREREG-LM2-002 → single governed run at 20261125. Then LM-3
+(staleness) and the multi-model transfer arm. Perplexity-proxy
 comparator remains deferred (needs a local proxy LM).
