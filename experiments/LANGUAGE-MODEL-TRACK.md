@@ -122,10 +122,40 @@ matched-budget comparison (the VI-15 protocol recommendation);
 generator/task family frozen at seal; numpy bools cast before
 json.dump; `git commit -F` for messages with quotes.
 
-## 8. Roadmap
+## 8. Pilot 0 — instrument (2026-08-19, disclosed; harness
+[`python/lm0_instrument.py`](../python/lm0_instrument.py), results
+[`results/lm0-instrument.json`](../results/lm0-instrument.json))
 
-Pilot 0 (instrument): repeat-query agreement + logprob-cliff
-characterization + smoothing-width calibration on 2–3 catalog models.
-Pilot 1+: LM-1 design calibration. Then freeze → seal
-(PREREG-LM1-001) → single governed run → LM-2 → LM-3. Nothing here is
-claim-bearing until sealed.
+315 requests, 37k tokens, 0 failures, ~30 s per model. Task: 6-dim
+state serialized at 3 decimals, planted question "is 2·s1−s2 > s4",
+first-token yes/no logprob readout at temperature 0.
+
+- **gemma-small — selected as the primary instrument.** Parse 100%,
+  clean first token 100%, accuracy 92%, mean correct-answer loss 0.50.
+  **Repeat queries return bitwise-identical logprobs** (Δlogprob mean
+  and max = 0.0 over 20 pairs) — the hosted endpoint is deterministic
+  at T=0, so the instrument gate can be strict. Boundary sweep shows
+  the expected staircase-with-peak: low loss away from the decision
+  boundary, uncertainty spike (3.83) at the crossing, verdicts N→Y
+  with one non-monotonic point at the boundary — the cliff shape the
+  §VI belief-averaged smoothed probe exists for.
+- **qwen3-small — transfer-arm candidate.** Parse 100%, accuracy 71%,
+  verdict agreement 1.0 on repeats but logprob jitter (mean 0.030,
+  max 0.198): verdict-stable, value-noisy → usable under
+  tolerance-banded paired gates only.
+- **gpt-oss — excluded with reason.** Readout 0% parse: its
+  reasoning/harmony output format never surfaces a yes/no token in
+  content logprobs. Revisit only with a dedicated readout.
+
+Calibration consequences: primary-instrument repeat gate can sit at
+Δlogprob = 0 (measured, not assumed — re-verify per run since
+endpoints drift); smoothing width for probes must span the boundary
+peak (grid step 0.05 resolved it cleanly); probe budget trivial at
+this scale (~100 requests/model/leg).
+
+## 9. Roadmap
+
+Pilot 1+: LM-1 recover/match design calibration on gemma-small
+(probe-recovered P̂_C vs planted oracle subspace; flip pair). Then
+freeze → seal (PREREG-LM1-001) → single governed run → LM-2 → LM-3.
+Nothing here is claim-bearing until sealed.
