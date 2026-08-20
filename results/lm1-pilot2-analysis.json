@@ -1,0 +1,76 @@
+{
+  "campaign": "LM-1 blind read-geometry recovery (PREREG-LM1-001)",
+  "mode": "pilot2",
+  "seed": 20261010,
+  "gates": null,
+  "verdicts": null,
+  "metrics": {
+    "A": {
+      "n_states_used": 48,
+      "n_states_above_floor": 46,
+      "align": 0.9424289374168027,
+      "splithalf_norm": 0.9026975419813352,
+      "support_trace_frac": 0.9653180973404195,
+      "topk_by_diag": [
+        1,
+        2,
+        4
+      ],
+      "diag": [
+        16.17719,
+        0.42579,
+        0.33018,
+        6.06964,
+        0.40909,
+        0.07531
+      ],
+      "top_eigvec": [
+        -0.8502,
+        0.1067,
+        0.0225,
+        0.5013,
+        0.115,
+        0.0263
+      ]
+    },
+    "B": {
+      "n_states_used": 48,
+      "n_states_above_floor": 40,
+      "align": 0.9857250215188742,
+      "splithalf_norm": 0.8857338920210952,
+      "support_trace_frac": 0.7969585988126309,
+      "topk_by_diag": [
+        3,
+        5
+      ],
+      "diag": [
+        0.5781,
+        1.00074,
+        4.47009,
+        0.40748,
+        3.90574,
+        0.14759
+      ],
+      "top_eigvec": [
+        -0.0491,
+        0.1194,
+        0.7424,
+        0.0855,
+        0.6516,
+        0.0156
+      ]
+    }
+  },
+  "instrument": {
+    "repeat_pairs": 24,
+    "repeat_dloss_max": 0.12806367874145508,
+    "repeat_dloss_mean": 0.02014593200874515,
+    "parse_rate": 1.0,
+    "fail_rate": 0.0
+  },
+  "ledger": {
+    "req": 1272,
+    "tok": 129768,
+    "fail": 0
+  }
+}
