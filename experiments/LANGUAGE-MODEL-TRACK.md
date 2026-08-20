@@ -190,10 +190,62 @@ flip supports as a boolean gate; probe width in [0.1, 0.25] with the
 width choice frozen at seal (or both widths run and gated separately);
 n_states = 32 gives split-half ~0.88–0.94, so 48–64 for margin.
 
-## 10. Roadmap
+## 10. LM-1 pilot 2 and seal (2026-08-19)
 
-Pilot 2 (if needed): n_states and width finalization. Then freeze →
-seal (PREREG-LM1-001, recover/match + flip on gemma-small) → single
-governed run → LM-2 (matched-budget allocation vs CompactPrompt-style
-uniform + perplexity comparators) → LM-3. Nothing here is
-claim-bearing until sealed.
+Pilot 2 (seed 20261010, h = 0.15 frozen, n = 48,
+[`results/lm1-pilot2-*.json`](../results/lm1-pilot2-analysis.json)):
+A align 0.942 / support 0.965 / top-3 exact; B align 0.986 / top-2
+exact. Two disclosed respecifications: stability moved to the matrix
+cosine of half-sample operators, computed on the NORMALIZED estimator
+(single-eigenvector stability is ill-posed under B's s3/s5
+near-degeneracy; magnitude-weighted half-sample variance is
+heavy-tailed at the cliff). Also measured: the endpoint is NOT always
+bitwise-deterministic (repeat |Δloss| max 0.128). Sealed as
+[`PREREG-LM1-001`](PREREG-LM1-001.md) at `2a66fa5` (SEALS `9b2327c`),
+governed seed 20261015, harness pair hashes in the prereg.
+
+## 11. LM-1 governed run: **FAIL (5/7 gates; no claim made)**
+
+Seed 20261015, single run per seal
+([`results/LM1-governed-log.json`](../results/LM1-governed-log.json),
+[`results/LM1-governed-analysis.json`](../results/LM1-governed-analysis.json);
+1272 requests, 130k tokens, 0 failures):
+
+- **G1 FAIL by 0.0013**: B's oracle alignment 0.7987 vs the 0.80 bar
+  (A passed at 0.923).
+- **G4 FAIL (structural)**: A's top-3 support read {1,3,4} — the true
+  s2 (diag 0.182) fell below a spurious s3 channel (0.190); B's top-2
+  read {4,5} — the true s3 (0.408) fell below a spurious s4 channel
+  (0.488). Supports intersect at {4}: not disjoint.
+- Passed: G2 stability (0.785/0.871), G3 support concentration
+  (0.947/0.787), G5/G6/G7 instrument (repeat max 0.126; parse 1.00;
+  fail 0). **The instrument held; the claim as sealed failed.**
+
+**Diagnosis, recorded not defended.** The pilots had already measured
+that gemma-small's actual read geometry deviates from the task ideal
+(under-read true components, spurious sensitivity to irrelevant ones)
+— and the sealed gates nonetheless anchored recovery to the TASK
+oracle. The governed run measured the consequence: the consumer's
+weak-but-real components are magnitude-comparable to its spurious
+channels, so task-oracle-anchored support and disjointness gates are
+brittle exactly where the consumer is imperfect. This is a
+design-anchor miss of the EC-7 class (instrument/anchor, not
+phenomenon): the probe plausibly recovered the CONSUMER faithfully,
+but the seal did not test that.
+
+**Designated successor (LM1-002, not yet sealed):** gate the probe
+against the consumer itself, not the task ideal — held-out predictive
+gates (does P̂, fit on half the probe data, predict the loss change of
+FRESH perturbations better than a diagonal/isotropic surrogate at
+matched query budget?), plus a consumer-anchored flip gate (the
+recovered supports of A and B differ in operator distance by a
+preregistered margin, without reference to planted supports).
+Task-oracle alignment drops to a reported diagnostic. No bar may be
+set without a fresh disclosed pilot of the new gates.
+
+## 12. Roadmap
+
+LM1-002 pilot → freeze → seal → single governed run. LM-2 (allocation)
+and LM-3 (staleness) remain design-stage and now inherit the anchor
+lesson: all comparison gates anchor to measured consumer behavior,
+never to task ideals. Nothing in this track is claim-bearing.
