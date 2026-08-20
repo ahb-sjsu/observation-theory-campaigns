@@ -1,0 +1,139 @@
+{
+  "campaign": "LM-2 matched-budget precision allocation (on the LM1-003-licensed instrument)",
+  "mode": "pilotA",
+  "seed": 20261110,
+  "gates": null,
+  "verdicts": null,
+  "pooled": {
+    "O1_aligned_vs_random": 0.2914,
+    "O2_capture": 0.8716,
+    "O3_anti_vs_random": -0.2792
+  },
+  "metrics": {
+    "A": {
+      "mean_loss_by_arm": {
+        "aligned": 0.66429,
+        "oracle": 0.5822,
+        "anti": 1.08136,
+        "random": 0.89867,
+        "allcoarse": 1.07966,
+        "allfine": 0.68152
+      },
+      "impr_aligned_vs_random": 0.2608,
+      "impr_anti_vs_random": -0.2033,
+      "capture_of_oracle": 0.7406,
+      "bracket_ok": false,
+      "allocations": {
+        "aligned": [
+          0,
+          2,
+          3
+        ],
+        "oracle": [
+          0,
+          1,
+          3
+        ],
+        "anti": [
+          1,
+          4,
+          5
+        ],
+        "random": [
+          1,
+          3,
+          4
+        ],
+        "allcoarse": [],
+        "allfine": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "diag_Phat": [
+        2.86115,
+        0.56518,
+        0.77735,
+        1.09933,
+        0.05624,
+        0.21186
+      ]
+    },
+    "B": {
+      "mean_loss_by_arm": {
+        "aligned": 0.46967,
+        "oracle": 0.47025,
+        "anti": 0.93887,
+        "random": 0.69288,
+        "allcoarse": 0.95566,
+        "allfine": 0.5635
+      },
+      "impr_aligned_vs_random": 0.3221,
+      "impr_anti_vs_random": -0.355,
+      "capture_of_oracle": 1.0026,
+      "bracket_ok": false,
+      "allocations": {
+        "aligned": [
+          1,
+          2,
+          4
+        ],
+        "oracle": [
+          1,
+          2,
+          4
+        ],
+        "anti": [
+          0,
+          3,
+          5
+        ],
+        "random": [
+          1,
+          4,
+          5
+        ],
+        "allcoarse": [],
+        "allfine": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "diag_Phat": [
+        0.61805,
+        0.8669,
+        4.35476,
+        0.59955,
+        6.35977,
+        0.24158
+      ]
+    }
+  },
+  "instrument": {
+    "repeat_pairs": 24,
+    "repeat_dloss_max": 0.1243128776550293,
+    "parse_rate": 1.0,
+    "fail_rate": 0.0,
+    "probe_cost": {
+      "probe_req": 1152,
+      "probe_tok": 117504,
+      "total_req": 2328,
+      "total_tok": 223368
+    }
+  },
+  "ledger": {
+    "req": 2328,
+    "tok": 223368,
+    "fail": 0,
+    "probe_req": 1152,
+    "probe_tok": 117504
+  }
+}

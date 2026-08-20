@@ -392,11 +392,51 @@ under query access only — now has its first neural-consumer
 instantiation, at a marginal compute cost of ~31k gateway requests
 (~3.2M tokens) and zero owned-hardware GPU time.
 
-## 16. Roadmap
+## 16. LM-2 pilots — allocation works, and quantizing the unread helps
+(2026-08-20, two disclosed powered draws; harness pair
+[`python/lm2_alloc.py`](../python/lm2_alloc.py) /
+[`python/lm2_gates.py`](../python/lm2_gates.py); artifacts
+`results/lm2-pilot{A,B}-*.json`; 4,656 requests, ~447k tokens, 0
+failures; probe cost logged separately: 1,152 requests / 117.5k
+tokens per draw)
 
-LM-2 (matched-budget precision allocation vs the CompactPrompt-style
-uniform baseline and perplexity comparator — the operational claim,
-now standing on a licensed recovery instrument) and LM-3 (staleness)
-proceed to design pilots, inheriting the anchor and across-draw
-lessons. Multi-model transfer (qwen3-small under tolerance-banded
-paired gates) is the designated breadth arm.
+Design: fine/coarse serialization ladder (3 of 6 components fine at
+matched budget; a decimals ladder was REJECTED in design — 1-decimal
+uniform is already near-lossless at these margins, so it measures
+nothing — disclosed); arms aligned (top-3 by probed P̂ diag) / oracle
+/ anti (bottom-3) / random-subset (task-blind budget-matched
+baseline; the discrete-ladder stand-in for CompactPrompt-uniform,
+disclosed) + all-coarse/all-fine reference brackets; endpoint =
+held-out loss on CRN-shared states; P̂ from a fresh probe leg per run.
+
+|                        | draw A (20261110) | draw B (20261112) |
+|------------------------|-------------------|-------------------|
+| pooled aligned-vs-rand | **+29.1%**        | **+28.6%**        |
+| blind capture          | 0.872             | 0.993             |
+| pooled anti-vs-rand    | −27.9%            | −30.9%            |
+| per-consumer aligned   | 0.261 / 0.322     | 0.123 / 0.448     |
+| repeat max             | 0.124             | 0.054             |
+
+Three of four cells: the blind P̂ allocation MATCHES the oracle
+allocation within CRN noise. One anti cell measured +0.099 (the
+random subset happened to also miss the read components) — exactly
+why the pooled form is the load-bearing one (088). **Finding, reported
+ungated: the all-fine bracket is violated in the aligned arm's favor**
+(e.g., consumer B: aligned 0.470 vs all-fine 0.564) — coarse
+serialization of components the consumer does NOT read actively
+improves its performance, the LM1-001 spurious-sensitivity channels
+operating in reverse. Quantizing the unread is not merely free; it is
+prophylactic. The monotone-information bracket assumption was
+OT-naive; its violation is consumer-relativity in the raw data.
+
+**Bars frozen from across-draw minimums** (in the gate evaluator,
+pending seal): O1 pooled ≥ 0.15; O1b floor ≥ 0.05; O2 capture ≥ 0.60;
+O3 anti pooled ≤ 0.0; O5 ≤ 0.50; O6 ≥ 0.98; O7 ≤ 0.01. Governed seed
+20261115 in the harness. NOT yet sealed.
+
+## 17. Roadmap
+
+Seal PREREG-LM2-001 → single governed run at 20261115. Then LM-3
+(staleness) and the multi-model transfer arm. A perplexity-proxy
+comparator needs a local proxy LM and is deferred with disclosure
+(the random-subset baseline carries the task-blind role here).
