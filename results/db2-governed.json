@@ -1,0 +1,389 @@
+{
+  "campaign": "DB-2 multi-consumer alignment tax for shared precision budgets",
+  "mode": "governed",
+  "disclosure": "GOVERNED RUN at the sealed seed",
+  "seed": 20261215,
+  "config": {
+    "n": 10000,
+    "m": 150,
+    "d": 8,
+    "k": 25,
+    "f_fine": 4,
+    "n_inst": 5,
+    "noise": 0.5,
+    "overlaps": [
+      4,
+      2,
+      1,
+      0
+    ],
+    "support_A": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "support_B": {
+      "4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "2": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "1": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "0": [
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  "cells": {
+    "4": {
+      "mean_tax": 1.0115,
+      "instances": [
+        {
+          "tax": 1.0575179553110672,
+          "w_shared": 0.462489976430295,
+          "w_utopia": 0.43733534178552486,
+          "w_blind_mean4": 0.6556608253450735,
+          "aware_vs_blind": 0.29462008625132197,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.725322912584426,
+          "w_utopia": 0.725322912584426,
+          "w_blind_mean4": 1.0699171969541614,
+          "aware_vs_blind": 0.32207565721041387,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.4404854188913326,
+          "w_utopia": 0.4404854188913326,
+          "w_blind_mean4": 0.6976733768818887,
+          "aware_vs_blind": 0.36863662354439575,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.4044502010506944,
+          "w_utopia": 0.4044502010506944,
+          "w_blind_mean4": 0.5146309693337425,
+          "aware_vs_blind": 0.21409665342466977,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.4518080205113669,
+          "w_utopia": 0.4518080205113669,
+          "w_blind_mean4": 0.6455790158571558,
+          "aware_vs_blind": 0.30015070283614,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        }
+      ]
+    },
+    "2": {
+      "mean_tax": 1.0292,
+      "instances": [
+        {
+          "tax": 1.0,
+          "w_shared": 0.4144053133860916,
+          "w_utopia": 0.4144053133860916,
+          "w_blind_mean4": 0.622952923508878,
+          "aware_vs_blind": 0.3347726645989716,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0136640383744353,
+          "w_shared": 0.3888489095403576,
+          "w_utopia": 0.3836072848790572,
+          "w_blind_mean4": 0.5666899016464182,
+          "aware_vs_blind": 0.3138241771899848,
+          "shared_best": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.5375758500401931,
+          "w_utopia": 0.5375758500401931,
+          "w_blind_mean4": 0.7189795554227032,
+          "aware_vs_blind": 0.2523071817749518,
+          "shared_best": [
+            0,
+            1,
+            5,
+            6
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.1324645020467214,
+          "w_shared": 0.5438385350072359,
+          "w_utopia": 0.4802256795019603,
+          "w_blind_mean4": 0.7120803380954488,
+          "aware_vs_blind": 0.23626800809891402,
+          "shared_best": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.6673365703158325,
+          "w_utopia": 0.6673365703158325,
+          "w_blind_mean4": 1.0250995079463423,
+          "aware_vs_blind": 0.34900313077629197,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        }
+      ]
+    },
+    "1": {
+      "mean_tax": 1.0938,
+      "instances": [
+        {
+          "tax": 1.1293925022109808,
+          "w_shared": 0.5486657320090629,
+          "w_utopia": 0.4858060691344728,
+          "w_blind_mean4": 0.626861777205779,
+          "aware_vs_blind": 0.12474208516153762,
+          "shared_best": [
+            0,
+            1,
+            2,
+            6
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0952144161510662,
+          "w_shared": 0.4984142827458515,
+          "w_utopia": 0.455083749260203,
+          "w_blind_mean4": 0.6807784059141282,
+          "aware_vs_blind": 0.26787589263117684,
+          "shared_best": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.6587985928056069,
+          "w_utopia": 0.6587985928056069,
+          "w_blind_mean4": 0.8271649510555341,
+          "aware_vs_blind": 0.20354629150458703,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.1502607285225122,
+          "w_shared": 0.5143430548191873,
+          "w_utopia": 0.4471534514438749,
+          "w_blind_mean4": 0.6091778123271439,
+          "aware_vs_blind": 0.1556766441405254,
+          "shared_best": [
+            0,
+            3,
+            4,
+            6
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0943128543635976,
+          "w_shared": 0.7382640060062023,
+          "w_utopia": 0.6746370592855212,
+          "w_blind_mean4": 0.9073731106850489,
+          "aware_vs_blind": 0.18637217996373345,
+          "shared_best": [
+            0,
+            1,
+            2,
+            6
+          ],
+          "deterministic": true
+        }
+      ]
+    },
+    "0": {
+      "mean_tax": 1.0965,
+      "instances": [
+        {
+          "tax": 1.1894566238192026,
+          "w_shared": 0.5897889433969428,
+          "w_utopia": 0.495847373990992,
+          "w_blind_mean4": 0.669252227743689,
+          "aware_vs_blind": 0.118734433824222,
+          "shared_best": [
+            0,
+            5,
+            6,
+            7
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0,
+          "w_shared": 0.5631074283137035,
+          "w_utopia": 0.5631074283137035,
+          "w_blind_mean4": 0.8554659816808489,
+          "aware_vs_blind": 0.3417535701334484,
+          "shared_best": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0139672656620566,
+          "w_shared": 0.35891621818059594,
+          "w_utopia": 0.3539721945029915,
+          "w_blind_mean4": 0.45220036455527307,
+          "aware_vs_blind": 0.20628940993097078,
+          "shared_best": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.2443227800451133,
+          "w_shared": 0.5339073743522933,
+          "w_utopia": 0.42907466046144094,
+          "w_blind_mean4": 0.6065141868509545,
+          "aware_vs_blind": 0.11971164743175855,
+          "shared_best": [
+            0,
+            1,
+            6,
+            7
+          ],
+          "deterministic": true
+        },
+        {
+          "tax": 1.0349515516849401,
+          "w_shared": 0.4562753626188188,
+          "w_utopia": 0.4408663979255698,
+          "w_blind_mean4": 0.5645259778341015,
+          "aware_vs_blind": 0.1917548872252156,
+          "shared_best": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "deterministic": true
+        }
+      ]
+    }
+  },
+  "aggregate": {
+    "tax_by_overlap": {
+      "4": 1.0115,
+      "2": 1.0292,
+      "1": 1.0938,
+      "0": 1.0965
+    },
+    "T1_tax_identical": 1.0115,
+    "T2_tax_nonidentical_mean": 1.0732,
+    "T3_tax_nonidentical_min": 1.0292,
+    "T4_aware_vs_blind_pooled": 0.2451,
+    "monotonicity_in_overlap_count_DIAGNOSTIC": true,
+    "deterministic_all": true
+  },
+  "gates": {
+    "T1_tax_identical_max": 1.02,
+    "T2_tax_nonidentical_mean_min": 1.03,
+    "T3_tax_nonidentical_min_min": 1.02,
+    "T4_aware_vs_blind_pooled_min": 0.1,
+    "T5_determinism_bitwise": true,
+    "T6_eval_runs_expected": 2820
+  },
+  "verdicts": {
+    "T1": true,
+    "T2": true,
+    "T3": true,
+    "T4": true,
+    "T5": true,
+    "T6": true,
+    "ALL": true
+  },
+  "ledger": {
+    "eval_runs": 2820
+  }
+}

@@ -122,9 +122,43 @@ lessons (degeneracy-proof baseline, across-draw bars, pooled forms,
 instrument gates, no bar-shopping) were all inherited, and none was
 re-learned the hard way.
 
-## 6. Roadmap
+## 6. DB-2 pilots, seal, and governed run: **ALL PASS 6/6 — promoted
+on the first seal** (class [predicted])
 
-DB-2 (the alignment tax) pilots next; the step-dependence of
-quantize-the-unread is a declared open question (own future seal, not
-a retune); byte-realistic storage budgets a future refinement.
-Boundary with XPROTO-GEO remains binding.
+Two powered draws (seeds 20261210/20261212; 2,820 exhaustive
+evaluations each — all 70 budget subsets per consumer per instance,
+so shared-best and utopia are exact optima and the tax cannot be an
+optimizer artifact): tax exactly 1.0000 at identical supports in both
+draws; non-identical band 1.054–1.084; aware-vs-blind +23%/+22%.
+**Disclosed respec, replicated across draws:** the tax is NOT
+monotone in overlap COUNT (partial overlap priced above disjoint in
+both pilots — the consumers' interaction terms contend for the same
+high-value columns), so the tax tracks VALUE-WEIGHTED geometric
+alignment, not set arithmetic; T2/T3 respecified to pooled/min forms,
+monotonicity demoted to a diagnostic. Sealed
+[`PREREG-DB2-001`](PREREG-DB2-001.md) at `9ba55bc` (SEALS `d08982c`);
+governed seed 20261215
+([`results/db2-governed.json`](../results/db2-governed.json)):
+
+- **T1 1.0115** ≤ 1.02 (sharing near-free at coincident geometry);
+- **T2 mean non-identical 1.0732** ≥ 1.03; **T3 min 1.0292** ≥ 1.02;
+- **T4 aware-vs-blind +24.5%** ≥ 0.10; **T5/T6** instrument clean.
+- Diagnostic epilogue: the governed draw WAS count-monotone
+  (1.029 ≤ 1.094 ≤ 1.097) after both pilots were not — confirming
+  count-monotonicity is draw-luck, exactly why it was demoted.
+
+The claim licensed at `[predicted]`: one precision budget serving two
+consumers carries a geometric tax — free at coincident read
+structures, material otherwise — and consumer-aware sharing beats
+task-blind sharing. Both survey headline cells (A: precision
+allocation; B: the alignment tax) are now claimed; the DB track opened
+with two first-seal promotions. Declared follow-on (not claimed): a
+value-weighted alignment index that predicts the tax ordering.
+
+## 7. Roadmap
+
+Next candidates from the advanced survey: F3 directional
+optimizer-stats refresh (fastest seal), F1 consumer-probed
+vector-index quantization (the big bet, window closing). The
+quantize-the-unread step-dependence and byte-realistic budgets remain
+declared open questions. Boundary with XPROTO-GEO remains binding.
