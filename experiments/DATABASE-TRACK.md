@@ -162,3 +162,88 @@ optimizer-stats refresh (fastest seal), F1 consumer-probed
 vector-index quantization (the big bet, window closing). The
 quantize-the-unread step-dependence and byte-realistic budgets remain
 declared open questions. Boundary with XPROTO-GEO remains binding.
+
+## 8. DB-3 (design frozen pre-pilot): directional optimizer-statistics
+refresh (advanced-survey flagship F3)
+
+**Boundary check (§0):** DB-3 is SINGLE-NODE optimizer-statistics
+scheduling — which tables get scarce ANALYZE budget so the query
+planner's estimates track drifting data. No replicas, no routing, no
+replication lag, no freshness certificates, no fleet: outside
+XPROTO-GEO's territory (the survey's F3 vetting, reaffirmed here).
+
+**Question:** at matched refresh budgets, does allocating ANALYZE by a
+probed plan-sensitivity signal (would refreshing this table's stats
+change the optimizer's plans for the live workload?) beat the
+industrial baseline (modification counters), age, and random — even
+at a count HANDICAP (directional refreshes k=2 tables/epoch and pays
+its probe cost; baselines refresh k=3)?
+
+**Substrate:** PostgreSQL 16.15 on Atlas (project-owned cluster,
+localhost:5544, data `/home/claude/db3_pg`, autovacuum off,
+`random_page_cost=1.1`; system cluster on 5432 untouched). Harness
+[`../python/db3_stats_refresh.py`](../python/db3_stats_refresh.py),
+runs on Atlas per the owner's substrate directive (2026-08-22).
+
+**Design (frozen through shakedown 20261218 rev7 before any pilot):**
+12 tables x 20k rows. t00–t03 drift (a-values pulled toward a seeded
+walking mode that transits the workload's predicate windows); t04–t07
+churn WITHOUT distribution shift (a redrawn from the original
+uniform); t08–t11 not queried, LOUDEST churn (~20 %/epoch pad
+rewrites) — modification counters rank exactly the tables whose
+refresh is worthless. Workload: 4 drifting-pair joins (`QD*`, narrow
+3 % windows — the flip-capable, load-bearing forms: the nested-loop /
+hash / join-order choice turns on the product of two drifting
+misestimates), 4 drift-stable joins (`QJ*`), 4 window aggregates
+(`QS*`), 1 stable control (`QC4`). b-indexes on all tables (without
+them only near-tie hash orders can flip — shakedown rev5 lesson).
+
+**Referee (regret zero point), one cluster, no twin DB:** per epoch,
+`BEGIN; ANALYZE` all 12 at full target (full-row read at 20k rows →
+deterministic stats); EXPLAIN each query → fresh plan; execute
+fresh-plan queries timed inside the txn; `ROLLBACK` (ANALYZE is
+transactional in PostgreSQL — pg_statistic reverts). Arm-plan
+executions run outside on identical data. regret_q = median-of-5
+latency(arm plan) − latency(fresh plan), measured only when plan
+hashes differ. Arms run the full 30-epoch horizon sequentially with a
+seeded identical rebuild + drift replay (CRN).
+
+**Probe (charged):** per footprint table, rollback mini-ANALYZE at
+statistics target 10 + canonical single-table `count(*)` re-EXPLAIN
+per workload predicate; score = Σ|log row-estimate shift|. Probing
+the workload queries themselves is an ARTIFACT TRAP (coarse probe
+stats spuriously flip join plans and change Plan-Rows semantics —
+shakedown rev1/rev2 both ranked stable tables above drifted ones);
+canonical probes fixed it (rev3+: top-4 = the four drift tables,
+stable below all, ~70 ms/epoch, vs k=1 full ANALYZE ~150 ms).
+
+**Arms:** directional (probe + top-k=2), churn (top-k=3 by rows
+modified since that arm's last ANALYZE — mirrored arm-side because
+cumulative-stats reports are NON-transactional, so the rolled-back
+referee ANALYZE zeroes the real `n_mod_since_analyze` every epoch;
+mirror verified against pg_stat pre-referee in shakedown), age
+(oldest-first k=3), random (seeded k=3), none (floor). Update-set
+sizes drawn binomially (exact constant sizes make the churn ranking
+tie-degenerate).
+
+**Instrument posture:** executed-latency endpoint on a live host →
+logged-response discipline (LM track precedent): raw per-rep timings
+in the artifact; repeat gate on median spread (shakedown: ~1 % typical,
+one 52 % transient outlier — medians-of-5 pooled over 4+ forms carry
+it). Plan hashes and stats are deterministic given the seed.
+
+**Shakedown record (all rev7 checks PASS):** flips in 11/20 no-refresh
+epochs concentrated at the mode transit; first-flip regret +0.79 ms on
+~2 ms queries; counter mirror exact modulo the build-time COPY/ANALYZE
+flush race (pg residual +N_ROWS on a random subset of tables — the
+mirror, not pg, is the clean signal); rollback restores stale plans;
+churn ranks irrelevant tables first.
+
+**Pilot protocol:** two disclosed powered draws (seeds 20261220,
+20261222), 30 epochs x 5 arms each; candidate gates to be frozen ONLY
+from the across-draw distribution (LM1-002 lesson): S1 staleness is
+real (none-arm pooled regret > 0, materially); S2 directional beats
+churn (THE load-bearing gate); S3 directional beats age and random;
+S4 probe cost ledger (probe+ANALYZE ms within budget envelope); S5
+instrument repeat gate; S6 run-integrity count. Exact bars PENDING
+PILOT. Governed seed 20261225 after seal.
