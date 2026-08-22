@@ -1,0 +1,197 @@
+{
+  "campaign": "DB-1 precision allocation by probed consumer sensitivity",
+  "mode": "pilotB",
+  "disclosure": "DISCLOSED CALIBRATION PILOT",
+  "seed": 20261203,
+  "config": {
+    "n": 20000,
+    "m": 200,
+    "d": 8,
+    "k": 25,
+    "f_fine": 4,
+    "noise": 0.5,
+    "coarse_step": 1.0
+  },
+  "consumers": {
+    "A": {
+      "probed_deltas": [
+        0.067336,
+        0.178141,
+        0.08324,
+        0.000612,
+        0.001554,
+        0.007626,
+        0.006438,
+        0.002844
+      ],
+      "arms": {
+        "aligned": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "oracle": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "anti": [
+          3,
+          4,
+          6,
+          7
+        ],
+        "allcoarse": [],
+        "allfine": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "random1": [
+          0,
+          1,
+          2,
+          6
+        ],
+        "random2": [
+          1,
+          3,
+          4,
+          7
+        ],
+        "random3": [
+          1,
+          4,
+          6,
+          7
+        ],
+        "random4": [
+          0,
+          1,
+          5,
+          6
+        ]
+      },
+      "loss_by_arm": {
+        "aligned": 0.448704,
+        "oracle": 0.448704,
+        "anti": 0.7899,
+        "allcoarse": 0.779413,
+        "allfine": 0.42499,
+        "random1": 0.450016,
+        "random2": 0.599573,
+        "random3": 0.56191,
+        "random4": 0.522548
+      },
+      "baseline_mean4": 0.533511,
+      "impr_aligned_vs_baseline": 0.159,
+      "impr_anti_vs_baseline": -0.4806,
+      "capture_of_oracle": 1.0,
+      "impr_aligned_vs_allfine": -0.0558,
+      "deterministic_recompute": true
+    },
+    "B": {
+      "probed_deltas": [
+        -0.004298,
+        0.002833,
+        0.003041,
+        -0.008952,
+        0.062199,
+        0.052312,
+        -0.008164,
+        0.002344
+      ],
+      "arms": {
+        "aligned": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "oracle": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "anti": [
+          0,
+          3,
+          6,
+          7
+        ],
+        "allcoarse": [],
+        "allfine": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "random1": [
+          0,
+          1,
+          3,
+          7
+        ],
+        "random2": [
+          2,
+          4,
+          5,
+          6
+        ],
+        "random3": [
+          1,
+          4,
+          5,
+          7
+        ],
+        "random4": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "loss_by_arm": {
+        "aligned": 0.217916,
+        "oracle": 0.217916,
+        "anti": 0.370369,
+        "allcoarse": 0.362273,
+        "allfine": 0.218198,
+        "random1": 0.345201,
+        "random2": 0.228812,
+        "random3": 0.22215,
+        "random4": 0.297242
+      },
+      "baseline_mean4": 0.273351,
+      "impr_aligned_vs_baseline": 0.2028,
+      "impr_anti_vs_baseline": -0.3549,
+      "capture_of_oracle": 1.0,
+      "impr_aligned_vs_allfine": 0.0013,
+      "deterministic_recompute": true
+    }
+  },
+  "ledger": {
+    "probe_runs": 16,
+    "eval_runs": 20
+  },
+  "pooled": {
+    "Q1_aligned_vs_baseline": 0.1809,
+    "Q2_capture": 1.0,
+    "Q3_anti_vs_baseline": -0.4178,
+    "Q4_aligned_vs_allfine": -0.0272
+  },
+  "gates": null,
+  "verdicts": null
+}
