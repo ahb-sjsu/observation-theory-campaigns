@@ -90,7 +90,41 @@ documented; degeneracy-proof baselines; anti-controls pooled;
 instrument gates interpreted first (EC-7); `git commit -F` for
 messages with quotes; numpy bools cast before json.dump.
 
-## 5. Roadmap
+## 5. DB-1 pilots, seal, and governed run: **ALL PASS 6/6 — promoted
+on the first seal** (class [predicted])
 
-Pilot draws A/B (powered) → freeze → seal PREREG-DB1-001 → single
-governed run → DB-2 pilots. Nothing here is claim-bearing.
+Two disclosed powered draws (seeds 20261201/20261203: pooled Q1
+0.2228/0.1809, capture 1.0000 all cells, anti −0.20/−0.42; Q4
+quantize-the-unread ≈ 0 — the SCOPED NEGATIVE, demoted to an ungated
+diagnostic rather than retuning the coarseness step to chase it).
+Sealed [`PREREG-DB1-001`](PREREG-DB1-001.md) at `cecb0e9` (SEALS
+`ed2ff61`); single governed run at seed 20261205
+([`results/db1-governed.json`](../results/db1-governed.json)):
+
+- **Q1 pooled +16.8%** over the degeneracy-proof mean-4 task-blind
+  baseline (bar 0.10); floors 0.212/0.123 (bar 0.05).
+- **Q2 capture 1.000**: the query-only probe recovered the planted
+  read supports EXACTLY in all cells (aligned ≡ oracle) — noted as
+  making the gate near-vacuous; the informative gates carried.
+- **Q3 anti −36.0%** (bar ≤ +0.10); **Q5** bitwise-deterministic;
+  **Q6** probe ledger exact (16 runs).
+- **Q4 diagnostic −0.087**: the quantize-the-unread effect remains
+  absent at step-1.0 on similarity consumers — the scoped negative
+  holds in the governed run and stays on the record as the track's
+  first finding.
+
+The claim licensed at `[predicted]`: per-column storage precision
+allocated by query-only probed consumer sensitivity beats task-blind
+allocation at matched budgets on a real database engine — the
+tr(P̂ Σ) allocation consequence as physical design. First first-seal
+promotion of the program's applied tracks: the accumulated design
+lessons (degeneracy-proof baseline, across-draw bars, pooled forms,
+instrument gates, no bar-shopping) were all inherited, and none was
+re-learned the hard way.
+
+## 6. Roadmap
+
+DB-2 (the alignment tax) pilots next; the step-dependence of
+quantize-the-unread is a declared open question (own future seal, not
+a retune); byte-realistic storage budgets a future refinement.
+Boundary with XPROTO-GEO remains binding.
