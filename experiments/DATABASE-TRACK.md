@@ -247,3 +247,117 @@ churn (THE load-bearing gate); S3 directional beats age and random;
 S4 probe cost ledger (probe+ANALYZE ms within budget envelope); S5
 instrument repeat gate; S6 run-integrity count. Exact bars PENDING
 PILOT. Governed seed 20261225 after seal.
+
+### 8.1 v1 pilots INVALID — substrate failure, disclosed respec
+(2026-08-22, pre-seal)
+
+Both v1 draws ran to completion and are on the record
+(`db3_pilot_20261220/20261222.json`, 20k rows, referee-relative
+regret): the **`none` arm produced NEGATIVE total regret in both
+draws** (−67 ms, −85 ms) — fully-stale plans EXECUTED faster than the
+fresh-stats referee plans. At 20k fully-cached rows the planner's
+cost model does not rank plans by wall time (misestimated nested
+loops stay fast), so the referee is not a valid zero point and the
+substrate lacks the regime the question is about. The
+directional-beats-churn ordering appeared in both draws (44 vs 66 ms;
+22 vs 101 ms) but is unclaimable on an invalid substrate. Per
+protocol this is a disclosed pre-seal respec, not bar-shopping: no
+gate existed yet, and the failure is of the S1 SUBSTRATE gate the
+design planned to freeze.
+
+**v2 redesign (harness rewritten before any v2 pilot):**
+- 200k rows/table, join fanout ~10 (`b` in [0, 20k)), work_mem 64MB —
+  the scale where a wrong join choice costs real time;
+- **endpoint respecified to DIRECT total workload latency per arm**
+  (median-of-5 per query, summed per epoch, CRN across arms) — what
+  an operator pays, with no cost-model-calibrated referee inside the
+  endpoint; `fresh` (ANALYZE-all every epoch) joins as reference
+  ceiling and `none` as floor;
+- staleness-matters becomes GATE S1 (none materially worse than
+  fresh), not an assumption; **S2 (load-bearing) respecified:
+  directional total workload latency < churn's** at the k=2-vs-k=3
+  handicap;
+- v2 shakedown adds a REGIME check: at every no-refresh flip epoch,
+  executed stale-vs-fresh latency on the flipped queries must show
+  fresh materially faster on net — the check v1 lacked;
+- referee-txn counter clobbering is gone with the referee, so real
+  `n_mod_since_analyze` semantics hold; the verified arm-side mirror
+  is kept for exactness across the build-time flush race.
+v2 pilots re-run the same seeds (20261220/20261222); v1 artifacts
+retained.
+
+### 8.2 v2 shakedown regime finding: planner biased at TRUTH on one
+query family — disclosed instrument calibration (2026-08-22)
+
+The v2 regime check (executed stale-vs-fresh at every no-refresh flip
+epoch, 57 instances) split cleanly by family: **QJ (one-side-filtered
+joins): fresh stats win +60..+96 ms** at transit — the classic
+staleness harm (underestimate → wrong join strategy). **QD
+(both-sides-filtered joins): fresh stats LOSE −50..−89 ms** — with
+both sides filtered, the indexed nested loop is truly optimal on
+cached data even at true cardinalities, but random_page_cost=1.1
+over-costs ~150k cached index probes and the planner given CORRECT
+estimates picks a hash join needing two full seq scans (3x slower).
+Net regime regret −130 ms, positive fraction 0.56.
+
+No refresh policy is evaluable on a substrate where giving the
+planner the truth makes it slower: the defect is planner-calibration
+bias at true cardinalities, an INSTRUMENT fault (EC-7 lesson: gate
+the instrument first, interpret before touching hypotheses).
+Response, disclosed pre-seal: calibrate random_page_cost by an
+empirical sweep (1.1/0.5/0.25/0.1/0.05 at a mid-transit drift state,
+`db3_calibrate.py`) selecting the value where fresh-chosen plans are
+the fastest-executing plans for BOTH families; then re-run the full
+shakedown regime gate (require net-positive regret and a high
+positive fraction across families) before any v2 pilot. The
+calibration criterion is planner-unbiasedness-at-truth — it does not
+look at any arm comparison, so it cannot tune the S2 contest.
+
+### 8.3 Calibration outcome: the window is EMPTY — QD family excluded
+(2026-08-22)
+
+Two sweeps (rpc 1.1/0.5/0.25/0.1/0.05, then 0.6–1.0 in 0.1 steps;
+`db3_calibration.json`): the one-side-filtered QJ family is
+truth-unbiased only at rpc ≥ 0.9 (fresh +39..+61 ms), while the
+both-sides-filtered QD family is truth-unbiased only at rpc ≤ 0.8
+(at 0.9–1.1 the planner given correct estimates picks a hash join
+with two full seq scans over the truly-optimal indexed nested loop,
+−52..−62 ms). NO random_page_cost calibrates both join shapes on this
+cached substrate — a real PostgreSQL cost-model observation
+(one scalar page-cost cannot represent cached-probe economics),
+recorded here as a finding of the shakedown, not a claim of the
+campaign. Resolution per the pre-declared branch: the QD family is
+EXCLUDED from the workload (scoped exclusion, documented), replaced
+by four cross-pair one-side-filtered joins (QX: drift × different
+stable partner) — 8 flip-capable load-bearing forms, all in the
+regime where the planner rewards correct statistics; rpc stays 1.1.
+Full shakedown regime gate re-runs before the v2 pilots. Sweep
+caveat noted for the record: no-flip queries showed ±15 ms
+stale-vs-fresh deltas (cache-state bias between the two measurement
+paths) — the arm endpoint is immune (identical procedure every arm,
+CRN), but cross-txn regime numbers carry that floor.
+
+### 8.4 v3 pilots: S1 robust, refresh policies NOT separated at k=3 —
+final design iteration to the scarcity regime (2026-08-22)
+
+v3 regime gate had passed perfectly (35/35 flip instances
+fresh-faster, net +2.72 s). Both v3 pilot draws completed
+(`db3-v3-pilot-*.json`): **S1 replicated — none costs +12.1 %/+12.5 %
+over fresh in both draws.** But the refresh policies did NOT separate:
+draw-1 ordering age < churn < random < directional(k=2), draw-2
+random < age < directional < churn, differences 1–7 % at the
+noise scale. Diagnosis: k=3 against only 4 plan-relevant tables is
+NOT scarce — every counter/rotation policy touches the drift tables
+within 2–4 epochs and captures most of the staleness gap. A real
+scoped finding (generous refresh budgets make allocation policy
+irrelevant), on the record.
+
+**Final design (declared: last pre-seal iteration; bars freeze from
+its two draws regardless of outcome):** k=1 for directional, churn,
+age, random — the scarcity the hypothesis is about (churn's single
+ANALYZE gets captured by the loud irrelevant tables; age leaves
+12-epoch staleness) — plus **churn2 (k=2), a double-budget control
+that settles probe-cost accounting structurally: if
+directional-k1(+probes, ~0.5 ANALYZE-equivalents/epoch measured)
+beats churn-k2, it wins under any charging scheme.** Seeds
+20261220/20261222 re-run; v3 artifacts retained.
