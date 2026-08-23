@@ -1,11 +1,16 @@
 # PREREG-DB3-001 — Directional Optimizer-Statistics Refresh
 
-**Status:** DRAFT — bars PENDING PILOT; do not seal until both v2
-pilot draws are on the record and every `⟨PENDING⟩` below is frozen
-from the ACROSS-DRAW distribution (LM1-002 lesson).
+**Status:** FINAL — bars frozen from the two v4 pilot draws
+(20261220/20261222) per the across-draw discipline (LM1-002 lesson)
+and the §8.4 final-design declaration. Sealed by the SEALS.md row
+referencing this file's sealing commit.
 **Registration ID:** DB3-001
 **Campaign:** DB track, third campaign (advanced-survey flagship F3).
-**Class sought:** [predicted].
+**Class sought:** honest split — S1/S4/S5/S6 sought at [predicted];
+the directional gates S2b/S3 are sealed with the across-draw evidence
+AGAINST them (see Predictions): a governed refutation is the expected
+outcome and will be recorded as the campaign's finding with its named
+failure class (probe footprint under-coverage).
 
 ## Coordination boundary (binding)
 
@@ -32,7 +37,8 @@ logic) transplanted to optimizer statistics: modification counters
 measure Σ (change) alone; the probe measures P̂ (plan sensitivity)
 composed with change.
 
-## Substrate and design (v2 — frozen at shakedown v2)
+## Substrate and design (v4 — final; workload frozen at shakedown v3,
+budgets at the §8.4 declaration)
 
 PostgreSQL 16.15, project-owned cluster localhost:5544 on Atlas
 (autovacuum off, random_page_cost 1.1, work_mem 64MB,
@@ -63,37 +69,54 @@ rows-modified-since-last-arm-ANALYZE, verified arm-side mirror),
 churn2 (k=2 double-budget control), age (k=1 oldest-first), random
 (k=1 seeded), none (floor), fresh (ANALYZE-all ceiling).
 
-## Gates (ALL must pass; bars frozen from the two v4 pilot draws)
+## Gates (FROZEN from the two v4 pilot draws, seeds 20261220/20261222)
 
 Let W(arm) = total workload ms over the 30 epochs, and
 R(arm) = (W(arm) − W(fresh)) / W(fresh) (staleness overhead vs the
-budget-unlimited ceiling).
+budget-unlimited ceiling). Pilot values quoted as draw1/draw2.
 
-- **S1 (substrate/regime):** R(none) ≥ ⟨PENDING⟩ — staleness is
-  materially costly in this regime (v3 pilots: +12.1 %/+12.5 %).
-- **S2 (load-bearing):** W(directional) < W(churn) by margin
-  ⟨PENDING⟩ at matched k=1.
-- **S2b (accounting-dominant):** W(directional) < W(churn2) by
-  ⟨PENDING⟩ — beating double budget closes probe-cost charging.
-- **S3:** W(directional) < min(W(age), W(random)) by ⟨PENDING⟩.
-- **S4 (honest accounting):** directional probe cost reported per
-  epoch; mean probe ms / mean single-ANALYZE ms ≤ ⟨PENDING⟩.
-- **S5 (instrument):** pooled per-query repeat spread (median
-  absolute deviation of the 5 reps / median) ≤ ⟨PENDING⟩; queries
-  exceeding it documented, endpoint recomputed excluding them as a
-  sensitivity note.
-- **S6 (integrity):** 7 arms × 30 epochs × 13 queries complete;
-  seeded reproduction of all non-timing quantities (plans chosen,
-  tables chosen, drift trajectory) exact on re-run.
+- **S1 (substrate/regime):** R(none) ≥ **0.08**
+  (pilots: 0.115 / 0.141).
+- **S2 (matched-count directional):** W(directional) < W(churn),
+  strict, no margin (pilots SPLIT: +284 ms worse / −857 ms better —
+  outcome genuinely open).
+- **S2b (accounting-dominant):** W(directional) < W(churn2), strict
+  (pilots: FAILED both, by 1178 ms and 446 ms).
+- **S3 (directional vs blind):** W(directional) < min(W(age),
+  W(random)), strict (pilots: beat random in both; LOST to age in
+  both, R(age) = 0.020 / 0.009).
+- **S4 (honest accounting):** mean per-epoch probe ms / mean
+  per-epoch single-ANALYZE ms ≤ **0.8** (pilots: 0.491 / 0.509).
+- **S5 (instrument):** pooled per-cell repeat spread (MAD of the 5
+  reps / median, over all arm×epoch×query cells) mean ≤ **0.08** and
+  p95 ≤ **0.20** (pilots: mean 0.0400 / 0.0402, p95 0.099 / 0.101).
+- **S6 (integrity):** 2730 cells (7 arms × 30 epochs × 13 queries)
+  complete, AND the CRN check holds: the seeded drift-mode
+  trajectories are identical across all 7 arms (pilots: identical in
+  both draws).
 
-## Prediction
+## Predictions (committed before the governed run)
 
-Directional < churn/age/random and < churn2 on W; churn's single
-ANALYZE is captured by the loud irrelevant tables most epochs; age
-leaves 12-epoch staleness; none pays the largest R. Outcome recorded
-regardless of sign; misses stay on the record (EC-7 precedent). The
-v3 finding stands alongside: at k=3 (non-scarce), allocation policy
-does not matter — scarcity is the regime of the claim.
+- S1, S4, S5, S6: expected PASS.
+- S2: OPEN — the pilots split 1/1; the governed run decides.
+- S2b, S3: expected FAIL. Both v4 draws agree: simple AGING is the
+  strongest scarce-budget policy (near-fresh at k=1), and the
+  canonical-predicate probe does not dominate counter- or age-based
+  allocation. Named failure class committed now: **footprint
+  under-coverage** — the probe scores only predicate-selectivity
+  shift on the drifting columns, while the workload's plans also
+  depend on reltuples/relpages and join-side statistics of the
+  STABLE tables (which churn and bloat degrade); age refreshes
+  everything and so captures staleness the probe cannot see.
+- Also on the record (v3 pilots, k=3): with non-scarce budgets,
+  allocation policy does not separate at all.
+
+The governed outcome is recorded regardless of sign (EC-7 precedent).
+If S2b/S3 fail as expected, the campaign's sealed finding is the
+refutation with its failure class — evidence about WHERE query-only
+directional probes need richer footprints (join-cardinality and
+physical-size sensitivity), not evidence that the OT allocation logic
+is wrong in regimes its probe actually covers.
 
 ## Governed run
 

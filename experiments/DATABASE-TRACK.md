@@ -361,3 +361,29 @@ that settles probe-cost accounting structurally: if
 directional-k1(+probes, ~0.5 ANALYZE-equivalents/epoch measured)
 beats churn-k2, it wins under any charging scheme.** Seeds
 20261220/20261222 re-run; v3 artifacts retained.
+
+### 8.5 v4 pilots: the honest verdict — AGE wins at k=1; bars frozen,
+refutation expected on the directional gates (2026-08-22/23)
+
+Both final-design draws (`db3-v4-pilot-*.json`): S1 replicates again
+(R(none) = 11.5 %/14.1 %). The replicated policy ordering surprise:
+**simple aging is the strongest k=1 policy in BOTH draws**
+(R(age) = 2.0 %/0.9 % — near-fresh), churn2 close, directional
+middling (5.0 %/7.0 %), churn and random worst. Directional lost to
+age in both draws, lost to churn2 in both, split 1/1 against churn,
+beat random in both. Instrument clean (pooled repeat spread 0.040,
+p95 0.10, both draws; CRN drift trajectories identical across all 7
+arms; probe cost 0.49/0.51 ANALYZE-equivalents).
+
+Per the §8.4 declaration, NO further design iteration: bars are
+frozen from these draws into PREREG-DB3-001 (S1 ≥ 0.08; S2 strict,
+open; S2b/S3 strict, expected FAIL; S4 ≤ 0.8; S5 mean ≤ 0.08 /
+p95 ≤ 0.20; S6 = 2730 cells + CRN). The committed failure class for
+the expected refutation: **footprint under-coverage** — the
+canonical-predicate probe sees only predicate-selectivity shift on
+the drifting columns, while real plan sensitivity also lives in
+reltuples/relpages and stable-side join statistics that churn and
+bloat degrade; age refreshes everything and captures what the probe
+cannot see. Governed run: seed 20261225 after seal. Declared
+follow-on (not part of this campaign): a richer probe scoring
+join-cardinality and physical-size shift.
