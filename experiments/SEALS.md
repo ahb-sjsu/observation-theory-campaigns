@@ -46,3 +46,4 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-LM2-002 | experiments/PREREG-LM2-002.md | f1ebcb1 | bef642971b15406d8afcc577a390c8e4163a4231a549298821f7815463e5a50b | 2026-08-20 | A. H. Bond (session instruction) |
 | PREREG-DB1-001 | experiments/PREREG-DB1-001.md | cecb0e9 | 8fdebe65dfa9da5382e58b2dc61e6aa48398b40896c3ae5b581f595c35f9dc56 | 2026-08-21 | A. H. Bond (session instruction) |
 | PREREG-DB2-001 | experiments/PREREG-DB2-001.md | 9ba55bc | 51a7ef133e274615b1eb4137e498ef6a6da9e57a678cb12271ddd8af74534d0a | 2026-08-21 | A. H. Bond (session instruction) |
+| PREREG-DB3-001 | experiments/PREREG-DB3-001.md | 846a18d | 5ad9e7d33802a37a1dbeb9977d809bf895dcb8da20faba6c2bdbcdf04355edd9 | 2026-08-23 | A. H. Bond (session instruction) |
