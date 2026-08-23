@@ -387,3 +387,44 @@ bloat degrade; age refreshes everything and captures what the probe
 cannot see. Governed run: seed 20261225 after seal. Declared
 follow-on (not part of this campaign): a richer probe scoring
 join-cardinality and physical-size shift.
+
+### 8.6 Governed run: **ALL PASS 7/7 — including the two gates sealed
+with the prediction of failure** (2026-08-23; honest classification)
+
+Governed seed 20261225, single run, harness byte-identical to the
+sealing commit (`94f7bad4…`), artifact `results/db3-governed.json`:
+R(none) = +11.1 % (S1 ✓, third replication), and the directional arm
+was the BEST arm — W = 23 813 ms, R = −0.5 % (≈ fresh within noise),
+vs age +0.6 %, random +1.6 %, churn2 +6.2 %, churn +7.3 %. S2, S2b,
+S3 all passed strictly; probe/analyze 0.266 (S4 ✓); spread mean
+0.042 / p95 0.105 (S5 ✓); 2730 cells + CRN exact (S6 ✓).
+
+**Classification (committed reasoning, DB-2 precedent applied
+symmetrically):** the prereg predicted S2b/S3 would FAIL — both
+pilots had age and churn2 ahead of directional — and the governed
+draw reversed both. In DB-2 a governed-draw pattern contradicted by
+both pilots was demoted as draw-luck; the same rule applies to a
+governed PASS contradicted by both pilots. Across the three
+final-design draws the top group (directional, age, churn2) is
+statistically inseparable at this power; age is the most STABLE
+policy (2.0/0.9/0.6 %); directional is the most variable
+(7.0/5.0/−0.5 %). Therefore:
+
+- **Licensed at [predicted]** (replicated 3/3 + sealed): staleness
+  under k=1 scarcity costs 11–14 % of total workload latency;
+  directional beats random and none in every draw; the probe is
+  cheap (≤ 0.51 ANALYZE-equivalents/epoch, gate ≤ 0.8); instrument
+  and integrity gates clean.
+- **Reported at [exploratory], not claimed:** directional dominance
+  over churn/churn2/age. Gates passed on the sealed run, but the
+  committed pilot evidence pointed the other way; the ordering among
+  the top policies is draw-sensitive. The pre-committed failure
+  class (footprint under-coverage) was NOT exercised by the governed
+  draw and remains the design hypothesis for the declared follow-on
+  (a probe with join-cardinality and physical-size terms, plus
+  higher-power replication to separate the top group).
+
+The campaign closes with the sealed record showing exactly what
+happened: a 7/7 PASS whose headline gate outcomes the preregistration
+itself predicted would fail — the strongest possible argument for
+sealing predictions, in both directions.
