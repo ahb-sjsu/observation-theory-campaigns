@@ -96,10 +96,39 @@ def run_cell(seed, X, y):
     }
 
 
+def _headroom(true):
+    """GSNR above the nearest format threshold it supports (small => near the cliff)."""
+    ok = np.where(q.REQ <= true)[0]
+    return float(true - q.REQ[int(ok[-1])]) if ok.size else float("nan")
+
+
+def _preds(seed, X, y):
+    """Per-test-sample records for Fig. 2. Reproduces run_cell's split/fit/predict."""
+    rng = np.random.default_rng(seed)
+    y_true = y + rng.normal(0, HIDDEN_NOISE_DB, len(y))
+    idx = rng.permutation(len(y)); cut = int(0.7 * len(y))
+    tr, te = idx[:cut], idx[cut:]
+    mse = GradientBoostingRegressor(loss="squared_error", random_state=seed).fit(X[tr], y_true[tr])
+    aware = GradientBoostingRegressor(loss="quantile", alpha=AWARE_QUANTILE,
+                                      random_state=seed).fit(X[tr], y_true[tr])
+    pm, pa, yt = mse.predict(X[te]), aware.predict(X[te]), y_true[te]
+    recs = []
+    for i in range(len(te)):
+        mm, ma = _select(pm[i]), _select(pa[i])
+        recs.append({"seed": int(seed), "true": round(float(yt[i]), 3),
+                     "pred_mse": round(float(pm[i]), 3), "pred_aware": round(float(pa[i]), 3),
+                     "headroom": round(_headroom(yt[i]), 3),
+                     "mse_fail": bool(mm >= 0 and q.REQ[mm] > yt[i]),
+                     "aware_fail": bool(ma >= 0 and q.REQ[ma] > yt[i])})
+    return recs
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
     ap.add_argument("--out", default=os.path.join(HERE, "QOTMLREP-family.json"))
+    ap.add_argument("--preds-out", default=None,
+                    help="also dump per-test-sample records (for Fig. 2) to this JSON")
     args = ap.parse_args()
     print("building GNPy GSNR dataset (reach x loading x position)...", flush=True)
     X, y = _dataset()
@@ -117,6 +146,10 @@ def main():
            "cells": cells}
     json.dump(rec, open(args.out, "w"), indent=1)
     print(f"wrote {args.out}", flush=True)
+    if args.preds_out:
+        preds = [r for s in args.seeds for r in _preds(s, X, y)]
+        json.dump({"family": "F-QOTML", "records": preds}, open(args.preds_out, "w"), indent=1)
+        print(f"wrote {len(preds)} per-prediction records -> {args.preds_out}", flush=True)
 
 
 if __name__ == "__main__":

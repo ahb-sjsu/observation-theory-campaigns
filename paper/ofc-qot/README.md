@@ -41,8 +41,10 @@ Evidence cell: `../../analysis/qot/` (GNPy).
       `fam_qot.py --seeds 20260825 20260826 20260827 --paths-out QOT-paths.json`
       then `plot_fig1.py QOT-paths.json ../../paper/ofc-qot/fc_footprint.pdf`.
       Run in the qot venv (numpy<2).
-- [ ] **Fig. 2**: plot the F-QOTML dissociation (MAE-vs-false-clear, or pred-vs-true
-      near a threshold) from `QOTMLREP-graded-raw.json` (add a plot_fig2.py).
+- [x] **Fig. 2 pipeline ready** (`fam_qotml.py --preds-out` + `plot_fig2.py` →
+      `ml_cliff.pdf`: (a) MAE-vs-false-clear dissociation, (b) false-clear vs GSNR
+      headroom = the FEC cliff; marker-shape classes). Draft committed (shakedown);
+      regenerate from graded seeds post-seal, in the qot venv.
 - [ ] **Use case framing** (done in the .tex): brownfield incremental fill --
       keep it concrete on final pass (name a representative link length / service rate).
 

@@ -126,12 +126,12 @@ threshold, not on volume-averaged fidelity.
 
 \begin{figure}[t]
   \centering
-  % \includegraphics[width=0.82\linewidth]{ml_cliff.pdf}
-  \fbox{\parbox{0.82\linewidth}{\centering\vspace{1.4cm} FIG.~2: average-error-optimal
-  ML-QoT vs.\ consumer-aware objective --- lower mean error yet $\sim$5$\times$ the
-  false-clear at the FEC cliff, equal capacity.\vspace{1.4cm}}}
-  \caption{Reconstruction-optimal ML-QoT false-clears where the consumer reads a
-  threshold (GNPy + gradient-boosted regressors).}
+  \includegraphics[width=\linewidth]{ml_cliff.pdf} % shakedown draft; regenerate from graded seeds post-seal (plot_fig2.py)
+  \caption{ML-QoT reconstruction-vs-consumer dissociation (GNPy + gradient-boosted
+  regressors): (a) the average-error objective attains lower MAE yet higher
+  false-clear than the consumer-aware objective; (b) it false-clears at the FEC
+  cliff (small GSNR headroom), where the consumer-aware objective does not. Marker
+  shape distinguishes objectives.}
   \label{fig:ml}
 \end{figure}
 
