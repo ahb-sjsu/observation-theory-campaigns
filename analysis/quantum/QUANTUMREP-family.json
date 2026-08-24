@@ -1,0 +1,54 @@
+{
+ "family": "F-QUANTUM",
+ "mode": "aer",
+ "sim_is_model_validation_not_evidence": true,
+ "constants": {
+  "n_qubits": 8,
+  "bad_qubits": [
+   3
+  ],
+  "err1_good": 0.001,
+  "err1_bad": 0.12,
+  "err2": 0.006,
+  "footprint_size": 3,
+  "depth": 6,
+  "target_success": 0.7,
+  "f_target": 0.95,
+  "substrate": "qiskit-aer heterogeneous depolarizing noise model; mirror-circuit witness; sealed rung = real IBM hardware"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "aer",
+   "device_certified": true,
+   "aggregate_fidelity": 0.98413,
+   "naive_fc": 0.35,
+   "aware_fc": 0.0,
+   "good_footprint_success_rate": 1.0,
+   "n_footprints": 40,
+   "target_success": 0.7
+  },
+  {
+   "seed": 1,
+   "mode": "aer",
+   "device_certified": true,
+   "aggregate_fidelity": 0.98413,
+   "naive_fc": 0.425,
+   "aware_fc": 0.0,
+   "good_footprint_success_rate": 1.0,
+   "n_footprints": 40,
+   "target_success": 0.7
+  },
+  {
+   "seed": 2,
+   "mode": "aer",
+   "device_certified": true,
+   "aggregate_fidelity": 0.98413,
+   "naive_fc": 0.275,
+   "aware_fc": 0.0,
+   "good_footprint_success_rate": 1.0,
+   "n_footprints": 40,
+   "target_success": 0.7
+  }
+ ]
+}

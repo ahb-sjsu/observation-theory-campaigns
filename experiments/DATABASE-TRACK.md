@@ -5,19 +5,23 @@ No bar in this document is calibrated yet; thresholds are PENDING
 PILOT until disclosed powered draws fix them (PROTOCOL §5.1; bars
 from the ACROSS-DRAW distribution per the LM1-002 lesson).
 
-## 0. Coordination boundary (binding)
+## 0. Scope (boundary dissolved 2026-08-24)
 
-The owner's concurrent program (`network-governor`,
-PREREG-XPROTO-GEO, 2026-08-21) occupies consumer-relative FRESHNESS
-for replica READ-ROUTING (footprint-certified replica selection on a
-live geo-distributed Postgres fleet). This track therefore:
-- claims NOTHING about replica routing, read placement, witnessed
-  freshness certificates, replication lag, or fleet substrates;
-- treats freshness/refresh questions generally as ceded or
-  coordination-required territory (survey Area C note);
-- works the orthogonal axis only: PRECISION/ENCODING allocation at
-  matched storage budgets (DB-1) and the multi-workload alignment
-  tax for shared physical design (DB-2).
+**Historical note.** This section formerly declared a *binding coordination
+boundary* ceding consumer-relative FRESHNESS (replica read-routing, witnessed
+freshness certificates, replication lag, fleet substrates) to the concurrent
+`network-governor` program, so this track worked only the orthogonal
+PRECISION/ENCODING axis. As of 2026-08-24 the two OT programs are **unified into
+this repo** and that boundary is **dissolved**: the freshness work now lives here
+as the freshness program ([FRESHNESS-PROGRAM.md](FRESHNESS-PROGRAM.md);
+replication/coordination cells in
+[DATABASE-FRESHNESS-TRACK.md](DATABASE-FRESHNESS-TRACK.md)).
+
+This **DB track keeps its own remit**: the PRECISION/ENCODING allocation axis at
+matched storage budgets (DB-1) and the multi-workload alignment tax for shared
+physical design (DB-2) — `tr(P̂·Σ)` read in *allocation*, distinct from the
+freshness track's `tr(P_C·Σ)` read in *staleness*. The two are complementary
+readings of the same consumer geometry, no longer partitioned across repos.
 
 ## 1. Question (DB-1, the first campaign)
 
