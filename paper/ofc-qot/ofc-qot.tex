@@ -150,19 +150,19 @@ should target the consumer's threshold.
 Margin is usually reported in dB and applied uniformly; under incremental fill it
 should be reported as a false-clear rate and allocated per footprint. The GN model is
 the evidence rung; a coherent-receiver pre-FEC-BER witness on a fibre testbed, and the
-EGN/split-step model, are the external-validity graduations. The method is
-domain-general---the same certificate/witness/false-clear grammar has been measured
-across routing, distributed databases, and wireless physical layers~\cite{otcampaigns},
-of which optical QoT is one instance.
+EGN/split-step model, are the external-validity graduations. (The consumer-relative,
+false-clear methodology is not optics-specific~\cite{otcampaigns}, but the results
+here stand on the optical QoT certificate alone.)
 
 \begin{thebibliography}{9}
 \bibitem{gnpy} A.~Ferrari \emph{et al.}, ``GNPy: an open source application for
 physical layer aware open optical networks,'' J.\ Opt.\ Commun.\ Netw.\ \textbf{12},
 C31--C40 (2020).
-\bibitem{mlqot} Representative ML-QoT / QoT-estimation reference (fill: e.g.\ Seve;
-Ayassi; Rottondi). \% fill on finalization
-\bibitem{pointon} Representative optical design-margin / margin-reduction reference.
-\% fill on finalization
+\bibitem{mlqot} C.~Rottondi \emph{et al.}, ``Machine-learning method for quality of
+transmission prediction of unestablished lightpaths,'' J.\ Opt.\ Commun.\ Netw.\
+\textbf{10}, A286--A297 (2018). % verify vol/pages on final
+\bibitem{pointon} Y.~Pointurier, ``Design of low-margin optical networks,'' J.\ Opt.\
+Commun.\ Netw.\ \textbf{9}, A9--A17 (2017). % verify vol/pages on final
 \bibitem{otcampaigns} A.~H.~Bond, ``Observation Theory: consumer-relative witnessed
 certificates,'' sealed pre-registrations and code,
 \url{https://github.com/ahb-sjsu/observation-theory-campaigns} (2026).

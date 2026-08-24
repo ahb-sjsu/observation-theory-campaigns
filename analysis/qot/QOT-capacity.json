@@ -1,0 +1,14 @@
+{
+ "family": "F-QOT-capacity",
+ "mode": "gnpy-coronet",
+ "target_fc": 0.01,
+ "uniform_margin_db": 3.25,
+ "uniform_capacity_bpersym": 4.019,
+ "uniform_fc": 0.0,
+ "aware_margin_db": 0.0,
+ "aware_capacity_bpersym": 4.216,
+ "aware_fc": 0.0,
+ "recovered_bpersym": 0.197,
+ "recovered_pct": 4.9,
+ "recovered_gbps_per_channel": 12.6
+}
