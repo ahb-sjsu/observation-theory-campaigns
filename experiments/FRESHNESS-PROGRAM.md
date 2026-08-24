@@ -30,6 +30,7 @@ estimation-control, …) which read `tr(P_C·Σ)` in allocation rather than fres
 | [MARKETS-FRESHNESS](MARKETS-FRESHNESS-TRACK.md) | market microstructure | XPROTO-QUOTE, portfolio tr(P·Σ) |
 | [OPTICAL-FRESHNESS](OPTICAL-FRESHNESS-TRACK.md) | optical networks | XPROTO-QOT (QoT-certificate vacuity, GNPy) |
 | [GRID-FRESHNESS](GRID-FRESHNESS-TRACK.md) | power systems | XPROTO-GRID (state-estimation staleness, pandapower) |
+| [LLM-EVAL](LLM-EVAL-TRACK.md) | AI evaluation | XPROTO-LLM (eval-vs-deployment, roberta-mnli/HANS) |
 
 ## Seal provenance across the re-home (binding)
 
