@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}{Question}
+\newtheorem*{remark}{Remark}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\Ent}{\operatorname{Ent}}
+\newcommand{\PC}{P_{\mathcal C}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{A consumer-relative reading of entropy-monotonic geometric flows}
+\author{Andrew H.\ Bond \\ \small San Jos\'e State University}
+\date{Speculative note, 2026-08-23 --- \textbf{a question for a geometer, not a result}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Observation Theory (OT) treats reliability and distortion as properties of a
+\emph{consumer} through a \emph{read operator} $\PC\succeq0$ that keeps only the
+distinctions the consumer can make, inducing a quotient of the underlying
+distinguishability geometry. Ricci flow is the gradient flow of Perelman's
+entropy, and its analysis is driven by a Bakry--\'Emery/Fisher-information
+substrate that OT also lives on. This note asks, honestly, whether OT's
+\emph{read-operator quotient} says anything nontrivial about entropy-monotonic
+geometric flows: specifically, whether coarse-graining a flow by $\PC$ carries a
+\emph{consumer-relative} entropy with a monotone ``discarded-distinguishability''
+gap. I state the observation precisely, situate it against known results
+(Perelman; O'Neill submersions; Bakry--\'Emery; Lott--Villani--Sturm; Otto), and
+give the ways an expert can falsify or dismiss it in minutes. I claim no theorem;
+OT's contribution here, if any, is vocabulary and a reframing, not a new
+technique. I write at the edge of my competence and expect correction.
+\end{abstract}
+
+\section{Setup}
+On $(M^n,g)$, Ricci flow is $\partial_t g=-2\Ric(g)$. Perelman's
+$\mathcal F(g,f)=\int_M(R+|\nabla f|^2)e^{-f}\,dV_g$, coupled to a backward heat
+equation for $f$ preserving $\int e^{-f}dV$, is monotone:
+\[
+\tfrac{d}{dt}\mathcal F = 2\int_M \big|\Ric+\nabla^2 f\big|^2 e^{-f}\,dV \ge 0 .
+\]
+The integrand is $|\Ric_f|^2$ for the Bakry--\'Emery tensor
+$\Ric_f=\Ric+\nabla^2 f$, so Perelman's weight $f$ is a Bakry--\'Emery weight and
+the flow is the gradient flow of an entropy. The scale-invariant
+$\mathcal W$-entropy is likewise monotone, with critical points the gradient
+shrinking solitons.
+
+\section{OT's read operator as coarse-graining}
+Read a point of $M$ as (the sufficient statistics of) a probability model, with
+the Fisher--Rao metric as the distinguishability geometry. A read operator $\PC$
+that retains only some distinctions is a projection onto a sub-distribution of
+observables; geometrically it is a smooth surjection --- a coarse-graining
+$\pi:(M,g)\to(N,h)$, the consumer's world $N=M/\!\sim$ being the quotient by the
+fibers $\pi^{-1}(y)$ it cannot separate. When $\pi$ is a Riemannian submersion,
+$\PC$ is orthogonal projection onto the horizontal distribution.
+
+\section{Three facts that make the question well-posed}
+\begin{enumerate}
+\item[(O)] \textbf{Coarse-graining does not lose Ricci (O'Neill).} For a
+Riemannian submersion $\pi:(M,g)\to(N,h)$, O'Neill's equations give
+$\Ric_h = (\text{horizontal }\Ric_g) + (\text{non-negative }A\text{-tensor
+corrections})$; the base is \emph{more} positively curved. The consumer's
+quotient inherits curvature \emph{plus} a correction.
+\item[(D)] \textbf{The flow descends under symmetry.} Ricci flow does not
+generally preserve a submersion, but for metrics invariant under an isometry
+group $G$ (homogeneous / cohomogeneity-one), it does: $g(t)$ stays invariant and
+descends to a flow $h(t)$ on $N=M/G$. So a \emph{consumer-relative Ricci flow} is
+well-defined at least when $\PC$ quotients by a symmetry.
+\item[(P)] \textbf{Entropy contracts under coarse-graining (DPI).} Relative
+entropy is non-increasing under a Markov/coarse-graining map:
+$\Ent(\pi_\#\mu\Vert\pi_\#\nu)\le\Ent(\mu\Vert\nu)$. Perelman's
+$\mathcal F,\mathcal W$ are entropies; a consumer reads their pushforward.
+\end{enumerate}
+
+\section{The question}
+Combining (O), (D), (P): let $\pi$ quotient by a symmetry so the flow descends,
+and let $\mathcal W_{\mathcal C}(h,\bar f,\tau)$ be Perelman's $\mathcal W$
+computed on the quotient $(N,h)$.
+
+\begin{question}\label{q:mono}
+Along the descended (consumer-relative) flow, is $\mathcal W_{\mathcal C}$
+monotone, and is the \emph{gap}
+$\;\Delta_{\mathcal C}(t)=\mathcal W\big(g(t)\big)-\mathcal W_{\mathcal C}\big(h(t)\big)\;$
+monotone (say non-increasing)?
+\end{question}
+
+\begin{conjecture}[consumer-discarded distinguishability]\label{c:gap}
+For quotients by a compact isometry group with totally geodesic fibers, the gap
+$\Delta_{\mathcal C}(t)\ge0$ is monotone non-increasing along Ricci flow: the
+distinguishability the consumer cannot read is dissipated monotonically by the
+flow, at a rate controlled by the O'Neill $A$-tensor and the fiber Bakry--\'Emery
+Ricci curvature.
+\end{conjecture}
+
+The OT reading: $\Delta_{\mathcal C}$ is the reliability/entropy in the fibers ---
+exactly what $\PC$ quotients out --- and its monotonicity would be a geometric
+data-processing inequality \emph{coupled to} the flow, indexed by the consumer.
+
+\section{Honest situating}
+Every ingredient is classical and active, which bounds the novelty sharply:
+homogeneous and cohomogeneity-one Ricci flow are well developed; O'Neill
+submersion curvature is 1966; entropy DPI is elementary; and the synthetic
+picture (Lott--Villani--Sturm $\mathrm{CD}(K,N)$, Otto calculus, Bakry--\'Emery)
+already couples Ricci, entropy, and optimal transport, with substantial theory on
+quotients and measured-Gromov--Hausdorff stability. So Question~\ref{q:mono} is
+very possibly (i) an immediate corollary of Bakry--\'Emery $+$ O'Neill $+$ DPI ---
+in which case OT contributes only a clean \emph{name} for a known gap; or (ii)
+false because the O'Neill correction enters the $\mathcal W$-monotonicity slot
+with an uncontrolled sign; or (iii) vacuous outside the symmetric case, where the
+flow need not descend. I do not know which. What OT genuinely adds is
+\emph{not} a technique but a viewpoint: ``what the consumer reads'' as the
+invariant object, and the discarded-distinguishability gap as the quantity to
+track --- a reframing that is only worth anything if it makes an otherwise-opaque
+statement obvious, and worthless otherwise.
+
+\section{How to dismiss or sharpen this in five minutes}
+An expert can grade it fast: (a) Is $\Delta_{\mathcal C}$ monotonicity immediate
+from Ni's/Perelman's entropy formula applied to the quotient with the
+Bakry--\'Emery weight induced by the fiber volume? If yes, it is known --- please
+name the reference. (b) Does the O'Neill $A$-tensor term have a definite sign in
+$d\mathcal W_{\mathcal C}/dt$? If not, Conjecture~\ref{c:gap} is false as stated.
+(c) Is there a homogeneous example (e.g., a Berger-sphere collapse
+$S^3\to S^2$ under Ricci flow) where $\Delta_{\mathcal C}(t)$ can be computed
+explicitly and checked? That example alone would confirm or kill it.
+
+\paragraph{Non-applicability, stated plainly.} OT's operational apparatus ---
+witnessed certificates, false-clear rates, the sealed-measurement discipline ---
+does \emph{not} apply here: Ricci flow is a deductive problem with no consumer to
+serve and no outcome to measure. Only the information-geometric core of OT (the
+read-operator quotient of a Fisher/entropy geometry) is even a candidate, and
+only in the speculative sense above.
+
+\begin{thebibliography}{9}\small
+\bibitem{perelman} G.\ Perelman, ``The entropy formula for the Ricci flow and its
+geometric applications,'' arXiv:math/0211159, 2002.
+\bibitem{hamilton} R.\ Hamilton, ``Three-manifolds with positive Ricci
+curvature,'' J.\ Differential Geom., 1982.
+\bibitem{oneill} B.\ O'Neill, ``The fundamental equations of a submersion,''
+Michigan Math.\ J., 1966.
+\bibitem{bakryemery} D.\ Bakry, M.\ \'Emery, ``Diffusions hypercontractives,''
+S\'eminaire de Probabilit\'es XIX, 1985.
+\bibitem{lottvillani} J.\ Lott, C.\ Villani, ``Ricci curvature for
+metric-measure spaces via optimal transport,'' Ann.\ of Math., 2009.
+\bibitem{sturm} K.-T.\ Sturm, ``On the geometry of metric measure spaces I/II,''
+Acta Math., 2006.
+\bibitem{otto} F.\ Otto, ``The geometry of dissipative evolution equations: the
+porous medium equation,'' Comm.\ PDE, 2001.
+\bibitem{topping} P.\ Topping, \emph{Lectures on the Ricci Flow}, LMS Lecture
+Notes, 2006.
+\bibitem{amari} S.\ Amari, \emph{Information Geometry and Its Applications},
+Springer, 2016.
+\bibitem{bond_ot} A.\ H.\ Bond, ``Observation Theory,'' submitted to IEEE Trans.\
+Information Theory, 2026.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,55 @@
+{
+ "family": "F-QUOTE",
+ "mode": "sim",
+ "sim_is_model_validation_not_evidence": true,
+ "constants": {
+  "sigma": 1.0,
+  "half_spread": 3.0,
+  "report_period": 30,
+  "trigger_k": 0.5,
+  "duration": 20000,
+  "target": 0.1,
+  "substrate": "efficient-price random walk (canonical microstructure model); sealed rung = real ticks"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "sim",
+   "naive_fc": 0.373,
+   "witnessed_fc": 0.0126,
+   "fresh_fc": 0.0027,
+   "naive_tight": 0.5245,
+   "naive_wide": 0.1203,
+   "mean_dev_over_spread": 0.9507,
+   "n_steps": 20000,
+   "n_requotes": 4253,
+   "target": 0.1
+  },
+  {
+   "seed": 1,
+   "mode": "sim",
+   "naive_fc": 0.3644,
+   "witnessed_fc": 0.0118,
+   "fresh_fc": 0.0027,
+   "naive_tight": 0.5223,
+   "naive_wide": 0.1103,
+   "mean_dev_over_spread": 0.9291,
+   "n_steps": 20000,
+   "n_requotes": 4287,
+   "target": 0.1
+  },
+  {
+   "seed": 2,
+   "mode": "sim",
+   "naive_fc": 0.3896,
+   "witnessed_fc": 0.014,
+   "fresh_fc": 0.0026,
+   "naive_tight": 0.5379,
+   "naive_wide": 0.1224,
+   "mean_dev_over_spread": 0.9651,
+   "n_steps": 20000,
+   "n_requotes": 4315,
+   "target": 0.1
+  }
+ ]
+}
