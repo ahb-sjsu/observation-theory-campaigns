@@ -2,7 +2,12 @@
 
 **Status:** 3-page draft in the Optica meeting template. Target: OFC 2027,
 networks/systems track. Deadline **2026-10-20**; student/early-career prize eligible.
-Evidence cell: `../../analysis/qot/` (GNPy).
+Evidence cell: `../../analysis/qot/` (GNPy). Sole author: A. H. Bond.
+
+**Structure (revised):** *leads with the ML-QoT result* (the genuine novelty).
+§3.1 ML-QoT objective misalignment → **Fig. 1 = `ml_cliff.pdf`** (measured);
+§3.2 consumer-relative margin + honest capacity (~5–6% over a uniform margin, not the
+strawman 50%) → **Fig. 2 = `fc_footprint.pdf`**; §3.3 refresh floor (measured).
 
 ## Submission hard limits (OFC site + style guide)
 - **≤ 3 pages**, **PDF ≤ 2 MB**, abstract **≤ 35 words**, ≤ 3 figures.
