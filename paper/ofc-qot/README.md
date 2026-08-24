@@ -35,8 +35,14 @@ Evidence cell: `../../analysis/qot/` (GNPy).
       PASS): average-error ML-QoT wins reconstruction (MAE 0.64 vs 0.94) yet
       false-clears ~5x at the FEC cliff (0.05 vs 0.01) at equal capacity. Seal
       alongside XPROTO-QOT (PREREG-XPROTO-QOT-ML.md; run in the qot venv, numpy<2).
+- [x] **Fig. 1 pipeline ready** (`analysis/qot/fam_qot.py --paths-out` +
+      `plot_fig1.py` → `fc_footprint.pdf`, marker-shape classes). Draft committed
+      (shakedown); regenerate from the graded per-lightpath emit post-seal:
+      `fam_qot.py --seeds 20260825 20260826 20260827 --paths-out QOT-paths.json`
+      then `plot_fig1.py QOT-paths.json ../../paper/ofc-qot/fc_footprint.pdf`.
+      Run in the qot venv (numpy<2).
 - [ ] **Fig. 2**: plot the F-QOTML dissociation (MAE-vs-false-clear, or pred-vs-true
-      near a threshold) from `QOTMLREP-graded-raw.json`.
+      near a threshold) from `QOTMLREP-graded-raw.json` (add a plot_fig2.py).
 - [ ] **Use case framing** (done in the .tex): brownfield incremental fill --
       keep it concrete on final pass (name a representative link length / service rate).
 

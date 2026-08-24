@@ -141,10 +141,34 @@ def run_cell(seed, combs):
     }
 
 
+def _paths(seed, combs):
+    """Per-lightpath records for Fig. 1 (naive/aware fail vs footprint). The draw
+    order matches run_cell exactly, so these records correspond to the aggregate."""
+    rng = np.random.default_rng(seed)
+    out = []
+    for _ in range(K_PATHS):
+        ns = int(rng.choice(SPAN_POOL))
+        p = rng.random()
+        g_full = combs[(CH_FULL, ns)]; g_ref = combs[(CH_REF, ns)]
+        gsnr_full = float(g_full[round(p * (len(g_full) - 1))])
+        gsnr_ref = float(g_ref[round(p * (len(g_ref) - 1))])
+        naive_est = gsnr_ref + rng.normal(0, MON_NOISE_DB)
+        aware_est = gsnr_full + rng.normal(0, MON_NOISE_DB)
+        mn, ma = _select(naive_est), _select(aware_est)
+        out.append({"seed": int(seed), "reach": ns, "position": round(p, 4),
+                    "gsnr_ref": round(gsnr_ref, 3), "gsnr_full": round(gsnr_full, 3),
+                    "penalty_db": round(gsnr_ref - gsnr_full, 3),
+                    "naive_fail": bool(mn >= 0 and REQ[mn] > gsnr_full),
+                    "aware_fail": bool(ma >= 0 and REQ[ma] > gsnr_full)})
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
     ap.add_argument("--out", default=os.path.join(HERE, "QOTREP-family.json"))
+    ap.add_argument("--paths-out", default=None,
+                    help="also dump per-lightpath records (for Fig. 1) to this JSON")
     args = ap.parse_args()
     print("propagating GNPy line systems (ref + full loading, per reach)...", flush=True)
     combs = {}
@@ -167,6 +191,11 @@ def main():
            "cells": cells}
     json.dump(rec, open(args.out, "w"), indent=1)
     print(f"wrote {args.out}", flush=True)
+    if args.paths_out:
+        paths = [r for s in args.seeds for r in _paths(s, combs)]
+        json.dump({"family": "F-QOT", "mode": "gnpy-coronet", "records": paths},
+                  open(args.paths_out, "w"), indent=1)
+        print(f"wrote {len(paths)} per-lightpath records -> {args.paths_out}", flush=True)
 
 
 if __name__ == "__main__":
