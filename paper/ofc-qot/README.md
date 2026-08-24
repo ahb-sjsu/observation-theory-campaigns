@@ -1,8 +1,15 @@
 # OFC 2027 paper — XPROTO-QOT (consumer-relative QoT false-clear)
 
-**Status:** 2-page skeleton in the Optica meeting template. Target: OFC 2027,
+**Status:** 3-page draft in the Optica meeting template. Target: OFC 2027,
 networks/systems track. Deadline **2026-10-20**; student/early-career prize eligible.
 Evidence cell: `../../analysis/qot/` (GNPy).
+
+## Submission hard limits (OFC site + style guide)
+- **≤ 3 pages**, **PDF ≤ 2 MB**, abstract **≤ 35 words**, ≤ 3 figures.
+- The uploaded PDF **must** carry title, abstract, and **all author names +
+  affiliations**, and these must **match** what is entered in the submission form.
+- **No author-supplied copyright statement** (Optica adds it). Follow the Style
+  Guide exactly or the paper is auto-rejected.
 
 ## Build
 1. Copy `opticameet3.sty` and `opticajnl.bst` from the Overleaf "Template for
@@ -10,7 +17,7 @@ Evidence cell: `../../analysis/qot/` (GNPy).
    (they are not redistributed here).
 2. `pdflatex ofc-qot && bibtex ofc-qot && pdflatex ofc-qot && pdflatex ofc-qot`
    (MiKTeX; same toolchain as the IEEE drafts).
-3. Confirm it fits **2 pages** and the abstract is **≤ 35 words**.
+3. Confirm **≤ 3 pages**, abstract **≤ 35 words**, PDF **≤ 2 MB**.
 
 ## Finalization checklist (before submit)
 - [ ] **Seal + grade XPROTO-QOT** (fresh day ≥ 2026-08-25) → `XPROTO-QOT-graded.json`;
