@@ -28,6 +28,7 @@ estimation-control, …) which read `tr(P_C·Σ)` in allocation rather than fres
 | [RADIO-FRESHNESS](RADIO-FRESHNESS-TRACK.md) | 5G/6G PHY + RAN | XPROTO-CSI, -BEAM, -AICSI, -HO, -URLLC, -PHY, -CCA |
 | [QUANTUM-COMPUTING](QUANTUM-COMPUTING-TRACK.md) | quantum devices | XPROTO-QUANTUM (calibration/backend-selection) |
 | [MARKETS-FRESHNESS](MARKETS-FRESHNESS-TRACK.md) | market microstructure | XPROTO-QUOTE, portfolio tr(P·Σ) |
+| [OPTICAL-FRESHNESS](OPTICAL-FRESHNESS-TRACK.md) | optical networks | XPROTO-QOT (QoT-certificate vacuity, GNPy) |
 
 ## Seal provenance across the re-home (binding)
 

@@ -1,0 +1,72 @@
+{
+ "family": "F-QOT",
+ "mode": "gnpy",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "ch_full": 76,
+  "ch_ref": 6,
+  "span_set": [
+   4,
+   6,
+   8,
+   10,
+   12,
+   14,
+   16
+  ],
+  "power_dbm": 2.0,
+  "nf_db": 6.0,
+  "margin_db": 1.0,
+  "mon_noise_db": 0.3,
+  "mods": [
+   "QPSK",
+   "8QAM",
+   "16QAM",
+   "32QAM",
+   "64QAM"
+  ],
+  "req_gsnr_db": [
+   6.5,
+   9.0,
+   12.5,
+   16.0,
+   19.0
+  ],
+  "substrate": "GNPy gn_model_analytic NLI over SSMF+EDFA line system; witness = true GSNR under full loading"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "gnpy",
+   "naive_fc": 0.4,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.593,
+   "fc_spread": 0.4899,
+   "n_fc": 24,
+   "mean_bits_per_symbol_aware": 4.067,
+   "n_paths": 60
+  },
+  {
+   "seed": 1,
+   "mode": "gnpy",
+   "naive_fc": 0.3833,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.5893,
+   "fc_spread": 0.4862,
+   "n_fc": 23,
+   "mean_bits_per_symbol_aware": 4.167,
+   "n_paths": 60
+  },
+  {
+   "seed": 2,
+   "mode": "gnpy",
+   "naive_fc": 0.4,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.5886,
+   "fc_spread": 0.4899,
+   "n_fc": 24,
+   "mean_bits_per_symbol_aware": 4.283,
+   "n_paths": 60
+  }
+ ]
+}
