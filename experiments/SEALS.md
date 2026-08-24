@@ -67,3 +67,13 @@ prereg's path in network-governor equals its re-homed path below. Verify:
 | XPROTO-BEAM | analysis/beam/PREREG-XPROTO-BEAM.md | ng:fda9148 | 13b18f159133ab2c8edb15ec2f18039b3892f4b9b374f9eea754545f19d6d281 | 2026-08-23 | A. H. Bond |
 | XPROTO-AICSI | analysis/aicsi/PREREG-XPROTO-AICSI.md | ng:fda9148 | cf513425588de3214858ab48ac5aea30ba547a144fbdc01cbeaddfde3dd4f9d0 | 2026-08-23 | A. H. Bond |
 | XPROTO-HO | analysis/ho/PREREG-XPROTO-HO.md | ng:fda9148 | 6763dfbe6afa8d600348828b96a0c3d2b80e3db7ada1660fa50635c8764e73f0 | 2026-08-23 | A. H. Bond |
+
+### Freshness cells sealed natively in this repo
+
+Sealed here after the re-home; the sealing commit is in **this** repo (no `ng:`
+prefix). Verify: `git show <commit>:<path> | sha256sum`.
+
+| Registration ID | File | Sealing commit | SHA-256 | Date | Authorized by |
+|---|---|---|---|---|---|
+| XPROTO-URLLC | analysis/urllc/PREREG-XPROTO-URLLC.md | 6375ebd | ea79ecb79b2adf7bced62e18b0df922680dd27a3cffa41b1bbbe46eb4686ce68 | 2026-08-24 | A. H. Bond |
+| XPROTO-PHY | analysis/phy/PREREG-XPROTO-PHY.md | 6375ebd | 48998923768207f9311476ebdf56bdb1aef86949198fd5e9abdbc63548ee8eac | 2026-08-24 | A. H. Bond |

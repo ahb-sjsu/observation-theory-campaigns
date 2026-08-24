@@ -1,0 +1,51 @@
+{
+ "family": "F-URLLC",
+ "mode": "nrsionna",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "embb_target": 0.1,
+  "urllc_target": 0.001,
+  "urllc_margin_db": 4.0,
+  "cqi_noise_db": 1.0,
+  "duration": 6000,
+  "substrate": "real Sionna 5G NR LDPC curves + TDL fading, fresh CSI; URLLC tail below the 400-block sim resolution"
+ },
+ "cells": [
+  {
+   "seed": 20260824,
+   "mode": "nrsionna",
+   "embb_target": 0.1,
+   "urllc_target": 0.001,
+   "achieved_embb": 0.1119,
+   "achieved_urllc_naive": 0.1119,
+   "achieved_urllc_aware": 1.7e-05,
+   "mcs_margin": 1.987,
+   "n_tti": 6000,
+   "mcs_var": 13
+  },
+  {
+   "seed": 20260825,
+   "mode": "nrsionna",
+   "embb_target": 0.1,
+   "urllc_target": 0.001,
+   "achieved_embb": 0.11031,
+   "achieved_urllc_naive": 0.11031,
+   "achieved_urllc_aware": 1.9e-05,
+   "mcs_margin": 2.01,
+   "n_tti": 6000,
+   "mcs_var": 13
+  },
+  {
+   "seed": 20260826,
+   "mode": "nrsionna",
+   "embb_target": 0.1,
+   "urllc_target": 0.001,
+   "achieved_embb": 0.11251,
+   "achieved_urllc_naive": 0.11251,
+   "achieved_urllc_aware": 0.0,
+   "mcs_margin": 2.015,
+   "n_tti": 6000,
+   "mcs_var": 13
+  }
+ ]
+}

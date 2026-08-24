@@ -22,8 +22,8 @@ eMBB (1e-1) and vacuous for URLLC (1e-3).
 | **XPROTO-BEAM** (`analysis/beam`) | mmWave beam index | HARQ | 0.31 → 0.02 (BFR) | ✅ 08-23 |
 | **XPROTO-AICSI** (`analysis/aicsi`) | neural-CSI recon (turboquant bridge) | precoder/HARQ | recon wins yet 0.28 → 0.13 | ✅ 08-23 |
 | **XPROTO-HO** (`analysis/ho`) | RSRP → serving cell | RLF | 0.31–0.44 → 0.09–0.12 | ✅ 08-23 |
-| **XPROTO-URLLC** (`analysis/urllc`) | reliability target (eMBB vs URLLC) | HARQ vs budget | ~0.11 → ~1e-4 (+diversity) | unsealed |
-| **XPROTO-PHY** (`analysis/phy`) | PMI / RI / TA | HARQ | 0.28–0.47 → 0.055–0.13 | unsealed (real-Sionna rung) |
+| **XPROTO-URLLC** (`analysis/urllc`) | reliability target (eMBB vs URLLC) | HARQ vs budget | ~0.11 → ~1e-5 (+diversity) | ✅ 08-24 |
+| **XPROTO-PHY** (`analysis/phy`) | PMI / RI / TA | HARQ | 0.27–0.42 → 0.055–0.13 | ✅ 08-24 |
 | **XPROTO-CCA** (`analysis/cca`) | 802.11 CCA | ADALM-Pluto Rx | ~0.30 → ~0.03 (RTS/CTS) | unsealed (SDR-gated) |
 
 **OT-14 refresh-floor law** (`analysis/csi/CSI-refreshfloor.*`): the report period
@@ -37,9 +37,10 @@ observe→measure false-clear→refresh at the floor→escalate (diversity / re-
 `analysis/freshread` — the generalized `read_fresh` witness-gate (ZK/PG/Mongo
 adapters), shared across the database-freshness and radio tracks.
 
-## Seal path for the unsealed cells
+## Seals
 
-URLLC/PHY seal on the real Sionna substrate (their sealed rung, not the parametric
-model), fresh-day ≥ construct+1. CCA seals on the SDR bench (ADALM-Pluto,
-hidden-node wiring — hardware-gated). Provenance for the sealed four: SEALS.md,
-citing network-governor sealing commit `ng:fda9148`.
+CSI/BEAM/AICSI/HO sealed in network-governor (`ng:fda9148`); **URLLC + PHY sealed
+natively here 2026-08-24 on the real Sionna substrate** (URLLC PASS: eMBB ~0.11,
+naive ≥30× URLLC budget, aware ~1e-5; PHY PASS: PMI/RI/TA all bars on the nrsionna
+LDPC decode). Only **CCA** remains unsealed — SDR-gated (ADALM-Pluto hidden-node
+bench). See SEALS.md.
