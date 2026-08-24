@@ -1,0 +1,51 @@
+{
+ "family": "F-GRID",
+ "mode": "pandapower",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "target_util": 0.6,
+  "mean_scale": 1.29,
+  "rho": 0.75,
+  "sigma": 0.09,
+  "r_report": 60,
+  "se_noise_pct": 1.5,
+  "duration": 2000,
+  "limit": 100.0,
+  "substrate": "pandapower AC power flow, IEEE case14, lines rated to 60% base utilisation; witness = true AC PF loading"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "pandapower",
+   "naive_fc": 0.2735,
+   "witnessed_fc": 0.011,
+   "true_overload_rate": 0.403,
+   "fc_line_spread": 0.0742,
+   "n_steps": 2000,
+   "n_lines": 15,
+   "r_report": 60
+  },
+  {
+   "seed": 1,
+   "mode": "pandapower",
+   "naive_fc": 0.237,
+   "witnessed_fc": 0.013,
+   "true_overload_rate": 0.417,
+   "fc_line_spread": 0.0671,
+   "n_steps": 2000,
+   "n_lines": 15,
+   "r_report": 60
+  },
+  {
+   "seed": 2,
+   "mode": "pandapower",
+   "naive_fc": 0.312,
+   "witnessed_fc": 0.011,
+   "true_overload_rate": 0.368,
+   "fc_line_spread": 0.0813,
+   "n_steps": 2000,
+   "n_lines": 15,
+   "r_report": 60
+  }
+ ]
+}
