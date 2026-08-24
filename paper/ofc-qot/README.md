@@ -31,9 +31,14 @@ Evidence cell: `../../analysis/qot/` (GNPy).
 - [ ] Fill the real references (GNPy paper; a representative ML-QoT / margin-reduction
       citation, e.g. Pointon/Seve/Ayassi; the OT program).
 - [ ] Author block / email confirmed; no author-supplied copyright statement.
-- [ ] Optional Result 2: build a small ML-QoT estimator on GNPy data and show the
-      average-error-optimal estimator false-clears at the FEC cliff vs a
-      consumer/threshold-aware objective (the AICSI corollary). Only if it fits 2 pp.
+- [x] **Result 2 BUILT + measured** (`analysis/qot/fam_qotml.py`, F-QOTML shakedown
+      PASS): average-error ML-QoT wins reconstruction (MAE 0.64 vs 0.94) yet
+      false-clears ~5x at the FEC cliff (0.05 vs 0.01) at equal capacity. Seal
+      alongside XPROTO-QOT (PREREG-XPROTO-QOT-ML.md; run in the qot venv, numpy<2).
+- [ ] **Fig. 2**: plot the F-QOTML dissociation (MAE-vs-false-clear, or pred-vs-true
+      near a threshold) from `QOTMLREP-graded-raw.json`.
+- [ ] **Use case framing** (done in the .tex): brownfield incremental fill --
+      keep it concrete on final pass (name a representative link length / service rate).
 
 ## Positioning (honest)
 The contribution is a **measurement + framing** (false-clear rate as a first-class,

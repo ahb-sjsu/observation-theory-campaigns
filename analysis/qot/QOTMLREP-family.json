@@ -1,0 +1,54 @@
+{
+ "family": "F-QOTML",
+ "mode": "gnpy+sklearn",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "ref_load": 6,
+  "loadings": [
+   6,
+   20,
+   40,
+   60,
+   76
+  ],
+  "n_pos": 40,
+  "margin_db": 0.5,
+  "aware_quantile": 0.15,
+  "substrate": "GNPy GN-model GSNR (fam_qot) + sklearn GBR; MSE vs conservative-quantile objective; witness = true GSNR"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "gnpy+sklearn",
+   "mae_mse": 0.6434,
+   "mae_aware": 0.9209,
+   "fc_mse": 0.0641,
+   "fc_aware": 0.0143,
+   "bps_mse": 4.311,
+   "bps_aware": 4.328,
+   "n_test": 421
+  },
+  {
+   "seed": 1,
+   "mode": "gnpy+sklearn",
+   "mae_mse": 0.6397,
+   "mae_aware": 0.9931,
+   "fc_mse": 0.0333,
+   "fc_aware": 0.0024,
+   "bps_mse": 4.42,
+   "bps_aware": 4.354,
+   "n_test": 421
+  },
+  {
+   "seed": 2,
+   "mode": "gnpy+sklearn",
+   "mae_mse": 0.6726,
+   "mae_aware": 0.9105,
+   "fc_mse": 0.057,
+   "fc_aware": 0.0095,
+   "bps_mse": 4.235,
+   "bps_aware": 4.261,
+   "n_test": 421
+  }
+ ]
+}
