@@ -63,3 +63,7 @@ prereg's path in network-governor equals its re-homed path below. Verify:
 | XPROTO-PGX | analysis/pgx/PREREG-XPROTO-PGX.md | ng:e0a7a67 | 81e726bad8a01614a64e702f0e4a092f728a0b16b94d8ff6d21dceff33181de1 | 2026-08-21 | A. H. Bond |
 | XPROTO-GEO | analysis/geofleet/PREREG-XPROTO-GEO.md | ng:89557b8 | e18b1ded70a38f95167caf6e52b34aefa63415304db06b42383f0b18e7833819 | 2026-08-22 | A. H. Bond |
 | XPROTO-ZK | analysis/zk/PREREG-XPROTO-ZK.md | ng:b36f433 | 000cd35ebbfb1ce5a528b55df61eec906bb01d7e0864318b4b4ac1e4ff2f350c | 2026-08-24 | A. H. Bond |
+| XPROTO-CSI | analysis/csi/PREREG-XPROTO-CSI.md | ng:fda9148 | 683d86ec681a7788a4a9f1b75ea2d06ff2595e1288425323b11dc98206eaca92 | 2026-08-23 | A. H. Bond |
+| XPROTO-BEAM | analysis/beam/PREREG-XPROTO-BEAM.md | ng:fda9148 | 13b18f159133ab2c8edb15ec2f18039b3892f4b9b374f9eea754545f19d6d281 | 2026-08-23 | A. H. Bond |
+| XPROTO-AICSI | analysis/aicsi/PREREG-XPROTO-AICSI.md | ng:fda9148 | cf513425588de3214858ab48ac5aea30ba547a144fbdc01cbeaddfde3dd4f9d0 | 2026-08-23 | A. H. Bond |
+| XPROTO-HO | analysis/ho/PREREG-XPROTO-HO.md | ng:fda9148 | 6763dfbe6afa8d600348828b96a0c3d2b80e3db7ada1660fa50635c8764e73f0 | 2026-08-23 | A. H. Bond |

@@ -1,0 +1,53 @@
+{
+ "family": "F-CSI",
+ "mode": "sim",
+ "sim_is_code_validation_not_evidence": true,
+ "constants": {
+  "fd_hz": 200.0,
+  "report_period": 20,
+  "target_bler": 0.1,
+  "mean_sinr_db": 12.0,
+  "duration_tti": 6000
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "sim",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.2977,
+   "olla_bler": 0.1005,
+   "fresh_bler": 0.0663,
+   "cqi_err_db": 4.11,
+   "n_tti": 6000,
+   "mcs_var": 13,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 1,
+   "mode": "sim",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.3478,
+   "olla_bler": 0.101,
+   "fresh_bler": 0.0685,
+   "cqi_err_db": 3.958,
+   "n_tti": 6000,
+   "mcs_var": 12,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 2,
+   "mode": "sim",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.3188,
+   "olla_bler": 0.1007,
+   "fresh_bler": 0.0713,
+   "cqi_err_db": 4.232,
+   "n_tti": 6000,
+   "mcs_var": 12,
+   "target_bler": 0.1
+  }
+ ]
+}

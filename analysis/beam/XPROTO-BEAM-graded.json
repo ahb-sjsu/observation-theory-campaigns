@@ -1,0 +1,89 @@
+{
+ "cells": [
+  {
+   "seed": 20260823,
+   "mode": "nrsionna_beam",
+   "omega_dps": 300.0,
+   "report_period": 20,
+   "n_ant": 16,
+   "mcs": 5,
+   "naive_bler": 0.3285,
+   "bfr_bler": 0.1008,
+   "fresh_bler": 0.0248,
+   "beam_loss_db": 4.787,
+   "n_slot": 6000,
+   "beam_var": 17,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260824,
+   "mode": "nrsionna_beam",
+   "omega_dps": 300.0,
+   "report_period": 20,
+   "n_ant": 16,
+   "mcs": 5,
+   "naive_bler": 0.3098,
+   "bfr_bler": 0.0978,
+   "fresh_bler": 0.0208,
+   "beam_loss_db": 4.673,
+   "n_slot": 6000,
+   "beam_var": 16,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260825,
+   "mode": "nrsionna_beam",
+   "omega_dps": 300.0,
+   "report_period": 20,
+   "n_ant": 16,
+   "mcs": 5,
+   "naive_bler": 0.3148,
+   "bfr_bler": 0.1035,
+   "fresh_bler": 0.0273,
+   "beam_loss_db": 4.678,
+   "n_slot": 6000,
+   "beam_var": 16,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-BEAM",
+ "sealed": "2026-08-23",
+ "seeds": [
+  20260823,
+  20260824,
+  20260825
+ ]
+}

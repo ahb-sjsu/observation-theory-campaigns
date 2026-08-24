@@ -1,0 +1,86 @@
+{
+ "cells": [
+  {
+   "seed": 20260823,
+   "mode": "nrsionna_ho",
+   "v_mps": 30.0,
+   "report_period": 300,
+   "mcs": 1,
+   "naive_bler": 0.344,
+   "rlm_bler": 0.1068,
+   "fresh_bler": 0.0928,
+   "ho_lag_frac": 0.3143,
+   "n_slot": 6000,
+   "n_ho": 308,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260824,
+   "mode": "nrsionna_ho",
+   "v_mps": 30.0,
+   "report_period": 300,
+   "mcs": 1,
+   "naive_bler": 0.3372,
+   "rlm_bler": 0.1117,
+   "fresh_bler": 0.0937,
+   "ho_lag_frac": 0.304,
+   "n_slot": 6000,
+   "n_ho": 335,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260825,
+   "mode": "nrsionna_ho",
+   "v_mps": 30.0,
+   "report_period": 300,
+   "mcs": 1,
+   "naive_bler": 0.2635,
+   "rlm_bler": 0.1007,
+   "fresh_bler": 0.0828,
+   "ho_lag_frac": 0.2423,
+   "n_slot": 6000,
+   "n_ho": 254,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-HO",
+ "sealed": "2026-08-23",
+ "seeds": [
+  20260823,
+  20260824,
+  20260825
+ ]
+}

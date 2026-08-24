@@ -1,0 +1,59 @@
+{
+ "family": "F-CSI",
+ "mode": "nrsionna",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "fd_hz": 200.0,
+  "report_period": 20,
+  "target_bler": 0.1,
+  "mean_snr_db": 12.0,
+  "duration_tti": 6000,
+  "carrier_hz": 3500000000.0,
+  "delay_spread_s": 3e-08,
+  "k_info": 1024,
+  "ldpc_iters": 20,
+  "nblocks_per_snr": 400,
+  "substrate": "real 5G NR PHY via NVIDIA Sionna 1.2 (open source): 3GPP 5G LDPC (TS 38.212) + QAM + TR38.901 TDL-A channel with 200Hz Doppler; real LDPC-measured BLER curves; 3GPP link-to-system methodology; narrowband SISO"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "nrsionna",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.3717,
+   "olla_bler": 0.1013,
+   "fresh_bler": 0.1037,
+   "cqi_err_db": 5.599999904632568,
+   "n_tti": 6000,
+   "mcs_var": 11,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 1,
+   "mode": "nrsionna",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.3548,
+   "olla_bler": 0.1013,
+   "fresh_bler": 0.1152,
+   "cqi_err_db": 5.5329999923706055,
+   "n_tti": 6000,
+   "mcs_var": 12,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 2,
+   "mode": "nrsionna",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.3637,
+   "olla_bler": 0.1018,
+   "fresh_bler": 0.1072,
+   "cqi_err_db": 5.728000164031982,
+   "n_tti": 6000,
+   "mcs_var": 12,
+   "target_bler": 0.1
+  }
+ ]
+}

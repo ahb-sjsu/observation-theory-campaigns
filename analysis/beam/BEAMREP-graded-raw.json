@@ -1,0 +1,62 @@
+{
+ "family": "F-BEAM",
+ "mode": "nrsionna_beam",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "n_ant": 16,
+  "n_beams": 24,
+  "omega_dps": 300.0,
+  "report_period": 20,
+  "duration_slot": 6000,
+  "target_bler": 0.1,
+  "bfr_nack_thresh": 2,
+  "substrate": "exact lambda/2 ULA array factor (beamforming gain vs angular misalignment) + real 5G NR LDPC BLER curves (Sionna, imported from csi_sionna); angular-drift aging"
+ },
+ "cells": [
+  {
+   "seed": 20260823,
+   "mode": "nrsionna_beam",
+   "omega_dps": 300.0,
+   "report_period": 20,
+   "n_ant": 16,
+   "mcs": 5,
+   "naive_bler": 0.3285,
+   "bfr_bler": 0.1008,
+   "fresh_bler": 0.0248,
+   "beam_loss_db": 4.787,
+   "n_slot": 6000,
+   "beam_var": 17,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 20260824,
+   "mode": "nrsionna_beam",
+   "omega_dps": 300.0,
+   "report_period": 20,
+   "n_ant": 16,
+   "mcs": 5,
+   "naive_bler": 0.3098,
+   "bfr_bler": 0.0978,
+   "fresh_bler": 0.0208,
+   "beam_loss_db": 4.673,
+   "n_slot": 6000,
+   "beam_var": 16,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 20260825,
+   "mode": "nrsionna_beam",
+   "omega_dps": 300.0,
+   "report_period": 20,
+   "n_ant": 16,
+   "mcs": 5,
+   "naive_bler": 0.3148,
+   "bfr_bler": 0.1035,
+   "fresh_bler": 0.0273,
+   "beam_loss_db": 4.678,
+   "n_slot": 6000,
+   "beam_var": 16,
+   "target_bler": 0.1
+  }
+ ]
+}

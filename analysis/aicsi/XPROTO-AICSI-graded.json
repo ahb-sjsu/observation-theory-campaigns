@@ -1,0 +1,83 @@
+{
+ "cells": [
+  {
+   "seed": 20260823,
+   "mode": "nrsionna_aicsi",
+   "nmse_recon_nmse": 0.6735,
+   "nmse_recon_aware": 1.1876,
+   "nmse_false_clear": 0.2936,
+   "aware_false_clear": 0.1301,
+   "nmse_gain_frac": 0.5317,
+   "aware_gain_frac": 0.6708,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260824,
+   "mode": "nrsionna_aicsi",
+   "nmse_recon_nmse": 0.6578,
+   "nmse_recon_aware": 1.1596,
+   "nmse_false_clear": 0.2692,
+   "aware_false_clear": 0.142,
+   "nmse_gain_frac": 0.5468,
+   "aware_gain_frac": 0.6646,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260825,
+   "mode": "nrsionna_aicsi",
+   "nmse_recon_nmse": 0.6772,
+   "nmse_recon_aware": 1.1251,
+   "nmse_false_clear": 0.2994,
+   "aware_false_clear": 0.128,
+   "nmse_gain_frac": 0.5272,
+   "aware_gain_frac": 0.6698,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-AICSI",
+ "sealed": "2026-08-23",
+ "seeds": [
+  20260823,
+  20260824,
+  20260825
+ ]
+}

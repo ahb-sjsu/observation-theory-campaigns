@@ -1,0 +1,76 @@
+{
+ "k_floor": 0.177,
+ "condition": "CSI feedback viable iff RTT < Tcoh",
+ "scenarios": [
+  {
+   "scenario": "Terrestrial pedestrian",
+   "fd_hz": 10,
+   "tcoh_ms": 42.3,
+   "refresh_floor_ms": 7.487,
+   "rtt_ms": 1,
+   "rtt_over_tcoh": 0.02,
+   "csi_feedback_viable": true,
+   "note": "urban, 3 km/h"
+  },
+  {
+   "scenario": "Terrestrial vehicular",
+   "fd_hz": 200,
+   "tcoh_ms": 2.115,
+   "refresh_floor_ms": 0.374,
+   "rtt_ms": 1,
+   "rtt_over_tcoh": 0.47,
+   "csi_feedback_viable": true,
+   "note": "~100 km/h @3.5 GHz"
+  },
+  {
+   "scenario": "Terrestrial HSR",
+   "fd_hz": 1000,
+   "tcoh_ms": 0.423,
+   "refresh_floor_ms": 0.075,
+   "rtt_ms": 2,
+   "rtt_over_tcoh": 4.73,
+   "csi_feedback_viable": false,
+   "note": "high-speed rail, residual Doppler"
+  },
+  {
+   "scenario": "LEO regenerative",
+   "fd_hz": 1000,
+   "tcoh_ms": 0.423,
+   "refresh_floor_ms": 0.075,
+   "rtt_ms": 7,
+   "rtt_over_tcoh": 16.55,
+   "csi_feedback_viable": false,
+   "note": "550 km, on-board gNB, post pre-comp"
+  },
+  {
+   "scenario": "LEO bent-pipe",
+   "fd_hz": 1000,
+   "tcoh_ms": 0.423,
+   "refresh_floor_ms": 0.075,
+   "rtt_ms": 30,
+   "rtt_over_tcoh": 70.92,
+   "csi_feedback_viable": false,
+   "note": "550 km via ground gateway"
+  },
+  {
+   "scenario": "MEO",
+   "fd_hz": 300,
+   "tcoh_ms": 1.41,
+   "refresh_floor_ms": 0.25,
+   "rtt_ms": 100,
+   "rtt_over_tcoh": 70.92,
+   "csi_feedback_viable": false,
+   "note": "~8000 km"
+  },
+  {
+   "scenario": "GEO",
+   "fd_hz": 80,
+   "tcoh_ms": 5.287,
+   "refresh_floor_ms": 0.936,
+   "rtt_ms": 270,
+   "rtt_over_tcoh": 51.06,
+   "csi_feedback_viable": false,
+   "note": "35786 km, bent-pipe"
+  }
+ ]
+}

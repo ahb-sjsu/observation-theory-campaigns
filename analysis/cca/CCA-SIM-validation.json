@@ -1,0 +1,49 @@
+{
+ "family": "F-CCA",
+ "mode": "sim",
+ "sim_is_code_validation_not_evidence": true,
+ "constants": {
+  "duration_s": 20.0,
+  "frame_s": 0.0006,
+  "a_rate": 200.0,
+  "c_duty": 0.3
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "sim",
+   "fc_cca": 0.3061,
+   "fc_rtscts": 0.0322,
+   "n_clear": 3959,
+   "n_concurrent": 1266,
+   "clean_decode_rate": 0.9677,
+   "a_clear_during_c": 0.9655,
+   "witness_detect": 1.0,
+   "witness_aligned": true
+  },
+  {
+   "seed": 1,
+   "mode": "sim",
+   "fc_cca": 0.3173,
+   "fc_rtscts": 0.0304,
+   "n_clear": 3961,
+   "n_concurrent": 1328,
+   "clean_decode_rate": 0.9677,
+   "a_clear_during_c": 0.9685,
+   "witness_detect": 1.0,
+   "witness_aligned": true
+  },
+  {
+   "seed": 2,
+   "mode": "sim",
+   "fc_cca": 0.3029,
+   "fc_rtscts": 0.028,
+   "n_clear": 3962,
+   "n_concurrent": 1263,
+   "clean_decode_rate": 0.97,
+   "a_clear_during_c": 0.9683,
+   "witness_detect": 1.0,
+   "witness_aligned": true
+  }
+ ]
+}

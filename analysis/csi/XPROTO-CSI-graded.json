@@ -1,0 +1,83 @@
+{
+ "cells": [
+  {
+   "seed": 20260823,
+   "mode": "nrsionna",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.3662,
+   "olla_bler": 0.1007,
+   "fresh_bler": 0.1155,
+   "cqi_err_db": 5.614999771118164,
+   "n_tti": 6000,
+   "mcs_var": 12,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260824,
+   "mode": "nrsionna",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.34,
+   "olla_bler": 0.1015,
+   "fresh_bler": 0.115,
+   "cqi_err_db": 5.855999946594238,
+   "n_tti": 6000,
+   "mcs_var": 12,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260825,
+   "mode": "nrsionna",
+   "fd_hz": 200.0,
+   "report_period": 20,
+   "naive_bler": 0.3728,
+   "olla_bler": 0.101,
+   "fresh_bler": 0.1128,
+   "cqi_err_db": 5.755000114440918,
+   "n_tti": 6000,
+   "mcs_var": 13,
+   "target_bler": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-CSI",
+ "sealed": "2026-08-23",
+ "seeds": [
+  20260823,
+  20260824,
+  20260825
+ ]
+}

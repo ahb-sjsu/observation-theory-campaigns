@@ -1,0 +1,55 @@
+{
+ "family": "F-AICSI",
+ "mode": "nrsionna_aicsi",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "nr": 2,
+  "nt": 16,
+  "b_latent": 9,
+  "npath": 4,
+  "operating_sinr_db": 14.0,
+  "target_bler": 0.1,
+  "substrate": "learned CSI autoencoders (recon-NMSE vs consumer-gain loss) + real Sionna 5G NR LDPC BLER curves; MRT precoder = top singular vector"
+ },
+ "cells": [
+  {
+   "seed": 20260823,
+   "mode": "nrsionna_aicsi",
+   "nmse_recon_nmse": 0.6735,
+   "nmse_recon_aware": 1.1876,
+   "nmse_false_clear": 0.2936,
+   "aware_false_clear": 0.1301,
+   "nmse_gain_frac": 0.5317,
+   "aware_gain_frac": 0.6708,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 20260824,
+   "mode": "nrsionna_aicsi",
+   "nmse_recon_nmse": 0.6578,
+   "nmse_recon_aware": 1.1596,
+   "nmse_false_clear": 0.2692,
+   "aware_false_clear": 0.142,
+   "nmse_gain_frac": 0.5468,
+   "aware_gain_frac": 0.6646,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 20260825,
+   "mode": "nrsionna_aicsi",
+   "nmse_recon_nmse": 0.6772,
+   "nmse_recon_aware": 1.1251,
+   "nmse_false_clear": 0.2994,
+   "aware_false_clear": 0.128,
+   "nmse_gain_frac": 0.5272,
+   "aware_gain_frac": 0.6698,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1
+  }
+ ]
+}

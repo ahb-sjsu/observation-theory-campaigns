@@ -1,0 +1,58 @@
+{
+ "family": "F-HO",
+ "mode": "nrsionna_ho",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "v_mps": 30.0,
+  "report_period": 300,
+  "cell_sep_m": 500.0,
+  "shadow_std_db": 6.0,
+  "target_bler": 0.1,
+  "rlm_nack_thresh": 3,
+  "substrate": "2-cell mobility geometry (pathloss + correlated shadowing + fast fade) + real Sionna 5G NR LDPC BLER curves for the serving link; RSRP-report aging"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "nrsionna_ho",
+   "v_mps": 30.0,
+   "report_period": 300,
+   "mcs": 1,
+   "naive_bler": 0.3073,
+   "rlm_bler": 0.0945,
+   "fresh_bler": 0.0847,
+   "ho_lag_frac": 0.2852,
+   "n_slot": 6000,
+   "n_ho": 266,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 1,
+   "mode": "nrsionna_ho",
+   "v_mps": 30.0,
+   "report_period": 300,
+   "mcs": 1,
+   "naive_bler": 0.4142,
+   "rlm_bler": 0.0913,
+   "fresh_bler": 0.0777,
+   "ho_lag_frac": 0.393,
+   "n_slot": 6000,
+   "n_ho": 245,
+   "target_bler": 0.1
+  },
+  {
+   "seed": 2,
+   "mode": "nrsionna_ho",
+   "v_mps": 30.0,
+   "report_period": 300,
+   "mcs": 1,
+   "naive_bler": 0.4388,
+   "rlm_bler": 0.1188,
+   "fresh_bler": 0.1013,
+   "ho_lag_frac": 0.4352,
+   "n_slot": 6000,
+   "n_ho": 317,
+   "target_bler": 0.1
+  }
+ ]
+}
