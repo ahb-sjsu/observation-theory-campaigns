@@ -1,0 +1,334 @@
+{
+ "cells": [
+  {
+   "seed": 20260821,
+   "n_samples": 3979,
+   "footprints": {
+    "HOT": [
+     "order_items",
+     "orders"
+    ],
+    "COLD": [
+     "catalog",
+     "category"
+    ]
+   },
+   "writes": {
+    "orders": 336,
+    "order_items": 336,
+    "catalog": 19,
+    "category": 19
+   },
+   "rate": 5.97,
+   "cold_int": 6.31,
+   "naive": {
+    "0.1": {
+     "HOT": {
+      "fc": 0.0,
+      "fa": 0.5258
+     },
+     "COLD": {
+      "fc": 0.0,
+      "fa": 0.9568
+     }
+    },
+    "0.5": {
+     "HOT": {
+      "fc": 0.3526,
+      "fa": 0.4717
+     },
+     "COLD": {
+      "fc": 0.0118,
+      "fa": 0.562
+     }
+    },
+    "1.0": {
+     "HOT": {
+      "fc": 0.47,
+      "fa": 0.4202
+     },
+     "COLD": {
+      "fc": 0.0251,
+      "fa": 0.4064
+     }
+    },
+    "2.0": {
+     "HOT": {
+      "fc": 0.47,
+      "fa": 0.3282
+     },
+     "COLD": {
+      "fc": 0.0259,
+      "fa": 0.3152
+     }
+    },
+    "5.0": {
+     "HOT": {
+      "fc": 0.4702,
+      "fa": 0.0958
+     },
+     "COLD": {
+      "fc": 0.0269,
+      "fa": 0.0834
+     }
+    }
+   },
+   "aware": {
+    "HOT": {
+     "fc": 0.0,
+     "fa": 0.0269
+    },
+    "COLD": {
+     "fc": 0.0,
+     "fa": 0.009
+    }
+   },
+   "naive_minmax": 0.47,
+   "aware_max": 0.0269,
+   "truth_stale_frac": {
+    "HOT": 0.4722,
+    "COLD": 0.0412
+   },
+   "lag_std": 1.863,
+   "max_busy_lag": 5.225,
+   "min_latency": 0.113,
+   "guard": 0.06,
+   "tick": 0.03,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true,
+    "MC4": true
+   }
+  },
+  {
+   "seed": 20260822,
+   "n_samples": 11880,
+   "footprints": {
+    "HOT": [
+     "order_items",
+     "orders"
+    ],
+    "COLD": [
+     "catalog",
+     "category"
+    ]
+   },
+   "writes": {
+    "orders": 290,
+    "order_items": 290,
+    "catalog": 18,
+    "category": 18
+   },
+   "rate": 5.05,
+   "cold_int": 6.51,
+   "naive": {
+    "0.1": {
+     "HOT": {
+      "fc": 0.0,
+      "fa": 0.5309
+     },
+     "COLD": {
+      "fc": 0.0,
+      "fa": 0.9478
+     }
+    },
+    "0.5": {
+     "HOT": {
+      "fc": 0.3332,
+      "fa": 0.4805
+     },
+     "COLD": {
+      "fc": 0.0192,
+      "fa": 0.5833
+     }
+    },
+    "1.0": {
+     "HOT": {
+      "fc": 0.4643,
+      "fa": 0.4261
+     },
+     "COLD": {
+      "fc": 0.0267,
+      "fa": 0.4054
+     }
+    },
+    "2.0": {
+     "HOT": {
+      "fc": 0.4643,
+      "fa": 0.318
+     },
+     "COLD": {
+      "fc": 0.0267,
+      "fa": 0.2973
+     }
+    },
+    "5.0": {
+     "HOT": {
+      "fc": 0.4678,
+      "fa": 0.0801
+     },
+     "COLD": {
+      "fc": 0.0358,
+      "fa": 0.0651
+     }
+    }
+   },
+   "aware": {
+    "HOT": {
+     "fc": 0.0002,
+     "fa": 0.012
+    },
+    "COLD": {
+     "fc": 0.0,
+     "fa": 0.0029
+    }
+   },
+   "naive_minmax": 0.4643,
+   "aware_max": 0.012,
+   "truth_stale_frac": {
+    "HOT": 0.4678,
+    "COLD": 0.0508
+   },
+   "lag_std": 1.778,
+   "max_busy_lag": 4.53,
+   "min_latency": 0.008,
+   "guard": 0.02,
+   "tick": 0.01,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true,
+    "MC4": true
+   }
+  },
+  {
+   "seed": 20260823,
+   "n_samples": 11155,
+   "footprints": {
+    "HOT": [
+     "order_items",
+     "orders"
+    ],
+    "COLD": [
+     "catalog",
+     "category"
+    ]
+   },
+   "writes": {
+    "orders": 310,
+    "order_items": 310,
+    "catalog": 15,
+    "category": 15
+   },
+   "rate": 5.27,
+   "cold_int": 7.99,
+   "naive": {
+    "0.1": {
+     "HOT": {
+      "fc": 0.0,
+      "fa": 0.526
+     },
+     "COLD": {
+      "fc": 0.0,
+      "fa": 0.9435
+     }
+    },
+    "0.5": {
+     "HOT": {
+      "fc": 0.3502,
+      "fa": 0.4793
+     },
+     "COLD": {
+      "fc": 0.0121,
+      "fa": 0.5588
+     }
+    },
+    "1.0": {
+     "HOT": {
+      "fc": 0.4669,
+      "fa": 0.4331
+     },
+     "COLD": {
+      "fc": 0.0184,
+      "fa": 0.4021
+     }
+    },
+    "2.0": {
+     "HOT": {
+      "fc": 0.4669,
+      "fa": 0.3475
+     },
+     "COLD": {
+      "fc": 0.0255,
+      "fa": 0.3235
+     }
+    },
+    "5.0": {
+     "HOT": {
+      "fc": 0.4704,
+      "fa": 0.1478
+     },
+     "COLD": {
+      "fc": 0.0317,
+      "fa": 0.1267
+     }
+    }
+   },
+   "aware": {
+    "HOT": {
+     "fc": 0.0001,
+     "fa": 0.01
+    },
+    "COLD": {
+     "fc": 0.0,
+     "fa": 0.0025
+    }
+   },
+   "naive_minmax": 0.4669,
+   "aware_max": 0.01,
+   "truth_stale_frac": {
+    "HOT": 0.4704,
+    "COLD": 0.0529
+   },
+   "lag_std": 2.278,
+   "max_busy_lag": 3.761,
+   "min_latency": 0.036,
+   "guard": 0.021,
+   "tick": 0.011,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true,
+    "MC4": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true,
+  "MC4": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-PGX",
+ "sealed": "2026-08-21",
+ "seeds": [
+  20260821,
+  20260822,
+  20260823
+ ],
+ "constants_from": "fam_pgx.py (sealed grid)"
+}

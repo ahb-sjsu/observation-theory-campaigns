@@ -47,3 +47,19 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-DB1-001 | experiments/PREREG-DB1-001.md | cecb0e9 | 8fdebe65dfa9da5382e58b2dc61e6aa48398b40896c3ae5b581f595c35f9dc56 | 2026-08-21 | A. H. Bond (session instruction) |
 | PREREG-DB2-001 | experiments/PREREG-DB2-001.md | 9ba55bc | 51a7ef133e274615b1eb4137e498ef6a6da9e57a678cb12271ddd8af74534d0a | 2026-08-21 | A. H. Bond (session instruction) |
 | PREREG-DB3-001 | experiments/PREREG-DB3-001.md | 846a18d | 5ad9e7d33802a37a1dbeb9977d809bf895dcb8da20faba6c2bdbcdf04355edd9 | 2026-08-23 | A. H. Bond (session instruction) |
+
+## Re-homed freshness cells (sealed in `network-governor`; cross-repo provenance)
+
+Sealed in the `network-governor` repo before the 2026-08-24 re-home; **preserved,
+not re-issued**. The sealing commit is a `network-governor` commit (prefix `ng:`);
+the SHA-256 is of the sealed prereg content at that commit (LF line endings). The
+prereg's path in network-governor equals its re-homed path below. Verify:
+`git -C ../network-governor show <ng-commit>:<path> | sha256sum`.
+
+| Registration ID | File (here) | NG sealing commit | SHA-256 (NG prereg content) | Date | Authorized by |
+|---|---|---|---|---|---|
+| XPROTO-PG | analysis/pgrep/PREREG-XPROTO-PG.md | ng:ba46687 | 640122c8848c52658f2b6871b0a47b0a268598c4b5454445e0f0a172cca791d3 | 2026-08-20 | A. H. Bond |
+| XPROTO-MG | analysis/mongo/PREREG-XPROTO-MG.md | ng:e0a7a67 | 2ca041128e3a53724a24008e5fe490a53d8ddb88bd24a90711938ec75eae4a7c | 2026-08-21 | A. H. Bond |
+| XPROTO-PGX | analysis/pgx/PREREG-XPROTO-PGX.md | ng:e0a7a67 | 81e726bad8a01614a64e702f0e4a092f728a0b16b94d8ff6d21dceff33181de1 | 2026-08-21 | A. H. Bond |
+| XPROTO-GEO | analysis/geofleet/PREREG-XPROTO-GEO.md | ng:89557b8 | e18b1ded70a38f95167caf6e52b34aefa63415304db06b42383f0b18e7833819 | 2026-08-22 | A. H. Bond |
+| XPROTO-ZK | analysis/zk/PREREG-XPROTO-ZK.md | ng:b36f433 | 000cd35ebbfb1ce5a528b55df61eec906bb01d7e0864318b4b4ac1e4ff2f350c | 2026-08-24 | A. H. Bond |

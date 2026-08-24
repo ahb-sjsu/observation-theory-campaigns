@@ -1,0 +1,198 @@
+{
+ "cells": [
+  {
+   "agg": {
+    "HOT": {
+     "cert": {
+      "fc": 0.0,
+      "mean_rtt_ms": 11.052
+     },
+     "nearest": {
+      "fc": 0.3056,
+      "mean_rtt_ms": 10.266
+     },
+     "leastlag": {
+      "fc": 0.0,
+      "mean_rtt_ms": 16.607
+     }
+    },
+    "COLD": {
+     "cert": {
+      "fc": 0.0,
+      "mean_rtt_ms": 10.566
+     },
+     "nearest": {
+      "fc": 0.1167,
+      "mean_rtt_ms": 10.266
+     },
+     "leastlag": {
+      "fc": 0.0,
+      "mean_rtt_ms": 16.607
+     }
+    }
+   },
+   "seed": 20260822,
+   "zones": [
+    "bak-hpc2",
+    "k8s-haosu-19",
+    "sdsmt"
+   ],
+   "n_samples": 180,
+   "hot_writes": 596,
+   "n_replicas": 3,
+   "rtt_spread": 5.67,
+   "cold_writes": 17,
+   "nearest_stale_hot": 0.3056,
+   "rtt_ms_by_replica": {
+    "r0": 58.17,
+    "r1": 12.85,
+    "r2": 10.27
+   },
+   "footprint_dependence": 0.1889,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true,
+    "MC4": true
+   }
+  },
+  {
+   "agg": {
+    "HOT": {
+     "cert": {
+      "fc": 0.0,
+      "mean_rtt_ms": 11.007
+     },
+     "nearest": {
+      "fc": 0.2889,
+      "mean_rtt_ms": 10.269
+     },
+     "leastlag": {
+      "fc": 0.0,
+      "mean_rtt_ms": 16.777
+     }
+    },
+    "COLD": {
+     "cert": {
+      "fc": 0.0,
+      "mean_rtt_ms": 10.51
+     },
+     "nearest": {
+      "fc": 0.0944,
+      "mean_rtt_ms": 10.269
+     },
+     "leastlag": {
+      "fc": 0.0,
+      "mean_rtt_ms": 16.777
+     }
+    }
+   },
+   "seed": 20260823,
+   "zones": [
+    "bak-hpc2",
+    "k8s-haosu-19",
+    "sdsmt"
+   ],
+   "n_samples": 180,
+   "hot_writes": 614,
+   "n_replicas": 3,
+   "rtt_spread": 5.67,
+   "cold_writes": 15,
+   "nearest_stale_hot": 0.2889,
+   "rtt_ms_by_replica": {
+    "r0": 58.2,
+    "r1": 12.83,
+    "r2": 10.27
+   },
+   "footprint_dependence": 0.1944,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true,
+    "MC4": true
+   }
+  },
+  {
+   "agg": {
+    "HOT": {
+     "cert": {
+      "fc": 0.0,
+      "mean_rtt_ms": 11.03
+     },
+     "nearest": {
+      "fc": 0.3056,
+      "mean_rtt_ms": 10.284
+     },
+     "leastlag": {
+      "fc": 0.0,
+      "mean_rtt_ms": 18.37
+     }
+    },
+    "COLD": {
+     "cert": {
+      "fc": 0.0,
+      "mean_rtt_ms": 10.602
+     },
+     "nearest": {
+      "fc": 0.1333,
+      "mean_rtt_ms": 10.284
+     },
+     "leastlag": {
+      "fc": 0.0,
+      "mean_rtt_ms": 18.37
+     }
+    }
+   },
+   "seed": 20260824,
+   "zones": [
+    "bak-hpc2",
+    "k8s-haosu-19",
+    "sdsmt"
+   ],
+   "n_samples": 180,
+   "hot_writes": 586,
+   "n_replicas": 3,
+   "rtt_spread": 5.66,
+   "cold_writes": 14,
+   "nearest_stale_hot": 0.3056,
+   "rtt_ms_by_replica": {
+    "r0": 58.22,
+    "r1": 12.71,
+    "r2": 10.28
+   },
+   "footprint_dependence": 0.1722,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true,
+    "MC4": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true,
+  "MC4": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-GEO",
+ "sealed": "2026-08-22",
+ "seeds": [
+  20260822,
+  20260823,
+  20260824
+ ]
+}

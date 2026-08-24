@@ -1,0 +1,313 @@
+{
+ "family": "F-PGX",
+ "sealed": false,
+ "shakedown": true,
+ "constants": {
+  "thresholds": [
+   0.1,
+   0.5,
+   1.0,
+   2.0,
+   5.0
+  ],
+  "duration_s": 120.0,
+  "guard_tick": "DERIVED per cell: guard=0.7*measured min replication latency, tick=guard/2 (clamped [0.01,0.05]) \u2014 see per-cell min_latency/guard/tick",
+  "phase_s": 20.0,
+  "rate_band": [
+   4.0,
+   6.0
+  ],
+  "cold_interval_band": [
+   6.0,
+   10.0
+  ],
+  "lag_source": "netem WAN delay+jitter (lab_up.sh) under write load \u2014 emergent, uncontrolled"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "n_samples": 4818,
+   "footprints": {
+    "HOT": [
+     "order_items",
+     "orders"
+    ],
+    "COLD": [
+     "catalog",
+     "category"
+    ]
+   },
+   "writes": {
+    "orders": 330,
+    "order_items": 330,
+    "catalog": 13,
+    "category": 13
+   },
+   "rate": 5.69,
+   "cold_int": 9.03,
+   "naive": {
+    "0.1": {
+     "HOT": {
+      "fc": 0.0,
+      "fa": 0.5396
+     },
+     "COLD": {
+      "fc": 0.0,
+      "fa": 0.9655
+     }
+    },
+    "0.5": {
+     "HOT": {
+      "fc": 0.3342,
+      "fa": 0.4778
+     },
+     "COLD": {
+      "fc": 0.0158,
+      "fa": 0.5853
+     }
+    },
+    "1.0": {
+     "HOT": {
+      "fc": 0.4483,
+      "fa": 0.4402
+     },
+     "COLD": {
+      "fc": 0.0212,
+      "fa": 0.439
+     }
+    },
+    "2.0": {
+     "HOT": {
+      "fc": 0.4552,
+      "fa": 0.3655
+     },
+     "COLD": {
+      "fc": 0.0212,
+      "fa": 0.3574
+     }
+    },
+    "5.0": {
+     "HOT": {
+      "fc": 0.4562,
+      "fa": 0.177
+     },
+     "COLD": {
+      "fc": 0.0239,
+      "fa": 0.1706
+     }
+    }
+   },
+   "aware": {
+    "HOT": {
+     "fc": 0.0,
+     "fa": 0.0259
+    },
+    "COLD": {
+     "fc": 0.0,
+     "fa": 0.0052
+    }
+   },
+   "naive_minmax": 0.4483,
+   "aware_max": 0.0259,
+   "truth_stale_frac": {
+    "HOT": 0.4581,
+    "COLD": 0.0322
+   },
+   "lag_std": 2.574,
+   "max_busy_lag": 8.335,
+   "min_latency": 0.083,
+   "guard": 0.05,
+   "tick": 0.025
+  },
+  {
+   "seed": 1,
+   "n_samples": 3987,
+   "footprints": {
+    "HOT": [
+     "order_items",
+     "orders"
+    ],
+    "COLD": [
+     "catalog",
+     "category"
+    ]
+   },
+   "writes": {
+    "orders": 247,
+    "order_items": 247,
+    "catalog": 13,
+    "category": 13
+   },
+   "rate": 4.27,
+   "cold_int": 9.39,
+   "naive": {
+    "0.1": {
+     "HOT": {
+      "fc": 0.0,
+      "fa": 0.5794
+     },
+     "COLD": {
+      "fc": 0.0,
+      "fa": 0.9626
+     }
+    },
+    "0.5": {
+     "HOT": {
+      "fc": 0.2478,
+      "fa": 0.4801
+     },
+     "COLD": {
+      "fc": 0.0085,
+      "fa": 0.624
+     }
+    },
+    "1.0": {
+     "HOT": {
+      "fc": 0.4096,
+      "fa": 0.4399
+     },
+     "COLD": {
+      "fc": 0.0206,
+      "fa": 0.4342
+     }
+    },
+    "2.0": {
+     "HOT": {
+      "fc": 0.4096,
+      "fa": 0.3649
+     },
+     "COLD": {
+      "fc": 0.0206,
+      "fa": 0.3592
+     }
+    },
+    "5.0": {
+     "HOT": {
+      "fc": 0.4096,
+      "fa": 0.1726
+     },
+     "COLD": {
+      "fc": 0.0258,
+      "fa": 0.1721
+     }
+    }
+   },
+   "aware": {
+    "HOT": {
+     "fc": 0.0003,
+     "fa": 0.0467
+    },
+    "COLD": {
+     "fc": 0.0,
+     "fa": 0.006
+    }
+   },
+   "naive_minmax": 0.4096,
+   "aware_max": 0.0467,
+   "truth_stale_frac": {
+    "HOT": 0.4151,
+    "COLD": 0.0319
+   },
+   "lag_std": 2.62,
+   "max_busy_lag": 9.029,
+   "min_latency": 0.111,
+   "guard": 0.06,
+   "tick": 0.03
+  },
+  {
+   "seed": 2,
+   "n_samples": 3987,
+   "footprints": {
+    "HOT": [
+     "order_items",
+     "orders"
+    ],
+    "COLD": [
+     "catalog",
+     "category"
+    ]
+   },
+   "writes": {
+    "orders": 348,
+    "order_items": 348,
+    "catalog": 12,
+    "category": 12
+   },
+   "rate": 5.91,
+   "cold_int": 9.79,
+   "naive": {
+    "0.1": {
+     "HOT": {
+      "fc": 0.0,
+      "fa": 0.4612
+     },
+     "COLD": {
+      "fc": 0.0,
+      "fa": 0.8621
+     }
+    },
+    "0.5": {
+     "HOT": {
+      "fc": 0.3228,
+      "fa": 0.4111
+     },
+     "COLD": {
+      "fc": 0.0115,
+      "fa": 0.5006
+     }
+    },
+    "1.0": {
+     "HOT": {
+      "fc": 0.4244,
+      "fa": 0.3815
+     },
+     "COLD": {
+      "fc": 0.0173,
+      "fa": 0.3752
+     }
+    },
+    "2.0": {
+     "HOT": {
+      "fc": 0.4329,
+      "fa": 0.3185
+     },
+     "COLD": {
+      "fc": 0.0258,
+      "fa": 0.3123
+     }
+    },
+    "5.0": {
+     "HOT": {
+      "fc": 0.4585,
+      "fa": 0.149
+     },
+     "COLD": {
+      "fc": 0.0539,
+      "fa": 0.1452
+     }
+    }
+   },
+   "aware": {
+    "HOT": {
+     "fc": 0.0003,
+     "fa": 0.0276
+    },
+    "COLD": {
+     "fc": 0.0,
+     "fa": 0.0053
+    }
+   },
+   "naive_minmax": 0.4244,
+   "aware_max": 0.0276,
+   "truth_stale_frac": {
+    "HOT": 0.538,
+    "COLD": 0.1372
+   },
+   "lag_std": 3.261,
+   "max_busy_lag": 5.75,
+   "min_latency": 0.117,
+   "guard": 0.06,
+   "tick": 0.03
+  }
+ ]
+}

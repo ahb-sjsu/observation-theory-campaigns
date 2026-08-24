@@ -1,0 +1,65 @@
+{
+ "family": "F-ZK",
+ "mode": "zk",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "n_znodes": 10,
+  "hot": [
+   0,
+   1,
+   2
+  ],
+  "cold": [
+   7,
+   8,
+   9
+  ],
+  "duration_s": 12.0,
+  "hot_interval_s": 0.012,
+  "cold_every": 300,
+  "delay_ms": 200,
+  "target": 0.1,
+  "substrate": "3-node ZooKeeper ensemble; local follower reads vs leader-committed mzxid witness; sync() barrier; staleness induced by leader->follower netem delay"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "zk",
+   "delay_ms": 200,
+   "naive_hot": 0.99,
+   "naive_cold": 0.0104,
+   "witnessed": 0.0,
+   "mean_zxid_gap": 12.293,
+   "n_reads": 4612,
+   "n_wit": 60,
+   "n_writes": 1558,
+   "target": 0.1
+  },
+  {
+   "seed": 1,
+   "mode": "zk",
+   "delay_ms": 200,
+   "naive_hot": 0.9974,
+   "naive_cold": 0.0106,
+   "witnessed": 0.0,
+   "mean_zxid_gap": 12.51,
+   "n_reads": 5298,
+   "n_wit": 60,
+   "n_writes": 1574,
+   "target": 0.1
+  },
+  {
+   "seed": 2,
+   "mode": "zk",
+   "delay_ms": 200,
+   "naive_hot": 0.9938,
+   "naive_cold": 0.0105,
+   "witnessed": 0.0,
+   "mean_zxid_gap": 12.665,
+   "n_reads": 5140,
+   "n_wit": 60,
+   "n_writes": 1581,
+   "target": 0.1
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "delay_ms": 200,
+ "hot_interval_s": 0.012,
+ "naive_false_clear_vs_latest": 0.9891,
+ "sync_always": {
+  "sync_rate": 1.0,
+  "false_clear": 0.0
+ },
+ "read_fresh_sweep": [
+  {
+   "tau_s": 0.0,
+   "n": 80,
+   "sync_rate": 1.0,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 0.0
+  },
+  {
+   "tau_s": 0.05,
+   "n": 80,
+   "sync_rate": 1.0,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 0.0
+  },
+  {
+   "tau_s": 0.1,
+   "n": 80,
+   "sync_rate": 0.675,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 1.0
+  },
+  {
+   "tau_s": 0.15,
+   "n": 80,
+   "sync_rate": 0.45,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 0.9318
+  },
+  {
+   "tau_s": 0.2,
+   "n": 80,
+   "sync_rate": 0.1125,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 1.0
+  },
+  {
+   "tau_s": 0.25,
+   "n": 80,
+   "sync_rate": 0.025,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 1.0
+  },
+  {
+   "tau_s": 0.3,
+   "n": 80,
+   "sync_rate": 0.0,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 1.0
+  },
+  {
+   "tau_s": 0.45,
+   "n": 80,
+   "sync_rate": 0.0,
+   "false_clear_vs_W": 0.0,
+   "stale_vs_latest_local": 1.0
+  }
+ ]
+}

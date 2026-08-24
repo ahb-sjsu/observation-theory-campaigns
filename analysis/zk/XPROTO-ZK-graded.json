@@ -1,0 +1,83 @@
+{
+ "cells": [
+  {
+   "seed": 20260824,
+   "mode": "zk",
+   "delay_ms": 200,
+   "naive_hot": 0.9928,
+   "naive_cold": 0.0114,
+   "witnessed": 0.0,
+   "mean_zxid_gap": 12.499,
+   "n_reads": 5254,
+   "n_wit": 60,
+   "n_writes": 1577,
+   "target": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260825,
+   "mode": "zk",
+   "delay_ms": 200,
+   "naive_hot": 0.9967,
+   "naive_cold": 0.0123,
+   "witnessed": 0.0,
+   "mean_zxid_gap": 12.697,
+   "n_reads": 5514,
+   "n_wit": 60,
+   "n_writes": 1587,
+   "target": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260826,
+   "mode": "zk",
+   "delay_ms": 200,
+   "naive_hot": 0.9973,
+   "naive_cold": 0.0111,
+   "witnessed": 0.0,
+   "mean_zxid_gap": 12.646,
+   "n_reads": 5244,
+   "n_wit": 60,
+   "n_writes": 1595,
+   "target": 0.1,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-ZK",
+ "sealed": "2026-08-24",
+ "seeds": [
+  20260824,
+  20260825,
+  20260826
+ ]
+}
