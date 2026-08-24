@@ -45,6 +45,12 @@ Evidence cell: `../../analysis/qot/` (GNPy).
       `ml_cliff.pdf`: (a) MAE-vs-false-clear dissociation, (b) false-clear vs GSNR
       headroom = the FEC cliff; marker-shape classes). Draft committed (shakedown);
       regenerate from graded seeds post-seal, in the qot venv.
+- [x] **Sec. 3.2 fill-sweep DONE** (`qot_sweep.py` → `QOT-sweep.json`): FC rises
+      linearly with added channels (FC ≈ 0.008·ΔN, R²=0.95); refresh floor ≈ 8 added
+      channels at FC≤0.05. Deterministic (no seed) → numbers final, wired into §3.2.
+      Optional Fig. 3 via `plot_fig3.py` (`refresh_floor.pdf`) — add only if the
+      3-page budget allows a 3rd figure. (Per-reach floor came out degenerate — not
+      claimed.)
 - [ ] **Use case framing** (done in the .tex): brownfield incremental fill --
       keep it concrete on final pass (name a representative link length / service rate).
 

@@ -106,11 +106,13 @@ fill trajectory rather than a worst-case constant.
 
 \subsection{When a certificate must be refreshed}
 Because the false-clear is driven by the fill \emph{increment} between provisioning
-and use, a QoT certificate has a coherence horizon in fill. The maximum added-channel
-count a certificate tolerates at a target false-clear rate scales with that horizon
-(slope $\approx K$, $R^2\approx r$); % GRADED-SWAP (from the fill sweep)
-the operational reading is a refresh rule---re-certify a service \emph{before} the
-band around it fills, not on a fixed calendar~\cite{otcampaigns}.
+and use, a QoT certificate has a refresh horizon. Sweeping the deployed fill from
+provisioning (6 ch) to full (76 ch), the naive false-clear rises approximately
+\emph{linearly} with the number of added channels ($\mathrm{FC}\approx 0.008\,\Delta
+N$, $R^2 = 0.95$); at a 0.05 target the refresh floor is $\approx 8$ added channels.
+The operational rule is therefore concrete: re-certify a service \emph{before} the
+band around it grows by $\sim$8 channels, not on a fixed calendar---the optical
+instance of a refresh-floor law measured across networked systems~\cite{otcampaigns}.
 
 \subsection{ML-QoT trained on the wrong metric}
 The same blindness appears in ML-QoT. Predicting deployed GSNR from provisioning-time
