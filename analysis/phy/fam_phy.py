@@ -70,7 +70,7 @@ def _report(policy, i, consec, period):
             or (policy == "bfr" and consec >= BFR_NACK))
 
 
-def run_pmi(seed, policy):
+def run_pmi(seed, policy, decode):
     rng = np.random.default_rng(seed)
     a = rng.uniform(-30, 30); v = OMEGA_PMI * (1 if rng.random() < 0.5 else -1)
     held = a; nack = consec = nre = 0; loss = 0.0
@@ -82,12 +82,12 @@ def run_pmi(seed, policy):
             held = a + rng.normal(0, 1.0); consec = 0; nre += 1   # re-report precoder
         sinr = OPERATING_SINR - PMI_LOSS_DB_PER_DEG * abs(a - held)   # monotonic loss
         loss += OPERATING_SINR - sinr
-        is_nack = rng.random() < bler(FIXED_MCS, sinr)
+        is_nack = rng.random() < decode(sinr)
         nack += is_nack; consec = consec + 1 if is_nack else 0
     return nack / DURATION, loss / DURATION, nre
 
 
-def run_ri(seed, policy):
+def run_ri(seed, policy, decode):
     rng = np.random.default_rng(seed)
     p_flip = RANK_FLIP_HZ * SLOT_S
     rank = int(rng.integers(1, 5)); held = rank; nack = consec = nre = 0; mism = 0
@@ -102,12 +102,12 @@ def run_ri(seed, policy):
             mism += 1; layer_sinr = OPERATING_SINR - 12.0
         else:
             layer_sinr = OPERATING_SINR                          # supported -> reliable
-        is_nack = rng.random() < bler(FIXED_MCS, layer_sinr)
+        is_nack = rng.random() < decode(layer_sinr)
         nack += is_nack; consec = consec + 1 if is_nack else 0
     return nack / DURATION, mism / DURATION, nre
 
 
-def run_ta(seed, policy):
+def run_ta(seed, policy, decode):
     rng = np.random.default_rng(seed)
     drift = TA_DRIFT_US_PER_S * (1 if rng.random() < 0.5 else -1)
     delay = rng.uniform(0, CP_US); ta = delay; nack = consec = nre = 0; res = 0.0
@@ -119,7 +119,7 @@ def run_ta(seed, policy):
         res += residual / CP_US
         # ISI penalty grows with residual; past the CP the block is destroyed
         sinr = OPERATING_SINR - 9.0 * (residual / CP_US) - (30.0 if residual > CP_US else 0.0)
-        is_nack = rng.random() < bler(FIXED_MCS, sinr)
+        is_nack = rng.random() < decode(sinr)
         nack += is_nack; consec = consec + 1 if is_nack else 0
     return nack / DURATION, res / DURATION, nre
 
@@ -129,38 +129,61 @@ AGING_NAME = {"pmi": "mean_gain_loss_db", "ri": "rank_mismatch_frac",
               "ta": "mean_residual_over_cp"}
 
 
-def run_cell(mode, seed):
-    naive, aging, _ = RUNNERS[mode](seed, "naive")
-    bfr, _, nre = RUNNERS[mode](seed, "bfr")
-    fresh, _, _ = RUNNERS[mode](seed, "fresh")
-    return {"cell": mode, "seed": int(seed), "mode": "model",
+def run_cell(cell, seed, decode, substrate):
+    naive, aging, _ = RUNNERS[cell](seed, "naive", decode)
+    bfr, _, nre = RUNNERS[cell](seed, "bfr", decode)
+    fresh, _, _ = RUNNERS[cell](seed, "fresh", decode)
+    return {"cell": cell, "seed": int(seed), "mode": substrate,
             "naive_fc": round(naive, 4), "witnessed_fc": round(bfr, 4),
             "fresh_fc": round(fresh, 4), "aging": round(aging, 4),
-            "aging_name": AGING_NAME[mode], "n_tti": DURATION, "n_requotes": nre,
+            "aging_name": AGING_NAME[cell], "n_tti": DURATION, "n_requotes": nre,
             "target": TARGET}
+
+
+def _decode_nrsionna():
+    """Sealed rung: swap the parametric waterfall for the real Sionna 5G NR LDPC
+    curves. Aging processes unchanged; only the SINR->BLER decode moves to the
+    measured curve, at the fixed operating MCS (selected on the Sionna 10% points,
+    the same rule the parametric rung uses)."""
+    import sys
+    sys.path.insert(0, os.path.join(HERE, "..", "csi"))
+    import csi_sionna as cs   # noqa: E402
+    curves = cs.measure_bler_curves()
+    req10 = cs.required_snr(curves)
+    m = int(np.where(req10 <= OPERATING_SINR - MCS_MARGIN)[0][-1])
+    return (lambda snr: float(cs.bler_at(curves, m, snr))), m
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", action="store_true")
+    ap.add_argument("--nrsionna", action="store_true",
+                    help="sealed rung: decode on the real Sionna LDPC curves (Atlas)")
     ap.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
     ap.add_argument("--out", default=os.path.join(HERE, "PHYREP-family.json"))
     args = ap.parse_args()
+    if args.nrsionna:
+        print("loading real 5G NR LDPC curves...", flush=True)
+        decode, m_sionna = _decode_nrsionna()
+        substrate = "nrsionna"; sim_flag = False
+        subnote = f"real Sionna 5G NR LDPC curves (fixed MCS {m_sionna})"
+    else:
+        decode = lambda snr: bler(FIXED_MCS, snr)  # noqa: E731
+        substrate = "model"; sim_flag = True
+        subnote = "parametric NR waterfall (model validation); sealed rung = real Sionna LDPC curves"
     cells = []
-    for mode in ("pmi", "ri", "ta"):
+    for cell in ("pmi", "ri", "ta"):
         for s in args.seeds:
-            c = run_cell(mode, s); cells.append(c)
-            print(f"{mode} seed {s}: naive_fc={c['naive_fc']} witnessed_fc={c['witnessed_fc']} "
+            c = run_cell(cell, s, decode, substrate); cells.append(c)
+            print(f"{cell} seed {s}: naive_fc={c['naive_fc']} witnessed_fc={c['witnessed_fc']} "
                   f"fresh_fc={c['fresh_fc']} {c['aging_name']}={c['aging']}", flush=True)
-    rec = {"family": "F-PHY", "mode": "model",
-           "sim_is_code_validation_not_evidence": True,
+    rec = {"family": "F-PHY", "mode": substrate,
+           "sim_is_code_validation_not_evidence": sim_flag,
            "constants": {"pmi_report": PMI_REPORT, "ri_report": RI_REPORT,
                          "ta_report": TA_REPORT, "operating_sinr": OPERATING_SINR,
                          "target": TARGET, "omega_pmi": OMEGA_PMI,
                          "rank_flip_hz": RANK_FLIP_HZ, "ta_drift_us_per_s": TA_DRIFT_US_PER_S,
-                         "cp_us": CP_US,
-                         "substrate": "parametric NR waterfall (model validation); "
-                                      "sealed rung = real Sionna LDPC curves"},
+                         "cp_us": CP_US, "substrate": subnote},
            "cells": cells}
     json.dump(rec, open(args.out, "w"), indent=1)
     print(f"wrote {args.out}", flush=True)

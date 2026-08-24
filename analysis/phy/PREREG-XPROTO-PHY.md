@@ -1,6 +1,6 @@
 # PREREG-XPROTO-PHY — the remaining PHY adaptation certificates: PMI, RI, TA
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-23. Earliest compliant seal
+**STATUS: SEALED 2026-08-24.** FAMILY-CONSTRUCTED: 2026-08-23. Earliest compliant seal
 **2026-08-24** (`phy_check.py` codes the cooling-off). The shakedown runs on a
 self-contained parametric NR waterfall (mode="model": validation, not evidence,
 as `fam_csi`'s sim is not); the sealed rung uses the real Sionna 5G NR LDPC

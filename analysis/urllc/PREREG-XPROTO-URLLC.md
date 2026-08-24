@@ -1,6 +1,6 @@
 # PREREG-XPROTO-URLLC — reliability-target consumer-relativity (5G URLLC vs eMBB)
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-23. Earliest compliant seal
+**STATUS: SEALED 2026-08-24.** FAMILY-CONSTRUCTED: 2026-08-23. Earliest compliant seal
 **2026-08-24** (`urllc_check.py` codes the cooling-off). Sealed graded run on the
 real NR substrate (mode="nrsionna": `fam_urllc.py` on Atlas -- real Sionna 5G NR
 LDPC waterfall fits + TDL fading). Graded seeds {20260824, 20260825, 20260826},
