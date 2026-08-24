@@ -1,0 +1,49 @@
+{
+ "family": "F-STELL",
+ "mode": "qsc-nearaxis",
+ "prototype": true,
+ "constants": {
+  "bases": [
+   "precise QA",
+   "precise QH"
+  ],
+  "n_per_base": 40,
+  "perturb": 0.06,
+  "tau_qs": 0.06,
+  "r_min": 0.33,
+  "e_max": 6.0,
+  "substrate": "qsc (pyQSC) near-axis QS stellarators; consumer = usable volume (r_singularity) + buildable elongation"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "qsc-nearaxis",
+   "naive_fc": 0.0,
+   "aware_fc": 0.0,
+   "qs_certified_frac": 0.0,
+   "consumer_ok_frac": 0.075,
+   "qs_vs_consumer_rank_corr": 0.8313,
+   "n_configs": 80
+  },
+  {
+   "seed": 1,
+   "mode": "qsc-nearaxis",
+   "naive_fc": 0.0,
+   "aware_fc": 0.0,
+   "qs_certified_frac": 0.0,
+   "consumer_ok_frac": 0.025,
+   "qs_vs_consumer_rank_corr": 0.8605,
+   "n_configs": 80
+  },
+  {
+   "seed": 2,
+   "mode": "qsc-nearaxis",
+   "naive_fc": 0.0,
+   "aware_fc": 0.0,
+   "qs_certified_frac": 0.0,
+   "consumer_ok_frac": 0.05,
+   "qs_vs_consumer_rank_corr": 0.8664,
+   "n_configs": 80
+  }
+ ]
+}
