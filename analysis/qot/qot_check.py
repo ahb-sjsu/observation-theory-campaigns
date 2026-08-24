@@ -51,7 +51,7 @@ def grade(c):
 
 
 def report(cells, label):
-    if any(c.get("mode") != "gnpy" for c in cells):
+    if any(not c.get("mode","").startswith("gnpy") for c in cells):
         sys.exit("REFUSED: sealed grading requires the GNPy substrate.")
     graded = [{**c, "grade": grade(c)} for c in cells]
     keys = ("B1", "B2", "B3", "MC1", "MC2", "MC3")

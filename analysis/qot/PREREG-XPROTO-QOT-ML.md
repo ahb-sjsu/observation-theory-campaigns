@@ -29,9 +29,9 @@ exceeds the true GSNR.
 
 ## Bars (bind at seal; checked against the family record first)
 
-*Demonstrated (seeds {0,1,2}): MAE mse ≈ 0.64 < aware ≈ 0.94 (mse wins recon);
-FC mse ≈ 0.03–0.06 vs aware ≈ 0.002–0.014 (aware wins consumer, ~4–5×); delivered
-bits/symbol ≈ 4.3 for both.*
+*Demonstrated (seeds {0,1,2}, CORONET-CONUS reaches): MAE mse ≈ 0.65 < aware ≈ 0.95
+(mse wins recon); FC mse ≈ 0.03–0.04 vs aware ≈ 0.004–0.007 (aware wins consumer,
+~8×); delivered bits/symbol ≈ 3.9 for both.*
 
 - **B1 — the average-error estimator false-clears at the cliff.** Per seed:
   `fc_mse ≥ 0.03`.

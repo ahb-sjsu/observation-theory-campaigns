@@ -25,21 +25,22 @@ certificate (QoT under the actual loading footprint) holds. Margins are the pric
 of the un-witnessed certificate; the false-clear rate is the number that sets how
 much margin can be safely removed (recovered capacity).
 
-## Family F-QOT (constructed + shaken down 2026-08-24)
+## Family F-QOT (constructed + shaken down 2026-08-24; CORONET-grounded)
 
 GNPy `gn_model_analytic` NLI over an SSMF (0.2 dB/km, D=17 ps/nm/km) + EDFA
 (NF 6 dB) line system, 80 km spans, +2 dBm/ch launch, 32 GBd / 50 GHz grid.
 Reference loading = 6 channels (sparse initial provisioning); actual = full 76-ch
-C-band. Consumers = `K=60` lightpaths, each (spectral position p∈[0,1], reach
-∈{4..16} spans). Witness = true GSNR under full loading. naive certificate =
+C-band. Consumers = `K=60` lightpaths, each a **real CORONET-CONUS transparent
+city-pair route** (shortest path ≤ 2500 km; reach = route length / 80 km, 2–31
+spans) at spectral position p∈[0,1]. Witness = true GSNR under full loading. naive certificate =
 GSNR under reference loading (+ 0.3 dB monitoring noise) → select format with a
 1 dB design margin; aware = GSNR under actual loading. Required GSNR per format
 (declared): QPSK 6.5, 8QAM 9.0, 16QAM 12.5, 32QAM 16.0, 64QAM 19.0 dB.
 
 ## Bars (bind at seal; checked against the family record first)
 
-*Demonstrated (seeds {0,1,2}): naive_fc ≈ 0.40, aware_fc = 0.0, loading penalty
-≈ 2.6 dB, fc_spread ≈ 0.49.*
+*Demonstrated (seeds {0,1,2}, CORONET-CONUS routes): naive_fc ≈ 0.48–0.55,
+aware_fc = 0.0, loading penalty ≈ 2.6 dB, fc_spread ≈ 0.50, bits/symbol ≈ 3.4.*
 
 - **B1 — QoT-cert vacuity.** Per seed: `naive_fc ≥ 0.25`.
 - **B2 — footprint-aware holds.** Per seed: `aware_fc ≤ 0.10`.

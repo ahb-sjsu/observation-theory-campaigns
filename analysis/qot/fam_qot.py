@@ -42,8 +42,38 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # ---- sealed line-system + cell constants -----------------------------
 CH_FULL = 76               # fully-loaded C-band comb (50 GHz)
 CH_REF = 6                 # reference/provisioned loading (band starts sparse, fills over time)
-SPAN_SET = [4, 6, 8, 10, 12, 14, 16]      # reach in 80 km spans
+MAX_ROUTE_KM = 2500       # transparent (unregenerated) reach cap
 POWER_DBM = 2.0            # near-optimal launch power
+
+
+def _coronet_reaches():
+    """Reach set = span counts of the CORONET-CONUS reference topology's transparent
+    city-pair routes (route length / 80 km). Each consumer is thus a REAL route."""
+    import itertools
+    import gnpy
+    import networkx as nx
+    topo = os.path.join(os.path.dirname(gnpy.__file__), "example-data",
+                        "CORONET_CONUS_Topology.json")
+    c = json.load(open(topo))
+    length = {e["uid"]: e["params"]["length"] for e in c["elements"] if e["type"] == "Fiber"}
+    g = nx.DiGraph()
+    for k in c["connections"]:
+        g.add_edge(k["from_node"], k["to_node"], weight=length.get(k["from_node"], 0.0))
+    trx = [e["uid"] for e in c["elements"] if e["type"] == "Transceiver"]
+    pool = []
+    for a, b in itertools.combinations(trx, 2):
+        try:
+            d = nx.shortest_path_length(g, a, b, weight="weight")
+        except Exception:
+            continue
+        ns = round(d / 80.0)
+        if d <= MAX_ROUTE_KM and ns >= 2:
+            pool.append(int(ns))
+    return sorted(pool)
+
+
+SPAN_POOL = _coronet_reaches()             # real CORONET route reaches (with multiplicity)
+SPAN_SET = sorted(set(SPAN_POOL))          # unique reaches (for GSNR precompute)
 NF_DB = 6.0
 SPAN_KM = 80
 K_PATHS = 60               # lightpaths per seed
@@ -86,7 +116,7 @@ def run_cell(seed, combs):
     naive_fc = aware_fc = 0
     penalties = []; nfc_by_path = []; bps_deliv = []
     for _ in range(K_PATHS):
-        ns = int(rng.choice(SPAN_SET))
+        ns = int(rng.choice(SPAN_POOL))
         p = rng.random()                                   # spectral position 0..1
         g_full = combs[(CH_FULL, ns)]; g_ref = combs[(CH_REF, ns)]
         gsnr_full = float(g_full[round(p * (len(g_full) - 1))])   # witness (true, actual loading)
@@ -102,7 +132,7 @@ def run_cell(seed, combs):
         bps_deliv.append(int(BPS[ma]) if (ma >= 0 and not aware_fail) else 0)
     n = K_PATHS
     return {
-        "seed": int(seed), "mode": "gnpy",
+        "seed": int(seed), "mode": "gnpy-coronet",
         "naive_fc": round(naive_fc / n, 4), "aware_fc": round(aware_fc / n, 4),
         "mean_loading_penalty_db": round(float(np.mean(penalties)), 4),
         "fc_spread": round(float(np.std(nfc_by_path)), 4),   # >0 => footprint-relative
@@ -126,13 +156,13 @@ def main():
         print(f"seed {c['seed']}: naive_fc={c['naive_fc']} aware_fc={c['aware_fc']} | "
               f"loading_penalty={c['mean_loading_penalty_db']}dB fc_spread={c['fc_spread']} "
               f"| bps_aware={c['mean_bits_per_symbol_aware']}", flush=True)
-    rec = {"family": "F-QOT", "mode": "gnpy",
+    rec = {"family": "F-QOT", "mode": "gnpy-coronet",
            "sim_is_code_validation_not_evidence": False,
            "constants": {"ch_full": CH_FULL, "ch_ref": CH_REF, "span_set": SPAN_SET,
                          "power_dbm": POWER_DBM, "nf_db": NF_DB, "margin_db": MARGIN_DB,
                          "mon_noise_db": MON_NOISE_DB, "mods": [m[0] for m in MODS],
                          "req_gsnr_db": REQ.tolist(),
-                         "substrate": "GNPy gn_model_analytic NLI over SSMF+EDFA line "
+                         "substrate": "GNPy gn_model_analytic NLI over CORONET-CONUS transparent city-pair routes (<=2500 km, reach=len/80 spans) on SSMF+EDFA; "
                                       "system; witness = true GSNR under full loading"},
            "cells": cells}
     json.dump(rec, open(args.out, "w"), indent=1)

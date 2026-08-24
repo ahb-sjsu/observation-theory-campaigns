@@ -24,10 +24,10 @@ Quality-of-Transmission False-Clear Rate Under Incremental Fill}
 \email{$^{*}$andrew.bond@sjsu.edu}
 
 \begin{abstract}
-As a link fills, in-service lightpaths certified under light loading can false-clear
+As a link fills, in-service lightpaths certified under light loading false-clear
 their FEC threshold---consumer-relatively, by footprint. We measure this
-Quality-of-Transmission false-clear rate on GNPy and recover margin with a
-footprint-witnessed certificate.
+Quality-of-Transmission false-clear rate on GNPy over CORONET-CONUS and recover
+margin with a footprint-witnessed certificate.
 \end{abstract}
 
 \section{Introduction}
@@ -58,12 +58,14 @@ re-certification, and (ii) an ML-QoT estimator trained on \emph{average} error
 inherits the same blindness and false-clears at the FEC cliff.
 
 \section{Method}
-\textbf{Link and fill.} We model a deployed C-band long-haul link---standard
-single-mode fibre (0.2\,dB/km, $D=17$\,ps/nm/km), EDFAs (NF 6\,dB), 80\,km spans,
-+2\,dBm/channel, 32\,GBd on a 50\,GHz grid---and compute per-channel GSNR with the GN
-model in GNPy~\cite{gnpy}, the community-standard QoT engine, at reaches of 4--16
-spans (320--1280\,km). The \emph{provisioning-time} loading is a lightly filled band
-(6 channels); the \emph{deployed} loading is the fully filled C-band (76 channels).
+\textbf{Network, link, and fill.} Consumers are lightpaths over the
+\textbf{CORONET-CONUS} reference topology (75 nodes): each is a transparent
+shortest-path city-pair route ($\le 2500$\,km, 2--31 $\times$ 80\,km spans; median
+$\approx 30$ spans). Per-channel GSNR is computed with the GN model in
+GNPy~\cite{gnpy}, the community-standard QoT engine, on standard single-mode fibre
+(0.2\,dB/km, $D=17$\,ps/nm/km) with EDFAs (NF 6\,dB), +2\,dBm/channel, 32\,GBd on a
+50\,GHz grid. The \emph{provisioning-time} loading is a lightly filled band (6
+channels); the \emph{deployed} loading is the fully filled C-band (76 channels).
 
 \textbf{Certificate, consumer, witness.} A \emph{consumer} is a lightpath
 $(\text{position},\text{reach})$. Its \emph{certificate} is the format selected from
@@ -80,7 +82,7 @@ graded seeds are disjoint from calibration~\cite{otcampaigns}.
 \section{Results}
 \subsection{The margin is a footprint property}
 Of the lightpaths provisioned under light fill, the naive certificate false-clears
-$\mathrm{FC}_{\text{naive}}\approx 0.40$ % GRADED-SWAP
+$\mathrm{FC}_{\text{naive}}\approx 0.5$ % GRADED-SWAP (0.48--0.55 across CORONET routes)
 once the band fills (mean fill-induced GSNR penalty $\approx 2.6$\,dB), while the
 footprint-aware certificate holds at $\mathrm{FC}_{\text{aware}}\approx 0$. % GRADED-SWAP
 The outages are \emph{footprint-concentrated} (per-lightpath false-clear spread
@@ -99,8 +101,8 @@ fill trajectory rather than a worst-case constant.
   (a) naive vs.\ footprint-aware false-clear as the band fills 6$\to$76 ch;
   (b) per-service false-clear over (spectral position, reach) --- concentration on
   threshold-adjacent services.\vspace{1.9cm}}}
-  \caption{Fill-induced QoT false-clear on a GNPy long-haul link. Distinguish policies
-  by line style and marker shape, not colour alone.}
+  \caption{Fill-induced QoT false-clear on GNPy over CORONET-CONUS routes.
+  Distinguish policies by line style and marker shape, not colour alone.}
   \label{fig:fc}
 \end{figure}
 
@@ -118,9 +120,9 @@ features carries irreducible uncertainty (unmeasured state); an estimator traine
 minimise \emph{average} error optimises reconstruction, but the consumer reads a
 \emph{threshold}. On the GNPy data, the average-error estimator attains lower mean
 error yet false-clears far more at the FEC cliff than a consumer-aware
-(conservative-quantile) objective---MAE $0.64$ vs $0.94$\,dB (it wins reconstruction)
-but false-clear $\approx 0.05$ vs $\approx 0.01$ ($\sim$5$\times$) at comparable
-delivered spectral efficiency ($\approx 4.3$\,bits/symbol) (Fig.~\ref{fig:ml}). The
+(conservative-quantile) objective---MAE $0.65$ vs $0.95$\,dB (it wins reconstruction)
+but false-clear $\approx 0.04$ vs $\approx 0.005$ ($\sim$8$\times$) at comparable
+delivered spectral efficiency ($\approx 3.9$\,bits/symbol) (Fig.~\ref{fig:ml}). The
 implication for QoT learning is to train on the consumer-read decision near the
 threshold, not on volume-averaged fidelity.
 

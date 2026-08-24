@@ -19,10 +19,12 @@ catastrophic for another. Witness = the coherent receiver's **pre-FEC BER**.
 
 ## Cell
 
-**XPROTO-QOT** (`analysis/qot`, GNPy): naive certificate (GSNR under reference
-loading) false-clears **~40%** of lightpaths when the band fills (loading penalty
-~2.6 dB); the false-clears are footprint-dependent (fc_spread ~0.49); a
-consumer-aware certificate holds at **0**. Bars B1 naive_fc≥0.25 / B2 aware_fc≤0.10
+**XPROTO-QOT** (`analysis/qot`, GNPy over **CORONET-CONUS** transparent routes):
+naive certificate (GSNR under reference loading) false-clears **~50%** of lightpaths
+when the band fills (loading penalty ~2.6 dB); the false-clears are
+footprint-dependent (fc_spread ~0.50); a consumer-aware certificate holds at **0**.
+Result 2 (F-QOTML): an average-error ML-QoT estimator wins reconstruction (MAE 0.65
+vs 0.95) yet false-clears ~8× at the FEC cliff (0.04 vs 0.005) at equal capacity. Bars B1 naive_fc≥0.25 / B2 aware_fc≤0.10
 / B3 dominance + MC1 real loading penalty / MC2 footprint-relativity / MC3
 non-degenerate. Sealed rung = GNPy; external-validity graduation = pre-FEC BER on a
 fibre testbed / field trace + the EGN/split-step reference.
