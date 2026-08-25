@@ -1,0 +1,95 @@
+{
+ "family": "F-QOT",
+ "mode": "gnpy-coronet",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "ch_full": 76,
+  "ch_ref": 6,
+  "span_set": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31
+  ],
+  "power_dbm": 2.0,
+  "nf_db": 6.0,
+  "margin_db": 1.0,
+  "mon_noise_db": 0.3,
+  "mods": [
+   "QPSK",
+   "8QAM",
+   "16QAM",
+   "32QAM",
+   "64QAM"
+  ],
+  "req_gsnr_db": [
+   6.5,
+   9.0,
+   12.5,
+   16.0,
+   19.0
+  ],
+  "substrate": "GNPy gn_model_analytic NLI over CORONET-CONUS transparent city-pair routes (<=2500 km, reach=len/80 spans) on SSMF+EDFA; system; witness = true GSNR under full loading"
+ },
+ "cells": [
+  {
+   "seed": 20260825,
+   "mode": "gnpy-coronet",
+   "naive_fc": 0.3667,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.6481,
+   "fc_spread": 0.4819,
+   "n_fc": 22,
+   "mean_bits_per_symbol_aware": 3.517,
+   "n_paths": 60
+  },
+  {
+   "seed": 20260826,
+   "mode": "gnpy-coronet",
+   "naive_fc": 0.55,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.6294,
+   "fc_spread": 0.4975,
+   "n_fc": 33,
+   "mean_bits_per_symbol_aware": 3.6,
+   "n_paths": 60
+  },
+  {
+   "seed": 20260827,
+   "mode": "gnpy-coronet",
+   "naive_fc": 0.4667,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.6332,
+   "fc_spread": 0.4989,
+   "n_fc": 28,
+   "mean_bits_per_symbol_aware": 3.633,
+   "n_paths": 60
+  }
+ ]
+}

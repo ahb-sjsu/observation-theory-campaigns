@@ -3,11 +3,12 @@
 % in this dir (from the Overleaf "Optica meeting/conference" template).
 % OFC limits: 3 pages; abstract <=35 words; PDF <=2MB; <=3 figures.
 % Build: pdflatex ofc-qot && bibtex ofc-qot && pdflatex x2 (MiKTeX).
-% Sec 3.1 (ML-QoT, LEAD) + Sec 3.3 (refresh floor) numbers are MEASURED. Sec 3.2
-% capacity number (8%) is MEASURED + deterministic (qot_capacity.py, fill from real
-% SNDlib janos-us-ca). The Fig.2 per-footprint false-clear rates are the only
-% GRADED-SWAP items left (from fam_qot graded seeds, post-seal).
-% Figures: fig:ml = ml_cliff.pdf (Fig.1), fig:fc = fc_footprint.pdf (Fig.2).
+% ALL numbers now SEALED+GRADED (XPROTO-QOT + XPROTO-QOT-ML, sealed 2026-08-25,
+% seeds 20260825-27, both PASS). Sec 3.1 ML = graded means (FC ~0.041 vs ~0.008, ~5x);
+% Sec 3.2 capacity (8%) = deterministic qot_capacity.py on real SNDlib janos-us-ca;
+% Sec 3.3 refresh floor = deterministic qot_sweep. No GRADED-SWAP items remain.
+% Figures regenerated from graded seed 20260825: fig:ml = ml_cliff.pdf (Fig.1),
+% fig:fc = fc_footprint.pdf (Fig.2).
 \documentclass[letterpaper,10pt]{article}
 \usepackage{opticameet3}
 \usepackage{mathptmx}
@@ -28,7 +29,7 @@ The False-Clear Rate at the FEC Cliff}
 \begin{abstract}
 An ML-QoT estimator trained on average GSNR error is misaligned with the FEC
 decoder's threshold: it false-clears at the cliff. On GNPy over CORONET-CONUS a
-consumer-aware objective cuts false-clears $\sim$8$\times$ at equal capacity.
+consumer-aware objective cuts false-clears $\sim$5$\times$ at equal capacity.
 \end{abstract}
 
 \section{Introduction}
@@ -75,7 +76,7 @@ disjoint graded seeds~\cite{otcampaigns}.
 Under irreducible prediction uncertainty, the average-error estimator attains lower
 mean error yet false-clears far more at the FEC cliff than the consumer-aware
 objective: MAE $0.65$ vs $0.95$\,dB (it wins reconstruction) but false-clear
-$\approx 0.04$ vs $\approx 0.005$ ($\sim$8$\times$) at comparable delivered spectral
+$\approx 0.041$ vs $\approx 0.008$ ($\sim$5$\times$) at comparable delivered spectral
 efficiency ($\approx 3.9$\,bits/symbol). Figure~\ref{fig:ml}(a) shows the
 reconstruction-vs-consumer dissociation; (b) shows that the average-error
 false-clears concentrate where the GSNR headroom above the nearest format threshold

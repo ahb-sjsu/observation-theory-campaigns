@@ -1,0 +1,77 @@
+{
+ "cells": [
+  {
+   "seed": 20260825,
+   "mode": "gnpy-coronet",
+   "naive_fc": 0.3667,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.6481,
+   "fc_spread": 0.4819,
+   "n_fc": 22,
+   "mean_bits_per_symbol_aware": 3.517,
+   "n_paths": 60,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260826,
+   "mode": "gnpy-coronet",
+   "naive_fc": 0.55,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.6294,
+   "fc_spread": 0.4975,
+   "n_fc": 33,
+   "mean_bits_per_symbol_aware": 3.6,
+   "n_paths": 60,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260827,
+   "mode": "gnpy-coronet",
+   "naive_fc": 0.4667,
+   "aware_fc": 0.0,
+   "mean_loading_penalty_db": 2.6332,
+   "fc_spread": 0.4989,
+   "n_fc": 28,
+   "mean_bits_per_symbol_aware": 3.633,
+   "n_paths": 60,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-QOT",
+ "sealed": "2026-08-25",
+ "seeds": [
+  20260825,
+  20260826,
+  20260827
+ ]
+}

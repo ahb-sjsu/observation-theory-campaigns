@@ -1,0 +1,77 @@
+{
+ "cells": [
+  {
+   "seed": 20260825,
+   "mode": "gnpy+sklearn",
+   "mae_mse": 0.6445,
+   "mae_aware": 0.9596,
+   "fc_mse": 0.0361,
+   "fc_aware": 0.0089,
+   "bps_mse": 3.916,
+   "bps_aware": 3.831,
+   "n_test": 1800,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260826,
+   "mode": "gnpy+sklearn",
+   "mae_mse": 0.6459,
+   "mae_aware": 0.9542,
+   "fc_mse": 0.0433,
+   "fc_aware": 0.005,
+   "bps_mse": 3.921,
+   "bps_aware": 3.861,
+   "n_test": 1800,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260827,
+   "mode": "gnpy+sklearn",
+   "mae_mse": 0.6672,
+   "mae_aware": 0.9462,
+   "fc_mse": 0.0444,
+   "fc_aware": 0.0089,
+   "bps_mse": 3.874,
+   "bps_aware": 3.83,
+   "n_test": 1800,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-QOT-ML",
+ "sealed": "2026-08-25",
+ "seeds": [
+  20260825,
+  20260826,
+  20260827
+ ]
+}

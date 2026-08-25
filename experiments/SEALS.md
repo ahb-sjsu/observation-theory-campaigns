@@ -77,3 +77,5 @@ prefix). Verify: `git show <commit>:<path> | sha256sum`.
 |---|---|---|---|---|---|
 | XPROTO-URLLC | analysis/urllc/PREREG-XPROTO-URLLC.md | 6375ebd | ea79ecb79b2adf7bced62e18b0df922680dd27a3cffa41b1bbbe46eb4686ce68 | 2026-08-24 | A. H. Bond |
 | XPROTO-PHY | analysis/phy/PREREG-XPROTO-PHY.md | 6375ebd | 48998923768207f9311476ebdf56bdb1aef86949198fd5e9abdbc63548ee8eac | 2026-08-24 | A. H. Bond |
+| XPROTO-QOT | analysis/qot/PREREG-XPROTO-QOT.md | 8bb6e5b | 90a99d36095c23f07f013964dcb7e613048f8ebfc7539e59596961cfade7dbb0 | 2026-08-25 | A. H. Bond |
+| XPROTO-QOT-ML | analysis/qot/PREREG-XPROTO-QOT-ML.md | 8bb6e5b | 62129055bbb2db178877b40f057ccdc5246f121206d1ceec76e6554012af90d5 | 2026-08-25 | A. H. Bond |

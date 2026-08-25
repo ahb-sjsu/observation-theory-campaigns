@@ -37,10 +37,14 @@ fetch via the SNDlib native bundle (`sndlib-networks-native.zip`).
 - [x] **§3.2 capacity grounded on real SNDlib janos-us-ca fill** (`sndlib_fill.py` +
       `qot_capacity.py`, deterministic): +8.0% SE at matched safety, both policies
       carry 0.5 dB estimator RMSE. FINAL number, wired into §3.2. (No longer synthetic.)
-- [ ] **Seal + grade XPROTO-QOT** (fresh day ≥ 2026-08-25) → `XPROTO-QOT-graded.json`;
-      then **swap the remaining `% GRADED-SWAP` items** in `ofc-qot.tex` (the Fig. 2
-      per-footprint false-clear rates from `fam_qot` graded seeds). The §3.1 ML numbers,
-      §3.2 capacity (8%), and §3.3 refresh floor are already measured/deterministic.
+- [x] **SEALED + GRADED PASS 2026-08-25** (sealing commit `8bb6e5b`, seeds
+      20260825-27). **XPROTO-QOT**: naive_fc 0.37-0.55, aware_fc 0.0, all bars+MCs
+      (`XPROTO-QOT-graded.json`). **XPROTO-QOT-ML**: MAE mse 0.65 < aware 0.95, FC mse
+      ~0.041 vs aware ~0.008 (**~5×**, graded — the shakedown's ~8× did not replicate),
+      bps comparable (`XPROTO-QOT-ML-graded.json`). Both figures regenerated from graded
+      seed 20260825; §3.1 abstract+text reconciled to ~5× / FC 0.041 vs 0.008. **No
+      `% GRADED-SWAP` items remain** — every number in the paper is now sealed-graded or
+      deterministic.
 - [ ] **Generate Fig. 1** (`fc_footprint.pdf`): (a) naive vs footprint-aware
       false-clear; (b) per-footprint false-clear vs (spectral position, reach).
       *Requires a small enhancement to `fam_qot.py` to emit per-lightpath records
