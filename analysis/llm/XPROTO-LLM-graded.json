@@ -1,0 +1,80 @@
+{
+ "cells": [
+  {
+   "seed": 20260825,
+   "mode": "roberta-large-mnli/hans",
+   "benchmark_acc": 0.909,
+   "certified": true,
+   "naive_fc": 0.3333,
+   "aware_fc": 0.0333,
+   "consumer_acc_spread": 0.3803,
+   "deployment_mean_acc": 0.7358,
+   "n_consumers": 30,
+   "target": 0.8,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260826,
+   "mode": "roberta-large-mnli/hans",
+   "benchmark_acc": 0.92,
+   "certified": true,
+   "naive_fc": 0.3333,
+   "aware_fc": 0.0333,
+   "consumer_acc_spread": 0.3803,
+   "deployment_mean_acc": 0.7358,
+   "n_consumers": 30,
+   "target": 0.8,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260827,
+   "mode": "roberta-large-mnli/hans",
+   "benchmark_acc": 0.909,
+   "certified": true,
+   "naive_fc": 0.3333,
+   "aware_fc": 0.0333,
+   "consumer_acc_spread": 0.3803,
+   "deployment_mean_acc": 0.7358,
+   "n_consumers": 30,
+   "target": 0.8,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-LLM",
+ "sealed": "2026-08-25",
+ "seeds": [
+  20260825,
+  20260826,
+  20260827
+ ]
+}

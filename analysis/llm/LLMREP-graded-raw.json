@@ -1,0 +1,51 @@
+{
+ "family": "F-LLM",
+ "mode": "roberta-large-mnli/hans",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "model": "roberta-large-mnli",
+  "target": 0.8,
+  "n_mnli": 1000,
+  "n_per_subcase": 150,
+  "n_probe": 50,
+  "substrate": "REAL roberta-large-mnli on REAL MNLI val_matched (benchmark) + REAL HANS challenge set (deployment; 30 subcase footprints)"
+ },
+ "cells": [
+  {
+   "seed": 20260825,
+   "mode": "roberta-large-mnli/hans",
+   "benchmark_acc": 0.909,
+   "certified": true,
+   "naive_fc": 0.3333,
+   "aware_fc": 0.0333,
+   "consumer_acc_spread": 0.3803,
+   "deployment_mean_acc": 0.7358,
+   "n_consumers": 30,
+   "target": 0.8
+  },
+  {
+   "seed": 20260826,
+   "mode": "roberta-large-mnli/hans",
+   "benchmark_acc": 0.92,
+   "certified": true,
+   "naive_fc": 0.3333,
+   "aware_fc": 0.0333,
+   "consumer_acc_spread": 0.3803,
+   "deployment_mean_acc": 0.7358,
+   "n_consumers": 30,
+   "target": 0.8
+  },
+  {
+   "seed": 20260827,
+   "mode": "roberta-large-mnli/hans",
+   "benchmark_acc": 0.909,
+   "certified": true,
+   "naive_fc": 0.3333,
+   "aware_fc": 0.0333,
+   "consumer_acc_spread": 0.3803,
+   "deployment_mean_acc": 0.7358,
+   "n_consumers": 30,
+   "target": 0.8
+  }
+ ]
+}
