@@ -74,20 +74,61 @@ coherence-driven CSI reporting closes the refresh gap. What has been missing is 
 is load-bearing and how large the exposure is when it is absent.
 
 \section{Method}
+\label{sec:method}
 \textbf{Substrate.} We use a real 5G~NR link-level chain in
 Sionna~\cite{sionna}: LDPC-coded QAM over the NR PDSCH, with block error rate (BLER)
-measured from the actual LDPC decoder rather than an SINR-to-BLER formula. The decoder
+measured from the actual 5G LDPC decoder rather than an SINR-to-BLER formula. We first
+measure a real $\mathrm{BLER}(\mathrm{SNR})$ curve per MCS (400 coded blocks per SNR
+point over the grid $-8$ to $28$\,dB in $2$\,dB steps), then drive a per-TTI SNR trace
+through a 3GPP~TR38.901 TDL-A channel at carrier $3.5$\,GHz with a chosen Doppler, and
+evaluate each policy's selected MCS against the true instantaneous SNR through the
+measured curve. The MCS set is the 3GPP NR table (TS~38.214 Table~5.1.3.1-1; QPSK
+through 64-QAM, code rates floored at $R\ge 1/5$ for the 5G LDPC base graph). The decoder
 is the \emph{witness}: it independently determines whether the consumer decoded.
+Table~\ref{tab:params} lists the parameters.
 
 \textbf{Certificate, consumer, witness.} An AMC certificate selects the highest MCS whose
 required SINR the CSI clears at a given BLER target. The \emph{consumer} is that rate
 decision under a specific reliability target; the \emph{witness} is the LDPC decode
 outcome. A false-clear is a certificate that clears an MCS the witness then fails.
 
+\textbf{Policies.} The \emph{naive} certificate selects the highest MCS clearing the
+eMBB target from a (fresh or held) CQI report. The \emph{target-aware} URLLC policy
+selects a conservative MCS (a fixed SINR backoff) \emph{and} uses $K{=}3$
+frequency/spatial diversity branches (a block errs only if all branches err); a backoff
+alone cannot reach a $10^{-3}$ tail on a single branch, so the honest URLLC certificate
+combines both. The \emph{OLLA} policy (\S\ref{sec:refresh}) adds an SINR offset driven by
+HARQ ACK/NACK to a held report.
+
 \textbf{Discipline.} Each experiment is pre-registered with numerical bars and
 manipulation checks fixed before the graded run; the sealed record is content-hashed and
 graded on seeds disjoint from those used to design it, and negative or failing outcomes
-are kept~\cite{otcampaigns}. The numbers below are the graded, sealed values.
+are kept~\cite{otcampaigns}. The numbers below are the graded, sealed values
+(Table~\ref{tab:results}).
+
+\begin{table}[t]
+\caption{Link-level parameters (sealed cells)}
+\label{tab:params}
+\centering
+\footnotesize
+\begin{tabular}{ll}
+\hline
+Parameter & Value \\
+\hline
+Carrier frequency & $3.5$\,GHz \\
+TTI duration & $1$\,ms \\
+Channel model & 3GPP TR38.901 TDL-A \\
+Mean SNR & $12$\,dB \\
+Decoder / code & Sionna 5G NR LDPC (real decode) \\
+MCS set & NR TS~38.214 Tbl~5.1.3.1-1 (QPSK--64QAM) \\
+BLER curves & 400 blocks/pt, SNR $-8$--$28$\,dB @ $2$\,dB \\
+Trace length & $6000$ TTI \\
+eMBB / URLLC target & $10^{-1}$ / $10^{-3}$ \\
+URLLC-aware policy & conservative MCS $+$ $K{=}3$ diversity \\
+Doppler (aging expt.) & $200$\,Hz ($T_{\mathrm{coh}}\!\approx\!2.1$\,ms) \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Consumer-Relativity in the Reliability Target}
 \label{sec:urllc}
@@ -103,11 +144,13 @@ certificate achieves $\mathrm{BLER}\approx 0.112$. Read by the eMBB consumer thi
 target---the certificate is sound. Read by the URLLC consumer the \emph{same} $0.112$ is
 a false-clear by $112\times$ (against $10^{-3}$): every such block is a reliability-SLA
 violation, invisible to a scheduler that assumed one CSI report serves all traffic. The
-target-aware policy---the same CSI, an added $\approx 2$\,dB margin sized to the URLLC
-target---achieves $\mathrm{BLER}\approx 1.2\times10^{-5}$, comfortably within target, at
-the cost of that margin's spectral efficiency. No single margin is correct for both
-consumers: the eMBB-adequate margin fails URLLC, and the URLLC-safe margin over-provisions
-eMBB. The false-clear rate is the number that prices the difference.
+target-aware policy---the same CSI, a conservative MCS backoff combined with the $K{=}3$
+diversity branches introduced in Sec.~\ref{sec:method} (a backoff alone cannot reach the
+$10^{-3}$ tail on one branch)---achieves $\mathrm{BLER}\approx 1.2\times10^{-5}$,
+comfortably within target, at the cost of the backoff's spectral efficiency and the
+diversity's resource overhead. No single certificate is correct for both consumers: the
+eMBB-adequate one fails URLLC, and the URLLC-safe one over-provisions eMBB. The
+false-clear rate is the number that prices the difference.
 
 \begin{figure}[t]
   \centering
@@ -153,6 +196,32 @@ the channel decorrelates past $\approx 0.18\,T_{\mathrm{coh}}$, not on a fixed c
   ($0.177\,T_{\mathrm{coh}}$, $R^2=0.915$); at high Doppler it saturates at one TTI.}
   \label{fig:refresh}
 \end{figure}
+
+\begin{table}[t]
+\caption{Sealed per-seed results (achieved BLER)}
+\label{tab:results}
+\centering
+\footnotesize
+\begin{tabular}{lllll}
+\hline
+\multicolumn{5}{l}{\emph{(a) Reliability target} (\S\ref{sec:urllc}), fresh CSI} \\
+\hline
+seed & eMBB & URLLC-naive & URLLC-aware & \\
+\hline
+20260824 & $0.1119$ & $0.1119$ & $1.7\times10^{-5}$ & \\
+20260825 & $0.1103$ & $0.1103$ & $1.9\times10^{-5}$ & \\
+20260826 & $0.1125$ & $0.1125$ & $<10^{-5}$ & \\
+\hline
+\multicolumn{5}{l}{\emph{(b) Refresh horizon} (\S\ref{sec:refresh}), $f_D{=}200$\,Hz, $20$-TTI} \\
+\hline
+seed & naive & OLLA & fresh & CQI err \\
+\hline
+20260823 & $0.366$ & $0.101$ & $0.116$ & $5.61$\,dB \\
+20260824 & $0.340$ & $0.102$ & $0.115$ & $5.86$\,dB \\
+20260825 & $0.373$ & $0.101$ & $0.113$ & $5.76$\,dB \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Related Work}
 Link adaptation, CSI aging, and outer-loop correction are mature. OLLA~\cite{olla}
