@@ -6,8 +6,17 @@ Evidence cell: `../../analysis/qot/` (GNPy). Sole author: A. H. Bond.
 
 **Structure (revised):** *leads with the ML-QoT result* (the genuine novelty).
 §3.1 ML-QoT objective misalignment → **Fig. 1 = `ml_cliff.pdf`** (measured);
-§3.2 consumer-relative margin + honest capacity (~5–6% over a uniform margin, not the
+§3.2 consumer-relative margin + honest capacity (**~8%** over a uniform margin, not the
 strawman 50%) → **Fig. 2 = `fc_footprint.pdf`**; §3.3 refresh floor (measured).
+
+**§3.2 capacity is grounded on real traffic + deterministic (FINAL, not GRADED-SWAP):**
+`sndlib_fill.py` derives the deployed per-link channel-fill distribution from the real
+**SNDlib janos-us-ca** demand matrix (median 10, 90th-pct 35 of 76 ch → heavy-tailed →
+`SNDlib-fill.json`); `qot_capacity.py` interpolates each lightpath's deployed GSNR to
+its real fill and gives BOTH policies a 0.5 dB estimator RMSE (aware is not assumed
+perfect). Result: **+8.0% SE (0.33 b/sym, ~21 Gb/s/ch)** at matched safety (FC≤0.01),
+uniform M=2.75 dB vs aware M=1.25 dB. The raw SNDlib `.txt` is git-ignored (`data/`);
+fetch via the SNDlib native bundle (`sndlib-networks-native.zip`).
 
 ## Submission hard limits (OFC site + style guide)
 - **≤ 3 pages**, **PDF ≤ 2 MB**, abstract **≤ 35 words**, ≤ 3 figures.
@@ -25,9 +34,13 @@ strawman 50%) → **Fig. 2 = `fc_footprint.pdf`**; §3.3 refresh floor (measured
 3. Confirm **≤ 3 pages**, abstract **≤ 35 words**, PDF **≤ 2 MB**.
 
 ## Finalization checklist (before submit)
+- [x] **§3.2 capacity grounded on real SNDlib janos-us-ca fill** (`sndlib_fill.py` +
+      `qot_capacity.py`, deterministic): +8.0% SE at matched safety, both policies
+      carry 0.5 dB estimator RMSE. FINAL number, wired into §3.2. (No longer synthetic.)
 - [ ] **Seal + grade XPROTO-QOT** (fresh day ≥ 2026-08-25) → `XPROTO-QOT-graded.json`;
-      then **swap every `% GRADED-SWAP` number** in `ofc-qot.tex` (naive_fc, aware_fc,
-      loading penalty, per-footprint spread) from shakedown to the graded values.
+      then **swap the remaining `% GRADED-SWAP` items** in `ofc-qot.tex` (the Fig. 2
+      per-footprint false-clear rates from `fam_qot` graded seeds). The §3.1 ML numbers,
+      §3.2 capacity (8%), and §3.3 refresh floor are already measured/deterministic.
 - [ ] **Generate Fig. 1** (`fc_footprint.pdf`): (a) naive vs footprint-aware
       false-clear; (b) per-footprint false-clear vs (spectral position, reach).
       *Requires a small enhancement to `fam_qot.py` to emit per-lightpath records

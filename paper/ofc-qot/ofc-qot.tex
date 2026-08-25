@@ -4,7 +4,9 @@
 % OFC limits: 3 pages; abstract <=35 words; PDF <=2MB; <=3 figures.
 % Build: pdflatex ofc-qot && bibtex ofc-qot && pdflatex x2 (MiKTeX).
 % Sec 3.1 (ML-QoT, LEAD) + Sec 3.3 (refresh floor) numbers are MEASURED. Sec 3.2
-% capacity numbers marked % GRADED-SWAP are XPROTO-QOT shakedown -> swap post-seal.
+% capacity number (8%) is MEASURED + deterministic (qot_capacity.py, fill from real
+% SNDlib janos-us-ca). The Fig.2 per-footprint false-clear rates are the only
+% GRADED-SWAP items left (from fam_qot graded seeds, post-seal).
 % Figures: fig:ml = ml_cliff.pdf (Fig.1), fig:fc = fc_footprint.pdf (Fig.2).
 \documentclass[letterpaper,10pt]{article}
 \usepackage{opticameet3}
@@ -94,18 +96,23 @@ volume-averaged fidelity.
 
 \subsection{The margin is consumer-relative}
 The same threshold-blindness afflicts the margin itself under incremental fill. As a
-lightpath's band fills from provisioning to full, its GSNR drops, and whether it
+lightpath's band fills toward its deployed load, its GSNR drops, and whether it
 crosses a format threshold depends on its \emph{footprint}: false-clears concentrate
 on the services whose spectral position and reach place their GSNR nearest a boundary,
 and are absent elsewhere (Fig.~\ref{fig:fc}). Consequently a single blanket margin
-cannot be right for all. Against today's practice---one \emph{uniform} system margin
-sized so the fleet stays safe as it fills---a footprint-aware certificate that sizes
-each margin to the lightpath's own fill recovers
-$\approx 5$--$6\%$ % GRADED-SWAP
-of spectral efficiency ($\approx 0.2$--$0.27$\,b/sym, up to $\sim$17\,Gb/s per
-channel) at matched safety, on a rate-flexible transceiver model. The gain is modest
-but free: it is capacity the uniform margin strands on lightpaths that never needed
-it.
+cannot be right for all. We quantify the cost against today's practice---one
+\emph{uniform} system margin sized so the fleet stays safe---using \emph{real}
+deployed fill: each lightpath's channel load is drawn from the per-link fill
+distribution of the SNDlib \textbf{janos-us-ca} demand matrix (61 links; median 10,
+90th-percentile 35 of 76 channels~\cite{sndlib}). Real traffic is heavy-tailed, so a
+uniform margin sized for the few near-full links over-provisions the lightly-filled
+majority. Giving \emph{both} policies the same QoT-estimator uncertainty (0.5\,dB
+RMSE, so the footprint-aware certificate is not assumed perfect), a certificate that
+sizes each margin to the lightpath's own fill recovers $\approx 8\%$ of spectral
+efficiency ($\approx 0.33$\,b/sym, $\sim$21\,Gb/s per channel) at matched safety
+(false-clear $\le 0.01$), on a rate-flexible transceiver model. The gain is modest
+but free: it is capacity the uniform margin strands on the majority of links that
+never fill.
 
 \begin{figure}[t]
   \centering
@@ -150,6 +157,9 @@ transmission prediction of unestablished lightpaths,'' J.\ Opt.\ Commun.\ Netw.\
 \textbf{10}, A286--A297 (2018). % verify vol/pages on final
 \bibitem{pointon} Y.~Pointurier, ``Design of low-margin optical networks,'' J.\ Opt.\
 Commun.\ Netw.\ \textbf{9}, A9--A17 (2017). % verify vol/pages on final
+\bibitem{sndlib} S.~Orlowski, R.~Wess\"aly, M.~Pi\'oro, and A.~Tomaszewski,
+``SNDlib 1.0---Survivable Network Design Library,'' Networks \textbf{55}, 276--286
+(2010). % janos-us-ca demand matrix
 \bibitem{otcampaigns} A.~H.~Bond, ``Observation Theory: consumer-relative witnessed
 certificates,'' sealed pre-registrations and code,
 \url{https://github.com/ahb-sjsu/observation-theory-campaigns} (2026).

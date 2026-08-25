@@ -23,12 +23,17 @@ graduate off the GN-model evidence rung.
 
 ## Honest read for the paper
 
-- **Grounding fill on a real demand matrix is easy and worth doing** (SNDlib
-  `janos-us-ca` or Abilene → heterogeneous per-route fill on/near CORONET-CONUS). It
-  makes the uniform-margin baseline credible. **But** our measurement shows the
-  footprint-aware *capacity* gain over a well-sized uniform margin is only **~5–6%**
-  (0.2–0.27 b/sym, ~13–17 Gb/s/ch) even under heterogeneous fill — real traffic makes
-  the modest number *credible*, it does not make it large.
+- **DONE — grounded on SNDlib `janos-us-ca`** (`sndlib_fill.py` → `SNDlib-fill.json`;
+  wired into `qot_capacity.py`). Routing the 1482 real demands gives a heavy-tailed
+  per-link fill (median 10, 90th-pct 35 of 76 ch): most links fill lightly, a few
+  approach full. Under that real distribution — and giving BOTH policies a realistic
+  0.5 dB QoT-estimator RMSE so the footprint-aware certificate is not assumed perfect —
+  the footprint-aware *capacity* gain over a well-sized uniform margin is **~8%**
+  (0.33 b/sym, ~21 Gb/s/ch) at matched safety. (With no estimator uncertainty it is
+  16.6%; with the old synthetic all-fill-to-full it was ~5–6%. 8% is the honest,
+  real-traffic, uncertainty-carrying middle.) Real traffic makes the number both
+  *credible* and *larger than the synthetic strawman* — because real fill is
+  heavy-tailed, the uniform margin strands more on the lightly-filled majority.
 - **The Microsoft optical dataset is the real lever** for the paper's weakest point
   (GN-model-only): real measured Q-factor/SNR is the actual witness and would let us
   report a *measured* false-clear rate, not a modelled one. It is also the natural

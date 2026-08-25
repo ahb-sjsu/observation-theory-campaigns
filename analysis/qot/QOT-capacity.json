@@ -1,14 +1,22 @@
 {
  "family": "F-QOT-capacity",
  "mode": "gnpy-coronet",
+ "fill_source": "SNDlib janos-us-ca (39 nodes, US-Canada)",
+ "fill_pctiles": {
+  "10": 4,
+  "25": 6,
+  "50": 10,
+  "75": 19,
+  "90": 35
+ },
  "target_fc": 0.01,
- "uniform_margin_db": 3.25,
- "uniform_capacity_bpersym": 4.019,
- "uniform_fc": 0.0,
- "aware_margin_db": 0.0,
- "aware_capacity_bpersym": 4.216,
- "aware_fc": 0.0,
- "recovered_bpersym": 0.197,
- "recovered_pct": 4.9,
- "recovered_gbps_per_channel": 12.6
+ "uniform_margin_db": 2.75,
+ "uniform_capacity_bpersym": 4.168,
+ "uniform_fc": 0.0061,
+ "aware_margin_db": 1.25,
+ "aware_capacity_bpersym": 4.501,
+ "aware_fc": 0.0062,
+ "recovered_bpersym": 0.334,
+ "recovered_pct": 8.0,
+ "recovered_gbps_per_channel": 21.4
 }
