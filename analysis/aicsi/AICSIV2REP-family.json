@@ -1,0 +1,61 @@
+{
+ "family": "F-AICSI-V2",
+ "mode": "nrsionna_cdl_csinet",
+ "constants": {
+  "nr": 2,
+  "nt": 16,
+  "nsub": 32,
+  "b_latent": 32,
+  "channel": "3GPP-CDL-C",
+  "arch": "csinet-conv-ae",
+  "operating_sinr_db": 14.0,
+  "target_bler": 0.1
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "nrsionna_cdl_csinet",
+   "nmse_recon_nmse": 0.0345,
+   "nmse_recon_aware": 1.1997,
+   "nmse_false_clear": 0.0,
+   "aware_false_clear": 0.0259,
+   "nmse_gain_frac": 0.9751,
+   "aware_gain_frac": 0.7969,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1,
+   "channel": "3GPP-CDL-C",
+   "arch": "csinet-conv-ae"
+  },
+  {
+   "seed": 1,
+   "mode": "nrsionna_cdl_csinet",
+   "nmse_recon_nmse": 0.0328,
+   "nmse_recon_aware": 1.331,
+   "nmse_false_clear": 0.0,
+   "aware_false_clear": 0.0295,
+   "nmse_gain_frac": 0.9764,
+   "aware_gain_frac": 0.8009,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1,
+   "channel": "3GPP-CDL-C",
+   "arch": "csinet-conv-ae"
+  },
+  {
+   "seed": 2,
+   "mode": "nrsionna_cdl_csinet",
+   "nmse_recon_nmse": 0.0399,
+   "nmse_recon_aware": 1.2491,
+   "nmse_false_clear": 0.0,
+   "aware_false_clear": 0.0207,
+   "nmse_gain_frac": 0.9711,
+   "aware_gain_frac": 0.8114,
+   "perfect_false_clear": 0.0,
+   "mcs": 6,
+   "target_bler": 0.1,
+   "channel": "3GPP-CDL-C",
+   "arch": "csinet-conv-ae"
+  }
+ ]
+}
