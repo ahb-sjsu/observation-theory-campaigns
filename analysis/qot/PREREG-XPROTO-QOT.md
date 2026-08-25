@@ -1,6 +1,6 @@
 # PREREG-XPROTO-QOT — consumer-relative QoT-certificate vacuity in optical networks
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-24. Earliest compliant seal
+**STATUS: SEALED 2026-08-25.** FAMILY-CONSTRUCTED: 2026-08-24. Earliest compliant seal
 **2026-08-25** (`qot_check.py` codes the cooling-off). Graded seeds {20260825,
 20260826, 20260827}, disjoint from the shakedown's {0,1,2}. Substrate = **GNPy**
 (the optical-networking-standard GN-model QoT engine) — the evidence rung, as

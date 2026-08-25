@@ -1,6 +1,6 @@
 # PREREG-XPROTO-QOT-ML — the ML-QoT objective is consumer-misaligned (OFC Result 2)
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-24. Earliest compliant seal
+**STATUS: SEALED 2026-08-25.** FAMILY-CONSTRUCTED: 2026-08-24. Earliest compliant seal
 **2026-08-25** (`qotml_check.py` codes the cooling-off). Graded seeds {20260825,
 20260826, 20260827}, disjoint from the shakedown's {0,1,2}. Substrate = GNPy
 GN-model GSNR (`fam_qot`) + scikit-learn, run in the qot venv (numpy<2). Result 2
