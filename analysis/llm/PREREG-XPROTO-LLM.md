@@ -1,6 +1,6 @@
 # PREREG-XPROTO-LLM — eval-vs-deployment vacuity for a language model
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-24. Earliest compliant seal
+**STATUS: SEALED 2026-08-25.** FAMILY-CONSTRUCTED: 2026-08-24. Earliest compliant seal
 **2026-08-25** (`llm_check.py` codes the cooling-off). Graded seeds {20260825,
 20260826, 20260827}, disjoint from the shakedown's {0,1,2}. Substrate = a **real
 pretrained MNLI model** (`roberta-large-mnli`) on **real** MNLI validation
