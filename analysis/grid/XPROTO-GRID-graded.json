@@ -1,0 +1,77 @@
+{
+ "cells": [
+  {
+   "seed": 20260825,
+   "mode": "pandapower",
+   "naive_fc": 0.231,
+   "witnessed_fc": 0.0075,
+   "true_overload_rate": 0.417,
+   "fc_line_spread": 0.0658,
+   "n_steps": 2000,
+   "n_lines": 15,
+   "r_report": 60,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260826,
+   "mode": "pandapower",
+   "naive_fc": 0.2265,
+   "witnessed_fc": 0.0135,
+   "true_overload_rate": 0.439,
+   "fc_line_spread": 0.0679,
+   "n_steps": 2000,
+   "n_lines": 15,
+   "r_report": 60,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260827,
+   "mode": "pandapower",
+   "naive_fc": 0.2385,
+   "witnessed_fc": 0.0125,
+   "true_overload_rate": 0.4125,
+   "fc_line_spread": 0.0688,
+   "n_steps": 2000,
+   "n_lines": 15,
+   "r_report": 60,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-GRID",
+ "sealed": "2026-08-25",
+ "seeds": [
+  20260825,
+  20260826,
+  20260827
+ ]
+}
