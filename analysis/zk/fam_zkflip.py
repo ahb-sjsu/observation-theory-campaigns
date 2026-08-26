@@ -41,14 +41,25 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TOPO = json.load(open(os.path.join(os.path.expanduser("~/zk"), "topology_flip.json")))
 N_ZNODES = 10
 HOT = [0, 1, 2]
-COLD = [7, 8, 9]
+COLD = [9]                 # pilot 3: a single cold znode. With three, a cold write
+                           # lands on one of them, so a reader of a random cold
+                           # znode sees only a third of the 400 ms stale windows
+                           # (0.11/3, then sync dilution), which is why pilot 2's
+                           # L-gaps were thin. One znode restores the full
+                           # lag/interval fraction (~0.11) the design doc computes.
 HOT_INTERVAL_S = 0.012
 COLD_EVERY = 300
 DURATION_S = 60
-N_READS = 300              # per fleet per policy
+N_READS = 600              # per fleet per policy (pilot 4: doubled for power)
 READ_SPACING_S = 0.05      # pace reads so cold-key reads span many write cycles
                            # (pilot 1: 300 back-to-back reads covered < 1 cold
                            # cycle, so the L-fleet's lag axis was under-sampled)
+# PILOT 4 (declared BEFORE the run, with a stopping rule): slow lag raised to
+# 1200 ms (lab_up_flip.sh 50 1200). A priori expectation from lag/interval
+# arithmetic: unsynced cold-read stale fraction ~ 1.2/3.6 = 0.33, so
+# L_A ~ 0.30 and L_B ~ 0.03, gap ~ 0.27 (~14 sigma at n=600). STOPPING RULE:
+# if any seed's L-gap comes in under 0.10, the ZK flip is recorded as a kept
+# exploration and NOT registered. No pilot 5.
 SYNC_MEAN = 0.5            # matched budget: mean sync probability per read
 P_HI, P_LO = 0.9, 0.1      # allocation extremes (mean 0.5 over the two fleets)
 NULL_TOL = 5               # zxid-gap tolerance for the null's second consumer
