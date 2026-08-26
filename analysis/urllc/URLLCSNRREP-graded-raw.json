@@ -1,0 +1,180 @@
+{
+ "family": "F-URLLC-SNR",
+ "mode": "nrsionna",
+ "constants": {
+  "snr_grid_db": [
+   3,
+   6,
+   9,
+   12,
+   15,
+   18,
+   21
+  ],
+  "embb_target": 0.1,
+  "urllc_target": 0.001,
+  "urllc_margin_db": 4.0,
+  "diversity_k": 3,
+  "cqi_noise_db": 1.0,
+  "duration": 6000,
+  "substrate": "real Sionna 5G NR LDPC curves + TDL-A fading, fresh CSI"
+ },
+ "cells": [
+  {
+   "seed": 20260826,
+   "mode": "nrsionna",
+   "snr_grid_db": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21
+   ],
+   "embb_target": 0.1,
+   "urllc_target": 0.001,
+   "sweep": {
+    "3": {
+     "embb": 0.33631,
+     "urllc_naive": 0.33631,
+     "urllc_aware": 0.0260312
+    },
+    "6": {
+     "embb": 0.20618,
+     "urllc_naive": 0.20618,
+     "urllc_aware": 0.0045764
+    },
+    "9": {
+     "embb": 0.14165,
+     "urllc_naive": 0.14165,
+     "urllc_aware": 0.0008436
+    },
+    "12": {
+     "embb": 0.11496,
+     "urllc_naive": 0.11496,
+     "urllc_aware": 0.0001997
+    },
+    "15": {
+     "embb": 0.10291,
+     "urllc_naive": 0.10291,
+     "urllc_aware": 1.13e-05
+    },
+    "18": {
+     "embb": 0.08081,
+     "urllc_naive": 0.08081,
+     "urllc_aware": 1.21e-05
+    },
+    "21": {
+     "embb": 0.05807,
+     "urllc_naive": 0.05807,
+     "urllc_aware": 2.5e-06
+    }
+   }
+  },
+  {
+   "seed": 20260827,
+   "mode": "nrsionna",
+   "snr_grid_db": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21
+   ],
+   "embb_target": 0.1,
+   "urllc_target": 0.001,
+   "sweep": {
+    "3": {
+     "embb": 0.32904,
+     "urllc_naive": 0.32904,
+     "urllc_aware": 0.0261442
+    },
+    "6": {
+     "embb": 0.2032,
+     "urllc_naive": 0.2032,
+     "urllc_aware": 0.0040491
+    },
+    "9": {
+     "embb": 0.1375,
+     "urllc_naive": 0.1375,
+     "urllc_aware": 0.0005084
+    },
+    "12": {
+     "embb": 0.10981,
+     "urllc_naive": 0.10981,
+     "urllc_aware": 6.72e-05
+    },
+    "15": {
+     "embb": 0.09632,
+     "urllc_naive": 0.09632,
+     "urllc_aware": 6.1e-06
+    },
+    "18": {
+     "embb": 0.07882,
+     "urllc_naive": 0.07882,
+     "urllc_aware": 3.4e-06
+    },
+    "21": {
+     "embb": 0.05393,
+     "urllc_naive": 0.05393,
+     "urllc_aware": 2.5e-06
+    }
+   }
+  },
+  {
+   "seed": 20260828,
+   "mode": "nrsionna",
+   "snr_grid_db": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21
+   ],
+   "embb_target": 0.1,
+   "urllc_target": 0.001,
+   "sweep": {
+    "3": {
+     "embb": 0.32554,
+     "urllc_naive": 0.32554,
+     "urllc_aware": 0.0230605
+    },
+    "6": {
+     "embb": 0.2014,
+     "urllc_naive": 0.2014,
+     "urllc_aware": 0.0031827
+    },
+    "9": {
+     "embb": 0.13671,
+     "urllc_naive": 0.13671,
+     "urllc_aware": 0.0002047
+    },
+    "12": {
+     "embb": 0.10775,
+     "urllc_naive": 0.10775,
+     "urllc_aware": 2.4e-06
+    },
+    "15": {
+     "embb": 0.09747,
+     "urllc_naive": 0.09747,
+     "urllc_aware": 6.2e-06
+    },
+    "18": {
+     "embb": 0.07654,
+     "urllc_naive": 0.07654,
+     "urllc_aware": 3.8e-06
+    },
+    "21": {
+     "embb": 0.05427,
+     "urllc_naive": 0.05427,
+     "urllc_aware": 1.7e-06
+    }
+   }
+  }
+ ]
+}

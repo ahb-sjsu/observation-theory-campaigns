@@ -196,6 +196,29 @@ one that is sound for eMBB false-clears for URLLC by $112\times$, and the one th
 sound for URLLC over-provisions eMBB. The false-clear rate is the number that prices the
 difference.
 
+\textbf{The relativity is not an artifact of the operating point.} Sweeping the mean SNR
+from cell edge to cell centre ($3$--$21$\,dB; a separately sealed cell, three graded
+seeds) shows the target gap is a structural property of AMC, not of one SNR
+(Fig.~\ref{fig:snr}): because the certificate always selects the MCS that rides the eMBB
+target, the URLLC consumer reads a false-clear of $0.08$--$0.14$ ($77$--$142\times$ its
+target) at \emph{every} in-range SNR ($9$--$18$\,dB), and still $54\times$ at $21$\,dB
+where the MCS set saturates. The target-aware certificate holds URLLC across the range.
+At cell edge the relativity compounds: below $\approx 6$\,dB even the lowest MCS cannot
+meet the eMBB target and the certificate false-clears \emph{its own} consumer
+($\mathrm{BLER}\approx 0.33$ at $3$\,dB against $10^{-1}$)---margin cannot fix a
+certificate whose weakest format is already too fast.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.86\linewidth]{snr_robustness.png}
+  \caption{SNR-robustness of the target relativity (real NR, Sionna LDPC; sealed sweep,
+  3 seeds, whiskers min--max). The naive certificate rides the eMBB target, so the URLLC
+  consumer reads a $\sim$$10^2\times$ false-clear at every in-range SNR; below
+  $\approx 6$\,dB (shaded) even the eMBB consumer is false-cleared. The target-aware
+  certificate holds URLLC throughout.}
+  \label{fig:snr}
+\end{figure}
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.82\linewidth]{urllc_relativity.png}
@@ -302,16 +325,23 @@ mismatched target, a coherence-scaled horizon for a stale report. The Sionna lin
 chain is the evidence rung; an over-the-air or srsRAN testbed with real HARQ traces is the
 external-validity graduation.
 
-\textbf{Scope.} The evidence is one TDL-A profile (DS $30$\,ns), one mean SNR ($12$\,dB),
-an MCS set to 64-QAM, and---for the target axis---one mobility; the refresh law is fit
-across $f_D=10$--$400$\,Hz. We expect both relativities to persist and \emph{sharpen}
-elsewhere: at cell edge the naive certificate false-clears even for eMBB, so the target
-gap only widens; 256-QAM adds steeper cliffs that deepen the aging penalty; and richer
-profiles or correlated diversity raise $\mathrm{FC}_{\text{aware}}$. Each omitted factor
-increases, not removes, the measured cost. The methodology is not radio-specific---the
-same consumer-relative false-clear appears in optical quality-of-transmission and
-database replication~\cite{otcampaigns}---but the results here stand on the 5G~NR CSI
-certificate alone.
+\textbf{Scope.} The evidence is one TDL-A profile (DS $30$\,ns), an MCS set to 64-QAM,
+and---for the target axis---one mobility; the refresh law is fit across
+$f_D=10$--$400$\,Hz and the target relativity is measured across mean SNR
+$3$--$21$\,dB (Fig.~\ref{fig:snr}), including the cell-edge regime where the naive
+certificate false-clears even its own eMBB consumer. The remaining omitted factors point
+the same way: 256-QAM adds steeper cliffs that deepen the aging penalty, and richer
+profiles or correlated diversity raise $\mathrm{FC}_{\text{aware}}$---each increases,
+not removes, the measured cost. On realization: the measured refresh floor is directly
+implementable by the event-triggered (relative-threshold) CSI reporting already in
+NR~\cite{cqireport}, an instance of send-on-delta (Lebesgue) sampling~\cite{sod}; in our
+exploratory runs such a trigger reproduced the floor constant
+($P_{\mathrm{eff}}\!\approx\!0.2\,T_{\mathrm{coh}}$), but a sealed confirmation attempt
+returned VOID on a control-sanity check at very low Doppler, so we make no sealed claim
+and credit the mechanism entirely to prior art. The methodology is not
+radio-specific---the same consumer-relative false-clear appears in optical
+quality-of-transmission and database replication~\cite{otcampaigns}---but the results
+here stand on the 5G~NR CSI certificate alone.
 
 \begin{thebibliography}{1}
 \bibitem{olla} A.~Sampath, P.~Sarath~Kumar, and J.~M.~Holtzman, ``On setting reverse link
@@ -324,6 +354,8 @@ low-latency wireless communication with short packets,'' \emph{Proc. IEEE}, vol.
 no.~9, pp.~1711--1726, 2016.
 \bibitem{cqireport} 3GPP TS~38.214, ``NR; Physical layer procedures for data,'' v17,
 clause~5.2 (CSI/CQI reporting), 2022.
+\bibitem{sod} M.~Miskowicz, ``Send-on-delta concept: An event-based data reporting
+strategy,'' \emph{Sensors}, vol.~6, no.~1, pp.~49--63, 2006.
 \bibitem{csinet} C.-K.~Wen, W.-T.~Shih, and S.~Jin, ``Deep learning for massive MIMO CSI
 feedback,'' \emph{IEEE Wireless Commun. Lett.}, vol.~7, no.~5, pp.~748--751, 2018.
 \bibitem{otcampaigns} A.~H.~Bond, ``Observation Theory: consumer-relative witnessed

@@ -81,3 +81,5 @@ prefix). Verify: `git show <commit>:<path> | sha256sum`.
 | XPROTO-QOT-ML | analysis/qot/PREREG-XPROTO-QOT-ML.md | 8bb6e5b | 62129055bbb2db178877b40f057ccdc5246f121206d1ceec76e6554012af90d5 | 2026-08-25 | A. H. Bond |
 | XPROTO-GRID | analysis/grid/PREREG-XPROTO-GRID.md | b61f7f1 | 3deecdb5897e45f5cd2f6a68a18e5041554039df7749ce48952980204a08cb8f | 2026-08-25 | A. H. Bond |
 | XPROTO-LLM | analysis/llm/PREREG-XPROTO-LLM.md | b61f7f1 | 2b4889a693f6e0899ec22dc81187321001d409d2f921c02c0cce912f906739ed | 2026-08-25 | A. H. Bond |
+| XPROTO-URLLC-SNR | analysis/urllc/PREREG-XPROTO-URLLC-SNR.md | 6e5735a | 2f33585acacd042aa5d0a26d8d61419cedefe5990c0e431d1a6a304c512c778b | 2026-08-26 | A. H. Bond |
+| XPROTO-CSI-CTRL (graded verdict: **VOID**, MC3) | analysis/csi/PREREG-XPROTO-CSI-CTRL.md | 6e5735a | adf51feb7d40eda68f6764f359faad01de188d0b4445bd88ba4a58e62edf656a | 2026-08-26 | A. H. Bond |
