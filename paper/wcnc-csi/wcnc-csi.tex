@@ -71,7 +71,7 @@ Neither observation needs a new estimator or scheduler. The corrections are old.
 Outer-loop link adaptation \cite{olla} closes the target gap, and faster reporting
 closes the age gap. What has been missing is the measured false-clear rate itself,
 which says how large the exposure is when a correction is absent, and when a
-correction has stopped being an optimization and become a requirement.
+correction has stopped being optional.
 
 \section{Method}
 \label{sec:method}
@@ -127,12 +127,13 @@ the true cost of URLLC safety is at least what we report.
 \textbf{OLLA.} The correction of \S\ref{sec:refresh} does not trust $\hat{g}$. It
 selects $m^\star(\hat{g}(t)-o(t))$ and moves the offset on HARQ feedback,
 \begin{equation}
-o(t{+}1)=o(t)+\delta_\uparrow\mathbf{1}[\text{ACK}(t)]
--\delta_\downarrow\mathbf{1}[\text{NACK}(t)],
+o(t{+}1)=o(t)+\delta_{\mathrm{up}}\,\mathbf{1}[\text{ACK}(t)]
+-\delta_{\mathrm{dn}}\,\mathbf{1}[\text{NACK}(t)],
 \label{eq:olla}
 \end{equation}
-with $\delta_\uparrow=0.1$\,dB and $\delta_\downarrow=\delta_\uparrow(1-\beta)/\beta$,
-so the loop settles where the NACK rate equals $\beta$. For held CSI the refresh floor
+with $\delta_{\mathrm{up}}=0.1$\,dB and
+$\delta_{\mathrm{dn}}=\delta_{\mathrm{up}}(1-\beta)/\beta$, so the loop settles
+where the NACK rate equals $\beta$. For held CSI the refresh floor
 is $P^\star(f_D)=\max\{P:\widehat{\mathrm{FC}}\le\beta\}$, the longest report period
 that still meets the target.
 
@@ -162,7 +163,7 @@ CQI report noise $\sigma$ & $1$\,dB \\
 Trace length & $6000$ TTI \\
 eMBB / URLLC target & $10^{-1}$ / $10^{-3}$ \\
 URLLC-aware policy & conservative MCS $+$ $K{=}3$ diversity \\
-OLLA step $\delta_\uparrow$ & $0.1$\,dB ($\delta_\downarrow{=}0.9$\,dB) \\
+OLLA step $\delta_{\mathrm{up}}$ & $0.1$\,dB ($\delta_{\mathrm{dn}}{=}0.9$\,dB) \\
 Main aging Doppler & $200$\,Hz ($T_{\mathrm{coh}}\!\approx\!2.1$\,ms, $\approx$$62$\,km/h) \\
 Refresh sweep $f_D$ & $10$--$400$\,Hz \\
 Target-axis SNR sweep & $3$--$21$\,dB \\
@@ -203,23 +204,23 @@ format is already too aggressive.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.86\linewidth]{snr_robustness.png}
+  \includegraphics[width=0.82\linewidth]{urllc_relativity}
+  \caption{One report, two verdicts (real NR, Sionna LDPC; 3 sealed seeds, $6000$ TTI
+  each; bars are means, whiskers min--max). The same CSI-derived MCS meets the eMBB
+  target and misses the URLLC target by $112\times$. The target-aware policy meets
+  URLLC.}
+  \label{fig:urllc}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.86\linewidth]{snr_robustness}
   \caption{The target gap across mean SNR (real NR, Sionna LDPC; sealed sweep, 3 seeds,
   whiskers min--max). The naive certificate rides the eMBB target, so the URLLC
   consumer sees roughly a hundredfold false-clear at every in-range SNR. Below about
   $6$\,dB (shaded) even the eMBB consumer is failed. The target-aware policy holds
   URLLC throughout.}
   \label{fig:snr}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.82\linewidth]{urllc_relativity.png}
-  \caption{One report, two verdicts (real NR, Sionna LDPC; 3 sealed seeds, $6000$ TTI
-  each; bars are means, whiskers min--max). The same CSI-derived MCS meets the eMBB
-  target and misses the URLLC target by $112\times$. The target-aware policy meets
-  URLLC.}
-  \label{fig:urllc}
 \end{figure}
 
 \section{The Refresh Horizon}
@@ -237,13 +238,15 @@ $0.10$. Figure~\ref{fig:refresh}(a) shows the aging across mobility.
 The practical question is how often to report. We sweep Doppler from $10$ to $400$\,Hz,
 which spans coherence times from $42$\,ms down to $1$\,ms, and report periods from $1$
 to $80$ TTI. The refresh floor $P^\star(f_D)$ is the longest period that keeps BLER at
-target. A least-squares fit through the origin against the Clarke coherence time
-$T_{\mathrm{coh}}=0.423/f_D$ gives
+target. An unweighted ordinary least-squares fit through the origin against the
+Clarke coherence time $T_{\mathrm{coh}}=0.423/f_D$, over all six Doppler points
+including the near-floor ones at high mobility, gives
 \begin{equation}
 P^\star \;\approx\; 0.177\,T_{\mathrm{coh}}, \qquad R^2 = 0.915
 \label{eq:ot14}
 \end{equation}
-(Fig.~\ref{fig:refresh}(b)). The low-mobility points dominate the fit. At high Doppler
+(Fig.~\ref{fig:refresh}(b)). The low-mobility points dominate the fit; the
+high-Doppler points sit at the one-TTI floor and carry little leverage. At high Doppler
 the floor stops at one TTI, the shortest period the frame allows, and that stop
 matters. Above roughly $200$\,Hz no reporting cadence keeps the naive certificate at
 target, so a HARQ-driven correction is no longer an optimization but a requirement.
@@ -252,7 +255,7 @@ decorrelates by about $0.18\,T_{\mathrm{coh}}$, rather than on a fixed schedule.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\linewidth]{refresh_floor.png}
+  \includegraphics[width=\linewidth]{refresh_floor}
   \caption{The refresh horizon (real NR, Sionna LDPC; sealed sweep). (a) BLER grows
   with report period, faster at higher Doppler. (b) The refresh floor is proportional
   to the Clarke coherence time ($0.177\,T_{\mathrm{coh}}$, $R^2=0.915$) and saturates
@@ -285,6 +288,12 @@ seed & naive & OLLA & fresh & CQI err \\
 \hline
 \multicolumn{5}{l}{\footnotesize Seed IDs are campaign date-stamps.
 (a) expected rate; (b) empirical NACK rate.} \\
+\multicolumn{5}{l}{\footnotesize In (a) the eMBB and URLLC-naive columns are the
+same physical trace judged} \\
+\multicolumn{5}{l}{\footnotesize against different $\beta$, so they coincide by
+construction. CQI err is the mean} \\
+\multicolumn{5}{l}{\footnotesize absolute error $\frac{1}{T}\sum_t|\gamma(t)-\hat{g}(t)|$
+in dB under the naive (held) policy.} \\
 \end{tabular}
 \end{table}
 
@@ -294,14 +303,38 @@ The two axes above share a stronger property: the verdict can invert. Consider t
 user fleets whose failures come from different parts of the radio state. The M-fleet
 runs at $200$\,Hz Doppler and $12$\,dB mean SNR, so its blocks die of CSI aging. The
 S-fleet runs at $10$\,Hz and $7$\,dB, so its blocks die in deep fades. Now take two
-margin policies with the same fleet-mean budget of $1.5$\,dB: policy A allocates by
-Doppler, policy B allocates the same total by SNR deficit. The M-fleet does better
-under A
+margin policies with the same fleet-mean budget of $\bar{\Delta}=1.5$\,dB. Policy A
+allocates by Doppler, $\Delta_i^{A}=\bar{\Delta}\,f_{D,i}/\overline{f_D}$. Policy B
+allocates the same total by SNR deficit,
+$\Delta_i^{B}=\bar{\Delta}\,d_i/\bar{d}$ with
+$d_i=(12-\overline{\gamma}_i)^{+}+0.05$\,dB. The M-fleet does better under A
 (NACK rate $0.22$ against $0.36$), % GRADED-SWAP (shakedown; seal 2026-08-27)
 and the S-fleet does better under B
 ($0.16$ against $0.27$), % GRADED-SWAP
-on every seed. The fleet-mean NACK rate sits within $0.02$ for the two policies, so
-the aggregate cannot order the pair for anyone. A control run sharpens the
+on every seed (Table~\ref{tab:flip}). The fleet-mean NACK rate sits within $0.02$
+for the two policies, so the aggregate cannot order the pair for anyone.
+
+\begin{table}[t]
+\caption{Per-seed inversion results (NACK rate)}
+\label{tab:flip}
+\centering
+\footnotesize
+\begin{tabular}{lcccccc}
+\hline
+ & \multicolumn{2}{c}{M-fleet} & \multicolumn{2}{c}{S-fleet} & \multicolumn{2}{c}{fleet mean} \\
+seed & A & B & A & B & A & B \\
+\hline
+% GRADED-SWAP: table below carries shakedown seeds {0,1,2}; replace with the
+% graded seeds 20260827-29 after the 2026-08-27 seal.
+0 & $0.225$ & $0.363$ & $0.274$ & $0.170$ & $0.249$ & $0.266$ \\
+1 & $0.218$ & $0.352$ & $0.267$ & $0.164$ & $0.243$ & $0.258$ \\
+2 & $0.227$ & $0.365$ & $0.259$ & $0.158$ & $0.243$ & $0.262$ \\
+\hline
+\multicolumn{7}{l}{\footnotesize Bold direction: M prefers A, S prefers B, on every
+seed. The fleet mean} \\
+\multicolumn{7}{l}{\footnotesize cannot order the pair for either fleet.} \\
+\end{tabular}
+\end{table} A control run sharpens the
 mechanism. We read one fleet at two reliability thresholds, a shifted required-SNR
 table, and redistributed the margin the same two ways. No inversion appears. A
 threshold shift leaves both consumers reading the same projection of the state, and
