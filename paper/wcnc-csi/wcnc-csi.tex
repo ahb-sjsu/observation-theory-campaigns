@@ -38,10 +38,10 @@ grows, and the longest safe report period is about $0.177$ of the Clarke coheren
 ($R^2=0.915$), until at high mobility no period the frame permits is short enough. The
 corrections are standard, outer-loop link adaptation and faster reporting. What we add
 is the measured failure rate that says how much each correction is worth and when it
-stops being optional. A third experiment shows the failure rate can invert: two margin
-policies with equal budgets, and each of two user fleets prefers a different one, so no
-fleet-level number serves both. Every number comes from a sealed, pre-registered
-record.
+stops being optional. A third experiment shows the verdict itself can invert. With
+equal margin budgets, one user fleet does better under one policy and the other fleet
+under the other, so no fleet-level number serves both. Every number comes from a
+sealed, pre-registered record.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -302,13 +302,13 @@ and the S-fleet does better under B
 ($0.16$ against $0.27$), % GRADED-SWAP
 on every seed. The fleet-mean NACK rate sits within $0.02$ for the two policies, so
 the aggregate cannot order the pair for anyone. A control run sharpens the
-mechanism: reading one fleet at two reliability thresholds (a shifted required-SNR
-table) under redistributed margin produces no inversion at all, because a threshold
-shift leaves both consumers reading the same projection of the state. That is also
-why \S\ref{sec:urllc} showed dominance rather than inversion: eMBB and URLLC are a
-threshold pair. The inversion needs consumers that read different axes, mobility
-against depth, and a mixed cell has both. A scheduler that tunes its reporting and
-margin to one fleet-level KPI is optimizing a number that no user experiences.
+mechanism. We read one fleet at two reliability thresholds, a shifted required-SNR
+table, and redistributed the margin the same two ways. No inversion appears. A
+threshold shift leaves both consumers reading the same projection of the state, and
+that is also why \S\ref{sec:urllc} showed dominance rather than inversion. eMBB and
+URLLC are a threshold pair. The inversion needs consumers that read different axes
+of the state, here mobility against depth, and a mixed cell has both. A scheduler
+tuned to one fleet-level number is optimizing something no user experiences.
 
 \section{Related Work}
 Link adaptation, CSI aging and outer-loop correction are old subjects. OLLA \cite{olla}

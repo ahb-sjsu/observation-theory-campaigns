@@ -59,11 +59,11 @@ false-clear rate of a stale twin grows linearly with the number of channels adde
 since its last sync, which yields a freshness budget of about eight adds per
 neighbourhood at a $5\%$ risk target. Which services are exposed when the twin is
 stale is set by spectral position and reach, so a per-lightpath view recovers real
-capacity over a uniform margin. Two margin policies with equal budgets can receive
-opposite verdicts from two service classes, so a fleet-level number can serve
-neither. And when the twin's QoT model is a learned surrogate, training it on
-average error leaves it blind exactly at the FEC threshold where its decisions are
-made.
+capacity over a uniform margin. With equal margin budgets, one service class does
+better under one allocation policy and the other class under the other, so a
+fleet-level number serves neither. And when the twin's QoT model is a learned
+surrogate, training it on average error leaves it blind exactly at the FEC threshold
+where its decisions are made.
 
 \section{Method}
 \textbf{Substrate.} Lightpaths are transparent shortest-path routes of the
@@ -130,13 +130,13 @@ same total by band-centrality. Long-reach band-edge services do better under A
 and short-reach band-centre services do better under B
 ($0.22$ against $0.42$). % GRADED-SWAP
 Same pair of policies, opposite verdicts, on every seed tested. The fleet aggregate
-cannot arbitrate: it prefers A overall while B is much better for half the fleet. A
-control makes the mechanism sharp. Running the same protocol on two FEC classes,
-whose thresholds differ by a shift but whose reads are the same projection of the
-network state, produces no inversion at all. The inversion needs consumers that read
-different axes of the state, here reach against spectral position, and that is
-exactly what mixed service portfolios do. A twin that reports one fleet-level number
-answers a question no consumer asked.
+cannot arbitrate. It prefers A overall while B is much better for half the fleet. A
+control makes the mechanism sharp. We ran the same protocol on two FEC classes.
+Their thresholds differ by a shift, but they read the same projection of the network
+state, and no inversion appears. The inversion needs consumers that read different
+axes of the state, here reach against spectral position, and that is exactly what
+mixed service portfolios do. A twin that reports one fleet-level number answers a
+question no consumer asked.
 
 \subsection{The learned surrogate fails at the threshold}
 Many twins replace the physics model with a learned surrogate for speed. How that
