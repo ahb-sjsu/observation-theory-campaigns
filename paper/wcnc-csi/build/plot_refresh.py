@@ -32,13 +32,14 @@ def main(inp=DEF, out=os.path.join(HERE, "refresh_floor.pdf")):
 
     # (a) aging: BLER vs report period, selected Dopplers
     for fd in ("25", "100", "400"):
-        ax1.plot(periods, grid[fd], marker=MARK[fd], ms=5, color="0.2", lw=1.1,
-                 mfc="white", label=f"$f_D$={fd} Hz")
+        ax1.plot(periods, grid[fd], marker=MARK[fd], ms=6, color="0.2", lw=1.2,
+                 mfc="white", label=f"$f_D={fd}$ Hz")
     ax1.axhline(thr, ls="--", color="0.45", lw=1.1)
-    ax1.text(periods[-1], thr * 1.03, "target", ha="right", va="bottom", fontsize=7, color="0.4")
+    ax1.text(periods[-1], thr * 1.04, "target", ha="right", va="bottom", fontsize=7.5, color="0.4")
     ax1.set_xscale("log"); ax1.set_xlabel("CSI report period (TTI)")
     ax1.set_ylabel("BLER"); ax1.set_title("(a) the certificate ages", fontsize=9)
-    ax1.legend(fontsize=7, loc="upper left")
+    ax1.legend(fontsize=8, loc="upper left", title="Doppler", title_fontsize=8,
+               framealpha=0.95, handlelength=1.6)
 
     # (b) the OT-14 law: floor vs coherence time
     fds = sorted(floors, key=lambda k: int(k))
