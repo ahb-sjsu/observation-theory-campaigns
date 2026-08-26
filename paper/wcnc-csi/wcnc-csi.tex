@@ -87,10 +87,43 @@ through 64-QAM, code rates floored at $R\ge 1/5$ for the 5G LDPC base graph). Th
 is the \emph{witness}: it independently determines whether the consumer decoded.
 Table~\ref{tab:params} lists the parameters.
 
-\textbf{Certificate, consumer, witness.} An AMC certificate selects the highest MCS whose
-required SINR the CSI clears at a given BLER target. The \emph{consumer} is that rate
-decision under a specific reliability target; the \emph{witness} is the LDPC decode
-outcome. A false-clear is a certificate that clears an MCS the witness then fails.
+\textbf{System model.} Let $\gamma(t)$ (dB) be the true post-processing SNR at TTI $t$
+and $\hat{g}(t)$ the SNR the transmitter infers from the CSI report: for \emph{fresh} CSI
+$\hat{g}(t)=\gamma(t)+n(t)$ with report noise $n\sim\mathcal{N}(0,\sigma^2)$; for a report
+\emph{held} with period $P$, $\hat{g}(t)=\gamma\!\left(P\lfloor t/P\rfloor\right)$, so the
+estimate ages between reports. With MCS set $\mathcal{M}=\{(Q_m,R_m)\}$ and measured LDPC
+error curve $e_m(\gamma)$, the required SNR at target $\beta$ is
+$\rho_m(\beta)=\min\{\gamma:e_m(\gamma)\le\beta\}$. The AMC \emph{certificate} selects the
+highest MCS clearing the estimate under a backoff $\Delta$:
+\begin{equation}
+m^\star(\hat{g})=\max\{m\in\mathcal{M}:\rho_m(\beta_0)+\Delta\le\hat{g}\},
+\label{eq:cert}
+\end{equation}
+with reference target $\beta_0=10^{-1}$ and $\Delta=0$ for the naive policy. The
+\emph{consumer} is a reliability target $\beta$; the \emph{witness} is the LDPC decode of
+$m^\star$ at the \emph{true} SNR. A false-clear is a cleared MCS the channel cannot
+support, $\rho_{m^\star}(\beta)>\gamma(t)$, and the measured, consumer-relative
+false-clear rate is the witnessed BLER of the selected MCS,
+\begin{equation}
+\mathrm{FC}(\beta)=\tfrac{1}{T}\textstyle\sum_{t=1}^{T}
+e_{\,m^\star(\hat{g}(t))}\!\big(\gamma(t)\big),
+\label{eq:fc}
+\end{equation}
+read against $\beta$. Because \eqref{eq:cert}--\eqref{eq:fc} are judged against $\beta$,
+one trace $\{\hat{g}(t),\gamma(t)\}$ yields different verdicts for the eMBB ($\beta{=}10^{-1}$)
+and URLLC ($\beta{=}10^{-3}$) consumers---the consumer-relativity we measure. The
+URLLC-aware certificate raises $\Delta$ and combines $K$ independent branches, failing
+only if all fail:
+$\mathrm{FC}_{\text{aware}}=\tfrac{1}{T}\sum_t\prod_{k=1}^{K}e_{m^\star}(\gamma_k(t))$.
+The witnessed \emph{OLLA} correction (\S\ref{sec:refresh}) distrusts $\hat{g}$ and selects
+$m^\star(\hat{g}(t)-o(t))$ with an offset driven by HARQ feedback,
+\begin{equation}
+o(t{+}1)=o(t)+\mu\big(\mathbf{1}[\text{NACK}(t)]-\beta\big),
+\label{eq:olla}
+\end{equation}
+which drives the empirical error rate toward $\beta$ under stale CSI. For held CSI the
+\emph{refresh floor} is the largest period meeting target,
+$P^\star(f_D)=\max\{P:\mathrm{FC}\le\beta\}$.
 
 \textbf{Policies.} The \emph{naive} certificate selects the highest MCS clearing the
 eMBB target from a (fresh or held) CQI report. The \emph{target-aware} URLLC policy
@@ -168,7 +201,7 @@ The second axis is time. A CSI report is fresh when issued and ages as the chann
 decorrelates; a certificate that was sound at report time false-clears once the channel
 has moved. At $f_D = 200$\,Hz with a $20$-TTI report period, the naive (held-CSI)
 certificate reaches $\mathrm{BLER}\approx 0.36$ against a $0.1$ target---a false-clear on
-roughly a quarter of transmissions---while OLLA, the deployed witnessed correction that
+roughly a quarter of transmissions---while OLLA~\eqref{eq:olla}, the deployed witnessed correction that
 adjusts an offset from HARQ feedback, holds it at $\approx 0.10$
 (Fig.~\ref{fig:refresh}(a) shows the aging across mobility).
 
