@@ -11,6 +11,8 @@ import sys
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
+import matplotlib as mpl
+mpl.rcParams.update({"font.size": 11, "axes.titlesize": 11, "legend.fontsize": 10})
 import matplotlib.pyplot as plt  # noqa: E402
 
 
@@ -37,7 +39,7 @@ def main(paths_json="QOT-paths.json", out_pdf="fc_footprint.pdf"):
     ax2.scatter(pos[naive], reach[naive], marker="x", color="k", s=34,
                 linewidths=1.3, label="false-clear")
     ax2.set_xlabel("spectral position"); ax2.set_ylabel("reach (80-km spans)")
-    ax2.set_title("(b) footprint concentration"); ax2.legend(frameon=False, fontsize=8)
+    ax2.set_title("(b) footprint concentration"); ax2.legend(frameon=False, fontsize=10)
 
     fig.tight_layout()
     fig.savefig(out_pdf)

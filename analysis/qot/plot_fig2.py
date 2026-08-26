@@ -14,6 +14,8 @@ import sys
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
+import matplotlib as mpl
+mpl.rcParams.update({"font.size": 11, "axes.titlesize": 11, "legend.fontsize": 10})
 import matplotlib.pyplot as plt  # noqa: E402
 
 
@@ -31,12 +33,12 @@ def main(preds_json="QOTML-preds.json", out_pdf="ml_cliff.pdf"):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.0, 2.9))
 
     # (a) reconstruction (MAE) vs consumer (false-clear): the dissociation
-    ax1.scatter([mae_m], [fc_m], marker="s", s=70, color="0.25", label="avg-error (MSE)")
-    ax1.scatter([mae_a], [fc_a], marker="^", s=80, color="0.6", label="consumer-aware")
+    ax1.scatter([mae_m], [fc_m], marker="s", s=70, color="0.25", label="average-error")
+    ax1.scatter([mae_a], [fc_a], marker="^", s=80, color="0.6", label="quantile-aware")
     ax1.annotate("MSE", (mae_m, fc_m), textcoords="offset points", xytext=(6, 4), fontsize=8)
     ax1.annotate("aware", (mae_a, fc_a), textcoords="offset points", xytext=(6, 4), fontsize=8)
     ax1.set_xlabel("MAE (dB) — reconstruction"); ax1.set_ylabel("false-clear — consumer")
-    ax1.set_title("(a) dissociation"); ax1.legend(frameon=False, fontsize=7, loc="upper center")
+    ax1.set_title("(a) dissociation"); ax1.legend(frameon=False, fontsize=10, loc="upper center")
     ax1.margins(0.3)
 
     # (b) false-clear vs headroom above nearest threshold: the FEC cliff
@@ -47,11 +49,11 @@ def main(preds_json="QOTML-preds.json", out_pdf="ml_cliff.pdf"):
     fa = [af[(hr >= a) & (hr < b)].mean() if ((hr >= a) & (hr < b)).any() else 0
           for a, b in zip(edges[:-1], edges[1:])]
     xs = np.arange(len(ctrs))
-    ax2.plot(xs, fm, marker="s", color="0.25", label="avg-error (MSE)")
-    ax2.plot(xs, fa, marker="^", color="0.6", label="consumer-aware")
+    ax2.plot(xs, fm, marker="s", color="0.25", label="average-error")
+    ax2.plot(xs, fa, marker="^", color="0.6", label="quantile-aware")
     ax2.set_xticks(xs); ax2.set_xticklabels(ctrs)
     ax2.set_xlabel("GSNR headroom above threshold (dB)"); ax2.set_ylabel("false-clear rate")
-    ax2.set_title("(b) the FEC cliff"); ax2.legend(frameon=False, fontsize=7)
+    ax2.set_title("(b) the FEC cliff"); ax2.legend(frameon=False, fontsize=10)
 
     fig.tight_layout()
     fig.savefig(out_pdf)

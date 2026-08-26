@@ -75,6 +75,17 @@ fetch via the SNDlib native bundle (`sndlib-networks-native.zip`).
       claimed.)
 - [ ] **Use case framing** (done in the .tex): brownfield incremental fill --
       keep it concrete on final pass (name a representative link length / service rate).
+- [ ] **Camera-ready:** remove the preview banner's "except the verdict-inversion
+      figures marked for the 2026-08-27 seal" clause once the graded swap lands
+      (the canonical Optica build has no banner; this is preview-only).
+- [x] **Review round (2026-08-26) addressed:** N/neighbourhood defined (channels in
+      the service's co-propagating C-band); format table + required GSNRs stated
+      (declared values, no PCS) + Shannon-gap flex-rate model named; janos-us-ca
+      correctly 39 nodes / 61 undirected links with the sampling mapping spelled
+      out; flip allocation formulas added; figure fonts bumped + legends verified;
+      flat-launch-power / no-ROADM-filtering / GN-witness caveats moved to
+      Discussion with the "each tightens the budget" argument; Table I substrate
+      params added. Preview auto-synced from canonical via sync_preview.py.
 
 ## Positioning (honest)
 The contribution is a **measurement + framing** (false-clear rate as a first-class,
