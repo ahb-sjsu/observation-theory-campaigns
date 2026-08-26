@@ -67,11 +67,16 @@ fetch via the SNDlib native bundle (`sndlib-networks-native.zip`).
       `ml_cliff.pdf`: (a) MAE-vs-false-clear dissociation, (b) false-clear vs GSNR
       headroom = the FEC cliff; marker-shape classes). Draft committed (shakedown);
       regenerate from graded seeds post-seal, in the qot venv.
-- [x] **Fill-sweep DONE** (`qot_sweep.py` → `QOT-sweep.json`), REVISED 2026-08-26
-      after review: the linear-law summary is DEAD (fit intercept 0.022 was omitted;
-      the curve is flat-onset-then-saturation). The paper now reports the measured
-      curve: FC = 0 through 4 adds, crosses 0.05 at 8.1 adds (interpolated),
-      ~0.21 at 18 adds, saturates ~0.5. Deterministic (no seed) → numbers final.
+- [x] **Fill-sweep SUPERSEDED TWICE, final = `qot_sweep2.py` → `QOT-sweep2.json`**
+      (2026-08-26, review round 3; deterministic): single-add resolution + sync
+      baseline N0 ∈ {6,20,40,60}. Result: the budget is a property of band
+      maturity. N0=6: zero FC through 4 adds, nine adds safe, the tenth exceeds
+      5% (0.073), saturates ~0.5. N0=20: zero through 26 adds, crosses 5% only
+      near fifty. N0≥40: zero FC to the full band. Headline figure
+      `freshness_curve.pdf` (`plot_freshness.py`). The earlier linear law AND
+      the interpolated 8.1-add crossing (coarse grid, `qot_sweep.py`) are both
+      superseded and kept in the record. Local GNPy env: `C:\source\qot-venv`
+      (numpy<2), created 2026-08-26.
       Optional Fig. 3 via `plot_fig3.py` (`refresh_floor.pdf`) — add only if the
       3-page budget allows a 3rd figure. (Per-reach floor came out degenerate — not
       claimed.)

@@ -1,75 +1,107 @@
-# Same Budget, Opposite Verdicts: Verdict Inversion in Optical and Radio Resource Allocation
+# Same Budget, Opposite Rankings: Consumer-Conditional Policy Reversal in Optical and Radio Networks
 
-**Status: OUTLINE (2026-08-26).** The dedicated flip paper, created when review
-of the WCNC/OFC drafts forced the flip material out of both (each conference
-paper now carries a two-sentence pointer to the sealed cells). This paper is
-where the program's only genuinely novel cross-domain result gets its full
-treatment. Evidence: XPROTO-QOT-FLIP and XPROTO-CSI-FLIP (families constructed +
-shaken down 2026-08-26, sealing 2026-08-27, graded seeds 20260827-29), plus the
-three disciplined negatives (grid, LLM, ZooKeeper) that map the phenomenon's
-boundary.
+**Status: OUTLINE v2 (2026-08-26, revised same day after external review of v1).**
+The dedicated inversion paper. Evidence base: XPROTO-QOT-FLIP and XPROTO-CSI-FLIP
+(sealing 2026-08-27, graded seeds 20260827-29) plus new phase-diagram and
+cost-matched cells to be designed below. **Target: SIGMETRICS 2027, winter
+deadline 2027-01-11** (fall 10-09 is feasible but there is no reason to rush;
+build the theorem and the graded phase diagrams properly). Backup: ToN (journal
+depth), HotNets next cycle (short thesis version).
 
-## The claim (one paragraph)
+## The claim (v2, per review)
 
-Two allocation policies with identical aggregate budgets can receive opposite
-verdicts from two consumer classes whose failures ride different axes of the
-underlying state. The fleet-level metric is then not merely lossy but
-non-ordering: it cannot rank the two policies for any consumer. We demonstrate
-the inversion with sealed, pre-registered experiments in two unrelated
-substrates (optical QoT margin allocation on GNPy; 5G NR margin allocation on
-Sionna LDPC link simulation), state the preconditions it needs, and show with
-matched controls and cross-domain negatives that both preconditions are
-necessary: (1) the two consumers' read operators must be misaligned (read
-different projections of the state), and (2) both consumers must operate near
-their decision thresholds. Threshold-pair consumers (same read, shifted
-requirement) provably show dominance, never inversion.
+Two resource-equivalent allocation policies can receive opposite
+class-conditional rankings: class 1 is strictly safer under policy A, class 2
+strictly safer under policy B. Consequently no scalar ranking that is
+independent of the class mixture represents both consumers; any fleet aggregate
+ranks the pair only by an implicit choice of class weights.
 
-## Sections
+NOT the v1 claim "the fleet metric is non-ordering" (a scalar always orders;
+the problem is that its order is mixture-dependent), and NOT "both
+preconditions are necessary" (see Corrections below).
 
-1. **Introduction.** The aggregate-metric habit; the inversion as the sharpest
-   failure of it; contributions list.
-2. **The two sealed inversions.**
-   - Optical: policy A by reach vs policy B by band-centrality at matched
-     fleet-mean margin (1.0 dB); long-reach band-edge vs short-reach band-centre
-     fleets. Graded numbers after 2026-08-27 seal.
-   - Radio: policy A by Doppler vs policy B by SNR deficit at matched fleet-mean
-     margin (1.5 dB); M-fleet (aging axis) vs S-fleet (fade axis). Graded
-     numbers after seal.
-   - In both: fleet aggregate nearly tied while per-fleet gaps are large.
-3. **The taxonomy and its null.** Read-operator misalignment vs threshold
-   shift; the registered two-FEC / +2 dB-table controls (no inversion); why the
-   eMBB/URLLC budget pair in the WCNC paper shows dominance, not inversion.
-4. **Where the flip refuses to appear (kept negatives).**
-   - Grid (pandapower): one shared physical projection (voltage) -> no
-     misaligned read available -> no flip.
-   - LLM (MNLI/HANS): both consumers far from threshold at practical operating
-     points -> no flip.
-   - ZooKeeper: the two staleness axes exist but the L-axis effect lives only
-     in a tuned sliver of lag/write-interval space; registering it would violate
-     the discipline (EXPLORATION-ZK-FLIP.md, kept). Bonus finding: the witnessed
-     correction's operating region (sync-breakdown).
-   - These are not failures of the law; they instantiate its preconditions.
-5. **Scheduler/operator interpretations.** What a twin/scheduler should report
-   instead: per-consumer-class verdicts; when a fleet number is safe (aligned
-   reads) and when it is meaningless (mixed portfolios). Goodput framing:
-   the inversion survives translation from failure-rate to delivered goodput
-   (to verify on the sealed records; if it does not, say so).
-6. **Method/discipline appendix.** Prereg/seal/graded-seed protocol; the
-   pilot trails; content hashes.
+## The formal core (new, from review; verify and adopt)
 
-## Venue candidates (discuss with owner)
+Allocations m^A, m^B with d = m^A − m^B and q^T d = 0 for a real resource-cost
+vector q. Class risk R_c(m); locally R_c(m^A) − R_c(m^B) ≈ ∇R_c(m̄)^T d.
 
-- IEEE/ACM Transactions on Networking (cross-layer, unhurried, right length)
-- ACM SIGMETRICS / Performance (measurement + methodology emphasis)
-- HotNets (if compressed to a position paper; fastest feedback)
-- The theory/OT monograph track keeps the general theorem; this paper stays
-  empirical.
+- **Reversal condition:** (∇R_1^T d)(∇R_2^T d) < 0 — the classes have opposing
+  sensitivities along a budget-neutral policy direction.
+- **Mixture crossover:** for fleet weight λ, ΔR_λ = λΔR_1 + (1−λ)ΔR_2 changes
+  sign at λ* = −ΔR_2 / (ΔR_1 − ΔR_2). Report λ* as a measured output in both
+  substrates: the class mix at which the fleet verdict flips.
+- **Cost matching:** equal mean dB margin is only a nominal budget. MCS/capacity
+  are nonlinear in dB, so match q^T m (or matched lost capacity / goodput) and
+  show the sealed cells' conclusions survive the re-matching. This needs a new
+  cost-matched variant of both cells.
+
+## Corrections to v1 the paper must respect
+
+1. **Sufficiency, not necessity.** Read-operator misalignment + near-threshold
+   operation is a *sufficient and empirically predictive mechanism* in the
+   studied systems. Misalignment is NOT generally necessary (crossing outcome
+   distributions along one scalar projection can invert consumers at different
+   thresholds), and a threshold shift does NOT by itself guarantee dominance
+   (dominance needs stochastic ordering or positively collinear sensitivities).
+   Near-threshold operation is an exposure/detectability condition setting the
+   magnitude of ∇R_c, not a universal necessity.
+2. **Negatives are an appendix, not a section.** Grid/LLM/ZK go to the evidence
+   ledger appendix as scope illustrations. Three absences do not prove
+   necessity, and post-hoc mechanism stories for each absence would make the
+   hypothesis look unfalsifiable.
+3. **Construction threat is the main experimental risk**: policy A allocates by
+   class-1's defining variable and B by class-2's, so opposite rankings can look
+   built in. Anticipate it head-on (next section).
+
+## Anti-construction evidence plan (the new experimental work)
+
+- **Phase diagrams**: continuous maps over (reach × spectral position) and
+  (Doppler × mean SNR) of the per-cell sign of ΔR = R(m^A) − R(m^B); the two
+  classes are then just regions of a measured field, not constructed labels.
+- **Predict before evaluate**: measure per-class sensitivity gradients ∇R_c
+  under small margin perturbations first, register the predicted signs and λ*,
+  then run A/B. The prereg discipline is exactly the right instrument here.
+- **Baselines**: uniform margin and a robust (max-min) allocation alongside
+  A/B; show both A and B are Pareto-nondominated (neither dominated on both
+  classes) and that the reversal is not an artifact of strawman policies.
+- **Goodput as primary evidence**: verdicts in delivered goodput/capacity, not
+  only failure rate; failure-rate reversal that dies in goodput must be
+  reported as such.
+- **Cost matching** per the formal core.
+
+## Relation to prior literature (must be explicit)
+
+Distinguish from: Simpson's aggregation paradox (formal reversal conditions
+exist, e.g. Front. Appl. Math. Stat. 9:1169164, doi:10.3389/fams.2023.1169164);
+Pareto incomparability; subgroup fairness / heterogeneous treatment effects;
+rank reversal in multi-criteria decision making. The defensible novelty is the
+preregistered, cross-domain, networking-substrate evidence with a predictive
+diagnostic (measured gradients → registered predictions → graded outcomes), not
+the discovery that aggregation can reverse rankings.
+
+## Structure (per review)
+
+1. Definition: consumer-conditional policy reversal.
+2. Sensitivity condition and mixture crossover λ*.
+3. Registered protocol: cost matching, prediction-first, grading.
+4. Optical inversion + phase diagram.
+5. Radio inversion + phase diagram.
+6. Controls: aligned-sensitivity (threshold-pair) and far-from-threshold cells.
+7. Goodput, policy selection, operational implications.
+8. Limitations; aggregation/fairness literature.
+Appendix: evidence ledger incl. grid/LLM/ZK negatives and pilot trails.
+
+## Venue mechanics
+
+- SIGMETRICS is double-anonymous: anonymize cell names and the repository
+  citation (anonymous artifact link), and disclose the WCNC/OFC submissions
+  through the venue's related-work process.
+- POMACS format; artifact evaluation is a strength given the sealed records.
 
 ## Rules
 
-- No numbers in the manuscript until the 2026-08-27 seals land; then graded
-  numbers only.
-- The two conference papers keep only their pointer sentences; no duplication
-  of tables or figures.
-- House prose style per the academic-paper skill (short declarative sentences,
-  no em-dashes, no label-speak).
+- No numbers until the 2026-08-27 seals land; graded numbers only.
+- The λ*, gradient, cost-matched, and phase-diagram cells are NEW sealed work:
+  family → shakedown → prereg → cooled seal → graded, per house discipline.
+- Conference papers keep only their pointer sentences.
+- House prose style per the academic-paper skill.

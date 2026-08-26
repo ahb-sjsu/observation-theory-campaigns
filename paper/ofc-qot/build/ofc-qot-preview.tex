@@ -31,8 +31,8 @@ A Measured Freshness Budget for QoT Decisions}}
   \medskip
 
   \noindent\textbf{Abstract:} A GNPy-class digital twin makes format decisions between telemetry syncs while the
-network fills. We measure the failure curve: false-clears are zero through four
-channel adds, then cross a 5\% risk target near eight.
+network fills. We measure the failure curve: nine additions stay under a 5\% risk
+target after a sparse sync; mature bands tolerate nearly unlimited fill.
   \end{minipage}\end{center}
   \vspace{1.2em}
   \end{@twocolumnfalse}
@@ -54,13 +54,16 @@ lightpath, and the certificate fails when the deployed channel cannot support th
 format. We call this failure a false-clear, and we measure its rate on the GN-model
 physical layer of GNPy~\cite{gnpy} over the CORONET-CONUS reference network, with
 fill statistics drawn from a public demand matrix. Three results follow. The
-false-clear rate of a stale twin is zero until a few channels have been added to
-the band a service shares along its path, then climbs steeply, crossing a $5\%$
-risk target at about eight such adds: the twin's freshness budget. Which services
-are exposed when the twin is stale is set by spectral position and reach, so a
-per-lightpath view recovers real capacity over a uniform margin. And when the
-twin's QoT model is a learned surrogate, training it on average error leaves it
-blind exactly at the FEC threshold where its decisions are made.
+freshness budget is a property of the band's maturity, not a constant: a twin
+synced on a sparse provisioning band shows no false-clears through four added
+channels, stays within a $5\%$ risk target through nine, and fails from the
+tenth add onward, while a twin synced on a band of twenty or more channels
+tolerates tens of adds, and at forty, the full C-band, without a single
+false-clear. Which services are exposed when the twin is stale is set by
+spectral position and reach, so a per-lightpath view recovers real capacity
+over a uniform margin. And when the twin's QoT model is a learned surrogate,
+training it on average error leaves it blind exactly at the FEC threshold where
+its decisions are made.
 
 \section{Method}
 \textbf{Substrate.} Lightpaths are transparent shortest-path routes of the
@@ -75,7 +78,9 @@ contiguous comb of 32\,GBd channels on the 50\,GHz grid, from the low-frequency
 edge of the C-band ($191.35$\,THz) upward, so an add always lands at the top of
 the comb. Each sweep point evaluates the certificate over 40 spectral positions
 per fill level, across the route pool's span-count classes weighted by route
-multiplicity. A certificate selects the highest of five declared formats whose
+multiplicity; the sweep advances one channel at a time through the crossing
+region and repeats with the twin synced at $N_0\in\{6,20,40,60\}$ channels. A
+certificate selects the highest of five declared formats whose
 required GSNR the twin's estimate clears: QPSK, 8QAM, 16QAM, 32QAM and 64QAM at
 $6.5$, $9.0$, $12.5$, $16.0$ and $19.0$\,dB respectively ($32$\,GBd, roughly
 $20\%$-overhead soft-decision FEC; declared values, no probabilistic shaping). The
@@ -114,20 +119,39 @@ from those used during design~\cite{otcampaigns}.
 
 \section{Results}
 \subsection{The freshness budget}
-The risk of a stale twin is driven by the fill added since its last sync. Sweeping
-the deployed band from 6 to 76 channels while the twin's view stays at the sync
-point gives the failure curve directly, and we report the curve rather than a fit.
-The false-clear rate is zero through the first four added channels, crosses a
-$5\%$ risk target at $8.1$ adds (interpolated between measured points), reaches
-about $0.21$ by eighteen adds, and saturates near $0.5$ as the band fills. An
-earlier draft summarised this as a linear law; the curve's flat onset and its
-saturation make that the wrong summary, and review caught it. The measurement
-stands as a curve, and the budget is its crossing: about eight added channels at
-a $5\%$ risk target. The rule is concrete. Re-sync the twin, or re-certify the
-affected services, before the band around them grows by about eight channels,
-rather than on a fixed calendar. Given an arrival rate the budget converts to
-time. A band taking one add per week can hold a sync for about two months. A busy
-one taking one add per day must sync roughly weekly.
+The risk of a stale twin is driven by the fill added since its last sync, and,
+it turns out, even more by how full the band already was at the sync. Advancing
+the deployed band one channel at a time while the twin's view stays at the sync
+point gives the failure curve directly (Fig.~\ref{fig:fresh}), and we report
+the curve rather than a fit. Synced at the sparse provisioning fill of $6$
+channels, the certificate produced no false-clears through the first four adds
+in this evaluation, stays within a $5\%$ risk target through nine adds, exceeds
+it from the tenth ($7.3\%$), and saturates near $0.5$ as the band fills. (An
+earlier draft quoted an interpolated $8.1$-add crossing from a coarser grid and,
+before that, a linear law; the single-add sweep supersedes both.) The budget is
+strongly baseline-dependent, in the reassuring direction. Re-synced at $20$
+channels, the same certificate shows no false-clears through $26$ further adds
+and crosses $5\%$ only around fifty; synced at $40$ or $60$ channels it produces
+none at all, out to the full band. The mechanism is the shape of nonlinear
+interference growth: the first neighbours cost the most GSNR, so a twin synced
+on a sparse band certifies against a nearly best-case view and its decisions
+sit close to format thresholds, while a twin synced on a mature band has
+already absorbed most of the interference it will ever see. The operational
+rule follows, and it is not a calendar. The dangerous window is the young band:
+after provisioning at sparse fill, re-sync or re-certify within about nine
+adds. Once the band carries twenty or more channels, ordinary fill no longer
+breaks the certificate, and frequent re-syncs buy nothing.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{freshness_curve.png}
+  \caption{The freshness curve (GNPy over CORONET-CONUS, single-add sweep,
+  deterministic). False-clear against channels added since sync, for four sync
+  baselines $N_0$. Sparse-synced certificates fail from the tenth add;
+  mature-band syncs tolerate tens of adds ($N_0=20$) or the full band
+  ($N_0\ge 40$) without a false-clear. Marker shape distinguishes baselines.}
+  \label{fig:fresh}
+\end{figure}
 
 \subsection{Who is exposed when the twin is stale}
 \label{sec:exposed}
@@ -145,12 +169,17 @@ marginal distribution. The demand data grounds the fill statistics, not a routed
 traffic snapshot: correlations between links along a route are not carried over.
 What matters for the comparison is the heavy tail, which is exactly what a
 marginal preserves: a uniform margin sized for the few near-full links
-over-provisions the lightly filled majority. Giving both
-policies the same estimator uncertainty of $0.5$\,dB RMSE, a twin that sizes each
-margin to the lightpath's own fill recovers about $8\%$ of spectral efficiency, near
-$0.33$\,b/sym or $21$\,Gb/s per channel, at matched safety (false-clear at most
-$0.01$) on a rate-flexible transceiver model. The gain is capacity the uniform
-margin strands on links that never fill.
+over-provisions the lightly filled majority. The two policies are specified
+fully. Each chooses the smallest margin on a $0.25$\,dB grid that holds the
+fleet false-clear at or below $0.01$ under the same $0.5$\,dB Gaussian
+estimator error. The uniform policy provisions every lightpath at its
+provisioning-time GSNR minus one blanket margin, and the fleet constraint
+forces $2.75$\,dB. The footprint-aware policy evaluates each lightpath's GSNR
+at its own deployed fill, interpolated between the provisioning and full-band
+GN anchors, and then needs only $1.25$\,dB. At that matched safety the aware
+policy recovers about $8\%$ of spectral efficiency, near $0.33$\,b/sym or
+$21$\,Gb/s per channel, on a rate-flexible transceiver model. The gain is
+capacity the uniform margin strands on links that never fill.
 
 \begin{figure}[t]
   \centering
@@ -174,13 +203,14 @@ $3.9$\,bits/symbol (Fig.~\ref{fig:ml}a). The failures sit where the true GSNR li
 within about a decibel below the \emph{next} format's threshold
 (Fig.~\ref{fig:ml}b): there a small upward prediction error clears one format too
 high, and nowhere else can it. That is the cliff, and a symmetric error metric is
-blind there. A uniform backoff is the fair baseline and we report it: on the sealed
-per-prediction records, backing the average-error surrogate off by a further
-$0.85$\,dB matches the quantile model's false-clear at the same delivered bits. But
-that $0.85$\,dB is found by tuning against witnessed outcomes after the fact; the
-quantile objective reaches the same operating point from its training loss alone,
-with no post-hoc knob, and the machinery to do so already
-exists~\cite{quantileqot}.
+blind there. A uniform backoff is the fair baseline and we report it without
+leakage: a backoff calibrated on a designated validation half of the sealed
+per-prediction records ($0.90$\,dB, then frozen) matches the quantile model on
+the held-out half, false-clear $0.006$ against $0.007$ at equal delivered bits.
+So the dissociation does not require quantile training to fix; it requires
+\emph{some} decision-aware calibration. The quantile objective (here
+$\tau=0.15$) reaches that operating point from its training loss alone, with no
+separate calibration set, and the machinery already exists~\cite{quantileqot}.
 
 \begin{figure}[t]
   \centering
@@ -208,11 +238,12 @@ not offer a better twin, estimator or allocator. We offer the freshness budget, 
 exposure map, and the price of the wrong training objective.
 
 \section{Discussion}
-A digital twin is a certificate factory, and certificates age. The freshness budget
-turns twin synchronization from a judgment call into a provisioned quantity:
-re-sync within eight adds to a service's band at a $5\%$ risk target, protect the
-threshold-adjacent services first, and train surrogates on the decision rather than
-the average. The evidence stands on the GN model with public demand data, and its
+A digital twin is a certificate factory, and certificates age. The freshness
+measurement turns twin synchronization from a judgment call into a provisioned
+quantity, and the quantity is a property of band maturity: re-sync a
+sparse-synced band within about nine adds at a $5\%$ risk target, spend no
+sync effort on mature bands, protect the threshold-adjacent services first, and
+calibrate surrogates on the decision rather than the average. The evidence stands on the GN model with public demand data, and its
 limits are worth stating. Launch power is flat at $+2$\,dBm and not re-optimised as
 the band fills, ROADM filtering penalties are not modelled, and the witness is the
 GN-model GSNR rather than a receiver's pre-FEC BER. These effects do not all push

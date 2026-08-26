@@ -1,15 +1,23 @@
 """Scalar-margin baseline for the OFC surrogate section, derived from the sealed
-per-prediction records (QOTML-preds.json, graded seeds). Question: how much
-uniform backoff must the average-error surrogate carry to match the quantile
-objective's false-clear, and what does that cost in delivered bits?
+per-prediction records (QOTML-preds.json, graded seed 20260825). Question: how
+much uniform backoff must the average-error surrogate carry to match the
+quantile objective's false-clear, and what does that cost in delivered bits?
 
     python margin_baseline.py [QOTML-preds.json]
 
+LEAKAGE CONTROL (review round 3): the backoff is CALIBRATED on a designated
+validation half (even record indices) as the smallest 0.05 dB multiple whose
+validation FC is at or below the quantile model's validation FC, then FROZEN
+and EVALUATED on the held-out test half (odd indices), where both objectives
+are compared. The earlier version tuned on the full evaluation set; that
+number (0.85 dB) is kept in the output for transparency but is not the
+comparative result.
+
 Selection rule (matches fam_qotml.py): highest declared format whose required
-GSNR the (backed-off) prediction clears; fail = true GSNR below the chosen
-format's requirement; delivered bits = format bits on success, 0 on failure.
-The script first re-derives the recorded mse_fail/aware_fail flags to prove the
-rule matches the sealed runner before trusting the margin sweep.
+GSNR the (backed-off) prediction clears at the 0.5 dB design margin; fail =
+true GSNR below the chosen format's requirement; delivered bits = format bits
+on success, 0 on failure. The script first re-derives the recorded
+mse_fail/aware_fail flags to prove the rule matches the sealed runner.
 """
 import json
 import sys
@@ -58,17 +66,34 @@ def main(path="QOTML-preds.json"):
 
     fc_a, bits_a = stats(pa, true)
     fc_m0, bits_m0 = stats(pm, true)
-    print(f"aware: FC={fc_a:.4f} bits={bits_a:.3f} | mse raw: FC={fc_m0:.4f} "
-          f"bits={bits_m0:.3f}")
+    print(f"pooled -- aware: FC={fc_a:.4f} bits={bits_a:.3f} | mse raw: "
+          f"FC={fc_m0:.4f} bits={bits_m0:.3f}")
     for m in np.arange(0, 3.01, 0.05):
         fc, bits = stats(pm - m, true)
         if fc <= fc_a:
-            print(f"scalar margin m={m:.2f} dB on the MSE surrogate: FC={fc:.4f} "
-                  f"(<= aware {fc_a:.4f}), bits={bits:.3f} "
-                  f"(aware {bits_a:.3f}, delta {bits - bits_a:+.3f} b/sym)")
+            print(f"[transparency only, tuned on full set] m={m:.2f} dB: "
+                  f"FC={fc:.4f} bits={bits:.3f}")
             break
-    else:
-        print("no margin up to 3 dB matches the aware FC")
+
+    # leakage-controlled comparison: calibrate on even indices, test on odd
+    val = np.arange(len(true)) % 2 == 0
+    tst = ~val
+    fc_a_val, _ = stats(pa[val], true[val])
+    m_star = None
+    for m in np.arange(0, 3.01, 0.05):
+        fc, _ = stats(pm[val] - m, true[val])
+        if fc <= fc_a_val:
+            m_star = float(m)
+            break
+    if m_star is None:
+        print("no margin up to 3 dB matches the aware FC on validation")
+        return
+    fc_m_t, bits_m_t = stats(pm[tst] - m_star, true[tst])
+    fc_a_t, bits_a_t = stats(pa[tst], true[tst])
+    print(f"leakage-controlled: m*={m_star:.2f} dB frozen on validation "
+          f"(n={val.sum()}); held-out test (n={tst.sum()}): "
+          f"backed-off MSE FC={fc_m_t:.4f} bits={bits_m_t:.3f} | "
+          f"quantile FC={fc_a_t:.4f} bits={bits_a_t:.3f}")
 
 
 if __name__ == "__main__":

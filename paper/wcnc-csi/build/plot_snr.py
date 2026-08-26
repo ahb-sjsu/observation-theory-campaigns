@@ -44,7 +44,7 @@ def main(inp=DEF, out=os.path.join(HERE, "snr_robustness.pdf")):
     ax.text(20.8, et * 1.2, "eMBB target", ha="right", va="bottom", fontsize=7)
     ax.text(20.8, ut * 1.2, "URLLC target", ha="right", va="bottom", fontsize=7)
     ax.axvspan(2.5, 7.5, color="0.9", zorder=0)
-    ax.text(5, 2.2e-6, "cell edge:\neMBB itself\nfalse-clears", ha="center", fontsize=6.8, color="0.35")
+    ax.text(5, 2.2e-6, "cell edge:\neMBB budget\nlost", ha="center", fontsize=6.8, color="0.35")
     ax.set_yscale("log"); ax.set_ylim(1e-6, 1.0)
     ax.set_xlabel("mean SNR (dB)"); ax.set_ylabel("achieved BLER")
     ax.legend(fontsize=7, loc="center right", framealpha=0.95)

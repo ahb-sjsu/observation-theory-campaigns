@@ -24,7 +24,7 @@
 
 \begin{document}
 
-\title{One CSI Report Cannot Serve Every Consumer:\\
+\title{One CSI-Derived Rate Cannot Serve Every Budget:\\
 Budget Overrun and the Age Horizon in 5G Link Adaptation}
 
 \author{\IEEEauthorblockN{Andrew H. Bond}
@@ -42,16 +42,18 @@ to different error budgets. We measure the resulting mismatch on an NR LDPC-base
 link-level simulation, in two ways. First, budget overrun. A selection policy
 whose achieved BLER sits near an eMBB budget of $10^{-1}$ overruns a URLLC budget
 of $10^{-3}$ on the same channel by a factor of 112, and the overrun persists at
-every SNR from cell edge to cell centre; a budget-aware policy removes it at
-quantified cost. Second, age. With the link calibrated to actually meet the
-$10^{-1}$ budget when CSI is fresh, we ask how long a report may be held before
-the budget is lost. The answer is a handful of milliseconds at low mobility and
-one transmission interval above about 50\,Hz Doppler,
+every SNR from cell edge to cell centre; a budget-aware policy removes it with
+explicitly specified protection. Second, age. With the link calibrated to
+actually meet the $10^{-1}$ budget when CSI is fresh, we ask how long a report
+may be held before the budget is lost. The answer is a handful of milliseconds
+at walking speeds and a single transmission interval at moderate mobility and
+above,
 % GRADED-SWAP (pilot-2 shakedown; XPROTO-CSI-SWEEP2 seals 2026-08-27)
-so periodic reporting alone cannot protect a tight budget at any practical
-mobility, and HARQ-driven correction is not an optimization but a requirement.
-Every number comes from a sealed, pre-registered record, including one earlier
-threshold mismatch that review caught and this version recomputes.
+so there periodic reporting meets the budget only at the frame-minimum interval,
+and HARQ-driven correction is necessary for any less aggressive reporting
+cadence. Every number comes from a sealed, pre-registered record, including a
+superseded relaxed-threshold pilot that this version recomputes at the
+calibrated target.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -98,9 +100,12 @@ $2$\,dB spacing, linearly interpolated between points. The time-domain link draw
 a per-TTI SNR trace from a 3GPP TR38.901 TDL-A channel ($3.5$\,GHz, $30$\,ns
 delay spread) and resolves each transmission as
 $\mathrm{NACK}(t)\sim\mathrm{Bernoulli}(e_{m}(\gamma(t)))$. Two accuracy limits
-follow and bound our claims: the curves resolve error rates reliably only down to
-roughly $10^{-3}$ at this sample count, and the mapping ignores fading within a
-TTI. Table~\ref{tab:params} lists the parameters.
+follow and bound our claims. At 400 blocks per point, a measured zero errors
+still leaves a binomial $95\%$ upper bound near $7.5\times10^{-3}$, so the
+curves are trustworthy at the $10^{-2}$ level and above, and any smaller value
+is an interpolation, not a count; the linear interpolation itself is a disclosed
+simplification that is coarse on steep tails. And the SNR-to-error mapping
+ignores fading within a TTI. Table~\ref{tab:params} lists the parameters.
 
 \textbf{System model.} Let $\gamma(t)$ be the true SNR in dB at TTI $t$ and
 $\hat{g}(t)$ the estimate the transmitter holds. Fresh CSI reads
@@ -134,10 +139,12 @@ combines $K{=}3$ diversity branches, independent TDL-A realizations from distinc
 seeds standing in for frequency or spatial replicas: a block fails only if all
 branches fail. A backoff alone cannot reach $10^{-3}$, because a single Rayleigh
 branch spends about $4\%$ of its time in fades too deep for any MCS. Independence
-makes the diversity a best case, and the deep-tail point estimate
-($\approx 10^{-5}$) multiplies interpolated curve values, so we claim only that
-the policy meets the $10^{-3}$ budget with margin under the independence model;
-the absolute tail value is below the curves' resolution.
+makes the diversity a best case, and the claim rests on a product, not a
+directly counted deep tail: the per-branch failure rates sit at the percent
+level, where the curves are reliable, and their independence product lies below
+the $10^{-3}$ budget with two orders of margin. The absolute product value
+($\approx 10^{-5}$) inherits the interpolation's error and should be read as an
+order of magnitude.
 
 \textbf{OLLA.} The correction of \S\ref{sec:age} selects
 $m^\star(\hat{g}(t)+o(t))$ and updates the offset on HARQ feedback,
@@ -198,10 +205,11 @@ $\widehat{B}\approx 0.112$, near its eMBB budget. The URLLC consumer reads the
 same $0.112$ as an overrun of $112\times$. Part of this is arithmetic, and we do
 not claim otherwise: a policy run near one budget must overrun a budget a
 hundred times stricter by about that factor. What the measurement adds is the
-exact figure, the fact that nothing in the scheduler's view flags it, and the
-cost of removing it: the budget-aware policy of \S\ref{sec:method} meets the
-$10^{-3}$ budget with margin, paying the $4$\,dB backoff's spectral efficiency
-and the diversity's resources.
+exact figure, the fact that nothing in the scheduler's view flags it, and a
+feasible policy that removes it: the budget-aware policy of \S\ref{sec:method}
+meets the $10^{-3}$ budget with margin. Its protection is explicitly specified,
+a $4$\,dB backoff and threefold diversity, though we do not quantify the
+resulting spectral-efficiency loss here.
 
 The overrun is not an artifact of the operating point. A separately sealed cell
 sweeps the mean SNR from $3$ to $21$\,dB (Fig.~\ref{fig:snr}). The certificate
@@ -238,26 +246,31 @@ Doppler with a $20$-TTI report period, the held estimate is off by $5.7$\,dB on
 average (mean absolute error; aging dominates, report noise contributes about
 $1$\,dB), and the naive certificate runs at $\widehat{B}\approx 0.36$ against the
 $0.10$ budget, an overrun of $3.6\times$ from age alone. OLLA,
-Eq.~\eqref{eq:olla}, corrects the same held report and holds $0.10$
-(Table~\ref{tab:results}(b)).
+Eq.~\eqref{eq:olla}, corrects the same held report and holds $0.10$ (three
+sealed seeds, $0.34$--$0.37$ naive against $0.101$--$0.102$ corrected; the
+per-seed record is in the public ledger \cite{otcampaigns}).
 
-How long may a report be held before the budget is lost? An earlier exploration
-answered with a coherence-proportional law, $P^\star\approx 0.18\,T_{\mathrm{coh}}$,
-but it measured the floor at a relaxed $0.15$ threshold; review caught the
-mismatch. The calibrated recomputation at the true $0.10$ budget gives a starker
-answer (Fig.~\ref{fig:age}). With the fresh baseline calibrated to
+How long may a report be held before the budget is lost? An exploratory sweep
+at a relaxed $0.15$ threshold suggested a coherence-proportional law,
+$P^\star\approx 0.18\,T_{\mathrm{coh}}$; it was superseded by the calibrated
+$0.10$ experiment reported here, and both records are kept. The calibrated
+recomputation at the true $0.10$ budget gives a starker
+answer (Fig.~\ref{fig:age}, Table~\ref{tab:results}(b)). With the fresh
+baseline calibrated to
 $\widehat{B}\le 0.09$ at every Doppler (a $0.5$\,dB backoff suffices), the
 horizon is $P^\star=4$ TTI at $10$\,Hz ($3$ on one seed), $2$ at $25$\,Hz, and
 $1$ TTI, the frame minimum, at $50$\,Hz and above, with no censored points.
 % GRADED-SWAP (pilot-2 shakedown; replace with graded seeds 20260827-29)
 There is no room for a proportionality law because there is almost no horizon to
 scale: once the budget is tight, the first few milliseconds of aging consume it.
-The operational statement is blunt. Periodic reporting alone cannot protect a
-$10^{-1}$ budget beyond a few TTIs at walking speeds, or beyond a single TTI at
-vehicular speeds, and a HARQ-witnessed correction is therefore mandatory at
-essentially all mobilities. The coherence-proportional behaviour is real but
-belongs to relaxed thresholds, where degradation has room to accumulate before
-the budget is lost.
+At $3.5$\,GHz these Dopplers are modest speeds: $10$\,Hz is about $3$\,km/h, a
+walk, and $50$\,Hz about $15$\,km/h, a bicycle. The operational statement
+follows. Below walking pace a report survives a few TTIs; at moderate mobility
+and above, periodic reporting meets the budget only at the frame-minimum
+interval, so HARQ-driven correction is necessary for any less aggressive
+reporting cadence. The coherence-proportional behaviour is real but belongs to
+relaxed thresholds, where degradation has room to accumulate before the budget
+is lost.
 
 \begin{figure}[t]
   \centering
@@ -284,22 +297,27 @@ seed & eMBB & URLLC-naive & URLLC-aware & \\
 20260825 & $0.1103$ & $0.1103$ & $1.9\times10^{-5}$ & \\
 20260826 & $0.1125$ & $0.1125$ & $<10^{-5}$ & \\
 \hline
-\multicolumn{5}{l}{\emph{(b) Aging} (\S\ref{sec:age}), $f_D{=}200$\,Hz, $20$-TTI, uncalibrated} \\
+\multicolumn{5}{l}{\emph{(b) Age horizon} (\S\ref{sec:age}), calibrated
+$\Delta_{\mathrm{cal}}=0.5$\,dB} \\
 \hline
-seed & naive & OLLA & fresh & CQI err \\
+seed & $P^\star(10)$ & $P^\star(25)$ & $P^\star(\ge 50)$ & fresh worst \\
 \hline
-20260823 & $0.366$ & $0.101$ & $0.116$ & $5.61$\,dB \\
-20260824 & $0.340$ & $0.102$ & $0.115$ & $5.86$\,dB \\
-20260825 & $0.373$ & $0.101$ & $0.113$ & $5.76$\,dB \\
+% GRADED-SWAP rows (pilot-2 shakedown; graded seeds 20260827-29 after the seal)
+1 & $4$ & $2$ & $1$ & $0.078$ \\
+2 & $4$ & $2$ & $1$ & $0.081$ \\
+3 & $3$ & $2$ & $1$ & $0.090$ \\
 \hline
-\multicolumn{5}{l}{\footnotesize Seed IDs are campaign date-stamps. (a) expected
-rate; (b) empirical NACK rate.} \\
-\multicolumn{5}{l}{\footnotesize In (a) the first two columns are the same trace:
-$\widehat{B}$ does not depend on the} \\
-\multicolumn{5}{l}{\footnotesize budget; the consumers differ in
-$\Omega=\widehat{B}/\beta$ ($1.1$ vs $112$). CQI err is} \\
-\multicolumn{5}{l}{\footnotesize the mean absolute error
-$\frac{1}{T}\sum_t|\gamma(t)-\hat{g}(t)|$ in dB, naive policy.} \\
+\multicolumn{5}{l}{\footnotesize Seed IDs in (a) are campaign date-stamps; (a)
+expected rate, (b) empirical} \\
+\multicolumn{5}{l}{\footnotesize NACK rate. In (a) the first two columns are the
+same trace: $\widehat{B}$ does not} \\
+\multicolumn{5}{l}{\footnotesize depend on the budget; the consumers differ in
+$\Omega=\widehat{B}/\beta$ ($1.1$ vs $112$).} \\
+\multicolumn{5}{l}{\footnotesize In (b) $P^\star$ is in TTI; ``fresh worst'' is
+the largest fresh-CSI $\widehat{B}$ over} \\
+\multicolumn{5}{l}{\footnotesize Dopplers, confirming the calibrated baseline
+meets the budget. No Doppler} \\
+\multicolumn{5}{l}{\footnotesize was censored.} \\
 \end{tabular}
 \end{table}
 
