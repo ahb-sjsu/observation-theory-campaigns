@@ -67,17 +67,26 @@ fetch via the SNDlib native bundle (`sndlib-networks-native.zip`).
       `ml_cliff.pdf`: (a) MAE-vs-false-clear dissociation, (b) false-clear vs GSNR
       headroom = the FEC cliff; marker-shape classes). Draft committed (shakedown);
       regenerate from graded seeds post-seal, in the qot venv.
-- [x] **Sec. 3.2 fill-sweep DONE** (`qot_sweep.py` → `QOT-sweep.json`): FC rises
-      linearly with added channels (FC ≈ 0.008·ΔN, R²=0.95); refresh floor ≈ 8 added
-      channels at FC≤0.05. Deterministic (no seed) → numbers final, wired into §3.2.
+- [x] **Fill-sweep DONE** (`qot_sweep.py` → `QOT-sweep.json`), REVISED 2026-08-26
+      after review: the linear-law summary is DEAD (fit intercept 0.022 was omitted;
+      the curve is flat-onset-then-saturation). The paper now reports the measured
+      curve: FC = 0 through 4 adds, crosses 0.05 at 8.1 adds (interpolated),
+      ~0.21 at 18 adds, saturates ~0.5. Deterministic (no seed) → numbers final.
       Optional Fig. 3 via `plot_fig3.py` (`refresh_floor.pdf`) — add only if the
       3-page budget allows a 3rd figure. (Per-reach floor came out degenerate — not
       claimed.)
 - [ ] **Use case framing** (done in the .tex): brownfield incremental fill --
       keep it concrete on final pass (name a representative link length / service rate).
-- [ ] **Camera-ready:** remove the preview banner's "except the verdict-inversion
-      figures marked for the 2026-08-27 seal" clause once the graded swap lands
-      (the canonical Optica build has no banner; this is preview-only).
+- [x] **Flip subsection CUT (2026-08-26, owner decision "cut with pointers + flip
+      paper"):** the verdict-inversion material moved to the dedicated flip paper
+      (`../flip-inversion/OUTLINE.md`); this paper keeps a two-sentence pointer in
+      the Discussion. The flip cells still seal 2026-08-27 as its evidence. The
+      preview banner clause was removed with it; Fig 2b replotted as
+      gap-below-next-threshold (the old headroom binning inverted the mechanism);
+      scalar-margin baseline added (0.85 dB oracle backoff ties the quantile FC,
+      `../../analysis/qot/margin_baseline.py`); janos-us-ca scoped as marginal
+      fill sampling; dtwin/quantile citations verified (S. Shen et al. OFC'24
+      Th2A.16; Maryam/Panayiotou/Ellinas Comput. Netw. 212:108992).
 - [x] **Review round (2026-08-26) addressed:** N/neighbourhood defined (channels in
       the service's co-propagating C-band); format table + required GSNRs stated
       (declared values, no PCS) + Shannon-gap flex-rate model named; janos-us-ca

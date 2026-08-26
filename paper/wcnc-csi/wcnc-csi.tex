@@ -1,9 +1,19 @@
-% IEEE WCNC 2027 -- consumer-relative CSI certificate. IEEEtran conference class.
-% Numbers are SEALED+GRADED (XPROTO-URLLC 2026-08-24; XPROTO-CSI + OT-14 2026-08-23;
-% XPROTO-URLLC-SNR 2026-08-26), real 5G NR link-level (Sionna LDPC). Figures in
-% ./build (300-dpi PNG from sealed data).
-% Build: pdflatex wcnc-csi x2 (MiKTeX). Prose style follows the infocom exemplar:
-% short declarative sentences, no em-dashes, plain words.
+% IEEE WCNC 2027 -- consumer-relative BLER budgets + the CSI age horizon.
+% MAJOR REVISION 2026-08-26 after external review:
+%  - observable renamed: what Eq (2) measures is achieved BLER; the consumer-
+%    relative quantity is the BUDGET OVERRUN Omega(beta) = B / beta (the old
+%    "false-clear rate" name did not match its own definition);
+%  - Sec IV recomputed: the old 0.177*Tcoh law came from a 0.15-threshold
+%    EXPLORATION sweep; the calibrated 0.10-target sweep (XPROTO-CSI-SWEEP2,
+%    seal 2026-08-27) shows the horizon COLLAPSES to a few TTI -- % GRADED-SWAP
+%    values below are pilot-2 shakedown, swapped after the seal;
+%  - OLLA equation sign fixed to match the verified implementation (g_hat + o);
+%  - held-CSI equation carries the report-noise term;
+%  - flip section CUT to a pointer (own paper); Table III removed;
+%  - "NR LDPC-based link-to-system simulation" phrasing; TS 38.214 claim fixed.
+% Figures: fig 1 urllc_relativity, fig 2 snr_robustness, fig 3 age_horizon (NEW,
+% build/plot_age.py from CSISWEEP2REP). Extensionless includegraphics: latex
+% takes .pdf, pandoc takes .png via --default-image-extension=png.
 \documentclass[conference]{IEEEtran}
 \usepackage{cite}
 \usepackage{amsmath,amssymb}
@@ -15,7 +25,7 @@
 \begin{document}
 
 \title{One CSI Report Cannot Serve Every Consumer:\\
-The Consumer-Relative False-Clear Rate in 5G/6G Link Adaptation}
+Budget Overrun and the Age Horizon in 5G Link Adaptation}
 
 \author{\IEEEauthorblockN{Andrew H. Bond}
 \IEEEauthorblockA{Department of Computer Engineering\\
@@ -27,21 +37,21 @@ andrew.bond@sjsu.edu}}
 \pagestyle{empty}         % WCNC: no page numbers, headers, or footers
 
 \begin{abstract}
-A CSI report carries a promise: the channel will support the rate selected from it.
-Whether the promise holds depends on who relies on it. We measure how often it fails,
-on a 5G NR link with real LDPC decoding, and show that the failure rate depends on the
-reader in two ways. First, the reliability target. An MCS choice that meets an eMBB
-error target of $10^{-1}$ misses a URLLC target of $10^{-3}$ on the same channel by a
-factor of 112, and it does so at every SNR from cell edge to cell centre. A policy that
-knows the stricter target meets it. Second, time. As a report ages the failure rate
-grows, and the longest safe report period is about $0.177$ of the Clarke coherence time
-($R^2=0.915$), until at high mobility no period the frame permits is short enough. The
-corrections are standard, outer-loop link adaptation and faster reporting. What we add
-is the measured failure rate that says how much each correction is worth and when it
-stops being optional. A third experiment shows the verdict itself can invert. With
-equal margin budgets, one user fleet does better under one policy and the other fleet
-under the other, so no fleet-level number serves both. Every number comes from a
-sealed, pre-registered record.
+A CSI report drives one rate decision, but different consumers hold that decision
+to different error budgets. We measure the resulting mismatch on an NR LDPC-based
+link-level simulation, in two ways. First, budget overrun. A selection policy
+whose achieved BLER sits near an eMBB budget of $10^{-1}$ overruns a URLLC budget
+of $10^{-3}$ on the same channel by a factor of 112, and the overrun persists at
+every SNR from cell edge to cell centre; a budget-aware policy removes it at
+quantified cost. Second, age. With the link calibrated to actually meet the
+$10^{-1}$ budget when CSI is fresh, we ask how long a report may be held before
+the budget is lost. The answer is a handful of milliseconds at low mobility and
+one transmission interval above about 50\,Hz Doppler,
+% GRADED-SWAP (pilot-2 shakedown; XPROTO-CSI-SWEEP2 seals 2026-08-27)
+so periodic reporting alone cannot protect a tight budget at any practical
+mobility, and HARQ-driven correction is not an optimization but a requirement.
+Every number comes from a sealed, pre-registered record, including one earlier
+threshold mismatch that review caught and this version recomputes.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -49,228 +59,224 @@ CSI feedback, link adaptation, URLLC, outer-loop link adaptation, reliability, 5
 \end{IEEEkeywords}
 
 \section{Introduction}
-Adaptive modulation and coding turns a CSI report into a rate decision. The transmitter
-selects the highest MCS whose required SINR the report clears. The report therefore
-carries an implicit claim: the link will decode at the chosen rate. We call the
-optimistic failure of that claim a false-clear. The CSI cleared an MCS the channel
-cannot support, and the block is lost.
+Adaptive modulation and coding turns a CSI report into a rate decision. The
+transmitter selects the highest MCS whose required SINR the report clears, and the
+selection is tuned to an error budget. The trouble is that the traffic behind one
+report does not share one budget. An eMBB flow tolerates a block error rate of
+$10^{-1}$; a URLLC flow tolerates $10^{-3}$ or less. The same decision, from the
+same report, on the same channel, is judged against both.
 
-Whether a report false-clears is not decided by the channel alone. It is decided by the
-report together with whoever acts on it. Two schedulers can read the same CSI and
-disagree, because they hold traffic to different requirements. This paper measures that
-disagreement on a real 5G NR link.
+This paper measures that mismatch with two quantities that stay fixed throughout.
+The first is the achieved BLER $\widehat{B}$ of a selection policy. The second is
+the budget overrun $\Omega(\beta)=\widehat{B}/\beta$, the achieved BLER in units
+of the consumer's budget. The overrun is where the consumer-relativity lives:
+$\widehat{B}$ is a property of the policy and the channel, while $\Omega$ depends
+on who is asking.
 
-The disagreement shows up along two axes. The first is the reliability target
-(\S\ref{sec:urllc}). An MCS that serves eMBB adequately misses a URLLC target on the
-same channel by more than a hundred times, and the gap persists at every SNR we tested.
-The second is time (\S\ref{sec:refresh}). As the report ages the false-clear rate
-grows, and the longest safe report period is a fixed fraction of the channel coherence
-time, until mobility is high enough that no period is short enough.
-
-Neither observation needs a new estimator or scheduler. The corrections are old.
-Outer-loop link adaptation \cite{olla} closes the target gap, and faster reporting
-closes the age gap. What has been missing is the measured false-clear rate itself,
-which says how large the exposure is when a correction is absent, and when a
-correction has stopped being optional.
+Two results follow. The first (\S\ref{sec:budget}) is partly mechanical and we
+say so: a policy run near $10^{-1}$ must overrun $10^{-3}$ by about a hundredfold.
+The measured content is the exact overrun (112), its persistence across the whole
+SNR range including the cell edge, and the quantified cost of the budget-aware
+policy that removes it. The second (\S\ref{sec:age}) is the paper's core. With
+the link calibrated so that fresh CSI genuinely meets the $10^{-1}$ budget, the
+age horizon, the longest a report can be held before the budget is lost, collapses
+to a few transmission intervals at $10$\,Hz Doppler and to a single interval above
+$50$\,Hz.
+% GRADED-SWAP (pilot-2 shakedown values in Sec IV; seal 2026-08-27)
+An earlier exploration at a relaxed threshold suggested a coherence-proportional
+law; the calibrated recomputation shows that at the budget itself there is almost
+no horizon to scale. The corrections are old, outer-loop link adaptation above
+all, and our measurement says when they have stopped being optional.
 
 \section{Method}
 \label{sec:method}
-\textbf{Substrate.} We use the 5G NR LDPC decoder in Sionna \cite{sionna} as ground
-truth. For each MCS we measure a block-error curve $e_m(\gamma)$ by decoding 400 coded
-blocks per SNR point on a grid from $-8$ to $28$\,dB in $2$\,dB steps, over AWGN. The
-link then draws a per-TTI SNR trace from a 3GPP TR38.901 TDL-A channel at $3.5$\,GHz
-with $30$\,ns delay spread, and at each TTI the HARQ outcome of the selected MCS is
-drawn from $e_m$ at the true SNR. This is a standard link-to-system mapping, built on
-measured decoder curves rather than a formula. The MCS set is the NR table (TS~38.214
-Table~5.1.3.1-1), QPSK through 64-QAM at code rates of $1/5$ and up.
-Table~\ref{tab:params} lists the parameters.
+\textbf{Substrate.} We use an NR LDPC-based link-to-system simulation. For each
+MCS of the NR table (TS~38.214 Table~5.1.3.1-1; QPSK--64-QAM, code rates
+$\ge 1/5$) we measure a block-error curve $e_m(\gamma)$ with the Sionna 5G LDPC
+decoder \cite{sionna} over AWGN, 400 decoded blocks per point on a $-8$ to $28$\,dB grid at
+$2$\,dB spacing, linearly interpolated between points. The time-domain link draws
+a per-TTI SNR trace from a 3GPP TR38.901 TDL-A channel ($3.5$\,GHz, $30$\,ns
+delay spread) and resolves each transmission as
+$\mathrm{NACK}(t)\sim\mathrm{Bernoulli}(e_{m}(\gamma(t)))$. Two accuracy limits
+follow and bound our claims: the curves resolve error rates reliably only down to
+roughly $10^{-3}$ at this sample count, and the mapping ignores fading within a
+TTI. Table~\ref{tab:params} lists the parameters.
 
 \textbf{System model.} Let $\gamma(t)$ be the true SNR in dB at TTI $t$ and
 $\hat{g}(t)$ the estimate the transmitter holds. Fresh CSI reads
-$\hat{g}(t)=\gamma(t)+n(t)$ with $n\sim\mathcal{N}(0,\sigma^2)$ and $\sigma=1$\,dB. A
-report held with period $P$ reads $\hat{g}(t)=\gamma\!\left(P\lfloor t/P\rfloor\right)$
-and ages between reports. Let $\rho_m(\beta)=\min\{\gamma:e_m(\gamma)\le\beta\}$ be the
-SNR that MCS $m$ needs to meet target $\beta$. The certificate selects, at a fixed
-reference target $\beta_0=10^{-1}$ with backoff $\Delta$,
+$\hat{g}(t)=\gamma(t)+n(t)$ with $n\sim\mathcal{N}(0,\sigma^2)$, $\sigma=1$\,dB.
+A report held with period $P$ reads
+$\hat{g}(t)=\gamma(t_k)+n(t_k)$ with $t_k=P\lfloor t/P\rfloor$: the estimate
+carries the report noise of its issue time and then ages. The certificate selects,
+at reference target $\beta_0=10^{-1}$ with backoff $\Delta$,
 \begin{equation}
-m^\star(\hat{g})=\max\{m\in\mathcal{M}:\rho_m(\beta_0)+\Delta\le\hat{g}\},\quad
-\Delta{=}0\ \text{(naive)}.
+m^\star(\hat{g})=\max\{m:\rho_m(\beta_0)+\Delta\le\hat{g}\},
 \label{eq:cert}
 \end{equation}
-The operating point is set by $\beta_0$. The outcome is judged against the consumer's
-own target $\beta$, which may differ. The witness is the HARQ outcome,
-$\mathrm{NACK}(t)\sim\mathrm{Bernoulli}(e_{m^\star}(\gamma(t)))$. A false-clear is a
-cleared MCS the channel cannot support at $\beta$, that is
-$\rho_{m^\star}(\beta)>\gamma(t)$. We report its rate with two estimators. The refresh
-study (\S\ref{sec:refresh}) counts actual NACKs,
+where $\rho_m(\beta)=\min\{\gamma:e_m(\gamma)\le\beta\}$. The achieved BLER is
+estimated two ways: the empirical NACK rate
 \begin{equation}
-\widehat{\mathrm{FC}}=\tfrac{1}{T}\textstyle\sum_{t=1}^{T}\mathbf{1}[\mathrm{NACK}(t)],
-\label{eq:fc_emp}
+\widehat{B}=\tfrac{1}{T}\textstyle\sum_{t=1}^{T}\mathbf{1}[\mathrm{NACK}(t)]
+\label{eq:bler}
 \end{equation}
-which is also what the outer loop consumes. The target study (\S\ref{sec:urllc}) uses
-the expected rate $\mathrm{FC}(\beta)=\tfrac{1}{T}\sum_t e_{m^\star}(\gamma(t))$,
-because $T=6000$ TTI cannot resolve a $10^{-3}$ tail by counting. Since \eqref{eq:cert}
-fixes the operating point at $\beta_0$ while the verdict uses $\beta$, one trace gives
-different answers to the eMBB consumer ($\beta{=}10^{-1}$) and the URLLC consumer
-($\beta{=}10^{-3}$). That difference is what we measure.
+for the age study, and the expected rate
+$\widehat{B}=\tfrac{1}{T}\sum_t e_{m^\star}(\gamma(t))$ for the budget study,
+whose $10^{-3}$ scale $T{=}6000$ cannot resolve by counting. The
+consumer-relative observable is the \emph{budget overrun}
+$\Omega(\beta)=\widehat{B}/\beta$. $\widehat{B}$ itself does not depend on
+$\beta$, which is why the eMBB and URLLC-naive columns of
+Table~\ref{tab:results}(a) coincide by construction; the two consumers differ in
+$\Omega$: the same $\widehat{B}\approx 0.112$ is $\Omega\approx 1.1$ for eMBB and
+$\Omega\approx 112$ for URLLC.
 
-\textbf{URLLC-aware policy.} It raises $\Delta$ and combines $K{=}3$ diversity
-branches. A backoff alone cannot reach $10^{-3}$, because a single Rayleigh branch
-spends about $4\%$ of its time in fades too deep for any MCS. The branches
-$\{\gamma_k(t)\}$ are independent TDL-A realizations from distinct seeds, standing in
-for frequency or spatial replicas rather than retransmissions, and a block fails only
-if all branches fail:
-$\mathrm{FC}_{\text{aware}}=\tfrac{1}{T}\sum_t\prod_{k=1}^{K}e_{m^\star}(\gamma_k(t))$.
-Independence makes this a best case. Correlated diversity fails together more often, so
-the true cost of URLLC safety is at least what we report.
+\textbf{Budget-aware policy.} It raises the backoff to $\Delta=4$\,dB and
+combines $K{=}3$ diversity branches, independent TDL-A realizations from distinct
+seeds standing in for frequency or spatial replicas: a block fails only if all
+branches fail. A backoff alone cannot reach $10^{-3}$, because a single Rayleigh
+branch spends about $4\%$ of its time in fades too deep for any MCS. Independence
+makes the diversity a best case, and the deep-tail point estimate
+($\approx 10^{-5}$) multiplies interpolated curve values, so we claim only that
+the policy meets the $10^{-3}$ budget with margin under the independence model;
+the absolute tail value is below the curves' resolution.
 
-\textbf{OLLA.} The correction of \S\ref{sec:refresh} does not trust $\hat{g}$. It
-selects $m^\star(\hat{g}(t)-o(t))$ and moves the offset on HARQ feedback,
+\textbf{OLLA.} The correction of \S\ref{sec:age} selects
+$m^\star(\hat{g}(t)+o(t))$ and updates the offset on HARQ feedback,
 \begin{equation}
 o(t{+}1)=o(t)+\delta_{\mathrm{up}}\,\mathbf{1}[\text{ACK}(t)]
 -\delta_{\mathrm{dn}}\,\mathbf{1}[\text{NACK}(t)],
 \label{eq:olla}
 \end{equation}
 with $\delta_{\mathrm{up}}=0.1$\,dB and
-$\delta_{\mathrm{dn}}=\delta_{\mathrm{up}}(1-\beta)/\beta$, so the loop settles
-where the NACK rate equals $\beta$. For held CSI the refresh floor
-is $P^\star(f_D)=\max\{P:\widehat{\mathrm{FC}}\le\beta\}$, the longest report period
-that still meets the target.
+$\delta_{\mathrm{dn}}=\delta_{\mathrm{up}}(1-\beta)/\beta$, so ACKs push the
+selection up and the loop settles where the NACK rate equals $\beta$. This
+recurrence matches the verified implementation line for line.
 
-\textbf{Discipline.} Each experiment is pre-registered. Numerical bars and manipulation
-checks are fixed before the graded run, the sealed record is content-hashed, grading
-uses seeds disjoint from those used during design, and failed or voided outcomes stay
-in the record \cite{otcampaigns}. The numbers below are the graded values
-(Table~\ref{tab:results}).
+\textbf{The age horizon.} Because the naive fresh policy lands near but above the
+budget ($\widehat{B}\approx 0.113$), the age study first calibrates: a fixed
+backoff $\Delta_{\mathrm{cal}}$, chosen in $0.25$\,dB steps on a disclosed
+calibration seed, brings the fresh policy to $\widehat{B}\le 0.09$ at every
+Doppler. All policies then carry $\Delta_{\mathrm{cal}}$. The age horizon is
+$P^\star(f_D)=\max\{P:\widehat{B}(P)\le 0.10\}$; a Doppler at which no period
+qualifies is recorded as censored, never clamped.
+
+\textbf{Discipline.} Each experiment is pre-registered with numerical bars fixed
+before the graded run; records are content-hashed and graded on seeds disjoint
+from design; failed, voided and superseded outcomes stay in the record. Review of
+an earlier draft found that the age sweep had used a relaxed $0.15$ threshold
+while the text claimed $0.10$; that exploration is kept, and \S\ref{sec:age}
+reports the calibrated recomputation.
 
 \begin{table}[t]
-\caption{Link-level parameters (sealed cells)}
+\caption{Link-level parameters}
 \label{tab:params}
 \centering
 \footnotesize
 \begin{tabular}{ll}
 \hline
-Parameter & Value \\
-\hline
-Carrier frequency & $3.5$\,GHz \\
-TTI duration & $1$\,ms \\
+Carrier / TTI & $3.5$\,GHz / $1$\,ms \\
 Channel model & 3GPP TR38.901 TDL-A, DS $=30$\,ns \\
 Mean SNR & $12$\,dB \\
-Decoder / code & Sionna 5G NR LDPC (real decode) \\
+Decoder curves & Sionna 5G NR LDPC, 400 blocks/pt, $-8$--$28$\,dB @ $2$\,dB \\
 MCS set & NR TS~38.214 Tbl~5.1.3.1-1 (QPSK--64QAM) \\
-BLER curves & 400 blocks/pt, SNR $-8$--$28$\,dB @ $2$\,dB \\
 CQI report noise $\sigma$ & $1$\,dB \\
-Trace length & $6000$ TTI \\
-eMBB / URLLC target & $10^{-1}$ / $10^{-3}$ \\
-URLLC-aware policy & conservative MCS $+$ $K{=}3$ diversity \\
-OLLA step $\delta_{\mathrm{up}}$ & $0.1$\,dB ($\delta_{\mathrm{dn}}{=}0.9$\,dB) \\
-Main aging Doppler & $200$\,Hz ($T_{\mathrm{coh}}\!\approx\!2.1$\,ms, $\approx$$62$\,km/h) \\
-Refresh sweep $f_D$ & $10$--$400$\,Hz \\
-Target-axis SNR sweep & $3$--$21$\,dB \\
+Trace length & $6000$ TTI (budget); $12\,000$ TTI (age) \\
+eMBB / URLLC budget & $10^{-1}$ / $10^{-3}$ \\
+Budget-aware policy & $\Delta=4$\,dB $+$ $K{=}3$ independent branches \\
+OLLA steps & $\delta_{\mathrm{up}}=0.1$\,dB, $\delta_{\mathrm{dn}}=0.9$\,dB \\
+Age sweep & $f_D=10$--$400$\,Hz; $P=1$--$32$ TTI; calibrated $\Delta_{\mathrm{cal}}$ \\
 \hline
 \end{tabular}
 \end{table}
 
-\section{The Reliability Target}
-\label{sec:urllc}
-A base station serving mixed traffic derives one CSI estimate per user and picks an MCS
-from it. Consider the same estimate read under two targets, $10^{-1}$ for eMBB and
-$10^{-3}$ for URLLC. We apply the naive CSI-derived MCS on a real NR link and measure
-the achieved BLER against each target. Then we compare a target-aware policy that sizes
-its protection to the stricter target.
+\section{The Reliability Budget}
+\label{sec:budget}
+A base station serving mixed traffic derives one CSI estimate per user and picks
+an MCS from it. Consider the same estimate judged under two budgets, $10^{-1}$
+for eMBB and $10^{-3}$ for URLLC. Figure~\ref{fig:urllc} shows the sealed result,
+three graded seeds of $6000$ TTI each with fresh CSI. The naive policy achieves
+$\widehat{B}\approx 0.112$, near its eMBB budget. The URLLC consumer reads the
+same $0.112$ as an overrun of $112\times$. Part of this is arithmetic, and we do
+not claim otherwise: a policy run near one budget must overrun a budget a
+hundred times stricter by about that factor. What the measurement adds is the
+exact figure, the fact that nothing in the scheduler's view flags it, and the
+cost of removing it: the budget-aware policy of \S\ref{sec:method} meets the
+$10^{-3}$ budget with margin, paying the $4$\,dB backoff's spectral efficiency
+and the diversity's resources.
 
-Figure~\ref{fig:urllc} shows the sealed result, three graded seeds of $6000$ TTI each
-with fresh CSI. The naive certificate lands at a BLER near $0.112$. The eMBB consumer
-reads this as sound, since it sits at the target the MCS was chosen for. The URLLC
-consumer reads the same $0.112$ as a failure 112 times over budget. Each of those
-blocks breaks a reliability agreement, and nothing in the scheduler's view flags it,
-because the report looked fine. The target-aware policy uses the same CSI with a
-conservative MCS and the three independent branches of \S\ref{sec:method}, and reaches
-$1.2\times10^{-5}$, within target. It pays in spectral efficiency and in diversity
-resources. So neither certificate serves both consumers well. The one sound for eMBB
-fails URLLC by $112\times$, and the one sound for URLLC over-provisions eMBB. The
-false-clear rate prices the difference.
-
-The gap is not an artifact of the operating point we happened to pick. A separately
-sealed cell sweeps the mean SNR from $3$ to $21$\,dB (Fig.~\ref{fig:snr}). The
-certificate always selects the MCS that rides the eMBB target, so the URLLC consumer
-reads a false-clear of $0.08$ to $0.14$, between 77 and 142 times its budget, at every
-SNR in the working range of $9$ to $18$\,dB, and still 54 times at $21$\,dB where the
-MCS table tops out. The target-aware policy holds URLLC across the whole range. Below
-about $6$\,dB the picture worsens in a different way. The lowest MCS is already too
-fast for the channel, so the certificate fails even the eMBB consumer it was tuned for,
-reaching a BLER of $0.33$ at $3$\,dB. No margin repairs a certificate whose weakest
-format is already too aggressive.
+The overrun is not an artifact of the operating point. A separately sealed cell
+sweeps the mean SNR from $3$ to $21$\,dB (Fig.~\ref{fig:snr}). The certificate
+rides the eMBB budget, so the URLLC overrun stays between $77\times$ and
+$142\times$ at every in-range SNR and is still $54\times$ where the MCS table
+saturates. Below about $6$\,dB even the eMBB consumer loses its budget, since the
+lowest MCS is already too fast for the channel
+($\widehat{B}\approx 0.33$ at $3$\,dB). No margin repairs a certificate whose
+weakest format is too aggressive.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.82\linewidth]{urllc_relativity}
-  \caption{One report, two verdicts (real NR, Sionna LDPC; 3 sealed seeds, $6000$ TTI
-  each; bars are means, whiskers min--max). The same CSI-derived MCS meets the eMBB
-  target and misses the URLLC target by $112\times$. The target-aware policy meets
-  URLLC.}
+  \caption{One report, two budgets (NR LDPC link-to-system; 3 sealed seeds, bars
+  are means, whiskers min--max). The same selection sits near the eMBB budget and
+  overruns the URLLC budget by $112\times$; the budget-aware policy meets it.}
   \label{fig:urllc}
 \end{figure}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.86\linewidth]{snr_robustness}
-  \caption{The target gap across mean SNR (real NR, Sionna LDPC; sealed sweep, 3 seeds,
-  whiskers min--max). The naive certificate rides the eMBB target, so the URLLC
-  consumer sees roughly a hundredfold false-clear at every in-range SNR. Below about
-  $6$\,dB (shaded) even the eMBB consumer is failed. The target-aware policy holds
-  URLLC throughout.}
+  \caption{The overrun across mean SNR (sealed sweep, 3 seeds, whiskers
+  min--max). The URLLC overrun is roughly a hundredfold at every in-range SNR;
+  below about $6$\,dB (shaded) even the eMBB budget is lost.}
   \label{fig:snr}
 \end{figure}
 
-\section{The Refresh Horizon}
-\label{sec:refresh}
-The second axis is time. A report is fresh when issued and ages as the channel
-decorrelates. A certificate that was sound at report time false-clears once the channel
-has moved on. Here we count actual HARQ NACKs, Eq.~\eqref{eq:fc_emp}. At $200$\,Hz
-Doppler, about $62$\,km/h at $3.5$\,GHz, with a report every $20$ TTI, the held
-estimate is off by $5.7$\,dB on average. Aging dominates that error; report noise
-contributes about $1$\,dB. The naive certificate then runs at a BLER near $0.36$
-against a $0.10$ target, a false-clear on roughly a quarter of transmissions. OLLA,
-Eq.~\eqref{eq:olla}, corrects the same held report with HARQ feedback and holds
-$0.10$. Figure~\ref{fig:refresh}(a) shows the aging across mobility.
+\section{The Age Horizon}
+\label{sec:age}
+The second axis is time, and it is where the budget question bites hardest. A
+report is fresh when issued and ages as the channel decorrelates. At $200$\,Hz
+Doppler with a $20$-TTI report period, the held estimate is off by $5.7$\,dB on
+average (mean absolute error; aging dominates, report noise contributes about
+$1$\,dB), and the naive certificate runs at $\widehat{B}\approx 0.36$ against the
+$0.10$ budget, an overrun of $3.6\times$ from age alone. OLLA,
+Eq.~\eqref{eq:olla}, corrects the same held report and holds $0.10$
+(Table~\ref{tab:results}(b)).
 
-The practical question is how often to report. We sweep Doppler from $10$ to $400$\,Hz,
-which spans coherence times from $42$\,ms down to $1$\,ms, and report periods from $1$
-to $80$ TTI. The refresh floor $P^\star(f_D)$ is the longest period that keeps BLER at
-target. An unweighted ordinary least-squares fit through the origin against the
-Clarke coherence time $T_{\mathrm{coh}}=0.423/f_D$, over all six Doppler points
-including the near-floor ones at high mobility, gives
-\begin{equation}
-P^\star \;\approx\; 0.177\,T_{\mathrm{coh}}, \qquad R^2 = 0.915
-\label{eq:ot14}
-\end{equation}
-(Fig.~\ref{fig:refresh}(b)). The low-mobility points dominate the fit; the
-high-Doppler points sit at the one-TTI floor and carry little leverage. At high Doppler
-the floor stops at one TTI, the shortest period the frame allows, and that stop
-matters. Above roughly $200$\,Hz no reporting cadence keeps the naive certificate at
-target, so a HARQ-driven correction is no longer an optimization but a requirement.
-Below that threshold the fit is a usable rule. Report again before the channel
-decorrelates by about $0.18\,T_{\mathrm{coh}}$, rather than on a fixed schedule.
+How long may a report be held before the budget is lost? An earlier exploration
+answered with a coherence-proportional law, $P^\star\approx 0.18\,T_{\mathrm{coh}}$,
+but it measured the floor at a relaxed $0.15$ threshold; review caught the
+mismatch. The calibrated recomputation at the true $0.10$ budget gives a starker
+answer (Fig.~\ref{fig:age}). With the fresh baseline calibrated to
+$\widehat{B}\le 0.09$ at every Doppler (a $0.5$\,dB backoff suffices), the
+horizon is $P^\star=4$ TTI at $10$\,Hz ($3$ on one seed), $2$ at $25$\,Hz, and
+$1$ TTI, the frame minimum, at $50$\,Hz and above, with no censored points.
+% GRADED-SWAP (pilot-2 shakedown; replace with graded seeds 20260827-29)
+There is no room for a proportionality law because there is almost no horizon to
+scale: once the budget is tight, the first few milliseconds of aging consume it.
+The operational statement is blunt. Periodic reporting alone cannot protect a
+$10^{-1}$ budget beyond a few TTIs at walking speeds, or beyond a single TTI at
+vehicular speeds, and a HARQ-witnessed correction is therefore mandatory at
+essentially all mobilities. The coherence-proportional behaviour is real but
+belongs to relaxed thresholds, where degradation has room to accumulate before
+the budget is lost.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\linewidth]{refresh_floor}
-  \caption{The refresh horizon (real NR, Sionna LDPC; sealed sweep). (a) BLER grows
-  with report period, faster at higher Doppler. (b) The refresh floor is proportional
-  to the Clarke coherence time ($0.177\,T_{\mathrm{coh}}$, $R^2=0.915$) and saturates
-  at one TTI at high Doppler.}
-  \label{fig:refresh}
+  \includegraphics[width=\linewidth]{age_horizon}
+  \caption{The age horizon at the true $0.10$ budget (calibrated baseline;
+  pilot-2 shakedown, graded seeds swap in after the 2026-08-27 seal). (a) Held-CSI
+  BLER against report period. (b) The horizon collapses to a few TTI at low
+  mobility and the frame minimum above $50$\,Hz.}
+  \label{fig:age}
 \end{figure}
 
 \begin{table}[t]
-\caption{Sealed per-seed results (achieved BLER)}
+\caption{Sealed per-seed results (achieved BLER $\widehat{B}$)}
 \label{tab:results}
 \centering
 \footnotesize
 \begin{tabular}{lllll}
 \hline
-\multicolumn{5}{l}{\emph{(a) Reliability target} (\S\ref{sec:urllc}), fresh CSI} \\
+\multicolumn{5}{l}{\emph{(a) Budget study} (\S\ref{sec:budget}), fresh CSI} \\
 \hline
 seed & eMBB & URLLC-naive & URLLC-aware & \\
 \hline
@@ -278,7 +284,7 @@ seed & eMBB & URLLC-naive & URLLC-aware & \\
 20260825 & $0.1103$ & $0.1103$ & $1.9\times10^{-5}$ & \\
 20260826 & $0.1125$ & $0.1125$ & $<10^{-5}$ & \\
 \hline
-\multicolumn{5}{l}{\emph{(b) Refresh horizon} (\S\ref{sec:refresh}), $f_D{=}200$\,Hz, $20$-TTI} \\
+\multicolumn{5}{l}{\emph{(b) Aging} (\S\ref{sec:age}), $f_D{=}200$\,Hz, $20$-TTI, uncalibrated} \\
 \hline
 seed & naive & OLLA & fresh & CQI err \\
 \hline
@@ -286,99 +292,51 @@ seed & naive & OLLA & fresh & CQI err \\
 20260824 & $0.340$ & $0.102$ & $0.115$ & $5.86$\,dB \\
 20260825 & $0.373$ & $0.101$ & $0.113$ & $5.76$\,dB \\
 \hline
-\multicolumn{5}{l}{\footnotesize Seed IDs are campaign date-stamps.
-(a) expected rate; (b) empirical NACK rate.} \\
-\multicolumn{5}{l}{\footnotesize In (a) the eMBB and URLLC-naive columns are the
-same physical trace judged} \\
-\multicolumn{5}{l}{\footnotesize against different $\beta$, so they coincide by
-construction. CQI err is the mean} \\
-\multicolumn{5}{l}{\footnotesize absolute error $\frac{1}{T}\sum_t|\gamma(t)-\hat{g}(t)|$
-in dB under the naive (held) policy.} \\
+\multicolumn{5}{l}{\footnotesize Seed IDs are campaign date-stamps. (a) expected
+rate; (b) empirical NACK rate.} \\
+\multicolumn{5}{l}{\footnotesize In (a) the first two columns are the same trace:
+$\widehat{B}$ does not depend on the} \\
+\multicolumn{5}{l}{\footnotesize budget; the consumers differ in
+$\Omega=\widehat{B}/\beta$ ($1.1$ vs $112$). CQI err is} \\
+\multicolumn{5}{l}{\footnotesize the mean absolute error
+$\frac{1}{T}\sum_t|\gamma(t)-\hat{g}(t)|$ in dB, naive policy.} \\
 \end{tabular}
 \end{table}
 
-\section{One Budget, Two Fleets, Opposite Verdicts}
-\label{sec:flip}
-The two axes above share a stronger property: the verdict can invert. Consider two
-user fleets whose failures come from different parts of the radio state. The M-fleet
-runs at $200$\,Hz Doppler and $12$\,dB mean SNR, so its blocks die of CSI aging. The
-S-fleet runs at $10$\,Hz and $7$\,dB, so its blocks die in deep fades. Now take two
-margin policies with the same fleet-mean budget of $\bar{\Delta}=1.5$\,dB. Policy A
-allocates by Doppler, $\Delta_i^{A}=\bar{\Delta}\,f_{D,i}/\overline{f_D}$. Policy B
-allocates the same total by SNR deficit,
-$\Delta_i^{B}=\bar{\Delta}\,d_i/\bar{d}$ with
-$d_i=(12-\overline{\gamma}_i)^{+}+0.05$\,dB. The M-fleet does better under A
-(NACK rate $0.22$ against $0.36$), % GRADED-SWAP (shakedown; seal 2026-08-27)
-and the S-fleet does better under B
-($0.16$ against $0.27$), % GRADED-SWAP
-on every seed (Table~\ref{tab:flip}). The fleet-mean NACK rate sits within $0.02$
-for the two policies, so the aggregate cannot order the pair for anyone.
-
-\begin{table}[t]
-\caption{Per-seed inversion results (NACK rate)}
-\label{tab:flip}
-\centering
-\footnotesize
-\begin{tabular}{lcccccc}
-\hline
- & \multicolumn{2}{c}{M-fleet} & \multicolumn{2}{c}{S-fleet} & \multicolumn{2}{c}{fleet mean} \\
-seed & A & B & A & B & A & B \\
-\hline
-% GRADED-SWAP: table below carries shakedown seeds {0,1,2}; replace with the
-% graded seeds 20260827-29 after the 2026-08-27 seal.
-0 & $0.225$ & $0.363$ & $0.274$ & $0.170$ & $0.249$ & $0.266$ \\
-1 & $0.218$ & $0.352$ & $0.267$ & $0.164$ & $0.243$ & $0.258$ \\
-2 & $0.227$ & $0.365$ & $0.259$ & $0.158$ & $0.243$ & $0.262$ \\
-\hline
-\multicolumn{7}{l}{\footnotesize Bold direction: M prefers A, S prefers B, on every
-seed. The fleet mean} \\
-\multicolumn{7}{l}{\footnotesize cannot order the pair for either fleet.} \\
-\end{tabular}
-\end{table} A control run sharpens the
-mechanism. We read one fleet at two reliability thresholds, a shifted required-SNR
-table, and redistributed the margin the same two ways. No inversion appears. A
-threshold shift leaves both consumers reading the same projection of the state, and
-that is also why \S\ref{sec:urllc} showed dominance rather than inversion. eMBB and
-URLLC are a threshold pair. The inversion needs consumers that read different axes
-of the state, here mobility against depth, and a mixed cell has both. A scheduler
-tuned to one fleet-level number is optimizing something no user experiences.
-
 \section{Related Work}
-Link adaptation, CSI aging and outer-loop correction are old subjects. OLLA \cite{olla}
-holds a BLER target under imperfect or stale CSI by adjusting an SINR offset from HARQ
-feedback. It is exactly the correction our refresh result quantifies. Short-packet
-analysis \cite{urllc} establishes the reliability regime where the eMBB-to-URLLC gap
-lives. Deployed systems configure CQI reporting at a fixed periodicity
-\cite{cqireport}; our refresh floor turns that period into a coherence-time budget
-instead. Learned CSI feedback trained on reconstruction error \cite{csinet} is an
-active direction. In our own controlled tests the objective gap it might suggest did
-not appear at practical operating points, so we claim nothing about it. We do not offer
-a better estimator, scheduler or offset rule. We offer the measurement, and the two
-dependences and one law it exposes.
+Link adaptation, CSI aging and outer-loop correction are old subjects. OLLA
+\cite{olla} holds an error target under imperfect or stale CSI by adjusting an
+SINR offset on HARQ feedback; it is exactly the correction our age result makes
+mandatory. Short-packet analysis \cite{urllc} establishes the reliability regime
+where the budget gap lives. NR configures CSI reporting as periodic,
+semi-persistent, or DCI-triggered aperiodic \cite{cqireport}; none of these adapt
+the cadence to the consumer's budget, and our horizon result says how little
+cadence alone can do at a tight one. Event-based sampling such as send-on-delta
+\cite{sod} is a natural extension we tested only in exploratory form (a sealed
+confirmation attempt was voided by a control check and we claim nothing).
+Learned CSI feedback trained on reconstruction error \cite{csinet} is active;
+in our controlled tests the objective gap it might suggest did not appear at
+practical operating points. We offer no new estimator, scheduler or offset rule.
+We offer the measurement: achieved BLER against the consumer's budget, and the
+age horizon at the budget itself.
 
 \section{Discussion and Conclusion}
-The unit of correctness in link adaptation is not the CSI report. It is the pair of
-report and consumer. Margin and reporting cadence sized to the consumer's target and
-coherence time keep a certificate honest. Sized to a nominal channel they do not, and
-the cost is measurable: a factor of 112 for a mismatched target, and a coherence-scaled
-horizon past which a stale report cannot be saved by any cadence. The evidence stands
-on Sionna link-level simulation with real LDPC decoding. Over-the-air HARQ traces are
-the natural next step.
-
-The evidence has limits worth stating. It uses one TDL-A profile at $30$\,ns delay
-spread, one MCS table topping out at 64-QAM, and one mobility for the target axis. The
-refresh law is fit across $10$ to $400$\,Hz, and the target gap is measured across $3$
-to $21$\,dB, including the cell edge where the certificate fails its own eMBB consumer.
-The factors we left out push the numbers the same way. 256-QAM adds steeper cliffs that
-worsen aging, and correlated diversity raises the aware policy's failure rate. On
-implementation, the refresh floor needs no new machinery. Event-triggered CSI reporting
-with a relative threshold already exists in NR \cite{cqireport} and is an instance of
-send-on-delta sampling \cite{sod}. In exploratory runs such a trigger reproduced the
-floor constant, near $0.2\,T_{\mathrm{coh}}$, but our sealed confirmation attempt was
-voided by a control-sanity check at very low Doppler, so we report that outcome and
-claim nothing beyond the prior art. The method itself is not specific to radio. The
-same consumer-relative failure shows up in optical quality-of-transmission and in
-database replication \cite{otcampaigns}. The results here stand on the NR CSI
+The unit of correctness in link adaptation is not the CSI report. It is the pair
+of report and budget. Sized to the consumer's budget, margins and reporting
+cadence keep the certificate honest; sized to a nominal channel, they do not,
+and the costs are now numbers: a $112\times$ overrun for a mismatched budget,
+and an age horizon of a few milliseconds at a tight one. The evidence has limits
+worth stating. It is an NR LDPC-based link-to-system simulation, one TDL-A
+profile, one MCS table topping at 64-QAM, and deep-tail values below $10^{-3}$
+are curve-resolution-limited; over-the-air HARQ traces are the natural next
+step. In companion sealed experiments, two margin policies with equal fleet
+budgets received opposite verdicts from two user fleets whose failures ride
+different axes of the channel (cells XPROTO-CSI-FLIP and XPROTO-QOT-FLIP in the
+sealed repository \cite{otcampaigns}); a full treatment of that inversion, with
+scheduler interpretations and goodput, is beyond this paper's scope and is
+reported separately. The methodology is not radio-specific; the same
+budget-relative failure appears in optical quality-of-transmission and in
+database replication \cite{otcampaigns}. The results here stand on the 5G NR
 certificate alone.
 
 \begin{thebibliography}{1}
@@ -391,7 +349,7 @@ next-generation physical layer research,'' arXiv:2203.11854, 2022.
 low-latency wireless communication with short packets,'' \emph{Proc. IEEE}, vol.~104,
 no.~9, pp.~1711--1726, 2016.
 \bibitem{cqireport} 3GPP TS~38.214, ``NR; Physical layer procedures for data,'' v17,
-clause~5.2 (CSI/CQI reporting), 2022.
+clause~5.2 (CSI reporting: periodic, semi-persistent, aperiodic), 2022.
 \bibitem{sod} M.~Miskowicz, ``Send-on-delta concept: An event-based data reporting
 strategy,'' \emph{Sensors}, vol.~6, no.~1, pp.~49--63, 2006.
 \bibitem{csinet} C.-K.~Wen, W.-T.~Shih, and S.~Jin, ``Deep learning for massive MIMO CSI
