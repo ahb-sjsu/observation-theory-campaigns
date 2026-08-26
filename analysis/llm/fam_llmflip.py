@@ -58,8 +58,8 @@ def _correctness():
 def run_cell(seed, sub):
     rng = np.random.default_rng(seed)
     names = sorted(sub.keys())
-    lo = [n for n in names if "lexical_overlap" in n]
-    cn = [n for n in names if "constituent" in n]
+    lo = [n for n in names if n.startswith(("le_", "ln_"))]   # lexical overlap
+    cn = [n for n in names if n.startswith(("ce_", "cn_"))]   # constituent
     fleet = {**{n: "LO" for n in lo}, **{n: "CN" for n in cn}}
     members = lo + cn
     true_acc = {n: float(sub[n].mean()) for n in members}

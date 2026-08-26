@@ -1,0 +1,76 @@
+{
+ "family": "F-LLM-FLIP",
+ "mode": "real-llm",
+ "constants": {
+  "bar": 0.8,
+  "null_bars": [
+   0.75,
+   0.85
+  ],
+  "margin_mean": 0.08,
+  "probe_n": 50,
+  "substrate": "roberta-large-mnli on real HANS (cached per-example correctness)"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "real-llm",
+   "n_lo": 10,
+   "n_cn": 10,
+   "mean_margin_A": 0.08,
+   "mean_margin_B": 0.08,
+   "fc_LO_A": 0.0,
+   "fc_CN_A": 0.0,
+   "fc_fleet_A": 0.0,
+   "fc_LO_B": 0.0,
+   "fc_CN_B": 0.0,
+   "fc_fleet_B": 0.0,
+   "flip": false,
+   "null_fc_t1_A": 0.0,
+   "null_fc_t2_A": 0.0,
+   "null_fc_t1_B": 0.0,
+   "null_fc_t2_B": 0.0,
+   "null_flip": false
+  },
+  {
+   "seed": 1,
+   "mode": "real-llm",
+   "n_lo": 10,
+   "n_cn": 10,
+   "mean_margin_A": 0.08,
+   "mean_margin_B": 0.08,
+   "fc_LO_A": 0.0,
+   "fc_CN_A": 0.0,
+   "fc_fleet_A": 0.0,
+   "fc_LO_B": 0.1,
+   "fc_CN_B": 0.0,
+   "fc_fleet_B": 0.05,
+   "flip": false,
+   "null_fc_t1_A": 0.0,
+   "null_fc_t2_A": 0.0,
+   "null_fc_t1_B": 0.0,
+   "null_fc_t2_B": 0.0,
+   "null_flip": false
+  },
+  {
+   "seed": 2,
+   "mode": "real-llm",
+   "n_lo": 10,
+   "n_cn": 10,
+   "mean_margin_A": 0.08,
+   "mean_margin_B": 0.08,
+   "fc_LO_A": 0.0,
+   "fc_CN_A": 0.0,
+   "fc_fleet_A": 0.0,
+   "fc_LO_B": 0.0,
+   "fc_CN_B": 0.0,
+   "fc_fleet_B": 0.0,
+   "flip": false,
+   "null_fc_t1_A": 0.0,
+   "null_fc_t2_A": 0.0,
+   "null_fc_t1_B": 0.0,
+   "null_fc_t2_B": 0.0,
+   "null_flip": false
+  }
+ ]
+}
