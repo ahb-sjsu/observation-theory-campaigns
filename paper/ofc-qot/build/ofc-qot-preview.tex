@@ -1,7 +1,7 @@
 % RENDERING PREVIEW of ofc-qot.tex in the standard article class, for PDF/DOCX
 % deliverables. The OFFICIAL OFC submission uses the Optica opticameet3 class
-% (Overleaf) -- this file only reproduces the content/figures for sharing.
-% Content is identical to ../ofc-qot.tex (sealed-graded XPROTO-QOT/QOT-ML numbers).
+% (Overleaf); this file reproduces the content/figures for sharing. Content is
+% identical to ../ofc-qot.tex (sealed-graded numbers; plain-declarative prose).
 \documentclass[10pt,twocolumn]{article}
 \usepackage[letterpaper,margin=0.75in]{geometry}
 \usepackage{mathptmx}
@@ -27,134 +27,131 @@ The False-Clear Rate at the FEC Cliff}}
   \begin{center}\begin{minipage}{0.86\textwidth}
   {\small\itshape \textbf{Rendering preview} (standard article class). The official OFC 2027
   submission is typeset with the Optica \texttt{opticameet3} meeting class; this document
-  reproduces the identical content and figures for review/sharing. All numbers are
-  sealed-and-graded (XPROTO-QOT + XPROTO-QOT-ML, 2026-08-25) or deterministic.\par}
+  reproduces the identical content and figures for review and sharing. All numbers are
+  sealed and graded (XPROTO-QOT and XPROTO-QOT-ML, 2026-08-25) or deterministic.\par}
   \medskip
 
-  \noindent\textbf{Abstract:} An ML-QoT estimator trained on average GSNR error is misaligned with
-  the FEC decoder's threshold: it false-clears at the cliff. On GNPy over CORONET-CONUS a
-  consumer-aware objective cuts false-clears $\sim$5$\times$ at equal capacity.
+  \noindent\textbf{Abstract:} An ML-QoT estimator trained on average GSNR error wins on
+  average and fails at the FEC threshold. On GNPy over CORONET-CONUS, training for the
+  decoder's threshold cuts false-clears five times over at equal capacity.
   \end{minipage}\end{center}
   \vspace{1.2em}
   \end{@twocolumnfalse}
 ]
 
 \section{Introduction}
-Machine-learning Quality-of-Transmission (ML-QoT) estimation is a leading route to
-reducing the system margin---the deliberately stranded capacity---that optical
-operators carry against uncertain reach performance~\cite{mlqot,pointon}. ML-QoT
-models are almost always trained to minimise a \emph{prediction error} (mean-squared
-or mean-absolute GSNR/OSNR error). We argue, and measure, that this objective is
-misaligned with the consumer it serves. The consumer of a QoT estimate is the
-\emph{format-selection decision}, and ultimately the forward-error-correction (FEC)
-decoder, which reads a \emph{threshold}: a lightpath either meets its format's
-required GSNR or it does not. An estimator can be excellent on average yet, near a
-format boundary, over-predict just enough to select a rate the link cannot support---
-a \emph{false-clear} (an in-service outage), even though its mean error is small.
+Machine-learning quality-of-transmission (ML-QoT) estimation is a leading route to
+reducing the system margin that optical operators carry against uncertain reach
+performance~\cite{mlqot,pointon}. That margin is deliberately stranded capacity, so
+every fraction of a dB matters. ML-QoT models are almost always trained to minimise a
+prediction error, mean-squared or mean-absolute GSNR error. We argue, and then
+measure, that this objective serves the wrong master. The consumer of a QoT estimate
+is the format-selection decision, and behind it the FEC decoder, and the decoder reads
+a threshold. A lightpath either meets its format's required GSNR or it does not. An
+estimator can be excellent on average and still, near a format boundary, over-predict
+by just enough to select a rate the link cannot support. The result is an in-service
+outage even though the mean error was small. We call this a false-clear.
 
-We make the false-clear rate a first-class, measured KPI and show three things on the
-GN-model physical layer of GNPy~\cite{gnpy} over the CORONET-CONUS reference network:
-(i) an average-error ML-QoT objective false-clears at the FEC cliff, while a
-consumer-aware objective does not, at equal capacity; (ii) the underlying QoT margin
-is \emph{consumer-relative}---which lightpaths are at risk is a footprint property
-(spectral position and reach), so no blanket margin fits all; and (iii) a
-fill-driven \emph{refresh floor} sets when a certificate must be re-validated.
+We measure the false-clear rate on the GN-model physical layer of GNPy~\cite{gnpy}
+over the CORONET-CONUS reference network and show three things. An average-error
+ML-QoT objective false-clears at the FEC cliff while a threshold-aware objective does
+not, at equal capacity. Which lightpaths are at risk is set by spectral position and
+reach, so no single blanket margin fits all of them. And the risk grows with the fill
+added after provisioning, which gives the certificate a refresh horizon.
 
 \section{Method}
 \textbf{Substrate.} Lightpaths are transparent shortest-path routes of the
-\textbf{CORONET-CONUS} reference topology (75 nodes; $\le 2500$\,km, 2--31$\times$
-80\,km spans). Per-channel GSNR is computed with the GN model in GNPy~\cite{gnpy} on
-standard single-mode fibre (0.2\,dB/km, $D=17$\,ps/nm/km), EDFAs (NF 6\,dB),
-+2\,dBm/ch, 32\,GBd, 50\,GHz grid, from a lightly filled ``provisioning'' band
-(6 channels) to a full C-band (76 channels).
+CORONET-CONUS reference topology (75 nodes; up to $2500$\,km, 2--31 spans of
+80\,km). Per-channel GSNR comes from the GN model in GNPy~\cite{gnpy} on standard
+single-mode fibre (0.2\,dB/km, $D=17$\,ps/nm/km) with 6\,dB-NF EDFAs, $+2$\,dBm per
+channel, 32\,GBd on a 50\,GHz grid. The band runs from a lightly filled provisioning
+state of 6 channels to a full C-band of 76.
 
 \textbf{Certificate, consumer, witness.} A certificate selects the highest format
-whose required GSNR the estimate clears. The \emph{consumer} is that decision; the
-\emph{witness} is the true deployed GSNR (the receiver's pre-FEC BER). For the ML
-study, features are provisioning-time GSNR and (spectral position, reach, fill), the
-label carries an irreducible unmeasured-state term, and two gradient-boosted
-objectives are compared: \emph{average-error} (squared loss) and \emph{consumer-aware}
-(a conservative lower-quantile loss that protects the decision, not the mean). Bars
-and manipulation checks are pre-registered; the sealed record is content-hashed with
-disjoint graded seeds~\cite{otcampaigns}.
+whose required GSNR the estimate clears. The consumer is that decision. The witness is
+the true deployed GSNR, in practice the receiver's pre-FEC BER. For the ML study the
+features are the provisioning-time GSNR plus spectral position, reach and fill, the
+label carries an irreducible term for unmeasured network state, and two
+gradient-boosted objectives compete: average-error (squared loss) and consumer-aware
+(a conservative lower-quantile loss that protects the decision rather than the mean).
+Bars and manipulation checks are pre-registered. The sealed record is content-hashed
+and graded on seeds disjoint from those used during design~\cite{otcampaigns}.
 
 \section{Results}
 \subsection{ML-QoT trained on the wrong metric}
-Under irreducible prediction uncertainty, the average-error estimator attains lower
-mean error yet false-clears far more at the FEC cliff than the consumer-aware
-objective: MAE $0.65$ vs $0.95$\,dB (it wins reconstruction) but false-clear
-$\approx 0.041$ vs $\approx 0.008$ ($\sim$5$\times$) at comparable delivered spectral
-efficiency ($\approx 3.9$\,bits/symbol). Figure~\ref{fig:ml}(a) shows the
-reconstruction-vs-consumer dissociation; (b) shows that the average-error
-false-clears concentrate where the GSNR headroom above the nearest format threshold
-is small---the cliff---exactly where a symmetric error metric is blind. The
-prescription is to train ML-QoT on the consumer's threshold decision, not on
-volume-averaged fidelity.
+Under irreducible prediction uncertainty the average-error estimator wins the metric
+it was trained on and loses the one that matters. Its MAE is $0.65$\,dB against
+$0.95$\,dB for the consumer-aware objective, yet its false-clear rate is about
+$0.041$ against $0.008$, five times higher, at comparable delivered spectral
+efficiency near $3.9$\,bits/symbol. Figure~\ref{fig:ml}(a) shows the two objectives
+trading places between the two metrics. Figure~\ref{fig:ml}(b) shows where the
+failures live: the average-error false-clears concentrate where the GSNR headroom
+above the nearest format threshold is small. That is the cliff, and it is exactly
+where a symmetric error metric is blind. The fix is to train ML-QoT on the consumer's
+threshold decision rather than on volume-averaged fidelity.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{ml_cliff.png}
-  \caption{ML-QoT reconstruction-vs-consumer dissociation (GNPy + gradient-boosted
-  regressors): (a) the average-error objective attains lower MAE yet higher
-  false-clear than the consumer-aware objective; (b) it false-clears at the FEC cliff
-  (small GSNR headroom), where the consumer-aware objective does not. Marker shape
-  distinguishes objectives.}
+  \caption{Two objectives, two metrics (GNPy, gradient-boosted regressors). (a) The
+  average-error objective has lower MAE and higher false-clear than the consumer-aware
+  objective. (b) Its false-clears sit at the FEC cliff, where headroom is small.
+  Marker shape distinguishes objectives.}
   \label{fig:ml}
 \end{figure}
 
 \subsection{The margin is consumer-relative}
-The same threshold-blindness afflicts the margin itself under incremental fill. As a
-lightpath's band fills toward its deployed load, its GSNR drops, and whether it
-crosses a format threshold depends on its \emph{footprint}: false-clears concentrate
-on the services whose spectral position and reach place their GSNR nearest a boundary,
-and are absent elsewhere (Fig.~\ref{fig:fc}). Consequently a single blanket margin
-cannot be right for all. We quantify the cost against today's practice---one
-\emph{uniform} system margin sized so the fleet stays safe---using \emph{real}
-deployed fill: each lightpath's channel load is drawn from the per-link fill
-distribution of the SNDlib \textbf{janos-us-ca} demand matrix (61 links; median 10,
-90th-percentile 35 of 76 channels~\cite{sndlib}). Real traffic is heavy-tailed, so a
-uniform margin sized for the few near-full links over-provisions the lightly-filled
-majority. Giving \emph{both} policies the same QoT-estimator uncertainty (0.5\,dB
-RMSE, so the footprint-aware certificate is not assumed perfect), a certificate that
-sizes each margin to the lightpath's own fill recovers $\approx 8\%$ of spectral
-efficiency ($\approx 0.33$\,b/sym, $\sim$21\,Gb/s per channel) at matched safety
-(false-clear $\le 0.01$), on a rate-flexible transceiver model. The gain is modest
-but free: it is capacity the uniform margin strands on the majority of links that
+The same threshold-blindness afflicts the margin itself as the band fills. A
+lightpath's GSNR drops as neighbours arrive, and whether it crosses a format threshold
+depends on where it sits: false-clears concentrate on services whose spectral position
+and reach leave their GSNR near a boundary, and are absent elsewhere
+(Fig.~\ref{fig:fc}). So a single blanket margin cannot be right for every lightpath.
+We price this against today's practice of one uniform system margin sized to keep the
+whole fleet safe. The deployed fill is real. Each lightpath's channel load is drawn
+from the per-link fill distribution of the SNDlib janos-us-ca demand
+matrix~\cite{sndlib} (61 links; median 10 channels, 90th percentile 35, of 76). Real
+traffic is heavy-tailed. A uniform margin sized for the few near-full links
+over-provisions the lightly filled majority. We give both policies the same
+QoT-estimator uncertainty of $0.5$\,dB RMSE, so the footprint-aware certificate is
+not assumed perfect. Sizing each margin to the lightpath's own fill then recovers
+about $8\%$ of spectral efficiency, near $0.33$\,b/sym or $21$\,Gb/s per channel, at
+matched safety (false-clear at most $0.01$) on a rate-flexible transceiver model. The
+gain is modest and free. It is capacity the uniform margin strands on links that
 never fill.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{fc_footprint.png}
-  \caption{Consumer-relativity of the QoT margin on GNPy over CORONET-CONUS:
-  per-service false-clear over (spectral position, reach) concentrates on
-  threshold-adjacent services; a footprint-aware certificate removes it. Marker
-  shape distinguishes classes.}
+  \caption{Where the margin fails (GNPy over CORONET-CONUS). Per-service false-clear
+  over spectral position and reach concentrates on threshold-adjacent services. A
+  footprint-aware certificate removes it. Marker shape distinguishes classes.}
   \label{fig:fc}
 \end{figure}
 
 \subsection{The refresh floor}
-Because the risk is driven by the fill \emph{increment} between provisioning and use,
-a certificate has a refresh horizon. Sweeping the deployed fill from 6 to 76
-channels, the naive false-clear rises approximately linearly with the number of added
-channels ($\mathrm{FC}\approx 0.008\,\Delta N$, $R^2 = 0.95$); at a 0.05 target the
-refresh floor is $\approx 8$ added channels. The rule is concrete: re-certify a
-service before the band around it grows by $\sim$8 channels, not on a fixed calendar.
+The risk is driven by the fill added between provisioning and use, so a certificate
+has a refresh horizon. Sweeping the deployed fill from 6 to 76 channels, the naive
+false-clear rises roughly linearly with the number of added channels,
+$\mathrm{FC}\approx 0.008\,\Delta N$ with $R^2=0.95$. At a $0.05$ target the floor is
+about 8 added channels. The rule is concrete. Re-certify a service before the band
+around it grows by about 8 channels, rather than on a fixed calendar.
 
 \section{Related work}
-QoT estimation and physical-layer-aware routing/spectrum assignment are
-mature~\cite{gnpy,pointon}; ML-QoT is active, with estimators trained predominantly
-on prediction error~\cite{mlqot}. Our contribution is orthogonal: not a better
-estimator or allocator, but a \emph{measurement}---the false-clear rate as a
-first-class, consumer-relative KPI---and the finding that the ML-QoT training
-\emph{objective}, and the margin allocation, should target the consumer's threshold.
+QoT estimation and physical-layer-aware routing and spectrum assignment are
+mature~\cite{gnpy,pointon}. ML-QoT is active, and its estimators are trained mostly on
+prediction error~\cite{mlqot}. We do not offer a better estimator or allocator. We
+offer the measurement, the false-clear rate read against the consumer, and the finding
+that both the ML-QoT training objective and the margin allocation should target the
+decoder's threshold.
 
 \section{Discussion}
-Train QoT models, and size QoT margin, for the decision the FEC decoder makes, not for
-average fidelity. The GN model is the evidence rung; a coherent-receiver pre-FEC-BER
-witness on a fibre testbed, and the EGN/split-step model, are the external-validity
-graduations. (The consumer-relative, false-clear methodology is not
-optics-specific~\cite{otcampaigns}, but the results here stand on the optical QoT
-certificate alone.)
+Train QoT models, and size QoT margin, for the decision the FEC decoder makes rather
+than for average fidelity. The evidence stands on the GN model. A coherent-receiver
+pre-FEC-BER witness on a fibre testbed, and the EGN or split-step model, are the
+natural next steps. The method is not specific to optics. The same consumer-relative
+false-clear appears in radio link adaptation and in database
+replication~\cite{otcampaigns}. The results here stand on the optical QoT certificate
+alone.
 
 \begin{thebibliography}{9}
 \small
