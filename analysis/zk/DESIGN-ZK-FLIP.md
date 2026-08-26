@@ -20,6 +20,17 @@ registration decision bound to pilot 4's declared stopping rule.**
    run:** any seed's L-gap under 0.10 sends this cell to a kept exploration,
    not a registration. No pilot 5.
 
+   **Execution incident (disclosed).** The first pilot-4 execution was
+   CONTAMINATED: a failed file transfer left the pilot-3 script on Atlas, the
+   launch that followed started it, and the corrected script was then launched
+   on top. Two concurrent runs interleaved one log, and two writer threads
+   doubled the hot churn, which showed up as duplicate seed lines and inflated
+   H-fleet numbers. That data is quarantined (zkflip4_contaminated.log on
+   Atlas) and is NOT what the stopping rule evaluates. Pilot 4 was then
+   re-executed once, cleanly (single process verified by ps), with the same
+   declared configuration. The stopping rule applies to the clean run. This is
+   a re-execution of the declared pilot, not an additional pilot.
+
 **Found along the way:** sync() cost scales with the follower's lag. Against the
 1200 ms follower a sync round-trip takes about 1.2 s, which stretched the
 high-sync read blocks from 30 s to 11 minutes. The witnessed correction is most
