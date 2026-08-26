@@ -1,6 +1,6 @@
 # PREREG-XPROTO-CSI-CTRL — event-triggered CSI reporting that auto-realizes the refresh floor
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-25. Earliest compliant seal
+**STATUS: SEALED 2026-08-26.** FAMILY-CONSTRUCTED: 2026-08-25. Earliest compliant seal
 **2026-08-26** (`csi_ctrl_check.py` codes the cooling-off). Graded seeds {20260826,
 20260827, 20260828}, disjoint from the shakedown's {0,1,2}. Substrate = real Sionna 5G NR
 LDPC curves + TDL-A fading (`csi_sionna`); empirical HARQ NACK rate. The *technique* cell
