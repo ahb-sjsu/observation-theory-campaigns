@@ -5,8 +5,8 @@
 %    "false-clear rate" name did not match its own definition);
 %  - Sec IV recomputed: the old 0.177*Tcoh law came from a 0.15-threshold
 %    EXPLORATION sweep; the calibrated 0.10-target sweep (XPROTO-CSI-SWEEP2,
-%    seal 2026-08-27) shows the horizon COLLAPSES to a few TTI -- % GRADED-SWAP
-%    values below are pilot-2 shakedown, swapped after the seal;
+%    SEALED 2026-08-27, graded PASS seeds 20260827-29) shows the horizon
+%    COLLAPSES to a few TTI; all values below are graded;
 %  - OLLA equation sign fixed to match the verified implementation (g_hat + o);
 %  - held-CSI equation carries the report-noise term;
 %  - flip section CUT to a pointer (own paper); Table III removed;
@@ -48,7 +48,6 @@ actually meet the $10^{-1}$ budget when CSI is fresh, we ask how long a report
 may be held before the budget is lost. The answer is a handful of milliseconds
 at walking speeds and a single transmission interval at moderate mobility and
 above,
-% GRADED-SWAP (pilot-2 shakedown; XPROTO-CSI-SWEEP2 seals 2026-08-27)
 so there periodic reporting meets the budget only at the frame-minimum interval,
 and HARQ-driven correction is necessary for any less aggressive reporting
 cadence. Every number comes from a sealed, pre-registered record, including a
@@ -84,7 +83,6 @@ the link calibrated so that fresh CSI genuinely meets the $10^{-1}$ budget, the
 age horizon, the longest a report can be held before the budget is lost, collapses
 to a few transmission intervals at $10$\,Hz Doppler and to a single interval above
 $50$\,Hz.
-% GRADED-SWAP (pilot-2 shakedown values in Sec IV; seal 2026-08-27)
 An earlier exploration at a relaxed threshold suggested a coherence-proportional
 law; the calibrated recomputation shows that at the budget itself there is almost
 no horizon to scale. The corrections are old, outer-loop link adaptation above
@@ -258,9 +256,9 @@ recomputation at the true $0.10$ budget gives a starker
 answer (Fig.~\ref{fig:age}, Table~\ref{tab:results}(b)). With the fresh
 baseline calibrated to
 $\widehat{B}\le 0.09$ at every Doppler (a $0.5$\,dB backoff suffices), the
-horizon is $P^\star=4$ TTI at $10$\,Hz ($3$ on one seed), $2$ at $25$\,Hz, and
-$1$ TTI, the frame minimum, at $50$\,Hz and above, with no censored points.
-% GRADED-SWAP (pilot-2 shakedown; replace with graded seeds 20260827-29)
+horizon over the three graded seeds is $P^\star=4$ TTI at $10$\,Hz ($6$ on one
+seed), $2$ at $25$\,Hz ($3$ on one seed), and $1$ TTI, the frame minimum, at
+$50$\,Hz and above, with no censored points.
 There is no room for a proportionality law because there is almost no horizon to
 scale: once the budget is tight, the first few milliseconds of aging consume it.
 At $3.5$\,GHz these Dopplers are modest speeds: $10$\,Hz is about $3$\,km/h, a
@@ -276,9 +274,9 @@ is lost.
   \centering
   \includegraphics[width=\linewidth]{age_horizon}
   \caption{The age horizon at the true $0.10$ budget (calibrated baseline;
-  pilot-2 shakedown, graded seeds swap in after the 2026-08-27 seal). (a) Held-CSI
-  BLER against report period. (b) The horizon collapses to a few TTI at low
-  mobility and the frame minimum above $50$\,Hz.}
+  three sealed graded seeds). (a) Held-CSI BLER against report period. (b) The
+  horizon collapses to a few TTI at low mobility and the frame minimum above
+  $50$\,Hz.}
   \label{fig:age}
 \end{figure}
 
@@ -302,12 +300,11 @@ $\Delta_{\mathrm{cal}}=0.5$\,dB} \\
 \hline
 seed & $P^\star(10)$ & $P^\star(25)$ & $P^\star(\ge 50)$ & fresh worst \\
 \hline
-% GRADED-SWAP rows (pilot-2 shakedown; graded seeds 20260827-29 after the seal)
-1 & $4$ & $2$ & $1$ & $0.078$ \\
-2 & $4$ & $2$ & $1$ & $0.081$ \\
-3 & $3$ & $2$ & $1$ & $0.090$ \\
+20260827 & $4$ & $2$ & $1$ & $0.080$ \\
+20260828 & $6$ & $2$ & $1$ & $0.078$ \\
+20260829 & $4$ & $3$ & $1$ & $0.080$ \\
 \hline
-\multicolumn{5}{l}{\footnotesize Seed IDs in (a) are campaign date-stamps; (a)
+\multicolumn{5}{l}{\footnotesize Seed IDs are campaign date-stamps; (a)
 expected rate, (b) empirical} \\
 \multicolumn{5}{l}{\footnotesize NACK rate. In (a) the first two columns are the
 same trace: $\widehat{B}$ does not} \\

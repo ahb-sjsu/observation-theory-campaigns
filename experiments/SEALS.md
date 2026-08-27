@@ -83,3 +83,6 @@ prefix). Verify: `git show <commit>:<path> | sha256sum`.
 | XPROTO-LLM | analysis/llm/PREREG-XPROTO-LLM.md | b61f7f1 | 2b4889a693f6e0899ec22dc81187321001d409d2f921c02c0cce912f906739ed | 2026-08-25 | A. H. Bond |
 | XPROTO-URLLC-SNR | analysis/urllc/PREREG-XPROTO-URLLC-SNR.md | 6e5735a | 2f33585acacd042aa5d0a26d8d61419cedefe5990c0e431d1a6a304c512c778b | 2026-08-26 | A. H. Bond |
 | XPROTO-CSI-CTRL (graded verdict: **VOID**, MC3) | analysis/csi/PREREG-XPROTO-CSI-CTRL.md | 6e5735a | adf51feb7d40eda68f6764f359faad01de188d0b4445bd88ba4a58e62edf656a | 2026-08-26 | A. H. Bond |
+| XPROTO-QOT-FLIP | analysis/qot/PREREG-XPROTO-QOT-FLIP.md | 1d3de4a | dae0d9486ff64f77c852dcd15440b27cee1fa955f85973bc0b3929ce0daf6d97 | 2026-08-27 | A. H. Bond |
+| XPROTO-CSI-FLIP | analysis/csi/PREREG-XPROTO-CSI-FLIP.md | 1d3de4a | cab452baf2bd2793944ed4f45932f99291eddc1347d7fdd9d7f185fd41b30351 | 2026-08-27 | A. H. Bond |
+| XPROTO-CSI-SWEEP2 | analysis/csi/PREREG-XPROTO-CSI-SWEEP2.md | 1d3de4a | 3529e94191c1adba2085f5303be1cc19892a78c0dac72cb616191d8cc26f4695 | 2026-08-27 | A. H. Bond |

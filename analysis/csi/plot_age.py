@@ -39,7 +39,7 @@ ax.set_xticklabels([str(p) for p in periods])
 ax.set_xlabel("report period $P$ (TTI)")
 ax.set_ylabel(r"held-CSI BLER $\widehat{B}$")
 ax.legend(ncol=2, title="Doppler", frameon=False, title_fontsize=7.2)
-ax.set_title("(a) aging past the budget (seed 0)", fontsize=9)
+ax.set_title(f"(a) aging past the budget (seed {cells[0]['seed']})", fontsize=9)
 
 # (b) the horizon vs Doppler, against the dead exploration law
 law_fds = [f for f in fds]
