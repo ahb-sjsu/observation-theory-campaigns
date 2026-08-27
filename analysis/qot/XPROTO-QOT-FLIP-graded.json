@@ -1,0 +1,107 @@
+{
+ "cells": [
+  {
+   "seed": 20260827,
+   "mode": "gnpy-coronet",
+   "n_services": 120,
+   "fec_delta_db": 1.5,
+   "margin_mean_db": 1.0,
+   "fec_fc_sd_A": 0.5,
+   "fec_fc_hd_A": 0.4167,
+   "fec_fc_sd_B": 0.3667,
+   "fec_fc_hd_B": 0.2833,
+   "fec_flip": false,
+   "fp_mean_margin_A": 1.0,
+   "fp_fc_R_A": 0.3833,
+   "fp_fc_P_A": 0.4667,
+   "fp_mean_margin_B": 1.0,
+   "fp_fc_R_B": 0.7333,
+   "fp_fc_P_B": 0.25,
+   "fp_fc_fleet_A": 0.425,
+   "fp_fc_fleet_B": 0.4916,
+   "fp_flip": true,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260828,
+   "mode": "gnpy-coronet",
+   "n_services": 120,
+   "fec_delta_db": 1.5,
+   "margin_mean_db": 1.0,
+   "fec_fc_sd_A": 0.4167,
+   "fec_fc_hd_A": 0.3667,
+   "fec_fc_sd_B": 0.3667,
+   "fec_fc_hd_B": 0.3333,
+   "fec_flip": false,
+   "fp_mean_margin_A": 1.0,
+   "fp_fc_R_A": 0.3667,
+   "fp_fc_P_A": 0.4667,
+   "fp_mean_margin_B": 1.0,
+   "fp_fc_R_B": 0.7,
+   "fp_fc_P_B": 0.2333,
+   "fp_fc_fleet_A": 0.4167,
+   "fp_fc_fleet_B": 0.4667,
+   "fp_flip": true,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  },
+  {
+   "seed": 20260829,
+   "mode": "gnpy-coronet",
+   "n_services": 120,
+   "fec_delta_db": 1.5,
+   "margin_mean_db": 1.0,
+   "fec_fc_sd_A": 0.5,
+   "fec_fc_hd_A": 0.35,
+   "fec_fc_sd_B": 0.3833,
+   "fec_fc_hd_B": 0.3,
+   "fec_flip": false,
+   "fp_mean_margin_A": 1.0,
+   "fp_fc_R_A": 0.3,
+   "fp_fc_P_A": 0.45,
+   "fp_mean_margin_B": 1.0,
+   "fp_fc_R_B": 0.7333,
+   "fp_fc_P_B": 0.1333,
+   "fp_fc_fleet_A": 0.375,
+   "fp_fc_fleet_B": 0.4333,
+   "fp_flip": true,
+   "grade": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "MC1": true,
+    "MC2": true,
+    "MC3": true
+   }
+  }
+ ],
+ "aggregate": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "MC1": true,
+  "MC2": true,
+  "MC3": true
+ },
+ "verdict": "PASS",
+ "cell": "XPROTO-QOT-FLIP",
+ "sealed": "2026-08-27",
+ "seeds": [
+  20260827,
+  20260828,
+  20260829
+ ]
+}
