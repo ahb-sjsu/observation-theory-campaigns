@@ -1,6 +1,6 @@
 # PREREG-XPROTO-CSI-FLIP — the two-consumer verdict inversion (the Flip) in 5G NR link adaptation
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-26. Earliest compliant seal
+**STATUS: SEALED 2026-08-27.** FAMILY-CONSTRUCTED: 2026-08-26. Earliest compliant seal
 **2026-08-27** (`csiflip_check.py` codes the cooling-off). Graded seeds {20260827,
 20260828, 20260829}, disjoint from the shakedown's {0,1,2}. Substrate = real Sionna
 5G NR LDPC BLER curves + TDL-A fading (`csi_sionna`, mode "nrsionna"), held CSI,

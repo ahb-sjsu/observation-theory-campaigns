@@ -1,6 +1,6 @@
 # PREREG-XPROTO-QOT-FLIP — the two-consumer verdict inversion (the Flip) in optical QoT
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-26. Earliest compliant seal
+**STATUS: SEALED 2026-08-27.** FAMILY-CONSTRUCTED: 2026-08-26. Earliest compliant seal
 **2026-08-27** (`qotflip_check.py` codes the cooling-off). Graded seeds {20260827,
 20260828, 20260829}, disjoint from the shakedown's {0,1,2}. Substrate = fam_qot's
 GNPy GN-model GSNR over CORONET-CONUS (mode "gnpy-coronet"). The optical instance of

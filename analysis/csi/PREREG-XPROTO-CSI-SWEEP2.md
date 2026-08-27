@@ -1,6 +1,6 @@
 # PREREG-XPROTO-CSI-SWEEP2 — the CSI age horizon at the true 0.10 budget (calibrated recompute)
 
-**STATUS: UNSEALED.** FAMILY-CONSTRUCTED: 2026-08-26. Earliest compliant seal
+**STATUS: SEALED 2026-08-27.** FAMILY-CONSTRUCTED: 2026-08-26. Earliest compliant seal
 **2026-08-27** (`csi_sweep2_check.py` codes the cooling-off). Graded seeds
 {20260827, 20260828, 20260829}, disjoint from the pilots' {0,1,2} and the
 calibration seed 999. Substrate = real Sionna 5G NR LDPC BLER curves + TDL-A
