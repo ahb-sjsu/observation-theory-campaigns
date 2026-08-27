@@ -1,15 +1,20 @@
 # Outreach draft — P3787 working group, first contact
 
-**To:** P3787 working group chair / secretary (fill from the roster
-confirmation or the project page's officer list)
+**To:** Xiaoxiao Chen (P3787 working group chair)
+**Cc:** Malia Zaman (IEEE program manager) — for question 3
 **From:** andrew.bond@sjsu.edu
 **Status: DRAFT — owner reviews and sends. Not sent by the assistant.**
+
+*Salutation note: "Dear Chair Chen" is role-based and avoids assuming a
+degree or a form of address. Switch to "Dear Xiaoxiao" if the roster or
+the group's mailing list shows first-name norms, which is common once a
+group is meeting regularly.*
 
 ---
 
 Subject: New participant, and a proposed contribution on validity attestation
 
-Dear [chair],
+Dear Chair Chen,
 
 I joined the P3787 roster this week and wanted to introduce myself and
 ask three practical questions.
@@ -50,14 +55,16 @@ The questions:
    consumer. I would be glad to circulate it, or to present it in ten
    minutes on a call, whichever suits the group.
 
-3. Patent policy logistics. I want to handle the call for potentially
-   essential patents correctly from the start. My university has one
-   related disclosure under internal review. Nothing in what I propose to
-   contribute depends on it, and everything I would cite is already
-   published under a permissive licence or archived with a DOI, but I
-   would rather raise it early than late. Could you point me to how the
-   group handles assurance letters where the potential holder is the
-   participant's institution rather than the participant?
+3. Patent policy logistics, and I have copied Malia Zaman since this is
+   likely an administrative question rather than a technical one. I want
+   to handle the call for potentially essential patents correctly from
+   the start. My university has one related disclosure under internal
+   review. Nothing in what I propose to contribute depends on it, and
+   everything I would cite is already published under a permissive
+   licence or archived with a DOI, but I would rather raise it early than
+   late. Where the potential holder is the participant's institution
+   rather than the participant, what is the right route for an assurance
+   letter, and is there anything I should have on file before I present?
 
 Happy to be useful in whatever way the group needs, including review work
 that has nothing to do with my own contribution.
