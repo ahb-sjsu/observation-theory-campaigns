@@ -2,7 +2,7 @@
 
 **To:** robert.morelos-zaragoza@sjsu.edu
 **From:** andrew.bond@sjsu.edu
-**Attachments:** tit-cr-context.pdf (32 pp)
+**Attachments:** tit-cr-context.pdf (34 pp)
 **Status: DRAFT — owner reviews and sends. Not sent by the assistant.**
 
 ---
@@ -31,7 +31,7 @@ BSC context channel) closes the discrete case through a tilt equation that
 interpolates Gray's conditional function at one end and the marginal
 rate-distortion function at the other.
 
-I am not asking for a full review of thirty-two pages. Two bounded things, maybe
+I am not asking for a full review of thirty-four pages. Two bounded things, maybe
 thirty to forty-five minutes:
 
 1. Table II, on page 3, places each result against its nearest prior
@@ -39,7 +39,7 @@ thirty to forty-five minutes:
    1972). Does the delineation hold up to someone who knows this literature?
    That table is where a referee will attack first.
 
-2. The paper runs thirty-two pages. Section VI (the exact attainment condition
+2. The paper runs thirty-four pages. Section VI (the exact attainment condition
    for the determinant lower bound) is separable. Would you split it out, or
    does a T-IT reader tolerate the length for a self-contained treatment?
 
