@@ -1,12 +1,21 @@
 # PREREG-XPROTO-QOT-GRAD — the reversal diagnostic run prospectively on the optical flip pair
 
-**STATUS: DRAFT — FAMILY-CONSTRUCTED 2026-08-27, EARLIEST SEAL 2026-08-28** (cooling-off
-rule: one full day between family construction and seal). Graded seeds {20260828,
-20260829, 20260830}, disjoint from the calibration seeds {990..997} and the shakedown's
+**STATUS: DRAFT — FAMILY-CONSTRUCTED 2026-08-28, EARLIEST SEAL 2026-08-29** (cooling-off
+rule: one full day between family construction and seal). Graded seeds {20260906,
+20260907, 20260908}, disjoint from the calibration seeds {990..997} and the shakedown's
 {0,1,2}. Substrate = fam_qot's GNPy GN-model GSNR over CORONET-CONUS (mode
 "gnpy-coronet") through fam_qotflip's footprint fleets. The prospective half of the
 formal core's reversal diagnostic (formal-core.tex Sec. 4, steps 3-6), on the sealed
 XPROTO-QOT-FLIP pair, for the SIGMETRICS 2027 policy-reversal paper.
+
+Why the construction date moved: the original graded-seed registration
+{20260828, 20260829, 20260830} collided with the graded seeds of the sealed
+XPROTO-CSI-FLIP cell, whose outcome on two of them is already visible in
+`XPROTO-CSI-FLIP-graded.json`, so the registration was replaced on 2026-08-28
+before any seal and the cooling-off clock restarted from that date. The
+calibration and the registered predictions below are unchanged and were never
+re-derived: they are fixed by calibration seeds {990..997}, which the
+replacement did not touch.
 
 ## Why this cell
 
@@ -25,7 +34,7 @@ lambda* band hold on fresh graded seeds. The aligned FEC control, pushed through
 same gate, does not license a reversal prediction. If the gate had abstained, the
 abstention would have been the registered outcome; it did not abstain.
 
-## Family F-QOT-GRAD (constructed + shaken down 2026-08-27)
+## Family F-QOT-GRAD (code constructed + shaken down 2026-08-27; re-registered 2026-08-28)
 
 `fam_qotgrad.py`. The sealed F-QOT-FLIP pair is reused exactly: policy A = margin
 proportional to normalized reach, policy B = proportional to band-centrality + 0.05,
@@ -71,7 +80,7 @@ robust. The estimator was replaced by the mean + 2·SE witness above BEFORE any 
 The pilot is disclosed here, not hidden; both floors are deterministic functions of
 the same calibration data.
 
-## Registered calibration outcome (deterministic on the disclosed seeds; pilot-derived, disclosed)
+## Registered calibration outcome (deterministic on the disclosed seeds; floor estimator pilot-derived and disclosed above)
 
 All numbers printed by `fam_qotgrad.py --calibrate` and stored in
 `QOTGRADREP-calibration.json`:
@@ -84,7 +93,7 @@ All numbers printed by `fam_qotgrad.py --calibrate` and stored in
 - Control (FEC SD/HD through the same gate): ratios 1.461 / 0.100, not licensed, no
   opposite signs. MC4 holds.
 
-## Bars (bind at seal; graded on {20260828, 20260829, 20260830})
+## Bars (bind at seal; graded on {20260906, 20260907, 20260908})
 
 - **B1 — signs.** Per seed: sign(ΔR_R) = −1 and sign(ΔR_P) = +1 (the registered
   signs).
@@ -96,9 +105,20 @@ All numbers printed by `fam_qotgrad.py --calibrate` and stored in
 - **MC2 — the policies differ.** Per graded seed: RMS(d) ≥ 0.1 dB.
 - **MC3 — calibration stability.** At registration: SE_c ≤ 0.5·|ḡ_c| for both
   classes (held: 0.084 and 0.076 relative).
-- **MC4 — the aligned control does not falsely license.** At registration: the FEC
-  pair through the same gate must not license an opposite-sign prediction (held:
-  ABSTAIN, same-sign means).
+- **MC4 — the aligned control does not falsely license.** At registration, exactly
+  one control outcome fails this bar: the FEC pair LICENSED by the gate AND
+  carrying OPPOSITE signs. Every other outcome is a legitimate pass. ABSTAIN is a
+  pass. LICENSE with SAME signs is a pass, because a licensed common-direction
+  prediction is not a reversal. The coded form is
+  `fam_qotgrad.py` lines 272-273, which set
+  `MC4_control_not_reversed = not (licensed and opposite_signs)`. Held on the FEC
+  control: ratios 1.461 and 0.100, mean g +0.07292 (SD) and +0.00812 (HD), same
+  sign, gate decision ABSTAIN. The bar is on the abstain branch here.
+- **MC5 — the graded record carries exactly the registered seeds.** The graded
+  record must contain the three registered seeds {20260906, 20260907, 20260908},
+  no more and no fewer. Violation VOIDs the cell. Coded in `qotgrad_check.py`
+  line 218, which refuses to grade any record whose seed set differs from the
+  registered set, so no verdict can be minted from a padded or truncated record.
 
 **Verdict:** any MC fail → VOID; B1 + B2 every graded seed → PASS; else FAIL, kept.
 **Kills:** a graded sign flip against the registration on any seed, or graded
@@ -113,10 +133,10 @@ Shakedown numbers stand in for nothing beyond code correctness.
 
 ## Seal procedure
 
-On 2026-08-28+: reread this prereg, confirm `QOTGRADREP-calibration.json` reproduces
+On 2026-08-29+: reread this prereg, confirm `QOTGRADREP-calibration.json` reproduces
 the registered numbers above (`fam_qotgrad.py --calibrate` is deterministic), flip
-STATUS to SEALED, commit; run `fam_qotgrad.py --graded --seeds 20260828 20260829
-20260830` in the qot venv; write the check script `qotgrad_check.py` (coded
+STATUS to SEALED, commit; run `fam_qotgrad.py --graded --seeds 20260906 20260907
+20260908` in the qot venv; write the check script `qotgrad_check.py` (coded
 cooling-off + substrate guard, house pattern) and commit
 `XPROTO-QOT-GRAD-graded.json`.
 

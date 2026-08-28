@@ -1,11 +1,22 @@
 # PREREG-XPROTO-CSI-GRAD — the reversal diagnostic run prospectively on the radio flip pair
 
-**STATUS: DRAFT — FAMILY-CONSTRUCTED 2026-08-27, EARLIEST SEAL 2026-08-28** (cooling-off
-rule: one full day between family construction and seal). Graded seeds {20260828,
-20260829, 20260830}, disjoint from the calibration seeds {990..994} and the shakedown's
+**STATUS: DRAFT — FAMILY-CONSTRUCTED 2026-08-28, EARLIEST SEAL 2026-08-29** (cooling-off
+rule: one full day between family construction and seal). Graded seeds {20260906,
+20260907, 20260908}, disjoint from the calibration seeds {990..994} and the shakedown's
 {0,1,2}. Substrate = real Sionna 5G NR LDPC BLER curves + TDL-A fading (`csi_sionna`,
 mode "nrsionna") through fam_csiflip's fleets. The radio twin of XPROTO-QOT-GRAD: one
 diagnostic, two substrates, for the SIGMETRICS 2027 policy-reversal paper.
+
+Why the construction date moved: the original graded-seed registration
+{20260828, 20260829, 20260830} collided with the graded seeds of the sealed
+XPROTO-CSI-FLIP cell, {20260827, 20260828, 20260829}. This cell reproduces that
+cell's evaluation draw-for-draw, so the registration's outcome on 20260828 and
+20260829 was already visible in `XPROTO-CSI-FLIP-graded.json` and the
+prospective claim was destroyed. The registration was replaced on 2026-08-28
+before any seal and the cooling-off clock restarted from that date. The
+calibration and the registered predictions below are unchanged and were never
+re-derived: they are fixed by calibration seeds {990..994}, which the
+replacement did not touch.
 
 ## Why this cell
 
@@ -24,7 +35,7 @@ lambda* band hold on fresh graded seeds. The aligned threshold-pair control, pus
 through the same gate, licenses only a SAME-SIGN prediction (no reversal), the
 taxonomy's expected behavior for aligned reads on this substrate.
 
-## Family F-CSI-GRAD (constructed + shaken down 2026-08-27)
+## Family F-CSI-GRAD (code constructed + shaken down 2026-08-27; re-registered 2026-08-28)
 
 `fam_csigrad.py`. The sealed F-CSI-FLIP pair is reused exactly: 12 users per fleet
 (M: 200 Hz Doppler, 12 dB mean SNR; S: 10 Hz, 7 dB), per-user TDL-A traces with the
@@ -55,11 +66,45 @@ Calibration (all constants declared):
   Band = registered lambda* ± max(2·spread, 0.05); the 0.05 floor bites here
   because the calibration spread is 0.0062.
 
-Graded evaluation: per graded seed, endpoints m^B and m^A; this is draw-for-draw
-the sealed F-CSI-FLIP evaluation, so graded cells at overlapping seeds must
-reproduce the sealed record's fc values exactly (a built-in substrate guard).
+Graded evaluation: per graded seed, endpoints m^B and m^A. This is the same
+construction as the sealed F-CSI-FLIP evaluation, so a graded cell at a seed the
+two cells share should track that record's fc values closely. It will NOT be
+bit-exact, and this prereg does not claim it is. The family's own records refute
+exactness: at seed 0 the identical code path gives fc_M_A = 0.2249
+(`CSIFLIPREP-family.json`), 0.2245 (`CSICMREP-shakedown.json`) and 0.2182
+(`CSIGRADREP-shakedown.json`). The cause is that `csi_sionna.fading_snr` seeds
+through `tf.random.set_seed`, so its draws depend on the preceding TensorFlow RNG
+state in the process and shift with how much other work ran first. The substrate
+guard is therefore the mode tag alone. The cross-check against the sealed flip
+record is reported by `csigrad_check.py` as an ADVISORY line and is never a
+verdict input.
 
-## Registered calibration outcome (deterministic on the disclosed seeds; pilot-derived, disclosed)
+## Disclosed design iteration (inherited; no sealed bar existed)
+
+The curvature-floor estimator was changed once before this registration, and the
+change matters here, not only on the substrate where it was made.
+
+The first construction used M_c = 3·max_seed|sec_c|. It was replaced by
+M_c = |mean_seed(sec_c)| + 2·SE_seed(sec_c). The replacement was made on the QOT
+substrate on 2026-08-27, before any seal, because the single-seed second
+differences there are dominated by Monte Carlo sampling noise and the max-based
+floor charges that noise twice, once in z·SE_c and once in M_c. See
+PREREG-XPROTO-QOT-GRAD.md, "Disclosed pilots".
+
+The change is decisive on the radio substrate too, so it is not merely an
+inherited detail. Recomputed from `CSIGRADREP-calibration.json` under the
+superseded floor M_c = 3·max_seed|sec_c|, with z = 2 and the refinement M_c/4:
+max_seed|sec_M| = 0.05733 gives M_M = 0.17199, floor_M = 0.04493 and ratio_M =
+3.093; max_seed|sec_S| = 0.17844 gives M_S = 0.53532, floor_S = 0.13644 and
+ratio_S = 0.718. The S ratio is below 1, so the gate would have ABSTAINED on
+radio as well, and this cell would have registered an abstention instead of the
+reversal prediction below.
+
+Both floors are deterministic functions of the same five calibration seeds
+{990..994}. Neither reads any graded seed. The superseded numbers are kept on the
+record here and are not replaced by the ones that were adopted.
+
+## Registered calibration outcome (deterministic on the disclosed seeds; floor estimator pilot-derived and disclosed above)
 
 All numbers printed by `fam_csigrad.py --calibrate` and stored in
 `CSIGRADREP-calibration.json`:
@@ -75,7 +120,7 @@ All numbers printed by `fam_csigrad.py --calibrate` and stored in
   thresholds). MC4 holds on the license-same-sign branch: aligned reads license a
   common-direction prediction, not a reversal.
 
-## Bars (bind at seal; graded on {20260828, 20260829, 20260830})
+## Bars (bind at seal; graded on {20260906, 20260907, 20260908})
 
 - **B1 — signs.** Per seed: sign(ΔR_M) = −1 and sign(ΔR_S) = +1 (the registered
   signs).
@@ -87,9 +132,21 @@ All numbers printed by `fam_csigrad.py --calibrate` and stored in
 - **MC2 — the policies differ.** Per graded seed: RMS(d) ≥ 0.5 dB.
 - **MC3 — calibration stability.** At registration: SE_c ≤ 0.5·|ḡ_c| for both
   classes (held: 0.007 and 0.013 relative).
-- **MC4 — the aligned control does not falsely license.** At registration: the
-  threshold-pair control through the same gate must not license an opposite-sign
-  prediction (held: licensed, same sign).
+- **MC4 — the aligned control does not falsely license.** At registration, exactly
+  one control outcome fails this bar: the threshold pair LICENSED by the gate AND
+  carrying OPPOSITE signs. Every other outcome is a legitimate pass. ABSTAIN is a
+  pass. LICENSE with SAME signs is a pass, because a licensed common-direction
+  prediction is not a reversal. The coded form is
+  `fam_csigrad.py` lines 216-217, which set
+  `MC4_control_not_reversed = not (licensed and opposite_signs)`. Held on the
+  threshold control: ratios 2.026 and 3.960, mean g −0.0993 (t1) and −0.0760
+  (t2), same sign, gate decision LICENSE. The bar is on the license-same-sign
+  branch here.
+- **MC5 — the graded record carries exactly the registered seeds.** The graded
+  record must contain the three registered seeds {20260906, 20260907, 20260908},
+  no more and no fewer. Violation VOIDs the cell. Coded in `csigrad_check.py`
+  line 244, which refuses to grade any record whose seed set differs from the
+  registered set, so no verdict can be minted from a padded or truncated record.
 
 **Verdict:** any MC fail → VOID; B1 + B2 every graded seed → PASS; else FAIL, kept.
 **Kills:** a graded sign flip against the registration on any seed, or graded
@@ -105,10 +162,10 @@ stand in for nothing beyond code correctness.
 
 ## Seal procedure
 
-On 2026-08-28+: reread this prereg, confirm `CSIGRADREP-calibration.json`
+On 2026-08-29+: reread this prereg, confirm `CSIGRADREP-calibration.json`
 reproduces the registered numbers (`fam_csigrad.py --calibrate` is deterministic),
 flip STATUS to SEALED, commit; on Atlas run `fam_csigrad.py --graded --seeds
-20260828 20260829 20260830` (sionna-venv, CPU), pull; write `csigrad_check.py`
+20260906 20260907 20260908` (sionna-venv, CPU), pull; write `csigrad_check.py`
 (coded cooling-off + substrate guard, house pattern) and commit
 `XPROTO-CSI-GRAD-graded.json`.
 

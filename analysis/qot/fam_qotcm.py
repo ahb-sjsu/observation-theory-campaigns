@@ -52,7 +52,7 @@ import fam_qotgrad as qg    # noqa: E402  (reuse the cached fleet builders)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-GRADED_SEEDS = [20260828, 20260829, 20260830]
+GRADED_SEEDS = [20260906, 20260907, 20260908]
 SHAKEDOWN_SEEDS = [0, 1, 2]
 S_LO, S_HI = 0.25, 4.0          # bisection bracket for the rebalancing scalar
 N_BISECT = 200                  # bisection iterations
