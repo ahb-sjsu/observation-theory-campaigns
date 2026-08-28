@@ -1,0 +1,84 @@
+{
+ "family": "F-CSI-GRAD",
+ "phase": "shakedown-graded",
+ "mode": "nrsionna",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "registration": {
+  "decision": "REGISTER",
+  "pred_sign_dR_M": -1,
+  "pred_sign_dR_S": 1,
+  "reversal_predicted": true,
+  "lambda_star_pred": 0.4135,
+  "lambda_spread_cal": 0.0062,
+  "lambda_band_halfwidth": 0.05,
+  "lambda_band": [
+   0.3635,
+   0.4635
+  ],
+  "lambda_estimator": "lambda* = g_S/(g_S - g_M) from the MEAN calibration directional derivatives (formal-core diagnostic step 5); band = max(2*across-seed spread of per-seed lambda_g, 0.05)"
+ },
+ "calibration_mc": {
+  "MC1_sane": true,
+  "MC2_policies_differ": true,
+  "MC3_stable": true,
+  "MC4_control_not_reversed": true
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "fc_M_A": 0.2182,
+   "fc_M_B": 0.353,
+   "fc_S_A": 0.2658,
+   "fc_S_B": 0.1623,
+   "dR_M": -0.1348,
+   "dR_S": 0.1035,
+   "d_rms_db": 2.8277,
+   "runtime_s": 3.7,
+   "lambda_star": 0.4342,
+   "sign_match": true,
+   "lambda_in_band": true
+  },
+  {
+   "seed": 1,
+   "fc_M_A": 0.2235,
+   "fc_M_B": 0.3601,
+   "fc_S_A": 0.2601,
+   "fc_S_B": 0.1585,
+   "dR_M": -0.1367,
+   "dR_S": 0.1016,
+   "d_rms_db": 2.8277,
+   "runtime_s": 3.8,
+   "lambda_star": 0.4263,
+   "sign_match": true,
+   "lambda_in_band": true
+  },
+  {
+   "seed": 2,
+   "fc_M_A": 0.2166,
+   "fc_M_B": 0.3509,
+   "fc_S_A": 0.2559,
+   "fc_S_B": 0.1512,
+   "dR_M": -0.1343,
+   "dR_S": 0.1048,
+   "d_rms_db": 2.8277,
+   "runtime_s": 3.6,
+   "lambda_star": 0.4383,
+   "sign_match": true,
+   "lambda_in_band": true
+  }
+ ],
+ "grade": {
+  "registered": true,
+  "B1_signs_all": true,
+  "B2_lambda_all": true,
+  "MC1_sane": true,
+  "MC2_policies_differ": true,
+  "verdict": "PASS"
+ },
+ "runtime_s": 11.1,
+ "shakedown_disclaimer": "SHAKEDOWN RECORD. Seeds {0,1,2} stand in for the graded seeds. Shakedown numbers are NEVER quoted in papers."
+}

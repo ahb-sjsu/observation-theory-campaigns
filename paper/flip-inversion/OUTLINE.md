@@ -87,6 +87,32 @@ vocabulary "compression flip" = Paper IV, "policy reversal" = this paper.
 networking spin-off of Paper IV's thesis, not prior art for this claim; its
 disposition is an owner+collaborator decision, out of scope here.)
 
+**Relation to budget-constrained perception (one paragraph in Discussion,
+citations verified 2026-08-27).** The single-observer version of this
+paper's setting is an established literature, not ours: rational
+inattention (Sims) poses max E[U] subject to I(S;S-hat) <= C; efficient
+coding derives probability weighting, diminishing sensitivity, and
+reference dependence from capacity-limited encoders and predicts they
+shrink as noise vanishes (Woodford, Ann. Rev. Econ. 2020; Frydman and Jin,
+QJE 137(1):161-213, 2022); the thermodynamic wrapper is Ortega and Braun
+(Proc. R. Soc. A 469:20120683, 2013). What that literature does not have
+is the TWO-observer statement: those theories rank encoders by a single
+representative consumer's utility. Proposition 3's corollary supplies the
+missing case: two budget-constrained observers with different read
+operators can rank the same encoder pair oppositely, so "the adaptive
+encoding" is mixture-dependent, with a measurable crossover lambda*. One
+paragraph, framed as the perceptual reading of the networking result, no
+in-vivo claims.
+
+**Future-work note (one sentence, scoped):** the in-vivo instantiation
+(metabolic budget as C, two task-consumers of one percept, predicted
+ranking flip) is a designable cell in the house discipline; it is future
+work and is NOT claimed as a law. The 'Law of Budget-Constrained
+Observation' framing (law.txt, 2026-08-27) is retired as a naming: its
+single-observer axioms are prior art (above), its fidelity-failure axiom
+is Paper IV, and its defensible kernel IS this paper's two-observer
+corollary.
+
 Distinguish from: Simpson's aggregation paradox (formal reversal conditions
 exist, e.g. Front. Appl. Math. Stat. 9:1169164, doi:10.3389/fams.2023.1169164);
 Pareto incomparability; subgroup fairness / heterogeneous treatment effects;
