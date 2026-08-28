@@ -1,9 +1,9 @@
-# Outreach draft — internal read request, T-IT manuscript
+# Outreach draft: internal read request, T-IT manuscript
 
 **To:** robert.morelos-zaragoza@sjsu.edu
 **From:** andrew.bond@sjsu.edu
 **Attachments:** tit-cr-context.pdf (35 pp)
-**Status: DRAFT — owner reviews and sends. Not sent by the assistant.**
+**Status: DRAFT. Owner reviews and sends. Not sent by the assistant.**
 
 ---
 
