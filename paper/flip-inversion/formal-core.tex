@@ -1,0 +1,526 @@
+% formal-core.tex -- standalone formal core of the policy-reversal paper.
+% Future Sections 2-3 of the SIGMETRICS 2027 submission; written to be
+% transplanted. Every quoted number is printed by flip_theorem_checks.py
+% from the graded records QOTFLIPREP-graded-raw.json and
+% CSIFLIPREP-graded-raw.json (seeds 20260827-29, sealed 2026-08-27).
+% Build: pdflatex formal-core.tex (twice).
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\mbar}{\bar{m}}
+\newcommand{\lamstar}{\lambda^{*}}
+
+\title{Consumer-Conditional Policy Reversal:\\ Definitions, Criteria, and the Diagnostic}
+\author{}
+\date{Draft of 2026-08-27. Formal core; standalone.\thanks{Every number quoted
+in this document is printed by the companion script
+\texttt{flip\_theorem\_checks.py} from the graded records of the sealed cells
+XPROTO-QOT-FLIP and XPROTO-CSI-FLIP (seeds 20260827--20260829). The script
+also verifies each proposition numerically. All checks pass.}}
+
+\begin{document}
+\maketitle
+
+\noindent
+Two allocation policies can cost the same and still receive opposite
+class-conditional safety rankings. This document defines that reversal and
+gives the criteria that turn it into a prospective policy-selection
+diagnostic. Propositions~\ref{prop:midpoint} and~\ref{prop:mixture}, with the
+directional exposure gate of Definition~\ref{def:gate}, support the following
+procedure: measure the two directional sensitivities and their floors on
+calibration data, register the predicted signs and the predicted crossover
+weight $\lamstar$, then let a graded A/B run confirm or refute the
+registration. The operator's deliverable is a selection: which policy to
+deploy given a class mixture, read off from the position of the fleet's
+mixture weight relative to the measured $\lamstar$. The worked instances in
+Section~\ref{sec:worked} demonstrate the retrospective half of this procedure
+on two sealed records, one optical and one radio. The registered-prediction
+cells that exercise the prospective half are new sealed work; this document
+supplies the formal basis for their registered predictions.
+
+\section{Definitions}\label{sec:defs}
+
+\begin{definition}[Allocation, cost, resource equivalence]\label{def:cost}
+An allocation is a vector $m \in \R^n$ of per-service margins or resources.
+A cost functional is a continuously differentiable $C:\R^n \to \R$, strictly
+increasing in each coordinate. Policies $m^A, m^B \in \R^n$ are
+\emph{resource-equivalent} when $C(m^A) = C(m^B)$. Write $d = m^A - m^B$ and
+$\mbar = \tfrac12(m^A + m^B)$.
+\end{definition}
+
+Resource equivalence must be stated in $C$, not in nominal units. Equal mean
+margin in dB is the nominal statement, $C$ linear in $m$. When the true cost
+(capacity, goodput) is nonlinear in dB, the budget-neutral direction is
+characterized exactly by the integrated gradient. By the fundamental theorem
+of calculus,
+\begin{equation}\label{eq:ftc}
+C(m^A) - C(m^B) \;=\; \bar q^{\top} d,
+\qquad
+\bar q \;=\; \int_0^1 \nabla C\bigl(m^B + t\,d\bigr)\,dt ,
+\end{equation}
+so $m^A$ and $m^B$ are resource-equivalent if and only if $\bar q^{\top} d =
+0$, with $\bar q$ the integrated gradient. The operating-point gradient $q =
+\nabla C(\mbar)$ satisfies $q^{\top} d = 0$ only to first order; by
+Lemma~\ref{lem:midpoint} below, applied to $C$, the gap is bounded by
+$(L_C/4)\|d\|^2$ when $\nabla C$ is $L_C$-Lipschitz on the segment.
+
+\begin{definition}[Class risk and reversal]\label{def:reversal}
+For consumer class $c \in \{1,2\}$, the class risk is a function
+$R_c:\R^n \to [0,1]$, continuously differentiable on a neighborhood of the
+segment $[m^B, m^A]$. Write $\Delta R_c = R_c(m^A) - R_c(m^B)$.
+The resource-equivalent pair $(m^A, m^B)$ exhibits
+\emph{consumer-conditional policy reversal} when
+\begin{equation}\label{eq:reversal}
+\Delta R_1 < 0 < \Delta R_2
+\qquad\text{or}\qquad
+\Delta R_2 < 0 < \Delta R_1 ,
+\end{equation}
+that is, class 1 is strictly safer under one policy and class 2 strictly
+safer under the other.
+\end{definition}
+
+\begin{definition}[Read operator]\label{def:read}
+In the systems studied here each class risk has the form of an exceedance or
+shortfall probability: the consumer applies a map from system state to a
+scalar (its \emph{read operator}) and compares that scalar to its threshold.
+Two classes are \emph{read-aligned} when they apply the same map and differ
+at most in the threshold; otherwise their reads are \emph{misaligned}. The
+definitions above do not require this structure; it is named because
+Section~\ref{sec:scope} and the diagnostic refer to it.
+\end{definition}
+
+\section{Reversal criteria}\label{sec:criteria}
+
+\begin{proposition}[Exact directional form]\label{prop:mvt}
+For each class $c$ there exists $\xi_c$ on the open segment $(m^B, m^A)$ with
+\begin{equation}\label{eq:mvt}
+\Delta R_c \;=\; \nabla R_c(\xi_c)^{\top} d .
+\end{equation}
+Hence reversal holds if and only if the two directional derivatives, each
+evaluated at its own mean value point, have opposite signs:
+$\bigl(\nabla R_1(\xi_1)^{\top} d\bigr)\bigl(\nabla R_2(\xi_2)^{\top}
+d\bigr) < 0$.
+\end{proposition}
+
+\begin{proof}
+Apply the mean value theorem to $f_c(t) = R_c(m^B + t\,d)$ on $[0,1]$; $f_c$
+is differentiable there because $R_c$ is $C^1$ on a neighborhood of the
+segment, and $f_c'(t) = \nabla R_c(m^B + t\,d)^{\top} d$.
+\end{proof}
+
+This criterion is exact and unmeasurable. The points $\xi_1, \xi_2$ are
+unknown, differ between the classes, and are not observable from data. The
+measurable object is the directional derivative at the midpoint, and it
+carries an error bound.
+
+\begin{lemma}[Midpoint bound; the constant is $1/4$]\label{lem:midpoint}
+Suppose $\nabla R_c$ is $L_c$-Lipschitz on the segment $[m^B, m^A]$. Then
+\begin{equation}\label{eq:midpoint}
+\bigl|\,\Delta R_c - \nabla R_c(\mbar)^{\top} d\,\bigr|
+\;\le\; \frac{L_c}{4}\,\|d\|^2 .
+\end{equation}
+The constant $1/4$ is sharp in this class. If in addition $R_c$ is twice
+differentiable along the segment, $L_c\|d\|^2$ may be replaced by the
+directional curvature bound
+$M_c = \sup_{t\in[0,1]} \bigl|d^{\top}\nabla^2 R_c(m^B + t\,d)\,d\bigr|
+\le L_c\|d\|^2$, giving the sharper bound $M_c/4$.
+\end{lemma}
+
+\begin{proof}
+With $f_c(t) = R_c(m^B + t\,d)$,
+\[
+\Delta R_c - \nabla R_c(\mbar)^{\top} d
+= \int_0^1 \bigl(f_c'(t) - f_c'(\tfrac12)\bigr)\,dt ,
+\qquad
+\bigl|f_c'(t) - f_c'(\tfrac12)\bigr| \le L_c\|d\|^2\,\bigl|t-\tfrac12\bigr| ,
+\]
+and $\int_0^1 |t - \tfrac12|\,dt = \tfrac14$. The directional version is the
+same computation with $|f_c'(t)-f_c'(\tfrac12)| \le M_c\,|t-\tfrac12|$.
+Sharpness: take $n=1$, $R(x) = \tfrac{L}{2}(x-c)\,|x-c|$, whose derivative
+$R'(x) = L\,|x-c|$ is $L$-Lipschitz, and centre the segment at $c$. Then
+$f'(t) = L\|d\|^2\,|t-\tfrac12|$, the midpoint term vanishes, and the error
+equals $(L/4)\|d\|^2$ exactly. The companion script verifies the bound on
+random quadratic, Gaussian-shortfall, and sinusoidal families and reproduces
+the equality instance to machine precision.
+\end{proof}
+
+\begin{remark}[Why not $1/8$]\label{rem:constant}
+A per-side Taylor expansion from the midpoint bounds each half-step error by
+$\tfrac{L_c}{2}\|d/2\|^2 = (L_c/8)\|d\|^2$, which suggests $1/8$. The two
+half-step errors add in the worst case, and the equality instance above
+attains $(L_c/4)\|d\|^2$, strictly violating a $1/8$ bound. The correct
+constant is $1/4$. For quadratic $R_c$ the error is exactly zero: $f_c'$ is
+then linear and the midpoint value integrates it exactly. Near-tightness
+therefore cannot be exhibited on a quadratic; the script exhibits exactness
+on quadratics and equality on the piecewise-quadratic instance.
+\end{remark}
+
+\begin{proposition}[Predictive criterion]\label{prop:midpoint}
+Let $g_c = \nabla R_c(\mbar)^{\top} d$ and suppose $\nabla R_c$ is
+$L_c$-Lipschitz on the segment. If
+\begin{equation}\label{eq:margin}
+|g_c| \;>\; \frac{L_c}{4}\,\|d\|^2
+\qquad\text{for } c = 1,2,
+\end{equation}
+then $\operatorname{sign}(\Delta R_c) = \operatorname{sign}(g_c)$ for both
+classes. Consequently, if in addition $g_1 g_2 < 0$, reversal holds.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:midpoint}, $\Delta R_c$ lies within $(L_c/4)\|d\|^2$ of
+$g_c$; under \eqref{eq:margin} this interval excludes zero, so the signs
+agree. Opposite signs of $g_1, g_2$ then give \eqref{eq:reversal}.
+\end{proof}
+
+The condition \eqref{eq:margin} is directional, and it has to be. The
+quantity that predicts the reversal is the derivative of each class risk
+along the specific budget-neutral direction $d$, not the size of the
+gradient: a large gradient orthogonal to $d$ produces no policy difference
+at all. We therefore define exposure as the directional object.
+
+\begin{definition}[Exposure and the exposure gate]\label{def:gate}
+The \emph{exposure} of class $c$ to the policy pair is
+\begin{equation}\label{eq:exposure}
+E_c(d) \;=\; \bigl|\nabla R_c(\mbar)^{\top} d\bigr| .
+\end{equation}
+Operationally, $\nabla R_c(\mbar)^{\top} d$ is estimated by symmetric finite
+differences along $d$ on calibration seeds; one scalar per class, with
+standard error $\mathrm{SE}_c$ across seeds. The registered prediction is
+licensed when
+\begin{equation}\label{eq:gate}
+E_c(d) \;>\; z\,\mathrm{SE}_c \;+\; \frac{L_c}{4}\,\|d\|^2
+\qquad\text{for both classes},
+\end{equation}
+where $z$ is the declared confidence multiplier and the second term is the
+Taylor-remainder bound of Lemma~\ref{lem:midpoint} (or its directional
+refinement $M_c/4$ when a curvature bound along $d$ is available).
+Equivalently, both dimensionless exposure ratios
+$E_c(d)\,/\,\bigl(z\,\mathrm{SE}_c + (L_c/4)\|d\|^2\bigr)$ must exceed one.
+\end{definition}
+
+The gate is where near-threshold operation enters. Near-threshold operation
+is what makes the directional derivative along the policy difference large
+enough to clear the noise-plus-curvature floor. Far from threshold, $E_c(d)$
+sinks below the floor even if $\|\nabla R_c\|$ is large in some other
+direction, and the gate withholds the prediction
+(Section~\ref{sec:scope}(b) exhibits both failure modes).
+
+\begin{proposition}[Mixture crossover; exact]\label{prop:mixture}
+For fleet weight $\lambda \in [0,1]$ on class 1, let
+$R_\lambda = \lambda R_1 + (1-\lambda) R_2$. Then, with no linearization,
+\begin{equation}\label{eq:mixture}
+\Delta R_\lambda \;=\; \lambda\,\Delta R_1 + (1-\lambda)\,\Delta R_2 .
+\end{equation}
+$\Delta R_\lambda$ changes sign on $(0,1)$ if and only if reversal
+\eqref{eq:reversal} holds, and then the crossover is unique:
+\begin{equation}\label{eq:lamstar}
+\lamstar \;=\; \frac{\Delta R_2}{\Delta R_2 - \Delta R_1} \;\in\; (0,1),
+\qquad
+\Delta R_\lambda = (\lambda - \lamstar)\,(\Delta R_1 - \Delta R_2).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:mixture} is linearity of the difference in $\lambda$.
+The map $\lambda \mapsto \Delta R_\lambda$ is affine with endpoint values
+$\Delta R_2$ at $\lambda = 0$ and $\Delta R_1$ at $\lambda = 1$; it has a
+zero in the open interval iff the endpoint values have strictly opposite
+signs, which is \eqref{eq:reversal}, and an affine function has at most one
+zero. Solving $\lambda\,\Delta R_1 + (1-\lambda)\,\Delta R_2 = 0$ gives
+\eqref{eq:lamstar}. The script confirms the identity and the equivalence on
+$10^5$ random draws.
+\end{proof}
+
+\begin{corollary}[No mixture-free scalar ranking]\label{cor:scalar}
+Under reversal, the two classes order the policy pair oppositely, so no
+scalar summary of the pair reproduces both class verdicts. Within the
+mixture family, $R_\lambda$ ranks $A$ safer than $B$ exactly when $\lambda$
+is on one side of $\lamstar$ (the side with
+$(\lambda-\lamstar)(\Delta R_1 - \Delta R_2) < 0$). Every fleet aggregate
+therefore orders the pair by an implicit choice of $\lambda$ relative to
+$\lamstar$; the aggregate's verdict is a property of the mixture, not of the
+policies alone.
+\end{corollary}
+
+\section{Scope: sufficiency, not necessity}\label{sec:scope}
+
+The mechanism studied in this paper is misaligned reads combined with
+exposure above the gate floor. Proposition~\ref{prop:scope} bounds what that
+mechanism explains: it is sufficient for the systems studied and predictive
+there, and it is not a characterization of reversal in general. Both
+directions fail, constructively.
+
+\begin{proposition}[Neither direction is an implication]\label{prop:scope}
+\emph{(a) Reversal without misalignment.} There is a resource-equivalent
+pair, a single read operator shared by both classes, and thresholds
+$\tau_1 \ne \tau_2$ such that reversal holds.
+\emph{(b) Misalignment without reversal.} There are misaligned read
+operators and resource-equivalent pairs with no reversal: (b1) with both
+gradients large in norm but orthogonal to $d$, so that $\Delta R_1 = \Delta
+R_2 = 0$ exactly; (b2) with both classes far from threshold, so that both
+deltas are negligible and share a sign.
+\end{proposition}
+
+\begin{proof}[Construction, verified numerically in the companion script]
+(a) Take $n = 2$, $C(m) = m_1 + m_2$, $m^A = (1,1)$, $m^B = (0,2)$, so
+$C(m^A) = C(m^B) = 2$ and $d = (1,-1)$. Let the outcome read by both classes
+be $Y \sim \mathcal{N}\bigl(\mu(m), \sigma(m)^2\bigr)$ with
+$\mu(m) = (m_2 - 1)/2$ and $\sigma(m) = 2 - m_1$: under $A$,
+$Y \sim \mathcal{N}(0,1)$; under $B$, $Y \sim \mathcal{N}(0.5,\,2^2)$. Both
+classes apply the identical read operator (read $Y$) and differ only in
+threshold; class $c$ fails when $Y < \tau_c$, with $\tau_1 = -2$ and
+$\tau_2 = 1$. The two shortfall curves cross:
+$R_1(A) = \Phi(-2) = 0.0228$, $R_1(B) = \Phi(-1.25) = 0.1056$,
+$R_2(A) = \Phi(1) = 0.8413$, $R_2(B) = \Phi(0.25) = 0.5987$, so
+$\Delta R_1 = -0.0829 < 0 < \Delta R_2 = +0.2426$: reversal, with
+$\lamstar = 0.7453$. The exposure gate licenses this instance: the midpoint
+directional derivatives are $-0.0863$ and $+0.2347$, and the exposure
+ratios against the directional curvature floors are $4.27$ and $3.37$.
+
+(b1) Take $n = 3$, $C(m) = m_1 + m_2 + m_3$, $d = (0.5, -0.5, 0)$,
+$m^B = 0$, and shortfall risks $R_c(m) = \Phi(\tau - w_c^{\top} m)$ with
+$w_1 = (1, 1, 0.5)$, $w_2 = (1, 1, -0.5)$, $\tau = 0$. The reads are
+misaligned and the operating point sits at threshold: both risks equal
+$0.5000$ and both gradient norms equal $0.5984$. But $w_1^{\top} d =
+w_2^{\top} d = 0$, so $E_1(d) = E_2(d) = 0$ and $\Delta R_1 = \Delta R_2 =
+0$ exactly. Large gradients, no policy difference: the directional exposure
+$E_c(d)$, not the gradient norm, is the diagnostic quantity.
+
+(b2) Take $n = 2$, the same cost, $w_1 = (1, 0.3)$, $w_2 = (1, 0.5)$,
+$m^B = (3,3)$, $d = (0.5, -0.5)$: about four standard deviations from
+threshold. The four risks are
+$1.07\times 10^{-5}$, $4.81\times 10^{-5}$, $1.02\times 10^{-6}$,
+$3.40\times 10^{-6}$ ($R_1(A), R_1(B), R_2(A), R_2(B)$); both deltas are
+negative, so there is no reversal, and the exposures
+$3.46\times 10^{-5}$ and $2.26\times 10^{-6}$ sit below their gate floors
+$0.0330$ and $0.0378$ by factors of about $10^{3}$ and $10^{4}$. No
+prediction would be registered.
+\end{proof}
+
+The conclusion is stated exactly at its strength. Misaligned reads plus
+near-threshold operation is a sufficient and empirically predictive
+mechanism in the studied systems; it is not a necessary condition for
+reversal, and Proposition~\ref{prop:scope}(a) shows reversal without
+misalignment. Statements of the form ``reversal occurs when reads are
+misaligned'' are not claimed and are false as implications.
+
+\section{The reversal diagnostic}\label{sec:diagnostic}
+
+The criteria above assemble into a prospective procedure. Its output before
+the graded run is either a registered, falsifiable prediction or a
+registered abstention; the gate abstains, it does not hedge. A licensed
+prediction is falsifiable in the graded run, and an unlicensed configuration
+yields no registered prediction rather than a weak one. That property keeps
+the mechanism claim at sufficiency.
+
+\bigskip
+\noindent\fbox{\parbox{0.965\linewidth}{%
+\textbf{The reversal diagnostic.}
+\begin{enumerate}
+\item Declare the two consumer classes, their read operators and thresholds,
+  and the cost functional $C$.
+\item Verify resource equivalence in $C$, not in nominal units:
+  $C(m^A) = C(m^B)$, equivalently $\bar q^{\top} d = 0$ for the integrated
+  gradient $\bar q$ of \eqref{eq:ftc}.
+\item Measure the scalar directional derivative
+  $g_c = \nabla R_c(\mbar)^{\top} d$ by symmetric finite differences along
+  $d$ with a declared perturbation size $\varepsilon$:
+  $\hat g_c = \bigl[\hat R_c(\mbar + \varepsilon d) - \hat R_c(\mbar -
+  \varepsilon d)\bigr]/(2\varepsilon)$, replicated on calibration seeds.
+  One scalar per class; this is cheaper and better conditioned than
+  estimating the full gradient, and it is the only quantity the criterion
+  uses. Record the standard error $\mathrm{SE}_c$ across seeds.
+\item Estimate or bound the curvature term: $L_c$ on the segment, or the
+  directional bound $M_c$. Compute both floor terms and the exposure ratio
+  $E_c(d) / \bigl(z\,\mathrm{SE}_c + (L_c/4)\|d\|^2\bigr)$ for each class,
+  with declared $z$.
+\item If and only if both exposure ratios exceed one, register the predicted
+  signs of $(\Delta R_1, \Delta R_2)$ and the predicted crossover
+  $\lamstar = \hat g_2 / (\hat g_2 - \hat g_1)$ before the graded run.
+  Otherwise abstain: no registered prediction.
+\item Run A/B on disjoint graded seeds. Grade the sign predictions and
+  report the measured $\lamstar$ per seed.
+\end{enumerate}
+Steps 5 and 6 are the sealed-preregistration discipline used throughout this
+program: predictions are registered against named seeds before the graded
+run, and the graded record either passes or fails them with no post hoc
+adjustment.}}
+\bigskip
+
+\section{Worked instances}\label{sec:worked}
+
+Two sealed cells instantiate the definitions, one optical and one radio.
+All numbers in this section are taken verbatim from the graded records
+(seeds 20260827--20260829, disjoint from the shakedown seeds) and are
+printed by the companion script, which also recomputes every derived
+quantity. These records predate the diagnostic's step-3--5 gradient
+registration; they exercise the retrospective half of the procedure
+(measured $\Delta R_c$, reversal indicator, and $\lamstar$), and the
+gradient-registered cells are new sealed work.
+
+\paragraph{Optical (XPROTO-QOT-FLIP).}
+The substrate is a GN-model quality-of-transmission simulation (GNPy) over
+the CORONET CONUS topology with 120 services per seed. Class R holds the
+long-reach services at band-edge spectral positions, whose penalty is
+dominated by span count; class P holds the short-reach services at
+band-centre positions, whose penalty is dominated by nonlinear-interference
+position. Policy A allocates margin proportional to reach and policy B
+proportional to band-centrality, both normalized to the same fleet-mean
+margin of 1.0~dB, and the class risk is the false-clear rate: the fraction
+of services whose selected format passes on the estimate plus margin but
+fails the deployed GSNR. Table~\ref{tab:qot} reports the record. Reversal
+holds on every seed, $\Delta R_R < 0 < \Delta R_P$, with
+$\lamstar \in$ 0.382--0.422 (weight on class R). The recorded fleet
+false-clear rates at the even mixture are $(0.4250, 0.4916)$,
+$(0.4167, 0.4667)$, and $(0.3750, 0.4333)$ for $(A, B)$ across the three
+seeds; each equals the even mixture of its class rates to the record's
+rounding, and each fleet difference is negative, as
+Proposition~\ref{prop:mixture} requires for $\lambda = 1/2 > \lamstar$ with
+$\Delta R_1 < \Delta R_2$.
+
+\begin{table}[htbp]
+\centering
+\caption{XPROTO-QOT-FLIP, graded record. Risks are false-clear rates;
+$\Delta R = R(m^A) - R(m^B)$; $\lamstar$ is the class-R weight at which the
+mixture verdict crosses; the last column is the recorded fleet difference at
+the even mixture.}
+\label{tab:qot}
+\begin{tabular}{lcccccccc}
+\toprule
+seed & $R_R(A)$ & $R_R(B)$ & $R_P(A)$ & $R_P(B)$ & $\Delta R_R$ &
+$\Delta R_P$ & $\lamstar$ & $\Delta R_{1/2}$ \\
+\midrule
+20260827 & 0.3833 & 0.7333 & 0.4667 & 0.2500 & $-0.3500$ & $+0.2167$ & 0.382 & $-0.0666$ \\
+20260828 & 0.3667 & 0.7000 & 0.4667 & 0.2333 & $-0.3333$ & $+0.2334$ & 0.412 & $-0.0500$ \\
+20260829 & 0.3000 & 0.7333 & 0.4500 & 0.1333 & $-0.4333$ & $+0.3167$ & 0.422 & $-0.0583$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Radio (XPROTO-CSI-FLIP).}
+The substrate is a 5G NR link-adaptation simulation with real Sionna LDPC
+block-error curves over TDL-A fading, held CSI reports every 20 TTIs, 6000
+TTIs per run, and 12 users per fleet. Fleet M (200~Hz Doppler, 12~dB mean
+SNR) fails through CSI aging, the time axis; fleet S (10~Hz, 7~dB) fails
+through deep fades, the amplitude axis. Policy A allocates the 1.5~dB
+fleet-mean margin by Doppler and policy B by SNR deficit, and the class risk
+is the mean empirical HARQ NACK rate. Table~\ref{tab:csi} reports the
+record. Reversal holds on every seed, $\Delta R_M < 0 < \Delta R_S$, with
+$\lamstar \in$ 0.426--0.432 (weight on class M). The recorded fleet NACK
+rates at the even mixture are $(0.2452, 0.2631)$, $(0.2409, 0.2571)$, and
+$(0.2447, 0.2618)$ for $(A, B)$; the same consistency checks hold, and the
+even-mixture verdict again sits on the $\lambda = 1/2 > \lamstar$ side.
+
+\begin{table}[htbp]
+\centering
+\caption{XPROTO-CSI-FLIP, graded record. Risks are mean empirical HARQ NACK
+rates; columns as in Table~\ref{tab:qot}, with $\lamstar$ the class-M
+weight.}
+\label{tab:csi}
+\begin{tabular}{lcccccccc}
+\toprule
+seed & $R_M(A)$ & $R_M(B)$ & $R_S(A)$ & $R_S(B)$ & $\Delta R_M$ &
+$\Delta R_S$ & $\lamstar$ & $\Delta R_{1/2}$ \\
+\midrule
+20260827 & 0.2222 & 0.3601 & 0.2682 & 0.1660 & $-0.1379$ & $+0.1022$ & 0.426 & $-0.0179$ \\
+20260828 & 0.2205 & 0.3564 & 0.2613 & 0.1579 & $-0.1359$ & $+0.1034$ & 0.432 & $-0.0162$ \\
+20260829 & 0.2226 & 0.3597 & 0.2668 & 0.1638 & $-0.1371$ & $+0.1030$ & 0.429 & $-0.0171$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Aligned controls.}
+Each cell registered a read-aligned control run under the same protocol. In
+the optical cell the control replaces the two footprint classes with two FEC
+classes (soft- and hard-decision thresholds, the required table shifted by
+$\mp 1.5$~dB) that share the read projection. The control deltas
+$(\Delta R_{SD}, \Delta R_{HD})$ are $(+0.1333, +0.1334)$,
+$(+0.0500, +0.0334)$, and $(+0.1167, +0.0500)$: same sign on every seed,
+policy B safer for both classes, no reversal, and the recorded
+\texttt{fec\_flip} field is false on every seed. In the radio cell the
+control reads one fleet-M trace against required-SNR tables shifted by 0 and
+$+2$~dB under protect-low versus protect-high margins. The control deltas
+$(\Delta R_{t1}, \Delta R_{t2})$ are $(-0.1126, -0.0736)$,
+$(-0.1024, -0.0848)$, and $(-0.1022, -0.0802)$: same sign on every seed,
+policy A safer at both thresholds, no reversal, and \texttt{null\_flip} is
+false on every seed. These controls sit on the no-reversal side of
+Proposition~\ref{prop:scope}: aligned reads whose outcome distributions do
+not cross on the shared scalar, so both thresholds move together along $d$.
+Proposition~\ref{prop:scope}(a) shows that alignment alone does not forbid
+reversal; the same-sign outcome here is a measured property of these
+systems' distributions, registered in advance as the expected control
+behavior, and it held on all six control runs.
+
+\section{Relation to existing formalisms}\label{sec:related}
+
+Reversal under aggregation is not new as a phenomenon. Simpson's paradox
+reverses subgroup orderings in the aggregate, and sufficient conditions for
+its occurrence are established in specific settings
+\cite{simpson1951,haunsperger2023}. Rank reversal is a known failure mode of
+multi-criteria decision methods \cite{beltongear1983}. Under reversal the
+two policies are Pareto-incomparable, and Proposition~\ref{prop:mixture}
+locates the scalarization weight at which any mixture ordering changes side.
+Opposite-sign subgroup effects are the object of the heterogeneous
+treatment-effect literature \cite{athey2016}. The contribution of this
+paper is not the existence of reversal in aggregation; it is the
+preregistered predictive diagnostic on networking substrates: measured
+directional sensitivities, a declared exposure gate, registered signs and
+$\lamstar$, and graded outcomes on sealed seeds. Within the program's own
+series, this claim is distinct from Paper IV's compression flip
+\cite{paperiv}: the compression flip concerns a single consumer against the
+reconstruction objective over a fixed bit budget, a claim about codes, while
+the policy reversal here needs two consumer classes over a
+resource-equivalent allocation pair and yields what a single consumer
+cannot, opposite class-conditional signs and hence no mixture-free scalar
+ranking.
+
+\begin{thebibliography}{9}
+
+\bibitem{simpson1951}
+E.~H. Simpson.
+The interpretation of interaction in contingency tables.
+\emph{Journal of the Royal Statistical Society, Series B}, 13(2):238--241,
+1951.
+% verify vol/pages on final
+
+\bibitem{haunsperger2023}
+Simpson's aggregation paradox in nonparametric statistical analysis: theory,
+computation, and susceptibility in public health data.
+\emph{Frontiers in Applied Mathematics and Statistics}, 9:1169164, 2023.
+doi:10.3389/fams.2023.1169164.
+% verify authors on final (title/volume verified 2026-08-27)
+
+\bibitem{beltongear1983}
+V.~Belton and T.~Gear.
+On a short-coming of Saaty's method of analytic hierarchies.
+\emph{Omega}, 11(3):228--230, 1983.
+% verified 2026-08-27
+
+\bibitem{athey2016}
+S.~Athey and G.~Imbens.
+Recursive partitioning for heterogeneous causal effects.
+\emph{Proceedings of the National Academy of Sciences},
+113(27):7353--7360, 2016.
+% verify vol/pages on final
+
+\bibitem{paperiv}
+The consumer-relative flip across domains.
+Paper IV of this program; manuscript,
+\texttt{geometric-observation/paper/paper-IV-tmlr.tex}.
+Public embodiment: turboquant-pro (MIT, DOI archived).
+% anonymize for double-anonymous submission
+
+\end{thebibliography}
+
+\end{document}
