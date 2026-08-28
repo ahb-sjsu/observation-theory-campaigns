@@ -1,8 +1,16 @@
-"""WCNC Fig. 2: the CSI certificate's refresh horizon (OT-14). Reads the SEALED
-CSI-refreshfloor sweep. (a) BLER vs report period across Doppler -- the certificate
-ages, faster at higher mobility. (b) the refresh floor is proportional to the Clarke
-coherence time: floor ~ 0.177*Tcoh (R^2=0.915); at high Doppler it saturates at the
-minimum report period (>=1 TTI). Marker shape, not colour."""
+"""RETIRED -- not a manuscript figure. Record kept, do not rebuild or cite.
+
+This plotted the CSI-refreshfloor sweep, which was an UNSEALED exploration: it
+measured its floors at a relaxed 0.15 threshold against a 0.10 claim, and its
+fresh baseline (BLER ~ 0.113) never met that budget. The 0.177*Tcoh (R^2=0.915)
+law it draws in panel (b) is REFUTED, superseded by XPROTO-CSI-SWEEP2 (sealed
+2026-08-27, graded PASS). The manuscript's figures are now fig 1
+urllc_relativity, fig 2 snr_robustness, fig 3 age_horizon.
+
+Original description: the CSI certificate's refresh horizon (OT-14). (a) BLER vs
+report period across Doppler -- the certificate ages, faster at higher mobility.
+(b) the floor against the Clarke coherence time; at high Doppler it saturates at
+the minimum report period (>=1 TTI). Marker shape, not colour."""
 import json
 import os
 import sys

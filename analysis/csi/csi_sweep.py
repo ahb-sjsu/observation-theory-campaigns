@@ -1,4 +1,16 @@
-"""OT-14 refresh-floor law, measured on the real 5G NR substrate (Sionna).
+"""SUPERSEDED EXPLORATION -- DO NOT CITE. Record kept, not re-run.
+
+This sweep measured its floors at a relaxed 0.15 BLER threshold (THR below)
+while the paper claimed the 0.10 target, and its fresh baseline (BLER ~ 0.113)
+never met that budget at all. It was never sealed: no SEALS.md row, no prereg.
+Its "refresh floor ~ 0.177 * Tcoh, R^2 = 0.915" law is REFUTED. Superseded by
+XPROTO-CSI-SWEEP2 (sealed 2026-08-27, graded PASS on seeds 20260827/28/29,
+`fam_csi_sweep2.py` + `csi_sweep2_check.py`), which calibrates the fresh
+baseline to the budget first and then floors at the budget itself: the horizon
+collapses to 4/6/4 TTI at 10 Hz, 2/2/3 TTI at 25 Hz, and 1 TTI at 50 Hz and
+above, with no room for a proportionality law.
+
+OT-14 refresh-floor law, measured on the real 5G NR substrate (Sionna).
 
 The refresh floor is the largest CQI report period that keeps the raw-CQI
 (naive) false-clear rate within a threshold, as a function of the channel's

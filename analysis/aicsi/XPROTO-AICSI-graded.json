@@ -73,6 +73,8 @@
   "MC3": true
  },
  "verdict": "PASS",
+ "scope_correction": "SCOPE CORRECTION 2026-08-27 annotation, dated 2026-08-25. This PASS stands for what it tested (synthetic clustered-ULA channel, MLP autoencoder) and is NOT retracted. The reconstruction-vs-consumer dissociation does NOT survive the community-standard substrate: on real 3GPP CDL-C with a CsiNet-class convolutional codec, nmse_false_clear = 0.0 on all shakedown seeds and the pre-registered kill fired. Do not headline this cell.",
+ "superseded_by": "PREREG-XPROTO-AICSI-V2.md (REFUTED AT SHAKEDOWN, NOT SEALED, 2026-08-25, kept negative)",
  "cell": "XPROTO-AICSI",
  "sealed": "2026-08-23",
  "seeds": [

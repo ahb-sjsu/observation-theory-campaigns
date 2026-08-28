@@ -1,4 +1,5 @@
 {
+ "SUPERSEDED": "Exploration, never sealed (no SEALS.md row, no prereg). Floors here were measured at a relaxed 0.15 BLER threshold (threshold_bler) against a 0.10 claim, and the fresh baseline (BLER ~ 0.113) never met that budget. The fit below (floor ~ 0.177*Tcoh, R^2 = 0.915) is REFUTED. Superseded by XPROTO-CSI-SWEEP2 (sealed 2026-08-27, graded PASS seeds 20260827/28/29): at the calibrated 0.10 budget the horizon collapses to 4/6/4 TTI at 10 Hz, 2/2/3 TTI at 25 Hz, and 1 TTI at 50 Hz and above. Record kept; do not cite.",
  "fds_hz": [
   10,
   25,

@@ -2,9 +2,18 @@
 CONTROLLER, evaluated on the reliability x feedback-overhead Pareto against fixed
 periodicity (current practice, TR 38.214).
 
-The technique operationalizes the OT-14 refresh floor: set the CSI report period from the
-estimated coherence time, P*(f_D) = clamp(round(kappa * T_coh / TTI)), kappa = 0.177 (the
-measured floor slope). This is mobility-adaptive rather than a fixed cadence. We compare
+SUPERSEDED PREMISE (annotated 2026-08-27). The graded verdict for this cell is VOID
+(SEALS.md, 2026-08-26), so no result from it stands. Separately, its premise is now
+refuted: kappa = 0.177 came from csi_sweep.py, an exploration that was never sealed and
+that measured its floors at a relaxed 0.15 BLER threshold while reporting against a 0.10
+target. The sealed recompute XPROTO-CSI-SWEEP2 (2026-08-27) finds no proportional law at
+the true budget. The sealed prereg and the graded records are immutable and are left as
+executed. Do not build a new cell on kappa without redesigning against SWEEP2.
+
+The technique operationalizes a coherence-proportional refresh floor: set the CSI report
+period from the estimated coherence time, P*(f_D) = clamp(round(kappa * T_coh / TTI)),
+kappa = 0.177 (see the note above; this is the superseded slope, retained so the family
+reproduces as executed). This is mobility-adaptive rather than a fixed cadence. We compare
 it against fixed periods on a Doppler sweep: the adaptive controller should meet the BLER
 target at every mobility (like the safest fixed period P=1) while spending far less
 feedback at low mobility, and unlike a low-overhead fixed period it never false-clears at
@@ -26,7 +35,7 @@ import csi_sionna as cs   # noqa: E402
 HERE = os.path.dirname(os.path.abspath(__file__))
 TTI_MS = 1.0
 TARGET = 0.10
-KAPPA = 0.177               # OT-14 refresh-floor slope (measured)
+KAPPA = 0.177               # superseded slope, kept for reproduction; see docstring
 PMAX = 80
 CQI_NOISE_DB = 1.0
 DURATION = 6000

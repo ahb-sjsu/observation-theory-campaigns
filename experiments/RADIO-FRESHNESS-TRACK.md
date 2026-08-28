@@ -9,10 +9,14 @@ program ([FRESHNESS-PROGRAM.md](FRESHNESS-PROGRAM.md)). Substrate: **NVIDIA Sion
 Every 5G "adaptation certificate" — a UE/gNB report that certifies a transmission
 decision (CQI→MCS, CSI→precoder, beam index, RSRP→serving cell, PMI/RI/TA) — **ages**
 over the channel coherence time, is graded by the **HARQ ACK/NACK** (or the served
-link outcome), and false-clears when acted on stale. The refresh floor scales with
-coherence time (**OT-14 law:** floor ≈ 0.177·T_coh, R²=0.915). Consumer-relativity:
+link outcome), and false-clears when acted on stale. Consumer-relativity:
 the reliability *target* is the read operator — the same CQI certificate is fine for
 eMBB (1e-1) and vacuous for URLLC (1e-3).
+
+At the true 0.10 budget the age horizon does not scale with coherence time; it collapses
+(**XPROTO-CSI-SWEEP2**, sealed 2026-08-27, graded PASS): 4/6/4 TTI at 10 Hz, 2/2/3 TTI at
+25 Hz, 1 TTI at 50 Hz and above, no censoring. Periodic reporting alone cannot protect a
+tight budget at practical mobility; the HARQ-witnessed correction is mandatory.
 
 ## Cells
 
@@ -20,16 +24,29 @@ eMBB (1e-1) and vacuous for URLLC (1e-3).
 |---|---|---|---|---|
 | **XPROTO-CSI** (`analysis/csi`) | CQI → MCS | HARQ | 0.34–0.37 → 0.10 (OLLA) | ✅ 08-23 |
 | **XPROTO-BEAM** (`analysis/beam`) | mmWave beam index | HARQ | 0.31 → 0.02 (BFR) | ✅ 08-23 |
-| **XPROTO-AICSI** (`analysis/aicsi`) | neural-CSI recon (turboquant bridge) | precoder/HARQ | recon wins yet 0.28 → 0.13 | ✅ 08-23 |
+| **XPROTO-AICSI** (`analysis/aicsi`) | neural-CSI recon (turboquant bridge) | precoder/HARQ | recon wins yet 0.28 → 0.13 | ✅ 08-23, **scope-corrected 08-25** ⚠️ |
 | **XPROTO-HO** (`analysis/ho`) | RSRP → serving cell | RLF | 0.31–0.44 → 0.09–0.12 | ✅ 08-23 |
 | **XPROTO-URLLC** (`analysis/urllc`) | reliability target (eMBB vs URLLC) | HARQ vs budget | ~0.11 → ~1e-5 (+diversity) | ✅ 08-24 |
 | **XPROTO-PHY** (`analysis/phy`) | PMI / RI / TA | HARQ | 0.27–0.42 → 0.055–0.13 | ✅ 08-24 |
 | **XPROTO-CCA** (`analysis/cca`) | 802.11 CCA | ADALM-Pluto Rx | ~0.30 → ~0.03 (RTS/CTS) | unsealed (SDR-gated) |
 
-**OT-14 refresh-floor law** (`analysis/csi/CSI-refreshfloor.*`): the report period
-holding false-clear at target scales linearly with coherence time; the optimal
-linear predictor cannot beat the one-coherence-time wall (Gaussian fading → Wiener
-optimal). The **RAN governor** (`analysis/ran`) is the reference O-RAN rApp core:
+⚠️ **XPROTO-AICSI scope correction (2026-08-25).** The v1 seal stands for what it tested,
+but the reconstruction-vs-consumer dissociation does **not** survive the community-standard
+substrate. On real 3GPP CDL-C with a CsiNet-class codec the NMSE-optimal codec reconstructs
+near-perfectly (NMSE ≈ 0.03) and false-clears 0.0 on all seeds; the pre-registered kill
+fired. See `analysis/aicsi/PREREG-XPROTO-AICSI-V2.md` (REFUTED AT SHAKEDOWN, NOT SEALED,
+kept negative). This is a scope correction, not a retraction. Do not headline the AICSI
+row; WCNC §III-C is dropped.
+
+**The age horizon** (`analysis/csi/`, XPROTO-CSI-SWEEP2 sealed 2026-08-27, graded PASS):
+at the calibrated 0.10 budget the largest compliant report period is a few TTI at 10 Hz
+and 1 TTI at 50 Hz and above, so there is no proportionality law to fit. The earlier
+`CSI-refreshfloor.*` claim of a floor ≈ 0.177·T_coh (R²=0.915) was an **unsealed
+exploration** measured at a relaxed 0.15 threshold against the 0.10 target, with a fresh
+baseline that never met the budget. It is refuted; the record is kept, not cited.
+Separately, the optimal linear predictor cannot beat the one-coherence-time wall
+(Gaussian fading → Wiener optimal), and that wall sits well outside the budget horizon.
+The **RAN governor** (`analysis/ran`) is the reference O-RAN rApp core:
 observe→measure false-clear→refresh at the floor→escalate (diversity / re-route).
 
 ## Shared tooling

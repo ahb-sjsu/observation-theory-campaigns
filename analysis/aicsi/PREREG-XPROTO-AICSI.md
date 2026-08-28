@@ -1,6 +1,23 @@
 # PREREG-XPROTO-AICSI — neural CSI-feedback vacuity cell (the 6G / turboquant bridge)
 
-**STATUS: SEALED 2026-08-23.** FAMILY-CONSTRUCTED: 2026-08-22. Earliest compliant
+**STATUS: SEALED 2026-08-23.**
+
+> **ANNOTATION ADDED 2026-08-27 (not part of the sealed text). SCOPE CORRECTION, NOT A
+> RETRACTION.** The v1 seal stands for what it tested. What it tested does **not**
+> generalize to the substrate the DL-CSI-feedback community benchmarks on. In the
+> AICSI-v2 shakedown (real 3GPP CDL-C channels + a CsiNet-class convolutional
+> autoencoder), the NMSE-optimal codec reconstructs near-perfectly (NMSE ≈ 0.03) and its
+> false-clear rate is **0.0 on all three seeds**; the pre-registered kill fired. The
+> reconstruction-vs-consumer dissociation sealed here was substantially an artifact of an
+> **under-powered MLP codec** (its own recon NMSE ≈ 0.67) on a **harder synthetic**
+> clustered-ULA channel. The mismatch is real only in the lossy/high-rank regime, not at
+> practical CSI-feedback operating points on CDL. Do not headline this cell. See
+> [`PREREG-XPROTO-AICSI-V2.md`](PREREG-XPROTO-AICSI-V2.md) (REFUTED AT SHAKEDOWN, NOT
+> SEALED, 2026-08-25, kept negative). §III-C of the WCNC 2027 paper is dropped as a
+> result. Preregs sealed before 2026-08-25 that cite this cell are correct as of their
+> sealing date and are left unchanged.
+
+FAMILY-CONSTRUCTED: 2026-08-22. Earliest compliant
 seal **2026-08-23** (`aicsi_check.py` enforces the cooling-off in code). The
 **sealed graded run is on the real NR substrate** (mode="nrsionna_aicsi":
 `aicsi.py` on Atlas GPU — learned CSI autoencoders + the real Sionna 5G NR

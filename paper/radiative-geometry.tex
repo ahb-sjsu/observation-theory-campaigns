@@ -52,11 +52,12 @@ vacuum removes the invisibility and yields a genuinely graded field,
 but the field's curvature lives on the causal front, and escape to
 infinity yields an exact static limit that is flat.  Moving to two
 dimensions leaves finite-field substrates flat at every distance,
-while a real-amplitude wave substrate makes superposition deviations
-decay cleanly with source separation and then sends its own static
-field toward zero as the transient radiates away.  On both substrate
-classes that pass the area gate, every spatial gradient of
-distinguishability is radiative.  The area law requires zero entropy
+while on a real-amplitude wave substrate the superposition deviation
+falls with source separation, misses its declared bar at the largest
+separation, and the static field then goes toward zero as the
+transient radiates away.  On both measured substrate classes that
+pass the area gate, every spatial gradient of distinguishability is
+radiative.  The area law requires zero entropy
 production, zero entropy production makes relaxation purely
 radiative, and purely radiative relaxation leaves no static field for
 a Poisson structure to live in.  A constraint experiment then
@@ -126,11 +127,13 @@ artifact, and then located the remaining obstruction precisely.  On
 every substrate measured, the gradients of distinguishability travel.
 They live on causal fronts and in transients, and whatever static
 limit exists is either flat or zero.  The organizing claim of this
-paper is a three-step chain stated and measured exactly in the
-sections below.  The area law requires zero entropy production, zero
-entropy production makes relaxation purely radiative, and purely
+paper is a three-step chain, and its three steps are of three
+different kinds.  The area law requires zero entropy production,
+which is a lemma of the companion paper re-read as a constraint on
+dynamics.  Zero entropy production makes relaxation purely
+radiative, which is an argument and not a measurement.  And purely
 radiative relaxation leaves no static field for a Poisson structure
-to live in.
+to live in, which is what the campaigns measured.
 
 The chain is the result for substrates without constraints, and a
 constraint experiment measured the one escape it permits.  A local
@@ -250,19 +253,25 @@ required by the track design passes without a fit.
 \section{EG-3: the local first law holds exactly}
 \label{sec:eg3}
 
-The first law experiment asks whether $\Delta S = T\,\Delta Q$ holds
-with the three quantities defined independently, which is the
-relation the entropic-gravity lineage consumes as an input
-\cite{Jacobson1995, DorauMuch2026}.  On this substrate it is an
-output.  All numbers in this section are from the committed evidence
-record of the first-law run.
+The first law experiment asks whether the Clausius relation
+$\Delta S = \Delta Q / T$ holds with the three quantities defined
+independently, which is the relation the entropic-gravity lineage
+consumes as an input \cite{Jacobson1995, DorauMuch2026}.  The
+convention here is stated once and used throughout.  What the
+instrument measures directly is the inverse temperature
+$\beta = 1/T$, the patch-entropy response per event, in bits per
+event, so the relation is tested in the equivalent form
+$\Delta S = \beta\,\Delta Q$.  On this substrate it is an output.
+All numbers in this section are from the committed evidence record
+of the first-law run.
 
 The three definitions never reference one another.  The flux
 $\Delta Q$ counts declared noise injections inside the spacetime
 patch, pure event bookkeeping with no entropy anywhere in its
-definition.  The temperature $T$ is the patch-entropy response to a
-single training injection, measured once before the held-out sweep
-and frozen at exactly one bit per event.  The entropy change
+definition.  The inverse temperature $\beta$ is the patch-entropy
+response to a single training injection, measured once before the
+held-out sweep and frozen at exactly one bit per event.  The entropy
+change
 $\Delta S$ is an exact rank difference between the injected and
 vacuum patch ensembles.  The vacuum patch itself carries $120$ bits,
 exactly the perimeter form the causal-cone bound prescribes for its
@@ -272,8 +281,10 @@ size.
 \caption{The held-out patterns of the first-law run.  Events inside
 count injections within the spacetime patch, naive events count all
 injections including those in the patch's causal past, and the
-entropy change is an exact rank difference in bits.  The relation
-$\Delta S = T\,\Delta Q$ with $T$ frozen at one bit per event holds
+entropy change is an exact rank difference in bits.  The Clausius
+relation $\Delta S = \Delta Q / T$, tested as
+$\Delta S = \beta\,\Delta Q$ with the inverse temperature
+$\beta = 1/T$ frozen at one bit per event, holds
 with zero residual on every row under inside accounting, and the two
 rows where the accountings differ are the ones that identify which
 flux the law selects.}
@@ -505,14 +516,19 @@ document.  The third iteration reads a strong-contrast scatterer,
 stiffness $0.05$ in the $0.2$ vacuum, through decorrelated
 stride-two windows, and the field becomes well-measured, up to
 $5\times10^{-3}$ bits with isotropy within the profile spread.  The
-campaign's second breakthrough is in Fig.~\ref{fig:eg4c}(a).
-Superposition deviations decay cleanly with source separation,
-$1.13$ to $0.46$ to $0.056$ at separations $12$, $24$, and $40$.
-The record scores its superposition item false because the smallest
-deviation sits just above the declared bar of $0.05$, so the
-committed verdict registers the bar miss while the measured finding
-is the decay trend.  Distance works as the continuous weak-field knob, which no
-finite-field substrate could provide.  What round two could not
+round's most informative negative is in Fig.~\ref{fig:eg4c}(a).  The
+superposition item is a conjunction declared before the run.  It
+requires the deviation at the largest separation to fall below the
+deviation at the smallest, and to fall below the declared bar of
+$0.05$.  The measured deviations are $1.13$, $0.46$, and $0.056$ at
+separations $12$, $24$, and $40$.  The decay half holds, the bar
+half misses, and the record scores the item false.  The verdict is a
+miss against a bar written before the data.  What the miss carries
+is that the deviation moves with separation at all, which neither
+two-element substrate managed at any source strength or separation,
+so a continuous weak-field knob exists on real amplitudes.  That
+reading was not the declared item and does not convert the miss into
+a pass.  What round two could not
 reach at times $48$ and $96$ is the static regime itself, since
 two-dimensional waves relax with slow algebraic tails and the
 profiles remained transient-dominated.
@@ -545,9 +561,9 @@ profiles remained transient-dominated.
 \end{tikzpicture}
 \caption{The second discovery campaign on the real-amplitude wave
 substrate.  Panel (a) shows the superposition deviation of two
-impedance scatterers falling cleanly with their separation, the
-continuous weak-field behavior no finite-field substrate could
-provide.  Panel (b) shows the near-source field at doubling times on
+impedance scatterers against their separation.  The deviation falls,
+and its smallest value, $0.056$, misses the declared bar of $0.05$,
+so the item is scored false.  Panel (b) shows the near-source field at doubling times on
 wrap-free lattices.  The field decays with time at every distance,
 so the static limit is consistent with zero.  Every coordinate is
 read from the committed evidence records by the committed figure
@@ -566,14 +582,16 @@ remains near the source.  The static limit of the wave substrate's
 distinguishability field is consistent with zero.
 
 The campaign closing verdict, computed from the three rounds, is
-that the geometric bar stands and the obstruction is now measured on
-both substrate classes that pass the area gate.  On the finite-field
+that the geometric bar stands and the obstruction now has a reading
+on both measured substrate classes that pass the area gate.  On the finite-field
 substrate the static field converges exactly but is flat.  On the
 real-amplitude wave substrate the static field decays toward zero as
-the transient clears.  The campaign's positive yields also stand,
-the structured-vacuum mechanism for local visibility, the
-escape-to-infinity route to reversible relaxation, and distance as a
-continuous weak-field knob on real-amplitude substrates.
+the transient clears.  Two positive yields also stand,
+the structured-vacuum mechanism for local visibility and the
+escape-to-infinity route to reversible relaxation.  Distance as a
+continuous weak-field knob on real-amplitude substrates is a third
+reading, taken off an item the run scored false, and it is carried
+at that weight.
 
 \section{Constraint-locked structure: the escape route measured}
 \label{sec:eg4d}
@@ -703,20 +721,25 @@ linear dynamics.
 \label{sec:synthesis}
 
 The measurements of the two campaigns assemble into one statement.
-On both constraint-free substrate classes that pass the area gate,
+On both measured constraint-free substrate classes that pass the
+area gate,
 every spatial gradient of distinguishability is radiative, carried
 by transients and causal fronts, and nothing graded survives the
 static limit.  The finite-field substrate converges to a flat
 static field.  The wave substrate's static field vanishes.  The
-chain behind this is three exact steps.  The area law requires zero
-entropy production, which is the entropy-density lemma of the
-companion paper read as a constraint on dynamics.  Zero entropy
-production makes relaxation purely radiative, because a reversible
-system can shed a transient only by transporting it away, never by
-absorbing it.  And purely radiative relaxation leaves no static
-field for the Poisson structure to live in, as both campaigns
-measured.  The chain is the campaign's result for constraint-free
-substrates.
+chain behind this has three steps, and they are of three different
+kinds.  The first step is a re-reading of a proved statement.  The
+area law requires zero entropy production, which is the
+entropy-density lemma of the companion paper read as a constraint on
+dynamics rather than on states.  The second step is a plausibility
+argument and is not proved here.  Zero entropy production makes
+relaxation purely radiative, because a reversible system can shed a
+transient only by transporting it away, never by absorbing it.  The
+third step is the measurement.  Purely radiative relaxation leaves
+no static field for the Poisson structure to live in, which is what
+both campaigns read off their substrates.  Only the third step is
+measured in this paper, and the chain is the campaign's result for
+constraint-free substrates on that footing.
 
 The contrast with ordinary statics locates the tension in familiar
 territory.  A dissipative system relaxes to a graded static profile
@@ -778,8 +801,8 @@ Carroll and Remmen dissect which entropy an entropic derivation
 actually needs and where its assumptions enter
 \cite{CarrollRemmen2016}.  The difficulty itself is therefore known.
 What is the paper's own is the three-step chain from area law to
-absent statics measured exactly on declared substrates, with the
-static limit computed rather than argued.
+absent statics, whose last step is measured exactly on declared
+substrates, with the static limit computed rather than argued.
 
 The constraint-registration reading connects to entanglement
 entropy in gauge theories, where the entropy assigned to a region
@@ -809,6 +832,8 @@ entropic-geometry track.  Demonstrated in model means an exact
 measurement in a declared construction with append-only evidence
 records and verdicts computed from the measurements.  Closed by
 design means a consequence of a preregistered bar, not a measurement.
+Bar missed means the declared item was scored false, so any reading
+of its numbers is carried at that weight.
 The EG-4d rows are read under the claim demotion recorded in the
 track document before that run.  Every number traces to a committed
 evidence record named in Sec.~\ref{sec:methods}.}
@@ -825,7 +850,9 @@ EG-2, sink law & the width-three source is the unique rank-losing
 sink, exactly one bit per step, and its finite field is a period-64
 algebraic pattern set by the dynamics, not by distance &
 demonstrated in model \\
-EG-3, first law & $\Delta S = T\,\Delta Q$ holds exactly on all
+EG-3, first law & the Clausius relation $\Delta S = \Delta Q / T$,
+tested as $\Delta S = \beta\,\Delta Q$ with the inverse temperature
+$\beta = 1/T$ frozen at one bit per event, holds exactly on all
 held-out patterns with flux, temperature, and entropy independently
 defined, and holds precisely under inside-the-region flux accounting
 & demonstrated in model \\
@@ -848,9 +875,11 @@ EG-4c, round one & dimensional dilution is refuted, the
 two-dimensional finite-field profile is flat at every distance, so
 the obstruction is the finite field, not dimension & demonstrated in
 model \\
-EG-4c, round two & on the real-amplitude wave substrate,
-superposition deviations decay cleanly with source separation, so
-distance is a continuous weak-field knob & demonstrated in model \\
+EG-4c, round two & on the real-amplitude wave substrate the
+superposition deviation falls from 1.13 to 0.056 across separations
+12 to 40, and 0.056 misses the declared bar of 0.05, so the item is
+scored false and distance as a continuous weak-field knob is a
+reading taken off a missed bar & bar missed \\
 EG-4c, round three & the wave substrate's near-source field decays
 with time on wrap-free lattices, so its static limit is consistent
 with zero & demonstrated in model \\
@@ -873,8 +902,9 @@ declared or absent, never emergent in this class & demonstrated in
 model \\
 Synthesis & on both measured constraint-free substrate classes
 passing the area gate, every spatial distinguishability gradient is
-radiative, the three-step chain from area law to absent statics
-holds exactly, and the one measured escape is a declared local
+radiative, the three-step chain from area law to absent statics runs
+through a re-read lemma, a plausibility argument, and this paper's
+measurement, and the one measured escape is a declared local
 conservation law & demonstrated in model \\
 Scope & nothing in this paper bears on physical gravity, and no
 physics claim is made & non-claim \\

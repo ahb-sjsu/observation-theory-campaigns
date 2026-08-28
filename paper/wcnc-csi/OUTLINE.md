@@ -55,11 +55,22 @@ SEALED+GRADED PASS.* The **identical** CSI certificate that meets an eMBB target
 consumer. → **Fig. 1** (bar: achieved BLER vs target, eMBB vs URLLC-naive vs URLLC-aware,
 log-y). The cleanest, most defensible result; URLLC is a marquee WCNC topic.
 
-**§III-B — Consumer-relativity in the refresh horizon.** *XPROTO-CSI + the OT-14 law,
-SEALED+GRADED PASS.* At f_D = 200 Hz, stale CSI drives BLER to 0.37 vs the 0.10 target;
-OLLA (the deployed witness) holds it at 0.10. Sweeping Doppler, the refresh floor obeys
-**≈ 0.177·T_coh** (R² = 0.915): re-report before the channel decorrelates by that
-fraction, not on a fixed period. → **Fig. 2** (refresh-floor law across f_D).
+**§III-B — Consumer-relativity in the refresh horizon.** *XPROTO-CSI (sealed 2026-08-23)
++ XPROTO-CSI-SWEEP2 (sealed 2026-08-27), both GRADED PASS.* At f_D = 200 Hz, stale CSI
+drives BLER to 0.37 vs the 0.10 target; OLLA (the deployed witness) holds it at 0.10.
+Sweeping Doppler at the calibrated 0.10 budget, the horizon **collapses**: the largest
+compliant report period is 4/6/4 TTI at 10 Hz, 2/2/3 TTI at 25 Hz, and 1 TTI (the frame
+minimum) at 50/100/200/400 Hz, on all three graded seeds, with no censoring. Origin-fit
+slopes 0.1008/0.1398/0.1086 (R² 0.7376/0.9218/0.6174) leave **no room for a
+proportionality law**. Periodic reporting alone cannot protect a tight budget at any
+practical mobility, so the HARQ-witnessed correction is mandatory rather than optional.
+→ **Fig. 3** (age horizon across f_D; Fig. 2 in the manuscript is snr_robustness).
+
+> **Superseded, never sealed.** An earlier exploration (`csi_sweep.py` →
+> `CSI-refreshfloor.json`) reported a floor ≈ 0.177·T_coh at R² = 0.915. It measured its
+> floors at a relaxed 0.15 threshold while the paper claimed the 0.10 target, and its
+> fresh baseline (BLER ≈ 0.113) never met the budget. It had no SEALS row and no prereg.
+> Refuted by XPROTO-CSI-SWEEP2; record kept.
 
 **§III-C — DROPPED.** The learned-codec objective-misalignment did not survive the
 CsiNet-on-CDL substrate upgrade (refuted; see the update box at top). Optionally, a
@@ -85,7 +96,9 @@ CR, not cherry-picked).
 | Act | Cell | Seal | Graded (real Sionna) |
 |---|---|---|---|
 | III-A | XPROTO-URLLC | 6375ebd, 2026-08-24 | eMBB 0.112 vs URLLC-naive 0.112 (target 0.001) vs aware 1.7e-5 → PASS |
-| III-B | XPROTO-CSI + OT-14 | ng:fda9148, 2026-08-23 | naive 0.37 / OLLA 0.10 / fresh 0.12; floor ≈0.177·T_coh, R²=0.915 → PASS |
+| III-B | XPROTO-CSI | ng:fda9148, 2026-08-23 | naive 0.37 / OLLA 0.10 / fresh 0.12 → PASS |
+| III-B | XPROTO-CSI-SWEEP2 | sealed 2026-08-27 | horizon at the calibrated 0.10 budget: 10 Hz 4/6/4 TTI, 25 Hz 2/2/3, ≥50 Hz 1 TTI; slopes 0.1008/0.1398/0.1086, no censoring → PASS |
+| — | ~~0.177·T_coh floor law~~ | **never sealed** | 0.15-threshold exploration (`csi_sweep.py`), fresh baseline never met the 0.10 budget; refuted by SWEEP2, record kept |
 | — | ~~XPROTO-AICSI (v1)~~ | sealed but **not used** | v1 dissociation refuted on standard CDL (AICSI-v2, kept negative) — excluded |
 
 Two sealed real-Sionna results carry the paper. The `build/aicsi_dissociation.{pdf,png}`

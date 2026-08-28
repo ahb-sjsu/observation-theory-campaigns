@@ -1,0 +1,50 @@
+{
+ "family": "F-SENSOR",
+ "mode": "uci-airquality",
+ "sim_is_code_validation_not_evidence": false,
+ "constants": {
+  "pollutants": [
+   "CO",
+   "C6H6",
+   "NOx",
+   "NO2"
+  ],
+  "train_hours": 720,
+  "refresh_hours": 336,
+  "refresh_win": 720,
+  "tol_frac": 0.5,
+  "substrate": "UCI Air Quality (De Vito et al.) co-located metal-oxide sensors + reference analysers, ~1 yr hourly; witness = reference"
+ },
+ "cells": [
+  {
+   "seed": 0,
+   "mode": "uci-airquality",
+   "naive_fc": 0.471,
+   "refreshed_fc": 0.3513,
+   "pol_fc_spread": 0.2733,
+   "drift_ratio": 2.051,
+   "n_readings": 28552,
+   "n_pollutants": 4
+  },
+  {
+   "seed": 1,
+   "mode": "uci-airquality",
+   "naive_fc": 0.4744,
+   "refreshed_fc": 0.3487,
+   "pol_fc_spread": 0.2733,
+   "drift_ratio": 2.051,
+   "n_readings": 28552,
+   "n_pollutants": 4
+  },
+  {
+   "seed": 2,
+   "mode": "uci-airquality",
+   "naive_fc": 0.4723,
+   "refreshed_fc": 0.3465,
+   "pol_fc_spread": 0.2733,
+   "drift_ratio": 2.051,
+   "n_readings": 28552,
+   "n_pollutants": 4
+  }
+ ]
+}

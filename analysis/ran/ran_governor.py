@@ -6,8 +6,11 @@ emit a GovernanceDecision + a calibrated, witnessed certificate. The RAN
 generalization of governor.sealed / governor.detector.
 
 The governance logic encodes the sealed cells' lessons:
-  * refresh at the floor (OT-14): if a certificate is vacuous and its report
-    period exceeds the coherence floor, refresh faster -- down to the floor.
+  * refresh at the floor: if a certificate is vacuous and its report period
+    exceeds the coherence floor, refresh faster -- down to the floor. (The
+    proportional floor model this uses rests on a superseded exploration; see
+    the K_FLOOR note below. The governance direction is unaffected, but the
+    floor value is heuristic, not measured.)
   * mechanism, not parameter (URLLC / NTN): if it is already at the floor and
     still vacuous, refreshing cannot close the loop (deep-fade- or delay-limited)
     -- switch mechanism (diversity for a link certificate; route elsewhere for a
@@ -26,7 +29,17 @@ from dataclasses import dataclass
 
 import numpy as np
 
-K_FLOOR = 0.177          # measured refresh-floor slope (floor = K * T_coh), OT-14
+# SUPERSEDED PROVENANCE (annotated 2026-08-27). K_FLOOR came from the
+# exploration in analysis/csi/csi_sweep.py, which was never sealed and which
+# measured its floors at a relaxed 0.15 BLER threshold while reporting against
+# a 0.10 target. The sealed recompute XPROTO-CSI-SWEEP2 (2026-08-27) finds no
+# proportional law at the true budget: the admissible period is 4-6 TTI at
+# 10 Hz Doppler, 2-3 at 25 Hz, and 1 TTI at 50 Hz and above.
+# The value is retained UNCHANGED as an explicit heuristic so this reference
+# implementation keeps working, and because replacing the proportional model
+# with the measured per-Doppler floors is a design decision, not a provenance
+# fix. It is NOT a measured constant. Do not cite it as one.
+K_FLOOR = 0.177          # heuristic slope (floor = K * T_coh); see note above
 LINK_CERTS = {"cqi", "csi", "pmi", "ri"}          # fixable by diversity
 SERVING_CERTS = {"beam", "rsrp"}                   # fixable by re-routing
 

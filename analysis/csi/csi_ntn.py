@@ -3,10 +3,12 @@
 Bridges the cellular CSI-aging wing to the space-comms crucibles (SC-1/SC-2).
 Two forces make CSI-based closed-loop adaptation fail over satellite links:
 
-  1. Doppler collapses the coherence time (Tcoh = 0.423/fd). The OT-14 refresh
-     floor -- the max report period holding false-clear at target -- scales as
-     floor ~ K * Tcoh (K = 0.177 measured terrestrially in csi_sweep.py). At NTN
-     residual Doppler (post pre-compensation, ~kHz) the floor is sub-TTI.
+  1. Doppler collapses the coherence time (Tcoh = 0.423/fd). This script models
+     the refresh floor -- the max report period holding false-clear at target --
+     as floor ~ K * Tcoh with K = 0.177 from csi_sweep.py. SEE THE PROVENANCE
+     NOTE BELOW: that proportional law is superseded and K is a heuristic here,
+     not a measured constant. At NTN residual Doppler (post pre-compensation,
+     ~kHz) the floor is sub-TTI under this model.
   2. The propagation round-trip delay (RTT) means the CSI report is already old
      when the decision using it is transmitted. If RTT exceeds Tcoh, the report
      is *stale on arrival* -- the feedback loop is longer than the channel's
@@ -16,9 +18,19 @@ Unifying condition: **CSI feedback is viable iff RTT < Tcoh** (the loop closes
 within a coherence time). This is the delay-decorrelation limit (SC-2 / the
 observation-age -> infinity face of the taxonomy) at the air interface.
 
-Analytical (uses the measured refresh-floor constant + orbital RTT physics); the
-terrestrial floor law itself is the sealed/measured XPROTO-CSI result. Emits
-CSI-NTN.json + CSI-NTN.png. Runs locally.
+Analytical (a heuristic refresh-floor constant + orbital RTT physics).
+
+SUPERSEDED PROVENANCE (annotated 2026-08-27). An earlier version of this
+docstring called the terrestrial floor law "the sealed/measured XPROTO-CSI
+result". That was wrong twice. The law came from csi_sweep.py, which was never
+sealed, and which measured its floors at a relaxed 0.15 BLER threshold while
+reporting against a 0.10 target. The sealed recompute XPROTO-CSI-SWEEP2
+(2026-08-27) finds no proportional law at the true budget. K_FLOOR is retained
+UNCHANGED below so this exploration still runs and its outputs stay comparable,
+but it is a heuristic. The RTT < Tcoh viability condition below does not depend
+on K and is unaffected.
+
+Emits CSI-NTN.json + CSI-NTN.png. Runs locally. Exploration, not a sealed cell.
 """
 import json
 import os
@@ -29,7 +41,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-K_FLOOR = 0.177              # measured refresh-floor slope (floor = K * Tcoh)
+K_FLOOR = 0.177              # heuristic slope (floor = K * Tcoh); see docstring
 
 
 def tcoh_ms(fd_hz):
