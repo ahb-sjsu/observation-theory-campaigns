@@ -117,9 +117,9 @@ consumer-relative, witnessed alternative. Status is marked honestly.
 |---|---|---|---|---|---|
 | Interdomain routing | quiescence (60 s silence) → converged | monitor / dataplane | 0.351 (BGP), 0.184 (IS-IS), 0.083 (OSPF) | posterior detector, 30–120 s band | sealed |
 | Distributed data (SQL/NoSQL) | replica-lag → serve read | WAL LSN / oplog ts | ≈0.50 (two-sided) | ≈0.02–0.06 (footprint cert) | sealed |
-| Coordination (ZooKeeper) | local read → serve | zxid | 0.99 (hot) vs 0.01 (cold), same replica | ≈0 (sync/watermark) | pre-registered |
+| Coordination (ZooKeeper) | local read → serve | zxid | 0.99 (hot) vs 0.01 (cold), same replica | ≈0 (sync/watermark) | sealed |
 | Cellular 5G NR (real PHY) | CQI → MCS | HARQ ACK/NACK | 0.34–0.37 | 0.10 (outer-loop) | sealed |
-| Cellular 5G NR | reliability target (eMBB vs URLLC) | HARQ vs slice budget | ≈100× budget (URLLC on an eMBB cert) | ≈1e-4 (consumer-aware + diversity) | pre-registered |
+| Cellular 5G NR | reliability target (eMBB vs URLLC) | HARQ vs slice budget | ≈100× budget (URLLC on an eMBB cert) | 1.7e-5, 1.9e-5, and below the trace floor (consumer-aware + diversity) | sealed |
 | Finance (illustrative) | risk model (99% variance) → "within limits" | realized returns | VaR breached 48% (nominal 1%) | ≈nominal (consumer-aware) | illustrative |
 
 Two cross-cutting results:
@@ -129,11 +129,17 @@ Two cross-cutting results:
   1% stale — a 99× difference from *what the reader reads*, not the replica. A
   risk model explaining 99% of market variance rates a book near-riskless while
   its consumer-relative risk is thousands of times larger.
-- **A refresh-floor law.** On a real 5G NR physical layer, the maximum report
-  period holding false-clear at target scales linearly with coherence time
-  (measured slope ≈ 0.177, R² ≈ 0.92); and the optimal linear predictor cannot
-  extend the usable horizon past one coherence time (information-theoretic for a
-  Gaussian fading process).
+- **A refresh floor, and a lesson about measuring it.** On a real 5G NR physical
+  layer, the maximum report period holding false-clear at the 0.10 budget
+  collapses to 4–6 transmission intervals at 10 Hz Doppler, 2–3 at 25 Hz, and a
+  single interval at 50 Hz and above (three sealed seeds). An earlier
+  exploration on the same substrate appeared to show the period scaling cleanly
+  with coherence time, but it had measured its floors at a relaxed threshold
+  while reporting against the tighter target; recomputed at the asserted target,
+  with the fresh baseline first calibrated to meet it, no proportional law
+  survives. Both records are kept. The episode is the sharpest argument in this
+  whitepaper for the methodology of Section 4: a floor is meaningful only
+  alongside the target and calibration it was measured under.
 
 The point is not any single number; it is that **one grammar — certificate,
 consumer read operator, witness, false-clear rate, refresh floor — recurs across
@@ -228,10 +234,13 @@ welcome.
 
 ## References (indicative)
 
-1. A. H. Bond, "Observation Theory: Geometry, Distortion, and Reliability as
-   Properties of Observation," submitted to IEEE Trans. Information Theory, 2026.
+1. A. H. Bond, "Tradeoffs Between Rate and Conditional Content with
+   Encoder-Observed Context," manuscript, 2026; archival record for the broader
+   program, Zenodo, doi:10.5281/zenodo.21776291.
 2. A. H. Bond, applied-instance papers (radio-access, distributed databases,
-   coordination services), 2026; sealed pre-registrations and reference code,
+   coordination services), 2026. Sealed pre-registrations, graded records, and
+   the seal ledger, https://github.com/ahb-sjsu/observation-theory-campaigns ;
+   theory manuscripts and proofs,
    https://github.com/ahb-sjsu/geometric-observation .
 3. S. Kaul, R. Yates, M. Gruteser, "Real-Time Status: How Often Should One
    Update?," IEEE INFOCOM, 2012.

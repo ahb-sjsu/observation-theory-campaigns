@@ -167,9 +167,14 @@ Per-domain profiles belong to the bodies that own those substrates.
 
 ## Backup slides (hold, do not present)
 
-- **B1.** The refresh-floor measurement: admissible report period scaled
-  linearly with coherence time, slope approximately 0.177, R² approximately
-  0.92; no predictor extended the horizon past one coherence time.
+- **B1.** The refresh-floor measurement: at a 0.10 block-error budget the
+  admissible report period collapses to four to six transmission intervals
+  at 10 Hz Doppler, two to three at 25 Hz, and one at 50 Hz and above,
+  across three sealed seeds. Hold in reserve the cautionary half: an
+  earlier exploration appeared to show clean proportionality but had
+  measured its floors at a relaxed threshold; recomputed at the asserted
+  target it does not survive. That is the argument for carrying the
+  measurement conditions in the format, and it is worth telling if asked.
 - **B2.** The sealed pre-registration discipline in six lines (bars before
   runs, named witness, declared consumer, manipulation checks as bars,
   cooling-off and disjoint evaluation, kept failures).
@@ -177,7 +182,7 @@ Per-domain profiles belong to the bodies that own those substrates.
   authorized-but-stale case worked through.
 - **B4.** The information-theoretic account: a description adequate for
   one reader is provably not adequate for another, and the gap is exactly
-  computable in the Gaussian case (T-IT submission, 2026).
+  computable in the Gaussian case (manuscript, 2026).
 - **B5.** Full cross-domain evidence table from the whitepaper, with
   statuses and the cells where the effect did not appear.
 

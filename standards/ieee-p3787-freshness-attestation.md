@@ -100,12 +100,23 @@ measured.
 
 **3.4 Refresh floor.** The maximum renewal interval that holds the
 false-clear rate at target, derived from the decorrelation timescale of
-the certified condition rather than set by convention. In one substrate
-with a controlled coherence time, the admissible report period scaled
-linearly with coherence time (slope approximately 0.177, R² approximately
-0.92), and no predictor extended the usable horizon past one coherence
-time. The metadata carries the refresh floor and the basis on which it
-was derived.
+the certified condition rather than set by convention, and measured at
+the target the assertion actually claims. In a cellular physical-layer
+substrate with controlled coherence time, the admissible report period at
+a 0.10 block-error budget collapsed to four to six transmission intervals
+at 10 Hz Doppler, two to three at 25 Hz, and a single interval at 50 Hz
+and above, across three sealed seeds.
+
+That substrate also supplies the cautionary case for why the format must
+carry measurement conditions. An earlier exploration on the same
+substrate appeared to show the admissible period scaling cleanly with
+coherence time, but it had measured its floors at a relaxed threshold
+while reporting against the tighter target. Recomputed at the asserted
+target, with the fresh baseline first calibrated to meet that target, no
+proportional law survives. A refresh floor is meaningful only alongside
+the target and calibration it was measured under, which is precisely why
+the metadata carries the floor, its target, and its derivation basis
+rather than the floor alone.
 
 **3.5 Conformance obligation.** An enforcement point claiming conformance
 to the validity attestation class re-evaluates validity **at use time,
@@ -225,9 +236,9 @@ material beyond what is already public.
    (PyPI; Zenodo DOI). Consumer-relative compression with a
    distribution-free, third-party-verifiable rank certificate.
 4. A. H. Bond, "Tradeoffs Between Rate and Conditional Content with
-   Encoder-Observed Context," submitted to IEEE Transactions on
-   Information Theory, 2026. The information-theoretic account of why a
-   description adequate for one reader is not adequate for another.
+   Encoder-Observed Context," manuscript, 2026. The information-theoretic
+   account of why a description adequate for one reader is not adequate
+   for another.
 5. Sealed pre-registrations and reference code,
    https://github.com/ahb-sjsu/geometric-observation and
    https://github.com/ahb-sjsu/observation-theory-campaigns
