@@ -71,6 +71,22 @@ vector q. Class risk R_c(m); locally R_c(m^A) − R_c(m^B) ≈ ∇R_c(m̄)^T d.
 
 ## Relation to prior literature (must be explicit)
 
+**Relation to the program's own Paper IV (cite first, before external
+delineations).** Paper IV ("The Consumer-Relative Flip Across Domains",
+`geometric-observation/paper/paper-IV-tmlr.tex`; public embodiment
+turboquant-pro, MIT/DOI) is the COMPRESSION flip: one consumer versus the
+reconstruction corner P_C = I, a claim about codes, where a fixed bit budget
+should be spent. THIS paper is the POLICY reversal: two consumer classes
+versus each other over a resource-equivalent allocation-policy pair, no
+compression in the claim. Paper IV's dissociation exists with a single
+consumer; the reversal requires two, and yields what Paper IV cannot:
+opposite class-conditional signs, hence no mixture-free scalar ranking. One
+sentence in related work; do not reuse "the flip" unqualified — in program
+vocabulary "compression flip" = Paper IV, "policy reversal" = this paper.
+(The 2026-08-15 flip_paper_revtex.tex draft is an Alberti-coauthored
+networking spin-off of Paper IV's thesis, not prior art for this claim; its
+disposition is an owner+collaborator decision, out of scope here.)
+
 Distinguish from: Simpson's aggregation paradox (formal reversal conditions
 exist, e.g. Front. Appl. Math. Stat. 9:1169164, doi:10.3389/fams.2023.1169164);
 Pareto incomparability; subgroup fairness / heterogeneous treatment effects;
