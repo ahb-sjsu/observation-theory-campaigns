@@ -10,12 +10,19 @@ Recipient details verified 2026-08-28 from the SJSU faculty page
 Associate Professor and Department Chair, Engineering Building Room 284,
 408-924-4150.
 
-**One thing to check before sending:** what the invoice calls the $1200.
-The draft says "publication fee", which is safe. If the journal calls it
-an article processing charge, use that phrase instead, because some
-funding lines are written specifically around open-access APCs and the
-wording can decide which pot applies. Add the due date to the first
-paragraph if the acceptance letter states one.
+**Invoice facts (from the invoice itself):** payee Center for Science and
+Law, info@scilaw.org. Line item "Publication Fee for JSciLaw article",
+$1,200.00, billed to andrew.bond@sjsu.edu. Issued 2026-08-26 and already
+displaying as overdue. "Publication Fee" is the invoice's own wording, so
+that is what the email says.
+
+**Worth checking, separately from this email:** an invoice issued on the
+26th showing overdue on the 28th usually means the terms are due on
+receipt rather than that a deadline has been missed. Ask
+info@scilaw.org what the actual consequence and timeline are before
+treating this as an emergency. If reimbursement will be slow, the same
+message can ask them to hold the invoice while the university process
+runs.
 
 Facts used below, all verified from the submission folder: the paper is
 accepted (the response to editors of 2026-07-28 opens by thanking them for
@@ -31,8 +38,10 @@ Subject: Support for a $1200 publication fee, accepted paper
 Dear Jorjeta,
 
 I have a paper accepted at the Journal of Science and Law and a $1200
-publication fee to cover. I am writing to ask whether the department can
-help, or to point me to the right office if this sits elsewhere.
+publication fee to cover. The invoice arrived on August 26 with terms
+that appear to be due on receipt. I am writing to ask whether the
+department can help, or to point me to the right office if this sits
+elsewhere.
 
 The paper is "The Legal Bond Index: A Matched-Neighbourhood Diagnostic of
 Algorithmic Disparity, Applied to COMPAS." COMPAS is the pretrial risk
@@ -55,14 +64,20 @@ usual for this subject. Criminal-justice risk scoring is argued over by
 public defenders, journalists, and county agencies who will not pay for a
 paywalled paper.
 
-Three questions. Does the department hold funds for publication charges,
-and if so what is the process and the timing? If not, is there a college
-or research-office line I should apply to instead? And is anyone tracking
-these requests, so I can plan for future submissions rather than asking
-case by case?
+Because of the timing, the most useful thing to know first is whether I
+should pay this myself and submit for reimbursement, or whether there is
+a route that pays the publisher directly. If reimbursement is the normal
+path I am happy to take it, I would just like to know the process before
+I commit the funds rather than after.
 
-I am glad to send the accepted manuscript, the acceptance correspondence,
-or the journal's fee schedule.
+Beyond that, two questions. Does the department hold a line for
+publication charges, or does this belong to the college or the research
+office? And is anyone tracking these requests, so I can plan for future
+submissions rather than asking case by case?
+
+The payee is the Center for Science and Law at info@scilaw.org. I am
+glad to forward the invoice, the accepted manuscript, or the acceptance
+correspondence.
 
 Thank you,
 
