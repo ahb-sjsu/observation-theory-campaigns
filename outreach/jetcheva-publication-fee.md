@@ -1,18 +1,21 @@
 # Outreach draft: department funding request, publication fee
 
-**To:** Jorjeta [SURNAME], Chair, Department of Computer Engineering, SJSU
+**To:** Jorjeta Jetcheva, Associate Professor and Chair, Department of
+Computer Engineering, SJSU. Jorjeta.Jetcheva@sjsu.edu
 **From:** andrew.bond@sjsu.edu
 **Status: DRAFT. Owner reviews and sends. Not sent by the assistant.**
 
-**Two blanks to fill and one thing to check:**
-1. `[SURNAME]` and the correct address.
-2. `[DATE]`: when the fee is due, if the invoice or acceptance letter says.
-   Delete the clause if there is no stated deadline.
-3. Check what the invoice calls the $1200. The draft says "publication
-   fee", which is safe. If the journal calls it an article processing
-   charge, use that phrase instead, because some funding lines are written
-   specifically around open-access APCs and the wording can decide which
-   pot applies.
+Recipient details verified 2026-08-28 from the SJSU faculty page
+(sjsu.edu/cmpe/about/faculty_staff/tenure-line/jorjeta-jetcheva.php):
+Associate Professor and Department Chair, Engineering Building Room 284,
+408-924-4150.
+
+**One thing to check before sending:** what the invoice calls the $1200.
+The draft says "publication fee", which is safe. If the journal calls it
+an article processing charge, use that phrase instead, because some
+funding lines are written specifically around open-access APCs and the
+wording can decide which pot applies. Add the due date to the first
+paragraph if the acceptance letter states one.
 
 Facts used below, all verified from the submission folder: the paper is
 accepted (the response to editors of 2026-07-28 opens by thanking them for
