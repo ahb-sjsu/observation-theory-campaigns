@@ -1,0 +1,7 @@
+SM-1 governed run, seed 20261201, sealed harness matlab/sm1_aperture_clutter.m (5ffade8)
+policy            decJ   trig<30ms    trig miss door-still det     door FA
+roundrobin       1.163       37.8%       23.4%        100.0%        4.2%
+trace            0.851       86.6%       13.2%         96.6%        0.0%
+mi               5.389        0.0%      100.0%          0.0%        0.0%
+ot               0.626       95.2%        4.8%         99.7%        0.5%
+VERDICT: ALL PASS (G1 +8.6, G2 99.7/0.5, G3 ot lowest, G4 mi 0.0, G5 rr 57.4 below ot)

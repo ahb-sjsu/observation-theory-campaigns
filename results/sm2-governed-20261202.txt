@@ -1,0 +1,8 @@
+SM-2 governed run, seed 20261202, sealed harness matlab/sm2_aperture_qram.m (5ffade8)
+policy                   joint OK      trig<30ms  doorway correct
+OT                         98.8%         99.8%           99.0%
+QRAM:trig-heavy            95.0%         97.2%           97.8%
+QRAM:balanced              92.2%         94.5%           97.8%
+QRAM:img-heavy             73.8%         75.5%           97.8%
+QRAM:oracle(grid)          94.5%         96.2%           98.5%
+VERDICT: ALL PASS (G1 ot-oracle +4.3, G2 min-fixed 73.8, G3 spread 21.7)

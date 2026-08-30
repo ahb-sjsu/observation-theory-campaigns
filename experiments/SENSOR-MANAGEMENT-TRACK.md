@@ -105,8 +105,29 @@ findings note. The direction held and strengthened under each:
 
 | ID | Claim | Status |
 |---|---|---|
-| SM-1 | consumer-relative aperture scheduling beats info-greedy + round-robin on decision-critical outcomes at matched time | draft prereg |
-| SM-2 | OT-DERIVED consumer-relative value beats HAND-TUNED fixed-priority (Q-RAM) scheduling, incl. a hindsight grid oracle, at matched time | pilot ran, prereg TODO |
+| SM-1 | consumer-relative aperture scheduling beats info-greedy + round-robin on decision-critical outcomes at matched time | **SEALED @5ffade8; governed 20261201 ALL PASS → [measured]** |
+| SM-2 | OT-DERIVED consumer-relative value beats HAND-TUNED fixed-priority (Q-RAM) scheduling, incl. a hindsight grid oracle, at matched time | **SEALED @5ffade8; governed 20261202 ALL PASS → [measured]** |
+
+### Governed runs (once, after the sealing commit; reported regardless of sign)
+
+**SM-1 governed** (seed 20261201, 500 MC): OT decJ 0.626, trig<30 ms 95.2%,
+still-occ 99.7%, FA 0.5%; trace 86.6%, round-robin 37.8%, MI 0.0%. Gates:
+G1 +8.6 pts (bar +3) ✓; G2 99.7%/0.5% (bars ≥95%/≤5%) ✓; G3 0.626 < all ✓;
+G4 MI 0.0% (bar ≤20%) ✓; G5 round-robin 57.4 pts below OT (bar ≥30) ✓.
+**ALL PASS.** The measurement holds: info-greedy structurally misses the
+reaction deadline, round-robin fails it under clutter, OT meets it and detects
+the still occupant.
+
+**SM-2 governed** (seed 20261202, 400 MC): OT joint 98.8%, trig 99.8%, doorway
+99.0%; grid oracle 94.5%; img-heavy 73.8% (trig 75.5%); trig-heavy 95.0%.
+Gates: G1 OT − oracle = +4.3 pts (bar ≥ −1) ✓; G2 min fixed 73.8% (bar ≤85%) ✓;
+G3 trig-rate spread 21.7 pts (bar ≥10) ✓; I1/I2 by construction ✓. **ALL PASS.**
+The derivation holds: OT-derived value beats the hindsight-tuned fixed oracle
+and every fixed tuning, without per-task tuning.
+
+Both governed runs corroborate the two-pilot calibration. Next: fold the SM
+track into Paper VIII as the sensor-management consumer, with Kreucher + Q-RAM
+credited and the goal-oriented-communication bridge noted.
 
 ### SM-2 pilot (2026-08-30, `matlab/sm2_aperture_qram.m`, 400 MC, matched 400 ms)
 
