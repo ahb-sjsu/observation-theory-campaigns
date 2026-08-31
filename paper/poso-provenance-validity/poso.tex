@@ -1,0 +1,247 @@
+% Provenance Is Not Validity: The Vacuity of Cryptographically Verified Observation
+% Critique paper skeleton. House style: plain declarative, no em-dashes in prose.
+% Build: pdflatex poso ; bibtex poso ; pdflatex poso ; pdflatex poso
+% Class is a starting point. Swap to a systems / metascience / astro-methods template as needed.
+\documentclass[conference]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\title{Provenance Is Not Validity:\\ The Vacuity of Cryptographically Verified Observation}
+
+\author{\IEEEauthorblockN{Andrew H. Bond}
+\IEEEauthorblockA{San Jos\'e State University\\
+San Jos\'e, CA, USA\\
+% TODO: contact email (institutional preferred)
+Email: [TODO]}}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{abstract}
+A growing class of systems anchors scientific measurements on a blockchain to make them
+trustworthy. SkyMapper L1 and its Proof of Space Observation are a current example: telescope
+observations are signed at the source, time-stamped, and recorded on a distributed ledger, and
+are said to become provably reliable and reproducible. We show that this claim conflates two
+guarantees that must be kept apart. Cryptographic anchoring establishes provenance, the
+authenticity, integrity, and time of a record. It does not, and by construction cannot, establish
+validity, whether the instrument was calibrated, whether it pointed where it claims, and whether
+the observation supports a downstream scientific read. A miscalibrated telescope's output signs
+and anchors exactly as cleanly as a correct one, so the ledger clears every record with equal
+confidence regardless of scientific worth. We formalize this through consumer-relative observation
+and characterize such a system as a false-clear mechanism: it certifies the source, not the reader
+who must use the data. We then supply the missing layer. A validity attestation re-evaluated at
+use time, a measured false-clear rate for the network, and re-observation as the consumer test
+convert provenance into evidence. On real Breakthrough Listen L-band data, an ON-OFF cadence
+consumer rejects roughly 99.95\% of raw single-scan detections as interference, a discrimination
+no signature provides. For trusted observational datasets provenance is necessary and not
+sufficient, and the validity layer, not the ledger, is where trust is earned.
+\end{abstract}
+
+\begin{IEEEkeywords}
+scientific data integrity; provenance versus validity; consumer-relative observation; false-clear
+rate; technosignature verification; blockchain critique; trusted datasets
+\end{IEEEkeywords}
+
+% ===================================================================================
+\section{Introduction}
+\label{sec:intro}
+% Claim in plain words, then the two or three findings as prose, then credit what is real.
+Observational science is acquiring a new trust infrastructure. Systems now sign a measurement at
+the sensor, time-stamp it, and anchor it on a public ledger, and present the result as data that
+can be trusted without trusting the operator. SkyMapper L1 and its Proof of Space Observation
+(POSO) are a current and well-funded instance, contributing live telescope data across many sites
+and naming reliable, tamper-proof, and reproducible datasets as the outcome~\cite{skymapper}.
+
+We make one argument. Cryptographic anchoring proves that a record is authentic, unaltered, and
+old. It does not prove that the record is right. Those are different guarantees, and only the
+first is a property of a signature. The second is a property of the instrument, the calibration,
+and the downstream use, and no amount of anchoring reaches it. A ledger that anchors a
+miscalibrated telescope's output has proven the wrong thing well.
+
+We are careful about what the cryptography does earn. For attribution, where the requirement is
+non-repudiable chain of custody, provenance is exactly right. For pre-registration, where a
+timestamp that provably predates a claim resists after-the-fact story fitting, provenance is again
+the right tool. The paper does not dispute these. It disputes the slide from provenance to
+validity that the reliability and reproducibility framing performs.
+
+The contribution is threefold. First, we separate provenance from validity precisely and locate
+the conflation in the class of onchain-observation systems, with POSO as the motivating case
+(Sections~\ref{sec:background} and~\ref{sec:distinction}). Second, we characterize such a system,
+through consumer-relative observation, as a false-clear mechanism, and define a measurable
+false-clear rate for it (Section~\ref{sec:falseclear}). Third, we give the validity layer that the
+provenance layer lacks, and we demonstrate the load-bearing part of it, a re-observation consumer,
+on real Breakthrough Listen data (Sections~\ref{sec:layer} and~\ref{sec:evidence}).
+
+% ===================================================================================
+\section{Background: onchain observation}
+\label{sec:background}
+% What POSO and its class actually do. Keep this factual and sourced.
+% TODO: replace paraphrase with sourced specifics once the primary description is accessible.
+The pattern is consistent across the class. A sensor holds a signing key. Each observation, or a
+digest of it, is signed at the point of capture, associated with a time, and written to or
+anchored on a distributed ledger, with the bulk data held in decentralized or content-addressed
+storage~\cite{skymapper}. The stated goals are tamper-evidence, non-repudiation, and an auditable
+history that any party can check without trusting a central operator.
+
+We treat POSO as a pure-provenance mechanism, which is the design its public claims describe. This
+is the strongest reading for the system, because it takes the mechanism at face value. If a later
+specification adds instrument-level checks, the critique in Section~\ref{sec:distinction} narrows
+from the design to the claim, and the constructive layer of Section~\ref{sec:layer} still applies.
+% TODO: if POSO's spec becomes available, state here exactly what, if anything, it does beyond
+% sign/timestamp/anchor, and quote the reliability/reproducibility claims verbatim.
+
+Cryptographic timestamping and tamper-evident logs are mature and well understood outside the
+ledger setting~\cite{rfc3161, merkle}. A blockchain is one way to obtain tamper-evident ordering
+and open verifiability. Whether it is the most economical way is not our question. Our question is
+what the ordering and the signatures are \emph{about}.
+
+% ===================================================================================
+\section{Two guarantees, kept apart}
+\label{sec:distinction}
+Anchoring establishes three facts, and all three concern the bytes. Authenticity: a known key
+signed this record. Integrity: the record is unchanged since it was signed. Existence at a time:
+the record existed by a given timestamp. Call the conjunction \emph{provenance}.
+
+Validity is a different property. It asks whether the instrument was calibrated within its
+known-good envelope, whether it pointed where the metadata claims, whether the exposure was free of
+saturation, artifacts, and interference, and whether the recorded observation supports the specific
+read a downstream consumer intends. Call this \emph{validity}.
+
+The two are independent. A saturated sensor, a mispointed mount, a hot pixel, or an uncalibrated
+gain produces a record that signs and anchors exactly as cleanly as a correct observation. The
+signature is a function of the bytes and the key. It is invariant to whether the bytes describe a
+good measurement. Therefore anchoring cannot separate a valid observation from an invalid one, and
+a system built only on anchoring clears every record with equal confidence regardless of its
+scientific worth.
+
+The reliability and reproducibility claims cross this line. Reliability is a validity property of
+the instrument. Reproducibility is a property of independent re-observation and re-derivation, and
+a signature never re-observes anything. Only tamper-evidence, the middle term, is a provenance
+property that the cryptography actually delivers.
+
+% ===================================================================================
+\section{A false-clear characterization}
+\label{sec:falseclear}
+% Formalize via consumer-relative observation. Keep the math light: 2-4 numbered equations max.
+Observation Theory holds that an observation is meaningful only relative to the consumer that
+reads it, and that a certificate is worth only what it lets that consumer verify~\cite{ot}. Let a
+record $x$ carry a certificate $C(x)$, and let a downstream consumer apply a validity test
+$V(x) \in \{0,1\}$, where $V(x)=1$ means the record supports the consumer's read. A certificate is
+\emph{consumer-sound} when it predicts $V$:
+\begin{equation}
+C(x)=1 \;\Rightarrow\; V(x)=1 .
+\end{equation}
+A provenance certificate $C_{\mathrm{prov}}$ attests only that the source signed $x$ and that $x$
+is unaltered. It is by construction independent of $V$, so
+\begin{equation}
+\Pr\!\left[V(x)=0 \,\middle|\, C_{\mathrm{prov}}(x)=1\right] \;=\; \Pr\!\left[V(x)=0\right],
+\end{equation}
+the base rate of invalid records. We call this conditional probability the \emph{false-clear rate}
+of the certificate. A provenance certificate does not reduce it below the base rate. When invalid
+records are common, which for raw observational data they are, the false-clear rate is high and
+the certificate is, in the theory's sense, vacuous. The failure is not weak cryptography. The
+cryptography is sound. The failure is that $C_{\mathrm{prov}}$ certifies the source, not the reader
+whose test is $V$.
+
+% ===================================================================================
+\section{The validity layer}
+\label{sec:layer}
+Four moves make a certificate consumer-sound, and each maps onto machinery that already exists.
+
+\textbf{Validity attestation, re-evaluated at use time.} The certificate should attest what a
+consumer can validly extract, bound to calibration state and instrument envelope, and it should be
+re-evaluated when the data are used rather than fixed at capture. This is the validity-attestation
+class and use-time re-evaluation of IEEE P3787~\cite{p3787}.
+% TODO: cite the exact P3787 clause for the validity-attestation class.
+
+\textbf{A measured false-clear rate for the network.} Of the records a system clears, the fraction
+that fail a real consumer test $V$ is the honest worth of its certificate. Reporting this rate
+turns a trust claim into a measurement, and a high rate is a falsification.
+
+\textbf{Re-observation as the consumer test.} For observational data the most consumer-relevant
+$V$ is persistence: a signal that recurs under independent looks, and is absent where it should be
+absent, is supported in a way a single signed frame can never be. This is the ON-OFF cadence logic
+of technosignature search, promoted from a pipeline convenience to the definition of the
+certificate.
+
+\textbf{An in-band witness.} The witness should live in the observation's own read path, so that it
+is coupled to the instrument's fidelity, rather than a separate anchor that certifies the record's
+history while decoupled from its measurement quality.
+
+% ===================================================================================
+\section{Evidence: a measured consumer test}
+\label{sec:evidence}
+% The empirical anchor. Numbers here come from the graded run; do not quote shakedown values.
+We demonstrate the re-observation consumer on real data, to show that a validity test does work
+that a signature cannot. We ran the standard narrowband technosignature search on a real six-scan
+ON-OFF cadence of a nearby star, observed at L-band with the Green Bank Telescope and released
+through Breakthrough Listen~\cite{bl-opendata, turboseti}. The raw search flags every narrowband
+hit in each scan. The cadence consumer keeps only a hit that appears in the on-source scans and is
+absent from the off-source pointings.
+
+Across the three on-source scans the raw search returned $6651$ hits, almost all of them
+attributable to Global Positioning System and satellite interference near $1575$~MHz. The cadence
+consumer promoted $3$ of them to candidates. The false-clear rate of the raw single-scan detector,
+relative to the cadence consumer, is therefore $1 - 3/6651 \approx 0.9995$. A signature on any of
+these frames would have certified all $6651$ as authentic and unaltered, and would have separated
+none of them. The discrimination comes from re-observation, not from provenance.
+% TODO: Fig.~\ref{fig:cadence}: waterfall of the ON and OFF scans with the surviving candidate,
+% built from cadence_result.json (see /archive/seti on the compute host).
+% TODO: state the target designation, MJD, and coarse-channel range in a parameters table.
+
+We report this as a mechanism demonstration, not as a benchmark of POSO, which we did not run. It
+establishes that a consumer test yields a large, measurable separation on real observational data,
+which is precisely the quantity a provenance certificate leaves at its base rate.
+
+% ===================================================================================
+\section{Related work}
+\label{sec:related}
+% Credit prior art precisely. End with the "we offer the measurement" move.
+% TODO: verify every entry against a real record (authors, venue, year) before submission.
+Blockchain proposals for scientific data provenance and reproducibility are numerous, and critical
+appraisals of them exist~\cite{blockchain-science, blockchain-critique}. Tamper-evident logging and
+trusted timestamping predate the ledger framing~\cite{rfc3161, merkle}. The distinction between
+data provenance and data quality is long established in the databases and metrology
+literatures~\cite{provenance-survey, dataquality}, and our contribution is to carry it into the
+onchain-observation setting and to attach a measurable rate to it. Consumer-relative observation
+and the validity-attestation program provide the frame~\cite{ot, p3787}. We do not propose a better
+ledger. We propose the measurement that shows what a ledger does not do.
+
+% ===================================================================================
+\section{Discussion and scope}
+\label{sec:scope}
+% Limits stated flatly. Negatives disclosed.
+The critique is narrow and precise. Provenance is necessary for trusted observational datasets. It
+is not sufficient. We do not claim that anchoring is worthless. For attribution and for verifiable
+pre-registration it is the right tool, and we say so in Section~\ref{sec:intro}.
+
+We read SkyMapper's public description and treat POSO as a pure-provenance mechanism. If its
+specification incorporates instrument-level validity checks, the critique narrows from the design
+to the claim, and the constructive layer still applies. Our empirical demonstration uses one
+cadence, one frequency sub-band, and one narrowband consumer. It is a demonstration that a consumer
+test separates real data, not a survey-scale statistic, and we do not generalize it beyond that.
+
+% ===================================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+Onchain anchoring proves that an observation is authentic. It does not prove that the observation
+is right, and for science whether it is right is the whole question. The validity layer, not the
+ledger, is where trust is earned. We have separated the two guarantees, characterized a
+provenance-only system as a false-clear mechanism with a base-rate false-clear rate, given the
+layer that closes the gap, and shown on real data that a consumer test delivers the separation a
+signature cannot.
+
+% ===================================================================================
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}
