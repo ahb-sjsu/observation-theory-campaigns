@@ -1,0 +1,89 @@
+% refs.bib -- POSO critique paper.
+% HOUSE RULE: never ship a fabricated reference. Every entry below is either (a) filled with a
+% best-known citation and marked % VERIFY (confirm authors/venue/year/pages before submission),
+% or (b) an explicit TODO stub with author={TODO} so it cannot masquerade as a real reference.
+
+% --- Primary subject -------------------------------------------------------------------------
+@misc{skymapper,
+  author       = {{TODO: SkyMapper / CoinDesk}},
+  title        = {{TODO: Avalanche, SETI, and SkyMapper L1 / Proof of Space Observation --
+                  cite the primary announcement and any technical page}},
+  howpublished = {\url{https://www.coindesk.com/tech/2026/04/13/avalanche-heads-to-the-stars-seti-telescope-data-goes-onchain}},
+  year         = {2026},
+  note         = {Accessed: [TODO date]. Replace with the primary SkyMapper source if available.}
+}
+
+% --- Observation Theory / validity attestation (author's own program) ------------------------
+@misc{ot,
+  author = {{TODO: Bond, Andrew H.}},
+  title  = {{TODO: Observation Theory -- consumer-relative observation and witnessed certificates.
+            Cite the canonical OT writeup}},
+  year   = {2026}
+}
+@misc{p3787,
+  author = {{IEEE}},
+  title  = {{IEEE P3787: TODO exact title -- secure data encapsulation; validity-attestation class
+            and use-time re-evaluation}},
+  year   = {TODO},
+  note   = {Cite the exact clause for the validity-attestation class.}
+}
+
+% --- Timestamping / tamper-evident logs (mature prior art) -----------------------------------
+@techreport{rfc3161,
+  author      = {Adams, C. and Cain, P. and Pinkas, D. and Zuccherato, R.},
+  title       = {Internet {X.509} Public Key Infrastructure Time-Stamp Protocol ({TSP})},
+  institution = {IETF},
+  type        = {RFC},
+  number      = {3161},
+  year        = {2001},
+  note        = {\% VERIFY authors/date}
+}
+@inproceedings{merkle,
+  author    = {Merkle, Ralph C.},
+  title     = {A Digital Signature Based on a Conventional Encryption Function},
+  booktitle = {Advances in Cryptology (CRYPTO)},
+  year      = {1987},
+  note      = {\% VERIFY venue/year/pages -- Merkle tree origin}
+}
+
+% --- Breakthrough Listen data + turboSETI (empirical section) --------------------------------
+@article{bl-opendata,
+  author  = {{TODO: Lebofsky, M. and others}},
+  title   = {The Breakthrough Listen Search for Intelligent Life: Public Data, Formats,
+             Reduction, and Archiving},
+  journal = {PASP},
+  year    = {2019},
+  note    = {\% VERIFY authors/vol/pages}
+}
+@article{turboseti,
+  author  = {{TODO: Enriquez, J. E. and others}},
+  title   = {{TODO: turboSETI / the Breakthrough Listen narrowband search pipeline}},
+  journal = {TODO},
+  year    = {TODO},
+  note    = {\% VERIFY -- cite the turboSETI software and/or Enriquez et al. survey}
+}
+
+% --- Blockchain-for-science and its critics --------------------------------------------------
+@misc{blockchain-science,
+  author = {{TODO}},
+  title  = {{TODO: representative proposal for blockchain-based scientific data provenance /
+            reproducibility}},
+  year   = {TODO}
+}
+@misc{blockchain-critique,
+  author = {{TODO}},
+  title  = {{TODO: a critical appraisal of blockchain for science / data integrity}},
+  year   = {TODO}
+}
+
+% --- Provenance vs. data quality (databases / metrology) -------------------------------------
+@misc{provenance-survey,
+  author = {{TODO}},
+  title  = {{TODO: survey of data provenance (databases)}},
+  year   = {TODO}
+}
+@misc{dataquality,
+  author = {{TODO}},
+  title  = {{TODO: data quality / measurement validity reference}},
+  year   = {TODO}
+}
