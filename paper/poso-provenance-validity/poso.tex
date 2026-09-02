@@ -190,13 +190,22 @@ absent from the off-source pointings.
 
 Across the three on-source scans the raw search returned $6651$ hits, almost all of them
 attributable to Global Positioning System and satellite interference near $1575$~MHz. The cadence
-consumer promoted $3$ of them to candidates. The false-clear rate of the raw single-scan detector,
-relative to the cadence consumer, is therefore $1 - 3/6651 \approx 0.9995$. A signature on any of
-these frames would have certified all $6651$ as authentic and unaltered, and would have separated
-none of them. The discrimination comes from re-observation, not from provenance.
-% TODO: Fig.~\ref{fig:cadence}: waterfall of the ON and OFF scans with the surviving candidate,
-% built from cadence_result.json (see /archive/seti on the compute host).
-% TODO: state the target designation, MJD, and coarse-channel range in a parameters table.
+consumer promoted $3$ of them to candidates (Fig.~\ref{fig:cadence}). The false-clear rate of the
+raw single-scan detector, relative to the cadence consumer, is therefore
+$1 - 3/6651 \approx 0.9995$. A signature on any of these frames would have certified all $6651$ as
+authentic and unaltered, and would have separated none of them. The discrimination comes from
+re-observation, not from provenance.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{build/cadence_fig.pdf}
+  \caption{The re-observation consumer on real data. (a) Raw narrowband hits in each scan of the
+  six-scan ON-OFF cadence of HIP101027 (GBT L-band, MJD 57574, coarse channels 119--144). (b) Of
+  $6651$ raw on-source hits, the cadence keeps $3$. One measurement, and $99.95\%$ of the
+  ``detections'' a signature would certify are gone.}
+  \label{fig:cadence}
+\end{figure}
+% TODO: optionally add a parameters table (target, MJD, msm IDs, snr/drift settings).
 
 We report this as a mechanism demonstration, not as a benchmark of POSO, which we did not run. It
 establishes that a consumer test yields a large, measurable separation on real observational data,

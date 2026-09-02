@@ -9,3 +9,7 @@
 *.fls
 *.synctex.gz
 *.toc
+
+# committed figure assets (built from the graded record, not LaTeX output)
+!build/*.pdf
+!build/*.png
