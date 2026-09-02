@@ -79,6 +79,27 @@ held-out ρ̂ validation, not just fit.
 Remaining limits: one model (Qwen2.5-0.5B), one transform family
 (backtranslation), consumer read measured in x's context only.
 
+## Replication on a second model (2026-09-02, `cr_ieip_v3.py`, TinyLlama-1.1B): CONFIRMED
+
+Same v2 design (IEIP_TAG=tl, IEIP_MODEL=TinyLlama/TinyLlama-1.1B-Chat-v1.0,
+es backtranslation, IEIP_N=4400 so n_cal > d=2048), layers 5/11/16/22 of 22.
+Record: `cr_ieip_tl_result.json`.
+
+| layer | ρ̂ R² cal→eval | sp raw | sp proxy | sp **true** | fc raw | fc proxy | fc **true** |
+|---|---|---|---|---|---|---|---|
+| 5 | 0.414 → 0.334 | 0.383 | 0.270 | 0.377 | 0.562 | 0.542 | 0.511 |
+| 11 | 0.605 → 0.427 | 0.598 | 0.599 | **0.654** | 0.479 | 0.393 | **0.322** |
+| 16 | 0.708 → 0.460 | 0.686 | 0.659 | **0.778** | 0.390 | 0.388 | **0.239** |
+| 22 | 0.920 → **0.200** | 0.498 | 0.472 | 0.494 | 0.489 | 0.496 | 0.476 |
+
+Both v2 findings replicate on a second model family: at mid layers the true
+consumer read beats raw L2 on both metrics (Spearman +0.06/+0.09; false-clear
+−16/−15 pp at layers 11/16), and the final-layer ρ̂ collapses held-out
+(R² 0.92 cal → 0.20 eval), so the mid-layer calibration caveat stands.
+Remaining limit: the second transform family (fr backtranslation) arm died
+mid-run at bt 640/2600 with no traceback (no OOM record); relaunch pending
+thermal budget.
+
 ## The upgrade path for I-EIP (now evidence-backed at shakedown level)
 
 1. Per-layer, per-EM `P_C`-weighted equivariance error (each EM evaluator
