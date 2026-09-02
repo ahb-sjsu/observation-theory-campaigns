@@ -96,9 +96,27 @@ Both v2 findings replicate on a second model family: at mid layers the true
 consumer read beats raw L2 on both metrics (Spearman +0.06/+0.09; false-clear
 −16/−15 pp at layers 11/16), and the final-layer ρ̂ collapses held-out
 (R² 0.92 cal → 0.20 eval), so the mid-layer calibration caveat stands.
-Remaining limit: the second transform family (fr backtranslation) arm died
-mid-run at bt 640/2600 with no traceback (no OOM record); relaunch pending
-thermal budget.
+
+## Replication on a second transform family (2026-09-02, fr backtranslation): CONFIRMED
+
+Same v2 design on Qwen2.5-0.5B with en→fr→en (opus-mt-en-fr / fr-en) replacing
+the es pair (the first launch died silently at bt 640/2600; relaunched clean).
+Record: `cr_ieip_fr_result.json`.
+
+| layer | ρ̂ R² cal→eval | sp raw | sp **true** | fc raw | fc **true** |
+|---|---|---|---|---|---|
+| 6 | 0.811 → 0.476 | 0.374 | 0.222 | 0.675 | 0.667 |
+| 12 | 0.796 → 0.489 | 0.432 | **0.525** | 0.633 | **0.485** |
+| 18 | 0.822 → 0.410 | 0.458 | **0.579** | 0.603 | **0.435** |
+| 24 | 0.865 → **−0.285** | 0.203 | 0.174 | 0.679 | 0.684 |
+
+**The v2 result is now replicated 2/2** (second model, second transform): at mid
+layers the consumer read beats raw L2 on both metrics (here Spearman +0.09/+0.12,
+false-clear −15/−17 pp at layers 12/18), L6 is mixed as in v2, and the
+final-layer ρ̂ held-out collapse appears in all three runs. Remaining limits:
+both transforms are backtranslation-style paraphrases, and the consumer read is
+measured in x's context only. Next step per the publishability ranking: a
+sealed CR-I-EIP prereg + short paper (interpretability/safety venue).
 
 ## The upgrade path for I-EIP (now evidence-backed at shakedown level)
 
