@@ -1,10 +1,11 @@
 # PREREG-CR-ANN — consumer-relative ANN: the conditional dissociation, sealed
 
-**Status: DRAFT v0.1. FAMILY-CONSTRUCTED 2026-09-01. Earliest seal 2026-09-02
-(cooling-off; the checker enforces FAMILY-CONSTRUCTED < seal date). Not sealed.
-The five construction cells (`README.md`) inform the bars and are EXCLUDED from
-grading; every graded number comes from consumers, splits, and seeds named here
-and not previously evaluated.**
+**Status: SEALED 2026-09-02 (v1.0). FAMILY-CONSTRUCTED 2026-09-01 < seal date:
+cooling-off satisfied. The five construction cells (`README.md`) inform the bars
+and are EXCLUDED from grading; every graded number comes from consumers, splits,
+and seeds named here and not previously evaluated. The four open items are
+resolved in the "Seal record" section at the bottom; nothing in this document
+changes after this line except by dated amendment.**
 
 ## Claim family
 
@@ -130,16 +131,93 @@ so — with both arms sealed; (3) the cross-project **ordering prediction** from
 independently published reliability weights. A WebSearch pass for closer prior
 art is a seal-time checklist item.
 
-## Open items — resolved at seal
+## Seal record — the four open items, resolved 2026-09-02
 
-1. Pin the exact per-axis datasets/manifests for the seven confirmatory
-   consumers (xbse instance sources + Social-Chem columns), with row counts.
-2. Confirm the three MSA-axis distilled probes reach the D ≥ 0.75 floor on
-   calibration data; any that do not are reported descriptively (the law is
-   silent on weak probes), and MC3 governs sufficiency.
-3. Prior-art WebSearch pass (delineation above).
-4. Freeze bar constants (0.3·H, +0.01, 0.6, floors) exactly as written or amend
-   with dated rationale BEFORE seal; nothing moves after.
+### 1. Datasets and manifests (pinned)
+
+Split machinery: per-consumer corpus, dedupe by exact text, seeded shuffle with
+**split seed 20260901**, cap 6{,}000 rows, 70/30 calibration/grading. The split
+files and their SHA-256 hashes are written by
+`cr_ann_calibration_d.py` (committed) to Atlas `~/cr-ann/prereg/` and recorded
+in `prereg/calibration_d_result.json` (committed, the manifest of record).
+
+- **Social-Chem foundations (4 consumers):** source
+  `/archive/ethics-corpora/social-chem-101/social-chem-101/social-chem-101.v1.0.tsv`,
+  sha256 `6a289ec5…722aea`, 355{,}923 lines. Rows = unique `action` texts;
+  consumer label = the foundation's presence in `rot-moral-foundations`
+  (binary), balanced per foundation at up to 3{,}000 positive + 3{,}000 negative
+  by the same seeded machinery. Split files materialized (and hashed) by the
+  same script at grading time, before any grading query is scored.
+- **privacy_protection:** `/archive/ethics-corpora/privacy/privacy_labeled.jsonl`,
+  sha256 `5126f53d…9c848`, 1{,}500 lines (xbse PrivacyBSEPairSource filter);
+  calibration 865 rows (sha256 `5fdb599b1bf0f26e…`), grading 372
+  (`fb6c710213195c74…`).
+- **identity_attack:** `civil_comments_identity.jsonl` (sha256 `104e7411…e02da`,
+  1{,}400) + `mhs_identity.jsonl` (sha256 `6e59df43…4b75e`, 5{,}000), via
+  xbse `_signed_jsonl_simple`; calibration 4{,}200 (`42fb433620bbb303…`),
+  grading 1{,}800 (`119b7397b3f8ec70…`).
+- **physical_harm:** xbse `PhysHarmBSEPairSource` (BeaverTails) +
+  `_ethics_rows(HARM_KW)` over `/archive/ethics-corpora/ethics/commonsense.jsonl`
+  (82{,}093 lines); calibration 2{,}908 (`d6baaad1aca0f739…`), grading 1{,}247
+  (`d131fb65939a9be3…`).
+- **Distillation rule (pinned):** for each MSA axis the validated xbse joint
+  encoder (`~/xbse_ckpt/{privacy,identity_attack,physharm}_joint.pt`) scores the
+  calibration texts by the centroid valence axis (xbse `DimensionScorer.fit`
+  convention) fitted on calibration labels; the distilled probe is a logistic
+  regression from the LaBSE embedding to the sign of that score, trained on the
+  first 80% of calibration; D is its accuracy against the true axis labels on
+  the remaining 20%.
+
+### 2. Calibration D-floor check (measured 2026-09-02, calibration split only)
+
+Record: `prereg/calibration_d_result.json`; the grading splits were written to
+disk and not opened.
+
+| axis | D (distilled) | A (L2-1NN) | H | floor 0.75 | arm (mechanical) |
+|---|---|---|---|---|---|
+| privacy_protection | 0.919 | 0.919 | +0.000 | pass | **matched** (H < 0.02) |
+| identity_attack | 0.777 | 0.751 | +0.026 | pass | **excluded** (0.02 ≤ H < 0.04) |
+| physical_harm | 0.775 | 0.727 | +0.048 | pass | **misaligned** |
+
+xbse-score/label agreement 0.98/0.97/0.93 — the distillation is faithful. The
+four Social-Chem foundations are assigned by the same rule at run time, before
+grading; MC3 then requires ≥ 1 more misaligned qualifier among them. Dated
+note: under this measured assignment the law itself predicts near-zero gain for
+privacy (matched) and positive gain for physical_harm (misaligned), so B3's
+published-weights clause (privacy and identity_attack gains ≥ physical_harm's)
+is now expected by the law to FAIL: reliability weight measures the feeder's
+quality, not the headroom H. B3 stays exactly as written (a non-verdict
+secondary); whichever way it lands is informative about weights-vs-headroom.
+
+### 3. Prior-art pass (2026-09-02)
+
+Session WebSearch budget was exhausted; the pass ran through the arXiv API
+(task-aware retrieval rerank; Mahalanobis + downstream; pullback metric +
+retrieval; utility-aware NN; downstream-utility rerank). Closest find:
+Yu, Inal, Arvanitidis, Hauberg, Locatello, Fumero, "Connecting Neural Models
+Latent Geometries with Relative Geodesic Representations" (arXiv:2506.01599) —
+a pullback-metric representation for cross-model latent alignment/stitching,
+validated on retrieval; the pullback is of the latent manifold across models,
+not of a downstream consumer's read, and no task-up/fidelity-down dissociation
+is claimed. No closer art found; the delineation above stands. 2506.01599 joins
+the watch-list.
+
+### 4. Bar constants (frozen)
+
+B1 = gain ≥ 0.3·H with recall@1(OT) ≤ 0.5; B2 = gain ≤ +0.01; B3 = Spearman ≥
+0.6 + the published-weights clause; arm floors D ≥ 0.75, H ≥ 0.04 / H < 0.02 —
+all **exactly as drafted 2026-09-01, no constant moved**. The class imbalance
+in privacy (11.9% violated) was seen at calibration; metrics stay plain
+accuracy as drafted, because changing the metric after seeing calibration
+numbers is the tuning this discipline forbids.
+
+**Seed checks (2026-09-02):** graded seeds {20260902, 20260903, 20260904} are
+disjoint from every construction seed of this family (SEED = 0) — MC4
+satisfiable. Repo-wide collision scan: 20260902 also seeds
+`python/cr2_countermeasure_flip.py` and 20260901 (the split seed) appears in
+EC7-003/SM1/SM2 — unrelated campaigns, different RNG consumers, no shared
+evaluation surface; no graded cell reproduces an existing cell's evaluation
+(the confirmatory consumers were never evaluated in construction).
 
 ## Amendment discipline
 

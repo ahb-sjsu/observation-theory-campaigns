@@ -1,0 +1,74 @@
+{
+  "split_seed": 20260901,
+  "cap": 6000,
+  "cal_frac": 0.7,
+  "probe_train_frac": 0.8,
+  "axes": {
+    "privacy_protection": {
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg/privacy_protection.calibration.jsonl",
+          "rows": 865,
+          "sha256": "5fdb599b1bf0f26ee36f3627218c2578ad7dcb7c704c047f1ec04c980797079d"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg/privacy_protection.grading.jsonl",
+          "rows": 372,
+          "sha256": "fb6c710213195c7494f23dfdbdf06c28b9f8ce27475104c0c63206ff1bfba73c"
+        }
+      },
+      "n_calibration": 865,
+      "violated_frac": 0.11907514450867052,
+      "xbse_score_label_agreement": 0.9815028901734104,
+      "D_distilled": 0.9190751445086706,
+      "D_direct_label": 0.930635838150289,
+      "A_l2_1nn": 0.9190751445086706,
+      "H_distilled": 0.0,
+      "passes_floor": true
+    },
+    "identity_attack": {
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg/identity_attack.calibration.jsonl",
+          "rows": 4200,
+          "sha256": "42fb433620bbb303d2d2f2da658587f07e2e1b399d13ffdc6e2db80baa1777dd"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg/identity_attack.grading.jsonl",
+          "rows": 1800,
+          "sha256": "119b7397b3f8ec70ab91f2408c6fd493149da3a9428ed24c842dc6f3962211e2"
+        }
+      },
+      "n_calibration": 4200,
+      "violated_frac": 0.49976190476190474,
+      "xbse_score_label_agreement": 0.9721428571428572,
+      "D_distilled": 0.7773809523809524,
+      "D_direct_label": 0.7761904761904762,
+      "A_l2_1nn": 0.7511904761904762,
+      "H_distilled": 0.02619047619047621,
+      "passes_floor": true
+    },
+    "physical_harm": {
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg/physical_harm.calibration.jsonl",
+          "rows": 2908,
+          "sha256": "d6baaad1aca0f739ad94de19da6bba217c20fe306adc8a68b14406a3a2f7c9a5"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg/physical_harm.grading.jsonl",
+          "rows": 1247,
+          "sha256": "d131fb65939a9be3ff6cb186897713d2ceb1ccac077216fa0194d41a7b60dbc6"
+        }
+      },
+      "n_calibration": 2908,
+      "violated_frac": 0.28473177441540576,
+      "xbse_score_label_agreement": 0.9322558459422283,
+      "D_distilled": 0.7749140893470791,
+      "D_direct_label": 0.788659793814433,
+      "A_l2_1nn": 0.7268041237113402,
+      "H_distilled": 0.04810996563573888,
+      "passes_floor": true
+    }
+  }
+}
