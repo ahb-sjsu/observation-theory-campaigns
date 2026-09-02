@@ -62,11 +62,18 @@ LAGS_S = [0.1, 0.3, 1.0, 3.0, 10.0, 30.0]
 FLOOR = 0.005
 
 
+def _to_ms(t):
+    # Binance bulk data moved to MICROSECOND timestamps (~1e15 epoch); the
+    # first run treated them as ms, shrinking every lag 1000x (degenerate
+    # zero-flip result, disclosed). Normalize to ms.
+    return t // 1000 if t[0] > 10 ** 14 else t
+
+
 def fetch(sym):
     p = os.path.join(HERE, f"{sym}-aggTrades-{DAY}.npz")
     if os.path.exists(p):
         z = np.load(p)
-        return z["t"], z["px"]
+        return _to_ms(z["t"]), z["px"]
     url = (f"https://data.binance.vision/data/spot/daily/aggTrades/{sym}/"
            f"{sym}-aggTrades-{DAY}.zip")
     print(f"[data] fetching {url}", flush=True)
@@ -87,7 +94,7 @@ def fetch(sym):
     t, x = t[order], x[order]
     np.savez(p, t=t, px=x)
     print(f"[data] {sym}: {len(t)} trades", flush=True)
-    return t, x
+    return _to_ms(t), x
 
 
 def price_grid(t, px):
