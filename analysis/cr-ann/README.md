@@ -149,7 +149,33 @@ language B — LaBSE's 109-language alignment makes "the consumer-relative
 neighborhood survives translation" a measurable claim, MSA's invariance beat at
 the retrieval level).
 
-## Status — campaign arc (five cells, both arms)
+## Cross-lingual arm (2026-09-01, `cr_ann_crosslingual.py`): transfer holds, invariance refuted
+
+3k Social-Chem actions; database machine-translated (MarianMT) to es/fr, labels
+preserved; queries stay English; the consumer is the ENGLISH-trained valence
+probe (P_C fixed across database languages); LaBSE embeds everything.
+
+| DB lang | L2 acc | OT acc | gain |
+|---|---|---|---|
+| en (baseline) | 0.731 | 0.807 | +0.076 |
+| es | 0.719 | 0.773 | +0.054 |
+| fr | 0.706 | 0.739 | +0.033 |
+
+**Held:** the consumer operator TRANSFERS — the same English P_C keeps a positive
+gain over es/fr databases, and OT over a Spanish DB (0.773) beats monolingual
+English L2 (0.731). An English-validated moral consumer gives usable moral
+retrieval over foreign-language content with no retraining — the MSA-relevant
+positive.
+
+**Refuted (disclosed):** the stronger prediction that the consumer-relative
+neighborhood survives translation BETTER than L2's. The OT gain attenuates
+(+0.076 → +0.054 → +0.033) and OT loses more absolute accuracy cross-lingually
+than L2 does. MSA's invariance beat can claim useful transfer, not superior
+robustness. (Law-consistent aside: this smaller subset has lower alignment
+(0.731 vs 0.794 at 16k) and correspondingly larger monolingual gain — headroom
+scaling again.)
+
+## Status — campaign arc (six cells, both arms)
 
 1. **Synthetic, forced misalignment** — dissociation +0.42 (mechanism + pipeline
    + isotropic control validated).
