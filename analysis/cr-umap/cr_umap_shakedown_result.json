@@ -1,0 +1,108 @@
+{
+  "seed": 0,
+  "n": 6000,
+  "eps": 0.05,
+  "bookkeeping": {
+    "topic": {
+      "D": 0.6656666666666666,
+      "A_input_knn": 0.6843333333333333,
+      "H": -0.01866666666666672
+    },
+    "length": {
+      "D": 0.8846666666666667,
+      "A_input_knn": 0.7193333333333334,
+      "H": 0.16533333333333333
+    },
+    "pc200": {
+      "D": 0.9595,
+      "A_input_knn": 0.6183333333333333,
+      "H": 0.34116666666666673
+    }
+  },
+  "embeddings": {
+    "L2": {
+      "conventional": {
+        "trustworthiness": 0.9228939862063837,
+        "knn10_recall": 0.19223333333333334,
+        "shepard_spearman": 0.3359138307799007
+      },
+      "observer": {
+        "topic": 0.63,
+        "length": 0.604,
+        "pc200": 0.5726666666666667
+      }
+    },
+    "iso": {
+      "conventional": {
+        "trustworthiness": 0.9228939862063837,
+        "knn10_recall": 0.19223333333333334,
+        "shepard_spearman": 0.3359138307799007
+      },
+      "observer": {
+        "topic": 0.63,
+        "length": 0.604,
+        "pc200": 0.5726666666666667
+      }
+    },
+    "OT_topic": {
+      "conventional": {
+        "trustworthiness": 0.9073077091814921,
+        "knn10_recall": 0.14041666666666666,
+        "shepard_spearman": 0.34165507623330815
+      },
+      "observer": {
+        "topic": 0.637,
+        "length": 0.613,
+        "pc200": 0.5393333333333333
+      }
+    },
+    "OT_length": {
+      "conventional": {
+        "trustworthiness": 0.9169243860725373,
+        "knn10_recall": 0.17693333333333333,
+        "shepard_spearman": 0.34299618817638744
+      },
+      "observer": {
+        "topic": 0.61,
+        "length": 0.7243333333333334,
+        "pc200": 0.551
+      }
+    },
+    "OT_pc200": {
+      "conventional": {
+        "trustworthiness": 0.9236491327867938,
+        "knn10_recall": 0.19058333333333333,
+        "shepard_spearman": 0.3394390970597426
+      },
+      "observer": {
+        "topic": 0.6203333333333333,
+        "length": 0.6123333333333333,
+        "pc200": 0.5883333333333334
+      }
+    },
+    "proj_length": {
+      "conventional": {
+        "trustworthiness": 0.5533039800717565,
+        "knn10_recall": 0.0067,
+        "shepard_spearman": 0.03986145980581769
+      },
+      "observer": {
+        "topic": 0.065,
+        "length": 0.8776666666666667,
+        "pc200": 0.528
+      }
+    },
+    "logit_length": {
+      "conventional": {
+        "trustworthiness": 0.5526999498075957,
+        "knn10_recall": 0.004766666666666667,
+        "shepard_spearman": 0.05056593948136701
+      },
+      "observer": {
+        "topic": 0.06633333333333333,
+        "length": 0.8773333333333333,
+        "pc200": 0.536
+      }
+    }
+  }
+}
