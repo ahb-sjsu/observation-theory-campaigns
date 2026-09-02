@@ -116,7 +116,40 @@ Document length is a genuinely natural attribute MiniLM under-weights: OT
 reranking recovers +0.185. caps_ratio is real but shows almost nothing — the
 effect is attribute-dependent, not universal. Disclosed both.
 
-## Status — campaign arc (four cells, both arms)
+## LaBSE × moral consumers (2026-09-01, `cr_ann_labse_moral.py`): the MSA substrate
+
+The natural-consumer, cross-project cell, on the application stack's own substrate:
+**LaBSE** (the xbse/LeBSE/moral-spectrum-analyzer encoder family) over 16k real
+Social-Chemistry-101 actions; consumers = linear probes on the LaBSE space
+(P_C = WᵀW): moral valence (good/bad action) and the care-harm foundation.
+
+| consumer | decodability | alignment (L2-1NN) | OT acc | gain | dissociation |
+|---|---|---|---|---|---|
+| moral valence | 0.855 | 0.794 | 0.821 | **+0.027** | yes (recall@1 0.035) |
+| care-harm | 0.649 | 0.592 | 0.595 | +0.003 | no |
+
+Isotropic control: identical (0.794 = 0.794). Honest read: the law holds but the
+natural-moral effect is **modest** — LaBSE already carries action valence in
+surface semantics (alignment 0.794), and the gain is capped by probe decodability
+(headroom ≈ 0.855 − 0.794 ≈ 0.06, about half captured). Care-harm's weak probe
+(0.649) forfeits even its headroom, echoing caps_ratio.
+
+**Sharpened functional form (six consumers now):** gain requires BOTH strong
+decodability AND misalignment, roughly `gain ≲ decodability − alignment`, with
+weak probes forfeiting the headroom. Maps directly onto moral-spectrum-analyzer's
+published per-axis `reliability_weight = 2·AUROC − 1` (physical_harm 0.26,
+privacy 0.71, identity_attack 0.61): a preregisterable ORDERING prediction —
+strong-axis consumers gain, weak-axis ones do not.
+
+**MSA/DEME application:** consumer-relative retrieval = "find MORALLY similar
+cases" (vs topically similar) for escalation/precedent review. Routes to larger
+gains: distill xbse's trained encoders onto the retrieval space (stronger P_C
+than thin linear probes), and the cross-lingual arm (query language A, retrieve
+language B — LaBSE's 109-language alignment makes "the consumer-relative
+neighborhood survives translation" a measurable claim, MSA's invariance beat at
+the retrieval level).
+
+## Status — campaign arc (five cells, both arms)
 
 1. **Synthetic, forced misalignment** — dissociation +0.42 (mechanism + pipeline
    + isotropic control validated).
