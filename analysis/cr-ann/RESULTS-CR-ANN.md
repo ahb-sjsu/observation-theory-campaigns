@@ -62,3 +62,35 @@ Per the amendment discipline the prereg is untouched and no bar moves
 retroactively. Any V2 family (cross-fit H, homogeneous corpora, a conversion
 constant justified by these numbers rather than the construction cells) is a
 new prereg, owner's call.
+
+## Post-mortem (post-hoc diagnostics, 2026-09-02)
+
+`cr_ann_postmortem.py` → `prereg/postmortem.json`, run on the graded raw the
+way covering_route/mc2_retest were run on D8-V1's. Three findings, each with a
+mechanical fix:
+
+1. **Single-split H is noisy (identity_attack's exclusion was an instrument
+   error).** Cross-fit (5-fold) H for identity_attack is **+0.080 ± 0.014**;
+   the single calibration split that excluded it drew +0.026. Against its
+   matched-split grading headroom (+0.089) its gain converts at **0.64**. Both
+   of its domains behave identically (civil_comments +0.047, MHS +0.054), so
+   the gain is real and the arm assignment was wrong. Fix: qualify on
+   cross-fit H.
+2. **Heterogeneous joins manufacture mirage headroom (physical_harm).** Its H
+   is stable under every estimator (0.048 cal, 0.049 grading, 0.048 ± 0.010
+   cross-fit) and its gain is still ~0 — because per domain, beavertails is
+   MATCHED (D 0.944, A 0.914) and ethics is a WEAK probe (D 0.689): the pooled
+   headroom exists only in the mixture statistics, in no actual query
+   population. The law behaved correctly in both domains; the unit of
+   qualification was wrong. Fix: qualify and grade per single-domain unit.
+3. **The 0.3 conversion constant was construction-inflated.** Honest
+   conversions against cross-fit H for D ≥ 0.75 homogeneous units: identity
+   domains 0.56–0.75, loyalty 0.15 (its D_g is borderline, 0.741); conversion
+   rises with probe strength D, and weak probes forfeit entirely (fairness,
+   D 0.67, gain −0.005). The matched arm behaved (privacy cross-fit H
+   −0.009 ± 0.013, mean gain +0.007; the +0.01 B2 bar broke on ±0.005 seed
+   noise, max seed +0.013).
+
+Verdict unchanged: FAIL as graded. These diagnostics justify a V2 family
+(PREREG-CR-ANN-V2) on fresh consumers with cross-fit qualification,
+single-domain units, and bars grounded in these committed numbers.
