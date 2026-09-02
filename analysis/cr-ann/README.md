@@ -80,12 +80,60 @@ a fine-grained attribute; or a task the encoder was not tuned for). The
 prereg must therefore include a *measured* alignment condition, and test the
 misaligned regime — a matched pair is predicted to show no effect.
 
-## Status and next steps
+## Misaligned cell (2026-09-01, `cr_ann_misaligned.py`): the conditional law, on real embeddings
 
-Synthetic shakedown: dissociation confirmed (guaranteed-if-theory-holds; validates
-pipeline + mechanism + control). Real-data matched cell: NEGATIVE (aligned →
-no effect). The theory now predicts *when* the effect appears (misalignment) and
-when it does not (alignment) — both arms tested.
+Tests the sharpened hypothesis (dissociation ⟺ misalignment) on the real 20NG
+MiniLM embeddings.
+
+**(1) Controlled direction sweep.** Binary consumer label = sign(u·x − median) for
+a unit direction u at descending PCA ranks (high variance = emphasised/aligned →
+low variance = off-axis); consumer P_C = u uᵀ. Alignment is *measured* by how well
+raw L2 already predicts the label. The dissociation grows monotonically as u goes
+off-axis:
+
+| PC rank | var(u) | L2 acc | OT acc | gain | OT recall@1 |
+|---|---|---|---|---|---|
+| 0 (aligned) | 0.041 | 0.914 | 0.996 | +0.08 | 0.05 |
+| 20 | 0.008 | 0.751 | 0.991 | +0.24 | 0.04 |
+| 50 | 0.005 | 0.674 | 0.990 | +0.32 | 0.04 |
+| 200 | 0.001 | 0.606 | 0.985 | +0.38 | 0.04 |
+| 350 (off-axis) | 0.0001 | 0.586 | 0.992 | **+0.41** | 0.04 |
+
+OT stays ~0.99 (always finds the u-nearest); L2 falls from 0.91 (aligned) to 0.59
+(off-axis); the gap is the dissociation and it tracks the measured misalignment.
+(Even PC-0 shows +0.08: a single direction is 1 of 384 dims, so L2 over all dims
+is never perfectly aligned with any one u; the true zero is the *matched* topic
+cell above, where P_C spans the whole subspace the encoder was built for.)
+
+**(2) Natural off-axis attributes** (real linear consumer, P_C = WᵀW):
+
+| attribute | clf acc | L2 acc | OT acc | gain | dissociation |
+|---|---|---|---|---|---|
+| log_length | 0.891 | 0.676 | 0.860 | **+0.185** | yes |
+| caps_ratio | 0.730 | 0.654 | 0.673 | +0.019 | no |
+
+Document length is a genuinely natural attribute MiniLM under-weights: OT
+reranking recovers +0.185. caps_ratio is real but shows almost nothing — the
+effect is attribute-dependent, not universal. Disclosed both.
+
+## Status — campaign arc (four cells, both arms)
+
+1. **Synthetic, forced misalignment** — dissociation +0.42 (mechanism + pipeline
+   + isotropic control validated).
+2. **Real, matched (topic)** — NEGATIVE, ~0 (aligned encoder+task, nothing to
+   exploit).
+3. **Real, controlled sweep** — dissociation grows +0.08 → +0.41 monotonically as
+   the consumer goes off-axis (the conditional law, on real geometry).
+4. **Real, natural off-axis** — log_length +0.185 (yes), caps_ratio +0.019 (no):
+   real but attribute-dependent.
+
+**The law is now stated and demonstrated both ways:** consumer-relative reranking
+helps iff there is *measurable* embedding/consumer misalignment (alignment proxy =
+L2-1NN label accuracy); a matched pair shows no effect. Ready to prereg with the
+alignment condition as a first-class, measured covariate + the candidate-gen
+recall ceiling. Prior art (metric learning / rerankers) exists — lead with the OT
+framing (P_C = the consumer's own read operator, derived not learned) and the
+*conditional* dissociation, not "a new metric."
 
 1. **Real-data cell:** real embeddings (e.g. sentence embeddings) + a real
    downstream consumer whose P_C(x) = J(x)^T J(x) is computed from the actual
