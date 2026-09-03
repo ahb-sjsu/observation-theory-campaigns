@@ -1,10 +1,11 @@
 # PREREG-CR-IEIP — consumer-relative gating for the I-EIP Monitor, sealed
 
-**Status: DRAFT v0.1. FAMILY-CONSTRUCTED 2026-09-02 (the fr replication, the
-last construction run, landed and was committed that day). Earliest seal
-2026-09-03 (cooling-off: FAMILY-CONSTRUCTED < seal date). Not sealed. The four
-construction runs below inform the bars and are EXCLUDED from grading; every
-graded number comes from (model, transform-family, seed) cells never run.**
+**Status: SEALED v1.0 (2026-09-03). FAMILY-CONSTRUCTED 2026-09-02 < seal
+date: cooling-off satisfied. The four construction runs below inform the bars
+and are EXCLUDED from grading; every graded number comes from (model,
+transform-family, seed) cells never run. The five open items are resolved in
+the "Seal record" section at the bottom; after this line nothing changes
+except by dated amendment. Graded verdicts are committed as executed.**
 
 ## Claim family
 
@@ -122,19 +123,30 @@ rate false-clear** comparison as the monitor's operational metric, and (3) the
 **final-layer calibration failure** as a spec requirement. A fresh prior-art
 pass (arXiv/DBLP) is a seal-time item.
 
-## Open items — resolved at seal (fresh day, ≥ 2026-09-03)
+## Seal record — the five open items, resolved 2026-09-03
 
-1. Prior-art pass (activation-patch-graded monitors; false-clear-at-matched-
-   flag-rate comparisons; equivariance monitoring with consumer weighting).
-2. Commit the `IEIP_SEED` + `IEIP_TRANSFORM=para` extensions; smoke the para
-   transform mechanically on ≤ 50 burned-cell texts (pipeline sanity only, no
-   metrics graded), record the smoke in the seal record.
-3. Confirm Qwen2.5-1.5B runs CPU-side on Atlas within the thermal cap
-   (states + patching); if infeasible, substitute the largest feasible
-   never-run model by dated amendment BEFORE seal.
-4. Freeze the B1 constant (0.05) and the layer rule exactly as written or
-   amend with dated rationale BEFORE seal.
-5. Re-run the seed collision scan.
+1. **Prior-art pass (arXiv, 2026-09-03):** "activation patching" ∧ "monitor" ∧
+   "equivariance" → **zero results**; "false clear" ∧ "safety monitor" ∧
+   "language model" → **zero results**. The corner (consumer-metric-graded
+   equivariance monitoring with a matched-flag-rate false-clear endpoint)
+   stands open on arXiv; standard instruments (patching, causal tracing,
+   drift detection) credited in the delineation above.
+2. **Runner extensions committed** (`1bd259f`): `IEIP_SEED` (graded draw) and
+   `IEIP_TRANSFORM=para` (T5 paraphraser
+   `humarin/chatgpt_paraphraser_on_T5_base`) dispatched via `transform()`;
+   identical-text filtering unchanged. **Para smoke: 50/50 differ (100%,
+   bar ≥ 80%)** — pipeline sanity only, no metrics graded; example recorded in
+   `sealchecks.log` ("A person refuses to help a stranger in need." →
+   "Someone declines to aid a stranger in distress.").
+3. **Qwen2.5-1.5B CPU feasibility CONFIRMED:** 28 blocks, d = 1536; the
+   mechanical layer rule gives graded layers **14 and 21** (final 28 for C3);
+   state extraction 69 ms/text at 8 threads → ~5 min per 4400-text pass;
+   identifiability margin holds (n_cal ≈ 2640 > d = 1536). No substitution
+   needed.
+4. **Constants frozen:** B1 = fc_true ≤ fc_raw − 0.05 at matched top-25% flag
+   rates, both mid layers, every cell; layer rule round(L/2)/round(3L/4) —
+   **exactly as drafted, nothing moved.**
+5. **Seed scan (2026-09-03):** 20260918/19/23 clean across the three repos.
 
 ## Amendment discipline
 

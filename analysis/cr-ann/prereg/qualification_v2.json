@@ -1,0 +1,163 @@
+{
+  "prereg": "PREREG-CR-ANN-V2",
+  "split_seed": 20260911,
+  "cap": 6000,
+  "nfold": 5,
+  "units": {
+    "privacy_aita": {
+      "status": "ok",
+      "axis": "privacy_protection",
+      "distilled": true,
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg_v2/privacy_aita.calibration.jsonl",
+          "rows": 460,
+          "sha256": "7fe89ab64ad7717ab34f6d10537eb5d65e2a5b60ad8a110b5e9ed19cc97003d8"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg_v2/privacy_aita.grading.jsonl",
+          "rows": 198,
+          "sha256": "b95b0aaaa629da4628d920cc418c89e0c90247fc8288b453282fa2835088267b"
+        }
+      },
+      "n_calibration": 460,
+      "violated_frac": 0.6847826086956522,
+      "D_xfit": 0.7891304347826086,
+      "D_xfit_sd": 0.05610212130679972,
+      "A_xfit": 0.7456521739130435,
+      "H_xfit": 0.04347826086956508,
+      "H_xfit_sd": 0.056688716566979554,
+      "arm": "misaligned"
+    },
+    "fairness_mhs": {
+      "status": "ok",
+      "axis": "fairness_equity",
+      "distilled": false,
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg_v2/fairness_mhs.calibration.jsonl",
+          "rows": 4200,
+          "sha256": "5e2b225c3aab1cc81965cb71c99b1c5cbe3e27f893e878ee2ca1c7ea48094e11"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg_v2/fairness_mhs.grading.jsonl",
+          "rows": 1800,
+          "sha256": "333c4228c374058948aea0e87085aab7e955e3df5876251da7147ed262fb2098"
+        }
+      },
+      "n_calibration": 4200,
+      "violated_frac": 0.3773809523809524,
+      "D_xfit": 0.825,
+      "D_xfit_sd": 0.004702004204317057,
+      "A_xfit": 0.74,
+      "H_xfit": 0.08499999999999996,
+      "H_xfit_sd": 0.02277017184000998,
+      "arm": "misaligned"
+    },
+    "autonomy_dark": {
+      "status": "ok",
+      "axis": "autonomy_respect",
+      "distilled": true,
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg_v2/autonomy_dark.calibration.jsonl",
+          "rows": 1478,
+          "sha256": "596d0ed748a9e57c5e1ce3a675577a23d1178ccec80900bcbac4d7fa4668fab9"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg_v2/autonomy_dark.grading.jsonl",
+          "rows": 634,
+          "sha256": "21b709ccd61e885d8d617a515499b4e5479ba1142b9a71eb6902ca70c5b5379f"
+        }
+      },
+      "n_calibration": 1478,
+      "violated_frac": 0.5311231393775372,
+      "D_xfit": 0.9438318827301877,
+      "D_xfit_sd": 0.013860646235595804,
+      "A_xfit": 0.9472240036646816,
+      "H_xfit": -0.003392120934493925,
+      "H_xfit_sd": 0.007416300419481322,
+      "arm": "matched"
+    },
+    "care_moralstories": {
+      "status": "ok",
+      "axis": "virtue_care",
+      "distilled": true,
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg_v2/care_moralstories.calibration.jsonl",
+          "rows": 1698,
+          "sha256": "0416046d7744ea8404bb3e90ac1bf558652be4a1c2334e73c9bbe16633f15d35"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg_v2/care_moralstories.grading.jsonl",
+          "rows": 728,
+          "sha256": "d1aded836cd9b4763f0c86d724dcb54a37d62d093d5fb3c8eaf84440f4790fe3"
+        }
+      },
+      "n_calibration": 1698,
+      "violated_frac": 0.49823321554770317,
+      "D_xfit": 0.6725802533402743,
+      "D_xfit_sd": 0.027741821888356916,
+      "A_xfit": 0.40222800624674643,
+      "H_xfit": 0.27035224709352784,
+      "H_xfit_sd": 0.029437698665877456,
+      "arm": "excluded"
+    },
+    "societal_env": {
+      "status": "ok",
+      "axis": "societal_environmental",
+      "distilled": false,
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg_v2/societal_env.calibration.jsonl",
+          "rows": 1549,
+          "sha256": "723747b1613c041d86288f8dc1b996ceadf4a97e5742598103b9f7351948b655"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg_v2/societal_env.grading.jsonl",
+          "rows": 665,
+          "sha256": "391c2ed4dfa322d7d6de5eafa9ad708a4a93069d53f0feb593efc21662932e4e"
+        }
+      },
+      "n_calibration": 1549,
+      "violated_frac": 0.4803098773402195,
+      "D_xfit": 0.8631193235202004,
+      "D_xfit_sd": 0.017553878870801516,
+      "A_xfit": 0.7979267146883808,
+      "H_xfit": 0.06519260883181954,
+      "H_xfit_sd": 0.023979571205910374,
+      "arm": "misaligned"
+    },
+    "epistemic_sc": {
+      "status": "ok",
+      "axis": "epistemic_quality",
+      "distilled": false,
+      "manifest": {
+        "calibration": {
+          "path": "/home/claude/cr-ann/prereg_v2/epistemic_sc.calibration.jsonl",
+          "rows": 2140,
+          "sha256": "0f0040ba599a34c490cbe1f8bdf23e784e54704ddafd0b5118f6946734bf8c6e"
+        },
+        "grading": {
+          "path": "/home/claude/cr-ann/prereg_v2/epistemic_sc.grading.jsonl",
+          "rows": 918,
+          "sha256": "fa31cbc789f4defb504daa4a1984ff769eef37fe9a678272e86bd137afe5d742"
+        }
+      },
+      "n_calibration": 2140,
+      "violated_frac": 0.6401869158878505,
+      "D_xfit": 0.9070093457943924,
+      "D_xfit_sd": 0.004989288902818386,
+      "A_xfit": 0.8658878504672897,
+      "H_xfit": 0.04112149532710274,
+      "H_xfit_sd": 0.014967866708455128,
+      "arm": "misaligned"
+    }
+  },
+  "MC3": {
+    "misaligned": 4,
+    "matched": 1,
+    "sufficient": true
+  }
+}
