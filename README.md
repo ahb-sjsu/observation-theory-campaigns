@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Tracks](https://img.shields.io/badge/tracks-20-blue)](#the-twenty-tracks)
+[![Applied](https://img.shields.io/badge/applied_campaigns-6-orange)](#the-applications-wave-september-2026-branch-campaignconsumer-relative-ann)
 [![Discipline](https://img.shields.io/badge/discipline-sealed_preregistration-8A2BE2)](#)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-blue)](CITATION.cff)
 
@@ -11,7 +12,11 @@ work outgrew its first question. GitHub redirects the old name.
 One program, twenty tracks. The shared question is what an observer with
 restricted access to a system can see and what it can lawfully claim.
 Each track makes that question concrete in a different setting, and all twenty run under one evidence discipline with sealed instruments,
-preregistered claims, and append-only evidence records.
+preregistered claims, and append-only evidence records. Since September
+2026 an applied wave carries the same kernel onto deployed substrates —
+retrieval, dimensionality reduction, power grids, market data, LM safety
+monitors, and internet routing — under the same discipline; see the
+applications-wave section after the track table.
 
 If you are new here, read this file top to bottom, then the one track
 document that concerns you. Each track section below says what the track
@@ -1140,6 +1145,13 @@ Key files. `experiments/GENERATOR-G2.md` (governing),
    regenerates from them via `paper/make_figdata.py`.
 5. Instrument defects found during shakedowns become permanent
    controls (seven so far). A clean negative is a result.
+
+The applications wave runs the same discipline with one addition suited to
+its pace: shakedown predictions are committed to git BEFORE the run (the
+commit hash is the timestamp), graded claims still require a sealed
+preregistration, and a graded FAIL is committed as executed — two of the
+wave's own seals have failed honestly and stand in the record beside the
+passes.
 
 Evidence labels. `[proved]` mathematics, `[replicated]` published
 benchmarks, `[demonstrated-in-model]` sealed bars passed,
