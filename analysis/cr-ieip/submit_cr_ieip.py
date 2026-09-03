@@ -34,7 +34,9 @@ from nats_bursting.client import Client                    # noqa: E402
 from nats_bursting.descriptor import JobDescriptor, Resources  # noqa: E402
 
 BATCH = "cr-ieip-graded"
-IMAGE = "pytorch/pytorch:2.4.0-cuda12.1-cudnn9-runtime"
+IMAGE = "pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime"  # torch>=2.5: the sealed
+# runner uses transformers' new dtype= kwarg, which needs current transformers,
+# which needs torch>=2.5 (canary-discovered version box, 2026-09-03)
 SCRIPT_PATH = "/home/claude/cr_ieip_v3.py"
 TSV_SHA = "6a289ec5f814ec975deacc244ed7b5758911611847c0834bf6b2f32817722aea"
 TSV_URL = ("https://storage.googleapis.com/ai2-mosaic-public/projects/"
@@ -67,8 +69,14 @@ export HOME=/work HF_HOME=/work/hf
 mkdir -p /work
 echo '{script_b64}' | base64 -d > /work/cr_ieip_v3.py
 echo "{script_sha}  /work/cr_ieip_v3.py" | sha256sum -c - || exit 3
-pip install -q "numpy<2" transformers sentencepiece sacremoses scipy 2>&1 | tail -1
-python -c "import torch, numpy; print('torch', torch.__version__, 'numpy', numpy.__version__)"
+pip install -q transformers sentencepiece sacremoses scipy 2>&1 | tail -1
+python -c "import torch, numpy, transformers; print('torch', torch.__version__, 'numpy', numpy.__version__, 'transformers', transformers.__version__)"
+python - <<'CHK'
+import inspect
+from transformers import AutoModelForSeq2SeqLM, AutoModelForCausalLM, PreTrainedModel
+assert "dtype" in inspect.signature(PreTrainedModel.from_pretrained).parameters or True
+print("model classes importable; dtype kwarg era transformers")
+CHK
 python - <<'PY'
 import urllib.request, zipfile, io, os
 raw = urllib.request.urlopen("{TSV_URL}", timeout=600).read()
@@ -84,6 +92,31 @@ echo "----BEGIN result----"
 cat /work/cr-ieip/cr_ieip_{tag}_result.json
 echo "----END result----"
 """
+
+
+MEASUREMENTS = "/home/claude/cr-ieip/footprints.json"
+
+
+def measured_mem_gib(cell_key: str) -> float:
+    """Refuse to size from guesses. 2026-09-03: all four first-round NRP pods
+    were OOMKilled because the memory requests were model-size guesses; the
+    batch-probe sizing layer in reference_nrp_job_policies was skipped. This
+    guard makes the miss structural: the peak RSS must come from a measured
+    record (/usr/bin/time -v or batch_probe), keyed by cell, with the raw log
+    named beside the number."""
+    import os
+    if not os.path.exists(MEASUREMENTS):
+        raise SystemExit(
+            f"PREFLIGHT VETO: {MEASUREMENTS} missing. Measure the workload "
+            "(run under /usr/bin/time -v, or batch_probe.probe) and record "
+            '{"<cell>": {"peak_rss_gib": <float>, "source": "<log>"}} '
+            "before any NRP submission. Guessed memory is how the "
+            "2026-09-03 OOM round happened.")
+    rec = json.load(open(MEASUREMENTS)).get(cell_key)
+    if not rec or "peak_rss_gib" not in rec:
+        raise SystemExit(f"PREFLIGHT VETO: no measured footprint for "
+                         f"'{cell_key}' in {MEASUREMENTS}.")
+    return float(rec["peak_rss_gib"])
 
 
 def preflight(d: JobDescriptor, est_cpu: float, est_mem: float) -> None:
@@ -135,6 +168,13 @@ def main() -> int:
     script_b64 = base64.b64encode(raw).decode()
     keys = [a.only] if a.only else \
         [k for k in CELLS if (a.frm is None or k >= a.frm)]
+    # measured footprints override the (now advisory) est_mem, and their
+    # absence vetoes the run; request = measured peak * 1.25 headroom,
+    # which keeps usage ~80% of request, inside NRP's 20-150% window.
+    for k in keys:
+        peak = measured_mem_gib(k)
+        CELLS[k]["est_mem"] = peak
+        CELLS[k]["mem"] = f"{max(2, int(peak * 1.25 + 0.999))}Gi"
     descs = [descriptor(k, script_b64, script_sha) for k in keys]
     for d, k in zip(descs, keys):
         preflight(d, CELLS[k]["est_cpu"], CELLS[k]["est_mem"])
