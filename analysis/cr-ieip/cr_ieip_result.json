@@ -1,0 +1,34 @@
+{
+  "6": {
+    "rho_cal_R2": 0.924,
+    "consumer_cal_R2": 0.9017,
+    "spearman_raw": 0.4412,
+    "spearman_PC": 0.4113,
+    "false_clear_raw": 0.5536,
+    "false_clear_PC": 0.4464
+  },
+  "12": {
+    "rho_cal_R2": 0.9398,
+    "consumer_cal_R2": 0.9399,
+    "spearman_raw": 0.4606,
+    "spearman_PC": 0.4622,
+    "false_clear_raw": 0.5893,
+    "false_clear_PC": 0.4821
+  },
+  "18": {
+    "rho_cal_R2": 0.9637,
+    "consumer_cal_R2": 0.9804,
+    "spearman_raw": 0.4198,
+    "spearman_PC": 0.3828,
+    "false_clear_raw": 0.5893,
+    "false_clear_PC": 0.5536
+  },
+  "24": {
+    "rho_cal_R2": 0.9998,
+    "consumer_cal_R2": 1.0,
+    "spearman_raw": 0.248,
+    "spearman_PC": 0.2437,
+    "false_clear_raw": 0.625,
+    "false_clear_PC": 0.625
+  }
+}

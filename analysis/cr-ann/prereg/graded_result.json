@@ -1,0 +1,406 @@
+{
+  "prereg": "PREREG-CR-ANN v1.0 (sealed 2026-09-02, d68b292)",
+  "executed": "2026-09-02",
+  "operationalization": {
+    "query_redraw": "per seed, floor(0.8*n_grading) queries without replacement from the grading split",
+    "probe": "frozen at calibration (first 80% of calibration split), identical to the seal-time D measurement"
+  },
+  "foundation_manifests": {
+    "fairness-cheating": {
+      "calibration": {
+        "path": "/home/claude/cr-ann/prereg/fairness-cheating.calibration.jsonl",
+        "rows": 4200,
+        "sha256": "4b13a144bfb8eebe8cb3911a6f1393168566f099b1049c0c404b8ec6598c22f8"
+      },
+      "grading": {
+        "path": "/home/claude/cr-ann/prereg/fairness-cheating.grading.jsonl",
+        "rows": 1800,
+        "sha256": "df83f8021db31706300b7f02af6cd2713cb7d632f6469358740bc7188c059c81"
+      }
+    },
+    "loyalty-betrayal": {
+      "calibration": {
+        "path": "/home/claude/cr-ann/prereg/loyalty-betrayal.calibration.jsonl",
+        "rows": 4200,
+        "sha256": "92e67a70507c859d79d0370ac134a66f88721f4a3a659d00b35bb939c67a66a0"
+      },
+      "grading": {
+        "path": "/home/claude/cr-ann/prereg/loyalty-betrayal.grading.jsonl",
+        "rows": 1800,
+        "sha256": "8554bbf78f556663bd5e8cfca93ff80166dba6c981583a4990df6a7aa70508bb"
+      }
+    },
+    "authority-subversion": {
+      "calibration": {
+        "path": "/home/claude/cr-ann/prereg/authority-subversion.calibration.jsonl",
+        "rows": 4200,
+        "sha256": "352cd185c94d6c678f84c574684206792d92c964023a6eabca4c0538026aabac"
+      },
+      "grading": {
+        "path": "/home/claude/cr-ann/prereg/authority-subversion.grading.jsonl",
+        "rows": 1800,
+        "sha256": "f1965d6bf03bc81ce7d09fb249c2566fad83762b38305ef352c28caf4d03424c"
+      }
+    },
+    "sanctity-degradation": {
+      "calibration": {
+        "path": "/home/claude/cr-ann/prereg/sanctity-degradation.calibration.jsonl",
+        "rows": 4200,
+        "sha256": "6992342e7df45bc9b20e02ed54bb626a6bc9c1e7a1292db6084efcd273e755eb"
+      },
+      "grading": {
+        "path": "/home/claude/cr-ann/prereg/sanctity-degradation.grading.jsonl",
+        "rows": 1800,
+        "sha256": "f238fcaa8f1028ca03424fc7bde9c997e0ff5f7f302fa0f601c5d1e367026de6"
+      }
+    }
+  },
+  "consumers": {
+    "fairness-cheating": {
+      "D": 0.6761904761904762,
+      "A": 0.6142857142857143,
+      "H": 0.06190476190476191,
+      "arm": "excluded",
+      "n_calibration": 4200.0
+    },
+    "loyalty-betrayal": {
+      "D": 0.7666666666666667,
+      "A": 0.6738095238095239,
+      "H": 0.09285714285714286,
+      "arm": "misaligned",
+      "n_calibration": 4200.0
+    },
+    "authority-subversion": {
+      "D": 0.725,
+      "A": 0.6369047619047619,
+      "H": 0.08809523809523812,
+      "arm": "excluded",
+      "n_calibration": 4200.0
+    },
+    "sanctity-degradation": {
+      "D": 0.7273809523809524,
+      "A": 0.6404761904761904,
+      "H": 0.08690476190476193,
+      "arm": "excluded",
+      "n_calibration": 4200.0
+    },
+    "privacy_protection": {
+      "D": 0.9190751445086706,
+      "A": 0.9190751445086706,
+      "H": 0.0,
+      "arm": "matched",
+      "n_calibration": 865.0
+    },
+    "identity_attack": {
+      "D": 0.7773809523809524,
+      "A": 0.7511904761904762,
+      "H": 0.02619047619047621,
+      "arm": "excluded",
+      "n_calibration": 4200.0
+    },
+    "physical_harm": {
+      "D": 0.7749140893470791,
+      "A": 0.7268041237113402,
+      "H": 0.04810996563573888,
+      "arm": "misaligned",
+      "n_calibration": 2908.0
+    }
+  },
+  "results": {
+    "fairness-cheating": {
+      "20260902": {
+        "n_queries": 1440,
+        "l2_acc": 0.6104166666666667,
+        "ot_acc": 0.6069444444444444,
+        "gain": -0.003472222222222321,
+        "recall1": 0.025694444444444443,
+        "iso_acc": 0.6104166666666667,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260903": {
+        "n_queries": 1440,
+        "l2_acc": 0.6090277777777777,
+        "ot_acc": 0.6069444444444444,
+        "gain": -0.002083333333333326,
+        "recall1": 0.022916666666666665,
+        "iso_acc": 0.6090277777777777,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260904": {
+        "n_queries": 1440,
+        "l2_acc": 0.5986111111111111,
+        "ot_acc": 0.5902777777777778,
+        "gain": -0.008333333333333304,
+        "recall1": 0.025,
+        "iso_acc": 0.5986111111111111,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      }
+    },
+    "loyalty-betrayal": {
+      "20260902": {
+        "n_queries": 1440,
+        "l2_acc": 0.6618055555555555,
+        "ot_acc": 0.6777777777777778,
+        "gain": 0.015972222222222276,
+        "recall1": 0.0375,
+        "iso_acc": 0.6618055555555555,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260903": {
+        "n_queries": 1440,
+        "l2_acc": 0.6805555555555556,
+        "ot_acc": 0.6895833333333333,
+        "gain": 0.009027777777777746,
+        "recall1": 0.034722222222222224,
+        "iso_acc": 0.6805555555555556,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260904": {
+        "n_queries": 1440,
+        "l2_acc": 0.6673611111111111,
+        "ot_acc": 0.6881944444444444,
+        "gain": 0.02083333333333337,
+        "recall1": 0.03125,
+        "iso_acc": 0.6673611111111111,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      }
+    },
+    "authority-subversion": {
+      "20260902": {
+        "n_queries": 1440,
+        "l2_acc": 0.6395833333333333,
+        "ot_acc": 0.6486111111111111,
+        "gain": 0.009027777777777857,
+        "recall1": 0.02638888888888889,
+        "iso_acc": 0.6395833333333333,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260903": {
+        "n_queries": 1440,
+        "l2_acc": 0.6291666666666667,
+        "ot_acc": 0.6548611111111111,
+        "gain": 0.025694444444444464,
+        "recall1": 0.024305555555555556,
+        "iso_acc": 0.6291666666666667,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260904": {
+        "n_queries": 1440,
+        "l2_acc": 0.6263888888888889,
+        "ot_acc": 0.6597222222222222,
+        "gain": 0.033333333333333326,
+        "recall1": 0.025694444444444443,
+        "iso_acc": 0.6263888888888889,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      }
+    },
+    "sanctity-degradation": {
+      "20260902": {
+        "n_queries": 1440,
+        "l2_acc": 0.6722222222222223,
+        "ot_acc": 0.6708333333333333,
+        "gain": -0.001388888888888995,
+        "recall1": 0.03263888888888889,
+        "iso_acc": 0.6722222222222223,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260903": {
+        "n_queries": 1440,
+        "l2_acc": 0.6472222222222223,
+        "ot_acc": 0.6652777777777777,
+        "gain": 0.01805555555555549,
+        "recall1": 0.03263888888888889,
+        "iso_acc": 0.6472222222222223,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260904": {
+        "n_queries": 1440,
+        "l2_acc": 0.6548611111111111,
+        "ot_acc": 0.6715277777777777,
+        "gain": 0.016666666666666607,
+        "recall1": 0.03611111111111111,
+        "iso_acc": 0.6548611111111111,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      }
+    },
+    "privacy_protection": {
+      "20260902": {
+        "n_queries": 297,
+        "l2_acc": 0.8787878787878788,
+        "ot_acc": 0.8855218855218855,
+        "gain": 0.006734006734006703,
+        "recall1": 0.05387205387205387,
+        "iso_acc": 0.8787878787878788,
+        "iso_pass": true,
+        "oracle_ceiling": 0.9966329966329966
+      },
+      "20260903": {
+        "n_queries": 297,
+        "l2_acc": 0.8922558922558923,
+        "ot_acc": 0.8922558922558923,
+        "gain": 0.0,
+        "recall1": 0.05387205387205387,
+        "iso_acc": 0.8922558922558923,
+        "iso_pass": true,
+        "oracle_ceiling": 0.9966329966329966
+      },
+      "20260904": {
+        "n_queries": 297,
+        "l2_acc": 0.8821548821548821,
+        "ot_acc": 0.8956228956228957,
+        "gain": 0.013468013468013518,
+        "recall1": 0.050505050505050504,
+        "iso_acc": 0.8821548821548821,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      }
+    },
+    "identity_attack": {
+      "20260902": {
+        "n_queries": 1440,
+        "l2_acc": 0.7069444444444445,
+        "ot_acc": 0.7625,
+        "gain": 0.05555555555555547,
+        "recall1": 0.020833333333333332,
+        "iso_acc": 0.7069444444444445,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260903": {
+        "n_queries": 1440,
+        "l2_acc": 0.7090277777777778,
+        "ot_acc": 0.7625,
+        "gain": 0.05347222222222214,
+        "recall1": 0.025694444444444443,
+        "iso_acc": 0.7090277777777778,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260904": {
+        "n_queries": 1440,
+        "l2_acc": 0.7048611111111112,
+        "ot_acc": 0.7666666666666667,
+        "gain": 0.06180555555555556,
+        "recall1": 0.027083333333333334,
+        "iso_acc": 0.7048611111111112,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      }
+    },
+    "physical_harm": {
+      "20260902": {
+        "n_queries": 997,
+        "l2_acc": 0.7191574724172518,
+        "ot_acc": 0.720160481444333,
+        "gain": 0.0010030090270811698,
+        "recall1": 0.031093279839518557,
+        "iso_acc": 0.7191574724172518,
+        "iso_pass": true,
+        "oracle_ceiling": 1.0
+      },
+      "20260903": {
+        "n_queries": 997,
+        "l2_acc": 0.7251755265797393,
+        "ot_acc": 0.7181544633901705,
+        "gain": -0.007021063189568744,
+        "recall1": 0.033099297893681046,
+        "iso_acc": 0.7251755265797393,
+        "iso_pass": true,
+        "oracle_ceiling": 0.9989969909729187
+      },
+      "20260904": {
+        "n_queries": 997,
+        "l2_acc": 0.7171514543630892,
+        "ot_acc": 0.7261785356068204,
+        "gain": 0.009027081243731194,
+        "recall1": 0.034102306920762285,
+        "iso_acc": 0.7171514543630892,
+        "iso_pass": true,
+        "oracle_ceiling": 0.9989969909729187
+      }
+    }
+  },
+  "bars": {
+    "B1": false,
+    "B1_items": [
+      [
+        "loyalty-betrayal",
+        20260902,
+        false
+      ],
+      [
+        "loyalty-betrayal",
+        20260903,
+        false
+      ],
+      [
+        "loyalty-betrayal",
+        20260904,
+        false
+      ],
+      [
+        "physical_harm",
+        20260902,
+        false
+      ],
+      [
+        "physical_harm",
+        20260903,
+        false
+      ],
+      [
+        "physical_harm",
+        20260904,
+        false
+      ]
+    ],
+    "B2": false,
+    "B2_items": [
+      [
+        "privacy_protection",
+        20260902,
+        true
+      ],
+      [
+        "privacy_protection",
+        20260903,
+        true
+      ],
+      [
+        "privacy_protection",
+        20260904,
+        false
+      ]
+    ],
+    "B3": false,
+    "B3_spearman": 0.5270462766947299,
+    "B3_weights_clause": true,
+    "msa_mean_gains": {
+      "privacy_protection": 0.006734006734006741,
+      "identity_attack": 0.05694444444444439,
+      "physical_harm": 0.0010030090270812069
+    }
+  },
+  "manipulation_checks": {
+    "MC1_iso": true,
+    "MC2": "by commit order",
+    "MC3_sufficiency": true,
+    "MC4_seeds": "disjoint from construction SEED=0"
+  },
+  "secondaries": {
+    "S2_slope_gain_vs_H": 0.08936999700887573
+  },
+  "VERDICT": "FAIL"
+}

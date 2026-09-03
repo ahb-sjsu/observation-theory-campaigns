@@ -1,0 +1,26 @@
+{
+  "n": 16000,
+  "k": 50,
+  "encoder": "LaBSE",
+  "corpus": "social-chem-101 actions",
+  "valence": {
+    "clf_acc": 0.8545833333333334,
+    "l2_acc": 0.794375,
+    "ot_acc": 0.8214583333333333,
+    "gain": 0.027083333333333237,
+    "ot_recall1": 0.035,
+    "dissociation": true
+  },
+  "care_harm": {
+    "clf_acc": 0.6489583333333333,
+    "l2_acc": 0.5920833333333333,
+    "ot_acc": 0.595,
+    "gain": 0.0029166666666666785,
+    "ot_recall1": 0.034166666666666665,
+    "dissociation": false
+  },
+  "iso_control_valence": {
+    "acc": 0.794375,
+    "equals_l2": true
+  }
+}
