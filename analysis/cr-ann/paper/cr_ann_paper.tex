@@ -3,20 +3,21 @@
 % plain declarative, no em-dashes in prose, every number from a committed
 % graded record, negatives disclosed, prior art before novelty.
 % Venue candidates in README.md; article class is a local-build placeholder.
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
+\documentclass{article}
+% TMLR submission format. The tmlr package anonymizes the author block by
+% default; add [accepted] for camera-ready. Style files fetched from
+% JmlrOrg/tmlr-style-file 2026-09-03.
+\usepackage{tmlr}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \graphicspath{{build/}}
 \usepackage{url}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 
 \title{Reranking by the Consumer's Read:\\ A Real Dissociation Whose Magnitude\\ the Consumer Cannot Forecast}
-\author{Andrew H.\ Bond\\ San Jos\'e State University\\ \texttt{[TODO: email]}}
-\date{Draft, September 2026}
+\author{\name Andrew H.\ Bond \email [TODO: email]\\
+\addr San Jos\'e State University}
 
 \begin{document}
 \maketitle
@@ -225,14 +226,14 @@ Metric learning, Mahalanobis and local variants, and trained rerankers are
 long established; our reranker is not learned and our claim is not a better
 reranker. Position-dependent Riemannian metrics from auxiliary information
 were developed for exploratory analysis in the learning-metrics program
-\cite{kaski2001,peltonen2004}, and NeRV made embedding quality explicitly
-relative to a user's precision-recall cost \cite{venna2010}; our $P_C$ is
+\citep{kaski2001,peltonen2004}, and NeRV made embedding quality explicitly
+relative to a user's precision-recall cost \citep{venna2010}; our $P_C$ is
 read off a deployed consumer rather than built from labels at embed time,
 and where the consumer is itself a label probe the constructions nearly
 coincide. Task-aware and decision-focused pipelines optimize models for
-downstream decisions \cite{elmachtoub2022}; sensor-selection and
+downstream decisions \citep{elmachtoub2022}; sensor-selection and
 value-of-information literatures optimize weighted-trace objectives
-\cite{joshiboyd2009}. We do not offer a better metric, reranker, or
+\citep{joshiboyd2009}. We do not offer a better metric, reranker, or
 selection rule. We offer the measurement: the conditional dissociation with
 both arms sealed, two preregistered failures reported as executed, and the
 identification of the magnitude with a potential the consumer cannot
@@ -257,22 +258,23 @@ Every number above is read from committed, hashed records in the campaign
 repository (sealed preregistrations, graded verdict JSONs, post-mortems, and
 the determinant study), and the figure regenerates from them by script. The
 two sealed families' verdicts are immutable; the repository's evidence
-discipline file describes the seal and amendment rules.
+discipline file describes the seal and amendment rules. An anonymized copy of the records accompanies the submission; the repository link is provided on acceptance.
 
-\begin{thebibliography}{9}
-\bibitem{kaski2001} S.~Kaski, J.~Sinkkonen, and J.~Peltonen,
+\begin{thebibliography}{5}
+\bibitem[Kaski et al.(2001)]{kaski2001} S.~Kaski, J.~Sinkkonen, and J.~Peltonen,
 ``Bankruptcy analysis with self-organizing maps in learning metrics,''
-\emph{IEEE Trans. Neural Networks}, vol.~12, 2001. % verify vol/pages on final
-\bibitem{peltonen2004} J.~Peltonen, A.~Klami, and S.~Kaski,
+\emph{IEEE Trans. Neural Networks}, vol.~12, no.~4, pp.~936--947, 2001.
+\bibitem[Peltonen et al.(2004)]{peltonen2004} J.~Peltonen, A.~Klami, and S.~Kaski,
 ``Improved learning of Riemannian metrics for exploratory analysis,''
-\emph{Neural Networks}, vol.~17, 2004. % verify vol/pages on final
-\bibitem{venna2010} J.~Venna, J.~Peltonen, K.~Nybo, H.~Aidos, and S.~Kaski,
+\emph{Neural Networks}, vol.~17, no.~8--9, pp.~1087--1100, 2004.
+\bibitem[Venna et al.(2010)]{venna2010} J.~Venna, J.~Peltonen, K.~Nybo, H.~Aidos, and S.~Kaski,
 ``Information retrieval perspective to nonlinear dimensionality reduction for
 data visualization,'' \emph{JMLR}, vol.~11, pp.~451--490, 2010.
-\bibitem{elmachtoub2022} A.~N.~Elmachtoub and P.~Grigas, ``Smart `predict,
-then optimize','' \emph{Management Science}, vol.~68, no.~1, 2022. % verify pages on final
-\bibitem{joshiboyd2009} S.~Joshi and S.~Boyd, ``Sensor selection via convex
-optimization,'' \emph{IEEE Trans. Signal Processing}, vol.~57, no.~2, 2009. % verify pages on final
+\bibitem[Elmachtoub and Grigas(2022)]{elmachtoub2022} A.~N.~Elmachtoub and P.~Grigas, ``Smart `predict,
+then optimize','' \emph{Management Science}, vol.~68, no.~1, pp.~9--26, 2022.
+\bibitem[Joshi and Boyd(2009)]{joshiboyd2009} S.~Joshi and S.~Boyd, ``Sensor selection via convex
+optimization,'' \emph{IEEE Trans. Signal Processing}, vol.~57, no.~2,
+pp.~451--462, 2009.
 \end{thebibliography}
 
 \end{document}

@@ -25,21 +25,26 @@ MiKTeX: `pdflatex cr_ann_paper.tex` (twice). Figure:
 5 pages, article class as a local placeholder; retarget class at venue
 choice.
 
-## Venue candidates (owner decision)
+## Venue: TMLR (owner decision 2026-09-03)
 
-- TMLR (measurement + honest-negatives culture fits; no page pressure)
-- SIGIR / ECIR short or resource track (the IR audience for the reranking
-  surface; delineation vs learned rerankers is in Related Work)
-- An ML evaluation/benchmarks venue (the two-FAIL discipline is the story)
+Converted to the official TMLR style (tmlr.sty/bst fetched from
+JmlrOrg/tmlr-style-file 2026-09-03; files committed beside the tex). Builds
+5 pp in submission mode: the style anonymizes the author block by default
+("Anonymous authors, paper under double-blind review"); switch to
+`\usepackage[accepted]{tmlr}` at camera-ready to restore the name. The
+Reproducibility section promises an anonymized record copy at submission and
+the repository link on acceptance.
 
 ## Finalization checklist
 
-- [ ] Owner email in the author block.
-- [ ] `% verify vol/pages on final` on kaski2001, peltonen2004,
-      elmachtoub2022, joshiboyd2009 (venna2010 verified against JMLR
-      2026-09-03; arXiv:2506.01599 flagged on the watch-list, cite only if
-      the latent-alignment contrast enters).
-- [ ] Repository/DOI pointer in the Reproducibility section once the branch
-      merges (currently the campaign branch).
-- [ ] Venue class swap + length pass.
-- [ ] Owner submits; nothing here is submitted by tooling.
+- [x] References verified 2026-09-03 (DBLP + JMLR + Boyd's page): Kaski
+      IEEE TNN 12(4):936-947 2001; Peltonen Neural Networks 17(8-9):1087-1100
+      2004; Venna JMLR 11:451-490 2010; Elmachtoub Management Science
+      68(1):9-26 2022; Joshi-Boyd IEEE TSP 57(2):451-462 2009. No % verify
+      flags remain.
+- [x] TMLR class conversion; natbib author-year bibliography; builds clean.
+- [ ] Owner email in the author block (renders only at camera-ready).
+- [ ] Prepare the anonymized records bundle for submission (strip owner
+      names/paths from the JSON copies).
+- [ ] OpenReview submission by the owner; nothing here is submitted by
+      tooling.
