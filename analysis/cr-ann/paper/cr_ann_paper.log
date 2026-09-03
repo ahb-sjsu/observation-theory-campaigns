@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.20)  3 SEP 2026 11:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.20)  3 SEP 2026 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -440,43 +440,43 @@ LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-9.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+1.
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-9.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+1.
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-29.
+31.
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-29.
+31.
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 29.
+(Font)              <10> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 29.
+(Font)              <7> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 29.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
+(Font)              <5> on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
 
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
 
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -489,7 +489,7 @@ ptl/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}
 {C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/
 Users/abptl/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-05.
+11.
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -500,29 +500,28 @@ Underfull \vbox (badness 1867) has occurred while \output is active []
 <build/fig_gain_vs_phi.pdf, id=50, 252.945pt x 216.81pt>
 File: build/fig_gain_vs_phi.pdf Graphic file (type pdf)
 <use build/fig_gain_vs_phi.pdf>
-Package pdftex.def Info: build/fig_gain_vs_phi.pdf  used on input line 182.
+Package pdftex.def Info: build/fig_gain_vs_phi.pdf  used on input line 193.
 (pdftex.def)             Requested size: 338.22415pt x 289.91185pt.
 
-[3 <./build/fig_gain_vs_phi.pdf>]
-Underfull \vbox (badness 1448) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4]
-[5] (cr_ann_paper.aux)
+ [3]
+[4 <./build/fig_gain_vs_phi.pdf>] [5] (cr_ann_paper.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `cr_ann_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 08A9A45831EF17D7FDBFE0B0637BA634;1350.
+(rerunfilecheck)             Checksum: 285458A3998406597836308F41F83B13;1436.
  ) 
 Here is how much of TeX's memory you used:
  11460 strings out of 467870
  175163 string characters out of 5418355
- 596363 words of memory out of 5000000
+ 596405 words of memory out of 5000000
  40154 multiletter control sequences out of 15000+600000
  668852 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,90p,442b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,90p,528b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pf
 b><C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb
@@ -533,7 +532,7 @@ b><C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb
 <C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
 <C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><
 C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cr_ann_paper.pdf (5 pages, 218352 bytes).
+Output written on cr_ann_paper.pdf (5 pages, 219831 bytes).
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  21 named destinations out of 1000 (max. 500000)
