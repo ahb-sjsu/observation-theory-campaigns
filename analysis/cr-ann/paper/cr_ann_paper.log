@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.20)  3 SEP 2026 12:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.20)  3 SEP 2026 12:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,39 +489,36 @@ ptl/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}
 {C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/
 Users/abptl/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-11.
+17.
 
 (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Underfull \vbox (badness 1867) has occurred while \output is active []
-
- [2]
+) [2]
 <build/fig_gain_vs_phi.pdf, id=50, 252.945pt x 216.81pt>
 File: build/fig_gain_vs_phi.pdf Graphic file (type pdf)
 <use build/fig_gain_vs_phi.pdf>
-Package pdftex.def Info: build/fig_gain_vs_phi.pdf  used on input line 193.
+Package pdftex.def Info: build/fig_gain_vs_phi.pdf  used on input line 199.
 (pdftex.def)             Requested size: 338.22415pt x 289.91185pt.
 
+[3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3]
-[4 <./build/fig_gain_vs_phi.pdf>] [5] (cr_ann_paper.aux)
+ [4 <./build/fig_gain_vs_phi.pdf>] [5] (cr_ann_paper.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `cr_ann_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 285458A3998406597836308F41F83B13;1436.
+(rerunfilecheck)             Checksum: 5A785C57580FB7EDB5E298BFD30954A2;1530.
  ) 
 Here is how much of TeX's memory you used:
  11460 strings out of 467870
  175163 string characters out of 5418355
- 596405 words of memory out of 5000000
+ 597404 words of memory out of 5000000
  40154 multiletter control sequences out of 15000+600000
  668852 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,90p,528b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,90p,622b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pf
 b><C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb
@@ -532,7 +529,7 @@ b><C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb
 <C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
 <C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><
 C:/Users/abptl/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cr_ann_paper.pdf (5 pages, 219831 bytes).
+Output written on cr_ann_paper.pdf (5 pages, 220885 bytes).
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  21 named destinations out of 1000 (max. 500000)

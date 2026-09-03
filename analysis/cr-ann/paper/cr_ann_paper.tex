@@ -15,7 +15,7 @@
 \usepackage{url}
 \usepackage{hyperref}
 
-\title{One Similarity Metric Cannot Serve Every Consumer:\\ Measured Gains, Two Preregistered Failures,\\ and a Magnitude No Calibration Could Forecast}
+\title{One Similarity Metric Cannot Serve Every Consumer:\\ Measured Gains, Two Preregistered Failures,\\ and the Resolution Limit of Forecasting Them}
 \author{\name Andrew H.\ Bond \email [TODO: email]\\
 \addr San Jos\'e State University}
 
@@ -43,11 +43,15 @@ preregistered batch of units, and neither published reliability weights nor cros
 classification headroom orders it. Third, a post-hoc study across all thirteen
 evaluated units identifies the magnitude in kind and shows why it resisted
 sealing: the gain equals how much better nearest-neighbor labels agree under
-$d_C$ than under L2, at roughly unit slope (Pearson $0.91$), but that
-quantity cannot be estimated from the consumer's training data at natural
-corpus sizes, where fold-to-fold noise ($0.01$--$0.06$) is the size of the
-effects themselves. The value of consumer-aware retrieval is real, lawful in
-form, and not measurable in advance from the data the consumer has.
+$d_C$ than under L2, at roughly unit slope (Pearson $0.91$). That quantity
+is measurable in advance in principle, since it is itself a retrieval
+statistic on labeled data; what failed is resolution. At natural corpus
+sizes its sampling noise ($0.01$--$0.06$ across folds) is the size of most
+real effects, so both preregistrations had barred distinctions finer than
+the available data could resolve. The value of consumer-aware retrieval is
+real and lawful in form, and forecasting it is a statistical power problem:
+cheap where the effect is large, and beyond the reach of ordinary labeled
+corpora exactly where most natural effects live.
 \end{abstract}
 
 \section{Introduction}
@@ -75,9 +79,11 @@ attempts to preregister a quantitative law for the magnitude both failed
 their sealed bars, and the failures are part of the record reported here.
 The post-hoc account of why is the paper's sharpest result: the magnitude
 equals the read metric's own retrieval headroom at roughly unit slope, and
-that headroom cannot be estimated from the consumer's training data at the corpus sizes
-natural consumers provide. A practitioner can obtain the gain. The
-consumer's own calibration view cannot tell in advance how large it will be.
+forecasting it is limited by resolution rather than by principle: at the
+corpus sizes natural consumers provide, the sampling noise of the forecast
+is as large as most of the effects. A practitioner can obtain the gain, and
+can measure it in advance exactly down to the resolution of the labeled
+data at hand, which for most of our units was not fine enough.
 
 The components are classical, and we claim none of them. Mahalanobis and
 learned metrics, local metric learning, and trained rerankers are established;
@@ -186,7 +192,7 @@ converted $101\%$ of a $+0.270$ headroom with three tightly clustered seeds.
 The qualification floor built to protect the misaligned arm from weak probes
 twice filtered out the largest effects of the phenomenon it guards.
 
-\section{The magnitude is the read metric's retrieval headroom, and it cannot be forecast}
+\section{The magnitude is the read metric's retrieval headroom, resolved only as finely as the data allows}
 
 \begin{figure}[t]
   \centering
@@ -212,24 +218,28 @@ identification is close to definitional once stated: with the oracle ceiling
 at $1$ and $k$ near-global, the graded gain is the grading split's retrieval
 headroom under the frozen read.
 
-Why then did two preregistrations fail? Because $\Phi$ cannot be estimated
-in advance at natural sizes. The fold-level standard deviation of $\Phi$ is
-$0.011$--$0.058$ across units, and ten of thirteen measured gains are below
-$0.06$: the effects sit at the noise floor of the only instrument the
-consumer has before grading. The one unit whose $\Phi$ stands eleven
-standard deviations from zero is forecast correctly ($0.201\pm0.018$
-predicted, $0.274$ measured). Three units additionally show
-calibration-to-grading shift larger than their fold noise, so noise is not
-the only failure mode. A sealable forecast would need either engineered
-large-$\Phi$ units or calibration corpora an order of magnitude larger, and
-we record that requirement rather than attempt a third seal on the present
-pool.
+Why then did two preregistrations fail? Not because $\Phi$ is
+unmeasurable; it is itself a retrieval statistic, and anyone with labeled
+data can compute it in advance. They failed because at natural sizes the
+measurement's resolution is coarser than the effects. The fold-level
+standard deviation of $\Phi$ is $0.011$--$0.058$ across units, and ten of
+thirteen measured gains are below $0.06$: both families had sealed bars
+finer than the instrument could resolve. The one unit whose $\Phi$ stands
+eleven standard deviations from zero is forecast correctly
+($0.201\pm0.018$ predicted, $0.274$ measured). Because calibration and
+grading are exchangeable splits of one corpus, the remaining
+prediction-versus-outcome deviations are consistent with two-sided sampling
+noise of both quantities, and we do not claim a systematic shift. A
+sealable forecast therefore needs power: engineered large-$\Phi$ units, or
+calibration corpora roughly an order of magnitude larger, and we record
+that requirement rather than attempt a third seal on the present pool.
 
 The finding has the same shape as the phenomenon it measures. What
 retrieval is worth depends on which model consumes the results; we add that
-how much it is worth is, at practical sizes, not measurable in advance from
-the data that model has. The two failed preregistrations are the evidence
-for that sentence, and we regard them as results rather than mishaps.
+how much it is worth is typically a small number, and resolving a small
+number in advance costs labeled data that natural consumers rarely have.
+The two failed preregistrations are the measurement of that resolution
+limit, and we regard them as results rather than mishaps.
 
 \section{Related work}
 

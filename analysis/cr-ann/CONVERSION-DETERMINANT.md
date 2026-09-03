@@ -69,3 +69,24 @@ natural corpus sizes. Two honest sealed FAILs are the evidence trail of that
 last clause — arguably the most OT-flavored finding in the campaign: the
 quantity is real, but this observer's calibration channel cannot see it in
 advance.
+
+
+## Addendum (owner challenge, 2026-09-03 late)
+
+The owner challenged the "not forecastable" conclusion, and the challenge is
+sustained on two points and partially on a third. (1) The gain IS measurable
+in advance in principle: it is itself a retrieval statistic, and Phi is
+exactly that pre-measurement on calibration data. The correct statement is a
+RESOLUTION limit: at n_cal = 460-4,200 the pre-measurement's sampling noise
+(0.011-0.058) is the size of most natural effects, so both sealed families
+barred distinctions finer than the instrument could resolve. Forecastability
+is a power question; noise shrinks as sqrt(n). (2) The paper's title and
+closing overclaimed relative to this; corrected in the same-day commit.
+(3) The "genuine calibration-to-grading shift beyond fold noise" claim above
+is WEAKENED: calibration and grading are exchangeable random splits of one
+corpus, so prediction-versus-outcome deviations are consistent with
+two-sided sampling noise of both quantities; the largest single deviation
+(fairness_mhs, ~1.5 sigma) does not establish shift. The study's candidate
+rankings, tables, and the no-V3 decision are unaffected: sealing against a
+bar finer than the instrument's resolution remains wrong regardless of
+which framing explains the residuals.
