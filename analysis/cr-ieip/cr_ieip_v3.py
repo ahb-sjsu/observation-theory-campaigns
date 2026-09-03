@@ -60,7 +60,9 @@ PROJ_D = 256
 
 RIDGE = 1e-2
 
-SEED = 0
+SEED = int(os.environ.get("IEIP_SEED", "0"))
+
+TRANSFORM = os.environ.get("IEIP_TRANSFORM", "bt")  # "bt" backtranslation | "para" T5 paraphrase
 
 MODEL = os.environ.get("IEIP_MODEL", "Qwen/Qwen2.5-0.5B")
 
@@ -141,6 +143,33 @@ def backtranslate(texts):
     mid = step(texts, MT_FWD)
 
     return step(mid, MT_BWD)
+
+
+
+
+def paraphrase(texts):
+    """Second transform family (IEIP_TRANSFORM=para): T5 paraphraser, replacing
+    the MarianMT round-trip. Identical-text filtering downstream is unchanged."""
+    import torch
+    from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+    torch.set_num_threads(int(os.environ.get("IEIP_THREADS", "8")))
+    name = os.environ.get("IEIP_PARA_MODEL", "humarin/chatgpt_paraphraser_on_T5_base")
+    tok = AutoTokenizer.from_pretrained(name)
+    mt = AutoModelForSeq2SeqLM.from_pretrained(name)
+    out = []
+    for s in range(0, len(texts), 32):
+        prompts = [f"paraphrase: {t}" for t in texts[s:s + 32]]
+        enc = tok(prompts, return_tensors="pt", padding=True, truncation=True,
+                  max_length=80)
+        gen = mt.generate(**enc, max_length=80, num_beams=1, do_sample=False)
+        out.extend(tok.batch_decode(gen, skip_special_tokens=True))
+        if (s + 32) % 640 == 0:
+            print(f"    para {s+32}/{len(texts)}", flush=True)
+    return out
+
+
+def transform(texts):
+    return paraphrase(texts) if TRANSFORM == "para" else backtranslate(texts)
 
 
 
@@ -326,7 +355,7 @@ def main():
 
         texts = load_texts(N_TEXT)
 
-        paras = backtranslate(texts)
+        paras = transform(texts)
 
         keep = [i for i, (a, b) in enumerate(zip(texts, paras))
 
