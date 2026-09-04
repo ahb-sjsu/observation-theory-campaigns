@@ -252,7 +252,9 @@ def build(e):
     if conds:
         out.append("")
         out.append("Conditions are curated in `entries.toml` rather than read from a record.")
-    out += ["", "## machine checked", "", lean_theorems(e["lean"]) if e.get("lean") else "none", ""]
+    lean = e.get("lean")
+    lean = [lean] if isinstance(lean, str) else (lean or [])
+    out += ["", "## machine checked", "", "\n\n".join(lean_theorems(s) for s in lean) if lean else "none", ""]
     chs = chapters_mentioning(e.get("book_terms", [])) if e.get("book_terms") else []
     out += ["## used in", "", ("*Data Mining as Observation* chapters " + ", ".join(str(c) for c in chs) + ".") if chs else "none", ""]
     out += ["## related", "", ", ".join(e.get("related", [])) or "none", ""]
