@@ -47,7 +47,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Ledger.lean`, theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining 13ebbfa.
+`lean/DataMiningAsObservation/Ledger.lean`, theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining a9fd869.
 
 ## used in
 
@@ -59,4 +59,4 @@ preregistration, sealed, certificate, false-clear-rate
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 94e6884, theory-radar 37c4e6c, observation-data-mining 13ebbfa, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns c5a03d7, theory-radar 37c4e6c, observation-data-mining a9fd869, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

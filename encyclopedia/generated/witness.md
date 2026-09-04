@@ -35,14 +35,14 @@ Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that
 | chapter 13 section 13.3 | radio 0.27 to 0.42 naive to 0.055 to 0.13, neural reconstruction 0.28 to 0.13 | `observation-theory-campaigns\experiments\RADIO-FRESHNESS-TRACK.md:20-35` |
 | chapter 13 section 13.4 | refuted fit 0.177 T_coh R² 0.915, 0.15 threshold vs 0.10 claim, fresh baseline 0.113, do not cite | `observation-theory-campaigns\analysis\csi\CSI-refreshfloor.json:2,111-114`; `observation-theory-campaigns\experiments\RADIO-FRESHNESS-TRACK.md:41-47` |
 
-From `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md` at 94e6884.
+From `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md` at c5a03d7.
 
 - line 23. XPROTO-PG (analysis/pgrep) | Postgres, recovery_min_apply_delay | WAL LSN | ~0.50 → ~0.06
 - line 24. XPROTO-MG (analysis/mongo) | MongoDB delayed secondary | oplog ts | ~0.47 → ~0.03
 - line 25. XPROTO-PGX (analysis/pgx) | production PG, netem lag | WAL LSN, pg_stat_statements footprint | ~0.47 → ~0.02
 - line 27. XPROTO-ZK (analysis/zk) | ZooKeeper 3.9 ensemble | zxid, sync() | hot 0.99 / cold 0.01, witnessed 0.0
 
-From `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md` at 94e6884.
+From `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md` at c5a03d7.
 
 - line 25. XPROTO-CSI (analysis/csi) | CQI → MCS | HARQ | 0.34–0.37 → 0.10 (OLLA) | ✅ 08-23
 - line 26. XPROTO-BEAM (analysis/beam) | mmWave beam index | HARQ | 0.31 → 0.02 (BFR) | ✅ 08-23
@@ -63,7 +63,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Certificate.lean`, theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 13ebbfa.
+`lean/DataMiningAsObservation/Certificate.lean`, theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining a9fd869.
 
 ## used in
 
@@ -75,4 +75,4 @@ certificate, false-clear-rate, coverage
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 94e6884, theory-radar 37c4e6c, observation-data-mining 13ebbfa, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns c5a03d7, theory-radar 37c4e6c, observation-data-mining a9fd869, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

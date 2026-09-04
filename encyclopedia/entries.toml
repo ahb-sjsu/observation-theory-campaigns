@@ -779,3 +779,91 @@ conditions = [
 repo = "observation-theory-campaigns"
 file = "ERRATA.md"
 match = "Standing note on records and runners"
+
+[[entry]]
+id = "effective-rank"
+kind = "concept"
+title = "effective rank"
+glossary = "effective rank"
+equations = ["0.7", "4.2"]
+ledger = ["OT-7"]
+first_stated = "The participation ratio of a spectrum, applied to read operators in readscope, `readscope/readscope/spectrum.py:35-70`, and chapter 0 section 0.4 of *Data Mining as Observation*."
+book_records = ["spectrum.py", "read_allocation.py", "SPECTRUM_FINDINGS.md"]
+book_terms = ["effective rank", "participation ratio"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/EffectiveRank.lean"
+related = ["read-operator", "read-subspace", "water-filling", "recognizer"]
+conditions = [
+  "The effective rank is the square of the sum of the eigenvalues over the sum of their squares, between one and the dimension for a nonnegative spectrum, with no cutoff to choose.",
+  "It is not invariant under a change of basis of the input, unlike the trace pairing and the rank, and the ledger row that says so is the one that licenses comparing read operators across coordinate systems.",
+  "An allocation over a spectrum with effective rank below two concentrates on one direction, and the allocation report says so before giving a gain.",
+]
+
+[[entry]]
+id = "poisson-ceiling"
+kind = "instrument"
+title = "Poisson ceiling"
+glossary = "Poisson ceiling"
+equations = ["0.17", "10.3"]
+ledger = ["NEG-11"]
+first_stated = "openvector-bench, `openvector-bench/openvector_bench/hubness.py:41-100`, and chapter 0 section 0.8 and chapter 3 section 3.5 of *Data Mining as Observation*."
+book_records = ["hubness.py:41-100", "HUBNESS_PRIMER.md", "QUERY_COUPLING_ARTIFACT"]
+book_terms = ["Poisson ceiling", "Poisson null", "no-structure ceiling"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/PoissonCeiling.lean"
+related = ["hubness", "anti-hub", "harness", "min-over-strata"]
+conditions = [
+  "Under the null that the slots are handed out at random, a row's count is Poisson with mean the slots per row, and the ceiling is the largest count at least one row would reach by chance. A count above it is evidence of a hub, and a count below it is not evidence of anything.",
+  "The ceiling depends on the query set, through the mean and through the rows the queries reach, so it is recomputed when the queries change, and the program's first hubness numbers moved by a factor of several when query coupling was removed.",
+]
+
+[[entry]]
+id = "anti-hub"
+kind = "concept"
+title = "anti-hub"
+glossary = "anti-hub"
+equations = ["10.3", "10.7"]
+ledger = ["NEG-11", "NEG-14"]
+first_stated = "Radovanović, Nanopoulos, and Ivanović, hubs in space, 2010, as chapter 3 cites it, with the program's five kinds in turboquant-pro, `turboquant-pro/docs/HUBNESS_PRIMER.md:86-131`, and chapter 10 section 10.2 of *Data Mining as Observation*."
+book_records = ["HUBNESS_PRIMER.md", "STRATA", "strat"]
+book_terms = ["anti-hub"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Hubness.lean"
+related = ["hubness", "poisson-ceiling", "min-over-strata", "rank-certificate"]
+conditions = [
+  "An anti-hub is a row no query retrieves, and chapter 10 names five kinds, of which one is manufactured by the query budget rather than by the corpus.",
+  "Anti-hubs are where compressed indexes fail first, since quantization rounds away the fine distinctions by which they are found, while aggregate recall barely moves, which is why recall is reported per stratum with the anti-hub stratum named.",
+]
+
+[[entry]]
+id = "reliability-weight"
+kind = "concept"
+title = "reliability weight"
+glossary = "reliability weight"
+equations = ["0.38", "0.16"]
+ledger = []
+first_stated = "The moral-embedding program's calibrated authority, `gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63` and `xbse/README.md:175-195`, and chapter 12 section 12.5 and chapter 14 section 14.2 of *Data Mining as Observation*."
+book_records = ["CALIBRATED_AUTHORITY.md", "xbse\\README.md:175", "reliability weight", "one formula one source"]
+book_terms = ["reliability weight"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReliabilityWeight.lean"
+related = ["monotone-invariance", "harness", "posited-versus-measured", "certificate"]
+conditions = [
+  "The weight is zero or twice the held-out AUROC minus one, whichever is larger, so it lies in the unit interval, is zero at chance and below, and is unchanged by any strictly monotone recalibration of the score.",
+  "It is a discrimination weight and not a calibration weight. The expected calibration error is reported beside it, and an encoder below the untrained baseline gets weight zero whatever its calibration.",
+  "One formula and one source. The registry that consumes the weights computes them from the recorded held-out AUROC and nothing else.",
+]
+
+[[entry]]
+id = "posited-versus-measured"
+kind = "concept"
+title = "posited versus measured"
+glossary = "posited versus measured"
+equations = ["1.1"]
+ledger = ["OT-11", "NEG-15"]
+first_stated = "The epistemic banners of the four posited volumes, `geometric-ai/README.md`, `geometric-cognition/README.md`, `geometric-reasoning/README.md`, `geometric-education/README.md`, and chapter 14 section 14.8 of *Data Mining as Observation*."
+book_records = ["epistemic banners", "D4 posited", "the four posited volumes", "CONC"]
+book_terms = ["posited"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Ledger.lean"
+related = ["ledger-class", "preregistration", "sealed", "reliability-weight"]
+conditions = [
+  "Every claim in a report is either posited, asserted by design with no artifact behind it, or measured, backed by a committed artifact the reader can open. The division is stated at the top of the report and not inferred from the prose.",
+  "A posited claim carries no ledger class above exploratory, and it stays there until a sealed measurement moves it. The ledger rule that says so is the one machine-checked in the book.",
+  "Four volumes of the program are posited in their entirety and say so on their first page. Their claims are cited only as proposals.",
+]
