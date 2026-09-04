@@ -1557,3 +1557,88 @@ conditions = [
   "Choosing what to drop when a cache is full. Evicting tokens replaces attention over all tokens with attention over the kept subset, so the output lies between the kept values, equals them when they agree, and the whole cache is the case of no eviction.",
   "Which tokens can go is consumer-relative, since a head reads a key only through its score, and the serving-stack measurement of ninety-seven percent eviction at a five percent keep against an oracle is the ledger's number, after one attempt whose control did not exist.",
 ]
+
+[[entry]]
+id = "tf-idf"
+kind = "concept"
+title = "TF-IDF"
+glossary = "TF-IDF"
+equations = ["0.36", "12.3"]
+ledger = ["GO-B-legal (035→036)"]
+first_stated = "Spärck Jones, a statistical interpretation of term specificity, 1972, as chapter 0 section 0.17 states it, with the program's frozen LSA baseline in ledger row GO-B-legal."
+book_records = ["frozen LSA TF-IDF", "TF-IDF"]
+book_terms = ["TF-IDF", "tf-idf"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/TFIDF.lean"
+related = ["bag-of-words", "retrieval-augmented-pipeline", "cross-corpus-gate", "quotient"]
+conditions = [
+  "A term's weight is its frequency in the document times the logarithm of the document count over the number containing it. A term in every document carries no weight, the weight is nonnegative and falls as the term spreads, and the frequency lies in the unit interval.",
+  "It is a reader that reads rarity. The legal-citation flip used a frozen TF-IDF to SVD baseline trained on the training split only, and the flip tied while its magnitude overshot, which the ledger carries as partial.",
+]
+
+[[entry]]
+id = "bag-of-words"
+kind = "concept"
+title = "bag of words"
+glossary = "bag of words"
+equations = ["0.36", "12.3"]
+ledger = []
+first_stated = "Chapter 12 section 12.1 of *Data Mining as Observation*, with the program's bag-of-words null in `xbse/README.md:104-130` and the chapter 14 scorecard."
+book_records = ["bag of words 0.46", "bag-of-words null", "BoW"]
+book_terms = ["bag of words", "bag-of-words", "BoW"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/BagOfWords.lean"
+related = ["tf-idf", "cross-corpus-gate", "quotient", "nuisance"]
+conditions = [
+  "A document as the vector of its term counts. Two documents that are rearrangements of each other have the same bag, so the bag is a quotient that declares word order irrelevant, the counts are nonnegative, and they sum to the document's length.",
+  "As a null model it reads only counts, and an encoder is validated only when its held-out AUROC clears the bag's by the preregistered margin. The scorecard's bag scores lie between 0.46 and 0.54, near chance.",
+]
+
+[[entry]]
+id = "retrieval-augmented-pipeline"
+kind = "concept"
+title = "retrieval-augmented pipeline"
+glossary = "retrieval-augmented pipeline"
+equations = ["12.1", "13.1"]
+ledger = ["OT-11", "GO-B-legal (035→036)"]
+first_stated = "Chapter 12 of *Data Mining as Observation*, with the program's streaming-retrieval staleness row OT-11 and the legal-citation retrieval flip."
+book_records = ["XPROTO-LLM", "041 non-oracle", "streaming", "legal"]
+book_terms = ["retrieval-augmented", "pipeline"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Pipeline.lean"
+related = ["quotient", "read-subspace", "deployment-mismatch", "freshness"]
+conditions = [
+  "A system that chunks documents, embeds the chunks, indexes them, retrieves the nearest to the embedded question, and hands them to a generator. Whatever one stage declares the same, every later stage and the pipeline declare the same, and for linear stages the rank of the composition is at most the rank of any stage, so the pipeline's read subspace is no larger than its narrowest stage's.",
+  "Both hold for every stage, differentiable or not. The benchmark score of the whole is a certificate whose false-clear rate on deployment slices is the chapter's measurement.",
+]
+
+[[entry]]
+id = "teacher-forcing"
+kind = "concept"
+title = "teacher forcing"
+glossary = "teacher forcing"
+equations = ["0.22", "11.1"]
+ledger = ["OT-4"]
+first_stated = "Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's C-12 record in readscope, `readscope/CALIBRATION.md:600-660`."
+book_records = ["teacher forcing removes it", "C-12 four bars"]
+book_terms = ["teacher forcing", "teacher-forced"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/TeacherForcing.lean"
+related = ["perplexity", "drift", "harness", "deployment-mismatch"]
+conditions = [
+  "Feeding a model the correct text as context rather than its own earlier outputs. The forced and free runs agree exactly as long as the forced predictions match the reference, and they part at the first token the model gets wrong, after which the free run's context is no longer the reference's.",
+  "Perplexity is measured under teacher forcing, so a good perplexity does not certify a free run. The C-12 record's thirteen-point difference vanished under teacher forcing, and the operator-drift claim it was meant to support is refuted in the ledger.",
+]
+
+[[entry]]
+id = "inverted-file"
+kind = "instrument"
+title = "inverted file"
+glossary = "inverted file"
+equations = ["11.3", "11.4"]
+ledger = ["GO-3", "NEG-14"]
+first_stated = "Sivic and Zisserman's video Google and the IVF index of Jégou, Douze, and Schmid, as chapter 11 section 11.3 of *Data Mining as Observation* presents them, with the program's probe sweeps in openvector-bench."
+book_records = ["one probe", "eight probes", "probe", "vacuity threshold predicts where single-stage"]
+book_terms = ["inverted file", "\\bIVF\\b", "probe count", "probes"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/InvertedFile.lean"
+related = ["recall-at-k", "product-quantization", "vacuity-threshold", "anti-hub"]
+conditions = [
+  "An index that partitions vectors into cells by k-means and searches only the cells nearest the query. Probing more cells never loses a candidate, a neighbour is found exactly when its cell is probed, the scanned fraction is the probed cells' size over the corpus, and with equal cells it is the probe count over the cell count.",
+  "The recall at one probe against eight in the chapter's table is a measurement, and the vacuity threshold of the certificate predicts where single-stage retrieval dies, which is the ledger's demonstrated row.",
+]
