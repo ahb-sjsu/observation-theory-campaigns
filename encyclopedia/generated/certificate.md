@@ -44,7 +44,7 @@ Volume 14, chapter 19 for the certificate that ages and chapter 9 of *Data Minin
 
 ## failures and corrections
 
-- `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:33-39` at 9554740. ⚠️ **XPROTO-AICSI scope correction (2026-08-25).** The v1 seal stands for what it tested, but the reconstruction-vs-consumer dissociation does **not** survive the community-standard substrate. On real 3GPP CDL-C with a CsiNet-class codec the NMSE-optimal codec reconstructs near-perfectly (NMSE ≈ 0.03) and false-clears 0.0 on all seeds; the pre-registered kill fired. See `analysis/aicsi/PREREG-XPROTO-AICSI-V2.md` (REFUTED AT SHAKEDOWN, NOT SEALED, kept negative). This is a scope correction, not a retraction. Do not headline the AICSI row; WCNC §III-C is dropped.
+- `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:33-39` at 6ed7775. ⚠️ **XPROTO-AICSI scope correction (2026-08-25).** The v1 seal stands for what it tested, but the reconstruction-vs-consumer dissociation does **not** survive the community-standard substrate. On real 3GPP CDL-C with a CsiNet-class codec the NMSE-optimal codec reconstructs near-perfectly (NMSE ≈ 0.03) and false-clears 0.0 on all seeds; the pre-registered kill fired. See `analysis/aicsi/PREREG-XPROTO-AICSI-V2.md` (REFUTED AT SHAKEDOWN, NOT SEALED, kept negative). This is a scope correction, not a retraction. Do not headline the AICSI row; WCNC §III-C is dropped.
 
 ## conditions
 
@@ -69,4 +69,4 @@ witness, false-clear-rate, coverage, rank-certificate, vacuity-threshold, cohere
 
 ## status
 
-Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 9554740, theory-radar 37c4e6c, observation-data-mining 4f84c57, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 6ed7775, theory-radar 37c4e6c, observation-data-mining 4f84c57, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

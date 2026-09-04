@@ -568,3 +568,87 @@ conditions = [
   "Two consumers with the same read operator on the same workload share a read geometry and are not thereby the same observer, since the consumer stays part of the triple and a sign change reverses every ranking.",
   "The output metric is a loss on the consumer's output. Where it has a local quadratic representation, that local geometry enters the read operator. A dataset-level loss has none, and the read operator is then taken on the score with the identity geometry.",
 ]
+
+[[entry]]
+id = "consumer"
+kind = "concept"
+title = "consumer"
+glossary = "consumer"
+equations = ["1.1", "0.8"]
+ledger = ["GO-1", "GO-EC-3"]
+first_stated = "Volume 14, chapter 4, `geometric-observation/chapters/ch04_the_observer_triple.md:9-60` and its consumer table at lines 60-135, DOI 10.5281/zenodo.21776291."
+book_records = ["ch04_the_observer_triple.md", "regimes.py", "row GO-1"]
+book_terms = ["consumers?\\b"]
+related = ["observer", "read-operator", "sensitivity", "budget"]
+conditions = [
+  "A consumer is any computation that takes a vector in and gives an output out, a softmax, a classifier, an index, a person reading a report. The book's quantities are functions of the consumer, and two consumers with the same read operator are not thereby the same consumer.",
+  "A selection consumer, a tree or a threshold, has zero sensitivity almost everywhere and is read by counting where it selects rather than by finite differences.",
+]
+
+[[entry]]
+id = "budget"
+kind = "concept"
+title = "budget"
+glossary = "budget"
+equations = ["1.1", "0.13", "11.4"]
+ledger = ["GO-4", "OT-3", "GO-12"]
+first_stated = "Volume 14, chapter 4 for the triple and chapter 7 for cost, `geometric-observation/chapters/ch07_cost.md`, DOI 10.5281/zenodo.21776291."
+book_records = ["ch07_cost.md", "row GO-4", "PRINCIPLES.md", "GO-12"]
+book_terms = ["budgets?\\b"]
+related = ["observer", "water-filling", "budget-cliff", "coverage"]
+conditions = [
+  "The budget is the bits, rows, calls, seconds, or dollars a consumer may spend. It bounds what of the read operator can be measured and used, and changes the operator only when it changes the consumer.",
+  "Comparisons are made at matched budget. A verdict at a fixed budget can invert under budget matching, and the ledger carries the case.",
+  "For a probe the budget is consumer calls, and recovery of the read operator is a cliff at the full dimension of the space.",
+]
+
+[[entry]]
+id = "nuisance"
+kind = "concept"
+title = "nuisance"
+glossary = "nuisance"
+equations = ["0.12"]
+ledger = ["GO-1", "NEG-6", "NEG-7"]
+first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291, where the nuisance is the kernel of the read operator."
+book_records = ["ch05_the_read_metric_and_the_quotient.md", "row GO-1", "NEG-6", "NEG-7"]
+book_terms = ["nuisances?\\b"]
+related = ["read-subspace", "read-operator", "quotient", "identity-reader"]
+conditions = [
+  "The nuisance is the kernel of the workload-averaged read operator, the set of directions unread at almost every row of that workload, since the kernel of the average is the intersection of the local kernels.",
+  "For a nonlinear consumer a null direction can turn with the row, so the nuisance of the average is not a global equivalence of inputs, and cosine similarity's radial direction is the case.",
+  "A transform is safe when the reader it produces still resolves the read subspace, and discretization is safe only when the values it merges differ in nuisance directions.",
+]
+
+[[entry]]
+id = "read-subspace"
+kind = "concept"
+title = "read subspace"
+glossary = "read subspace"
+equations = ["0.9", "2.1", "6.1"]
+ledger = ["OT-3", "GO-B-Llama", "NEG-12", "GO-B-Llama-rematch"]
+first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291, where the read subspace is the range of the read operator."
+book_records = ["ch05_the_read_metric_and_the_quotient.md", "GO-B-Llama", "NEG-12", "PRINCIPLES.md"]
+book_terms = ["read subspace"]
+related = ["nuisance", "read-operator", "blind-probe", "budget-cliff"]
+conditions = [
+  "The read subspace is spanned by the eigenvectors of the read operator with nonzero eigenvalue, and it is small. A linear classifier reads one direction, an attention head a handful, and the input has hundreds or thousands.",
+  "Pointwise, a scalar-output consumer reads one direction at each row, and the averaged operator can still have full rank, as the consumer that reads the squared length of a row shows.",
+  "Recovering it from a black box costs two consumer calls per input dimension per row and is a cliff at the full dimension.",
+]
+
+[[entry]]
+id = "sensitivity"
+kind = "concept"
+title = "sensitivity"
+glossary = "sensitivity"
+equations = ["0.8", "0.11", "14.4"]
+ledger = ["GO-EC-3", "NEG-14"]
+first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291, as the gradient of the consumer at a row."
+book_records = ["regimes.py", "GO-EC-3", "NEG-14", "ch05_the_read_metric_and_the_quotient.md"]
+book_terms = ["sensitivit(?:y|ies)"]
+related = ["read-operator", "consumer", "blind-probe", "read-subspace"]
+conditions = [
+  "The sensitivity of a consumer at a row is the vector of partial derivatives of its output with respect to each coordinate, measurable without the formula by a central finite difference at two calls per coordinate.",
+  "The read operator is the workload average of the sensitivity's outer product, so its diagonal is the expected squared sensitivity to each feature and its off-diagonal entries are co-sensitivities, not interactions.",
+  "A gradient-based attribution estimates the sensitivity. Permutation importance, partial dependence, and Shapley values measure other things.",
+]
