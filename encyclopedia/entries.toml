@@ -1387,3 +1387,88 @@ conditions = [
   "The spread of an estimate across repeated samples, the spread of one draw over the square root of the number of independent draws. It is positive, falls as the draws grow, halves only when the draws quadruple, and tends to zero.",
   "Dependent draws do not shrink it this way. A thousand repeated folds shrink the naive standard error by a factor near 31.6 and the corrected one by 15.84 less, which is the Nadeau and Bengio correction.",
 ]
+
+[[entry]]
+id = "softmax"
+kind = "concept"
+title = "softmax"
+glossary = "softmax"
+equations = ["0.23", "0.24"]
+ledger = ["NEG-8", "NEG-9"]
+first_stated = "Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's softmax reader in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["KV_KEYS_FINDING", "softmax reader", "softmax attention head"]
+book_terms = ["softmax"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Softmax.lean"
+related = ["attention", "kl-divergence", "perplexity", "consumer"]
+conditions = [
+  "The softmax exponentiates a list of scores and divides by the sum, so the weights are positive and add to one. Adding the same constant to every score leaves it unchanged, and a larger score gets a larger weight.",
+  "As a consumer it reads the scores through their differences, which is why the two proxies for softmax-KL in the ledger, the variance ratio and the projected-variance trace, were refuted.",
+]
+
+[[entry]]
+id = "attention"
+kind = "concept"
+title = "attention"
+glossary = "attention"
+equations = ["0.23", "11.1"]
+ledger = ["GO-2/GO-12/GO-13 operational", "NEG-2"]
+first_stated = "Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observation*, with the program's head-level measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the serving-stack ledger row."
+book_records = ["KV_KEYS_FINDING", "attention head", "a2_probe", "heads at 0.815"]
+book_terms = ["attention"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Attention.lean"
+related = ["softmax", "read-subspace", "nuisance", "flip"]
+conditions = [
+  "A head weights each earlier token's value by the softmax of its query-key score and sums. For scalar values the output lies between the smallest and largest value, and the head reads the keys only through their scores against the query, so a key change the query does not read leaves the output unchanged however large it is.",
+  "That is the head's read subspace, a few query-weighted directions of each key, and the reason a key reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude.",
+]
+
+[[entry]]
+id = "product-quantization"
+kind = "instrument"
+title = "product quantization"
+glossary = "product quantization"
+equations = ["11.3", "4.2"]
+ledger = ["NEG-14"]
+first_stated = "Jégou, Douze, and Schmid, product quantization for nearest neighbor search, 2011, as chapter 11 section 11.3 of *Data Mining as Observation* presents it, with the program's comparisons in openvector-bench and turboquant-pro."
+book_records = ["25 subspaces", "product quantization", "codebook", "STRATA"]
+book_terms = ["product quantiz", "codebook"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ProductQuantization.lean"
+related = ["recall-at-k", "anti-hub", "water-filling", "rank-certificate"]
+conditions = [
+  "Splitting a vector into pieces and quantizing each with its own codebook. The squared error of the whole is the sum of the pieces' errors, so the best code for the whole is the best code for each piece separately, and K entries per piece over M pieces address K to the M cells in M log₂ K bits.",
+  "It is evaluated by recall at k per stratum and by the rank certificate, never by reconstruction error, and the anti-hub stratum is where it fails first.",
+]
+
+[[entry]]
+id = "bootstrap"
+kind = "instrument"
+title = "bootstrap"
+glossary = "bootstrap"
+equations = ["8.2", "0.18"]
+ledger = []
+first_stated = "Efron, bootstrap methods, 1979, as chapter 0 section 0.9 states it, with the program's paired form in the flip comparisons of Volume 14 and the constraint-gap review."
+book_records = ["paired bootstrap", "bootstrap", "FINDINGS.md:1-35"]
+book_terms = ["bootstrap"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Bootstrap.lean"
+related = ["confidence-interval", "standard-error", "nadeau-and-bengio-correction", "harness"]
+conditions = [
+  "An interval estimated by resampling the data with replacement and recomputing the statistic each time. A paired bootstrap resamples the same rows for two methods at once, and the variance of the difference is the sum of the two variances minus twice their covariance, so pairing narrows the interval exactly when the two scores covary positively across rows.",
+  "Resampling rows does not undo dependence between folds, which is the correction's job, and the bootstrap's interval is only as wide as the sample it resamples.",
+]
+
+[[entry]]
+id = "chance-level"
+kind = "concept"
+title = "chance level"
+glossary = "chance level"
+equations = ["0.16", "0.15", "0.38"]
+ledger = []
+first_stated = "Chapter 0 section 0.8 of *Data Mining as Observation*, with the program's chance-overlap reporting in `readscope/readscope/metrics.py:31-99`."
+book_records = ["chance overlap", "times chance", "chance level"]
+book_terms = ["chance level", "chance overlap", "times chance"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ChanceLevel.lean"
+related = ["reliability-weight", "cross-corpus-gate", "kendall-correlation", "harness"]
+conditions = [
+  "The value a rank statistic reaches under a ranking that carries no information. A constant score ties every pair, so its AUROC is one half when both classes are present, its Kendall correlation with any score is zero, and its reliability weight is zero.",
+  "Every reading the probe reports comes with its chance overlap beside it, and a gate subtracts the chance level before it counts a margin.",
+]

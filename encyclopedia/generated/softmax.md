@@ -1,29 +1,30 @@
-# KL divergence
+# softmax
 
-**id.** kl-divergence
+**id.** softmax
 **kind.** concept
 
 ## definition
 
-A measure of how far one probability distribution is from another, zero when they are identical. Equation 0.24.
+The function that exponentiates a list of numbers and divides by their sum, so that they are positive and add to one. Equation 0.23.
 
 ## equation
+
+Book equation 0.23.
+
+    \operatorname{softmax}(z)_i=\frac{e^{z_i}}{\sum_j e^{z_j}},\qquad \text{output}=\sum_i\operatorname{softmax}\!\Big(\frac{q\cdot k_i}{\sqrt{d}}\Big)_{\!i}\,v_i.
 
 Book equation 0.24.
 
     \mathrm{KL}(p\,\|\,q)=\sum_i p_i\ln\frac{p_i}{q_i}\ \ge 0.
 
-Book equation 0.22.
-
-    \mathrm{PPL}=2^{H},\qquad H=-\frac1T\sum_{t=1}^{T}\log_2 p\big(w_t\mid w_{<t}\big).
-
 ## ledger
 
-- NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 7d91883.
+- NEG-8. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer. `[refuted]`. `geometric-observation/claims/LEDGER.md:101` at 7d91883.
+- NEG-9. The projected-variance trace tr(P_C·Σ_δ) is a complete rank statistic for softmax-KL across all arms. `[refuted]`. `geometric-observation/claims/LEDGER.md:102` at 7d91883.
 
 ## first stated
 
-Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section 0.11 states it beside perplexity, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
+Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's softmax reader in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
 
 ## measurements
 
@@ -38,26 +39,27 @@ Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section
 
 ## failures and corrections
 
-- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality.
+- NEG-8, `[refuted]`. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer.
+- NEG-9, `[refuted]`. The projected-variance trace tr(P_C·Σ_δ) is a complete rank statistic for softmax-KL across all arms.
 
 ## conditions
 
-- The expected log ratio of two distributions' masses under the first. It is nonnegative by Gibbs' inequality, zero when the distributions agree, and not symmetric, so the direction of the comparison is part of the claim.
-- The book's use is through perplexity. A reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude, which is the case that reconstruction error is not the consumer's error.
+- The softmax exponentiates a list of scores and divides by the sum, so the weights are positive and add to one. Adding the same constant to every score leaves it unchanged, and a larger score gets a larger weight.
+- As a consumer it reads the scores through their differences, which is why the two proxies for softmax-KL in the ledger, the variance ratio and the projected-variance trace, were refuted.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KL.lean`, theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining 4f92f61.
+`lean/DataMiningAsObservation/Softmax.lean`, theorems `denom_pos`, `softmax_pos`, `softmax_sum`, `softmax_shift`, `softmax_lt_iff`, at observation-data-mining 4f92f61.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 8, 11.
+*Data Mining as Observation* chapters 0, 2, 3, 4, 8, 11.
 
 ## related
 
-identity-reader, read-distortion, calibration, flip
+attention, kl-divergence, perplexity, consumer
 
 ## status
 
