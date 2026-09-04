@@ -1,25 +1,25 @@
-# recognizer
+# intrinsic dimension
 
-**id.** recognizer
-**kind.** instrument
+**id.** intrinsic-dimension
+**kind.** concept
 
 ## definition
 
-The instrument that decides whether a clustering certificate is right, wrong, or vacuous, by naming the manifold from the eigenvalue multiplets or certifying that none is present. Chapter 9.
+The number of directions a dataset actually varies along, whatever the number of its coordinates. Chapter 0 section 0.10.
 
 ## equation
 
-Book equation 9.3.
+Book equation 0.31.
 
-    \hat\mu=\frac{\bar s_{\mathrm{true}}-\bar s_{\mathrm{distr}}}{\sigma_{\mathrm{distr}}},\qquad \mu_{\mathrm{crit}}=\mathbb E\Big[\max_{N-1}\mathcal N(0,1)\Big],\qquad \rho=\frac{\hat\mu}{\mu_{\mathrm{crit}}},\qquad \rho=1\ \text{vacuous}.
-
-Book equation 0.32.
-
-    \operatorname{dist}(m,t)=\sqrt{\frac18\sum_{k=1}^{8}\big(\ln m_k-\ln t_k\big)^{2}}.
+    N(\lambda)=\#\{k:\lambda_k\le\lambda\}\ \sim\ C_d\,\lambda^{d/2}.
 
 Book equation 9.2.
 
     N(\lambda)=\#\{k:\lambda_k\le\lambda\}\ \sim\ C_d\,\lambda^{d/2}\qquad\Rightarrow\qquad d=2\,\frac{d\log N}{d\log\lambda}.
+
+Book equation 0.7.
+
+    r_{\mathrm{eff}}=\frac{\big(\sum_i\lambda_i\big)^{2}}{\sum_i\lambda_i^{2}}.
 
 ## ledger
 
@@ -27,7 +27,7 @@ Book equation 9.2.
 
 ## first stated
 
-Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-95`, DOI 10.5281/zenodo.21776291, and the-angular-observer's recognizer battery, `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80`.
+Weyl's law, 1911, as chapter 0 section 0.15 states it, applied in the recognizer of Volume 14 chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-95`, and chapter 9 section 9.2 of *Data Mining as Observation*.
 
 ## measurements
 
@@ -45,8 +45,12 @@ Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-
 | chapter 9 section 9.2 | the battery, three new templates, frozen ratios, code hash, bars at least 10 of 12 and the dimension ordering, eccentricity scope | `the-angular-observer\PREREG_RECOGNIZER_BATTERY.md:1-80` |
 | chapter 9 section 9.2 | 12 of 12, dimensions 1.81, 2.80, 1.74, angular Spearman ranges, eccentricity spreads, verdict confirmed, GO-P-2026-041 | `the-angular-observer\experiments\manifold-recovery\battery_result.json` |
 | chapter 9 section 9.2 | causal set 0.57 with dimension 2.9 to 10.7, small world 0.45, control 0.01, rung 4 decay 0.747 to 0.679 below 0.75 | `the-angular-observer\README.md:99-109`; `wolfram-observer-bridge\rung4_scaledm_result.json`; `wolfram-observer-bridge\review-2.txt` |
-| chapter 9 section 9.3 | the margin certificate, mu crit as the expected maximum of N minus 1 standard normals, rho, death at 0.948 within 6 percent, Spearman 0.991 vs 0.873, fourteen corpora, six gates, the v1 to v3 path, the standing correction | `geometric-observation\experiments\GO3-certificate-vacuity-v3-NOTES.md:1-60`; `geometric-observation\claims\LEDGER.md` row GO-3 |
+| chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:10-18` |
 | chapter 11 section 11.1 | condition (A2), cosine satisfies it, post-rotary keys do not, the cone below cell size | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `the-angular-observer\README.md:26-31` |
+| chapter 14 section 14.3 | floor 0.08 to 0.12, balanced resample 3001 items, identity attack 0.237 with interval 0.20 to 0.28 on 289, sexual 0.204, threat 0.093 retracted, first pass 18 positives, 87.7 and 1.4 percent | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:20-64` |
+| chapter 14 section 14.3 | contraction 0.779 to 0.863, 77 of 1600, 4.8 percent, 0.872 to 0.863, weight 2.69 | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:66-99` |
+| chapter 14 section 14.5 | the contraction formula fairness minus the general component | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:90-99` |
+| chapter 14 section 14.7 | 51 percent moderated at 80 and 95 percent precision on the balanced set | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:84-88` |
 
 ## failures and corrections
 
@@ -54,22 +58,22 @@ none
 
 ## conditions
 
-- The recognizer names a manifold from the low eigenvalue multiplets of a neighbourhood graph's Laplacian by template match, or certifies that none is present, and it can only name shapes in its template set.
-- It was held to a preregistered held-out battery, and the vacuity threshold below which it certifies nothing is derived from the problem rather than tuned.
+- The intrinsic dimension is the number of directions a dataset varies along, whatever its coordinate count. Under Weyl's law the count of eigenvalues below a level grows like the level to half the dimension, so the dimension is twice the slope of log count against log level between any two levels, whatever the constant.
+- Dimension emerges before shape. The recognizer reports it with confidence before it names a manifold, and the law is an asymptotic statement about manifolds that a finite sample approximates.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Recognizer.lean`, theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 9034ccc.
+`lean/DataMiningAsObservation/IntrinsicDimension.lean`, theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 9034ccc.
 
 ## used in
 
-*Data Mining as Observation* chapters 9.
+*Data Mining as Observation* chapters 0, 3, 8, 9, 11.
 
 ## related
 
-certificate, vacuity-threshold, hubness
+recognizer, effective-rank, distance-concentration, vacuity-threshold
 
 ## status
 

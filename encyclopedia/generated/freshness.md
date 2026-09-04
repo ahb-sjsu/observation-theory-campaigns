@@ -1,13 +1,17 @@
-# coherence time
+# freshness
 
-**id.** coherence-time
+**id.** freshness
 **kind.** concept
 
 ## definition
 
-The interval over which a changing quantity stays correlated with itself. A value measured longer ago than the coherence time is a guess. Equation 0.25.
+Whether a stored value is still within its coherence time when it is read. Consumer-relative, since two readers of the same replica can have different freshness. Chapter 13.
 
 ## equation
+
+Book equation 0.26.
+
+    \mathrm{FC}=\Pr\big[W\ \text{refutes}\ \big|\ \mathcal C_t\ \text{clears}\big],\qquad \text{coverage}=\Pr\big[\mathcal C_t\ \text{clears}\big].
 
 Book equation 0.25.
 
@@ -20,18 +24,19 @@ Book equation 13.2.
 ## ledger
 
 - OT-4. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. `[refuted]`. `geometric-observation/claims/LEDGER.md:36` at 7d91883.
+- OT-11. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. `[void]`. `geometric-observation/claims/LEDGER.md:48` at 7d91883.
 
 ## first stated
 
-Clarke's model of mobile-radio reception for the formula, and Volume 14 chapter 19 for its role as the interval past which a certificate has decorrelated.
+Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that_ages.md`, DOI 10.5281/zenodo.21776291, and the freshness track, `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:20-35`.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
+| chapter 13 section 13.2 | the grammar, certificate, witness, refresh floor, false-clear rate, vacuity, the witness table | `geometric-observation\chapters\ch19_the_certificate_that_ages.md:1-95`; `observation-theory-campaigns\experiments\FRESHNESS-PROGRAM.md:1-40` |
 | chapter 13 section 13.3 | radio 0.27 to 0.42 naive to 0.055 to 0.13, neural reconstruction 0.28 to 0.13 | `observation-theory-campaigns\experiments\RADIO-FRESHNESS-TRACK.md:20-35` |
 | chapter 13 section 13.4 | refuted fit 0.177 T_coh R² 0.915, 0.15 threshold vs 0.10 claim, fresh baseline 0.113, do not cite | `observation-theory-campaigns\analysis\csi\CSI-refreshfloor.json:2,111-114`; `observation-theory-campaigns\experiments\RADIO-FRESHNESS-TRACK.md:41-47` |
-| chapter 13 section 13.4 | sealed correction, 0.5 dB calibration, floors 4/6/4, 2/2/3, 1, slopes 0.1008, 0.1398, 0.1086, R² 0.7376, 0.9218, 0.6174, bars B1 to B4 and MC1 to MC4 all true, seeds 20260827 to 20260829, sealed 1d3de4a | `observation-theory-campaigns\analysis\csi\PREREG-XPROTO-CSI-SWEEP2.md:1-60`; `observation-theory-campaigns\analysis\csi\XPROTO-CSI-SWEEP2-graded.json`; `observation-theory-campaigns\experiments\SEALS.md:90` |
 
 ## failures and corrections
 
@@ -40,23 +45,22 @@ Clarke's model of mobile-radio reception for the formula, and Volume 14 chapter 
 
 ## conditions
 
-- Clarke's formula gives the coherence time from the Doppler frequency alone and assumes the fading model behind it.
-- A value measured longer ago than the coherence time is a guess, and a certificate issued that long ago has decorrelated from the state it certified.
-- The proportional refresh-floor law that was fit to it was refuted and is not cited. Its sealed replacement calibrated the baseline first and found floors at a few transmission intervals.
+- A stored value is fresh for a reader when its age is within that reader's coherence time. Freshness is consumer-relative. Two readers of the same replica with different coherence times disagree about every age between the two, and the staleness rate of a mixed population is a weighted mean of the two readers' rates, strictly between them when they differ, so it describes neither.
+- The measured false-clear rates on the named substrates, ZooKeeper, Postgres, MongoDB, and the radio link, are the freshness program's numbers, and the refuted refresh law is its standing negative.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CoherenceTime.lean`, theorems `clarke_to_three_decimals`, `examples`, `refuted_law_exceeds_sealed`, at observation-data-mining 9034ccc.
+`lean/DataMiningAsObservation/Freshness.lean`, theorems `disagree`, `mixedRate_between`, `mixedRate_eq_left_iff`, `stale_for_all`, at observation-data-mining 9034ccc.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 13.
+*Data Mining as Observation* chapters 0, 1, 2, 4, 8, 11, 12, 13, 14.
 
 ## related
 
-certificate, false-clear-rate, refresh-floor, witness
+coherence-time, certificate, false-clear-rate, refresh-floor, drift
 
 ## status
 

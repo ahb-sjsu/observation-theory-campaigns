@@ -43,7 +43,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Leakage.lean`, theorems `errors_lookup_eq_zero`, `lookup_default`, at observation-data-mining 688f9d0.
+`lean/DataMiningAsObservation/Leakage.lean`, theorems `errors_lookup_eq_zero`, `lookup_default`, at observation-data-mining 9034ccc.
 
 ## used in
 
@@ -55,4 +55,4 @@ harness, preregistration, sealed, hubness
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns b4786ff, theory-radar 37c4e6c, observation-data-mining 688f9d0, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 0c81b38, theory-radar 37c4e6c, observation-data-mining 9034ccc, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
