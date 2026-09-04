@@ -867,3 +867,94 @@ conditions = [
   "A posited claim carries no ledger class above exploratory, and it stays there until a sealed measurement moves it. The ledger rule that says so is the one machine-checked in the book.",
   "Four volumes of the program are posited in their entirety and say so on their first page. Their claims are cited only as proposals.",
 ]
+
+[[entry]]
+id = "nadeau-and-bengio-correction"
+kind = "correction"
+title = "Nadeau and Bengio correction"
+glossary = "Nadeau and Bengio correction"
+equations = ["0.18", "8.2"]
+ledger = []
+first_stated = "Nadeau and Bengio, inference for the generalization error, 2003, as chapter 8 cites it, applied to the program's own comparison in `constraint-gap/review/FINDINGS.md:1-35` and chapter 8 section 8.5 of *Data Mining as Observation*."
+book_records = ["FINDINGS.md:1-35", "REDESIGN.md", "REVISION_PLAN.md", "theory_radar_v6_submission"]
+book_terms = ["Nadeau", "fold-local", "variance inflation"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/NadeauBengio.lean"
+related = ["harness", "formula-search", "preregistration", "multiple-comparisons"]
+conditions = [
+  "Repeated cross-validation folds share training data, so the naive variance of a mean difference is multiplied by one plus the fold count times the test-to-train ratio. The corrected variance is never below the naive one and the inflation grows without bound in the fold count.",
+  "With a thousand folds at a ratio of one quarter the inflation is 251, the standard error grows by 15.84, and about four folds' worth of independent evidence remain. The program's nine wins became three under it, with seventeen indeterminate.",
+]
+[[entry.errata]]
+repo = "theory-radar"
+file = "paper/REVISION_PLAN.md"
+match = "sigma|Nadeau"
+
+[[entry]]
+id = "cross-corpus-gate"
+kind = "instrument"
+title = "cross-corpus gate"
+glossary = "cross-corpus gate"
+equations = ["12.3", "0.16"]
+ledger = []
+first_stated = "The moral-embedding program, `xbse/README.md:104-130,160-172`, and chapter 12 section 12.5 and chapter 14 section 14.2 of *Data Mining as Observation*."
+book_records = ["xbse\\README.md:104", "xbse\\README.md:160", "rights_r6_summary", "cross-corpus"]
+book_terms = ["cross-corpus"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/CrossCorpusGate.lean"
+related = ["reliability-weight", "harness", "leakage", "preregistration"]
+conditions = [
+  "An encoder votes only if its held-out AUROC on a corpus it was not trained on clears both nulls, the untrained encoder and the bag-of-words baseline, by the preregistered margin of one tenth. A validated encoder therefore beats each null by the margin.",
+  "Since AUROC is at most one, a null above nine tenths cannot be cleared by any encoder, and the gate's verdict is unchanged by any strictly monotone recalibration of the score.",
+  "The rights encoder fell below the untrained baseline and was retired rather than tuned, and the within-corpus scores that had collapsed on a second corpus were the reason the gate is cross-corpus.",
+]
+
+[[entry]]
+id = "deployment-mismatch"
+kind = "concept"
+title = "deployment mismatch"
+glossary = "deployment mismatch"
+equations = ["13.1", "12.6"]
+ledger = ["OT-4", "GO-2/GO-12/GO-13 operational"]
+first_stated = "Chapter 1 section 1.7 and chapter 13 of *Data Mining as Observation*, with the program's case in the radio slice sweep, `observation-theory-campaigns/analysis/llm/PREREG-XPROTO-LLM.md`, and the serving-stack measurement of ledger row GO-2/GO-12/GO-13 operational."
+book_records = ["XPROTO-LLM", "deployment mean", "GO-P-2026-077", "attempt three"]
+book_terms = ["deployment mismatch", "deployment mean", "the consumer that was deployed"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/DeploymentMismatch.lean"
+related = ["observer", "certificate", "coherence-time", "min-over-strata"]
+conditions = [
+  "The failure in which the consumer that was evaluated is not the consumer that was deployed, or time moved between the two. A deployment score is a weighted mean over the slices actually served, so it lies between the worst slice and the best, and a benchmark drawn from the best slice overstates it unless every weighted slice matches.",
+  "The chapter's case scores 0.909 on the benchmark against a target of 0.8 and 0.736 on the deployment mean, and the six bars that separate the two are preregistered.",
+]
+
+[[entry]]
+id = "distance-concentration"
+kind = "concept"
+title = "distance concentration"
+glossary = "distance concentration"
+equations = ["0.7"]
+ledger = ["NEG-11"]
+first_stated = "The classical result on nearest neighbours in high dimension, as TSK chapter 2 presents it, and chapter 3 section 3.4 of *Data Mining as Observation*, where it is read as the reader running out of resolution."
+book_records = ["hubness.py:41-100", "concentration caution", "read_allocation.py"]
+book_terms = ["distance concentration", "concentrat(?:e|es|ion) of distances", "runs out of resolution"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/DistanceConcentration.lean"
+related = ["hubness", "effective-rank", "read-subspace", "rank-certificate"]
+conditions = [
+  "When a squared distance is a sum of independent coordinate contributions with a common mean and variance, its relative spread is the variance over the dimension times the squared mean, which falls with the dimension and tends to zero. The independence is the model's assumption.",
+  "The book reads the narrowing as a property of the reader, the identity reader on all coordinates, and not of the data. A consumer that reads a low-dimensional subspace does not see it, which is why the effective rank and not the ambient dimension is the number that matters.",
+]
+
+[[entry]]
+id = "calibration"
+kind = "concept"
+title = "calibration"
+glossary = "calibration"
+equations = ["0.29", "0.38"]
+ledger = ["NEG-4"]
+first_stated = "Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's calibrated authority in `gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63` and the recalibration negative of ledger row NEG-4."
+book_records = ["CALIBRATED_AUTHORITY.md", "recalibration", "ECE 0.018", "held-out calibration error"]
+book_terms = ["calibrat(?:ion|ed)", "expected calibration error", "\\bECE\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Calibration.lean"
+related = ["reliability-weight", "cross-corpus-gate", "monotone-invariance", "identity-reader"]
+conditions = [
+  "A score is calibrated when a value of 0.8 means the row is positive eighty percent of the time. The expected calibration error, the bin-weighted mean absolute gap between mean score and fraction of positives, lies in the unit interval and is zero exactly when every weighted bin is calibrated.",
+  "Calibration is a property of the score values and not of their ranking, so a recalibration can change it while leaving AUROC, the reliability weight, and every threshold-swept metric unchanged. The two are reported side by side and neither stands in for the other.",
+  "Recalibrating a reconstruction toward the input improved the reconstruction and worsened the consumer, the standing negative that keeps calibration off the list of acceptance metrics for a code.",
+]
