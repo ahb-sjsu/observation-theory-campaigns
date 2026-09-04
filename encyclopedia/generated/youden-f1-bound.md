@@ -67,7 +67,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/MonotoneInvariance.lean`, theorems `aurocNum_comp`, `auroc_comp`, `predicted_comp`, `predictedBelow_comp`, `sweptF1_comp`, `sweptF1Below_comp`, `optF1_comp`, at observation-data-mining 4f84c57.
+`lean/DataMiningAsObservation/YoudenF1.lean`, theorems `f1_eq`, `f1_le_of_youden`, `auroc_eq`, `youden_eq`, `youden_exceeds_auroc_form`, at observation-data-mining 22aa258.
 
 ## used in
 
@@ -79,4 +79,4 @@ monotone-invariance, formula-search, safe-pruning, apriori
 
 ## status
 
-Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 6ed7775, theory-radar 37c4e6c, observation-data-mining 4f84c57, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 2a2e053, theory-radar 37c4e6c, observation-data-mining 22aa258, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

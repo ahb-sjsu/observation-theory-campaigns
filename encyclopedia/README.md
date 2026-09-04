@@ -40,9 +40,14 @@ acceptance test for the generator that will fill them from the records.
 | [nuisance](generated/nuisance.md) | concept | the kernel of the workload-averaged read operator, the directions unread at almost every row |
 | [read subspace](generated/read-subspace.md) | concept | the range of the read operator, small, and recoverable from a black box at a price |
 | [sensitivity](generated/sensitivity.md) | concept | the gradient of the consumer at a row, whose averaged outer product is the read operator |
+| [harness](generated/harness.md) | concept | the code that evaluates a model, itself a consumer whose read subspace decides what the score measures |
+| [leakage](generated/leakage.md) | concept | information in the training data known only after the decision, or an identifier that names a test row |
+| [preregistration](generated/preregistration.md) | instrument | the hypothesis, the bar, and the analysis committed before the measurement is run |
+| [ledger class](generated/ledger-class.md) | concept | one of six labels every headline claim carries, raised only by a sealed pass and lowered by a sealed miss |
+| [sealed](generated/sealed.md) | instrument | a prediction committed with its hash recorded before the measurement, verifiable by anyone with the repository |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other thirty exist only as generated entries, built from the records by `generate.py`.
+other thirty-five exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
