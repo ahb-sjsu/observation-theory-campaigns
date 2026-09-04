@@ -68,7 +68,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Hubness.lean`, theorems `sum_count`, `sum_count_eq`, `count_congr`, `antiHub_iff`, at observation-data-mining 7aab08c.
+`lean/DataMiningAsObservation/Hubness.lean`, theorems `sum_count`, `sum_count_eq`, `count_congr`, `antiHub_iff`, at observation-data-mining 688f9d0.
 
 ## used in
 
@@ -80,4 +80,4 @@ quotient, certificate, rank-certificate, min-over-strata
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 92c643b, theory-radar 37c4e6c, observation-data-mining 7aab08c, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns b4786ff, theory-radar 37c4e6c, observation-data-mining 688f9d0, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
