@@ -15,9 +15,14 @@ acceptance test for the generator that will fill them from the records.
 | [certificate](generated/certificate.md) | concept | a claim, made at a time, that something is safe to act on, graded by a witness |
 | [witness](generated/witness.md) | concept | an independent measurement of whether a certificate's claim was true |
 | [coverage](generated/coverage.md) | concept | the fraction of decisions a certificate clears, read beside its false-clear rate |
+| [rank certificate](generated/rank-certificate.md) | instrument | a floor on rank agreement from a corpus's distance-ratio concentration, a guarantee in its strict setting and an estimate in its percentile one |
+| [vacuity threshold](generated/vacuity-threshold.md) | result | the derived level below which a clustering or retrieval certificate proves nothing |
+| [coherence time](generated/coherence-time.md) | concept | the interval over which a changing quantity stays correlated with itself, past which a certificate has decorrelated |
+| [blind probe](generated/blind-probe.md) | instrument | recovers a consumer's read operator from calls to the consumer alone |
+| [budget cliff](generated/budget-cliff.md) | result | recovery of a read operator by a confined probe is a cliff at the full dimension, rank-independent |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-next five exist only as generated entries, built from the records by `generate.py`.
+other ten exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
