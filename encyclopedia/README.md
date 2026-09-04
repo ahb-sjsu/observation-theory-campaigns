@@ -25,9 +25,14 @@ acceptance test for the generator that will fill them from the records.
 | [identity reader](generated/identity-reader.md) | concept | the consumer whose read operator is the identity, for which read distortion is mean squared error |
 | [hubness](generated/hubness.md) | result | rows retrieved far more often than the Poisson null allows, a property of the queries and the reader rather than the corpus |
 | [coupling null](generated/coupling-null.md) | concept | the case of alignment near one in which no flip is possible, the flip's stated boundary |
+| [anti arm](generated/anti-arm.md) | instrument | the third code of a flip comparison, built to destroy the read subspace, expected to score worst |
+| [recognizer](generated/recognizer.md) | instrument | names a manifold from the low eigenvalue multiplets or certifies that none is present |
+| [refresh floor](generated/refresh-floor.md) | correction | the refuted proportional law and the sealed horizon that replaced it |
+| [min-over-strata](generated/min-over-strata.md) | concept | a verdict over groups is the worst group's verdict, with abstentions counted |
+| [water-filling](generated/water-filling.md) | concept | the bit allocation across directions that gives each half the log of its sensitivity-weighted variance over a water level |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other fifteen exist only as generated entries, built from the records by `generate.py`.
+other twenty exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
