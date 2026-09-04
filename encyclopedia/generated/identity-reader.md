@@ -52,7 +52,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReadDistortion.lean`, theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining 4f92f61.
+`lean/DataMiningAsObservation/ReadDistortion.lean`, theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining 7199131.
 
 ## used in
 
@@ -64,4 +64,4 @@ read-operator, read-distortion, flip, quotient
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns b53488a, theory-radar 37c4e6c, observation-data-mining 4f92f61, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns e062d3e, theory-radar 37c4e6c, observation-data-mining 7199131, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
