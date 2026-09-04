@@ -68,7 +68,7 @@ def glossary_definition(key):
 
 def book_equation(tag):
     for name, text in CHTEXT.items():
-        m = re.search(r"^\$\$(.*?)\\tag\{" + re.escape(tag) + r"\}\$\$", text, re.M | re.S)
+        m = re.search(r"^\$\$([^\n]*?)\s*\\tag\{" + re.escape(tag) + r"\}\$\$", text, re.M)
         if m:
             return m.group(1).strip()
     problems.append(f"book equation {tag} not found")
