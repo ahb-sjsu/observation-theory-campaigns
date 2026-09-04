@@ -79,4 +79,4 @@ monotone-invariance, formula-search, safe-pruning, apriori
 
 ## status
 
-Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns e5a4852, theory-radar 37c4e6c, observation-data-mining 6c05d0a, turboquant-pro 856c4cb, gtc-prototype 328741f.
+Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns c569c59, theory-radar 37c4e6c, observation-data-mining 6c05d0a, turboquant-pro 856c4cb, gtc-prototype 328741f.

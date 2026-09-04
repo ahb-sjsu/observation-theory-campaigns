@@ -20,7 +20,7 @@ codes O (read-preserving) and R (reconstruction-optimal), at matched bits,
     task(O) > task(R)  and  tr Σ_δ^O > tr Σ_δ^R,  and  task(anti) < task(R).
 
 The read distortion tr(P_C Σ_δ) is the quantity that predicts the ordering. Book equation
-4.3 states the flip, equation 0.10 the read distortion, and equation 3.1 the two-dimensional
+4.5 states the flip, equation 0.10 the read distortion, and equation 3.1 the two-dimensional
 case with the reader at 15 degrees, where the two readings are 1 ∓ 0.35√3.
 
 ## ledger
