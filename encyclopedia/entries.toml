@@ -1472,3 +1472,88 @@ conditions = [
   "The value a rank statistic reaches under a ranking that carries no information. A constant score ties every pair, so its AUROC is one half when both classes are present, its Kendall correlation with any score is zero, and its reliability weight is zero.",
   "Every reading the probe reports comes with its chance overlap beside it, and a gate subtracts the chance level before it counts a margin.",
 ]
+
+[[entry]]
+id = "p-value"
+kind = "concept"
+title = "p-value"
+glossary = "p-value"
+equations = ["8.3"]
+ledger = []
+first_stated = "Chapter 0 section 0.9 of *Data Mining as Observation*, with the program's own p-values in the ensemble comparison of chapter 7 and the C-12 record in readscope."
+book_records = ["p 4.8e-4", "p 0.964", "sign test p", "FINDINGS.md:1-35"]
+book_terms = ["p-value", "\\bp\\s+0\\.\\d", "at p "]
+lean = "observation-data-mining:lean/DataMiningAsObservation/PValue.lean"
+related = ["multiple-comparisons", "confidence-interval", "harness", "preregistration"]
+conditions = [
+  "Against a finite null sample, the fraction of null draws at least as large as the observation. It lies in the unit interval, never rises as the observation grows, and under the null the fraction of draws with p-value at or below a level is at most that level, which is what makes a threshold on it a false-positive rate.",
+  "A p-value counts one look. Forty looks at five percent pass two by chance, and the book's rule is to count every comparison made and correct for it.",
+]
+
+[[entry]]
+id = "confidence-interval"
+kind = "concept"
+title = "confidence interval"
+glossary = "confidence interval"
+equations = ["8.3", "8.2"]
+ledger = []
+first_stated = "Chapter 0 section 0.9 of *Data Mining as Observation*, with the program's intervals in the re-gate table of chapter 14 and the hubness intervals of chapter 11."
+book_records = ["7 of 9 inside the interval", "with interval", "interval negative"]
+book_terms = ["confidence interval", "inside the interval", "with interval"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ConfidenceInterval.lean"
+related = ["bootstrap", "standard-error", "p-value", "preregistration"]
+conditions = [
+  "A range that would contain the true value in a stated fraction of repeated samples. An interval with coverage one minus alpha misses in a fraction alpha, over m independent intervals the expected misses are m alpha and the chance that all cover is one minus alpha to the m, and the chance that at least one misses is at most m alpha.",
+  "Nine intervals at ninety-five percent have a chance near seven percent of two or more misses, which is how the re-gate table's seven of nine inside the interval is read.",
+]
+
+[[entry]]
+id = "laplacian"
+kind = "concept"
+title = "Laplacian"
+glossary = "Laplacian"
+equations = ["0.19", "0.20", "9.2"]
+ledger = ["NEG-1"]
+first_stated = "Chapter 0 section 0.10 of *Data Mining as Observation*, with the program's spectral work in Volume 14 chapter 9 and the-angular-observer."
+book_records = ["proven versus conjectured", "ch09_legibility.md", "the-angular-observer", "SPECTRUM_FINDINGS.md"]
+book_terms = ["Laplacian", "eigenvector"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Laplacian.lean"
+related = ["intrinsic-dimension", "recognizer", "rank-faithful", "bi-lipschitz"]
+conditions = [
+  "A matrix built from a graph's edges whose quadratic form is half the weighted sum of squared differences across edges, so it is nonnegative, zero on every constant, and positive on any function that differs across an edge of positive weight. The eigenvectors from the smallest eigenvalue up are therefore the smoothest functions on the graph.",
+  "The file states the unnormalized form, and equation 0.19's normalized form is the same quadratic form in rescaled coordinates. The commute-time scaling of the embedding and the uniform bi-Lipschitz claim for the commute filter are in the ledger, the second refuted.",
+]
+
+[[entry]]
+id = "kv-cache"
+kind = "concept"
+title = "KV cache"
+glossary = "KV cache"
+equations = ["0.23", "11.1"]
+ledger = ["NEG-2", "GO-2/GO-12/GO-13 operational"]
+first_stated = "Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observation*, with the program's measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the serving-stack ledger row."
+book_records = ["KV_KEYS_FINDING", "kvquant", "key quantizer", "KV serving"]
+book_terms = ["KV cache", "KV serving", "key quantizer"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/KVCache.lean"
+related = ["attention", "eviction", "flip", "budget"]
+conditions = [
+  "The stored keys and values of every earlier token for every layer, so its size is the product of layers, tokens, two, the head width, and the bits per number. Compressing it changes the keys the heads read.",
+  "A compression that preserves every query-key score preserves every head output, and one that preserves the keys' cosine need not, since two keys of the same direction and different lengths have cosine one and different scores. That is the attention-key finding in one sentence.",
+]
+
+[[entry]]
+id = "eviction"
+kind = "concept"
+title = "eviction"
+glossary = "eviction"
+equations = ["13.1", "0.23"]
+ledger = ["GO-2/GO-12/GO-13 operational", "GO-12"]
+first_stated = "Chapter 13 section 13.6 of *Data Mining as Observation*, with the program's serving-stack case in `geometric-observation/prereg/GO-P-2026-077-kv-consumer-relative-eviction.md` and the ledger row that carries it."
+book_records = ["97 percent evict", "GO-P-2026-077", "attempt three", "attempt two"]
+book_terms = ["evict"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Eviction.lean"
+related = ["kv-cache", "attention", "coherence-time", "budget"]
+conditions = [
+  "Choosing what to drop when a cache is full. Evicting tokens replaces attention over all tokens with attention over the kept subset, so the output lies between the kept values, equals them when they agree, and the whole cache is the case of no eviction.",
+  "Which tokens can go is consumer-relative, since a head reads a key only through its score, and the serving-stack measurement of ninety-seven percent eviction at a five percent keep against an oracle is the ledger's number, after one attempt whose control did not exist.",
+]

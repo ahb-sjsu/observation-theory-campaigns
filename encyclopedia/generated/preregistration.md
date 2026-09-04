@@ -40,7 +40,7 @@ Chapter 8 section 8.8 of *Data Mining as Observation*, with the program's templa
 
 ## failures and corrections
 
-- `observation-theory-campaigns/ERRATA.md:90-110` at b53488a. ## E3. Two wrong bar values in the campaign notes **Found** 2026-08-07, same pass. Not a published error. `experiments/CAMPAIGN.md` twice described the PF4-006 entry-point and timestep clause as having a bar of 1e-10. The sealed declaration and the committed record both set that bar at 1e-8. The 1e-10 figure is the separate translation-covariance bar. The narrative was wrong and the verdict was not, since the clause failed at 1.3e-2 against either number. The same document described PREREG-PF4-009 as passing all six bars. The sealed document groups its requirements into six bars and the governed runner reports eight items, and the mapping between them was never declared. Both statements are now made explicitly. Corrected in place, since these are working notes rather than sealed documents or published records. ---
+- `observation-theory-campaigns/ERRATA.md:90-110` at e062d3e. ## E3. Two wrong bar values in the campaign notes **Found** 2026-08-07, same pass. Not a published error. `experiments/CAMPAIGN.md` twice described the PF4-006 entry-point and timestep clause as having a bar of 1e-10. The sealed declaration and the committed record both set that bar at 1e-8. The 1e-10 figure is the separate translation-covariance bar. The narrative was wrong and the verdict was not, since the clause failed at 1.3e-2 against either number. The same document described PREREG-PF4-009 as passing all six bars. The sealed document groups its requirements into six bars and the governed runner reports eight items, and the mapping between them was never declared. Both statements are now made explicitly. Corrected in place, since these are working notes rather than sealed documents or published records. ---
 
 ## conditions
 
@@ -52,7 +52,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Bonferroni.lean`, theorems `family_error_le`, `bonferroni`, `one_look`, at observation-data-mining 4f92f61.
+`lean/DataMiningAsObservation/Bonferroni.lean`, theorems `family_error_le`, `bonferroni`, `one_look`, at observation-data-mining 7199131.
 
 ## used in
 
@@ -64,4 +64,4 @@ sealed, ledger-class, harness, certificate
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns b53488a, theory-radar 37c4e6c, observation-data-mining 4f92f61, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns e062d3e, theory-radar 37c4e6c, observation-data-mining 7199131, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

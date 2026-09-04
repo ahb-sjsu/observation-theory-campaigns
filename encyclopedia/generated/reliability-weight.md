@@ -46,7 +46,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReliabilityWeight.lean`, theorems `pair_le_one`, `aurocNum_le`, `auroc_le_one`, `weight_mem_unit`, `weight_eq_zero_of_le_half`, `weight_comp`, at observation-data-mining 4f92f61.
+`lean/DataMiningAsObservation/ReliabilityWeight.lean`, theorems `pair_le_one`, `aurocNum_le`, `auroc_le_one`, `weight_mem_unit`, `weight_eq_zero_of_le_half`, `weight_comp`, at observation-data-mining 7199131.
 
 ## used in
 
@@ -58,4 +58,4 @@ monotone-invariance, harness, posited-versus-measured, certificate
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns b53488a, theory-radar 37c4e6c, observation-data-mining 4f92f61, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns e062d3e, theory-radar 37c4e6c, observation-data-mining 7199131, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

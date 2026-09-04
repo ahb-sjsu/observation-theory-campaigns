@@ -1,11 +1,11 @@
-# attention
+# KV cache
 
-**id.** attention
+**id.** kv-cache
 **kind.** concept
 
 ## definition
 
-The operation inside a language model that lets each token look at earlier ones by comparing its query to their keys and averaging their values. Chapter 0 section 0.11.
+The stored keys and values of earlier tokens, kept so they need not be recomputed. Compressing it is where several of the book's examples go wrong. Chapters 0 and 11.
 
 ## equation
 
@@ -24,7 +24,7 @@ Book equation 11.1.
 
 ## first stated
 
-Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observation*, with the program's head-level measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the serving-stack ledger row.
+Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observation*, with the program's measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the serving-stack ledger row.
 
 ## measurements
 
@@ -34,9 +34,9 @@ Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observatio
 | chapter 2 section 2.5 | cosine 0.995 and the softmax reader | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
 | chapter 3 section 3.2 | condition (A2), tangential displacement | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `geometric-observation\chapters\ch09_legibility.md:42-54` |
 | chapter 8 section 8.2 | cosine 0.995, perplexity near 1e4 | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49`; `geometric-observation\chapters\ch16_honest_negatives.md` NEG-2 |
+| chapter 8 section 8.9 | 13.7 ROUGE-L, 0.25/4.19/9.60/13.7 at 64/128/256/512, re-validation negative 0.31 n=40, 26.64 under symmetric nf4, `_quant_nf4a_group` unchanged since `289bdfc` before `4f7baab` | `turboquant-pro\CLAIMS.md:63-81`; `turboquant-pro\benchmarks\kvquant_matrix\REVAL-2026-08-08.md` |
 | chapter 11 section 11.1 | condition (A2), cosine satisfies it, post-rotary keys do not, the cone below cell size | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `the-angular-observer\README.md:26-31` |
 | chapter 11 section 11.2 | fp16 12.24, values-only 13.12, PolarQuant K4 10643 and 0.095, per-channel uniform K4 14.91 and 0.062, per-channel NUQ K3 15.77 and 0.148, 2.4x and 670x, pre-rotary near 22000, 2 key heads serve 12 query heads | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
-| chapter 11 section 11.2 | the calibration-time probe and the streaming monitor | `turboquant-pro\turboquant_pro\a2_probe.py:315-438`; `turboquant-pro\tests\test_a2_probe.py` |
 
 ## failures and corrections
 
@@ -44,22 +44,22 @@ Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observatio
 
 ## conditions
 
-- A head weights each earlier token's value by the softmax of its query-key score and sums. For scalar values the output lies between the smallest and largest value, and the head reads the keys only through their scores against the query, so a key change the query does not read leaves the output unchanged however large it is.
-- That is the head's read subspace, a few query-weighted directions of each key, and the reason a key reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude.
+- The stored keys and values of every earlier token for every layer, so its size is the product of layers, tokens, two, the head width, and the bits per number. Compressing it changes the keys the heads read.
+- A compression that preserves every query-key score preserves every head output, and one that preserves the keys' cosine need not, since two keys of the same direction and different lengths have cosine one and different scores. That is the attention-key finding in one sentence.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Attention.lean`, theorems `output_le_max`, `min_le_output`, `output_congr`, `output_nuisance`, at observation-data-mining 7199131.
+`lean/DataMiningAsObservation/KVCache.lean`, theorems `cacheBits_tokens`, `cacheBits_half`, `ratios`, `output_of_scores_preserved`, `cosine_not_score`, at observation-data-mining 7199131.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 2, 4, 6, 8, 11, 13.
+*Data Mining as Observation* chapters 0, 11.
 
 ## related
 
-softmax, read-subspace, nuisance, flip
+attention, eviction, flip, budget
 
 ## status
 
