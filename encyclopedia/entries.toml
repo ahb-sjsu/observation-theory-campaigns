@@ -1,0 +1,96 @@
+# The map from an entry id to the records it is built from. tools: encyclopedia/generate.py
+# reads this file and the records, and writes encyclopedia/generated/<id>.md. Paths are
+# repo-relative; the repo's local checkout is found under the source root given on the command
+# line. A term's definition comes from the book's glossary, its equations from the book's
+# numbered displays, its ledger rows from the claims ledger, its measurements from the book's
+# sources tables (the rows that cite the entry's records) and from campaign track tables, its
+# corrections from ERRATA files, and its uses from the chapters that mention it.
+
+[repos]
+geometric-observation = "geometric-observation"
+observation-theory-campaigns = "observation-theory-campaigns"
+theory-radar = "theory-radar"
+observation-data-mining = "observation-data-mining"
+turboquant-pro = "turboquant-pro"
+gtc-prototype = "gtc-prototype"
+
+[[entry]]
+id = "flip"
+kind = "result"
+title = "the flip"
+glossary = "flip, the"
+equations = ["4.3", "3.1", "0.10"]
+ledger = ["GO-2 (neg. half", "GO-2 (pos. half", "GO-4", "NEG-16"]
+first_stated = "Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:1-30`, DOI 10.5281/zenodo.21776291. The two-dimensional case is the cover and equation 3.1 of *Data Mining as Observation*."
+book_records = ["geometric-observation\\chapters\\ch08_value.md", "rows GO-2", "row GO-4", "ch16_honest_negatives.md"]
+book_terms = ["the flip", "flip(?:s|ped)?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Flip.lean"
+related = ["read-distortion", "alignment", "anti-arm", "rank-certificate", "coupling-null"]
+conditions = [
+  "Matched bits, and reconstruction matched or reported, for every comparison of two codes.",
+  "A read operator misaligned with where the signal has its energy. The alignment of book equation 4.6 is the dial, and near one, the coupling null, no flip is possible.",
+  "The read operator is the average of local linearizations, and the ordering it predicts is the ordering on average over the workload.",
+]
+[[entry.errata]]
+repo = "geometric-observation"
+file = "chapters/ch16_honest_negatives.md"
+match = "NEG-(4|5|6|7|8|9|10)\\b"
+
+[[entry]]
+id = "false-clear-rate"
+kind = "concept"
+title = "false-clear rate"
+glossary = "false-clear rate"
+equations = ["0.26", "13.1", "12.4"]
+ledger = []
+first_stated = "Volume 14 chapter 19, `geometric-observation/chapters/ch19_the_certificate_that_ages.md:61-76`, and the freshness program's umbrella document `observation-theory-campaigns/experiments/FRESHNESS-PROGRAM.md`, re-homed into the campaigns repository on 2026-08-24."
+book_records = ["FRESHNESS-TRACK.md", "ROUTING-TELEMETRY-TRACK.md", "LLM-EVAL-TRACK.md", "CSI-refreshfloor", "PREREG-XPROTO-CSI-SWEEP2"]
+book_terms = ["false[- ]clear"]
+related = ["certificate", "witness", "coverage", "coherence-time", "refresh-floor", "min-over-strata"]
+conditions = [
+  "A witness must exist. Where none exists the rate is not measurable and the certificate is unassessed, not safe.",
+  "The rate is per consumer, given per read operator, slice, group, or footprint, never as one aggregate.",
+  "Coverage is reported with it. A witnessed certificate clears fewer decisions than a naive one, and the two numbers are read together.",
+]
+[[entry.cells]]
+repo = "observation-theory-campaigns"
+file = "experiments/DATABASE-FRESHNESS-TRACK.md"
+match = "^\\| \\*\\*XPROTO-(PG|MG|PGX|ZK)\\b"
+[[entry.cells]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "^\\| \\*\\*XPROTO-(CSI|BEAM|AICSI|HO|PHY)\\b"
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "CSI-refreshfloor|scope correction"
+[[entry.errata]]
+repo = "geometric-observation"
+file = "chapters/ch19_the_certificate_that_ages.md"
+match = "Corrected 2026-09-03"
+
+[[entry]]
+id = "youden-f1-bound"
+kind = "correction"
+title = "Youden F1 bound"
+glossary = ""
+equations = ["5.4"]
+ledger = []
+first_stated = "The AUROC form, theorem \"AUROC-F1 Bound\" in `theory-radar/paper/astar_paper.tex` and the derivation in `theory-radar/src/symbolic_search/_auroc_proof.py`, repository DOI 10.5281/zenodo.20660206. The corrected form at theory-radar 1b3d105."
+book_records = ["theory-radar\\paper\\astar_paper.tex", "theory-radar\\results\\rerun_youden", "theory-radar\\ERRATA.md"]
+book_terms = ["Youden"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean"
+related = ["monotone-invariance", "formula-search", "safe-pruning", "apriori"]
+conditions = [
+  "The Youden form holds for every score with a finite sample.",
+  "The AUROC form holds for concave ROC curves, and as a pruning bound it is safe only there.",
+  "Inside a tree search either form bounds the formula itself and not its descendants, so pruning a subtree by its root's ceiling is a heuristic in both cases.",
+]
+[[entry.errata]]
+repo = "theory-radar"
+file = "ERRATA.md"
+match = "AUROC to F1 bound"
+[[entry.results]]
+repo = "theory-radar"
+file = "results/rerun_youden_2026_09_03.json"
+note = "Rerun of the A* paper's pruning tables by `theory-radar/rerun_youden_2026_09_03.py`. Part A is depth-2 pairwise enumeration on eight datasets, exhaustive against the AUROC pre-filter at seven thresholds and against Youden pruning. Part B is the depth-3 A* search with 50,000 expansions in strict mode (no pre-filter), the published fast mode (AUROC pre-filter at 0.52), and the youden mode."

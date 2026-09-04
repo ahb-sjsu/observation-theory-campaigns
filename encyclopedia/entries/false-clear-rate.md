@@ -55,15 +55,15 @@ program.
 | XPROTO-LLM, a benchmark score as a certificate for deployment slices | true accuracy per slice | benchmark 0.909 against target 0.8, naive policy false-clears 0.333 of thirty slices, aware policy 0.033, deployment mean 0.736, sealed 2026-08-25 at b61f7f1 | `observation-theory-campaigns/experiments/LLM-EVAL-TRACK.md:1-50` |
 
 The ZooKeeper row is the clearest statement that the rate belongs to the pair. The same
-replica read by a hot reader and a cold reader gives 0.99 and 0.01, and the aggregate over
-both, 0.206 in the book's worked example, describes neither.
+replica read by a hot reader and a cold reader gives 0.99 and 0.01, and an aggregate over
+both describes neither.
 
 ## failures and corrections
 
 - The refresh-floor law. An unsealed exploration fit a floor of about 0.177 times the
   coherence time with R² 0.915, measured at a relaxed 0.15 threshold against the 0.10
   target, with a fresh baseline that never met the budget. Refuted. The record is kept and
-  not cited. `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:44-47`,
+  not cited. `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:41-50`,
   `observation-theory-campaigns/analysis/csi/CSI-refreshfloor.json:2,111-114`. Its sealed
   replacement calibrated the baseline first and found floors of a few milliseconds at 10 Hz
   and one transmission interval at 50 Hz and above, `analysis/csi/PREREG-XPROTO-CSI-SWEEP2.md:1-60`,
@@ -71,7 +71,7 @@ both, 0.206 in the book's worked example, describes neither.
 - XPROTO-AICSI scope correction, 2026-08-25. The reconstruction-versus-consumer dissociation
   does not survive the community-standard substrate. On real 3GPP CDL-C with a CsiNet-class
   codec the reconstruction-optimal codec reconstructs near-perfectly and false-clears 0.0.
-  The v1 seal stands for what it tested. `RADIO-FRESHNESS-TRACK.md:34-40`.
+  The v1 seal stands for what it tested. `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:33-39`.
 - Definition corrected 2026-09-03. Volume 14 and the book had written the joint probability
   Pr[clears ∧ refutes]. Both now state the conditional rate with coverage beside it, which is
   the form every measured cell already reported. geometric-observation 7d91883,
