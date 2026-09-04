@@ -30,9 +30,14 @@ acceptance test for the generator that will fill them from the records.
 | [refresh floor](generated/refresh-floor.md) | correction | the refuted proportional law and the sealed horizon that replaced it |
 | [min-over-strata](generated/min-over-strata.md) | concept | a verdict over groups is the worst group's verdict, with abstentions counted |
 | [water-filling](generated/water-filling.md) | concept | the bit allocation across directions that gives each half the log of its sensitivity-weighted variance over a water level |
+| [Monotone Invariance Theorem](generated/monotone-invariance.md) | result | a strictly monotone transform of a score leaves AUROC and optimal thresholded F1 unchanged |
+| [safe pruning](generated/safe-pruning.md) | concept | a pruning rule that discards no solution, proved for Apriori and monotone invariance, empirically lossless at best when learned |
+| [Apriori principle](generated/apriori.md) | result | every subset of a frequent itemset is frequent, the license to prune the lattice |
+| [formula search](generated/formula-search.md) | instrument | enumerates short formulas over the features, pruned by proof, with its retracted comparison carried at full size |
+| [observer](generated/observer.md) | concept | a consumer, its output metric, and its budget, the triple every chapter checks |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other twenty exist only as generated entries, built from the records by `generate.py`.
+other twenty-five exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
