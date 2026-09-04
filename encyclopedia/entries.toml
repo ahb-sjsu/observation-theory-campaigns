@@ -94,3 +94,100 @@ match = "AUROC to F1 bound"
 repo = "theory-radar"
 file = "results/rerun_youden_2026_09_03.json"
 note = "Rerun of the A* paper's pruning tables by `theory-radar/rerun_youden_2026_09_03.py`. Part A is depth-2 pairwise enumeration on eight datasets, exhaustive against the AUROC pre-filter at seven thresholds and against Youden pruning. Part B is the depth-3 A* search with 50,000 expansions in strict mode (no pre-filter), the published fast mode (AUROC pre-filter at 0.52), and the youden mode."
+
+[[entry]]
+id = "read-distortion"
+kind = "concept"
+title = "read distortion"
+glossary = "read distortion"
+equations = ["0.10", "1.2", "4.1"]
+ledger = ["GO-2 (pos. half"]
+first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:49-75`, DOI 10.5281/zenodo.21776291, and chapter 2 of the same volume for the failure of observer-free measurement."
+book_records = ["ch05_the_read_metric_and_the_quotient.md", "rows GO-2"]
+book_terms = ["read distortion"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadDistortion.lean"
+related = ["flip", "alignment", "identity-reader", "quotient"]
+conditions = [
+  "Exact, with no centering, for a fixed read operator, which is the affine case. For a nonlinear consumer whose error depends on the row it is a first-order factorized surrogate, exact when the local operator and the error's outer product are uncorrelated across rows.",
+  "The second-moment matrix of the error, not its covariance, unless the error is centered by construction.",
+  "The trace of the second moment is the mean squared vector norm, which is the dimension times the per-coordinate mean squared error.",
+]
+
+[[entry]]
+id = "alignment"
+kind = "concept"
+title = "alignment"
+glossary = "alignment"
+equations = ["4.6"]
+ledger = ["GO-4"]
+first_stated = "Volume 14, chapter 12, `geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`, DOI 10.5281/zenodo.21776291, where the alignment law is a retrospective fit carried as exploratory with one prospective point."
+book_records = ["ch12_failure_taxonomy_and_kappa.md", "row GO-4"]
+book_terms = ["alignment", "coupling null"]
+related = ["flip", "read-distortion", "coupling-null", "water-filling"]
+conditions = [
+  "Defined as the normalized overlap between the averaged read operator and the source covariance on the read subspace, between zero and one, and so a statement about one workload.",
+  "The alignment law that relates it to the size of the flip is a retrospective fit with a single prospective point and is carried as exploratory, not as a theorem.",
+]
+
+[[entry]]
+id = "certificate"
+kind = "concept"
+title = "certificate"
+glossary = "certificate"
+equations = ["0.26", "9.3", "11.2", "13.1"]
+ledger = ["GO-3"]
+first_stated = "Volume 14, chapter 19 for the certificate that ages and chapter 9 of *Data Mining as Observation* for the clustering certificate. The rank certificate is specified in `turboquant-pro/docs/CERTIFICATE_SPEC.md`, DOI 10.5281/zenodo.20660087."
+book_records = ["GO3-certificate-vacuity", "CERTIFICATE_SPEC.md", "FRESHNESS-PROGRAM.md", "LLM-EVAL-TRACK.md"]
+book_terms = ["certificate"]
+related = ["witness", "false-clear-rate", "coverage", "rank-certificate", "vacuity-threshold", "coherence-time"]
+conditions = [
+  "A certificate is graded only where a witness exists, and where none exists it is unassessed rather than safe.",
+  "A certificate is bound to what it certified, the bytes, the anchor sample, the footprint, and the time, and carries none of it to another corpus, workload, or moment.",
+  "A vacuous certificate proves nothing about the object. It does not prove that no code preserves rank or that no structure exists, only that this test could not certify one.",
+  "The rank certificate's floor is a guarantee in its strict setting and an estimate in its percentile setting.",
+]
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "scope correction"
+
+[[entry]]
+id = "witness"
+kind = "concept"
+title = "witness"
+glossary = "witness"
+equations = ["0.26", "13.1"]
+ledger = []
+first_stated = "Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that_ages.md:61-76`, and the freshness program's umbrella document `observation-theory-campaigns/experiments/FRESHNESS-PROGRAM.md`."
+book_records = ["FRESHNESS-TRACK.md", "ROUTING-TELEMETRY-TRACK.md", "LLM-EVAL-TRACK.md"]
+book_terms = ["witness(?:es)?\\b"]
+related = ["certificate", "false-clear-rate", "coverage"]
+conditions = [
+  "A witness is independent of the certificate it grades. A certificate that grades itself has no witness.",
+  "The witness is the consumer's own outcome or a measurement of it, so the same certificate has a different witness for each consumer, as the hot and cold readers of one replica show.",
+]
+[[entry.cells]]
+repo = "observation-theory-campaigns"
+file = "experiments/DATABASE-FRESHNESS-TRACK.md"
+match = "^\\| \\*\\*XPROTO-(PG|MG|PGX|ZK)\\b"
+[[entry.cells]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "^\\| \\*\\*XPROTO-(CSI|BEAM|AICSI|HO|PHY)\\b"
+
+[[entry]]
+id = "coverage"
+kind = "concept"
+title = "coverage"
+glossary = "coverage"
+equations = ["0.26"]
+ledger = []
+first_stated = "*Data Mining as Observation*, chapter 0 section 0.13 and chapter 13, introduced on 2026-09-03 when the false-clear rate was restated as a conditional rate, and Volume 14 chapter 19 at geometric-observation 7d91883."
+book_records = ["LLM-EVAL-TRACK.md", "DATABASE-FRESHNESS-TRACK.md"]
+book_terms = ["coverage"]
+related = ["false-clear-rate", "certificate", "witness"]
+conditions = [
+  "A naive certificate clears every decision, so its coverage is one and its conditional and joint false-clear rates coincide.",
+  "A witnessed certificate clears fewer decisions, and its false-clear rate is read beside its coverage, never alone.",
+  "The word also names, in chapter 14, what a moderation instrument can read of the signal its inputs carry, which is a different quantity and is not this entry.",
+]
