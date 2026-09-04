@@ -1217,3 +1217,88 @@ conditions = [
   "The fraction of a query's true k nearest neighbours, computed from the uncompressed vectors, that the index returned. It lies in the unit interval and is one exactly when the returned list is the true list.",
   "The aggregate over queries is a weighted mean over strata, so a stratum that fails entirely moves it by no more than its weight. That is why the anti-hub stratum is reported on its own, and why aggregate recall is never an acceptance metric on its own.",
 ]
+
+[[entry]]
+id = "spearman-correlation"
+kind = "concept"
+title = "Spearman correlation"
+glossary = "Spearman correlation"
+equations = ["0.14", "11.2"]
+ledger = ["NEG-8", "GO-3"]
+first_stated = "Spearman, the proof and measurement of association between two things, 1904, as chapter 0 section 0.9 states it, and the rank statistic of the recognizer battery in the-angular-observer and of the rank certificate in readscope."
+book_records = ["angular Spearman", "Spearman 0.991", "Spearman floor", "Spearman 0.80"]
+book_terms = ["Spearman"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Spearman.lean"
+related = ["kendall-correlation", "rank-certificate", "recognizer", "monotone-invariance"]
+conditions = [
+  "The ordinary correlation between two lists of ranks, one minus six times the sum of squared rank differences over n(n² − 1). It is at most one, one when the rankings agree, and minus one for three items in opposite orders, and since ranks depend on the ordering alone a strictly increasing transform of either score leaves it unchanged.",
+  "A high Spearman between a proxy and a consumer's loss is not a certificate. The variance-ratio proxy with Spearman above 0.9 is a refuted ledger row, and the rank certificate's floor on Spearman is the strict setting's guarantee, not a measured correlation.",
+]
+
+[[entry]]
+id = "silhouette"
+kind = "concept"
+title = "silhouette"
+glossary = "silhouette"
+equations = ["0.30", "9.1"]
+ledger = []
+first_stated = "Rousseeuw, silhouettes, 1987, as TSK chapter 7 presents it and chapter 0 section 0.15 states it, and chapter 9 of *Data Mining as Observation*, where it is one validity index among those the recognizer replaces."
+book_records = ["TSK 2e chapter 7", "validity index", "silhouette"]
+book_terms = ["silhouette", "validity ind"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Silhouette.lean"
+related = ["recognizer", "vacuity-threshold", "identity-reader", "quotient"]
+conditions = [
+  "For a row, the difference between its mean distance to the nearest other cluster and its mean distance to its own cluster, over the larger of the two. It lies between minus one and one, is positive exactly when the row is closer to its own cluster, and is unchanged when every distance is scaled by the same factor.",
+  "It is computed under the identity reader on the distances it is given, so it validates a clustering for that reader and not for a consumer that reads other directions, which is why chapter 9 asks the recognizer to name the manifold instead.",
+]
+
+[[entry]]
+id = "whitening"
+kind = "concept"
+title = "whitening"
+glossary = "whitening"
+equations = ["0.6", "0.5"]
+ledger = ["GO-2 (neg. half"]
+first_stated = "Chapter 0 section 0.2 of *Data Mining as Observation*, with the program's whitened code in Volume 14 chapter 8, `geometric-observation/chapters/ch08_value.md:84-97`."
+book_records = ["whitened code", "ch08_value.md:84"]
+book_terms = ["whiten"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Whitening.lean"
+related = ["mahalanobis-distance", "identity-reader", "read-operator", "water-filling"]
+conditions = [
+  "Rescaling data so that its covariance becomes the identity. In the covariance's eigenbasis each coordinate is divided by the square root of its eigenvalue, each whitened coordinate then has unit variance, and the squared length of a whitened row is the Mahalanobis form.",
+  "Whitening is a change of reader, not a change of data. The whitened code won at every budget on the whale corpus because the consumer read the whitened directions, and the same code under a different consumer has no such guarantee.",
+]
+
+[[entry]]
+id = "mahalanobis-distance"
+kind = "concept"
+title = "Mahalanobis distance"
+glossary = "Mahalanobis distance"
+equations = ["0.33", "10.1"]
+ledger = []
+first_stated = "Mahalanobis, on the generalised distance in statistics, 1936, as chapter 0 section 0.16 states it, and chapter 10 section 10.1 of *Data Mining as Observation*, where the statistical detector is the identity reader on whitened data."
+book_records = ["z-score", "statistical detector", "whitened"]
+book_terms = ["Mahalanobis"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Mahalanobis.lean"
+related = ["whitening", "identity-reader", "hubness", "abstention"]
+conditions = [
+  "The Euclidean distance of a row from the mean after whitening. In the eigenbasis its square is the sum of the squared centred coordinates over the eigenvalues, nonnegative, zero at the mean, unchanged when data and covariance are rescaled together, and a deviation along a direction of larger variance counts for less.",
+  "The detector that scores by it treats every whitened direction equally, so it is the identity reader on whitened data, and a consumer that reads a subspace calls different rows outliers.",
+]
+
+[[entry]]
+id = "lift"
+kind = "concept"
+title = "lift"
+glossary = "lift"
+equations = ["5.2", "5.1"]
+ledger = []
+first_stated = "TSK chapter 5 on objective measures, as chapter 5 section 5.1 of *Data Mining as Observation* states it."
+book_records = ["support, confidence, lift", "TSK 2e chapter 5"]
+book_terms = ["\\blift\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Lift.lean"
+related = ["apriori", "multiple-comparisons", "safe-pruning", "harness"]
+conditions = [
+  "Confidence over the consequent's support, the joint support over the product of the two supports. It is one under independence, symmetric in the two itemsets, and bounded by the reciprocal of the consequent's support.",
+  "It fails at low support. One transaction in N containing both items, and neither elsewhere, gives lift N, which is why the rules with the highest lift are the ones chapter 8's multiple-comparison rule applies to.",
+]
