@@ -80,9 +80,14 @@ acceptance test for the generator that will fill them from the records.
 | [Robin Hood index](generated/robin-hood-index.md) | instrument | the fraction of a total that would have to move from above the mean to below it to equalize the counts |
 | [perplexity](generated/perplexity.md) | concept | two to the average bits per token, at least one, the vocabulary size for a uniform model |
 | [standard error](generated/standard-error.md) | concept | the spread of an estimate across samples, halved only by four times the independent draws |
+| [softmax](generated/softmax.md) | concept | exponentiate and normalize, positive weights summing to one, shift invariant and order preserving |
+| [attention](generated/attention.md) | concept | a head weights values by the softmax of query-key scores, reading keys only through those scores |
+| [product quantization](generated/product-quantization.md) | instrument | pieces quantized with their own codebooks, errors additive and codes separable |
+| [bootstrap](generated/bootstrap.md) | instrument | resample with replacement, paired so that shared sampling variation cancels when scores covary |
+| [chance level](generated/chance-level.md) | concept | the value a rank statistic reaches under an uninformative ranking, one half for AUROC and zero for a correlation |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other seventy exist only as generated entries, built from the records by `generate.py`.
+other seventy-five exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -109,6 +114,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, fifty-three files as of 2026-09-04, and the book's appendix C states what each
+its checkable core, fifty-eight files as of 2026-09-04, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.

@@ -1,21 +1,21 @@
-# Robin Hood index
+# product quantization
 
-**id.** robin-hood-index
+**id.** product-quantization
 **kind.** instrument
 
 ## definition
 
-The fraction of a total count that would have to move from points above the mean to points below it to make every count equal. Equation 0.35.
+Splitting a vector into pieces and quantizing each piece with its own codebook. Chapter 11.
 
 ## equation
 
-Book equation 0.35.
+Book equation 11.3.
 
-    \mathrm{RH}=\sum_i\max\!\Big(0,\ \frac{N_i}{\sum_j N_j}-\frac1n\Big).
+    \begin{gathered} \mathrm{recall}@k=\frac{\big|\text{returned top-}k\ \cap\ \text{true top-}k\big|}{k}, \\ \text{true top-}k\text{ computed from the uncompressed vectors}. \end{gathered}
 
-Book equation 10.4.
+Book equation 4.2.
 
-    \text{never retrieved}\ \ge\ 1-\frac{|Q|\,k}{n}\qquad\text{whenever}\quad |Q|\,k<n.
+    D(b)=\sum_i s_i\sigma_i^{2}\,2^{-2b_i},\qquad s_i=v_i^{\top}P_C\,v_i,\qquad b_i^{\star}=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i\sigma_i^{2}}{\theta}\Big),\qquad \sum_i b_i^{\star}=B,
 
 ## ledger
 
@@ -23,7 +23,7 @@ Book equation 10.4.
 
 ## first stated
 
-Hoover's index of concentration, applied to neighbour counts in turboquant-pro's strata design, `turboquant-pro/docs/STRATA_RFC.md:24-98`, and chapter 0 section 0.16 of *Data Mining as Observation*.
+Jégou, Douze, and Schmid, product quantization for nearest neighbor search, 2011, as chapter 11 section 11.3 of *Data Mining as Observation* presents it, with the program's comparisons in openvector-bench and turboquant-pro.
 
 ## measurements
 
@@ -38,22 +38,22 @@ Hoover's index of concentration, applied to neighbour counts in turboquant-pro's
 
 ## conditions
 
-- The fraction of the total count that would have to move from points above the mean to points below it to make every count equal, the excess above the mean over the total, which is half the total absolute deviation over the total. It is nonnegative, zero exactly at equality, at most one, and unchanged by a common scaling of the counts.
-- The strata design reports it per area beside the skew, and the first run's ratio of 1.30 against a bar of 1.5 is the number the abstention rule was written around.
+- Splitting a vector into pieces and quantizing each with its own codebook. The squared error of the whole is the sum of the pieces' errors, so the best code for the whole is the best code for each piece separately, and K entries per piece over M pieces address K to the M cells in M log₂ K bits.
+- It is evaluated by recall at k per stratum and by the rank certificate, never by reconstruction error, and the anti-hub stratum is where it fails first.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/RobinHood.lean`, theorems `sum_dev`, `excess_eq_half_abs`, `robinHood_nonneg`, `robinHood_eq_zero_iff`, `robinHood_le_one`, `robinHood_scale`, at observation-data-mining 4f92f61.
+`lean/DataMiningAsObservation/ProductQuantization.lean`, theorems `sq_error_add`, `inf_add`, `bits_of_codebooks`, `table_row`, at observation-data-mining 4f92f61.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 10.
+*Data Mining as Observation* chapters 0, 4, 8, 11, 13.
 
 ## related
 
-hubness, anti-hub, poisson-ceiling, abstention
+recall-at-k, anti-hub, water-filling, rank-certificate
 
 ## status
 
