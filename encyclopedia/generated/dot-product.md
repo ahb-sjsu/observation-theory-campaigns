@@ -1,21 +1,21 @@
-# KL divergence
+# dot product
 
-**id.** kl-divergence
+**id.** dot-product
 **kind.** concept
 
 ## definition
 
-A measure of how far one probability distribution is from another, zero when they are identical. Equation 0.24.
+The sum of the coordinatewise products of two vectors. Equation 0.1.
 
 ## equation
 
-Book equation 0.24.
+Book equation 0.1.
 
-    \mathrm{KL}(p\,\|\,q)=\sum_i p_i\ln\frac{p_i}{q_i}\ \ge 0.
+    x\cdot y=\sum_{i=1}^{d}x_i y_i,\qquad \|x\|=\sqrt{x\cdot x},\qquad \cos\theta=\frac{x\cdot y}{\|x\|\,\|y\|}.
 
-Book equation 0.22.
+Book equation 11.1.
 
-    \mathrm{PPL}=2^{H},\qquad H=-\frac1T\sum_{t=1}^{T}\log_2 p\big(w_t\mid w_{<t}\big).
+    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
 
 ## ledger
 
@@ -23,7 +23,7 @@ Book equation 0.22.
 
 ## first stated
 
-Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section 0.11 states it beside perplexity, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
+Chapter 0 section 0.1 and chapter 3 section 3.2 of *Data Mining as Observation*, with the program's cosine-versus-consumer case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
 
 ## measurements
 
@@ -42,22 +42,22 @@ Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section
 
 ## conditions
 
-- The expected log ratio of two distributions' masses under the first. It is nonnegative by Gibbs' inequality, zero when the distributions agree, and not symmetric, so the direction of the comparison is part of the claim.
-- The book's use is through perplexity. A reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude, which is the case that reconstruction error is not the consumer's error.
+- The sum of the coordinatewise products of two vectors, symmetric and bilinear. The cosine, the dot product over the two lengths, lies between minus one and one by Cauchy–Schwarz and is unchanged when either vector is scaled by a positive factor, while the dot product scales with the vector.
+- A cosine reader has declared length a nuisance and a dot-product reader has not, which is the reader difference of chapter 3, and cosine 0.995 between keys and their reconstruction said nothing about the softmax that read them.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KL.lean`, theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining 81ea18c.
+`lean/DataMiningAsObservation/DotProduct.lean`, theorems `self_nonneg`, `dot_comm`, `dot_sq_le`, `cosine_mem`, `dot_smul`, `cosine_smul`, at observation-data-mining 81ea18c.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 8, 11.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 8, 11, 12.
 
 ## related
 
-identity-reader, read-distortion, calibration, flip
+projection, euclidean-distance, quotient, nuisance
 
 ## status
 

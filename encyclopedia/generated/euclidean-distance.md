@@ -1,21 +1,21 @@
-# KL divergence
+# Euclidean distance
 
-**id.** kl-divergence
+**id.** euclidean-distance
 **kind.** concept
 
 ## definition
 
-A measure of how far one probability distribution is from another, zero when they are identical. Equation 0.24.
+The straight-line distance between two vectors, which reads every coordinate at the scale it arrives in. Chapter 3.
 
 ## equation
 
-Book equation 0.24.
+Book equation 0.1.
 
-    \mathrm{KL}(p\,\|\,q)=\sum_i p_i\ln\frac{p_i}{q_i}\ \ge 0.
+    x\cdot y=\sum_{i=1}^{d}x_i y_i,\qquad \|x\|=\sqrt{x\cdot x},\qquad \cos\theta=\frac{x\cdot y}{\|x\|\,\|y\|}.
 
-Book equation 0.22.
+Book equation 4.1.
 
-    \mathrm{PPL}=2^{H},\qquad H=-\frac1T\sum_{t=1}^{T}\log_2 p\big(w_t\mid w_{<t}\big).
+    d_O=\operatorname{tr}(P_C\,M_\delta)\qquad\text{against}\qquad \operatorname{tr}M_\delta=d_O\big|_{P_C=I}.
 
 ## ledger
 
@@ -23,7 +23,7 @@ Book equation 0.22.
 
 ## first stated
 
-Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section 0.11 states it beside perplexity, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
+Chapter 3 section 3.2 of *Data Mining as Observation*, where a distance is a choice of what to ignore.
 
 ## measurements
 
@@ -42,22 +42,22 @@ Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section
 
 ## conditions
 
-- The expected log ratio of two distributions' masses under the first. It is nonnegative by Gibbs' inequality, zero when the distributions agree, and not symmetric, so the direction of the comparison is part of the claim.
-- The book's use is through perplexity. A reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude, which is the case that reconstruction error is not the consumer's error.
+- The straight-line distance between two vectors, whose square is the identity reader's quadratic form on the difference, so it reads every coordinate at the scale it arrives in. It is symmetric and zero exactly between a row and itself.
+- Rescaling one coordinate changes which of two rows is nearer. A choice of scale is a choice of reader, and reconstruction error, the Euclidean distance between a row and its code, is the identity reader's number and not the consumer's.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KL.lean`, theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining 81ea18c.
+`lean/DataMiningAsObservation/EuclideanDistance.lean`, theorems `distSq_eq_quad_one`, `distSq_comm`, `distSq_eq_zero_iff`, `ranking_flips`, at observation-data-mining 81ea18c.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 8, 11.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 6, 10, 11, 12.
 
 ## related
 
-identity-reader, read-distortion, calibration, flip
+identity-reader, dot-product, mahalanobis-distance, distance-concentration
 
 ## status
 

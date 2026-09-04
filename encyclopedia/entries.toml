@@ -1642,3 +1642,88 @@ conditions = [
   "An index that partitions vectors into cells by k-means and searches only the cells nearest the query. Probing more cells never loses a candidate, a neighbour is found exactly when its cell is probed, the scanned fraction is the probed cells' size over the corpus, and with equal cells it is the probe count over the cell count.",
   "The recall at one probe against eight in the chapter's table is a measurement, and the vacuity threshold of the certificate predicts where single-stage retrieval dies, which is the ledger's demonstrated row.",
 ]
+
+[[entry]]
+id = "dot-product"
+kind = "concept"
+title = "dot product"
+glossary = "dot product"
+equations = ["0.1", "11.1"]
+ledger = ["NEG-2"]
+first_stated = "Chapter 0 section 0.1 and chapter 3 section 3.2 of *Data Mining as Observation*, with the program's cosine-versus-consumer case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["cosine 0.995", "KV_KEYS_FINDING", "cosine"]
+book_terms = ["dot product", "cosine similarity", "cosine reader"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/DotProduct.lean"
+related = ["projection", "euclidean-distance", "quotient", "nuisance"]
+conditions = [
+  "The sum of the coordinatewise products of two vectors, symmetric and bilinear. The cosine, the dot product over the two lengths, lies between minus one and one by Cauchy–Schwarz and is unchanged when either vector is scaled by a positive factor, while the dot product scales with the vector.",
+  "A cosine reader has declared length a nuisance and a dot-product reader has not, which is the reader difference of chapter 3, and cosine 0.995 between keys and their reconstruction said nothing about the softmax that read them.",
+]
+
+[[entry]]
+id = "projection"
+kind = "concept"
+title = "projection"
+glossary = "projection"
+equations = ["0.2", "0.12"]
+ledger = ["GO-1"]
+first_stated = "Chapter 0 section 0.2 of *Data Mining as Observation*, with the program's angular projection in Volume 14 chapter 9, `geometric-observation/chapters/ch09_legibility.md:31-41`."
+book_records = ["projection onto the read subspace", "angular projection", "row GO-1"]
+book_terms = ["projection"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Projection.lean"
+related = ["dot-product", "read-subspace", "quotient", "nuisance"]
+conditions = [
+  "The component of a vector along a unit direction, the direction scaled by their dot product. Projecting twice is projecting once, the remainder is orthogonal to the direction, the projection is no longer than the vector, and adding anything orthogonal to the direction leaves it unchanged.",
+  "The last is the quotient a one-direction reader takes. Row normalization is the projection onto the read subspace of the geodesic-rank consumer, and the invariant-nuisance split of the ledger is the same statement for a general consumer.",
+]
+
+[[entry]]
+id = "covariance-matrix"
+kind = "concept"
+title = "covariance matrix"
+glossary = "covariance matrix"
+equations = ["0.3", "0.4", "0.5"]
+ledger = ["OT-2", "OT-7"]
+first_stated = "Chapter 0 section 0.2 of *Data Mining as Observation*, paired with the read operator in chapter 4, and Volume 14 chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`."
+book_records = ["ch05_the_read_metric_and_the_quotient.md", "spectrum.py", "read_allocation.py"]
+book_terms = ["covariance"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Covariance.lean"
+related = ["read-operator", "whitening", "water-filling", "alignment", "explained-variance"]
+conditions = [
+  "The weighted average of the centred rows' outer products, the same construction as the read operator with the centred row in place of the sensitivity. Its quadratic form along a unit direction is the variance of the projection onto it, its trace is the total variance, and it is positive semidefinite.",
+  "Chapter 4 pairs it with the read operator in one basis. Where the two are proportional there is no flip, and where they are not the water-filling allocation reads both.",
+]
+
+[[entry]]
+id = "euclidean-distance"
+kind = "concept"
+title = "Euclidean distance"
+glossary = "Euclidean distance"
+equations = ["0.1", "4.1"]
+ledger = ["NEG-2"]
+first_stated = "Chapter 3 section 3.2 of *Data Mining as Observation*, where a distance is a choice of what to ignore."
+book_records = ["cosine 0.995", "KV_KEYS_FINDING", "reconstruction"]
+book_terms = ["Euclidean"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/EuclideanDistance.lean"
+related = ["identity-reader", "dot-product", "mahalanobis-distance", "distance-concentration"]
+conditions = [
+  "The straight-line distance between two vectors, whose square is the identity reader's quadratic form on the difference, so it reads every coordinate at the scale it arrives in. It is symmetric and zero exactly between a row and itself.",
+  "Rescaling one coordinate changes which of two rows is nearer. A choice of scale is a choice of reader, and reconstruction error, the Euclidean distance between a row and its code, is the identity reader's number and not the consumer's.",
+]
+
+[[entry]]
+id = "geodesic-distance"
+kind = "concept"
+title = "geodesic distance"
+glossary = "geodesic distance"
+equations = ["3.2", "3.3", "0.20"]
+ledger = ["NEG-1", "GO-3"]
+first_stated = "Chapter 0 section 0.10 and chapter 3 section 3.3 of *Data Mining as Observation*, with the geodesic-rank reader of Volume 14 chapter 9, `geometric-observation/chapters/ch09_legibility.md:10-41`."
+book_records = ["geodesic-rank", "ch09_legibility.md", "the-angular-observer", "proven versus conjectured"]
+book_terms = ["geodesic"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/GeodesicDistance.lean"
+related = ["rank-faithful", "laplacian", "recognizer", "bi-lipschitz"]
+conditions = [
+  "The length of the shortest path along edges between two nodes. It is zero from a node to itself, symmetric, one between adjacent nodes, and on a connected graph obeys the triangle inequality.",
+  "The geodesic-rank reader reads only the ordering of these distances, so a strictly increasing transform of them leaves its nearest neighbour unchanged. That the angle of the spectral embedding carries the ordering and the radius carries degree is the measured claim of chapter 3, with the refuted commute-filter row beside it.",
+]

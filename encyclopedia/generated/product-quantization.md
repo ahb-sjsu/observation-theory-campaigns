@@ -45,7 +45,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ProductQuantization.lean`, theorems `sq_error_add`, `inf_add`, `bits_of_codebooks`, `table_row`, at observation-data-mining ea18182.
+`lean/DataMiningAsObservation/ProductQuantization.lean`, theorems `sq_error_add`, `inf_add`, `bits_of_codebooks`, `table_row`, at observation-data-mining 81ea18c.
 
 ## used in
 
@@ -57,4 +57,4 @@ recall-at-k, anti-hub, water-filling, rank-certificate
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 4a95b35, theory-radar 37c4e6c, observation-data-mining ea18182, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 1aa8775, theory-radar 37c4e6c, observation-data-mining 81ea18c, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
