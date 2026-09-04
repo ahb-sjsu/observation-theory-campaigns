@@ -383,3 +383,89 @@ conditions = [
   "The coupling null is the case in which the read subspace and the high-variance subspace coincide, alignment near one, so that the reconstruction-optimal code is also the read-preserving one and no flip is possible.",
   "It is the flip's stated boundary, and a comparison that finds no flip there has confirmed the boundary rather than refuted the flip.",
 ]
+
+[[entry]]
+id = "anti-arm"
+kind = "instrument"
+title = "anti arm"
+glossary = "anti arm"
+equations = ["4.5"]
+ledger = ["GO-2 (neg. half", "NEG-16", "GO-B-whale", "GO-B-blind"]
+first_stated = "Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:1-30`, DOI 10.5281/zenodo.21776291, as the third arm of every registered flip."
+book_records = ["ch08_value.md", "rows GO-2", "row 038", "GO-B-whale"]
+book_terms = ["anti arm", "anti-arm"]
+related = ["flip", "read-distortion", "read-operator"]
+conditions = [
+  "The anti arm is matched on bits with the other two codes, and its purpose is to show that the read subspace is what the comparison is about, since destroying it should be worst.",
+  "A comparison in which the anti arm is not worst has not shown a flip, whatever the other two arms did.",
+]
+
+[[entry]]
+id = "recognizer"
+kind = "instrument"
+title = "recognizer"
+glossary = "recognizer"
+equations = ["9.3", "0.32", "9.2"]
+ledger = ["GO-3"]
+first_stated = "Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-95`, DOI 10.5281/zenodo.21776291, and the-angular-observer's recognizer battery, `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80`."
+book_records = ["ch11_the_recognizer.md", "the-angular-observer", "GO3-certificate-vacuity"]
+book_terms = ["recogni[sz]er"]
+related = ["certificate", "vacuity-threshold", "hubness"]
+conditions = [
+  "The recognizer names a manifold from the low eigenvalue multiplets of a neighbourhood graph's Laplacian by template match, or certifies that none is present, and it can only name shapes in its template set.",
+  "It was held to a preregistered held-out battery, and the vacuity threshold below which it certifies nothing is derived from the problem rather than tuned.",
+]
+
+[[entry]]
+id = "refresh-floor"
+kind = "correction"
+title = "refresh floor"
+glossary = "refresh floor"
+equations = ["13.2"]
+ledger = ["OT-4", "OT-11"]
+first_stated = "An unsealed exploration in the radio freshness track, `observation-theory-campaigns/analysis/csi/CSI-refreshfloor.json`, refuted and replaced by the sealed sweep `observation-theory-campaigns/analysis/csi/PREREG-XPROTO-CSI-SWEEP2.md`."
+book_records = ["CSI-refreshfloor", "CSI-SWEEP2", "RADIO-FRESHNESS-TRACK.md", "BOOK-OUTLINE.md"]
+book_terms = ["refresh[- ]floor", "refresh law"]
+related = ["coherence-time", "certificate", "false-clear-rate"]
+conditions = [
+  "The proportional law, a floor of about 0.177 times the coherence time, was fit at a relaxed threshold against a fresh baseline that never met the budget. It is refuted, the record is kept, and it is not cited.",
+  "The sealed replacement calibrated the baseline to the budget first and found floors of a few transmission intervals at 10 hertz and one at 50 hertz and above, with the optimal linear predictor unable to beat the one-coherence-time wall.",
+  "Volume 14's book outline still cites the refuted law, an open item.",
+]
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "CSI-refreshfloor"
+
+[[entry]]
+id = "min-over-strata"
+kind = "concept"
+title = "min-over-strata"
+glossary = "min-over-strata"
+equations = ["10.7", "14.5"]
+ledger = ["NEG-14"]
+first_stated = "The compression program's stratified evaluation, STRATA, in turboquant-pro, DOI 10.5281/zenodo.20660087, and chapter 10 section 10.4 of *Data Mining as Observation*."
+book_records = ["STRATA", "strat", "openvector-bench"]
+book_terms = ["min[- ]over[- ]strata", "abstention", "abstain"]
+related = ["false-clear-rate", "coverage", "hubness", "certificate"]
+conditions = [
+  "A verdict over several groups is the worst group's verdict, with a group too small to score counted as an abstention and reported, never averaged away.",
+  "The first stratified run made two wrong predictions, and the record carries them at the size of the result.",
+]
+
+[[entry]]
+id = "water-filling"
+kind = "concept"
+title = "water-filling"
+glossary = "water-filling"
+equations = ["0.13", "4.2"]
+ledger = []
+first_stated = "Shannon's power allocation across channels, applied with a consumer's sensitivity in place of a signal's power in readscope and turboquant-pro, and chapter 0 section 0.7 and chapter 4 section 4.2 of *Data Mining as Observation*."
+book_records = ["readscope\\", "RESULTS_glove", "row GO-4"]
+book_terms = ["water[- ]fill"]
+related = ["read-operator", "read-distortion", "alignment", "flip"]
+conditions = [
+  "The closed form assumes a uniform quantizer at high rate, so that each bit quarters the squared error, and directions taken as the eigenvectors of the covariance so that their errors add.",
+  "The sensitivity of each direction is read in that same eigenbasis, as the quadratic form of the read operator along the eigenvector, and pairing the eigenvalues of the two matrices is valid only when they share an eigenbasis.",
+  "Coarse quantizers, unequal codebook steps, and errors not spread evenly depart from the formula, and chapter 4 reports where a measured allocation did.",
+]
