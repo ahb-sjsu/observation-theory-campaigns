@@ -43,7 +43,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-none
+`lean/DataMiningAsObservation/Alignment.lean`, theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 13ebbfa.
 
 ## used in
 
@@ -55,4 +55,4 @@ alignment, flip, read-distortion
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 2a2e053, theory-radar 37c4e6c, observation-data-mining 22aa258, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 94e6884, theory-radar 37c4e6c, observation-data-mining 13ebbfa, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

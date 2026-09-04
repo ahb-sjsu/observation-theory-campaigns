@@ -73,5 +73,7 @@ that cite the entry's records, and from campaign track tables by cell name. Corr
 errata files and the records that carry them, whole section or paragraph, with line ranges.
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
-so. On 2026-09-04 the three generated entries carried every number of their hand-filled
+so. Every entry now carries a machine-checked section naming the book's Lean file that checks
+its checkable core, twenty files as of 2026-09-04, and the book's appendix C states what each
+check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
