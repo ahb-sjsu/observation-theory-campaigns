@@ -958,3 +958,92 @@ conditions = [
   "Calibration is a property of the score values and not of their ranking, so a recalibration can change it while leaving AUROC, the reliability weight, and every threshold-swept metric unchanged. The two are reported side by side and neither stands in for the other.",
   "Recalibrating a reconstruction toward the input improved the reconstruction and worsened the consumer, the standing negative that keeps calibration off the list of acceptance metrics for a code.",
 ]
+
+[[entry]]
+id = "abstention"
+kind = "concept"
+title = "abstention"
+glossary = "abstention"
+equations = ["10.7"]
+ledger = ["NEG-14"]
+first_stated = "The strata design in turboquant-pro, `turboquant-pro/docs/STRATA_RFC.md:24-98`, and chapter 10 section 10.4 of *Data Mining as Observation*."
+book_records = ["STRATA_RFC.md", "HUBNESS_PRIMER.md:140", "abstentions with 2 and 1 rows", "abstain below 2.5"]
+book_terms = ["abstain", "abstention"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Abstention.lean"
+related = ["min-over-strata", "anti-hub", "certificate", "coverage"]
+conditions = [
+  "A stratum with too few rows or too few queries to score receives the verdict abstain, which is reported under a registered cause and excluded from the minimum. Abstain is not a pass, and when no stratum is eligible the verdict itself is abstain.",
+  "Raising the eligibility bar can only remove strata from the minimum and so can only raise the verdict, which is why every abstention is printed beside the verdict rather than dropped.",
+]
+
+[[entry]]
+id = "drift"
+kind = "concept"
+title = "drift"
+glossary = "drift"
+equations = ["13.1", "0.10"]
+ledger = ["OT-4", "OT-11"]
+first_stated = "Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that_ages.md`, DOI 10.5281/zenodo.21776291, and the operator-drift record in readscope, `readscope/calibration/records/c11c-operator-drift.json`."
+book_records = ["c11c-operator-drift", "CALIBRATION.md:600", "SPEC.md:806", "drift list", "ch19_the_certificate_that_age"]
+book_terms = ["\\bdrift"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Drift.lean"
+related = ["coherence-time", "freshness", "certificate", "read-distortion"]
+conditions = [
+  "A drift is a change over time in what a consumer reads or in the data it reads, and its damage is the read distortion of the drift, so it is consumer-relative. The same drift is read as its full squared size by one consumer and as nothing by another, and a drift confined to the nuisance is read as zero however large.",
+  "The operator-drift claim was tested against a paired null and half of it was noise. The rank-one drift held in fourteen of sixteen cells on one model, and the refresh intervention derived from it was refuted, which the ledger carries.",
+]
+
+[[entry]]
+id = "freshness"
+kind = "concept"
+title = "freshness"
+glossary = "freshness"
+equations = ["0.26", "0.25", "13.2"]
+ledger = ["OT-11", "OT-4"]
+first_stated = "Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that_ages.md`, DOI 10.5281/zenodo.21776291, and the freshness track, `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:20-35`."
+book_records = ["RADIO-FRESHNESS-TRACK.md", "ZooKeeper", "aggregate staleness", "ch19_the_certificate_that_age", "CSI-refreshflo"]
+book_terms = ["fresh(?:ness)?\\b", "stale(?:ness)?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Freshness.lean"
+related = ["coherence-time", "certificate", "false-clear-rate", "refresh-floor", "drift"]
+conditions = [
+  "A stored value is fresh for a reader when its age is within that reader's coherence time. Freshness is consumer-relative. Two readers of the same replica with different coherence times disagree about every age between the two, and the staleness rate of a mixed population is a weighted mean of the two readers' rates, strictly between them when they differ, so it describes neither.",
+  "The measured false-clear rates on the named substrates, ZooKeeper, Postgres, MongoDB, and the radio link, are the freshness program's numbers, and the refuted refresh law is its standing negative.",
+]
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "CSI-refreshfloor"
+
+[[entry]]
+id = "intrinsic-dimension"
+kind = "concept"
+title = "intrinsic dimension"
+glossary = "intrinsic dimension"
+equations = ["0.31", "9.2", "0.7"]
+ledger = ["GO-3"]
+first_stated = "Weyl's law, 1911, as chapter 0 section 0.15 states it, applied in the recognizer of Volume 14 chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-95`, and chapter 9 section 9.2 of *Data Mining as Observation*."
+book_records = ["ch11_the_recognizer.md", "SPECTRUM_FINDINGS.md", "the-angular-observer"]
+book_terms = ["intrinsic dimension", "Weyl"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/IntrinsicDimension.lean"
+related = ["recognizer", "effective-rank", "distance-concentration", "vacuity-threshold"]
+conditions = [
+  "The intrinsic dimension is the number of directions a dataset varies along, whatever its coordinate count. Under Weyl's law the count of eigenvalues below a level grows like the level to half the dimension, so the dimension is twice the slope of log count against log level between any two levels, whatever the constant.",
+  "Dimension emerges before shape. The recognizer reports it with confidence before it names a manifold, and the law is an asymptotic statement about manifolds that a finite sample approximates.",
+]
+
+[[entry]]
+id = "simpsons-paradox"
+kind = "concept"
+title = "Simpson's paradox"
+glossary = "Simpson's paradox"
+equations = ["10.7"]
+ledger = []
+first_stated = "TSK chapter 5 on objective measures, as chapter 5 section 5.5 of *Data Mining as Observation* reads it, an aggregation quotient."
+book_records = ["Simpson's paradox", "TSK 2e chapter 5"]
+book_terms = ["Simpson"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Simpson.lean"
+related = ["quotient", "min-over-strata", "abstention", "deployment-mismatch"]
+conditions = [
+  "A pooled rate is the size-weighted mean of the group rates, so pooling is a quotient that declares the group labels irrelevant, and it can reverse a comparison that holds in every group when the groups have different sizes under the two arms.",
+  "With equal group sizes under both arms the pooled comparison agrees with a comparison that holds in every group. The book's answer is the min-over-strata verdict, which never pools.",
+]
