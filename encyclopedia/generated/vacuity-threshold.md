@@ -41,7 +41,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-none
+`lean/DataMiningAsObservation/Vacuity.lean`, theorems `maxOver_mono`, `rho_eq_one_iff`, `rho_lt_one_of_lt`, at observation-data-mining 13ebbfa.
 
 ## used in
 
@@ -53,4 +53,4 @@ certificate, rank-certificate, recognizer
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 2a2e053, theory-radar 37c4e6c, observation-data-mining 22aa258, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 94e6884, theory-radar 37c4e6c, observation-data-mining 13ebbfa, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

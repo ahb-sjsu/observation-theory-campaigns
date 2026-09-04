@@ -125,6 +125,7 @@ ledger = ["GO-4"]
 first_stated = "Volume 14, chapter 12, `geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`, DOI 10.5281/zenodo.21776291, where the alignment law is a retrospective fit carried as exploratory with one prospective point."
 book_records = ["ch12_failure_taxonomy_and_kappa.md", "row GO-4"]
 book_terms = ["alignment", "coupling null"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Alignment.lean"
 related = ["flip", "read-distortion", "coupling-null", "water-filling"]
 conditions = [
   "Defined as the normalized overlap between the averaged read operator and the source covariance on the read subspace, between zero and one, and so a statement about one workload.",
@@ -207,6 +208,7 @@ ledger = ["GO-3"]
 first_stated = "The compression program's certificate specification, `turboquant-pro/docs/CERTIFICATE_SPEC.md`, DOI 10.5281/zenodo.20660087, and chapter 11 section 11.3 of *Data Mining as Observation*."
 book_records = ["CERTIFICATE_SPEC.md", "CLAIMS.md", "GO3-certificate-vacuity"]
 book_terms = ["rank certificate", "rank fidelity"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/RankCertificate.lean"
 related = ["certificate", "vacuity-threshold", "flip", "hubness"]
 conditions = [
   "In the strict setting, the zeroth and hundredth percentiles of the distance ratio, the floor is a guarantee for the anchor sample, broken by a single collapsed pair.",
@@ -229,6 +231,7 @@ ledger = ["GO-3"]
 first_stated = "Volume 14, the GO-3 registration and its notes, `geometric-observation/experiments/GO3-certificate-vacuity-v3-NOTES.md:1-60`, DOI 10.5281/zenodo.21776291, and chapter 9 section 9.3 of *Data Mining as Observation*."
 book_records = ["GO3-certificate-vacuity"]
 book_terms = ["vacuity"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Vacuity.lean"
 related = ["certificate", "rank-certificate", "recognizer"]
 conditions = [
   "The threshold is derived from the problem, the expected maximum of the distractors' margins, and is not tuned to the data.",
@@ -246,6 +249,7 @@ ledger = ["OT-4"]
 first_stated = "Clarke's model of mobile-radio reception for the formula, and Volume 14 chapter 19 for its role as the interval past which a certificate has decorrelated."
 book_records = ["RADIO-FRESHNESS-TRACK.md", "CSI-refreshfloor", "CSI-SWEEP2"]
 book_terms = ["coherence time"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/CoherenceTime.lean"
 related = ["certificate", "false-clear-rate", "refresh-floor", "witness"]
 conditions = [
   "Clarke's formula gives the coherence time from the Doppler frequency alone and assumes the fading model behind it.",
@@ -369,6 +373,7 @@ ledger = ["GO-5", "NEG-11", "NEG-15"]
 first_stated = "Radovanović, Nanopoulos, and Ivanović for the phenomenon. The observation program's reading, that hubness is almost entirely a property of the queries and the reader rather than the corpus, in openvector-bench and turboquant-pro, and in chapter 3 section 3.5 and chapter 10 of *Data Mining as Observation*."
 book_records = ["openvector-bench", "hubness", "anti-hub", "STRATA", "articles\\2026-08-03"]
 book_terms = ["hubness", "\\bhubs?\\b", "anti[- ]hubs?"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Hubness.lean"
 related = ["quotient", "certificate", "rank-certificate", "min-over-strata"]
 conditions = [
   "A hub is a row retrieved as a nearest neighbour far more often than the Poisson null allows, and the ceiling of that null is derived from the query count, the neighbourhood size, and the corpus size.",
@@ -386,6 +391,7 @@ ledger = ["GO-B-optim-D4", "GO-4"]
 first_stated = "Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:108-116`, the gradient-compression case, and chapter 12 for the alignment dial, DOI 10.5281/zenodo.21776291."
 book_records = ["ch08_value.md:108-116", "ch12_failure_taxonomy_and_kappa.md", "GO-B-optim"]
 book_terms = ["coupling null", "coupling boundary"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Alignment.lean"
 related = ["alignment", "flip", "read-distortion"]
 conditions = [
   "The coupling null is the case in which the read subspace and the high-variance subspace coincide, alignment near one, so that the reconstruction-optimal code is also the read-preserving one and no flip is possible.",
@@ -419,6 +425,7 @@ ledger = ["GO-3"]
 first_stated = "Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-95`, DOI 10.5281/zenodo.21776291, and the-angular-observer's recognizer battery, `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80`."
 book_records = ["ch11_the_recognizer.md", "the-angular-observer", "GO3-certificate-vacuity"]
 book_terms = ["recogni[sz]er"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Recognizer.lean"
 related = ["certificate", "vacuity-threshold", "hubness"]
 conditions = [
   "The recognizer names a manifold from the low eigenvalue multiplets of a neighbourhood graph's Laplacian by template match, or certifies that none is present, and it can only name shapes in its template set.",
@@ -435,6 +442,7 @@ ledger = ["OT-4", "OT-11"]
 first_stated = "An unsealed exploration in the radio freshness track, `observation-theory-campaigns/analysis/csi/CSI-refreshfloor.json`, refuted and replaced by the sealed sweep `observation-theory-campaigns/analysis/csi/PREREG-XPROTO-CSI-SWEEP2.md`."
 book_records = ["CSI-refreshfloor", "CSI-SWEEP2", "RADIO-FRESHNESS-TRACK.md", "BOOK-OUTLINE.md"]
 book_terms = ["refresh[- ]floor", "refresh law"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/CoherenceTime.lean"
 related = ["coherence-time", "certificate", "false-clear-rate"]
 conditions = [
   "The proportional law, a floor of about 0.177 times the coherence time, was fit at a relaxed threshold against a fresh baseline that never met the budget. It is refuted, the record is kept, and it is not cited.",
@@ -473,6 +481,7 @@ ledger = []
 first_stated = "Shannon's power allocation across channels, applied with a consumer's sensitivity in place of a signal's power in readscope and turboquant-pro, and chapter 0 section 0.7 and chapter 4 section 4.2 of *Data Mining as Observation*."
 book_records = ["readscope\\", "RESULTS_glove", "row GO-4"]
 book_terms = ["water[- ]fill"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/WaterFilling.lean"
 related = ["read-operator", "read-distortion", "alignment", "flip"]
 conditions = [
   "The closed form assumes a uniform quantizer at high rate, so that each bit quarters the squared error, and directions taken as the eigenvectors of the covariance so that their errors add.",
@@ -572,6 +581,7 @@ ledger = ["OT-7", "GO-1"]
 first_stated = "Volume 14, chapter 4, `geometric-observation/chapters/ch04_the_observer_triple.md:9-60`, and `geometric-observation/OBSERVATION.md:1-10`, DOI 10.5281/zenodo.21776291. Version 1.0 of the theory was declared on 2026-08-18 in `geometric-observation/crucible/DECLARATION-V1.md`."
 book_records = ["ch04_the_observer_triple.md", "OBSERVATION.md", "PROTOCOL.md", "DECLARATION"]
 book_terms = ["observer triple", "the observer"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"
 related = ["read-operator", "quotient", "read-distortion", "certificate"]
 conditions = [
   "An observer is a consumer, its output metric, and its budget. The consumer and the local geometry of its output metric determine the read operator. The budget bounds what of it can be measured and used and changes it only by changing the consumer.",
@@ -700,6 +710,7 @@ ledger = ["NEG-2"]
 first_stated = "Chapter 8 section 8.1 of *Data Mining as Observation*, with the ESL example of selection before the split, Hastie, Tibshirani, and Friedman, section 7.10.2."
 book_records = ["ESL 2e, section 7.10.2", "QUERY_COUPLING_ARTIFACT", "CI fails when CLAIMS.md"]
 book_terms = ["leak(?:age|s|ed|ing)?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Leakage.lean"
 related = ["harness", "preregistration", "sealed", "hubness"]
 conditions = [
   "Leakage is any information in the training data that could only be known after the decision, or any identifier that lets the model recognize a row it will be tested on. It is a property of the harness's read subspace, not of the model.",
@@ -739,6 +750,7 @@ ledger = ["OT-11", "NEG-15", "GO-2 (neg. half"]
 first_stated = "Volume 14, `geometric-observation/PROTOCOL.md:58-75` and `geometric-observation/OBSERVATION.md:43-45`, DOI 10.5281/zenodo.21776291, with the ledger itself at `geometric-observation/claims/LEDGER.md`."
 book_records = ["the six classes", "PROTOCOL.md:58-75", "LEDGER.md:48", "NEG-1 to NEG-16", "OBSERVATION.md:43-45", "test_claims_ledger.py"]
 book_terms = ["ledger class", "\\[(?:proved|demonstrated|replicated|predicted|exploratory|refuted)\\]"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Ledger.lean"
 related = ["preregistration", "sealed", "certificate", "false-clear-rate"]
 conditions = [
   "Every headline claim carries one of six labels, proved, demonstrated, replicated, predicted, exploratory, or refuted. A claim's class can only rise by a sealed pass on held-out data and only fall by a sealed miss, and a refuted claim is reported at the prominence of a pass.",
@@ -756,6 +768,7 @@ ledger = ["OT-7", "OT-11"]
 first_stated = "The program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-10`, a seal being the registration id, the sealing commit, and the SHA-256 of the sealed file at that commit, and chapter 0 section 0.12 of *Data Mining as Observation*."
 book_records = ["SEALS.md", "DECLARATION-V1.md", "OT-CRUCIBLE-4.md", "OT-CRUCIBLE-3-VERDICT", "record sha", "sha e12453"]
 book_terms = ["\\bseal(?:ed|s|ing)?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
 related = ["preregistration", "ledger-class", "certificate", "refresh-floor"]
 conditions = [
   "A prediction is sealed when its file is committed and the commit and the content hash are recorded in the seal ledger before the measurement is run, so that anyone with the repository can verify it has not changed.",
