@@ -1,17 +1,21 @@
-# abstention
+# Robin Hood index
 
-**id.** abstention
-**kind.** concept
+**id.** robin-hood-index
+**kind.** instrument
 
 ## definition
 
-The verdict a group receives when it has too few rows or too few queries to score. It is reported as a verdict, not dropped. Chapter 10.
+The fraction of a total count that would have to move from points above the mean to points below it to make every count equal. Equation 0.35.
 
 ## equation
 
-Book equation 10.7.
+Book equation 0.35.
 
-    \text{verdict}=\min_{i:\ n_i\ge n_{\min},\ |Q_i|\ge q_{\min}}\ \mathrm{score}_i,\qquad \text{ABSTAIN otherwise}.
+    \mathrm{RH}=\sum_i\max\!\Big(0,\ \frac{N_i}{\sum_j N_j}-\frac1n\Big).
+
+Book equation 10.4.
+
+    \text{never retrieved}\ \ge\ 1-\frac{|Q|\,k}{n}\qquad\text{whenever}\quad |Q|\,k<n.
 
 ## ledger
 
@@ -19,13 +23,12 @@ Book equation 10.7.
 
 ## first stated
 
-The strata design in turboquant-pro, `turboquant-pro/docs/STRATA_RFC.md:24-98`, and chapter 10 section 10.4 of *Data Mining as Observation*.
+Hoover's index of concentration, applied to neighbour counts in turboquant-pro's strata design, `turboquant-pro/docs/STRATA_RFC.md:24-98`, and chapter 0 section 0.16 of *Data Mining as Observation*.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 10 section 10.3 | abstain below 2.5 k | `turboquant-pro\docs\HUBNESS_PRIMER.md:140-160` |
 | chapter 10 section 10.4 | area map, boundary rule, hash, refuse not warn, intra and transit counts, area classes, abstention rule | `turboquant-pro\docs\STRATA_RFC.md:24-98` |
 | chapter 10 section 10.4 | second prediction inverted, transit 0.389 vs 0.291, centrality difference signs, share 0.473 vs 0.391, seven of thirteen backbone | `turboquant-pro\docs\RESULTS_multilingual_strata.md:55-90`; `turboquant-pro\docs\STRATA_RFC.md:98-130` |
 
@@ -35,22 +38,22 @@ The strata design in turboquant-pro, `turboquant-pro/docs/STRATA_RFC.md:24-98`, 
 
 ## conditions
 
-- A stratum with too few rows or too few queries to score receives the verdict abstain, which is reported under a registered cause and excluded from the minimum. Abstain is not a pass, and when no stratum is eligible the verdict itself is abstain.
-- Raising the eligibility bar can only remove strata from the minimum and so can only raise the verdict, which is why every abstention is printed beside the verdict rather than dropped.
+- The fraction of the total count that would have to move from points above the mean to points below it to make every count equal, the excess above the mean over the total, which is half the total absolute deviation over the total. It is nonnegative, zero exactly at equality, at most one, and unchanged by a common scaling of the counts.
+- The strata design reports it per area beside the skew, and the first run's ratio of 1.30 against a bar of 1.5 is the number the abstention rule was written around.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Abstention.lean`, theorems `abstain_not_passes`, `verdict_eq_none_iff`, `passes_verdict_iff`, `inf_le_of_subset`, at observation-data-mining abac866.
+`lean/DataMiningAsObservation/RobinHood.lean`, theorems `sum_dev`, `excess_eq_half_abs`, `robinHood_nonneg`, `robinHood_eq_zero_iff`, `robinHood_le_one`, `robinHood_scale`, at observation-data-mining abac866.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 10, 11, 14.
+*Data Mining as Observation* chapters 0, 10.
 
 ## related
 
-min-over-strata, anti-hub, certificate, coverage
+hubness, anti-hub, poisson-ceiling, abstention
 
 ## status
 

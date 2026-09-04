@@ -1302,3 +1302,88 @@ conditions = [
   "Confidence over the consequent's support, the joint support over the product of the two supports. It is one under independence, symmetric in the two itemsets, and bounded by the reciprocal of the consequent's support.",
   "It fails at low support. One transaction in N containing both items, and neither elsewhere, gives lift N, which is why the rules with the highest lift are the ones chapter 8's multiple-comparison rule applies to.",
 ]
+
+[[entry]]
+id = "explained-variance"
+kind = "concept"
+title = "explained variance"
+glossary = "explained variance"
+equations = ["4.1", "0.7"]
+ledger = ["GO-1"]
+first_stated = "TSK appendix B on principal component analysis, as chapter 4 section 4.1 of *Data Mining as Observation* reads it, the identity reader's criterion for a reduction, with the program's spectrum record in `gtc-prototype/docs/SPECTRUM_FINDINGS.md:10-18`."
+book_records = ["explained ratios", "SPECTRUM_FINDINGS.md", "row GO-1"]
+book_terms = ["explained variance", "explained ratio"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ExplainedVariance.lean"
+related = ["identity-reader", "flip", "effective-rank", "water-filling"]
+conditions = [
+  "The fraction of total variance the first k components carry. It lies in the unit interval, cannot fall as k grows, and reaches one at the full dimension. With unit sensitivities it is the fraction a consumer retains, which is why it is the identity reader's criterion.",
+  "A consumer that reads other directions retains a different fraction. With variances 9 and 1 and a consumer reading only the second direction, keeping the first component explains nine tenths of the variance and none of what the consumer reads, which is the flip in its smallest form.",
+]
+
+[[entry]]
+id = "cross-support-ratio"
+kind = "concept"
+title = "cross-support ratio"
+glossary = "cross-support ratio"
+equations = ["5.3", "5.1"]
+ledger = []
+first_stated = "TSK chapter 5 on cross-support patterns, as chapter 5 section 5.5 of *Data Mining as Observation* states it."
+book_records = ["cross-support", "TSK 2e chapter 5"]
+book_terms = ["cross-support"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/CrossSupport.lean"
+related = ["apriori", "safe-pruning", "lift", "multiple-comparisons"]
+conditions = [
+  "The smallest item support in an itemset over the largest. It lies in the unit interval, is one exactly when every item has the same support, and adding an item can only lower it, so a threshold on it prunes supersets safely in chapter 5's sense.",
+  "It is a property of the item supports alone and says nothing about the itemset's own support, so it discards an itemset for pairing a common item with a rare one, not for being rare.",
+]
+
+[[entry]]
+id = "robin-hood-index"
+kind = "instrument"
+title = "Robin Hood index"
+glossary = "Robin Hood index"
+equations = ["0.35", "10.4"]
+ledger = ["NEG-14"]
+first_stated = "Hoover's index of concentration, applied to neighbour counts in turboquant-pro's strata design, `turboquant-pro/docs/STRATA_RFC.md:24-98`, and chapter 0 section 0.16 of *Data Mining as Observation*."
+book_records = ["Robin Hood 0.3447", "Robin Hood 0.372", "STRATA_RFC.md"]
+book_terms = ["Robin Hood"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/RobinHood.lean"
+related = ["hubness", "anti-hub", "poisson-ceiling", "abstention"]
+conditions = [
+  "The fraction of the total count that would have to move from points above the mean to points below it to make every count equal, the excess above the mean over the total, which is half the total absolute deviation over the total. It is nonnegative, zero exactly at equality, at most one, and unchanged by a common scaling of the counts.",
+  "The strata design reports it per area beside the skew, and the first run's ratio of 1.30 against a bar of 1.5 is the number the abstention rule was written around.",
+]
+
+[[entry]]
+id = "perplexity"
+kind = "concept"
+title = "perplexity"
+glossary = "perplexity"
+equations = ["0.22", "11.1"]
+ledger = ["NEG-2", "NEG-4"]
+first_stated = "Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["KV_KEYS_FINDING", "perplexity near 1e4", "key quantizer", "perplexity of order ten thousand"]
+book_terms = ["perplexity"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Perplexity.lean"
+related = ["kl-divergence", "flip", "identity-reader", "read-distortion"]
+conditions = [
+  "Two to the power of the average number of bits a language model needs per token of a test text. It is at least one, equals the vocabulary size for a model that spreads its mass evenly, and is monotone in the bits.",
+  "The attention-key finding raised it from 12.24 to 10643 at cosine 0.995, a rise of more than nine bits per token, and the recalibration that improved the reconstruction worsened it, the two standing negatives that keep reconstruction error off the list of acceptance metrics.",
+]
+
+[[entry]]
+id = "standard-error"
+kind = "concept"
+title = "standard error"
+glossary = "standard error"
+equations = ["0.18", "8.2"]
+ledger = []
+first_stated = "Chapter 0 section 0.9 of *Data Mining as Observation*, with the program's own inflation in `constraint-gap/review/FINDINGS.md:1-35`."
+book_records = ["SE inflation", "standard errors", "SE 0.070", "FINDINGS.md:1-35"]
+book_terms = ["standard error", "\\bSE\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/StandardError.lean"
+related = ["nadeau-and-bengio-correction", "harness", "multiple-comparisons", "preregistration"]
+conditions = [
+  "The spread of an estimate across repeated samples, the spread of one draw over the square root of the number of independent draws. It is positive, falls as the draws grow, halves only when the draws quadruple, and tends to zero.",
+  "Dependent draws do not shrink it this way. A thousand repeated folds shrink the naive standard error by a factor near 31.6 and the corrected one by 15.84 less, which is the Nadeau and Bengio correction.",
+]

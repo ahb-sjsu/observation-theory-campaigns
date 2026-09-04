@@ -52,7 +52,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/NadeauBengio.lean`, theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining 2b1108b.
+`lean/DataMiningAsObservation/NadeauBengio.lean`, theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining abac866.
 
 ## used in
 
@@ -64,4 +64,4 @@ harness, formula-search, preregistration, multiple-comparisons
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 4d22223, theory-radar 37c4e6c, observation-data-mining 2b1108b, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 6f08896, theory-radar 37c4e6c, observation-data-mining abac866, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

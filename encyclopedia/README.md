@@ -75,9 +75,14 @@ acceptance test for the generator that will fill them from the records.
 | [whitening](generated/whitening.md) | concept | rescaling data so its covariance is the identity, a change of reader |
 | [Mahalanobis distance](generated/mahalanobis-distance.md) | concept | Euclidean distance from the mean after whitening, the identity reader on whitened data |
 | [lift](generated/lift.md) | concept | confidence over the consequent's support, one under independence, and unbounded at low support |
+| [explained variance](generated/explained-variance.md) | concept | the fraction of variance the first k components carry, the identity reader's criterion |
+| [cross-support ratio](generated/cross-support-ratio.md) | concept | the smallest item support over the largest, anti-monotone in the itemset |
+| [Robin Hood index](generated/robin-hood-index.md) | instrument | the fraction of a total that would have to move from above the mean to below it to equalize the counts |
+| [perplexity](generated/perplexity.md) | concept | two to the average bits per token, at least one, the vocabulary size for a uniform model |
+| [standard error](generated/standard-error.md) | concept | the spread of an estimate across samples, halved only by four times the independent draws |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other sixty-five exist only as generated entries, built from the records by `generate.py`.
+other seventy exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -104,6 +109,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, forty-eight files as of 2026-09-04, and the book's appendix C states what each
+its checkable core, fifty-three files as of 2026-09-04, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.

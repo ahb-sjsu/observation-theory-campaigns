@@ -1,17 +1,17 @@
-# lift
+# cross-support ratio
 
-**id.** lift
+**id.** cross-support-ratio
 **kind.** concept
 
 ## definition
 
-Confidence divided by the consequent's support, so that lift one is the independence baseline. It fails at low support. Chapter 5.
+The smallest item support in an itemset over the largest, with a threshold below which the itemset is discarded. Chapter 5.
 
 ## equation
 
-Book equation 5.2.
+Book equation 5.3.
 
-    \mathrm{lift}(X\to Y)=\frac{c(X\to Y)}{s(Y)}=\frac{s(X\cup Y)}{s(X)\,s(Y)}.
+    X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
 
 Book equation 5.1.
 
@@ -23,7 +23,7 @@ none
 
 ## first stated
 
-TSK chapter 5 on objective measures, as chapter 5 section 5.1 of *Data Mining as Observation* states it.
+TSK chapter 5 on cross-support patterns, as chapter 5 section 5.5 of *Data Mining as Observation* states it.
 
 ## measurements
 
@@ -37,14 +37,14 @@ none
 
 ## conditions
 
-- Confidence over the consequent's support, the joint support over the product of the two supports. It is one under independence, symmetric in the two itemsets, and bounded by the reciprocal of the consequent's support.
-- It fails at low support. One transaction in N containing both items, and neither elsewhere, gives lift N, which is why the rules with the highest lift are the ones chapter 8's multiple-comparison rule applies to.
+- The smallest item support in an itemset over the largest. It lies in the unit interval, is one exactly when every item has the same support, and adding an item can only lower it, so a threshold on it prunes supersets safely in chapter 5's sense.
+- It is a property of the item supports alone and says nothing about the itemset's own support, so it discards an itemset for pairing a common item with a rare one, not for being rare.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Lift.lean`, theorems `lift_indep`, `lift_symm`, `lift_le_inv`, `lift_single`, at observation-data-mining abac866.
+`lean/DataMiningAsObservation/CrossSupport.lean`, theorems `ratio_mem_unit`, `ratio_eq_one_iff`, `ratio_anti`, at observation-data-mining abac866.
 
 ## used in
 
@@ -52,7 +52,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## related
 
-apriori, multiple-comparisons, safe-pruning, harness
+apriori, safe-pruning, lift, multiple-comparisons
 
 ## status
 
