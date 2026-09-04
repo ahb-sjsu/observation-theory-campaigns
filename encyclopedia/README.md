@@ -90,9 +90,14 @@ acceptance test for the generator that will fill them from the records.
 | [Laplacian](generated/laplacian.md) | concept | the graph matrix whose quadratic form is half the weighted squared differences across edges, zero on constants |
 | [KV cache](generated/kv-cache.md) | concept | the stored keys and values of earlier tokens, read by each head only through query-key scores |
 | [eviction](generated/eviction.md) | concept | choosing what to drop from a full cache, attention over the kept subset |
+| [TF-IDF](generated/tf-idf.md) | concept | term frequency times the log of document count over document frequency, zero for a term in every document |
+| [bag of words](generated/bag-of-words.md) | concept | a document as its term counts, a quotient that declares word order irrelevant, the encoder's null |
+| [retrieval-augmented pipeline](generated/retrieval-augmented-pipeline.md) | concept | a chain of observers whose quotients are inherited and whose rank is at most its narrowest stage's |
+| [teacher forcing](generated/teacher-forcing.md) | concept | predicting each token from the correct prefix, agreeing with the free run until the first error |
+| [inverted file](generated/inverted-file.md) | instrument | cells searched by probe count, a neighbour found exactly when its cell is probed |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other eighty exist only as generated entries, built from the records by `generate.py`.
+other eighty-five exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -119,6 +124,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, sixty-three files as of 2026-09-04, and the book's appendix C states what each
+its checkable core, sixty-eight files as of 2026-09-04, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
