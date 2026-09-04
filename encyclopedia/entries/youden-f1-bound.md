@@ -59,8 +59,25 @@ The evaluation counts under the AUROC pre-filter reproduce the published table. 
 column is the number of formulas on which the retracted theorem's ceiling sat below the F1
 the formula actually reached, which is the number of times the theorem was wrong on that
 dataset. The pre-filter lost no optimum on these datasets because the winning formulas had
-concave enough ROC curves, not because the theorem held. The A* search at depth 3 in strict,
-fast, and youden modes is part B of the same rerun and is recorded in the results file.
+concave enough ROC curves, not because the theorem held.
+
+Part B of the same rerun ran the depth-3 A* search with 50,000 expansions in strict mode (no
+pre-filter), the published fast mode (AUROC pre-filter at 0.52), and the new youden mode.
+
+| Dataset | strict F1 and formula | fast F1 | youden F1 and formula | expansions strict, fast, youden |
+|---|---|---|---|---|
+| Circles (2) | 0.9965, x1 hypot x2 | 0.9965 | 0.9965, same | 1626, 540, 87 |
+| Moons (2) | 0.8927, neg(x1) max x2 | 0.8927 | 0.8927, same | 1626, 1386, 86 |
+| Synthetic (20) | 1.0000, x0 hypot x1 | 1.0000 | 1.0000, same | 50000, 50000, 465 |
+| Breast Cancer (10) | 0.9578, (f1 min f2) + f7 | 0.9578 | 0.9516, (f3 + f7) min f6 | 50000, 50000, 841 |
+| Diabetes (8) | 0.6937, (d5 min d7) + d1 | 0.6937 | 0.6921, (d1 + d7) min d5 | 50000, 46307, 192 |
+
+Strict and fast agree everywhere and reproduce the published optima and formulas on Breast
+Cancer and Diabetes. The youden mode reaches the optimum on three datasets in one to two
+percent of the expansions and falls short by 0.006 and 0.002 on the other two, because
+pruning a subtree by its root's ceiling is sound for the root and a heuristic for its
+descendants, as the AUROC pre-filter also is. The 3-body row was not rerun. Recorded in
+`theory-radar/results/rerun_youden_2026_09_03.json` at fec3b42.
 
 ## failures and corrections
 
@@ -103,5 +120,5 @@ monotone-invariance, formula-search, safe-pruning, apriori
 
 ## status
 
-Hand-filled 2026-09-03 from theory-radar at aedc053 and observation-data-mining at a0b20ff,
-with part B of the rerun pending at the time of writing. Not yet generated.
+Hand-filled 2026-09-03 and completed 2026-09-04 from theory-radar at the rerun commit and
+observation-data-mining at f66bac4, with both parts of the rerun recorded. Not yet generated.
