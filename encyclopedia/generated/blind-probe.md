@@ -86,4 +86,4 @@ read-operator, budget-cliff, read-distortion, flip
 
 ## status
 
-Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f842d31, theory-radar 37c4e6c, observation-data-mining 64c1765, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 4dcce07, theory-radar 37c4e6c, observation-data-mining 64c1765, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

@@ -20,9 +20,14 @@ acceptance test for the generator that will fill them from the records.
 | [coherence time](generated/coherence-time.md) | concept | the interval over which a changing quantity stays correlated with itself, past which a certificate has decorrelated |
 | [blind probe](generated/blind-probe.md) | instrument | recovers a consumer's read operator from calls to the consumer alone |
 | [budget cliff](generated/budget-cliff.md) | result | recovery of a read operator by a confined probe is a cliff at the full dimension, rank-independent |
+| [read operator](generated/read-operator.md) | concept | the workload average of a consumer's local sensitivity outer product, whose range is the read subspace and whose kernel is the nuisance |
+| [quotient](generated/quotient.md) | concept | the space of inputs with the consumer's null directions declared the same, exact for an affine consumer and local otherwise |
+| [identity reader](generated/identity-reader.md) | concept | the consumer whose read operator is the identity, for which read distortion is mean squared error |
+| [hubness](generated/hubness.md) | result | rows retrieved far more often than the Poisson null allows, a property of the queries and the reader rather than the corpus |
+| [coupling null](generated/coupling-null.md) | concept | the case of alignment near one in which no flip is possible, the flip's stated boundary |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other ten exist only as generated entries, built from the records by `generate.py`.
+other fifteen exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with

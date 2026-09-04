@@ -294,3 +294,92 @@ conditions = [
 repo = "readscope"
 file = "README.md"
 match = "sample-complexity"
+
+[[entry]]
+id = "read-operator"
+kind = "concept"
+title = "read operator"
+glossary = "read operator"
+equations = ["0.9", "0.11", "2.1", "6.1"]
+ledger = ["OT-7", "GO-1", "GO-EC-3"]
+first_stated = "Volume 14, chapters 4 and 5, `geometric-observation/chapters/ch04_the_observer_triple.md:9-60` and `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291."
+book_records = ["ch04_the_observer_triple.md", "ch05_the_read_metric_and_the_quotient.md", "regimes.py", "row GO-1", "GO-EC-3"]
+book_terms = ["read operator"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadDistortion.lean"
+related = ["read-distortion", "quotient", "identity-reader", "blind-probe", "flip"]
+conditions = [
+  "Each local operator is positive semidefinite, so the kernel of the workload average is the intersection of the local kernels up to sets of rows of measure zero, and an average-null direction is locally unread at almost every row of that workload.",
+  "The average depends on the workload it was taken over and is written with that workload where the difference matters.",
+  "Its off-diagonal entries are co-sensitivities, how two features' sensitivities vary together across rows, and not interactions, which are cross-partials and live in the Hessian.",
+  "The metric in the vector-output form is the local geometry of the output metric where that metric has a local quadratic representation. A dataset-level loss has none, and the operator is then taken on the score with the identity geometry.",
+]
+[[entry.errata]]
+repo = "geometric-observation"
+file = "chapters/ch05_the_read_metric_and_the_quotient.md"
+match = "as a field, not a constant"
+
+[[entry]]
+id = "quotient"
+kind = "concept"
+title = "quotient"
+glossary = "quotient"
+equations = ["0.12"]
+ledger = ["GO-1", "NEG-6", "GO-5"]
+first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:78-90`, DOI 10.5281/zenodo.21776291, and chapter 3 section 3.1 of *Data Mining as Observation*, where every similarity measure induces a distance on some quotient."
+book_records = ["ch05_the_read_metric_and_the_quotient.md", "row GO-1", "GO-5"]
+book_terms = ["quotients?\\b"]
+related = ["read-operator", "identity-reader", "flip", "hubness"]
+conditions = [
+  "The equivalence x related to x' when their difference lies in the kernel of the read operator is exact for an affine consumer with a fixed output geometry.",
+  "Three things are kept apart. Exact equivalence, that the consumer's outputs agree under its output metric. A local null direction, in the kernel of the operator at one row. A workload-common null direction, in the kernel of the workload average, unread at almost every row. For a nonlinear consumer the third does not deliver the first, and cosine similarity is the case, whose radial direction turns with the row.",
+  "An invertible transform identifies no two rows and forms no quotient. It changes the geometry a reader sees. Discretization changes the quotient.",
+]
+
+[[entry]]
+id = "identity-reader"
+kind = "concept"
+title = "identity reader"
+glossary = "identity reader"
+equations = ["0.10", "1.2", "4.1"]
+ledger = ["GO-2 (neg. half"]
+first_stated = "Volume 14, chapter 2, `geometric-observation/chapters/ch02_failure_of_observer_free_measurement.md`, DOI 10.5281/zenodo.21776291, where reconstruction error is the distortion of the reader that reads every direction equally."
+book_records = ["ch02_failure_of_observer_free", "rows GO-2", "RESULTS_glove"]
+book_terms = ["identity reader", "identity quotient"]
+related = ["read-operator", "read-distortion", "flip", "quotient"]
+conditions = [
+  "Read distortion equals the trace of the error's second moment for every admissible error exactly when the read operator is the identity. A particular error can make the two agree by accident.",
+  "Explained variance and the rule of picking rank at 95 percent are the identity reader's criteria, and the book records them as the benchmark's rules rather than its own.",
+]
+
+[[entry]]
+id = "hubness"
+kind = "result"
+title = "hubness"
+glossary = "hub"
+equations = ["0.17", "0.35", "10.3"]
+ledger = ["GO-5", "NEG-11", "NEG-15"]
+first_stated = "Radovanović, Nanopoulos, and Ivanović for the phenomenon. The observation program's reading, that hubness is almost entirely a property of the queries and the reader rather than the corpus, in openvector-bench and turboquant-pro, and in chapter 3 section 3.5 and chapter 10 of *Data Mining as Observation*."
+book_records = ["openvector-bench", "hubness", "anti-hub", "STRATA", "articles\\2026-08-03"]
+book_terms = ["hubness", "\\bhubs?\\b", "anti[- ]hubs?"]
+related = ["quotient", "certificate", "rank-certificate", "min-over-strata"]
+conditions = [
+  "A hub is a row retrieved as a nearest neighbour far more often than the Poisson null allows, and the ceiling of that null is derived from the query count, the neighbourhood size, and the corpus size.",
+  "Hubness is measured against a query workload and belongs to it. The two corpus-side mechanisms that were registered to explain it were refuted under seal.",
+  "Anti-hubs come in kinds, and one kind is manufactured by the query budget through the pigeonhole floor, so a count of never-retrieved rows changes with the number of slots per row.",
+]
+
+[[entry]]
+id = "coupling-null"
+kind = "concept"
+title = "coupling null"
+glossary = "coupling null"
+equations = ["4.6"]
+ledger = ["GO-B-optim-D4", "GO-4"]
+first_stated = "Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:108-116`, the gradient-compression case, and chapter 12 for the alignment dial, DOI 10.5281/zenodo.21776291."
+book_records = ["ch08_value.md:108-116", "ch12_failure_taxonomy_and_kappa.md", "GO-B-optim"]
+book_terms = ["coupling null", "coupling boundary"]
+related = ["alignment", "flip", "read-distortion"]
+conditions = [
+  "The coupling null is the case in which the read subspace and the high-variance subspace coincide, alignment near one, so that the reconstruction-optimal code is also the read-preserving one and no flip is possible.",
+  "It is the flip's stated boundary, and a comparison that finds no flip there has confirmed the boundary rather than refuted the flip.",
+]
