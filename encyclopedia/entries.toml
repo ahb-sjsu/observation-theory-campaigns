@@ -1727,3 +1727,88 @@ conditions = [
   "The length of the shortest path along edges between two nodes. It is zero from a node to itself, symmetric, one between adjacent nodes, and on a connected graph obeys the triangle inequality.",
   "The geodesic-rank reader reads only the ordering of these distances, so a strictly increasing transform of them leaves its nearest neighbour unchanged. That the angle of the spectral embedding carries the ordering and the radius carries degree is the measured claim of chapter 3, with the refuted commute-filter row beside it.",
 ]
+
+[[entry]]
+id = "degree"
+kind = "concept"
+title = "degree"
+glossary = "degree"
+equations = ["0.19", "3.3"]
+ledger = ["NEG-1"]
+first_stated = "Chapter 0 section 0.10 and chapter 3 section 3.3 of *Data Mining as Observation*, with the radius-against-degree measurement in the-angular-observer, `the-angular-observer/README.md:135-139`."
+book_records = ["radius against degree", "the-angular-observer", "ch09_legibility.md"]
+book_terms = ["degree"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Degree.lean"
+related = ["laplacian", "geodesic-distance", "hubness", "recognizer"]
+conditions = [
+  "The number of edges a node has. Summed over the graph the degrees count every edge twice, the sum is even, and no node has degree more than the number of other nodes.",
+  "The radius of a spectral embedding tracks the degree at correlation 0.92 to 0.99 on the substrates tested, which is the measured half of chapter 3's claim that the magnitude is degree noise and the angle is what the geodesic-rank reader reads.",
+]
+
+[[entry]]
+id = "eigenvalue-eigenvector"
+kind = "concept"
+title = "eigenvalue, eigenvector"
+glossary = "eigenvalue, eigenvector"
+equations = ["0.5", "0.7", "9.2"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.4 of *Data Mining as Observation*, with the program's spectrum records in readscope and the recognizer battery."
+book_records = ["eigenvalue sums", "spectrum.py", "SPECTRUM_FINDINGS.md"]
+book_terms = ["eigenvalue", "eigenvector", "principal direction"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Eigen.lean"
+related = ["covariance-matrix", "effective-rank", "whitening", "recognizer", "laplacian"]
+conditions = [
+  "A direction a symmetric matrix only stretches, and the factor by which it stretches it. Eigenvectors with distinct eigenvalues are orthogonal, every eigenvalue of a semidefinite matrix is nonnegative, and the quadratic form along an eigenvector is the eigenvalue times the squared length.",
+  "The eigenvectors of a covariance are its principal directions, the basis in which chapter 4 pairs the covariance with the read operator, and the eigenvalues of a Laplacian are what the recognizer reads.",
+]
+
+[[entry]]
+id = "isotropic"
+kind = "concept"
+title = "isotropic"
+glossary = "isotropic"
+equations = ["3.1", "4.6"]
+ledger = ["GO-2 (neg. half"]
+first_stated = "Chapter 0 section 0.3 and chapter 3 section 3.2 of *Data Mining as Observation*, with the isotropic-Gaussian control of chapter 10."
+book_records = ["isotropic Gaussian", "traces 2.0, diagonals 0.3 and 1.7"]
+book_terms = ["isotropic", "anisotropic"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Isotropy.lean"
+related = ["flip", "coupling-null", "covariance-matrix", "alignment"]
+conditions = [
+  "An isotropic covariance has the same variance in every direction, so every unit reader reads it the same and no flip is possible. An anisotropic one has different variances in different directions, and two unit readers can read it differently.",
+  "The flip needs anisotropy. Two codes with the variances exchanged are read the same by every reader exactly when the two variances agree, which is the boundary the coupling null names from the other side.",
+]
+
+[[entry]]
+id = "threshold"
+kind = "concept"
+title = "threshold"
+glossary = "threshold"
+equations = ["6.2", "0.28"]
+ledger = []
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, with the program's threshold sweeps in theory-radar."
+book_records = ["seven thresholds", "sort and sweep", "threshold 1.25"]
+book_terms = ["threshold"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Threshold.lean"
+related = ["monotone-invariance", "youden-f1-bound", "reliability-weight", "calibration"]
+conditions = [
+  "The value at which a score becomes a positive decision. Raising it can only shrink the predicted set, so true positives and false positives can only fall, which is why the ROC curve is traced by a single sweep, and below every score everything is positive while above every score nothing is.",
+  "A strictly increasing recalibration of the score with the matching recalibration of the threshold leaves every decision unchanged, which is the Monotone Invariance Theorem at the level of one decision.",
+]
+
+[[entry]]
+id = "rouge"
+kind = "concept"
+title = "ROUGE"
+glossary = "ROUGE"
+equations = ["0.22"]
+ledger = ["NEG-4"]
+first_stated = "Lin, ROUGE, 2004, as chapter 0 section 0.11 states it, with the program's 13.7 ROUGE-L number and its re-validation in `turboquant-pro/CLAIMS.md:63-81`."
+book_records = ["13.7 ROUGE-L", "CLAIMS.md:63"]
+book_terms = ["ROUGE"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Rouge.lean"
+related = ["bag-of-words", "perplexity", "harness", "certificate"]
+conditions = [
+  "A family of scores for generated text against a reference. ROUGE-1 recall counts the reference's words the candidate contains, with multiplicity, over the reference's length. It lies in the unit interval, is one for the reference itself, and is one for any rearrangement of the reference, since it reads bags and not order.",
+  "A ROUGE score therefore certifies less than it seems to. The 13.7 ROUGE-L difference at 512 tokens re-validated at negative 0.31 on forty documents, and the claims ledger carries both numbers.",
+]
