@@ -1132,3 +1132,88 @@ conditions = [
   "A map is bi-Lipschitz with factor K when it neither stretches nor shrinks any distance by more than K. The factor is at least one, compositions multiply the factors, and the map preserves a nearest neighbour whenever the runner-up is more than K squared times as far, the rank certificate's per-pair fact.",
   "It does not preserve every ordering, so it is not rank-faithful, and the program's fixed-scale uniform bi-Lipschitz claim for the commute filter is refuted and carried in the ledger.",
 ]
+
+[[entry]]
+id = "landauers-principle"
+kind = "result"
+title = "Landauer's principle"
+glossary = "Landauer's principle"
+equations = ["0.27", "13.3"]
+ledger = ["GO-7", "GO-8", "GO-9"]
+first_stated = "Landauer, irreversibility and heat generation in the computing process, 1961, as chapter 0 section 0.13 states it, and its consumer-relative form in Volume 14 and the rate-work paper of ledger rows GO-7 to GO-9."
+book_records = ["GO-7", "GO-8", "row GO", "0.67 bits per symbol"]
+book_terms = ["Landauer", "reset"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Landauer.lean"
+related = ["budget", "certificate", "read-operator", "coherence-time"]
+conditions = [
+  "Erasing one bit costs at least Boltzmann's constant times the absolute temperature times the natural logarithm of two, 2.87 times ten to the minus twenty-one joules at 300 kelvin. The reset bound of chapter 13 charges that price per bit of the record's conditional entropy given what the consumer keeps.",
+  "Conditioning cannot raise entropy, so the consumer-relative bound is never above the consumer-free one, and a record that keeps nothing about the erased part costs nothing to reset. The entropies themselves are the ledger's measurements, two source families and six codebooks.",
+]
+
+[[entry]]
+id = "balanced-accuracy"
+kind = "concept"
+title = "balanced accuracy"
+glossary = "balanced accuracy"
+equations = ["0.34", "10.7"]
+ledger = ["NEG-11"]
+first_stated = "Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's use in the anti-hub category table, `openvector-bench/results/R13_STAGE1_RESULTS.md`."
+book_records = ["R13_STAGE1_RESUL", "balanced accuracy 0.611", "balanced resample"]
+book_terms = ["balanced accuracy"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/BalancedAccuracy.lean"
+related = ["min-over-strata", "anti-hub", "abstention", "harness"]
+conditions = [
+  "The mean of the per-class recalls, between the worst class and the best. Plain accuracy is the size-weighted mean of the same recalls, so a class of 990 rows recalled perfectly and a class of 10 never recalled give accuracy 0.99 and balanced accuracy 0.5.",
+  "The book prefers the min over classes to the mean where a verdict is at stake, since a mean can still hide one failing class among many.",
+]
+
+[[entry]]
+id = "kendall-correlation"
+kind = "concept"
+title = "Kendall correlation"
+glossary = "Kendall correlation"
+equations = ["0.15", "11.2"]
+ledger = ["GO-B-Llama"]
+first_stated = "Kendall, a new measure of rank correlation, 1938, as chapter 0 section 0.9 states it, and the rank certificate's statistic in readscope and openvector-bench."
+book_records = ["hub-rank correlation", "rank agreement", "Kendall", "Spearman"]
+book_terms = ["Kendall", "rank correlation", "rank agreement"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Kendall.lean"
+related = ["rank-certificate", "rank-faithful", "monotone-invariance", "recall-at-k"]
+conditions = [
+  "The fraction of item pairs two rankings order the same way minus the fraction they order differently. It lies between minus one and one, it is one when no pair disagrees, and since it depends only on the orderings a strictly increasing transform of either score leaves it unchanged.",
+  "It is the rank-agreement statistic the rank certificate bounds from below, and a floor on it is a floor on the consumer's rankings, not on any distance.",
+]
+
+[[entry]]
+id = "kl-divergence"
+kind = "concept"
+title = "KL divergence"
+glossary = "KL divergence"
+equations = ["0.24", "0.22"]
+ledger = ["NEG-2"]
+first_stated = "Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section 0.11 states it beside perplexity, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["KV_KEYS_FINDING", "perplexity near", "cosine 0.995"]
+book_terms = ["KL divergence", "Kullback", "perplexity"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/KL.lean"
+related = ["identity-reader", "read-distortion", "calibration", "flip"]
+conditions = [
+  "The expected log ratio of two distributions' masses under the first. It is nonnegative by Gibbs' inequality, zero when the distributions agree, and not symmetric, so the direction of the comparison is part of the claim.",
+  "The book's use is through perplexity. A reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude, which is the case that reconstruction error is not the consumer's error.",
+]
+
+[[entry]]
+id = "recall-at-k"
+kind = "concept"
+title = "recall at k"
+glossary = "recall at k"
+equations = ["11.3", "10.7"]
+ledger = ["NEG-14", "GO-B-Llama"]
+first_stated = "Chapter 11 section 11.3 of *Data Mining as Observation*, with the program's stratified form in turboquant-pro, `turboquant-pro/docs/HUBNESS_PRIMER.md:86-131`."
+book_records = ["recall at 10", "anti-hub recall", "aggregate recall barely moves", "HUBNESS_PRIMER.md"]
+book_terms = ["recall at k", "recall@k", "recall at 10", "anti-hub recall"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/RecallAtK.lean"
+related = ["anti-hub", "min-over-strata", "rank-certificate", "hubness"]
+conditions = [
+  "The fraction of a query's true k nearest neighbours, computed from the uncompressed vectors, that the index returned. It lies in the unit interval and is one exactly when the returned list is the true list.",
+  "The aggregate over queries is a weighted mean over strata, so a stratum that fails entirely moves it by no more than its weight. That is why the anti-hub stratum is reported on its own, and why aggregate recall is never an acceptance metric on its own.",
+]
