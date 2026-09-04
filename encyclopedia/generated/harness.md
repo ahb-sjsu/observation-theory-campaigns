@@ -63,7 +63,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Bonferroni.lean`, theorems `family_error_le`, `bonferroni`, `one_look`, at observation-data-mining 13ebbfa.
+`lean/DataMiningAsObservation/Bonferroni.lean`, theorems `family_error_le`, `bonferroni`, `one_look`, at observation-data-mining a9fd869.
 
 ## used in
 
@@ -75,4 +75,4 @@ leakage, observer, preregistration, ledger-class
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 94e6884, theory-radar 37c4e6c, observation-data-mining 13ebbfa, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns c5a03d7, theory-radar 37c4e6c, observation-data-mining a9fd869, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

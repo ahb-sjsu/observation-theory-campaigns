@@ -45,9 +45,14 @@ acceptance test for the generator that will fill them from the records.
 | [preregistration](generated/preregistration.md) | instrument | the hypothesis, the bar, and the analysis committed before the measurement is run |
 | [ledger class](generated/ledger-class.md) | concept | one of six labels every headline claim carries, raised only by a sealed pass and lowered by a sealed miss |
 | [sealed](generated/sealed.md) | instrument | a prediction committed with its hash recorded before the measurement, verifiable by anyone with the repository |
+| [effective rank](generated/effective-rank.md) | concept | the number of directions a spectrum really uses, the participation ratio, with no cutoff to choose |
+| [Poisson ceiling](generated/poisson-ceiling.md) | instrument | the largest neighbour count a row would reach by chance under the no-structure null |
+| [anti-hub](generated/anti-hub.md) | concept | a row no query retrieves, where compressed indexes fail first |
+| [reliability weight](generated/reliability-weight.md) | concept | zero or twice the held-out AUROC minus one, a discrimination weight reported beside its calibration error |
+| [posited versus measured](generated/posited-versus-measured.md) | concept | every claim either asserted by design or backed by an artifact, stated at the top of the report |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other thirty-five exist only as generated entries, built from the records by `generate.py`.
+other forty exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -74,6 +79,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, twenty files as of 2026-09-04, and the book's appendix C states what each
+its checkable core, twenty-three files as of 2026-09-04, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
