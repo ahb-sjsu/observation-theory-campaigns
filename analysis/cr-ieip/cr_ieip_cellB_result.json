@@ -1,0 +1,58 @@
+{
+  "7": {
+    "rho_R2_cal": 0.8893,
+    "rho_R2_eval": 0.3168,
+    "spearman": {
+      "raw": 0.426,
+      "proxy": 0.4058,
+      "true": 0.492
+    },
+    "false_clear": {
+      "raw": 0.6355,
+      "proxy": 0.6028,
+      "true": 0.5117
+    }
+  },
+  "14": {
+    "rho_R2_cal": 0.8641,
+    "rho_R2_eval": 0.2796,
+    "spearman": {
+      "raw": 0.4701,
+      "proxy": 0.4427,
+      "true": 0.6018
+    },
+    "false_clear": {
+      "raw": 0.5981,
+      "proxy": 0.5771,
+      "true": 0.4556
+    }
+  },
+  "21": {
+    "rho_R2_cal": 0.8634,
+    "rho_R2_eval": 0.0742,
+    "spearman": {
+      "raw": 0.4847,
+      "proxy": 0.4262,
+      "true": 0.5974
+    },
+    "false_clear": {
+      "raw": 0.6051,
+      "proxy": 0.6192,
+      "true": 0.4509
+    }
+  },
+  "28": {
+    "rho_R2_cal": 0.8793,
+    "rho_R2_eval": 0.254,
+    "spearman": {
+      "raw": 0.4359,
+      "proxy": 0.4236,
+      "true": 0.3843
+    },
+    "false_clear": {
+      "raw": 0.5678,
+      "proxy": 0.5724,
+      "true": 0.6005
+    }
+  }
+}

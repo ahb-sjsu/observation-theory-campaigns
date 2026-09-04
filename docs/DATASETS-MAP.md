@@ -45,6 +45,12 @@ run on it.
 | PurpleAir/EPA AQ sensors | health-alert thresholds | dense network, cheap |
 | seismic station networks (IRIS) | magnitude vs early-warning readers | placement literature exists; delineate |
 
+### Kernel 4b — silicon ground truth (PROMOTED 2026-09-04)
+
+| dataset | consumers | status / note |
+|---|---|---|
+| NRP Alveo U55C (23 cards) + Vivado/Vitis in-cluster | input-pattern families sensitizing disjoint path classes vs the STA certificate | **PROMOTED**; sweep done (`analysis/ot-eda/PRIOR-ART-FPGA.md`): margins/data-dependence owned by Razor/BTWC + Salami undervolting + Shi overclocking; carved kernel = two-consumer verdict inversion on one bitstream + certificate false-alarm/false-clear at matched thresholds + attestation tie; P1 labeled replication |
+
 ## Kernel 5 — monitor false-clears in the consumer metric (CR-I-EIP shape)
 
 | dataset | consumers | status / note |

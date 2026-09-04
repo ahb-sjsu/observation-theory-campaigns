@@ -1,0 +1,111 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(cr_ann_paper.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo))
+(tmlr.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+ (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+ (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg))) (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty)))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+)))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
+ty) (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+) (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty)))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty)))
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def) (cr_ann_paper.aux)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg)) (cr_ann_paper.out) (cr_ann_paper.out)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+[1{C:/Users/abptl/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ab
+ptl/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/abptl/
+AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/abptl/
+AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/abptl/AppD
+ata/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+(C:\Users\abptl\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd) [2]
+[3]
+Underfull \vbox (badness 10000) has occurred while \output is active [4 <./buil
+d/fig_gain_vs_phi.pdf>] [5] (cr_ann_paper.aux) )
+(see the transcript file for additional information)<C:/Users/abptl/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/abptl/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/abptl/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/abptl/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/abptl/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/abptl/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/abptl/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/abptl/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/abptl/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/abptl/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on cr_ann_paper.pdf (5 pages, 220885 bytes).
+Transcript written on cr_ann_paper.log.
+pdflatex: major issue: So far, you have not checked for MiKTeX updates.
