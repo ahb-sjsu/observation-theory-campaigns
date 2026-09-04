@@ -35,9 +35,14 @@ acceptance test for the generator that will fill them from the records.
 | [Apriori principle](generated/apriori.md) | result | every subset of a frequent itemset is frequent, the license to prune the lattice |
 | [formula search](generated/formula-search.md) | instrument | enumerates short formulas over the features, pruned by proof, with its retracted comparison carried at full size |
 | [observer](generated/observer.md) | concept | a consumer, its output metric, and its budget, the triple every chapter checks |
+| [consumer](generated/consumer.md) | concept | the computation that reads a vector, the first element of the observer and part of it after the read operator is known |
+| [budget](generated/budget.md) | concept | the bits, rows, calls, or dollars a consumer may spend, which bounds what of the read operator can be measured |
+| [nuisance](generated/nuisance.md) | concept | the kernel of the workload-averaged read operator, the directions unread at almost every row |
+| [read subspace](generated/read-subspace.md) | concept | the range of the read operator, small, and recoverable from a black box at a price |
+| [sensitivity](generated/sensitivity.md) | concept | the gradient of the consumer at a row, whose averaged outer product is the read operator |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other twenty-five exist only as generated entries, built from the records by `generate.py`.
+other thirty exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
