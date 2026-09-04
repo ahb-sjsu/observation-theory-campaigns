@@ -51,7 +51,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/PoissonCeiling.lean`, theorems `mass_nonneg`, `tail_antitone`, `tail_zero`, `tail_le_one`, `expectedAtLeast_antitone`, `example_mean`, at observation-data-mining 95ef425.
+`lean/DataMiningAsObservation/PoissonCeiling.lean`, theorems `mass_nonneg`, `tail_antitone`, `tail_zero`, `tail_le_one`, `expectedAtLeast_antitone`, `example_mean`, at observation-data-mining 2b1108b.
 
 ## used in
 
@@ -63,4 +63,4 @@ hubness, anti-hub, harness, min-over-strata
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns ff35d5b, theory-radar 37c4e6c, observation-data-mining 95ef425, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 4d22223, theory-radar 37c4e6c, observation-data-mining 2b1108b, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
