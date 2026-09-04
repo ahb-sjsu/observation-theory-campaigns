@@ -1,29 +1,30 @@
-# KL divergence
+# perplexity
 
-**id.** kl-divergence
+**id.** perplexity
 **kind.** concept
 
 ## definition
 
-A measure of how far one probability distribution is from another, zero when they are identical. Equation 0.24.
+Two to the power of the average number of bits a language model needs per token of a test text. Lower is better. Equation 0.22.
 
 ## equation
-
-Book equation 0.24.
-
-    \mathrm{KL}(p\,\|\,q)=\sum_i p_i\ln\frac{p_i}{q_i}\ \ge 0.
 
 Book equation 0.22.
 
     \mathrm{PPL}=2^{H},\qquad H=-\frac1T\sum_{t=1}^{T}\log_2 p\big(w_t\mid w_{<t}\big).
 
+Book equation 11.1.
+
+    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
+
 ## ledger
 
 - NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 7d91883.
+- NEG-4. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:97` at 7d91883.
 
 ## first stated
 
-Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section 0.11 states it beside perplexity, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
+Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
 
 ## measurements
 
@@ -39,17 +40,18 @@ Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section
 ## failures and corrections
 
 - NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality.
+- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL.
 
 ## conditions
 
-- The expected log ratio of two distributions' masses under the first. It is nonnegative by Gibbs' inequality, zero when the distributions agree, and not symmetric, so the direction of the comparison is part of the claim.
-- The book's use is through perplexity. A reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude, which is the case that reconstruction error is not the consumer's error.
+- Two to the power of the average number of bits a language model needs per token of a test text. It is at least one, equals the vocabulary size for a model that spreads its mass evenly, and is monotone in the bits.
+- The attention-key finding raised it from 12.24 to 10643 at cosine 0.995, a rise of more than nine bits per token, and the recalibration that improved the reconstruction worsened it, the two standing negatives that keep reconstruction error off the list of acceptance metrics.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KL.lean`, theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining abac866.
+`lean/DataMiningAsObservation/Perplexity.lean`, theorems `bits_nonneg`, `one_le_perplexity`, `perplexity_uniform`, `perplexity_mono`, `bits_of_finding`, at observation-data-mining abac866.
 
 ## used in
 
@@ -57,7 +59,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## related
 
-identity-reader, read-distortion, calibration, flip
+kl-divergence, flip, identity-reader, read-distortion
 
 ## status
 
