@@ -1047,3 +1047,88 @@ conditions = [
   "A pooled rate is the size-weighted mean of the group rates, so pooling is a quotient that declares the group labels irrelevant, and it can reverse a comparison that holds in every group when the groups have different sizes under the two arms.",
   "With equal group sizes under both arms the pooled comparison agrees with a comparison that holds in every group. The book's answer is the min-over-strata verdict, which never pools.",
 ]
+
+[[entry]]
+id = "multiple-comparisons"
+kind = "concept"
+title = "multiple comparisons"
+glossary = "multiple comparisons"
+equations = ["8.3"]
+ledger = []
+first_stated = "Chapter 0 section 0.9 and chapter 8 section 8.5 of *Data Mining as Observation*, with the program's own case in `constraint-gap/review/FINDINGS.md:1-35`."
+book_records = ["five hundred of ten thousand", "FINDINGS.md:1-35", "REDESIGN.md"]
+book_terms = ["multiple comparison", "Bonferroni", "forty models"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/MultipleComparisons.lean"
+related = ["harness", "nadeau-and-bengio-correction", "preregistration", "formula-search"]
+conditions = [
+  "Test many hypotheses and report the best, and the reported score is the maximum of many noisy draws, at least any single draw. Ten thousand null tests at five percent pass five hundred by chance, forty pass two, and the expected passes grow without bound in the number of tests.",
+  "The Bonferroni correction divides the threshold by the number of tests and keeps the family-wise rate under the target, and a preregistration that names one look needs no correction.",
+]
+
+[[entry]]
+id = "disparate-impact-ratio"
+kind = "concept"
+title = "disparate impact ratio"
+glossary = "disparate impact ratio"
+equations = ["0.37", "14.5"]
+ledger = []
+first_stated = "Chapter 0 section 0.18 and chapter 14 section 14.6 of *Data Mining as Observation*, with the per-group verdict of equation 14.5."
+book_records = ["fairness minus the general component", "REGATE.md", "the three questions"]
+book_terms = ["disparate impact", "four-fifths", "per group"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/DisparateImpact.lean"
+related = ["equalized-odds", "min-over-strata", "false-clear-rate", "abstention"]
+conditions = [
+  "The ratio of the favourable-decision rate in one group to the rate in another. It is one exactly when the rates agree, it inverts when the groups are swapped, and the four-fifths rule is a statement about the rate gap.",
+  "The book's verdict is per group with a null, the worst group's false-clear rate over the groups large enough to score, which clears a bar exactly when every scored group does and is never below the pooled rate.",
+]
+
+[[entry]]
+id = "equalized-odds"
+kind = "concept"
+title = "equalized odds"
+glossary = "equalized odds"
+equations = ["0.37"]
+ledger = []
+first_stated = "Chapter 0 section 0.18 and chapter 14 section 14.6 of *Data Mining as Observation*, where fairness cannot be had three ways."
+book_records = ["fairness minus the general component", "REGATE.md"]
+book_terms = ["equalized odds", "three ways"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/EqualizedOdds.lean"
+related = ["disparate-impact-ratio", "calibration", "min-over-strata", "certificate"]
+conditions = [
+  "Equal true-positive and false-positive rates across groups. A group's favourable rate is its true-positive rate times its base rate plus its false-positive rate times the rest, so under equalized odds the favourable rates agree exactly when the base rates do, given that the classifier separates at all.",
+  "Equalized odds and parity of outcomes therefore conflict whenever the base rates differ. With rates 0.8 and 0.2 and base rates one half and one tenth the favourable rates are 0.5 and 0.26, a ratio below four fifths.",
+]
+
+[[entry]]
+id = "rank-faithful"
+kind = "concept"
+title = "rank-faithful"
+glossary = "rank-faithful"
+equations = ["0.21", "11.2"]
+ledger = ["NEG-1"]
+first_stated = "Volume 14, chapter 9, `geometric-observation/chapters/ch09_legibility.md:10-41`, DOI 10.5281/zenodo.21776291, and chapter 0 section 0.10 and chapter 3 section 3.3 of *Data Mining as Observation*."
+book_records = ["ch09_legibility.md", "the-angular-observer", "geodesic-rank consumer"]
+book_terms = ["rank-faithful", "geodesic-rank", "angle-only"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/RankFaithful.lean"
+related = ["bi-lipschitz", "rank-certificate", "recognizer", "quotient"]
+conditions = [
+  "A map is rank-faithful when it preserves the ordering of distances with no bound on the stretch. Every strictly increasing transform of the distance is rank-faithful, so a reader that ranks, the nearest-neighbour reader among them, returns the same answer under it.",
+  "Rank-faithful and bi-Lipschitz are separate words. The square preserves every ordering and stretches large distances beyond any fixed factor, and the substrate table measures rank agreement, not stretch.",
+]
+
+[[entry]]
+id = "bi-lipschitz"
+kind = "concept"
+title = "bi-Lipschitz"
+glossary = "bi-Lipschitz"
+equations = ["0.21"]
+ledger = ["NEG-1"]
+first_stated = "Chapter 0 section 0.10 of *Data Mining as Observation*, with the refuted uniform bi-Lipschitz claim for the commute filter in Volume 14's honest negatives, ledger row NEG-1."
+book_records = ["commute metric form false", "heat filter uniform", "ch09_legibility.md"]
+book_terms = ["bi-Lipschitz", "Lipschitz"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/BiLipschitz.lean"
+related = ["rank-faithful", "rank-certificate", "recognizer", "quotient"]
+conditions = [
+  "A map is bi-Lipschitz with factor K when it neither stretches nor shrinks any distance by more than K. The factor is at least one, compositions multiply the factors, and the map preserves a nearest neighbour whenever the runner-up is more than K squared times as far, the rank certificate's per-pair fact.",
+  "It does not preserve every ordering, so it is not rank-faithful, and the program's fixed-scale uniform bi-Lipschitz claim for the commute filter is refuted and carried in the ledger.",
+]
