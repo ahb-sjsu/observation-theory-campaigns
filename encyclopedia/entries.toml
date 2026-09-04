@@ -469,3 +469,102 @@ conditions = [
   "The sensitivity of each direction is read in that same eigenbasis, as the quadratic form of the read operator along the eigenvector, and pairing the eigenvalues of the two matrices is valid only when they share an eigenbasis.",
   "Coarse quantizers, unequal codebook steps, and errors not spread evenly depart from the formula, and chapter 4 reports where a measured allocation did.",
 ]
+
+[[entry]]
+id = "monotone-invariance"
+kind = "result"
+title = "Monotone Invariance Theorem"
+glossary = "Monotone Invariance Theorem"
+equations = ["6.2"]
+ledger = []
+first_stated = "theory-radar, `theory-radar/paper/theory_radar_paper.tex:290-304` and `theory-radar/paper/astar_paper.tex:94-110`, DOI 10.5281/zenodo.20660206, and chapter 6 section 6.3 of *Data Mining as Observation*."
+book_records = ["theory_radar_paper.tex", "astar_paper.tex:94"]
+book_terms = ["Monotone Invariance", "strictly monotone"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean"
+related = ["formula-search", "safe-pruning", "youden-f1-bound"]
+conditions = [
+  "A strictly monotone transform of a score leaves AUROC, defined pairwise with ties counted one half, and optimal thresholded F1, defined by sweeping the threshold over every score value in both directions, unchanged, because both depend only on the ranking.",
+  "The theorem licenses pruning every monotone unary node of a formula search with zero loss. It says nothing about non-monotone transforms, which can change both quantities.",
+]
+
+[[entry]]
+id = "safe-pruning"
+kind = "concept"
+title = "safe pruning"
+glossary = "safe pruning"
+equations = ["5.3", "5.4"]
+ledger = []
+first_stated = "Chapter 5 section 5.4 of *Data Mining as Observation*, with the program's two owned instances in theory-radar and arc-equivariant-search."
+book_records = ["theory-radar", "arc-equivariant-search"]
+book_terms = ["safe pruning", "loss-free", "anti-monotonic"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/SafePruning.lean"
+related = ["apriori", "monotone-invariance", "youden-f1-bound", "formula-search"]
+conditions = [
+  "A pruning rule is safe when the pruned search returns the same answer as the unpruned one on every input. The Apriori principle and the Monotone Invariance Theorem are safe by proof.",
+  "A learned or heuristic rule cannot earn that word from a finite test. It can be empirically lossless on the held-out cases, and the record says which cases.",
+  "The AUROC form of the F1 ceiling is a safe pruning bound only for concave ROC curves. The Youden form is sound for every score at the leaf, and pruning a subtree by its root's ceiling is a heuristic in both forms.",
+]
+[[entry.errata]]
+repo = "theory-radar"
+file = "ERRATA.md"
+match = "AUROC to F1 bound"
+
+[[entry]]
+id = "apriori"
+kind = "result"
+title = "Apriori principle"
+glossary = "Apriori principle"
+equations = ["5.3", "5.1"]
+ledger = []
+first_stated = "Agrawal and Srikant, fast algorithms for mining association rules, 1994, as TSK chapter 5 presents it, and chapter 5 section 5.3 of *Data Mining as Observation*."
+book_records = ["TSK 2e chapter 5"]
+book_terms = ["Apriori", "anti-monotonic"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/SafePruning.lean"
+related = ["safe-pruning", "monotone-invariance"]
+conditions = [
+  "Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent. This holds for any finite collection of transactions.",
+  "The principle licenses pruning the lattice above an infrequent itemset without counting, and the count of candidates rather than the count of transactions decides whether the run finishes.",
+]
+
+[[entry]]
+id = "formula-search"
+kind = "instrument"
+title = "formula search"
+glossary = "formula classifier"
+equations = ["6.2", "5.4", "7.4", "7.6"]
+ledger = []
+first_stated = "theory-radar, DOI 10.5281/zenodo.20660206, `theory-radar/README.md`, with the corrected comparison in the constraint-gap review, `constraint-gap/review/REDESIGN.md:1-110`."
+book_records = ["theory-radar", "constraint-gap", "REVISION_PLAN.md"]
+book_terms = ["formula search", "formula classifier", "formula-search"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean"
+related = ["monotone-invariance", "safe-pruning", "youden-f1-bound", "read-operator"]
+conditions = [
+  "The search enumerates short expressions over the features and scores each by its optimal thresholded F1, pruning monotone unary nodes by the Monotone Invariance Theorem and, in the A* companion, leaves by an F1 ceiling.",
+  "Its first comparison reported nine wins that became three under the Nadeau and Bengio correction, with seventeen datasets indeterminate, and the record carries the retraction at the size of the result.",
+  "The main comparison used a fold-local meta-learned pruning rule and never rested on the AUROC form of the ceiling. The A* companion did, and the rerun shows what that cost, nothing on those datasets.",
+]
+[[entry.errata]]
+repo = "theory-radar"
+file = "ERRATA.md"
+match = "AUROC to F1 bound"
+[[entry.errata]]
+repo = "theory-radar"
+file = "paper/REVISION_PLAN.md"
+match = "sigma|Nadeau"
+
+[[entry]]
+id = "observer"
+kind = "concept"
+title = "observer"
+glossary = "observer"
+equations = ["1.1", "0.9", "0.11"]
+ledger = ["OT-7", "GO-1"]
+first_stated = "Volume 14, chapter 4, `geometric-observation/chapters/ch04_the_observer_triple.md:9-60`, and `geometric-observation/OBSERVATION.md:1-10`, DOI 10.5281/zenodo.21776291. Version 1.0 of the theory was declared on 2026-08-18 in `geometric-observation/crucible/DECLARATION-V1.md`."
+book_records = ["ch04_the_observer_triple.md", "OBSERVATION.md", "PROTOCOL.md", "DECLARATION"]
+book_terms = ["observer triple", "the observer"]
+related = ["read-operator", "quotient", "read-distortion", "certificate"]
+conditions = [
+  "An observer is a consumer, its output metric, and its budget. The consumer and the local geometry of its output metric determine the read operator. The budget bounds what of it can be measured and used and changes it only by changing the consumer.",
+  "Two consumers with the same read operator on the same workload share a read geometry and are not thereby the same observer, since the consumer stays part of the triple and a sign change reverses every ranking.",
+  "The output metric is a loss on the consumer's output. Where it has a local quadratic representation, that local geometry enters the read operator. A dataset-level loss has none, and the read operator is then taken on the score with the identity geometry.",
+]
