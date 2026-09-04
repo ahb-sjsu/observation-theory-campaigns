@@ -43,7 +43,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DeploymentMismatch.lean`, theorems `deployment_le_max`, `min_le_deployment`, `deployment_lt_max_of_gap`, `book_numbers`, at observation-data-mining 49fcb16.
+`lean/DataMiningAsObservation/DeploymentMismatch.lean`, theorems `deployment_le_max`, `min_le_deployment`, `deployment_lt_max_of_gap`, `book_numbers`, at observation-data-mining 95ef425.
 
 ## used in
 
@@ -55,4 +55,4 @@ observer, certificate, coherence-time, min-over-strata
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 27b21e4, theory-radar 37c4e6c, observation-data-mining 49fcb16, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns ff35d5b, theory-radar 37c4e6c, observation-data-mining 95ef425, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
