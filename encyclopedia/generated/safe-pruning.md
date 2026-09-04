@@ -1,13 +1,17 @@
-# Youden F1 bound
+# safe pruning
 
-**id.** youden-f1-bound
-**kind.** correction
+**id.** safe-pruning
+**kind.** concept
 
 ## definition
 
-none
+A rule for discarding candidates during a search that is guaranteed to discard no solution. The Apriori principle and the Monotone Invariance Theorem are the book's two instances. Chapter 5.
 
 ## equation
+
+Book equation 5.3.
+
+    X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
 
 Book equation 5.4.
 
@@ -19,7 +23,7 @@ none
 
 ## first stated
 
-The AUROC form, theorem "AUROC-F1 Bound" in `theory-radar/paper/astar_paper.tex` and the derivation in `theory-radar/src/symbolic_search/_auroc_proof.py`, repository DOI 10.5281/zenodo.20660206. The corrected form at theory-radar 1b3d105.
+Chapter 5 section 5.4 of *Data Mining as Observation*, with the program's two owned instances in theory-radar and arc-equivariant-search.
 
 ## measurements
 
@@ -28,30 +32,16 @@ The AUROC form, theorem "AUROC-F1 Bound" in `theory-radar/paper/astar_paper.tex`
 | chapter 5 section 5.4 | Monotone Invariance and AUROC invariance theorems, the AUROC to F1 bound via the Youden index, stated in the source for every ROC curve and corrected in the book to concave curves, with the counterexample at AUROC 0.75 and F1 0.857 | `theory-radar\paper\astar_paper.tex:94-170`; `theory-radar\paper\theory_radar_paper.tex:290-304` |
 | chapter 5 section 5.4 | seven thresholds up to 0.75, eight datasets, 56 conditions, zero admissibility violations, reductions 70 to 99.1 percent | `theory-radar\paper\astar_paper.tex:170-200` |
 | chapter 5 section 5.4 | the rerun of 2026-09-03 and 2026-09-04, pre-filter counts 2576 of 8700 and 413 of 1560, ceiling violations 812 and 412, Youden pruning 199 and 38, A* optima 0.958 and 0.694 in strict and fast modes, Youden mode short by 0.006 and 0.002 | `theory-radar\results\rerun_youden_2026_09_03.json`; `theory-radar\ERRATA.md` |
+| chapter 5 section 5.4 | learned pruning 88 to 99.6 percent with zero false negatives | `theory-radar\README.md:88-100` |
+| chapter 5 section 5.4 | naive 53 equals pruned 53, budget exhaustion 94 percent to 0, 29 operations, depth three, 0 of 172 held out, learned ranking AUC 0.899 against 0.560, reachability as the wall | `arc-equivariant-search\EXPERIMENTS.md:20-35,60-80`; `arc-equivariant-search\README.md:13`; `arc-equivariant-search\paper\arc_equivariant_search.md:20-30` |
+| chapter 6 section 6.3 | depth three, ten binary and eight unary operations, exact optimal F1 by sort and sweep, beam, projections | `theory-radar\README.md:50-100,140-200` |
 | chapter 6 section 6.3 | Monotone Invariance Theorem and its proof | `theory-radar\paper\theory_radar_paper.tex:290-304`; `theory-radar\paper\astar_paper.tex:94-110` |
-
-Rerun of the A* paper's pruning tables by `theory-radar/rerun_youden_2026_09_03.py`. Part A is depth-2 pairwise enumeration on eight datasets, exhaustive against the AUROC pre-filter at seven thresholds and against Youden pruning. Part B is the depth-3 A* search with 50,000 expansions in strict mode (no pre-filter), the published fast mode (AUROC pre-filter at 0.52), and the youden mode.
-
-Part A, recorded at commit aedc053 of theory-radar.
-| Dataset, depth 2 pairs | Pairs | Exhaustive F1 | AUROC pre-filter at 0.75, evaluated, admissible | Youden pruning, evaluated, admissible | Pairs whose F1 exceeds the AUROC ceiling |
-|---|---|---|---|---|---|
-| Circles (2) | 20 | 0.9960 | 4, yes | 7, yes | 14 |
-| Moons (2) | 20 | 0.8330 | 2, yes | 2, yes | 3 |
-| Breast Cancer (30) | 8700 | 0.9542 | 2576, yes | 199, yes | 812 |
-| Wine (13), class 0 vs rest | 1560 | 0.9204 | 413, yes | 38, yes | 412 |
-| Synthetic (10) | 900 | 0.9556 | 10, yes | 7, yes | 18 |
-| Synthetic (20) | 3800 | 0.9460 | 8, yes | 8, yes | 57 |
-| Synthetic (30) | 8700 | 0.9637 | 8, yes | 8, yes | 61 |
-| Synthetic (40) | 15600 | 0.9425 | 32, yes | 8, yes | 125 |
-
-Part B.
-| Dataset | strict F1 and formula | fast F1 | youden F1 and formula | expansions strict, fast, youden |
-|---|---|---|---|---|
-| Circles (2) | 0.9965, (x1 hypot x2) | 0.9965 | 0.9965, (x1 hypot x2) | 1626, 540, 87 |
-| Moons (2) | 0.8927, (neg(x1) max x2) | 0.8927 | 0.8927, (neg(x1) max x2) | 1626, 1386, 86 |
-| Synthetic (20) | 1.0000, (x0 hypot x1) | 1.0000 | 1.0000, (x0 hypot x1) | 50000, 50000, 465 |
-| Breast Cancer (10) | 0.9578, ((f1 min f2) + f7) | 0.9578 | 0.9516, ((f3 + f7) min f6) | 50000, 50000, 841 |
-| Diabetes (8) | 0.6937, ((d5 min d7) + d1) | 0.6937 | 0.6921, ((d1 + d7) min d5) | 50000, 46307, 192 |
+| chapter 6 section 6.3 | 88 to 99.6 percent pruned with zero false negatives, fair protocol, 200 by 5 folds | `theory-radar\README.md:88-100` |
+| chapter 6 section 6.3 | the five-dataset table, breast cancer 0.955 to 0.963, the pattern, DOI 10.5281/zenodo.20660206 | `theory-radar\README.md:100-140` |
+| chapter 6 section 6.4 | the reviewer's revision plan, drop sigma, bounded claim, 19 at 200 by 5 vs 11 at 20 by 5, rerun in progress | `theory-radar\paper\REVISION_PLAN.md:1-60` |
+| chapter 6 section 6.5 | loading weights and stability across folds requested | `theory-radar\paper\REVISION_PLAN.md` issue 6 |
+| chapter 7 section 7.3 | the five-dataset outcomes | `theory-radar\README.md:100-140` |
+| chapter 8 section 8.5 | three-way inconsistency, lines 544, 548 to 556, 755 | `constraint-gap\review\FINDINGS.md:7-31` against `theory-radar\paper\theory_radar_v6_submission.tex` |
 
 ## failures and corrections
 
@@ -59,15 +49,15 @@ Part B.
 
 ## conditions
 
-- The Youden form holds for every score with a finite sample.
-- The AUROC form holds for concave ROC curves, and as a pruning bound it is safe only there.
-- Inside a tree search either form bounds the formula itself and not its descendants, so pruning a subtree by its root's ceiling is a heuristic in both cases.
+- A pruning rule is safe when the pruned search returns the same answer as the unpruned one on every input. The Apriori principle and the Monotone Invariance Theorem are safe by proof.
+- A learned or heuristic rule cannot earn that word from a finite test. It can be empirically lossless on the held-out cases, and the record says which cases.
+- The AUROC form of the F1 ceiling is a safe pruning bound only for concave ROC curves. The Youden form is sound for every score at the leaf, and pruning a subtree by its root's ceiling is a heuristic in both forms.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/MonotoneInvariance.lean`, theorems `aurocNum_comp`, `auroc_comp`, `predicted_comp`, `predictedBelow_comp`, `sweptF1_comp`, `sweptF1Below_comp`, `optF1_comp`, at observation-data-mining 4f84c57.
+`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining 4f84c57.
 
 ## used in
 
@@ -75,7 +65,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## related
 
-monotone-invariance, formula-search, safe-pruning, apriori
+apriori, monotone-invariance, youden-f1-bound, formula-search
 
 ## status
 
