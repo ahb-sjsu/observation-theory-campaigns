@@ -47,6 +47,7 @@ ledger = []
 first_stated = "Volume 14 chapter 19, `geometric-observation/chapters/ch19_the_certificate_that_ages.md:61-76`, and the freshness program's umbrella document `observation-theory-campaigns/experiments/FRESHNESS-PROGRAM.md`, re-homed into the campaigns repository on 2026-08-24."
 book_records = ["FRESHNESS-TRACK.md", "ROUTING-TELEMETRY-TRACK.md", "LLM-EVAL-TRACK.md", "CSI-refreshfloor", "PREREG-XPROTO-CSI-SWEEP2"]
 book_terms = ["false[- ]clear"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Certificate.lean"
 related = ["certificate", "witness", "coverage", "coherence-time", "refresh-floor", "min-over-strata"]
 conditions = [
   "A witness must exist. Where none exists the rate is not measurable and the certificate is unassessed, not safe.",
@@ -80,7 +81,7 @@ ledger = []
 first_stated = "The AUROC form, theorem \"AUROC-F1 Bound\" in `theory-radar/paper/astar_paper.tex` and the derivation in `theory-radar/src/symbolic_search/_auroc_proof.py`, repository DOI 10.5281/zenodo.20660206. The corrected form at theory-radar 1b3d105."
 book_records = ["theory-radar\\paper\\astar_paper.tex", "theory-radar\\results\\rerun_youden", "theory-radar\\ERRATA.md"]
 book_terms = ["Youden"]
-lean = "observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean"
+lean = "observation-data-mining:lean/DataMiningAsObservation/YoudenF1.lean"
 related = ["monotone-invariance", "formula-search", "safe-pruning", "apriori"]
 conditions = [
   "The Youden form holds for every score with a finite sample.",
@@ -140,6 +141,7 @@ ledger = ["GO-3"]
 first_stated = "Volume 14, chapter 19 for the certificate that ages and chapter 9 of *Data Mining as Observation* for the clustering certificate. The rank certificate is specified in `turboquant-pro/docs/CERTIFICATE_SPEC.md`, DOI 10.5281/zenodo.20660087."
 book_records = ["GO3-certificate-vacuity", "CERTIFICATE_SPEC.md", "FRESHNESS-PROGRAM.md", "LLM-EVAL-TRACK.md"]
 book_terms = ["certificate"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Certificate.lean"
 related = ["witness", "false-clear-rate", "coverage", "rank-certificate", "vacuity-threshold", "coherence-time"]
 conditions = [
   "A certificate is graded only where a witness exists, and where none exists it is unassessed rather than safe.",
@@ -162,6 +164,7 @@ ledger = []
 first_stated = "Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that_ages.md:61-76`, and the freshness program's umbrella document `observation-theory-campaigns/experiments/FRESHNESS-PROGRAM.md`."
 book_records = ["FRESHNESS-TRACK.md", "ROUTING-TELEMETRY-TRACK.md", "LLM-EVAL-TRACK.md"]
 book_terms = ["witness(?:es)?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Certificate.lean"
 related = ["certificate", "false-clear-rate", "coverage"]
 conditions = [
   "A witness is independent of the certificate it grades. A certificate that grades itself has no witness.",
@@ -186,6 +189,7 @@ ledger = []
 first_stated = "*Data Mining as Observation*, chapter 0 section 0.13 and chapter 13, introduced on 2026-09-03 when the false-clear rate was restated as a conditional rate, and Volume 14 chapter 19 at geometric-observation 7d91883."
 book_records = ["LLM-EVAL-TRACK.md", "DATABASE-FRESHNESS-TRACK.md"]
 book_terms = ["coverage"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Certificate.lean"
 related = ["false-clear-rate", "certificate", "witness"]
 conditions = [
   "A naive certificate clears every decision, so its coverage is one and its conditional and joint false-clear rates coincide.",
@@ -263,6 +267,7 @@ ledger = ["OT-3", "OT-6", "NEG-12", "GO-B-Llama", "GO-B-Llama-rematch", "GO-B-le
 first_stated = "readscope, the blind probe as a specified instrument, PyPI `readscope`, `readscope/PRINCIPLES.md` and `readscope/SPEC.md`, and Volume 14 chapter 10."
 book_records = ["readscope\\", "PRINCIPLES.md", "OT3-"]
 book_terms = ["blind probe", "finite[- ]difference"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ProbeCliff.lean"
 related = ["read-operator", "budget-cliff", "read-distortion", "flip"]
 conditions = [
   "The probe recovers the read operator at one operating point from calls to the consumer alone, two calls per input dimension for a central difference.",
@@ -284,6 +289,7 @@ ledger = ["OT-3", "OT-10"]
 first_stated = "readscope, predicted then measured, and proved as the confinement theorem in Volume 14, `geometric-observation/crucible/OT3-THEOREM.md` and `geometric-observation/crucible/OT3-NOISY-THEOREM.md`, DOI 10.5281/zenodo.21776291."
 book_records = ["PRINCIPLES.md:112-142", "OT3-THEOREM", "OT3-NOISY"]
 book_terms = ["cliff"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ProbeCliff.lean"
 related = ["blind-probe", "read-operator"]
 conditions = [
   "The reader receives responses confined to the k directions it chose, the read operator is planted in a fixed subspace, and noise enters as the noisy theorem models it. Under those conditions the cliff at k equal to the dimension is a theorem and is rank-independent.",
@@ -305,7 +311,7 @@ ledger = ["OT-7", "GO-1", "GO-EC-3"]
 first_stated = "Volume 14, chapters 4 and 5, `geometric-observation/chapters/ch04_the_observer_triple.md:9-60` and `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291."
 book_records = ["ch04_the_observer_triple.md", "ch05_the_read_metric_and_the_quotient.md", "regimes.py", "row GO-1", "GO-EC-3"]
 book_terms = ["read operator"]
-lean = "observation-data-mining:lean/DataMiningAsObservation/ReadDistortion.lean"
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"
 related = ["read-distortion", "quotient", "identity-reader", "blind-probe", "flip"]
 conditions = [
   "Each local operator is positive semidefinite, so the kernel of the workload average is the intersection of the local kernels up to sets of rows of measure zero, and an average-null direction is locally unread at almost every row of that workload.",
@@ -328,6 +334,7 @@ ledger = ["GO-1", "NEG-6", "GO-5"]
 first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:78-90`, DOI 10.5281/zenodo.21776291, and chapter 3 section 3.1 of *Data Mining as Observation*, where every similarity measure induces a distance on some quotient."
 book_records = ["ch05_the_read_metric_and_the_quotient.md", "row GO-1", "GO-5"]
 book_terms = ["quotients?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"
 related = ["read-operator", "identity-reader", "flip", "hubness"]
 conditions = [
   "The equivalence x related to x' when their difference lies in the kernel of the read operator is exact for an affine consumer with a fixed output geometry.",
@@ -345,6 +352,7 @@ ledger = ["GO-2 (neg. half"]
 first_stated = "Volume 14, chapter 2, `geometric-observation/chapters/ch02_failure_of_observer_free_measurement.md`, DOI 10.5281/zenodo.21776291, where reconstruction error is the distortion of the reader that reads every direction equally."
 book_records = ["ch02_failure_of_observer_free", "rows GO-2", "RESULTS_glove"]
 book_terms = ["identity reader", "identity quotient"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadDistortion.lean"
 related = ["read-operator", "read-distortion", "flip", "quotient"]
 conditions = [
   "Read distortion equals the trace of the error's second moment for every admissible error exactly when the read operator is the identity. A particular error can make the two agree by accident.",
@@ -394,6 +402,7 @@ ledger = ["GO-2 (neg. half", "NEG-16", "GO-B-whale", "GO-B-blind"]
 first_stated = "Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:1-30`, DOI 10.5281/zenodo.21776291, as the third arm of every registered flip."
 book_records = ["ch08_value.md", "rows GO-2", "row 038", "GO-B-whale"]
 book_terms = ["anti arm", "anti-arm"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/AntiArm.lean"
 related = ["flip", "read-distortion", "read-operator"]
 conditions = [
   "The anti arm is matched on bits with the other two codes, and its purpose is to show that the read subspace is what the comparison is about, since destroying it should be worst.",
@@ -447,6 +456,7 @@ ledger = ["NEG-14"]
 first_stated = "The compression program's stratified evaluation, STRATA, in turboquant-pro, DOI 10.5281/zenodo.20660087, and chapter 10 section 10.4 of *Data Mining as Observation*."
 book_records = ["STRATA", "strat", "openvector-bench"]
 book_terms = ["min[- ]over[- ]strata", "abstention", "abstain"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Certificate.lean"
 related = ["false-clear-rate", "coverage", "hubness", "certificate"]
 conditions = [
   "A verdict over several groups is the worst group's verdict, with a group too small to score counted as an abstention and reported, never averaged away.",
@@ -497,7 +507,7 @@ ledger = []
 first_stated = "Chapter 5 section 5.4 of *Data Mining as Observation*, with the program's two owned instances in theory-radar and arc-equivariant-search."
 book_records = ["theory-radar", "arc-equivariant-search"]
 book_terms = ["safe pruning", "loss-free", "anti-monotonic"]
-lean = "observation-data-mining:lean/DataMiningAsObservation/SafePruning.lean"
+lean = ["observation-data-mining:lean/DataMiningAsObservation/SafePruning.lean", "observation-data-mining:lean/DataMiningAsObservation/YoudenF1.lean"]
 related = ["apriori", "monotone-invariance", "youden-f1-bound", "formula-search"]
 conditions = [
   "A pruning rule is safe when the pruned search returns the same answer as the unpruned one on every input. The Apriori principle and the Monotone Invariance Theorem are safe by proof.",
@@ -536,7 +546,7 @@ ledger = []
 first_stated = "theory-radar, DOI 10.5281/zenodo.20660206, `theory-radar/README.md`, with the corrected comparison in the constraint-gap review, `constraint-gap/review/REDESIGN.md:1-110`."
 book_records = ["theory-radar", "constraint-gap", "REVISION_PLAN.md"]
 book_terms = ["formula search", "formula classifier", "formula-search"]
-lean = "observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean"
+lean = ["observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean", "observation-data-mining:lean/DataMiningAsObservation/YoudenF1.lean"]
 related = ["monotone-invariance", "safe-pruning", "youden-f1-bound", "read-operator"]
 conditions = [
   "The search enumerates short expressions over the features and scores each by its optimal thresholded F1, pruning monotone unary nodes by the Monotone Invariance Theorem and, in the A* companion, leaves by an F1 ceiling.",
@@ -579,6 +589,7 @@ ledger = ["GO-1", "GO-EC-3"]
 first_stated = "Volume 14, chapter 4, `geometric-observation/chapters/ch04_the_observer_triple.md:9-60` and its consumer table at lines 60-135, DOI 10.5281/zenodo.21776291."
 book_records = ["ch04_the_observer_triple.md", "regimes.py", "row GO-1"]
 book_terms = ["consumers?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"
 related = ["observer", "read-operator", "sensitivity", "budget"]
 conditions = [
   "A consumer is any computation that takes a vector in and gives an output out, a softmax, a classifier, an index, a person reading a report. The book's quantities are functions of the consumer, and two consumers with the same read operator are not thereby the same consumer.",
@@ -595,6 +606,7 @@ ledger = ["GO-4", "OT-3", "GO-12"]
 first_stated = "Volume 14, chapter 4 for the triple and chapter 7 for cost, `geometric-observation/chapters/ch07_cost.md`, DOI 10.5281/zenodo.21776291."
 book_records = ["ch07_cost.md", "row GO-4", "PRINCIPLES.md", "GO-12"]
 book_terms = ["budgets?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ProbeCliff.lean"
 related = ["observer", "water-filling", "budget-cliff", "coverage"]
 conditions = [
   "The budget is the bits, rows, calls, seconds, or dollars a consumer may spend. It bounds what of the read operator can be measured and used, and changes the operator only when it changes the consumer.",
@@ -612,6 +624,7 @@ ledger = ["GO-1", "NEG-6", "NEG-7"]
 first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291, where the nuisance is the kernel of the read operator."
 book_records = ["ch05_the_read_metric_and_the_quotient.md", "row GO-1", "NEG-6", "NEG-7"]
 book_terms = ["nuisances?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"
 related = ["read-subspace", "read-operator", "quotient", "identity-reader"]
 conditions = [
   "The nuisance is the kernel of the workload-averaged read operator, the set of directions unread at almost every row of that workload, since the kernel of the average is the intersection of the local kernels.",
@@ -629,6 +642,7 @@ ledger = ["OT-3", "GO-B-Llama", "NEG-12", "GO-B-Llama-rematch"]
 first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291, where the read subspace is the range of the read operator."
 book_records = ["ch05_the_read_metric_and_the_quotient.md", "GO-B-Llama", "NEG-12", "PRINCIPLES.md"]
 book_terms = ["read subspace"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"
 related = ["nuisance", "read-operator", "blind-probe", "budget-cliff"]
 conditions = [
   "The read subspace is spanned by the eigenvectors of the read operator with nonzero eigenvalue, and it is small. A linear classifier reads one direction, an attention head a handful, and the input has hundreds or thousands.",
@@ -646,9 +660,109 @@ ledger = ["GO-EC-3", "NEG-14"]
 first_stated = "Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`, DOI 10.5281/zenodo.21776291, as the gradient of the consumer at a row."
 book_records = ["regimes.py", "GO-EC-3", "NEG-14", "ch05_the_read_metric_and_the_quotient.md"]
 book_terms = ["sensitivit(?:y|ies)"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"
 related = ["read-operator", "consumer", "blind-probe", "read-subspace"]
 conditions = [
   "The sensitivity of a consumer at a row is the vector of partial derivatives of its output with respect to each coordinate, measurable without the formula by a central finite difference at two calls per coordinate.",
   "The read operator is the workload average of the sensitivity's outer product, so its diagonal is the expected squared sensitivity to each feature and its off-diagonal entries are co-sensitivities, not interactions.",
   "A gradient-based attribution estimates the sensitivity. Permutation importance, partial dependence, and Shapley values measure other things.",
 ]
+
+[[entry]]
+id = "harness"
+kind = "concept"
+title = "harness"
+glossary = "harness"
+equations = ["8.1", "8.2", "8.3"]
+ledger = ["OT-11", "NEG-2", "NEG-4"]
+first_stated = "Chapter 8 section 8.1 of *Data Mining as Observation*, with the program's own harness failures in `openvector-bench/results/QUERY_COUPLING_ARTIFACT.md:1-20` and `constraint-gap/review/FINDINGS.md:1-35`."
+book_records = ["QUERY_COUPLING_ARTIFACT", "KV_KEYS_FINDING", "FINDINGS.md:1-35", "negative_control.md", "score_rc1.py", "a cross-validation harness"]
+book_terms = ["harness"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Bonferroni.lean"
+related = ["leakage", "observer", "preregistration", "ledger-class"]
+conditions = [
+  "The harness is the code that evaluates a model, and it is a consumer with its own read subspace, its output metric, and a budget of folds, samples, and seeds. What it reads decides what the reported score measures.",
+  "A harness that is allowed to see the test fold, through feature selection before the split, through repeated selection on one split, or through a metric that discriminates nothing, reports a score of itself.",
+  "Repeated cross-validation folds are not independent, so the variance of a fold mean is understated unless corrected, and the program's own retracted comparison is the case.",
+]
+[[entry.errata]]
+repo = "theory-radar"
+file = "paper/REVISION_PLAN.md"
+match = "sigma|Nadeau"
+
+[[entry]]
+id = "leakage"
+kind = "concept"
+title = "leakage"
+glossary = "leakage"
+equations = ["8.1"]
+ledger = ["NEG-2"]
+first_stated = "Chapter 8 section 8.1 of *Data Mining as Observation*, with the ESL example of selection before the split, Hastie, Tibshirani, and Friedman, section 7.10.2."
+book_records = ["ESL 2e, section 7.10.2", "QUERY_COUPLING_ARTIFACT", "CI fails when CLAIMS.md"]
+book_terms = ["leak(?:age|s|ed|ing)?\\b"]
+related = ["harness", "preregistration", "sealed", "hubness"]
+conditions = [
+  "Leakage is any information in the training data that could only be known after the decision, or any identifier that lets the model recognize a row it will be tested on. It is a property of the harness's read subspace, not of the model.",
+  "Selecting features on the whole data and then cross-validating leaks the test fold into the selection, and the reported error can fall from the true rate to a fraction of it, as the ESL example shows.",
+  "Coupling between the queries and the corpus of a retrieval benchmark is leakage of the same kind, and the program's hubness numbers moved by a factor of several when the coupling was removed.",
+]
+
+[[entry]]
+id = "preregistration"
+kind = "instrument"
+title = "preregistration"
+glossary = "preregistration"
+equations = ["8.3"]
+ledger = ["OT-7", "GO-2 (neg. half"]
+first_stated = "Chapter 8 section 8.8 of *Data Mining as Observation*, with the program's template `observation-theory-campaigns/experiments/PREREG-TEMPLATE.md:1-71` and Volume 14's protocol `geometric-observation/PROTOCOL.md:58-75`."
+book_records = ["PREREG-TEMPLATE.md", "PREREG-PF5-002.md", "DECLARATION-V1.md", "the preregistration fields", "ECE_514-01_FA26"]
+book_terms = ["preregist(?:ration|er|ered)"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Bonferroni.lean"
+related = ["sealed", "ledger-class", "harness", "certificate"]
+conditions = [
+  "A preregistration commits the hypothesis, the bar, the analysis, and the missing-data rule before the measurement is run, so that the record shows what was predicted rather than what was found.",
+  "Its bar must be anti-vacuous. A pass that any instrument would have produced, a threshold met by every reading, proves nothing, and the program's own first PF5 pass is the case.",
+  "Multiple looks at the data need a corrected threshold, and a preregistration that names one look needs none.",
+]
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "ERRATA.md"
+match = "E3. Two wrong bar values"
+
+[[entry]]
+id = "ledger-class"
+kind = "concept"
+title = "ledger class"
+glossary = "ledger class"
+equations = ["1.1"]
+ledger = ["OT-11", "NEG-15", "GO-2 (neg. half"]
+first_stated = "Volume 14, `geometric-observation/PROTOCOL.md:58-75` and `geometric-observation/OBSERVATION.md:43-45`, DOI 10.5281/zenodo.21776291, with the ledger itself at `geometric-observation/claims/LEDGER.md`."
+book_records = ["the six classes", "PROTOCOL.md:58-75", "LEDGER.md:48", "NEG-1 to NEG-16", "OBSERVATION.md:43-45", "test_claims_ledger.py"]
+book_terms = ["ledger class", "\\[(?:proved|demonstrated|replicated|predicted|exploratory|refuted)\\]"]
+related = ["preregistration", "sealed", "certificate", "false-clear-rate"]
+conditions = [
+  "Every headline claim carries one of six labels, proved, demonstrated, replicated, predicted, exploratory, or refuted. A claim's class can only rise by a sealed pass on held-out data and only fall by a sealed miss, and a refuted claim is reported at the prominence of a pass.",
+  "A number produced without a sealed bar is exploratory whatever its size. It may motivate a claim and may not carry one.",
+  "The authority for a claim's class is the ledger, and a chapter or an encyclopedia entry that disagrees with it is rebuilt.",
+]
+
+[[entry]]
+id = "sealed"
+kind = "instrument"
+title = "sealed"
+glossary = "sealed"
+equations = ["8.1"]
+ledger = ["OT-7", "OT-11"]
+first_stated = "The program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-10`, a seal being the registration id, the sealing commit, and the SHA-256 of the sealed file at that commit, and chapter 0 section 0.12 of *Data Mining as Observation*."
+book_records = ["SEALS.md", "DECLARATION-V1.md", "OT-CRUCIBLE-4.md", "OT-CRUCIBLE-3-VERDICT", "record sha", "sha e12453"]
+book_terms = ["\\bseal(?:ed|s|ing)?\\b"]
+related = ["preregistration", "ledger-class", "certificate", "refresh-floor"]
+conditions = [
+  "A prediction is sealed when its file is committed and the commit and the content hash are recorded in the seal ledger before the measurement is run, so that anyone with the repository can verify it has not changed.",
+  "A seal fixes the text, not its correctness. The version 1.0 declaration was sealed with one count wrong, and the correction is recorded beside the seal rather than by editing the sealed file.",
+  "An unsealed exploration can be reported and cannot carry a claim, and the refuted refresh-floor law is the program's standing example.",
+]
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "ERRATA.md"
+match = "Standing note on records and runners"

@@ -55,7 +55,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-none
+`lean/DataMiningAsObservation/ReadOperator.lean`, theorems `rank_one_reads_one_direction`, `readOp_mulVec`, `quad_readOp`, `quad_readOp_nonneg`, `readOp_mulVec_eq_zero_iff`, `readOp_diag`, `readOp_offdiag`, `readOp_symm`, `affine_const_along_nuisance`, `readOp_affine`, `readOp_sqLength_basis`, at observation-data-mining 22aa258.
 
 ## used in
 
@@ -67,4 +67,4 @@ observer, read-operator, sensitivity, budget
 
 ## status
 
-Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 6ed7775, theory-radar 37c4e6c, observation-data-mining 4f84c57, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 2a2e053, theory-radar 37c4e6c, observation-data-mining 22aa258, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
