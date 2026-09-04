@@ -13,6 +13,7 @@ theory-radar = "theory-radar"
 observation-data-mining = "observation-data-mining"
 turboquant-pro = "turboquant-pro"
 gtc-prototype = "gtc-prototype"
+readscope = "readscope"
 
 [[entry]]
 id = "flip"
@@ -191,3 +192,105 @@ conditions = [
   "A witnessed certificate clears fewer decisions, and its false-clear rate is read beside its coverage, never alone.",
   "The word also names, in chapter 14, what a moderation instrument can read of the signal its inputs carry, which is a different quantity and is not this entry.",
 ]
+
+[[entry]]
+id = "rank-certificate"
+kind = "instrument"
+title = "rank certificate"
+glossary = "rank certificate"
+equations = ["11.2", "11.3"]
+ledger = ["GO-3"]
+first_stated = "The compression program's certificate specification, `turboquant-pro/docs/CERTIFICATE_SPEC.md`, DOI 10.5281/zenodo.20660087, and chapter 11 section 11.3 of *Data Mining as Observation*."
+book_records = ["CERTIFICATE_SPEC.md", "CLAIMS.md", "GO3-certificate-vacuity"]
+book_terms = ["rank certificate", "rank fidelity"]
+related = ["certificate", "vacuity-threshold", "flip", "hubness"]
+conditions = [
+  "In the strict setting, the zeroth and hundredth percentiles of the distance ratio, the floor is a guarantee for the anchor sample, broken by a single collapsed pair.",
+  "In the percentile setting the implementation computes the distortion on the retained central pairs and the concentration over all pairs, and the floor is a robust estimate, not a guarantee on either set.",
+  "The floor is about the global ordering of the sampled pairwise distances. It does not directly certify a query's top-k recall, one query's neighbour order, or the trimmed tail.",
+  "A floor on a sample of anchors is a statement about that sample. Carrying it to the corpus needs a sampling argument the certificate records the inputs for and does not supply.",
+]
+[[entry.errata]]
+repo = "turboquant-pro"
+file = "turboquant_pro/rank_certificate.py"
+match = "robust estimate"
+
+[[entry]]
+id = "vacuity-threshold"
+kind = "result"
+title = "vacuity threshold"
+glossary = "vacuity threshold"
+equations = ["9.3"]
+ledger = ["GO-3"]
+first_stated = "Volume 14, the GO-3 registration and its notes, `geometric-observation/experiments/GO3-certificate-vacuity-v3-NOTES.md:1-60`, DOI 10.5281/zenodo.21776291, and chapter 9 section 9.3 of *Data Mining as Observation*."
+book_records = ["GO3-certificate-vacuity"]
+book_terms = ["vacuity"]
+related = ["certificate", "rank-certificate", "recognizer"]
+conditions = [
+  "The threshold is derived from the problem, the expected maximum of the distractors' margins, and is not tuned to the data.",
+  "A certificate at or below the threshold proves nothing about the object. It has not shown that no structure exists, only that this test could not certify one at this resolution.",
+  "Tested under seal on retrieval, which is recognition with one candidate per query, and the transition has a finite width.",
+]
+
+[[entry]]
+id = "coherence-time"
+kind = "concept"
+title = "coherence time"
+glossary = "coherence time"
+equations = ["0.25", "13.2"]
+ledger = ["OT-4"]
+first_stated = "Clarke's model of mobile-radio reception for the formula, and Volume 14 chapter 19 for its role as the interval past which a certificate has decorrelated."
+book_records = ["RADIO-FRESHNESS-TRACK.md", "CSI-refreshfloor", "CSI-SWEEP2"]
+book_terms = ["coherence time"]
+related = ["certificate", "false-clear-rate", "refresh-floor", "witness"]
+conditions = [
+  "Clarke's formula gives the coherence time from the Doppler frequency alone and assumes the fading model behind it.",
+  "A value measured longer ago than the coherence time is a guess, and a certificate issued that long ago has decorrelated from the state it certified.",
+  "The proportional refresh-floor law that was fit to it was refuted and is not cited. Its sealed replacement calibrated the baseline first and found floors at a few transmission intervals.",
+]
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "CSI-refreshfloor"
+
+[[entry]]
+id = "blind-probe"
+kind = "instrument"
+title = "blind probe"
+glossary = "blind probe"
+equations = ["0.8", "0.9", "11.4"]
+ledger = ["OT-3", "OT-6", "NEG-12", "GO-B-Llama", "GO-B-Llama-rematch", "GO-B-legal", "GO-EC-3"]
+first_stated = "readscope, the blind probe as a specified instrument, PyPI `readscope`, `readscope/PRINCIPLES.md` and `readscope/SPEC.md`, and Volume 14 chapter 10."
+book_records = ["readscope\\", "PRINCIPLES.md", "OT3-"]
+book_terms = ["blind probe", "finite[- ]difference"]
+related = ["read-operator", "budget-cliff", "read-distortion", "flip"]
+conditions = [
+  "The probe recovers the read operator at one operating point from calls to the consumer alone, two calls per input dimension for a central difference.",
+  "Its budget law is a theorem for subspace-confined designs at an operating point, which is what its per-point estimators are, and does not cover allocations of calls across many operating points.",
+  "The probe refuses when samples do not exceed the dimension and warns below a stated margin, since the identifiability miss of chapter 2 came from reading it past that point.",
+]
+[[entry.errata]]
+repo = "readscope"
+file = "README.md"
+match = "budget law"
+
+[[entry]]
+id = "budget-cliff"
+kind = "result"
+title = "budget cliff"
+glossary = "budget cliff"
+equations = ["11.4"]
+ledger = ["OT-3", "OT-10"]
+first_stated = "readscope, predicted then measured, and proved as the confinement theorem in Volume 14, `geometric-observation/crucible/OT3-THEOREM.md` and `geometric-observation/crucible/OT3-NOISY-THEOREM.md`, DOI 10.5281/zenodo.21776291."
+book_records = ["PRINCIPLES.md:112-142", "OT3-THEOREM", "OT3-NOISY"]
+book_terms = ["cliff"]
+related = ["blind-probe", "read-operator"]
+conditions = [
+  "The reader receives responses confined to the k directions it chose, the read operator is planted in a fixed subspace, and noise enters as the noisy theorem models it. Under those conditions the cliff at k equal to the dimension is a theorem and is rank-independent.",
+  "Known side information about a k0-dimensional exclusion moves the cliff to d minus k0 and never softens it.",
+  "Whether many cheap points spread across operating points can average their way back to the population operator was measured within a budget range and is not a theorem.",
+]
+[[entry.errata]]
+repo = "readscope"
+file = "README.md"
+match = "sample-complexity"
