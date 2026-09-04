@@ -9,9 +9,9 @@ At matched bits, the outcome in which the code with the worse reconstruction err
 
 ## equation
 
-Book equation 4.3.
+Book equation 4.5.
 
-    R_C(D)=\min_{p(\hat x\mid x)\,:\ \operatorname{tr}(P_C M_\delta)\le D}\ I(x;\hat x).
+    \text{flip}:\quad \mathrm{task}(O)>\mathrm{task}(R)\ \ \text{and}\ \ \operatorname{tr}M^{O}_\delta>\operatorname{tr}M^{R}_\delta,\qquad \mathrm{task}(\text{anti})<\mathrm{task}(R),\qquad \text{bits}(O)=\text{bits}(R).
 
 Book equation 3.1.
 
@@ -83,4 +83,4 @@ read-distortion, alignment, anti-arm, rank-certificate, coupling-null
 
 ## status
 
-Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns e5a4852, theory-radar 37c4e6c, observation-data-mining 6c05d0a, turboquant-pro 856c4cb, gtc-prototype 328741f.
+Generated 2026-09-03 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns c569c59, theory-radar 37c4e6c, observation-data-mining 6c05d0a, turboquant-pro 856c4cb, gtc-prototype 328741f.
