@@ -50,9 +50,14 @@ acceptance test for the generator that will fill them from the records.
 | [anti-hub](generated/anti-hub.md) | concept | a row no query retrieves, where compressed indexes fail first |
 | [reliability weight](generated/reliability-weight.md) | concept | zero or twice the held-out AUROC minus one, a discrimination weight reported beside its calibration error |
 | [posited versus measured](generated/posited-versus-measured.md) | concept | every claim either asserted by design or backed by an artifact, stated at the top of the report |
+| [Nadeau and Bengio correction](generated/nadeau-and-bengio-correction.md) | correction | the variance of a repeated cross-validation estimate inflated by one plus the fold count times the test-to-train ratio |
+| [cross-corpus gate](generated/cross-corpus-gate.md) | instrument | an encoder votes only if its held-out AUROC on a corpus it was not trained on clears both nulls by the preregistered margin |
+| [deployment mismatch](generated/deployment-mismatch.md) | concept | the consumer evaluated is not the consumer deployed, or time moved between the two |
+| [distance concentration](generated/distance-concentration.md) | concept | the narrowing of pairwise distances with dimension, read as the reader running out of resolution |
+| [calibration](generated/calibration.md) | concept | a score of 0.8 is positive eighty percent of the time, measured by the expected calibration error, separate from ranking |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other forty exist only as generated entries, built from the records by `generate.py`.
+other forty-five exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -79,6 +84,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, twenty-three files as of 2026-09-04, and the book's appendix C states what each
+its checkable core, twenty-eight files as of 2026-09-04, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
