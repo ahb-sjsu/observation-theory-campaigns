@@ -34,7 +34,7 @@ The program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-
 
 ## failures and corrections
 
-- `observation-theory-campaigns/ERRATA.md:111-120` at f206f90. ## Standing note on records and runners Two failures this session shared one shape. A record was committed from a runner later found defective, and the correction was left uncommitted where nothing reading the repository could see it. The rule adopted in response is that a rerun writes to a new path and never over a committed record, and that the superseded record stays in the repository naming what replaced it. See the PF4-007 subsection of `experiments/CAMPAIGN.md`.
+- `observation-theory-campaigns/ERRATA.md:111-120` at 97b2015. ## Standing note on records and runners Two failures this session shared one shape. A record was committed from a runner later found defective, and the correction was left uncommitted where nothing reading the repository could see it. The rule adopted in response is that a rerun writes to a new path and never over a committed record, and that the superseded record stays in the repository naming what replaced it. See the PF4-007 subsection of `experiments/CAMPAIGN.md`.
 
 ## conditions
 
@@ -46,7 +46,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 51c193c.
+`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 43ea852.
 
 ## used in
 
@@ -58,4 +58,4 @@ preregistration, ledger-class, certificate, refresh-floor
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f206f90, theory-radar 37c4e6c, observation-data-mining 51c193c, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 97b2015, theory-radar 37c4e6c, observation-data-mining 43ea852, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

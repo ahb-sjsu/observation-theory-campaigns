@@ -45,7 +45,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Whitening.lean`, theorems `whiten_unit_variance`, `whiten_sq_sum`, at observation-data-mining 51c193c.
+`lean/DataMiningAsObservation/Whitening.lean`, theorems `whiten_unit_variance`, `whiten_sq_sum`, at observation-data-mining 43ea852.
 
 ## used in
 
@@ -57,4 +57,4 @@ mahalanobis-distance, identity-reader, read-operator, water-filling
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f206f90, theory-radar 37c4e6c, observation-data-mining 51c193c, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 97b2015, theory-radar 37c4e6c, observation-data-mining 43ea852, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
