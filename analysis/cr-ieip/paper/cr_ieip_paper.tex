@@ -1,0 +1,196 @@
+% CR-I-EIP short paper: when a consumer-metric safety monitor helps, and when
+% it hurts. Written on the three sealed families (owner directive). House style:
+% plain declarative, no em-dashes in prose, every number from a committed
+% graded record, negatives disclosed. DRAFT -- V3 (locality law, sealed
+% 2026-09-05) grades into Section 5 and Figure 1 when its cells land.
+% Venue candidate: a mechanistic-interpretability / safety workshop.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\graphicspath{{build/}}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\title{When Reading an Equivariance Monitor's Residual\\ Through the Model Helps, and When It Hurts:\\ A Locality Law from Three Sealed Preregistrations}
+\author{Andrew H.\ Bond\\ San Jos\'e State University\\ \texttt{[TODO: email]}}
+\date{Draft, September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+An equivariance monitor grades a paraphrase-invariance residual
+$e = h_\ell(g x) - \hat\rho_\ell h_\ell(x)$ in raw L2 norm. We ask whether
+grading it instead in the downstream model's own read, measured as the
+model's output response when $e$ is patched into layer $\ell$, catches more
+real behavioral changes at matched flag rates. The answer is conditional, and
+we pin the condition through three preregistered families, two of which failed
+their own sealed bars and are reported as executed. The consumer read cuts
+monitor false-clears by 14 to 21 percentage points under backtranslation, but
+under paraphrase it does the opposite, adding 35 to 57 points, at two model
+scales. Two sealed attempts to gate the effect on the equivariance map's own
+fit both failed. The variable that separates the regimes, identified from the
+failures and then preregistered as a law, is transform locality: the held-out
+$R^2$ of the identity map $h_\ell(g x)\approx h_\ell(x)$. Where the transform
+is local in representation space the patched residual points along the true
+perturbation and the consumer read is informative even when the equivariance
+map is a poor fit; where it is not, the read is dominated by map error and
+inverts. The practical rule is a mechanical, calibration-only gate: below a
+locality floor a monitor must fall back to the raw metric or abstain.
+\end{abstract}
+
+\section{Introduction}
+
+Internal-equivariance monitors gate on $h_\ell(g x) \approx \hat\rho_\ell(g)\,
+h_\ell(x)$: a paraphrase $g$ should move a layer's representation the way a
+fitted linear map $\hat\rho_\ell$ predicts, and a residual that violates this
+flags a possible spec-gaming or drift. The residual is scored in raw L2 norm.
+Observation Theory raises an objection that applies to any such monitor: the
+layer's activations have a consumer, the downstream computation, and the norm
+that matters is the consumer's read of the residual, not its raw magnitude. A
+large residual in a direction the downstream network ignores is a false alarm;
+a small residual exactly where the network reads is a false clear, which is the
+case the monitor exists to catch.
+
+This paper measures the consumer-read alternative and finds it conditional, in
+a way that is itself the contribution. We grade the residual by its measured
+patch-response: inject $e$ at layer $\ell$ and record the model's output-KL
+response, the consumer's actual sensitivity to that residual. Across three
+preregistered families we find a clean advantage under one transform family, a
+clean inversion under another, and, after two sealed attempts to predict which
+is which from the wrong variable, a locality law that does predict it. The
+methodological spine is preregistration: pass/fail thresholds and seeds frozen
+in version control before evaluation, verdicts committed as executed. Two of
+the three families failed, and both failures are load-bearing evidence for the
+law the third family states.
+
+\section{Method}
+
+\textbf{Setup.} An open causal LM (Qwen2.5, 0.5B and 1.5B) reads
+Social-Chemistry-101 action texts and their transforms. For each layer $\ell$
+the whitepaper's ridge estimator fits $\hat\rho_\ell$ on a calibration split;
+the residual $e$ is injected at $\ell$ by a last-position activation patch and
+the metric is the model's output-KL response. Ground truth is the model's
+actual next-token KL between $x$ and $g x$. The monitor flags the top quartile
+by each metric; the reported quantity is the false-clear rate, the fraction of
+behavior-changed pairs not flagged, at matched flag rates, and the advantage
+$\Delta = fc_{\mathrm{raw}} - fc_{\mathrm{true}}$.
+
+\textbf{Discipline.} Each family is a sealed preregistration naming its cells,
+bars, seeds, and manipulation checks before any evaluation data is opened, with
+a one-day cooling-off between construction and seal. Graded verdicts are
+committed exactly as the frozen rules grade them. All records, seals, and
+post-mortems are in the campaign repository.
+
+\section{The effect is real, and it inverts by transform family}
+
+The construction cells established the shape at shakedown grade: under
+backtranslation, the consumer read of the residual predicts behavioral change
+better than raw L2 and cuts false-clears by 15 to 21 points at matched flag
+rates, replicated on a second model (TinyLlama-1.1B) and a second
+backtranslation language. The final-layer equivariance map fails to generalize
+in every run, held-out $R^2$ collapsing from above $0.8$ in calibration to at
+or below zero, so a monitor calibrated at the final layer grades against a
+broken map. Both findings held under seal (family V1): the sealed
+backtranslation cell cut false-clears, and the final-layer collapse recurred.
+
+Family V1 nonetheless graded FAIL on its quantitative bar, and its post-mortem
+found the effect's magnitude unforecastable from the crude single-split
+headroom it had qualified on. Family V2 repaired the instrument and introduced
+paraphrase as a second transform family. The result was decisive in an
+unexpected direction: under paraphrase, at both model scales, the consumer read
+did not merely lose its advantage, it inverted, adding 35 to 57 points of
+false-clears over raw L2. The mechanism is visible in the records: paraphrase
+drives the equivariance map's held-out $R^2$ to zero or below, so the patched
+residual is dominated by map error, and injecting map error probes the model's
+sensitivity to a direction that is not the perturbation.
+
+\section{Two sealed attempts to gate the effect on map fit both fail}
+
+The natural gate is the equivariance map's own quality: use the consumer read
+only where $\hat\rho$ generalizes. Family V2's sealed secondary and the V2
+successor both tested a version of this, gating on the held-out $R^2$ of
+$\hat\rho$. It fails, and the failure is precise. In the deep layers of the
+1.5B backtranslation cells the map's held-out $R^2$ is slightly negative, so a
+$\hat\rho$-fit gate calls them out-of-regime, yet the consumer advantage
+persists there at 9 to 17 points. The advantage does not need a good map; it
+needs the patched residual to point roughly along the true perturbation. Map
+fit is a proxy for that and a leaky one.
+
+\section{The locality law}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{fig_delta_lambda.pdf}
+  \caption{The consumer-read advantage $\Delta$ against transform locality
+  $\Lambda$, the identity-map held-out $R^2$, one point per graded
+  (cell, layer) unit. Backtranslation units (high $\Lambda$) sit above the
+  advantage line; paraphrase units (negative $\Lambda$) invert. The shaded
+  band is the preregistered transition region. [V3 synonym/shuffle/truncate
+  units append here when graded.]}
+  \label{fig:law}
+\end{figure}
+
+The variable that separates the regimes, read directly off the failures, is
+transform locality: how nearly $h_\ell(g x) \approx h_\ell(x)$, measured as the
+held-out $R^2$ of the identity map,
+\[
+  \Lambda_\ell = 1 - \frac{\sum \lVert h_\ell(g x) - h_\ell(x)\rVert^2}
+                          {\sum \lVert h_\ell(g x) - \overline{h_\ell(g x)}\rVert^2}.
+\]
+It requires no map fit. On the V2 records it separates the outcomes with no
+overlap: every backtranslation unit, including the two the $\hat\rho$-gate got
+wrong, has $\Lambda$ between $+0.28$ and $+0.45$; both paraphrase units have
+$\Lambda$ at $-1.3$ and $-1.8$. When a transform is local, $h_\ell(g x) =
+h_\ell(x) + \delta$ with small $\delta$, so even a noisy $\hat\rho$ leaves the
+residual approximately equal to the true perturbation and the consumer read
+stays informative; when the transform relocates the representation wholesale,
+the residual is map error and the read inverts.
+
+Family V3 preregisters this as a law rather than a threshold. It grades cells
+spanning a constructed locality ladder, from synonym substitution
+($\Lambda \approx 0.9$) through interior word-shuffling ($\Lambda \approx 0.4$,
+textually very different yet representationally local, the case that
+distinguishes locality from map fit) to half-truncation ($\Lambda \approx
+-0.7$). The sealed predictions are a threshold law, $\Delta \ge 0.05$ when
+$\Lambda \ge 0.20$ and $\Delta \le 0.01$ when $\Lambda \le -0.20$, and a
+monotonicity, Spearman$(\Lambda, \Delta) \ge 0.7$ pooled over all units.
+[Section to complete on the V3 graded record; Figure~\ref{fig:law} shows the
+V1 and V2 units the law was read from.]
+
+\section{Consequence for monitor design}
+
+The rule the three families support is operational and cheap. A consumer-metric
+equivariance gate must be conditioned on a mechanical, calibration-only
+locality check: compute $\Lambda$ on a held-out slice of the calibration split,
+and below a locality floor fall back to the raw metric or abstain, because the
+consumer read there is worse than the raw metric it would replace. This is the
+$\hat\rho$-freshness and held-out-validation requirement of the whitepaper,
+sharpened: it is not enough that $\hat\rho$ was fit; the transform the monitor
+faces must be local enough for the read to be informative, and that is
+measurable before deployment without fitting $\hat\rho$ at all. The two failed
+paraphrase families are the measured demonstration of the cost of skipping the
+check.
+
+\section{Scope and limitations}
+
+Two model scales of one family, Social-Chemistry text, backtranslation and two
+paraphrasers plus the V3 string-operation ladder, the consumer read measured in
+$x$'s context. The final-layer map collapse and the paraphrase inversion are
+robust across every run measured; the locality law's monotonicity claim is
+under seal at submission and reported as graded. We claim nothing about
+transforms outside the measured locality range, and nothing about monitors
+whose consumer is an external evaluator rather than the model's own output,
+which the read operator would have to be re-derived for.
+
+\section*{Reproducibility}
+Every number is read from committed, hashed records in the campaign repository
+(three sealed preregistrations, per-cell graded JSONs, post-mortems, the
+locality gate and its checksum). Figure~\ref{fig:law} regenerates from them by
+script.
+
+\end{document}
