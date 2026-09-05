@@ -52,11 +52,11 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Covariance.lean`, theorems `var_eq_quad`, `trace_eq_total`, `quad_nonneg`, `cov_symm`, at observation-data-mining 51c193c.
+`lean/DataMiningAsObservation/Covariance.lean`, theorems `var_eq_quad`, `trace_eq_total`, `quad_nonneg`, `cov_symm`, at observation-data-mining 43ea852.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 9, 10, 11, 12, 13.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 9, 10, 11, 12.
 
 ## related
 
@@ -64,4 +64,4 @@ read-operator, whitening, water-filling, alignment, explained-variance
 
 ## status
 
-Generated 2026-09-04 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f206f90, theory-radar 37c4e6c, observation-data-mining 51c193c, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 97b2015, theory-radar 37c4e6c, observation-data-mining 43ea852, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

@@ -1812,3 +1812,88 @@ conditions = [
   "A family of scores for generated text against a reference. ROUGE-1 recall counts the reference's words the candidate contains, with multiplicity, over the reference's length. It lies in the unit interval, is one for the reference itself, and is one for any rearrangement of the reference, since it reads bags and not order.",
   "A ROUGE score therefore certifies less than it seems to. The 13.7 ROUGE-L difference at 512 tokens re-validated at negative 0.31 on forty documents, and the claims ledger carries both numbers.",
 ]
+
+[[entry]]
+id = "classifier"
+kind = "concept"
+title = "classifier"
+glossary = "classifier"
+equations = ["6.1", "1.1"]
+ledger = ["GO-B-whale", "GO-1"]
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, with the classifier row of Volume 14's consumer table and the whale clan classifier of ledger row GO-B-whale."
+book_records = ["clan classifier", "classifier row of the consumer table", "regimes.py"]
+book_terms = ["classifier"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Classifier.lean"
+related = ["consumer", "read-operator", "threshold", "decision-boundary", "margin"]
+conditions = [
+  "A consumer that produces a score per row and turns it into a decision with a threshold. For a linear classifier the sensitivity is the link's slope times the weight direction, so the read operator is the workload mean of the squared slope times the outer product of the weights, sends every vector to a multiple of the weights, and reads nothing orthogonal to them.",
+  "The score is affine, so chapter 0's exact quotient applies before the link. The whale clan classifier is the flip's classifier case, held-out AUROC 0.934 against 0.883 for a code that reconstructs twice as well.",
+]
+
+[[entry]]
+id = "decision-boundary"
+kind = "concept"
+title = "decision boundary"
+glossary = "decision boundary"
+equations = ["6.1", "6.2"]
+ledger = ["GO-1"]
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, where the classifier's read direction and its threshold meet."
+book_records = ["planted probe", "clan classifier"]
+book_terms = ["decision boundary"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/DecisionBoundary.lean"
+related = ["classifier", "threshold", "margin", "nuisance"]
+conditions = [
+  "The set of inputs whose score equals the threshold. For a linear classifier it is an affine hyperplane. Moving orthogonally to the weights never crosses it, moving along the weights crosses it exactly once, and every boundary point has the same projection on the weights.",
+  "The boundary is where the read direction and the threshold meet and nothing else about the input enters it, which is the classifier's nuisance drawn as a picture.",
+]
+
+[[entry]]
+id = "margin"
+kind = "concept"
+title = "margin"
+glossary = "margin"
+equations = ["9.3", "11.2"]
+ledger = ["GO-3"]
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, with the margin certificate of chapter 9 section 9.3 and the neighbour margins of chapter 11."
+book_records = ["margin certificate", "median margin", "margin 0.251", "margin 0.883"]
+book_terms = ["margin"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Margin.lean"
+related = ["classifier", "decision-boundary", "vacuity-threshold", "rank-certificate", "escalation"]
+conditions = [
+  "How far a row's score sits from the threshold. A perturbation whose length times the weight length is smaller than the margin cannot move a linear classifier's score across the threshold, by Cauchy–Schwarz, and a step along the weights of exactly that size reaches the boundary.",
+  "The margin is therefore a certificate on a decision, and chapter 9's margin certificate is the same idea with a noise model in place of a perturbation bound and a vacuity threshold derived from it.",
+]
+
+[[entry]]
+id = "null-model"
+kind = "instrument"
+title = "null model"
+glossary = "null model"
+equations = ["0.17", "8.3"]
+ledger = ["OT-4", "NEG-15"]
+first_stated = "Chapter 0 section 0.9 and chapter 8 section 8.4 of *Data Mining as Observation*, with the program's Poisson, paired, and permutation nulls in openvector-bench, readscope, and the encoder gate."
+book_records = ["Poisson null", "paired null", "binding nulls", "frozen before training", "both nulls"]
+book_terms = ["null model", "null\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/NullModel.lean"
+related = ["poisson-ceiling", "chance-level", "cross-corpus-gate", "p-value", "harness"]
+conditions = [
+  "A version of the data with the structure under test removed and everything else kept. A label permutation keeps every class size and the bag of scores, so any statistic that reads only class sizes or only scores is unchanged by it, and only a statistic that reads the pairing between score and label can move.",
+  "That is what makes the permuted statistic the right comparison, and the excess over the null mean is the number a chapter reports. A number without its null is not yet a finding, and the drift claim that lost half its size to a paired null is the ledger's case.",
+]
+
+[[entry]]
+id = "escalation"
+kind = "concept"
+title = "escalation"
+glossary = "escalation"
+equations = ["14.5", "10.7", "0.26"]
+ledger = []
+first_stated = "Chapter 14 section 14.9 of *Data Mining as Observation*, the single-decision form of abstention, with the refusal counts of the re-description test."
+book_records = ["19 of 79 refused", "refuse not warn", "20 versus 0 percent refusal"]
+book_terms = ["escalat", "refus"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Escalation.lean"
+related = ["abstention", "margin", "coverage", "false-clear-rate", "certificate"]
+conditions = [
+  "The decision to hand an item to a person rather than decide it. A rule that escalates every item whose margin is below a bar decides a set that can only shrink as the bar rises, so coverage can only fall, every decided item carries at least the bar's margin, and a bar of zero escalates nothing.",
+  "Coverage times the decided false-clear rate is the fraction of all items cleared and wrong, so an escalation policy trades coverage for a false-clear rate and a deployment report states both.",
+]
