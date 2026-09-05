@@ -1,12 +1,12 @@
 # PREREG-CR-IEIP-V3 — the locality law
 
-**Status: DRAFT v0.1. FAMILY-CONSTRUCTED 2026-09-04 (the V2 graded family and
-its RESULTS, plus the locality design probe, are the construction evidence).
-Earliest seal 2026-09-05 (cooling-off). Not sealed. V1 and V2 graded FAIL and
-stay FAIL. V3 tests the regime variable the V2 failures identified:
-consumer-metric gating beats raw iff the transform is LOCAL in representation
-space, measured by the identity-map held-out R² — not by the equivariance
-map's fit.**
+**Status: SEALED v1.0 (2026-09-05, UTC-verified). FAMILY-CONSTRUCTED
+2026-09-04 < seal date: cooling-off satisfied. V1 and V2 graded FAIL and stay
+FAIL. V3 tests the regime variable the V2 failures identified: consumer-metric
+gating beats raw iff the transform is LOCAL in representation space, measured
+by the identity-map held-out R² Λ — not by the equivariance map's fit. The
+four open items are resolved in the "Seal record" below; after this line
+nothing changes except by dated amendment. Verdicts commit as executed.**
 
 ## Claim
 
@@ -87,15 +87,27 @@ cells at a time. **Harvest: validate before delete.**
 **P1 both arms, every graded unit.** P2 monotonicity is a pre-stated
 secondary that does not move the verdict but is the headline if it holds.
 
-## Open items — resolved at seal (fresh day, ≥ 2026-09-05)
+## Seal record — the four open items, resolved 2026-09-05
 
-1. Seed re-scan (20261006/07/08/09/12).
-2. Commit the three transforms; mechanical smoke (each changes ≥ its probe
-   fraction of burned texts).
-3. Freeze the Λ thresholds (±0.20) and the Δ bars (0.05 / 0.01) and the P2
-   floor (0.7) exactly as written, or amend with dated rationale BEFORE seal.
-4. Confirm the retargeted Λ gate reproduces the V2 identity-R² numbers
-   (+0.28..+0.45 bt / −1.3..−1.8 para) as a checksum before grading opens.
+1. **Seed re-scan clean** (20261006/07/08/09/12 across the three repos).
+2. **Three transforms committed** into `cr_ieip_v3.py` (`synonym_sub`,
+   `word_shuffle` [deterministic on the graded seed], `truncate_half`),
+   dispatched via `IEIP_TRANSFORM`; pure string ops, no model, fully
+   reproducible. Design-probe smoke on burned Social-Chem (states only):
+   synonym 39% changed / Λ 0.92, shuffle 86% / Λ 0.45, truncate 100% /
+   Λ −0.79 — all as tabulated below.
+3. **Constants frozen exactly as drafted:** Λ thresholds ±0.20; Δ bars 0.05
+   (local arm) / 0.01 (non-local arm); P2 floor Spearman ≥ 0.7; transition
+   band (−0.20, 0.20) descriptive.
+4. **Λ-gate checksum PASSED** (`lambda_checksum.py`, 2026-09-05): the
+   retargeted identity-map gate reproduces the V2 post-hoc numbers exactly —
+   D +0.368/+0.381, E +0.453/+0.399, G +0.316/+0.284 (bt, all ≥ 0.28);
+   F −1.796/−1.304 (para). The gate is the committed machinery, verified.
+
+Operational note (dated): the date was verified against the Atlas UTC clock
+(2026-09-05 18:58Z) before sealing, not the session banner; a full root
+filesystem (an orphaned installer process holding 568 GB of deleted files)
+was cleared first so writes and the checksum could run.
 
 ## Amendment discipline
 

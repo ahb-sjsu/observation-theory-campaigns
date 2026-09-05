@@ -169,8 +169,49 @@ def paraphrase(texts):
     return out
 
 
+# --- V3 locality-ladder transforms: pure deterministic string ops -----------
+_SYN = {" a ": " one ", " the ": " that ", "n't": " not", " big ": " large ",
+        " kids": " children", " buy ": " purchase ", " help ": " assist ",
+        " tell ": " inform ", " get ": " obtain ", " make ": " create "}
+
+
+def synonym_sub(texts):
+    out = []
+    for t in texts:
+        u = t
+        for k, v in _SYN.items():
+            u = u.replace(k, v)
+        out.append(u)
+    return out
+
+
+def word_shuffle(texts):
+    rng = np.random.default_rng(SEED)   # deterministic given the graded seed
+    out = []
+    for t in texts:
+        w = t.split()
+        if len(w) > 4:
+            mid = w[1:-1]
+            rng.shuffle(mid)
+            w = [w[0]] + mid + [w[-1]]
+        out.append(" ".join(w))
+    return out
+
+
+def truncate_half(texts):
+    return [" ".join(t.split()[: max(2, len(t.split()) // 2)]) for t in texts]
+
+
 def transform(texts):
-    return paraphrase(texts) if TRANSFORM == "para" else backtranslate(texts)
+    if TRANSFORM == "para":
+        return paraphrase(texts)
+    if TRANSFORM == "synonym":
+        return synonym_sub(texts)
+    if TRANSFORM == "shuffle":
+        return word_shuffle(texts)
+    if TRANSFORM == "truncate":
+        return truncate_half(texts)
+    return backtranslate(texts)
 
 
 
