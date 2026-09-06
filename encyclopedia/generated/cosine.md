@@ -55,7 +55,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Cosine.lean`, theorems `abs_dot_le`, `cosine_le_one`, `neg_one_le_cosine`, `cosine_self`, `cosine_smul`, `cosine_eq_dot_rowNormalize`, at observation-data-mining f05f3e7.
+`lean/DataMiningAsObservation/Cosine.lean`, theorems `abs_dot_le`, `cosine_le_one`, `neg_one_le_cosine`, `cosine_self`, `cosine_smul`, `cosine_eq_dot_rowNormalize`, at observation-data-mining af776fd.
 
 ## used in
 
@@ -67,4 +67,4 @@ dot-product, euclidean-distance, spectral-embedding, quotient, identity-reader
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 398fb98, theory-radar 37c4e6c, observation-data-mining f05f3e7, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

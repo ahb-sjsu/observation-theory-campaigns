@@ -3244,3 +3244,972 @@ conditions = [
   "True positive rate minus false positive rate at a threshold, whose maximum over thresholds bounds the best F1 the score can reach at any threshold. The bound is exact for concave ROC curves and fails for a curve at AUROC 0.75.",
   "The pointwise ceiling on a node of the formula search is proved, and using it to prune the node's descendants is a heuristic that missed the optimum on two of five datasets in the rerun.",
 ]
+
+[[entry]]
+id = "variance"
+kind = "concept"
+title = "variance"
+glossary = "variance"
+equations = ["0.5", "0.7", "9.1"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.3 of *Data Mining as Observation*, with the program's spectrum tools in `readscope/readscope/spectrum.py:35-70`."
+book_records = ["spectrum.py", "SPECTRUM_FINDINGS.md:10-18"]
+book_terms = ["\\bvariance\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Variance.lean"
+related = ["covariance-matrix", "explained-variance", "standardization", "spectrum", "effective-rank"]
+conditions = [
+  "The weighted mean of the squared deviation of a column from its weighted mean. It is nonnegative, equals the mean square less the squared mean, is zero for a constant column, scales with the square of a rescaling, and with positive weights is zero only for a constant column.",
+  "Variance is the identity reader's measure of spread. A direction with large variance and no group structure pulls principal components and k-means centres alike, and whether a consumer reads that direction is a separate question.",
+]
+
+[[entry]]
+id = "rank"
+kind = "concept"
+title = "rank"
+glossary = "rank"
+equations = ["0.7", "2.1", "6.1"]
+ledger = ["OT-7", "GO-1"]
+first_stated = "Chapter 0 section 0.2 and chapter 2 section 2.2 of *Data Mining as Observation*, with the rank bound of the chain rule in `geometric-observation/chapters/ch06_mathematical_preliminaries.md:10-27`."
+book_records = ["ch06_mathematical_preliminaries.md:10-27", "ch05_the_read_metric_and_the_quotient.md:7-48"]
+book_terms = ["\\brank\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Rank.lean", "observation-data-mining:lean/DataMiningAsObservation/Pipeline.lean"]
+related = ["effective-rank", "rank-certificate", "read-subspace", "jacobian", "outer-product"]
+conditions = [
+  "The dimension of a matrix's column space. It is at most the number of rows and of columns, an outer product has rank at most one, a product has rank at most the rank of either factor, and transposing does not change it.",
+  "The read operator of a linear classifier has rank one, the composed read operator of a chain has rank at most either stage's, and the effective rank of a spectrum is the continuous version chapter 4 allocates bits by.",
+]
+
+[[entry]]
+id = "metric"
+kind = "concept"
+title = "metric"
+glossary = "metric"
+equations = ["3.1", "0.11", "1.1"]
+ledger = ["GO-EC-3"]
+first_stated = "Chapter 3 section 3.1 and chapter 0 section 0.5 of *Data Mining as Observation*, with the read metric in `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`."
+book_records = ["ch05_the_read_metric_and_the_quotient.md:7-48", "make_flip_figure"]
+book_terms = ["\\bmetric\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/EuclideanDistance.lean", "observation-data-mining:lean/DataMiningAsObservation/OutputMetric.lean"]
+related = ["output-metric", "euclidean-distance", "read-operator", "quotient", "geodesic-distance"]
+conditions = [
+  "A rule for the distance between two rows, or between two outputs. A distance function is a choice of what to ignore, and the local metric on a consumer's output is the positive semidefinite matrix that says how a small change is scored. The squared Euclidean distance is symmetric and zero exactly between equal rows.",
+  "A dataset-level loss, accuracy, F1, or a rank correlation is not a local metric and cannot be inserted into the read-operator formula, and the same two codes get opposite verdicts from two metrics.",
+]
+
+[[entry]]
+id = "correction"
+kind = "concept"
+title = "correction"
+glossary = "correction"
+equations = ["8.2", "8.1", "2.1"]
+ledger = ["NEG-13", "NEG-9"]
+first_stated = "Chapter 2 section 2.4 and chapter 8 section 8.5 of *Data Mining as Observation*, with the standing corrections in `geometric-observation/claims/LEDGER.md`."
+book_records = ["FINDINGS.md:1-35", "REVISION_PLAN.md", "sha e12453effa2f"]
+book_terms = ["\\bcorrections?\\b", "corrected"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/NadeauBengio.lean", "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"]
+related = ["nadeau-and-bengio-correction", "ledger-class", "sealed", "harness", "retraction"]
+conditions = [
+  "A change to a published number or claim that the record keeps beside the original, naming what was wrong and what replaced it. A statistical correction rescales a variance for a dependence the harness ignored, and a changed digest proves a changed file, so a correction is itself a sealed object.",
+  "A correction can be the wrong shape. The uncorrected t was stored as a sigma, the fitted correction that transferred with mean absolute error zero was the identity, and the rows stay visible with the correction pointing at them.",
+]
+
+[[entry]]
+id = "correlation"
+kind = "concept"
+title = "correlation"
+glossary = "correlation"
+equations = ["0.1", "3.1", "0.18"]
+ledger = ["NEG-9"]
+first_stated = "Pearson, 1895, as chapter 0 section 0.6 and chapter 3 section 3.1 of *Data Mining as Observation* read it, with the radius-against-degree correlation in `the-angular-observer/README.md:135-139`."
+book_records = ["README.md:135-139", "constraint-gap\\README.md:57-76"]
+book_terms = ["\\bcorrelation\\b", "correlat"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Correlation.lean"
+related = ["cosine", "spearman-correlation", "kendall-correlation", "covariance-matrix", "quotient"]
+conditions = [
+  "The cosine of two centred columns. It lies between minus one and one, is one for a column against itself, is symmetric, and is unchanged by shifting or positively rescaling either column, so correlation distance lives on the quotient that discards shift and scale.",
+  "Rank correlations read the order and discard the values, and a read distortion that correlates with a downstream ranking at 0.80 is a control and not a complete rank statistic, NEG-9.",
+]
+
+[[entry]]
+id = "floor-ceiling"
+kind = "concept"
+title = "floor, ceiling"
+glossary = "floor, ceiling"
+equations = ["0.17", "5.4", "13.2"]
+ledger = ["NEG-13", "OT-4"]
+first_stated = "Chapter 0 section 0.9 and chapter 13 section 13.4 of *Data Mining as Observation*, with the omission floor in `geometric-observation/chapters/ch07_cost.md` and the Youden ceiling in `theory-radar/paper/astar_paper.tex:94-110`."
+book_records = ["ch07_cost.md", "astar_paper.tex:94-110", "RADIO-FRESHNESS-TRACK"]
+book_terms = ["\\bfloors?\\b", "\\bceilings?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/CoherenceTime.lean", "observation-data-mining:lean/DataMiningAsObservation/PoissonCeiling.lean", "observation-data-mining:lean/DataMiningAsObservation/YoudenF1.lean"]
+related = ["refresh-floor", "poisson-ceiling", "youden-index", "budget-cliff", "bar"]
+conditions = [
+  "A floor is a lower bound a quantity cannot fall below, and a ceiling an upper bound it cannot exceed, each proved or measured and named as such. The refresh floor is the shortest renewal that keeps a certificate within its error, the Poisson ceiling is the count chance allows, and the Youden ceiling bounds the best F1.",
+  "A floor that was fitted as a fraction of the coherence time was refuted, and the omission floor that was first read as unbounded was corrected to a floor, so each is a measured object with a record.",
+]
+
+[[entry]]
+id = "gate"
+kind = "instrument"
+title = "gate"
+glossary = "gate"
+equations = ["12.3", "10.7", "8.3"]
+ledger = ["GO-B-legal", "NEG-14"]
+first_stated = "Chapter 8 section 8.3 of *Data Mining as Observation*, with the build gate in `turboquant-pro/docs/HUBNESS_PRIMER.md:86-131` and the cross-corpus gate in `xbse/README.md:130-160`."
+book_records = ["HUBNESS_PRIMER.md:86-131", "README.md:130-160,195-219", "RESULTS_strata_phase23_gates"]
+book_terms = ["\\bgates?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Bar.lean", "observation-data-mining:lean/DataMiningAsObservation/CrossCorpusGate.lean"]
+related = ["bar", "cross-corpus-gate", "anti-hub-recall", "preregistration", "null-model"]
+conditions = [
+  "A bar that a build or a claim must pass before it proceeds, with the bar and the null written down first. Passing a higher bar passes every lower one, a gate discriminates only when the null fails it and the real system passes it, and a gate the null passes is vacuous.",
+  "The hubness gate was predicted to be blind to the category mix and was not, so the instrument claim was withdrawn, and the gate meta-rule says relative contrast discriminates nothing.",
+]
+
+[[entry]]
+id = "distortion"
+kind = "concept"
+title = "distortion"
+glossary = "distortion"
+equations = ["4.2", "2.1", "0.11"]
+ledger = ["GO-6", "GO-2 (neg. half", "OT-7"]
+first_stated = "Chapter 1 section 1.4 and chapter 4 section 4.2 of *Data Mining as Observation*, with the read distortion in `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:49`."
+book_records = ["ch05_the_read_metric_and_the_quotient.md:49", "row GO-6", "make_flip_figure"]
+book_terms = ["\\bdistortion\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ReadDistortion.lean", "observation-data-mining:lean/DataMiningAsObservation/Quantization.lean"]
+related = ["read-distortion", "reconstruction-error", "identity-reader", "flip-the", "quantization"]
+conditions = [
+  "The error a code costs a reader, the trace of the read operator against the error covariance. For the identity reader it is the reconstruction error, and for a reader with one direction it is the error along that direction alone, so two codes with equal reconstruction error can differ four to one for a reader at fifteen degrees.",
+  "At matched bits the downstream preservation is not controlled by reconstruction and is controlled by the consumer-projected error, twelve of twelve, and read distortion controls but is not a complete rank statistic.",
+]
+
+[[entry]]
+id = "bar"
+kind = "instrument"
+title = "bar"
+glossary = "bar"
+equations = ["8.3", "8.1", "10.7"]
+ledger = ["OT-11", "NEG-14"]
+first_stated = "Chapter 8 section 8.3 of *Data Mining as Observation*, with the anti-vacuity bar quoted from `observation-theory-campaigns/experiments/PREREG-PF5-002.md:79-86`."
+book_records = ["PREREG-PF5-002", "CAMPAIGN.md:25", "PREREG_RECOGNIZER_BATTERY"]
+book_terms = ["\\bbars?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Bar.lean"
+related = ["gate", "vacuity-threshold", "null-model", "preregistration", "verdict"]
+conditions = [
+  "A threshold a statistic must reach, written down before the measurement. Passing a higher bar passes every lower one, a larger statistic passes every bar a smaller one passes, a bar discriminates exactly when it sits strictly above the null and at or below the real system, no bar discriminates when the null scores at least as high, and a bar the null passes is vacuous.",
+  "A pass on eight cells at six parts in ten million against a bar of one in a hundred thousand was vacuous because the null cleared the bar too, which is where the anti-vacuity bar came from.",
+]
+
+[[entry]]
+id = "verdict"
+kind = "concept"
+title = "verdict"
+glossary = "verdict"
+equations = ["10.7", "14.5", "8.3"]
+ledger = ["NEG-14", "GO-3"]
+first_stated = "Chapter 1 section 1.5 and chapter 10 section 10.4 of *Data Mining as Observation*, with the six classes in `geometric-observation/PROTOCOL.md:58-75`."
+book_records = ["PROTOCOL.md:58-75", "battery_result.json", "R13_STAGE1_RESULT"]
+book_terms = ["\\bverdicts?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Bar.lean", "observation-data-mining:lean/DataMiningAsObservation/Abstention.lean"]
+related = ["bar", "abstention", "ledger-class", "min-over-strata", "certificate"]
+conditions = [
+  "The outcome of a registered test, pass, fail, or abstain, taken as the worst group with the groups too thin to score counted. A verdict at one bar implies the verdict at every lower bar, and an abstention is reported as a verdict and not dropped.",
+  "A verdict is relative to a budget and does not transfer to another, and the same two codes get opposite verdicts from two output metrics, so a verdict names its bar, its null, its budget, and its consumer.",
+]
+
+[[entry]]
+id = "registered"
+kind = "concept"
+title = "registered"
+glossary = "registered"
+equations = ["8.1", "8.3"]
+ledger = ["GO-1", "GO-3", "NEG-11"]
+first_stated = "Chapter 8 section 8.8 of *Data Mining as Observation*, with the template in `observation-theory-campaigns/experiments/PREREG-TEMPLATE.md:1-71` and the seal rule in `observation-theory-campaigns/experiments/SEALS.md:1-10`."
+book_records = ["PREREG-TEMPLATE.md:1-71", "SEALS.md:1-10", "PREREG_RECOGNIZER_BATTERY"]
+book_terms = ["registered", "registration"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Seal.lean", "observation-data-mining:lean/DataMiningAsObservation/Bar.lean"]
+related = ["preregistration", "sealed", "bar", "ledger-class", "declaration"]
+conditions = [
+  "Of a claim, bar, null, or budget, written into a sealed file before the measurement, so that a changed digest would prove a changed prediction. A registered bar discriminates only when the null fails it and the real system passes it.",
+  "A registered miss is kept as a miss, an identifier burned at pilot is not reused, and every number in the book was registered before it was measured or is labelled as not having been.",
+]
+
+[[entry]]
+id = "refusal"
+kind = "concept"
+title = "refusal"
+glossary = "refusal"
+equations = ["10.7", "14.4", "9.3"]
+ledger = ["NEG-14", "GO-3"]
+first_stated = "Chapter 2 section 2.4 and chapter 9 section 9.2 of *Data Mining as Observation*, with the refusal regimes in `readscope/readscope/regimes.py:1-60`."
+book_records = ["regimes.py:1-60", "SPEC.md:410-450", "STRATA_RFC"]
+book_terms = ["refus"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Abstention.lean"
+related = ["abstention", "vacuity-threshold", "recognizer", "verdict", "coverage"]
+conditions = [
+  "An instrument's declining to report a number it cannot support, when samples do not exceed the dimension, when no template matches, or when a group is too thin. A refusal is a verdict, it is counted, and a mean never hides it.",
+  "The recognizer refuses when the ratios match no stored template, the probe refuses to extrapolate past its fit range, and the strata design refuses rather than warns.",
+]
+
+[[entry]]
+id = "control"
+kind = "instrument"
+title = "control"
+glossary = "control"
+equations = ["8.3", "0.17", "4.6"]
+ledger = ["GO-6", "NEG-2", "NEG-4"]
+first_stated = "Chapter 8 section 8.4 of *Data Mining as Observation*, with the negative control in `constraint-gap-measurements/notes/negative_control.md:1-50`."
+book_records = ["negative_control.md", "row GO-6", "score_rc1.py"]
+book_terms = ["\\bcontrols?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/NullModel.lean", "observation-data-mining:lean/DataMiningAsObservation/Bar.lean"]
+related = ["null-model", "bar", "chance-level", "confound", "isotropic"]
+conditions = [
+  "A comparison arm that should not show the effect, run beside the arm that should. A control that passes the bar makes the bar vacuous, so a claim names its control and reports both, and an isotropic control collapses the flip because there is no direction to read.",
+  "The first smooth-field control read 2.804 and was controlling for nothing, because the gradient it was compared against was piecewise constant, and the second attempt read 0.184.",
+]
+
+[[entry]]
+id = "sweep"
+kind = "instrument"
+title = "sweep"
+glossary = "sweep"
+equations = ["6.2", "0.28", "9.3"]
+ledger = ["GO-3", "GO-4"]
+first_stated = "Chapter 5 section 5.4 and chapter 9 section 9.3 of *Data Mining as Observation*, with the degradation sweep in `openvector-bench/README.md:60-96`."
+book_records = ["README.md:60-96", "astar_paper.tex:170-200", "c15-budget-surface"]
+book_terms = ["\\bsweeps?\\b", "\\bswept\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Threshold.lean"
+related = ["threshold", "roc-curve", "budget-cliff", "sensitivity", "harness"]
+conditions = [
+  "Running a measurement across a range of one parameter, a threshold, a budget, or a degradation, and reading the curve. As a threshold rises the set called positive can only shrink, so true and false positives fall together and the ROC curve is traced.",
+  "Fourteen corpora were swept through degradation until retrieval died, the budget sweep found the cliff at k equal to d, and the threshold sweep found the optimal F1 by sort.",
+]
+
+[[entry]]
+id = "baseline"
+kind = "instrument"
+title = "baseline"
+glossary = "baseline"
+equations = ["8.2", "0.28", "6.2"]
+ledger = ["GO-B-legal", "NEG-4"]
+first_stated = "Chapter 6 section 6.3 and chapter 7 section 7.4 of *Data Mining as Observation*, with the single-model baseline in `constraint-gap/review/INDETERMINATES.md:1-40`."
+book_records = ["INDETERMINATES.md:1-40", "theory-radar\\README.md:100-140", "rights_r6_summary"]
+book_terms = ["\\bbaselines?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ChanceLevel.lean", "observation-data-mining:lean/DataMiningAsObservation/Bar.lean"]
+related = ["chance-level", "null-model", "bar", "formula-classifier", "ensemble"]
+conditions = [
+  "The simplest scorer a claim must beat, chance, a constant, an untrained encoder, or a single model, run under the same protocol. A baseline that passes the bar makes the bar vacuous, and a score below the baseline is a finding.",
+  "The rights encoder read 0.467, below the untrained baseline, and the formula's comparison with the ensemble is fair only against the single-model baseline inside one fold protocol.",
+]
+
+[[entry]]
+id = "audit"
+kind = "instrument"
+title = "audit"
+glossary = "audit"
+equations = ["8.1", "14.2", "13.2"]
+ledger = ["NEG-15", "GO-B-legal"]
+first_stated = "Chapter 8 section 8.9 and chapter 14 section 14.1 of *Data Mining as Observation*, with the audit binding in `xbse/README.md:195-219` and the Bell audit in `geometric-observation/articles/2026-08-03`."
+book_records = ["README.md:195-219", "articles\\2026-08-03", "README.md:273-282"]
+book_terms = ["\\baudits?\\b", "audited"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Seal.lean", "observation-data-mining:lean/DataMiningAsObservation/Certificate.lean"]
+related = ["sealed", "witness", "certificate", "false-clear-rate", "registered"]
+conditions = [
+  "A check of a published number or system against its record, by a reader who did not produce it. An audit binds a verdict to a sealed file whose digest proves it unchanged, and a witness's disagreement with a certificate is the audit's finding.",
+  "The audit of the measurement notes found twenty-seven errors, four in the checking tools, and the constraint-first Bell audit reached a maximum of 2.00000 across 72 configurations.",
+]
+
+[[entry]]
+id = "planted"
+kind = "instrument"
+title = "planted"
+glossary = "planted"
+equations = ["0.9", "6.1", "11.4"]
+ledger = ["GO-1", "NEG-12"]
+first_stated = "Chapter 6 section 6.2 of *Data Mining as Observation*, with the planted probe in `geometric-observation/claims/LEDGER.md` row GO-1."
+book_records = ["row GO-1", "ch10_the_blind_probe.md:34"]
+book_terms = ["\\bplanted\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean", "observation-data-mining:lean/DataMiningAsObservation/ProbeCliff.lean"]
+related = ["blind-probe", "read-operator", "control", "budget-cliff", "identifiability"]
+conditions = [
+  "Of a case, built so that the answer is known before the instrument reads it. An affine consumer has a known read operator, the outer product of its weight vector, so a probe that recovers it has been tested against a truth.",
+  "The planted probe recovered the read subspace at overlap 0.936 against chance 0.059, twelve of twelve, and the real model then missed its bar at 0.567 against 0.60, which is the order the book keeps.",
+]
+
+[[entry]]
+id = "matched-bits"
+kind = "instrument"
+title = "matched bits"
+glossary = "matched bits"
+equations = ["4.2", "4.6", "0.15"]
+ledger = ["GO-2 (neg. half", "GO-2 (pos. half", "NEG-4"]
+first_stated = "Chapter 4 section 4.3 of *Data Mining as Observation*, with the bit-matched redesign in `geometric-observation/chapters/ch08_value.md:1-30`."
+book_records = ["ch08_value.md:1-30", "rows GO-2 negative", "ch16_honest_negatives.md"]
+book_terms = ["matched bits", "bit-matched", "matched reconstruction"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Bit.lean", "observation-data-mining:lean/DataMiningAsObservation/Isotropy.lean"]
+related = ["bit", "flip-the", "budget", "quantization", "control"]
+conditions = [
+  "The rule that two codes are compared only at the same bit count, since each added bit halves the step and quarters the squared error. At matched bits two codes with equal reconstruction error can still differ for a reader, and the flip is that difference.",
+  "A comparison that was not bit-matched was refuted by the twenty-five percent codebook confound, and the redesign matched bits before any verdict was read.",
+]
+
+[[entry]]
+id = "declaration"
+kind = "instrument"
+title = "declaration"
+glossary = "declaration"
+equations = ["8.1", "8.3"]
+ledger = ["OT-11"]
+first_stated = "Chapter 8 section 8.8 of *Data Mining as Observation*, with the sealed declaration in `geometric-observation/crucible/DECLARATION-V1.md:1-20`."
+book_records = ["DECLARATION-V1", "OT-CRUCIBLE-4", "PREREG-TEMPLATE.md:47-52"]
+book_terms = ["\\bdeclarations?\\b", "\\bdeclared\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
+related = ["registered", "sealed", "preregistration", "missingness", "commit-hash"]
+conditions = [
+  "A statement of what a study will count, drop, or treat as a failure, sealed before the run. A changed digest would prove a changed declaration, and a declaration drafted on one day and sealed the next is the record's normal shape.",
+  "The declaration for the fourth crucible was drafted 2026-08-17, sealed 2026-08-18, and had one count corrected, and the missing-data rule is a required declared field.",
+]
+
+[[entry]]
+id = "split"
+kind = "instrument"
+title = "split"
+glossary = "split"
+equations = ["8.1", "8.2", "12.3"]
+ledger = ["GO-B-legal", "NEG-4"]
+first_stated = "Chapter 8 section 8.1 of *Data Mining as Observation*, with the virgin split in `geometric-observation/chapters/ch10_the_blind_probe.md:100-118`."
+book_records = ["ch10_the_blind_probe.md:100-118", "FINDINGS.md:1-35", "ESL 2e, section 7.10.2"]
+book_terms = ["\\bsplits?\\b", "held-out", "test fold", "training split"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/CrossValidation.lean", "observation-data-mining:lean/DataMiningAsObservation/Leakage.lean"]
+related = ["cross-validation", "leakage", "harness", "seed", "stratification"]
+conditions = [
+  "A partition of the rows into a part the model is fit on and a part it is scored on. The parts' sizes add to the row count, a row in the test part is not in the training part, and a scorer that has read the test part scores it perfectly, which is leakage.",
+  "The virgin split of the non-oracle test raised the flip's margin to 0.796 against 0.780, and the split is fixed before any transform is fit, since an imputation fit on all rows reads the test part.",
+]
+
+[[entry]]
+id = "reconstruction-error"
+kind = "concept"
+title = "reconstruction error"
+glossary = "reconstruction error"
+equations = ["4.2", "1.1", "0.5"]
+ledger = ["GO-2 (neg. half", "GO-6", "NEG-4"]
+first_stated = "Chapter 1 section 1.4 and chapter 4 section 4.1 of *Data Mining as Observation*, with the identity slice in `geometric-observation/chapters/ch02_failure_of_observer_free_measurement.md:1-40`."
+book_records = ["ch02_failure_of_observer_free_measurement.md:1-40", "row GO-6", "make_flip_figure"]
+book_terms = ["reconstruction error", "reconstruction"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ReconstructionError.lean", "observation-data-mining:lean/DataMiningAsObservation/ReadDistortion.lean"]
+related = ["identity-reader", "read-distortion", "distortion", "principal-component-analysis", "flip-the"]
+conditions = [
+  "The squared length of the difference between a row and its approximation, the identity reader's distortion. It is nonnegative, zero exactly when the approximation is the row, a sum of per-coordinate squared errors, and for a projection onto a unit direction it is the squared length less the squared component along it.",
+  "A reconstruction cosine of 0.995 sat beside a perplexity of ten thousand, recalibration improved reconstruction and worsened the consumer, and at matched reconstruction the consumer-aware code won in twelve of twelve domains.",
+]
+
+[[entry]]
+id = "nearest-neighbour"
+kind = "concept"
+title = "nearest neighbour"
+glossary = "nearest neighbour"
+equations = ["3.1", "0.19", "10.3"]
+ledger = ["NEG-11"]
+first_stated = "Cover and Hart, nearest neighbor pattern classification, 1967, as chapter 6 section 6.1 of *Data Mining as Observation* reads it, with the neighbour lists of `openvector-bench/openvector_bench/hubness.py:41-100`."
+book_records = ["hubness.py:41-100", "HUBNESS_PRIMER.md:38-59"]
+book_terms = ["nearest[- ]neighbou?rs?", "k-nearest"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/NearestNeighbour.lean", "observation-data-mining:lean/DataMiningAsObservation/Graph.lean"]
+related = ["neighbourhood-graph", "hub", "recall-at-k", "euclidean-distance", "cosine"]
+conditions = [
+  "A row at minimal distance from a query under a chosen distance. A strictly increasing transform of the distance names the same nearest neighbours, so a nearest-neighbour classifier reads the distance's order and nothing else, a row is its own nearest neighbour, and two nearest neighbours sit at the same distance.",
+  "Under Euclidean distance the classifier reads every standardized coordinate equally and under cosine it reads the angle, so it inherits the distance's quotient, and the rows that appear in many neighbour lists are the hubs.",
+]
+
+[[entry]]
+id = "aggregation"
+kind = "concept"
+title = "aggregation"
+glossary = "aggregation"
+equations = ["10.7", "14.5", "8.2"]
+ledger = ["NEG-14", "GO-B-Llama"]
+first_stated = "Chapter 2 section 2.7 and chapter 10 section 10.4 of *Data Mining as Observation*, with the aggregate staleness rate of chapter 13 section 13.3."
+book_records = ["STRATA_RFC", "HUBNESS_PRIMER.md:86-131", "chapter 13 of this book"]
+book_terms = ["aggregat"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Ensemble.lean", "observation-data-mining:lean/DataMiningAsObservation/Simpson.lean", "observation-data-mining:lean/DataMiningAsObservation/RecallAtK.lean"]
+related = ["min-over-strata", "simpsons-paradox", "stratification", "anti-hub-recall", "sampling"]
+conditions = [
+  "Combining rows or groups into one number, a mean, a sum, or a rate. An average lies between the smallest and largest member, a weighted aggregate over strata can pass a bar while one stratum fails it, and an aggregate can reverse the sign every group shows.",
+  "Aggregate recall barely moves while anti-hubs fail, the aggregate staleness rate describes neither reader, and the report takes the worst group and counts the groups too thin to score.",
+]
+
+[[entry]]
+id = "session-deck"
+kind = "reference"
+title = "session deck"
+glossary = "session deck"
+equations = ["1.1"]
+ledger = []
+first_stated = "Chapter 1 section 1.6 of *Data Mining as Observation*, citing the instructor's working documents, `ECE_514-01_FA26_session-outlines.md`, which are not public."
+book_records = ["session-outlines.md"]
+book_terms = ["session deck", "session-outlines"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
+related = ["sources-table", "commit-hash", "harness", "preregistration"]
+conditions = [
+  "The lecture deck of the course the book accompanies, ECE 514, cited by line range from the instructor's session outlines. A row that names it names a file and lines like every other source, and a changed digest would prove a changed deck.",
+  "The deck is not public. The book quotes what it says and marks each such row as instructor working documents, and the reader who wants the deck asks the instructor.",
+]
+
+[[entry]]
+id = "detector"
+kind = "instrument"
+title = "detector"
+glossary = "detector"
+equations = ["0.33", "10.3", "9.1"]
+ledger = ["NEG-14"]
+first_stated = "Chapter 10 section 10.1 of *Data Mining as Observation*, after TSK chapter 9, with the hierarchical typing in `turboquant-pro/turboquant_pro/anatomy.py:98-170`."
+book_records = ["TSK 2e chapter 9", "anatomy.py:98-170"]
+book_terms = ["\\bdetectors?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Outlier.lean", "observation-data-mining:lean/DataMiningAsObservation/Mahalanobis.lean", "observation-data-mining:lean/DataMiningAsObservation/Dbscan.lean"]
+related = ["outlier", "mahalanobis-distance", "density", "dbscan", "anti-hub"]
+conditions = [
+  "A scorer that calls a row an outlier, of four families. The statistical detector reads distance from the mean in units of spread, the proximity detector reads distance to neighbours, the density detector reads density relative to neighbours, and the clustering detector reads membership. Each reads a coordinate the others discard.",
+  "No detector of the data alone sees the observer's outliers, the anti-hubs, because they are a property of the queries, and a detector's positives are few by Chebyshev's arithmetic.",
+]
+
+[[entry]]
+id = "chunk"
+kind = "concept"
+title = "chunk"
+glossary = "chunk"
+equations = ["12.3", "0.36"]
+ledger = ["GO-B-legal"]
+first_stated = "Chapter 12 section 12.2 of *Data Mining as Observation*, with the pullback composition in `geometric-observation/chapters/ch06_mathematical_preliminaries.md:10-27`."
+book_records = ["ch06_mathematical_preliminaries.md:10-27", "R80_ANN"]
+book_terms = ["\\bchunk"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Pipeline.lean"
+related = ["retrieval-augmented-pipeline", "jacobian", "pipeline", "encoder", "inverted-file"]
+conditions = [
+  "A piece of a document, the unit a retrieval pipeline encodes and indexes. Chunking is a discrete stage with no Jacobian, and a stage that identifies two inputs identifies them for every stage after it, so what a chunker merges no later stage can separate.",
+  "A chunk's vector is read by the index against a query vector, and the probe depth, cell, and cross-article share of the candidates are properties of the chunks and the query set together.",
+]
+
+[[entry]]
+id = "sampling"
+kind = "instrument"
+title = "sampling"
+glossary = "sampling"
+equations = ["0.18", "8.2", "2.1"]
+ledger = ["NEG-14"]
+first_stated = "Chapter 2 section 2.7 of *Data Mining as Observation*, with the first strata run's sample in `turboquant-pro/docs/STRATA_RFC.md:24-98`."
+book_records = ["STRATA_RFC", "ESL 2e, section 7.10.2"]
+book_terms = ["\\bsampl"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/StandardError.lean", "observation-data-mining:lean/DataMiningAsObservation/Ensemble.lean"]
+related = ["standard-error", "aggregation", "bootstrap", "seed", "stratification"]
+conditions = [
+  "Choosing which rows to read. A sample's mean lies between its smallest and largest row, the standard error of the mean falls as one over the square root of the sample size, and a sample too thin to score is abstained on rather than averaged in.",
+  "Sampling and aggregation are design choices that decide what the reader can see, and the first strata run read 350000 of 2391361 rows and abstained on the strata with two rows and one.",
+]
+
+[[entry]]
+id = "skewness"
+kind = "concept"
+title = "skewness"
+glossary = "skewness"
+equations = ["0.35", "10.3", "0.17"]
+ledger = ["NEG-14"]
+first_stated = "Chapter 3 section 3.5 and chapter 10 section 10.2 of *Data Mining as Observation*, with the hubness gate's skew in `openvector-bench/results/R13_STAGE1_RESULT.md:75-110`."
+book_records = ["R13_STAGE1_RESULT.md:75-110", "STRATA_RFC", "RESULTS_strata_phase23"]
+book_terms = ["skew"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Skewness.lean"
+related = ["hubness", "robin-hood-index", "variance", "gate", "percentile"]
+conditions = [
+  "The weighted mean cubed deviation of a column from its mean over the cube of its spread. It is unchanged by a shift and by a positive rescaling, changes sign when the column is negated, and is zero for a column symmetric about its mean.",
+  "The hubness gate reads the skew of the neighbour-count distribution, and the remedy that was to fix it moved the skew from 3.970 to 3.177 while the compressed path still failed every stratum.",
+]
+
+[[entry]]
+id = "percentile"
+kind = "concept"
+title = "percentile"
+glossary = "percentile"
+equations = ["11.2", "0.35", "10.3"]
+ledger = ["NEG-14"]
+first_stated = "Chapter 11 section 11.3 of *Data Mining as Observation*, with the percentile setting of the rank certificate in `turboquant-pro/turboquant_pro`."
+book_records = ["turboquant_pro\\a2_probe", "HUBNESS_PRIMER.md:86-131", "anatomy.py:98-170"]
+book_terms = ["percentile", "p05"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Percentile.lean"
+related = ["rank-certificate", "anti-hub-recall", "skewness", "threshold", "robin-hood-index"]
+conditions = [
+  "The value below which a given fraction of the rows fall. The fraction at or below a value is nonnegative, at most one, nondecreasing in the value, one at or above the largest row and zero below the smallest, and an upper percentile over a lower one is at least one.",
+  "The rank certificate's percentile setting reads the 97.5 over 2.5 percentile ratio as a robust estimate where the strict setting reads the max over min, and the anti-hub gate reads the fifth percentile of recall.",
+]
+
+[[entry]]
+id = "transaction"
+kind = "concept"
+title = "transaction"
+glossary = "transaction"
+equations = ["5.1", "5.3"]
+ledger = []
+first_stated = "Agrawal, Imieliński, and Swami, mining association rules, 1993, as chapter 5 section 5.1 of *Data Mining as Observation* reads it."
+book_records = ["TSK 2e chapter 5"]
+book_terms = ["transaction"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ItemSet.lean", "observation-data-mining:lean/DataMiningAsObservation/SafePruning.lean"]
+related = ["itemset", "support", "confidence", "apriori-principle", "anti-monotonicity"]
+conditions = [
+  "One row of a market-basket table, the set of items bought together. The support of an itemset counts the transactions that contain it, it cannot rise as the itemset grows, and the support fraction lies in the unit interval.",
+  "A transaction is the unit the consumer reads in chapter 5, and which items count as the same is the quotient the pattern report has to name.",
+]
+
+[[entry]]
+id = "footprint"
+kind = "concept"
+title = "footprint"
+glossary = "footprint"
+equations = ["0.26", "13.2", "13.1"]
+ledger = ["OT-11", "GO-12"]
+first_stated = "Chapter 13 section 13.3 of *Data Mining as Observation*, with the reader's footprint in `geometric-observation/chapters/ch19_the_certificate_that_ages.md:1-95`."
+book_records = ["ch19_the_certificate_that_ages", "DATABASE-FRESHNESS-TRA"]
+book_terms = ["footprint"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Cache.lean"
+related = ["cache", "cold-warm", "replica", "false-clear-rate", "read-subspace"]
+conditions = [
+  "The set of entries a reader reads. The hit rate is one when the cache holds the footprint and does not move when entries outside it are added, so what the reader reads decides how warm, and how stale, the reader is.",
+  "A replica is stale because of what the reader asks for. The hot reader read a false-clear rate of 0.99 and the cold reader 0.01 on the same store, and the aggregate described neither.",
+]
+
+[[entry]]
+id = "allocation"
+kind = "instrument"
+title = "allocation"
+glossary = "allocation"
+equations = ["4.2", "0.7", "4.6"]
+ledger = ["GO-6", "GO-4"]
+first_stated = "Chapter 4 section 4.2 of *Data Mining as Observation*, with the allocation report in `turboquant-pro/turboquant_pro/read_allocation.py:244-307`."
+book_records = ["read_allocation.py:244-307", "allocate.py", "RESULTS_strata_phase23_gates.md:110-125"]
+book_terms = ["allocat"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/WaterFilling.lean", "observation-data-mining:lean/DataMiningAsObservation/EffectiveRank.lean"]
+related = ["water-filling", "budget", "effective-rank", "concentrated", "bit"]
+conditions = [
+  "The assignment of a bit budget across directions. Water-filling gives directions below the water no bits, the allocation report states its gain over uniform and warns below effective rank two, and a spectrum with half its mass in one direction has effective rank at most four.",
+  "The fragile-first allocation read 0.7118 against 0.7251 and was redesigned, and the budget inversion of GO-4 shows an allocation at fixed m rising while the matched-m allocation collapses.",
+]
+
+[[entry]]
+id = "rerank"
+kind = "instrument"
+title = "rerank"
+glossary = "rerank"
+equations = ["11.3", "10.7", "12.3"]
+ledger = ["NEG-14", "GO-B-Llama"]
+first_stated = "Chapter 10 section 10.5 of *Data Mining as Observation*, with the candidate-coverage finding in `turboquant-pro/docs/RESULTS_strata_phase23_gates.md`."
+book_records = ["RESULTS_strata_phase23", "RESULTS_", "R80_ANN"]
+book_terms = ["rerank"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Rerank.lean"
+related = ["recall-at-k", "anti-hub-recall", "inverted-file", "rank-certificate", "retrieval-augmented-pipeline"]
+conditions = [
+  "Reordering a candidate list with a second scorer. A rerank cannot return a row the list does not hold, so its recall is at most the candidate coverage, an oracle rerank reaches the coverage exactly, and a deeper list can only raise the coverage.",
+  "Reranking the compressed candidates read 0.6627, identical to the unreranked recall, because candidate coverage was the wall, and the depth curve from 51 to 501 moved coverage from 0.696 to 0.926.",
+]
+
+[[entry]]
+id = "kernel"
+kind = "concept"
+title = "kernel"
+glossary = "kernel"
+equations = ["0.9", "0.12a", "0.12b"]
+ledger = ["OT-7", "GO-6"]
+first_stated = "Chapter 0 section 0.5 and section 0.6 of *Data Mining as Observation*, with the kernel entropy share in `geometric-observation/claims/LEDGER.md` row GO-6."
+book_records = ["row GO-6", "ch05_the_read_metric_and_the_quotient.md:7-48"]
+book_terms = ["\\bkernel\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean", "observation-data-mining:lean/DataMiningAsObservation/Rank.lean"]
+related = ["nuisance", "read-operator", "read-subspace", "quotient", "rank"]
+conditions = [
+  "The directions a matrix sends to zero. The kernel of the read operator is the nuisance, the directions the consumer never reads, and a direction is in it exactly when every row's sensitivity is orthogonal to it. The kernel's dimension is the dimension less the rank.",
+  "The reconstruction coder spends bits on the kernel and the output coder does not, and the gap between them is governed by the share of the error's entropy that lies in the kernel.",
+]
+
+[[entry]]
+id = "orthogonal"
+kind = "concept"
+title = "orthogonal"
+glossary = "orthogonal"
+equations = ["0.1", "0.3", "0.9"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.1 and section 0.2 of *Data Mining as Observation*."
+book_records = ["ch05_the_read_metric_and_the_quotient.md:7-48"]
+book_terms = ["orthogonal", "orthonormal"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Orthogonal.lean"
+related = ["dot-product", "projection", "eigenvalue-eigenvector", "nuisance", "read-subspace"]
+conditions = [
+  "Of two vectors, having dot product zero. The relation is symmetric, survives rescaling, holds between any vector and zero, the squared length of a sum of orthogonal vectors is the sum of the squared lengths, and the residual of a projection is orthogonal to the direction projected on.",
+  "A linear classifier's nuisance is everything orthogonal to its weight vector, and the eigenvectors of a symmetric matrix with distinct eigenvalues are orthogonal, so the read subspace and the nuisance split every row.",
+]
+
+[[entry]]
+id = "language-model"
+kind = "concept"
+title = "language model"
+glossary = "language model"
+equations = ["0.22", "0.23", "11.1"]
+ledger = ["NEG-2", "NEG-16"]
+first_stated = "Chapter 0 section 0.11 of *Data Mining as Observation*, with the serving measurements in `geometric-observation/experiments/GO-kv-serving-flip-NOTES.md`."
+book_records = ["GO-kv-serving-flip-NOTES", "KV_KEYS_FINDING.md:1-49", "GO-P-2026-077-kv"]
+book_terms = ["language model"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Perplexity.lean", "observation-data-mining:lean/DataMiningAsObservation/Softmax.lean"]
+related = ["token", "perplexity", "attention", "kv-cache", "softmax"]
+conditions = [
+  "A model that reads a sequence of tokens and outputs a probability for the next one. Its perplexity is two to the power of the average bits per token, at least one and equal to the vocabulary size for a uniform guess, and its attention weights are a softmax, positive and summing to one.",
+  "A seven-billion-parameter model served passage retrieval over contexts of fourteen thousand tokens across three registered attempts, and a key quantizer with reconstruction cosine 0.995 broke it to a perplexity near ten thousand.",
+]
+
+[[entry]]
+id = "truncation"
+kind = "instrument"
+title = "truncation"
+glossary = "truncation"
+equations = ["4.2", "0.7", "11.4"]
+ledger = ["GO-4"]
+first_stated = "Chapter 4 section 4.5 of *Data Mining as Observation*, with the truncation claim in `turboquant-pro/CLAIMS.md:28-49` and the GloVe table in `turboquant-pro/benchmarks/RESULTS_glove.md:1-40`."
+book_records = ["CLAIMS.md:28-49", "RESULTS_glove"]
+book_terms = ["truncat"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/PCA.lean", "observation-data-mining:lean/DataMiningAsObservation/ExplainedVariance.lean"]
+related = ["principal-component-analysis", "explained-variance", "budget", "spectrum", "concentrated"]
+conditions = [
+  "Keeping the first k components of a spectrum and dropping the rest. The variance kept grows with k and reaches one at full rank, and the error is the sum of the dropped eigenvalues, so truncation is a bet that the consumer reads the top of the spectrum.",
+  "Truncation to 64 components kept 73 percent of GloVe's variance and lost 0.685 against 0.862 downstream, is reproducible, and loses on compact sets.",
+]
+
+[[entry]]
+id = "query-set"
+kind = "concept"
+title = "query set"
+glossary = "query set"
+equations = ["10.3", "10.4", "0.17"]
+ledger = ["NEG-11", "NEG-15"]
+first_stated = "Chapter 3 section 3.5 and chapter 10 section 10.2 of *Data Mining as Observation*, with the query-coupling artifact in `openvector-bench/results/QUERY_COUPLING_ARTIFACT.md:1-20`."
+book_records = ["QUERY_COUPLING_ARTIFACT", "R13_STA", "hubness.py"]
+book_terms = ["query sets?", "queries"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Hub.lean", "observation-data-mining:lean/DataMiningAsObservation/Hubness.lean"]
+related = ["hub", "hubness", "poisson-ceiling", "recall-at-k", "harness"]
+conditions = [
+  "The rows a retrieval benchmark asks about. Two query sets that retrieve the same lists have the same hubs, no queries give no hubs, and the rows never retrieved number at least the row count less the queries times k, so hubness and the never-retrieved floor are properties of the query set.",
+  "Queries drawn from the corpus inflated the first hub counts by a factor of several, and a generator matched on the query budget would be matched on an artifact.",
+]
+
+[[entry]]
+id = "fine-tuning"
+kind = "instrument"
+title = "fine-tuning"
+glossary = "fine-tuning"
+equations = ["12.3", "11.1"]
+ledger = ["GO-B-legal", "GO-B-Llama"]
+first_stated = "Chapter 11 section 11.8 and chapter 12 section 12.4 of *Data Mining as Observation*, with the translation-trained encoder in `turboquant-pro/docs/RESULTS_multilingual_strata.md:55-90`."
+book_records = ["RESULTS_multilingual_strata", "lebse", "xbse\\README.md:104-130"]
+book_terms = ["fine-tun"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Contrastive.lean", "observation-data-mining:lean/DataMiningAsObservation/CrossCorpusGate.lean"]
+related = ["contrastive-objective", "encoder", "cross-corpus-gate", "leakage", "paraphrase-class"]
+conditions = [
+  "Continuing to train an encoder on a new objective or corpus, so that its quotient changes. A contrastive objective pulls declared pairs together, and the cross-corpus gate asks whether the tuned encoder still separates on a corpus it never saw.",
+  "An encoder fine-tuned on one relation is evaluated on that relation and on one it never saw, with a paired interval on each, and the within-corpus score of 0.75 to 0.955 collapsed to 0.47 to 0.55 across corpora until cross-corpus positives were added.",
+]
+
+[[entry]]
+id = "read-direction"
+kind = "concept"
+title = "read direction"
+glossary = "read direction"
+equations = ["0.9", "6.1", "4.2"]
+ledger = ["GO-1", "GO-2 (pos. half"]
+first_stated = "Chapter 2 section 2.2 and chapter 4 section 4.3 of *Data Mining as Observation*, with the control that destroys the read direction in `geometric-observation/chapters/ch08_value.md:40-70`."
+book_records = ["ch08_value.md:40-70", "row GO-1"]
+book_terms = ["read direction"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean", "observation-data-mining:lean/DataMiningAsObservation/Projection.lean"]
+related = ["read-subspace", "read-operator", "sensitivity", "nuisance", "projection"]
+conditions = [
+  "An eigenvector of the read operator with a nonzero eigenvalue, a direction the consumer is sensitive to. An affine consumer has exactly one, its weight vector, the projection onto a read direction is idempotent, and its residual is orthogonal to it.",
+  "The code that puts the whole error on the read direction is the worst, the control that destroys the read direction is confirmed worst, and no code of a given total error can be read as more than the total.",
+]
+
+[[entry]]
+id = "paired"
+kind = "instrument"
+title = "paired"
+glossary = "paired"
+equations = ["0.18", "8.2", "0.29"]
+ledger = ["GO-B-Llama", "NEG-14"]
+first_stated = "Chapter 0 section 0.9 and chapter 8 section 8.4 of *Data Mining as Observation*, with the paired null in `readscope/SPEC.md:806-857`."
+book_records = ["SPEC.md:806-857", "lebse\\README.md:40-75"]
+book_terms = ["\\bpaired\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Bootstrap.lean"
+related = ["bootstrap", "confidence-interval", "seed", "standard-error", "control"]
+conditions = [
+  "Of a comparison, made on the same rows or the same seeds for both arms, so that the difference is scored row by row. The variance of the difference is the sum of the variances less twice the covariance, so pairing helps exactly when the two arms covary.",
+  "The paired null at rank two read 0.385 against 0.572 on fourteen of sixteen cells, and the encoder comparisons carry a paired bootstrap interval on each relation.",
+]
+
+[[entry]]
+id = "outer-product"
+kind = "concept"
+title = "outer product"
+glossary = "outer product"
+equations = ["0.9", "6.1", "0.3"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.5 of *Data Mining as Observation*."
+book_records = ["ch05_the_read_metric_and_the_quotient.md:7-48", "ch04_the_observer_triple.md:60-135"]
+book_terms = ["outer product"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/PositiveSemidefinite.lean", "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean", "observation-data-mining:lean/DataMiningAsObservation/Rank.lean"]
+related = ["read-operator", "rank", "positive-semidefinite", "covariance-matrix", "sensitivity"]
+conditions = [
+  "The matrix whose entry in row i and column j is the product of the i-th and j-th coordinates of a vector. Its action on any vector is a multiple of the vector it was built from, it has rank at most one, and the outer product of a vector with itself is positive semidefinite.",
+  "The read operator is the weighted mean of the outer product of the sensitivity with itself, and a linear classifier's read operator is one outer product scaled by how steep the score is.",
+]
+
+[[entry]]
+id = "positive-semidefinite"
+kind = "concept"
+title = "positive semidefinite"
+glossary = "positive semidefinite"
+equations = ["0.9", "0.11", "0.3"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.3 and section 0.5 of *Data Mining as Observation*."
+book_records = ["ch05_the_read_metric_and_the_quotient.md:7-48"]
+book_terms = ["positive semidefinite", "semidefinite"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/PositiveSemidefinite.lean"
+related = ["read-operator", "covariance-matrix", "outer-product", "eigenvalue-eigenvector", "metric"]
+conditions = [
+  "Of a symmetric matrix, having every quadratic form nonnegative. A sum of such matrices is one, a nonnegative multiple is one, an outer product of a vector with itself is one, the read operator is one whenever the weights are nonnegative, and the diagonal entries are nonnegative.",
+  "The local metric on a consumer's output is positive semidefinite and exists only where the output metric has a local quadratic representation, and every eigenvalue of a positive semidefinite matrix is nonnegative.",
+]
+
+[[entry]]
+id = "nat"
+kind = "concept"
+title = "nat"
+glossary = "nat"
+equations = ["0.15", "4.2", "0.16"]
+ledger = ["NEG-13", "GO-7"]
+first_stated = "Chapter 0 section 0.7 of *Data Mining as Observation*, with the omission floor in nats in `geometric-observation/chapters/ch07_cost.md`."
+book_records = ["ch07_cost.md", "SPEC.md"]
+book_terms = ["\\bnats?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/NatUnit.lean", "observation-data-mining:lean/DataMiningAsObservation/Bit.lean"]
+related = ["bit", "budget", "landauers-principle", "perplexity", "kl-divergence"]
+conditions = [
+  "The unit of information measured with the natural logarithm, as a bit is measured with the logarithm to base two. The two conversions undo each other, the conversion is monotone, and one nat is between 1.4426 and 1.4427 bits.",
+  "The omission floor was measured at 0.10 nats against about six in ten million on sixteen of sixteen heads, and Landauer's bound is stated per nat as kT and per bit as kT times the log of two.",
+]
+
+[[entry]]
+id = "surrogate"
+kind = "instrument"
+title = "surrogate"
+glossary = "surrogate"
+equations = ["4.2", "4.6", "0.11"]
+ledger = ["GO-6", "NEG-9"]
+first_stated = "Chapter 4 section 4.2 of *Data Mining as Observation*, with the surrogate ordering in `geometric-observation/claims/LEDGER.md` row GO-6."
+book_records = ["row GO-6", "allocate.py"]
+book_terms = ["surrogate"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ReadDistortion.lean", "observation-data-mining:lean/DataMiningAsObservation/Isotropy.lean"]
+related = ["read-distortion", "distortion", "output-metric", "identity-reader", "flip-the"]
+conditions = [
+  "A quadratic stand-in for the consumer's output metric, the read distortion, used to allocate bits when the output itself cannot be. The read distortion is a quadratic form in the read operator, and two readers at different angles rank the same two errors differently.",
+  "At every rate the output coder is at or below the surrogate, which is at or below reconstruction, and the surrogate-to-output gap shrinks from 0.41 to 0.005 as the rate grows, while the read distortion is a control and not a complete rank statistic.",
+]
+
+[[entry]]
+id = "discretization"
+kind = "instrument"
+title = "discretization"
+glossary = "discretization"
+equations = ["2.1", "0.12a"]
+ledger = []
+first_stated = "Chapter 2 section 2.5 of *Data Mining as Observation*, after TSK section 2.3."
+book_records = ["TSK 2e section 2.1", "TSK 2e section 2.2"]
+book_terms = ["discreti[sz]"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Discretization.lean"
+related = ["quotient", "standardization", "attribute-type", "bit", "quantization"]
+conditions = [
+  "Collapsing an ordered quantity to a few labels by binning it. The bin index is nondecreasing in the value, every value in a cell gets the cell's index, two values in the same cell become indistinguishable, and a sample confined to m cells has at most m distinct labels.",
+  "A discretization forms a quotient before anyone has said who reads the result, and a consumer that read the values it merged has lost them for every stage after.",
+]
+
+[[entry]]
+id = "random-forest"
+kind = "instrument"
+title = "random forest"
+glossary = "random forest"
+equations = ["6.1", "14.5"]
+ledger = []
+first_stated = "Breiman, random forests, 2001, as chapter 7 section 7.1 of *Data Mining as Observation* reads it."
+book_records = ["ESL 2e chapters 15 and 10.1", "theory-radar\\README.md:100-140"]
+book_terms = ["random forest"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Ensemble.lean", "observation-data-mining:lean/DataMiningAsObservation/DecisionTree.lean"]
+related = ["ensemble", "decision-tree", "bagging", "importance", "boosting"]
+conditions = [
+  "An ensemble of decision trees, each fit on a bootstrap sample with a random subset of features at each split, that averages or votes. The average lies between its members and its squared error is at most their mean squared error, and each tree is flat within a leaf so the forest's importances count splits.",
+  "On the five-dataset benchmark the forest and the boosted trees win when the boundary needs many features and lose to a formula when it needs few.",
+]
+
+[[entry]]
+id = "bagging"
+kind = "instrument"
+title = "bagging"
+glossary = "bagging"
+equations = ["0.18", "8.2"]
+ledger = []
+first_stated = "Breiman, bagging predictors, 1996, as chapter 7 section 7.1 of *Data Mining as Observation* reads it."
+book_records = ["ESL 2e chapters 15 and 10.1"]
+book_terms = ["bagging", "bootstrap aggregat"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Ensemble.lean", "observation-data-mining:lean/DataMiningAsObservation/Bootstrap.lean"]
+related = ["ensemble", "bootstrap", "random-forest", "standard-error", "variance"]
+conditions = [
+  "Fitting the same model on bootstrap resamples of the rows and averaging. The average's squared error is at most the mean of the members' squared errors, which is the arithmetic by which bagging reduces variance, and the reduction is largest when the members covary least.",
+  "Bagging reduces variance and boosting reduces bias, and neither changes what the base model reads.",
+]
+
+[[entry]]
+id = "linear-classifier"
+kind = "instrument"
+title = "linear classifier"
+glossary = "linear classifier"
+equations = ["6.1", "0.9", "0.28"]
+ledger = ["GO-1"]
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, with the planted affine consumer in `geometric-observation/claims/LEDGER.md` row GO-1."
+book_records = ["row GO-1", "ch04_the_observer_triple.md:60-135"]
+book_terms = ["linear classifier", "weighted sum", "support vector"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Logistic.lean", "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"]
+related = ["logistic-regression", "decision-boundary", "read-subspace", "margin", "planted"]
+conditions = [
+  "A classifier that scores by a weighted sum, logistic regression or a linear support vector machine. Its decision boundary is the hyperplane where the weighted sum is zero, its read subspace is the one direction of its weight vector, and its read operator is the outer product of that vector with itself, scaled by the score's slope.",
+  "Its nuisance is everything orthogonal to the weight vector, and a planted linear consumer is the case a probe is tested against before it is trusted on a real model.",
+]
+
+[[entry]]
+id = "lag"
+kind = "concept"
+title = "lag"
+glossary = "lag"
+equations = ["0.26", "13.2", "0.25"]
+ledger = ["OT-11"]
+first_stated = "Chapter 0 section 0.13 of *Data Mining as Observation*, with the replica measurements in `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md`."
+book_records = ["DATABASE-FRESHNESS-TRA", "ch19_the_certificate_that_ages"]
+book_terms = ["\\blag\\b", "\\blags\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Replica.lean", "observation-data-mining:lean/DataMiningAsObservation/Freshness.lean"]
+related = ["replica", "freshness", "coherence-time", "false-clear-rate", "footprint"]
+conditions = [
+  "How far a replica trails the primary, in writes or in time. A read of the replica is stale for a consumer whose footprint the lag has touched and fresh for one it has not, so the same lag gives two readers two staleness rates, and a mixed workload's rate lies between them.",
+  "Postgres read 0.50 to 0.06, MongoDB 0.47 to 0.03, and production Postgres 0.47 to 0.02 across readers on the same lag, with disjoint seeds.",
+]
+
+[[entry]]
+id = "early-stopping"
+kind = "instrument"
+title = "early stopping"
+glossary = "early stopping"
+equations = ["8.1", "8.2"]
+ledger = ["NEG-4"]
+first_stated = "Chapter 7 section 7.5 of *Data Mining as Observation*, after ESL 10.12."
+book_records = ["ESL 2e 10.9 to 10.13", "REVISION_PLAN.md"]
+book_terms = ["early stopping", "early-stopping"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Leakage.lean", "observation-data-mining:lean/DataMiningAsObservation/CrossValidation.lean"]
+related = ["harness", "leakage", "cross-validation", "boosting", "split"]
+conditions = [
+  "Halting a boosting or gradient run when a held-out score stops improving. The stopping rule reads the held-out fold, so the fold it reads is no longer held out for the reported score, and a scorer that has read the test fold scores it perfectly.",
+  "Early stopping is a harness. The round count it picks is a fitted parameter, and the report states which fold picked it and which fold scored it.",
+]
+
+[[entry]]
+id = "attribute-type"
+kind = "concept"
+title = "attribute type"
+glossary = "attribute type"
+equations = ["2.1", "0.12a"]
+ledger = []
+first_stated = "Stevens, on the theory of scales of measurement, 1946, as chapter 2 section 2.1 of *Data Mining as Observation* reads it after TSK section 2.1."
+book_records = ["TSK 2e section 2.1"]
+book_terms = ["attribute types?", "nominal", "ordinal", "interval scale", "ratio scale"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/AttributeType.lean"
+related = ["standardization", "discretization", "quotient", "monotone-invariance-theorem"]
+conditions = [
+  "The declaration of which transformations of a column do not change its meaning. A ratio scale permits a positive rescaling, an interval scale an affine map with positive slope, an ordinal scale a strictly increasing map, and a nominal scale any injective relabelling, and the four classes are nested in that order.",
+  "A rescaling preserves ratios and an affine map preserves ratios of differences, so a consumer that reads a ratio of two interval-scale columns reads the origin the scale said was arbitrary.",
+]
+
+[[entry]]
+id = "residualization"
+kind = "instrument"
+title = "residualization"
+glossary = "residualization"
+equations = ["0.1", "12.3", "14.2"]
+ledger = ["GO-B-legal"]
+first_stated = "Chapter 8 section 8.6 and chapter 12 section 12.5 of *Data Mining as Observation*, with the bifactor readout in `xbse/docs/BIFACTOR_READOUT.md:14-100`."
+book_records = ["BIFACTOR_READOUT", "chapter-17-empirical-evidence"]
+book_terms = ["residuali[sz]", "residual"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Residual.lean"
+related = ["correlation", "orthogonal", "confound", "contraction", "projection"]
+conditions = [
+  "Removing from a column the least-squares multiple of another. The residual is orthogonal to the column removed, its squared length is the original less the squared dot product over the removed column's squared length, a column orthogonal to the removed one is unchanged, and a column residualized on itself vanishes.",
+  "Whether named categories survive residualization on the general valence channel is chapter 12's test, and the book-length signal fell from 0.241 to a residual 0.093 at six and a half standard errors.",
+]
+
+[[entry]]
+id = "contraction"
+kind = "instrument"
+title = "contraction"
+glossary = "contraction"
+equations = ["14.5", "0.9"]
+ledger = ["GO-EC-3"]
+first_stated = "Chapter 14 section 14.5 of *Data Mining as Observation*, with the formula in `gtc-prototype/docs/SPECTRUM_FINDINGS.md:90-99`."
+book_records = ["SPECTRUM_FINDINGS.md:90-99", "SPECTRUM_FINDINGS.md:66-99"]
+book_terms = ["contraction"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean", "observation-data-mining:lean/DataMiningAsObservation/Attribution.lean"]
+related = ["attribution", "formula-classifier", "read-operator", "residualization", "importance"]
+conditions = [
+  "A formula that reduces several axes to one verdict, here ten axes to a toxicity verdict. An affine contraction has a rank-one read operator, the outer product of its weights, and its attributions sum exactly to the change in verdict.",
+  "The contraction found by chapter 6's tool is fairness minus the general valence component, moved accuracy from 0.779 to 0.863 on 1600 items, and is a consumer a person can read.",
+]
+
+[[entry]]
+id = "capacity"
+kind = "concept"
+title = "capacity"
+glossary = "capacity"
+equations = ["1.1", "6.1", "11.4"]
+ledger = ["GO-4"]
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, with the budget inversion in `geometric-observation/claims/LEDGER.md` row GO-4."
+book_records = ["row GO-4", "theory-radar\\README.md:50-100"]
+book_terms = ["\\bcapacity\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/ProbeCliff.lean", "observation-data-mining:lean/DataMiningAsObservation/Rank.lean"]
+related = ["budget", "budget-cliff", "rank", "formula-classifier", "ensemble"]
+conditions = [
+  "The number of distinctions a model class can draw, the budget's model-side half. A read operator's rank is at most the dimension, and a probe with fewer directions than the dimension cannot resolve the operator, which is the cliff.",
+  "A formula of depth three over eighteen operations has a capacity the ensemble exceeds, and the ensemble wins exactly when the boundary needs that excess.",
+]
+
+[[entry]]
+id = "gaussian"
+kind = "concept"
+title = "Gaussian"
+glossary = "Gaussian"
+equations = ["0.33", "0.6", "9.3"]
+ledger = ["GO-8", "GO-3"]
+first_stated = "Chapter 9 section 9.3 and chapter 10 section 10.3 of *Data Mining as Observation*, with the isotropic Gaussian control in `turboquant-pro/turboquant_pro/anatomy.py:98-170`."
+book_records = ["anatomy.py:98-170", "row GO-8"]
+book_terms = ["Gaussian"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Isotropy.lean", "observation-data-mining:lean/DataMiningAsObservation/Mahalanobis.lean"]
+related = ["isotropic", "mahalanobis-distance", "null-model", "whitening", "standard-error"]
+conditions = [
+  "The normal distribution, in many dimensions the one with density falling with the Mahalanobis distance. An isotropic Gaussian has every direction the same, so every reader reads the same variance and no code can flip, and whitening turns any Gaussian into an isotropic one.",
+  "The isotropic Gaussian is the control on which hub typing correlated above 0.8 with nothing, and the Gaussian pass of GO-8 was five of five with the control-statistic caveat.",
+]
+
+[[entry]]
+id = "sum-of-squared-errors"
+kind = "concept"
+title = "sum of squared errors"
+glossary = "sum of squared errors"
+equations = ["9.1", "0.30", "4.2"]
+ledger = ["GO-3"]
+first_stated = "Chapter 0 section 0.15 and chapter 9 section 9.1 of *Data Mining as Observation*."
+book_records = ["TSK 2e chapter 9", "SPECTRUM_FINDINGS.md:10-18"]
+book_terms = ["sum of squared errors", "\\bSSE\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/KMeans.lean", "observation-data-mining:lean/DataMiningAsObservation/ReconstructionError.lean"]
+related = ["k-means", "validity-index", "reconstruction-error", "identity-reader", "silhouette"]
+conditions = [
+  "The sum over rows of the squared distance to the row's cluster centre, the validity index k-means minimizes. The error about any centre is the error about the mean plus the count times the squared distance between the two, so the mean minimizes it, and it is the identity reader's distortion summed within clusters.",
+  "Two clusterings of the same rows with the same sum of squared errors can be read oppositely by a consumer that weighs directions unequally.",
+]
