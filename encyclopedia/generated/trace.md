@@ -19,8 +19,8 @@ Book equation 0.10.
 
 ## ledger
 
-- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 7d91883.
-- OT-2. Loading is a covariance, not a distance: reading error under a change of measure is priced by ε·‖E[h·A]‖ — predicted from the base measure alone — and a full-magnitude shift orthogonal to the operator's variation does nothing. `[predicted]`. `geometric-observation/claims/LEDGER.md:33` at 7d91883.
+- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 01e53bc.
+- OT-2. Loading is a covariance, not a distance: reading error under a change of measure is priced by ε·‖E[h·A]‖ — predicted from the base measure alone — and a full-magnitude shift orthogonal to the operator's variation does nothing. `[predicted]`. `geometric-observation/claims/LEDGER.md:33` at 01e53bc.
 
 ## first stated
 
@@ -46,7 +46,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Trace.lean`, theorems `trace_add`, `trace_smul`, `trace_one`, `trace_vecMulVec`, `trace_mul_comm`, `trace_read`, `trace_identity_read`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/Trace.lean`, theorems `trace_add`, `trace_smul`, `trace_one`, `trace_vecMulVec`, `trace_mul_comm`, `trace_read`, `trace_identity_read`, at observation-data-mining 424e077.
 
 ## used in
 
@@ -58,4 +58,4 @@ covariance-matrix, read-distortion, identity-reader, effective-rank
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 01e53bc, observation-theory-campaigns 55ee1c6, theory-radar 37c4e6c, observation-data-mining 424e077, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

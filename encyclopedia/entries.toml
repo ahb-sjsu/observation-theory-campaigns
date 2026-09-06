@@ -2411,3 +2411,88 @@ conditions = [
   "The list of a matrix's eigenvalues. Its effective rank, the square of its sum over the sum of its squares, lies between one and the dimension, is the dimension for a flat spectrum, and is one for a single eigenvalue.",
   "The spectrum is not invariant under a change of basis of the input where the trace pairing and the rank are, and the Laplacian's spectrum is what the recognizer reads for dimension and shape.",
 ]
+
+[[entry]]
+id = "hub"
+kind = "concept"
+title = "hub"
+glossary = "hub"
+equations = ["10.3", "0.17", "10.5"]
+ledger = ["NEG-11", "NEG-14"]
+first_stated = "Radovanović, Nanopoulos, and Ivanović, hubs in space, 2010, as chapter 3 section 3.5 of *Data Mining as Observation* reads it, with the program's finding in openvector-bench that hubness is a query property, `openvector-bench/results/QUERY_COUPLING_ARTIFACT.md:1-20`."
+book_records = ["QUERY_COUPLING_ARTIFACT", "HUBNESS_PRIMER.md", "hubs and anti-hubs", "hubness.py"]
+book_terms = ["\\bhubs?\\b", "hubness"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Hub.lean"
+related = ["hubness", "poisson-ceiling", "anti-hub", "robin-hood-index", "null-model"]
+conditions = [
+  "A row retrieved as a nearest neighbour far more often than chance allows, a count above the Poisson ceiling. Since the counts sum to the slots handed out, the number of rows with count above a ceiling is at most the slots over the ceiling plus one, so hubs are few by arithmetic, and a higher ceiling names fewer of them.",
+  "Whether a row is a hub depends on the queries and the retrieval rule alone, which is the sense in which hubness is a query property, and the program's first hub counts fell by a factor of several when query coupling was removed.",
+]
+
+[[entry]]
+id = "concentrated"
+kind = "concept"
+title = "concentrated"
+glossary = "concentrated"
+equations = ["0.7", "0.5"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.4 of *Data Mining as Observation*, with the allocation report's concentration caution in `turboquant-pro/turboquant_pro/read_allocation.py:244-307`."
+book_records = ["concentration caution", "read_allocation.py", "spectrum.py"]
+book_terms = ["concentrated", "concentration caution"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Concentrated.lean"
+related = ["spectrum", "effective-rank", "water-filling", "isotropic"]
+conditions = [
+  "Of a spectrum, having a few eigenvalues that carry most of the total. If one eigenvalue carries a fraction f of the total, the effective rank is at most one over f squared, so half the mass in one direction gives effective rank at most four.",
+  "The allocation report warns below effective rank two, which is the same statement read from the rank side, and an allocation over a concentrated spectrum spends almost everything on one direction.",
+]
+
+[[entry]]
+id = "challenge-set"
+kind = "instrument"
+title = "challenge set"
+glossary = "challenge set"
+equations = ["12.6", "14.2"]
+ledger = ["NEG-15"]
+first_stated = "Chapter 12 section 12.6 and chapter 14 section 14.3 of *Data Mining as Observation*, with the program's identity-attack and euphemism sets in `gtc-prototype/docs/SPECTRUM_FINDINGS.md:66-99`."
+book_records = ["identity attack 0.237", "euphemism 0.36", "balanced resample", "REDESIGN.md"]
+book_terms = ["challenge set", "shortcut", "held-out battery"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ChallengeSet.lean"
+related = ["leakage", "harness", "deployment-mismatch", "preregistration"]
+conditions = [
+  "A test collection built so that a shortcut which passes the benchmark fails on it. Every finite benchmark admits a shortcut, the lookup that returns the stored label for every benchmark row, and two scorers that agree on every benchmark row have the same benchmark error whatever they do elsewhere.",
+  "A challenge set is any collection on which the shortcut and the intended rule disagree, which can only lie outside the benchmark, and on it the shortcut's error is positive while its benchmark error is zero.",
+]
+
+[[entry]]
+id = "cross-validation"
+kind = "instrument"
+title = "cross-validation"
+glossary = "cross-validation"
+equations = ["8.2", "0.18"]
+ledger = []
+first_stated = "Stone, cross-validatory choice, 1974, as chapter 8 section 8.5 of *Data Mining as Observation* reads it, with the program's fold accounting in `constraint-gap/review/FINDINGS.md:1-35`."
+book_records = ["FINDINGS.md:1-35", "ten folds", "fair protocol", "across folds"]
+book_terms = ["cross-validation", "\\bfolds?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/CrossValidation.lean"
+related = ["nadeau-and-bengio-correction", "harness", "standard-error", "leakage"]
+conditions = [
+  "Splitting the rows into folds and evaluating on each fold a model trained on the others, so every row is tested exactly once. The overall accuracy is the size-weighted mean of the fold accuracies, and with equal folds it is their plain mean.",
+  "The folds share training data, so repeated cross-validation multiplies confidence it did not earn, which the Nadeau and Bengio correction prices at one plus the fold count times the test-to-train ratio.",
+]
+
+[[entry]]
+id = "rotary-position-embedding"
+kind = "concept"
+title = "rotary position embedding"
+glossary = "rotary position embedding"
+equations = ["0.23", "11.1"]
+ledger = ["NEG-2"]
+first_stated = "Su and others, RoFormer, 2021, as chapter 0 section 0.11 of *Data Mining as Observation* states it, with the program's key-side measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["KV_KEYS_FINDING", "key quantizer"]
+book_terms = ["rotary", "RoPE", "position"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Rope.lean"
+related = ["attention", "query-key-value", "kv-cache", "dot-product"]
+conditions = [
+  "A rotation applied to queries and keys by an angle proportional to position. A rotation preserves length, and the score of a query at one position against a key at another depends only on the difference of positions, so a head reads relative position and shifting both positions by the same amount changes no score.",
+  "A key quantizer that rounds the rotated key rounds its position as well as its content, which is part of why the direction-only quantizer moved the scores.",
+]

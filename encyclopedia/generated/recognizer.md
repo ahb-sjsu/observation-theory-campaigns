@@ -23,7 +23,7 @@ Book equation 9.2.
 
 ## ledger
 
-- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 7d91883.
+- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 01e53bc.
 
 ## first stated
 
@@ -61,7 +61,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Recognizer.lean`, theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/Recognizer.lean`, theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 424e077.
 
 ## used in
 
@@ -73,4 +73,4 @@ certificate, vacuity-threshold, hubness
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 01e53bc, observation-theory-campaigns 55ee1c6, theory-radar 37c4e6c, observation-data-mining 424e077, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
