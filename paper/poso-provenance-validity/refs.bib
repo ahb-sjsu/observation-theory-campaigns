@@ -1,14 +1,15 @@
-% Reconstructed from poso.bbl (IEEEtran.bst output). The original refs were a
-% draft: several entries were TODO placeholders and others carried %VERIFY
-% flags. Those are preserved here honestly rather than invented. Fill/verify
-% before submission.
+% POSO paper references. Filled 2026-09-06. Verified against records where noted;
+% two entries carry % VERIFY (couldn't confirm this session: Wust-Gervais via DBLP
+% was returning empty, the CoinDesk target 429'd). Keys are unchanged so poso.tex
+% needs no edits.
 
 @misc{skymapper,
-  author = {{TODO: SkyMapper / CoinDesk}},
-  title  = {{TODO: Avalanche, SETI, and SkyMapper L1 / Proof of Space Observation -- cite the primary announcement and any technical page}},
-  howpublished = {\url{https://www.coindesk.com/tech/2026/04/13/avalanche-heads-to-the-stars-seti-telescope-data-goes-onchain}},
-  year   = {2026},
-  note   = {Accessed: [TODO date]. Replace with the primary SkyMapper source if available.}
+  author       = {{CoinDesk}},
+  title        = {Avalanche Heads to the Stars: {SETI} Telescope Data Goes Onchain},
+  howpublished = {CoinDesk},
+  month        = apr,
+  year         = {2026},
+  note         = {\url{https://www.coindesk.com/tech/2026/04/13/avalanche-heads-to-the-stars-seti-telescope-data-goes-onchain}. \% VERIFY exact headline/claim wording; add the primary SkyMapper / Proof of Space Observation source (spec or announcement) as the citation of record.}
 }
 
 @techreport{rfc3161,
@@ -17,72 +18,92 @@
   institution = {IETF},
   type        = {RFC},
   number      = {3161},
-  year        = {2001},
-  note        = {\% VERIFY authors/date}
+  month       = aug,
+  year        = {2001}
 }
 
 @inproceedings{merkle,
-  author    = {R. C. Merkle},
+  author    = {Ralph C. Merkle},
   title     = {A Digital Signature Based on a Conventional Encryption Function},
-  booktitle = {Advances in Cryptology (CRYPTO)},
-  year      = {1987},
-  note      = {\% VERIFY venue/year/pages -- Merkle tree origin}
+  booktitle = {Advances in Cryptology --- CRYPTO '87},
+  series    = {LNCS 293},
+  pages     = {369--378},
+  publisher = {Springer},
+  year      = {1988}
 }
 
 @misc{ot,
-  author = {{TODO: Bond, Andrew H.}},
-  title  = {{TODO: Observation Theory -- consumer-relative observation and witnessed certificates. Cite the canonical OT writeup}},
+  author = {Andrew H. Bond},
+  title  = {Geometric Observation: Observation Theory and the Evidence Ledger},
+  howpublished = {Zenodo},
+  doi    = {10.5281/zenodo.21776291},
   year   = {2026}
 }
 
 @misc{p3787,
-  author = {{IEEE}},
-  title  = {{IEEE P3787: TODO exact title -- secure data encapsulation; validity-attestation class and use-time re-evaluation}},
-  note   = {TODO, cite the exact clause for the validity-attestation class}
+  author       = {{IEEE Standards Association}},
+  title        = {{IEEE P3787}: Standard for Secure Data Encapsulation (draft)},
+  howpublished = {IEEE Standards Association, project authorization},
+  year         = {2025},
+  note         = {\% VERIFY exact title and cite the clause defining the validity-attestation class and use-time re-evaluation.}
 }
 
 @article{bl-opendata,
-  author  = {M. Lebofsky and S. Croft and A. P. V. Siemion and others},
+  author  = {M. Lebofsky and S. Croft and A. P. V. Siemion and D. C. Price and J. E. Enriquez and others},
   title   = {The Breakthrough Listen Search for Intelligent Life: Public Data, Formats, Reduction, and Archiving},
   journal = {Publications of the Astronomical Society of the Pacific},
   volume  = {131},
   number  = {1006},
   pages   = {124505},
   year    = {2019},
-  note    = {\% VERIFY article number on final proof}
+  doi     = {10.1088/1538-3873/ab3e82}
 }
 
 @article{turboseti,
-  author  = {J. E. Enriquez and A. Siemion and G. Foster and others},
+  author  = {J. E. Enriquez and A. Siemion and G. Foster and V. Gajjar and G. Hellbourg and J. Hickish and H. Isaacson and D. C. Price and S. Croft and D. DeBoer and M. Lebofsky and D. H. E. MacMahon and D. Werthimer},
   title   = {The Breakthrough Listen Search for Intelligent Life: 1.1--1.9 {GHz} Observations of 692 Nearby Stars},
   journal = {The Astrophysical Journal},
   volume  = {849},
   number  = {2},
   pages   = {104},
-  year    = {2017},
-  note    = {\% VERIFY vol/pages on final proof}
+  year    = {2017}
 }
 
-@misc{blockchain-science,
-  author = {{TODO}},
-  title  = {{TODO: representative proposal for blockchain-based scientific data provenance / reproducibility}},
-  note   = {TODO}
+@inproceedings{blockchain-science,
+  author    = {Xueping Liang and Sachin Shetty and Deepak K. Tosh and Charles A. Kamhoua and Kevin A. Kwiat and Laurent Njilla},
+  title     = {{ProvChain}: A Blockchain-based Data Provenance Architecture in Cloud Environment with Enhanced Privacy and Availability},
+  booktitle = {Proc. IEEE/ACM Int. Symp. Cluster, Cloud and Grid Computing (CCGrid)},
+  pages     = {468--477},
+  year      = {2017}
 }
 
-@misc{blockchain-critique,
-  author = {{TODO}},
-  title  = {{TODO: a critical appraisal of blockchain for science / data integrity}},
-  note   = {TODO}
+@inproceedings{blockchain-critique,
+  author    = {Karl W\"ust and Arthur Gervais},
+  title     = {Do you Need a Blockchain?},
+  booktitle = {Proc. Crypto Valley Conf. Blockchain Technology (CVCBT)},
+  pages     = {45--54},
+  year      = {2018},
+  note      = {\% VERIFY venue/pages}
 }
 
-@misc{provenance-survey,
-  author = {{TODO}},
-  title  = {{TODO: survey of data provenance (databases)}},
-  note   = {TODO}
+@article{provenance-survey,
+  author  = {James Cheney and Laura Chiticariu and Wang-Chiew Tan},
+  title   = {Provenance in Databases: Why, How, and Where},
+  journal = {Foundations and Trends in Databases},
+  volume  = {1},
+  number  = {4},
+  pages   = {379--474},
+  year    = {2009},
+  doi     = {10.1561/1900000006}
 }
 
-@misc{dataquality,
-  author = {{TODO}},
-  title  = {{TODO: data quality / measurement validity reference}},
-  note   = {TODO}
+@article{dataquality,
+  author  = {Richard Y. Wang and Diane M. Strong},
+  title   = {Beyond Accuracy: What Data Quality Means to Data Consumers},
+  journal = {Journal of Management Information Systems},
+  volume  = {12},
+  number  = {4},
+  pages   = {5--33},
+  year    = {1996},
+  doi     = {10.1080/07421222.1996.11518099}
 }
