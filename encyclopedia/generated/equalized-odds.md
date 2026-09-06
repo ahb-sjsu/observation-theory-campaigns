@@ -40,7 +40,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/EqualizedOdds.lean`, theorems `parity_of_equal_base`, `favourable_sub`, `parity_iff_equal_base`, `example_conflict`, at observation-data-mining 416c9a3.
+`lean/DataMiningAsObservation/EqualizedOdds.lean`, theorems `parity_of_equal_base`, `favourable_sub`, `parity_iff_equal_base`, `example_conflict`, at observation-data-mining 1c6cd64.
 
 ## used in
 
@@ -52,4 +52,4 @@ disparate-impact-ratio, calibration, min-over-strata, certificate
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 994ee12, theory-radar 37c4e6c, observation-data-mining 416c9a3, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 09cc919, theory-radar 37c4e6c, observation-data-mining 1c6cd64, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
