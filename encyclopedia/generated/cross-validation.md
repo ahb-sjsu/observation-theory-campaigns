@@ -1,11 +1,11 @@
-# bootstrap
+# cross-validation
 
-**id.** bootstrap
+**id.** cross-validation
 **kind.** instrument
 
 ## definition
 
-An estimate of a confidence interval made by resampling the data with replacement many times and recomputing the statistic each time. A paired bootstrap resamples the same rows for two methods at once so that shared sampling variation cancels. Chapter 0 section 0.9.
+Splitting the data into folds and evaluating on each fold a model trained on the others. Repeated cross-validation multiplies confidence it did not earn, chapter 8 section 8.5.
 
 ## equation
 
@@ -23,7 +23,7 @@ none
 
 ## first stated
 
-Efron, bootstrap methods, 1979, as chapter 0 section 0.9 states it, with the program's paired form in the flip comparisons of Volume 14 and the constraint-gap review.
+Stone, cross-validatory choice, 1974, as chapter 8 section 8.5 of *Data Mining as Observation* reads it, with the program's fold accounting in `constraint-gap/review/FINDINGS.md:1-35`.
 
 ## measurements
 
@@ -38,22 +38,22 @@ none
 
 ## conditions
 
-- An interval estimated by resampling the data with replacement and recomputing the statistic each time. A paired bootstrap resamples the same rows for two methods at once, and the variance of the difference is the sum of the two variances minus twice their covariance, so pairing narrows the interval exactly when the two scores covary positively across rows.
-- Resampling rows does not undo dependence between folds, which is the correction's job, and the bootstrap's interval is only as wide as the sample it resamples.
+- Splitting the rows into folds and evaluating on each fold a model trained on the others, so every row is tested exactly once. The overall accuracy is the size-weighted mean of the fold accuracies, and with equal folds it is their plain mean.
+- The folds share training data, so repeated cross-validation multiplies confidence it did not earn, which the Nadeau and Bengio correction prices at one plus the fold count times the test-to-train ratio.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Bootstrap.lean`, theorems `mean_sub`, `var_sub`, `paired_lt_iff`, `cov_comm`, at observation-data-mining 424e077.
+`lean/DataMiningAsObservation/CrossValidation.lean`, theorems `sizes_sum`, `accuracy_weighted`, `accuracy_mean_of_equal`, at observation-data-mining 424e077.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 6, 7, 11, 12, 14.
+*Data Mining as Observation* chapters 0, 1, 2, 4, 5, 6, 7, 8, 14.
 
 ## related
 
-confidence-interval, standard-error, nadeau-and-bengio-correction, harness
+nadeau-and-bengio-correction, harness, standard-error, leakage
 
 ## status
 

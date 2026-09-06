@@ -19,8 +19,8 @@ Book equation 11.2.
 
 ## ledger
 
-- GO-B-Llama. Trained frontier LLM (Llama-3.2-3B), softmax-attention consumer — blind probe on real post-RoPE keys `[predicted]`. `geometric-observation/claims/LEDGER.md:115` at 7d91883.
-- GO-B-Llama-rematch. Trained frontier LLM (Llama-3.2-3B), softmax-attention consumer — recon-matched dissociation on real post-RoPE keys `[predicted]`. `geometric-observation/claims/LEDGER.md:118` at 7d91883.
+- GO-B-Llama. Trained frontier LLM (Llama-3.2-3B), softmax-attention consumer — blind probe on real post-RoPE keys `[predicted]`. `geometric-observation/claims/LEDGER.md:115` at 01e53bc.
+- GO-B-Llama-rematch. Trained frontier LLM (Llama-3.2-3B), softmax-attention consumer — recon-matched dissociation on real post-RoPE keys `[predicted]`. `geometric-observation/claims/LEDGER.md:118` at 01e53bc.
 
 ## first stated
 
@@ -43,7 +43,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Kendall.lean`, theorems `not_both`, `card_add_le`, `tau_mem`, `concordant_comp`, `discordant_comp`, `tau_comp`, `discordant_self`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/Kendall.lean`, theorems `not_both`, `card_add_le`, `tau_mem`, `concordant_comp`, `discordant_comp`, `tau_comp`, `discordant_self`, at observation-data-mining 424e077.
 
 ## used in
 
@@ -55,4 +55,4 @@ rank-certificate, rank-faithful, monotone-invariance, recall-at-k
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 01e53bc, observation-theory-campaigns 55ee1c6, theory-radar 37c4e6c, observation-data-mining 424e077, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

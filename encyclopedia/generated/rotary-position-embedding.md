@@ -1,30 +1,29 @@
-# direction-only quantizer
+# rotary position embedding
 
-**id.** direction-only-quantizer
-**kind.** instrument
+**id.** rotary-position-embedding
+**kind.** concept
 
 ## definition
 
-A quantizer that stores each vector's length exactly and rounds its direction. Chapter 11.
+A rotation applied to queries and keys that encodes where each token sits in the sequence. Chapter 0 section 0.11.
 
 ## equation
+
+Book equation 0.23.
+
+    \operatorname{softmax}(z)_i=\frac{e^{z_i}}{\sum_j e^{z_j}},\qquad \text{output}=\sum_i\operatorname{softmax}\!\Big(\frac{q\cdot k_i}{\sqrt{d}}\Big)_{\!i}\,v_i.
 
 Book equation 11.1.
 
     \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
 
-Book equation 0.1.
-
-    x\cdot y=\sum_{i=1}^{d}x_i y_i,\qquad \|x\|=\sqrt{x\cdot x},\qquad \cos\theta=\frac{x\cdot y}{\|x\|\,\|y\|}.
-
 ## ledger
 
 - NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 01e53bc.
-- GO-B-LOCATA. Real microphone-array recordings (LOCATA), DOA consumer — held-out confirmation with the PolarQuant compressor `[predicted]`. `geometric-observation/claims/LEDGER.md:117` at 01e53bc.
 
 ## first stated
 
-Chapter 11 section 11.2 of *Data Mining as Observation*, with PolarQuant in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the LOCATA comparison of the ledger.
+Su and others, RoFormer, 2021, as chapter 0 section 0.11 of *Data Mining as Observation* states it, with the program's key-side measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
 
 ## measurements
 
@@ -43,22 +42,22 @@ Chapter 11 section 11.2 of *Data Mining as Observation*, with PolarQuant in `tur
 
 ## conditions
 
-- A quantizer that stores each vector's length exactly and rounds its direction to a unit codeword. The quantized vector keeps the original's length, its cosine with any query is the codeword's cosine, and its score against a query is the length times the query's dot product with the codeword, so the score error is the length times the query's dot product with the direction error.
-- A key's cosine with its own quantized form can be near one while its score against a query moves by a multiple of its length, which is why keys at cosine 0.995 raised the perplexity by three orders of magnitude.
+- A rotation applied to queries and keys by an angle proportional to position. A rotation preserves length, and the score of a query at one position against a key at another depends only on the difference of positions, so a head reads relative position and shifting both positions by the same amount changes no score.
+- A key quantizer that rounds the rotated key rounds its position as well as its content, which is part of why the direction-only quantizer moved the scores.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DirectionQuantizer.lean`, theorems `length_preserved`, `score_eq`, `score_error`, `cosine_eq`, at observation-data-mining 424e077.
+`lean/DataMiningAsObservation/Rope.lean`, theorems `rot_length`, `rot_dot`, `relative_position`, `shift_invariant`, at observation-data-mining 424e077.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 3, 4, 11.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.
 
 ## related
 
-quantization, dot-product, kv-cache, attention, flip
+attention, query-key-value, kv-cache, dot-product
 
 ## status
 

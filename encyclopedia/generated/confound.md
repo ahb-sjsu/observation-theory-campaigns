@@ -19,9 +19,9 @@ Book equation 8.2.
 
 ## ledger
 
-- NEG-4. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:97` at 7d91883.
-- NEG-5. GO-P-2026-001 as registered: on KV keys, invariant-preserving (asym-NF4) beats reconstruction-optimal (per-block Lloyd) at matched bits, and tangential distortion dominates reconstruction in predicting softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:98` at 7d91883.
-- NEG-6. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:99` at 7d91883.
+- NEG-4. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:97` at 01e53bc.
+- NEG-5. GO-P-2026-001 as registered: on KV keys, invariant-preserving (asym-NF4) beats reconstruction-optimal (per-block Lloyd) at matched bits, and tangential distortion dominates reconstruction in predicting softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:98` at 01e53bc.
+- NEG-6. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:99` at 01e53bc.
 
 ## first stated
 
@@ -49,7 +49,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Confound.lean`, theorems `mean_outcome`, `naive_diff`, `naive_diff_of_balanced`, `naive_diff_of_no_effect`, `bias_unbounded`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/Confound.lean`, theorems `mean_outcome`, `naive_diff`, `naive_diff_of_balanced`, `naive_diff_of_no_effect`, `bias_unbounded`, at observation-data-mining 424e077.
 
 ## used in
 
@@ -61,4 +61,4 @@ harness, null-model, simpsons-paradox, preregistration
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 01e53bc, observation-theory-campaigns 55ee1c6, theory-radar 37c4e6c, observation-data-mining 424e077, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

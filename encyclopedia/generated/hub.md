@@ -1,29 +1,34 @@
-# Poisson ceiling
+# hub
 
-**id.** poisson-ceiling
-**kind.** instrument
+**id.** hub
+**kind.** concept
 
 ## definition
 
-The largest neighbour count that at least one point in a dataset would reach by chance under a Poisson null, above which a count is evidence of a hub. Equation 0.17.
+A row retrieved as a nearest neighbour far more often than chance allows. The book shows hubness is almost entirely a property of the queries and the reader, not of the corpus. Chapters 3 and 10.
 
 ## equation
-
-Book equation 0.17.
-
-    \Pr[X\ge c]=1-\sum_{i<c}e^{-\mu}\frac{\mu^{i}}{i!},\qquad c^{\star}=\max\{c:\ n\Pr[X\ge c]\ge 1\},\qquad \mu=\frac{n_q\,k}{n}.
 
 Book equation 10.3.
 
     N_k(x\mid Q)=\big|\{q\in Q:\ x\in\operatorname{top}_k(q)\}\big|,\qquad \text{anti-hub}:\ N_k(x)=0.
 
+Book equation 0.17.
+
+    \Pr[X\ge c]=1-\sum_{i<c}e^{-\mu}\frac{\mu^{i}}{i!},\qquad c^{\star}=\max\{c:\ n\Pr[X\ge c]\ge 1\},\qquad \mu=\frac{n_q\,k}{n}.
+
+Book equation 10.5.
+
+    \begin{gathered} \text{central}:\ \mathrm{pct}_{\mathrm{centrality}}\ge0.95; \\ \text{dense}:\ \neg\text{central}\ \wedge\ \mathrm{pct}_{\mathrm{density}}\ge0.85; \qquad \text{prescribe by }f_{\mathrm{central}},\ f_{\mathrm{dense}}\ \text{at}\ 0.75. \end{gathered}
+
 ## ledger
 
 - NEG-11. (GO-5, prospective ×4) The α=1 density/hubness quotient decisively and density-specifically restores invariant fidelity in a non-spectral domain. `[refuted]`. `geometric-observation/claims/LEDGER.md:104` at 01e53bc.
+- NEG-14. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe). `[refuted]`. `geometric-observation/claims/LEDGER.md:108` at 01e53bc.
 
 ## first stated
 
-openvector-bench, `openvector-bench/openvector_bench/hubness.py:41-100`, and chapter 0 section 0.8 and chapter 3 section 3.5 of *Data Mining as Observation*.
+Radovanović, Nanopoulos, and Ivanović, hubs in space, 2010, as chapter 3 section 3.5 of *Data Mining as Observation* reads it, with the program's finding in openvector-bench that hubness is a query property, `openvector-bench/results/QUERY_COUPLING_ARTIFACT.md:1-20`.
 
 ## measurements
 
@@ -41,25 +46,26 @@ openvector-bench, `openvector-bench/openvector_bench/hubness.py:41-100`, and cha
 ## failures and corrections
 
 - NEG-11, `[refuted]`. (GO-5, prospective ×4) The α=1 density/hubness quotient decisively and density-specifically restores invariant fidelity in a non-spectral domain.
+- NEG-14, `[refuted]`. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe).
 
 ## conditions
 
-- Under the null that the slots are handed out at random, a row's count is Poisson with mean the slots per row, and the ceiling is the largest count at least one row would reach by chance. A count above it is evidence of a hub, and a count below it is not evidence of anything.
-- The ceiling depends on the query set, through the mean and through the rows the queries reach, so it is recomputed when the queries change, and the program's first hubness numbers moved by a factor of several when query coupling was removed.
+- A row retrieved as a nearest neighbour far more often than chance allows, a count above the Poisson ceiling. Since the counts sum to the slots handed out, the number of rows with count above a ceiling is at most the slots over the ceiling plus one, so hubs are few by arithmetic, and a higher ceiling names fewer of them.
+- Whether a row is a hub depends on the queries and the retrieval rule alone, which is the sense in which hubness is a query property, and the program's first hub counts fell by a factor of several when query coupling was removed.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/PoissonCeiling.lean`, theorems `mass_nonneg`, `tail_antitone`, `tail_zero`, `tail_le_one`, `expectedAtLeast_antitone`, `example_mean`, at observation-data-mining 424e077.
+`lean/DataMiningAsObservation/Hub.lean`, theorems `card_hubs_le`, `hubs_congr`, `hubs_anti`, `hubs_empty`, at observation-data-mining 424e077.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 3.
+*Data Mining as Observation* chapters 0, 1, 3, 5, 10, 11, 12, 13.
 
 ## related
 
-hubness, anti-hub, harness, min-over-strata
+hubness, poisson-ceiling, anti-hub, robin-hood-index, null-model
 
 ## status
 
