@@ -1,11 +1,11 @@
-# attention
+# head
 
-**id.** attention
+**id.** head
 **kind.** concept
 
 ## definition
 
-The operation inside a language model that lets each token look at earlier ones by comparing its query to their keys and averaging their values. Chapter 0 section 0.11.
+One attention operation. A model has many, each with its own queries, keys, and values. Chapter 0 section 0.11.
 
 ## equation
 
@@ -24,7 +24,7 @@ Book equation 11.1.
 
 ## first stated
 
-Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observation*, with the program's head-level measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the serving-stack ledger row.
+Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's head-level measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the planted probe of chapter 6.
 
 ## measurements
 
@@ -44,8 +44,8 @@ Chapter 0 section 0.11 and chapter 11 section 11.1 of *Data Mining as Observatio
 
 ## conditions
 
-- A head weights each earlier token's value by the softmax of its query-key score and sums. For scalar values the output lies between the smallest and largest value, and the head reads the keys only through their scores against the query, so a key change the query does not read leaves the output unchanged however large it is.
-- That is the head's read subspace, a few query-weighted directions of each key, and the reason a key reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude.
+- One attention operation, with its own queries, keys, and values. A head's output lies between the smallest and largest value, it reads the keys only through their scores against its query, and a key change the query does not read leaves its output unchanged however large the change.
+- Each head has its own read subspace, a few query-weighted directions of each key, so a compression that serves one head can fail another, and the serving-stack measurement of chapter 13 is per head.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
@@ -55,11 +55,11 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 2, 4, 6, 8, 11, 13.
+*Data Mining as Observation* chapters 0, 1, 2, 4, 6, 7, 8, 11, 12, 13.
 
 ## related
 
-softmax, read-subspace, nuisance, flip
+attention, kv-cache, read-subspace, softmax
 
 ## status
 

@@ -49,7 +49,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Confound.lean`, theorems `mean_outcome`, `naive_diff`, `naive_diff_of_balanced`, `naive_diff_of_no_effect`, `bias_unbounded`, at observation-data-mining 2b00d80.
+`lean/DataMiningAsObservation/Confound.lean`, theorems `mean_outcome`, `naive_diff`, `naive_diff_of_balanced`, `naive_diff_of_no_effect`, `bias_unbounded`, at observation-data-mining 8d30d9d.
 
 ## used in
 
@@ -61,4 +61,4 @@ harness, null-model, simpsons-paradox, preregistration
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns e448a13, theory-radar 37c4e6c, observation-data-mining 2b00d80, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 425c17a, theory-radar 37c4e6c, observation-data-mining 8d30d9d, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
