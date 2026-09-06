@@ -119,7 +119,7 @@ def ledger_rows(prefixes):
             continue
         key = re.sub(r"\*\*", "", cells[0])
         for p in prefixes:
-            if key.startswith(p):
+            if key.startswith(p) and not key[len(p):len(p) + 1].isdigit():
                 cls = re.findall(r"`?\[(\w+)\]`?", cells[2])
                 out.append((key, re.sub(r"\*\*", "", cells[1]), cls[0] if cls else cells[2], i))
     return out

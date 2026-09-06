@@ -2496,3 +2496,258 @@ conditions = [
   "A rotation applied to queries and keys by an angle proportional to position. A rotation preserves length, and the score of a query at one position against a key at another depends only on the difference of positions, so a head reads relative position and shifting both positions by the same amount changes no score.",
   "A key quantizer that rounds the rotated key rounds its position as well as its content, which is part of why the direction-only quantizer moved the scores.",
 ]
+
+[[entry]]
+id = "anisotropic"
+kind = "concept"
+title = "anisotropic"
+glossary = "anisotropic"
+equations = ["0.5", "3.1", "4.6"]
+ledger = ["GO-B-legal", "GO-2 (neg. half"]
+first_stated = "Chapter 0 section 0.4 of *Data Mining as Observation*, with the program's centring measurement in `geometric-observation/claims/LEDGER.md` row GO-B-legal and the anisotropy channel in `lebse/README.md:40-75`."
+book_records = ["row GO-B-legal", "lebse"]
+book_terms = ["anisotrop"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Isotropy.lean"
+related = ["isotropic", "covariance-matrix", "spectrum", "whitening", "flip-the"]
+conditions = [
+  "Of a covariance, having different variances in different directions, which is to say unequal eigenvalues. Two readers at different angles to an anisotropic covariance read different variances, and the flip between two codes exists exactly when the covariance is anisotropic along the directions that separate them.",
+  "Centring an embedding raised a ranker from 0.79 to 0.84 on the legal corpus, which is the condition under which a learned quotient and a variance quotient disagree most, and an isotropic control collapses the flip.",
+]
+
+[[entry]]
+id = "anti-monotonicity"
+kind = "concept"
+title = "anti-monotonicity"
+glossary = "anti-monotonicity"
+equations = ["5.1", "5.3"]
+ledger = []
+first_stated = "Agrawal and Srikant, fast algorithms for mining association rules, 1994, as chapter 5 section 5.3 of *Data Mining as Observation* reads it."
+book_records = ["TSK 2e chapter 5", "session-outlines.md:117"]
+book_terms = ["anti-monoton", "pruning license"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/SafePruning.lean", "observation-data-mining:lean/DataMiningAsObservation/ItemSet.lean"]
+related = ["apriori-principle", "support", "safe-pruning", "itemset"]
+conditions = [
+  "The property that support cannot increase when an itemset grows, since every transaction containing the larger set contains the smaller. It licenses Apriori to prune every superset of an infrequent itemset without loss, because no frequent itemset can lie above an infrequent one.",
+  "The license is a statement about the measure and not about the data, and the book's sidebar carries it to thresholds outside itemsets, where the analogous license is the ceiling on a score that a Youden bound supplies.",
+]
+
+[[entry]]
+id = "attribution"
+kind = "instrument"
+title = "attribution"
+glossary = "attribution"
+equations = ["0.8", "0.9", "14.5"]
+ledger = ["GO-EC-3", "GO-1"]
+first_stated = "Lundberg and Lee, a unified approach to interpreting model predictions, 2017, as chapter 14 section 14.5 of *Data Mining as Observation* reads it, with the program's contraction formula in `gtc-prototype/docs/SPECTRUM_FINDINGS.md:90-99`."
+book_records = ["SPECTRUM_FINDINGS.md:90", "ch10_the_blind_probe.md:34"]
+book_terms = ["attribution", "partial dependence", "Shapley"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Attribution.lean"
+related = ["sensitivity", "read-operator", "finite-difference", "consumer"]
+conditions = [
+  "An assignment to each feature of a share of one prediction. A gradient-based attribution gives coordinate i the share g_i times the move along it, those shares sum exactly to the change in output for an affine consumer, a coordinate the consumer does not read gets share zero, and the average of the squared sensitivity is a diagonal entry of the read operator, so an averaged gradient attribution estimates the read operator.",
+  "Shapley, permutation, and partial-dependence methods measure other things and are named for them, and for a tree the sensitivity is zero almost everywhere, so importances that count splits are the right reading and finite differences the wrong one.",
+]
+
+[[entry]]
+id = "commute-time"
+kind = "concept"
+title = "commute time"
+glossary = "commute time"
+equations = ["0.20", "0.19", "3.3"]
+ledger = ["NEG-1"]
+first_stated = "Chapter 0 section 0.10 of *Data Mining as Observation*, equation 0.20, with von Luxburg, Radl, and Hein, 2014, read in chapter 3 section 3.3 and the program's collapse proof in `the-angular-observer/theorem.md:110-146`."
+book_records = ["theorem.md:110-146", "README.md:170-175"]
+book_terms = ["commute time", "resistance"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/CommuteTime.lean"
+related = ["spectral-embedding", "laplacian", "geodesic-distance", "degree", "graph"]
+conditions = [
+  "The expected number of steps a random walk on a graph needs to go from one node to another and back, the hitting time there plus the hitting time back, so it is symmetric and zero from a node to itself. Its scaling by the graph's volume is the resistance, and a particular scaling of the spectral embedding makes Euclidean distance equal it.",
+  "On a large neighbourhood graph of a shape of dimension three or more the resistance converges to one over each degree, so it depends on two nodes only through their degrees and carries no geometry, which is why the magnitude of the spectral embedding is degree noise. The program's own first claim of a commute-metric form was self-refuted, NEG-1.",
+]
+
+[[entry]]
+id = "expected-calibration-error"
+kind = "instrument"
+title = "expected calibration error"
+glossary = "expected calibration error"
+equations = ["0.29", "0.38", "14.2"]
+ledger = ["NEG-4"]
+first_stated = "Chapter 0 section 0.14 of *Data Mining as Observation*, equation 0.29, with the program's per-encoder errors in `xbse/README.md:175-195` and `gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63`."
+book_records = ["CALIBRATED_AUTHORITY", "README.md:175-195"]
+book_terms = ["expected calibration error", "\\bECE\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Calibration.lean"
+related = ["calibration", "reliability-weight", "auroc", "threshold"]
+conditions = [
+  "The average over score bins, weighted by bin size, of the absolute difference between the bin's mean score and its fraction of positives. It lies in the unit interval, it is zero exactly when every bin's mean score equals its positive fraction, and a calibrated scorer has error zero.",
+  "The program's validated encoders carry errors of 0.018 to 0.101 on held-out splits against raw values up to 0.223, and the reliability weight that gates an encoder's authority is computed beside it.",
+]
+
+[[entry]]
+id = "finite-difference"
+kind = "instrument"
+title = "finite difference"
+glossary = "finite difference"
+equations = ["0.8", "0.9", "11.4"]
+ledger = ["GO-1"]
+first_stated = "Chapter 0 section 0.5 of *Data Mining as Observation*, equation 0.8, with the budget law measured in `readscope/README.md:118-141` and `readscope/CALIBRATION.md:419-434`."
+book_records = ["c2e-budget-law", "CALIBRATION.md:419", "ch10_the_blind_probe.md:34"]
+book_terms = ["finite difference", "finite-difference"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/FiniteDifference.lean"
+related = ["sensitivity", "read-operator", "blind-probe", "budget", "budget-cliff"]
+conditions = [
+  "An estimate of a derivative from two evaluations of the function at points a small step apart. The central difference recovers the derivative of a quadratic exactly at every step size, while the one-sided difference is off by the curvature times the step, which is why doing it in both directions is more accurate.",
+  "Doing it once per coordinate costs d evaluations and in both directions costs 2d, which chapter 11 shows is the price at one operating point for a probe confined to the directions it chooses. The measurement instrument for that is the blind probe.",
+]
+
+[[entry]]
+id = "latent-semantic-analysis"
+kind = "instrument"
+title = "latent semantic analysis"
+glossary = "latent semantic analysis"
+equations = ["0.36", "0.5", "4.2"]
+ledger = ["GO-B-legal"]
+first_stated = "Deerwester, Dumais, Furnas, Landauer, and Harshman, indexing by latent semantic analysis, 1990, as chapter 12 section 12.1 of *Data Mining as Observation* reads it, with the program's frozen embedding in `geometric-observation/chapters/ch10_the_blind_probe.md:100-118`."
+book_records = ["ch10_the_blind_probe.md:100-118"]
+book_terms = ["latent semantic", "\\bLSA\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/PCA.lean", "observation-data-mining:lean/DataMiningAsObservation/ExplainedVariance.lean", "observation-data-mining:lean/DataMiningAsObservation/TFIDF.lean"]
+related = ["tf-idf", "principal-component-analysis", "explained-variance", "bag-of-words", "blind-probe"]
+conditions = [
+  "The singular value decomposition of the TF-IDF matrix with the top components kept, which is principal components on documents. The fraction of variance kept grows with the components kept and reaches one at full rank, and the components dropped cost the sum of their eigenvalues.",
+  "It is the identity reader on term-document variance, and the components it keeps are the directions of largest variance whether or not the consumer reads them. The non-oracle test fit a frozen embedding of 100 components on the training split only and recovered the reader blind.",
+]
+
+[[entry]]
+id = "multiplet"
+kind = "concept"
+title = "multiplet"
+glossary = "multiplet"
+equations = ["0.19", "0.31", "9.2"]
+ledger = []
+first_stated = "Chapter 0 section 0.15 and chapter 9 section 9.2 of *Data Mining as Observation*, with the program's recognizer in `geometric-observation/chapters/ch11_the_recognizer.md:1-95`."
+book_records = ["ch11_the_recognizer", "battery_result.json", "PREREG_RECOGNIZER_BATTERY"]
+book_terms = ["multiplet"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Multiplet.lean"
+related = ["laplacian", "recognizer", "manifold", "weyls-law", "eigenvalue-eigenvector"]
+conditions = [
+  "A group of eigenvalues that are equal or nearly so, whose pattern names the shape a dataset lies on. The cycle's Laplacian eigenvalue at k equals the one at n minus k, so every eigenvalue of the discrete circle other than the constant mode and, for even n, the alternating mode appears twice.",
+  "Symmetric shapes produce multiplets, the sphere in groups of three, five, seven, and a product of shapes has the product of their patterns. The recognizer reads the pattern of the lowest eigenvalues against stored templates and refuses when none matches.",
+]
+
+[[entry]]
+id = "output-metric"
+kind = "concept"
+title = "output metric"
+glossary = "output metric"
+equations = ["1.1", "0.9", "6.1"]
+ledger = ["GO-2 (neg. half", "GO-2 (pos. half"]
+first_stated = "Chapter 1 section 1.2 of *Data Mining as Observation*, with the flip's verdict inversion in `geometric-observation/chapters/ch08_value.md:1-30`."
+book_records = ["ch08_value.md:1-30", "rows GO-2 negative", "make_flip_figure"]
+book_terms = ["output metric"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/OutputMetric.lean"
+related = ["observer", "consumer", "read-operator", "budget", "flip-the"]
+conditions = [
+  "The rule by which a consumer's mistakes are scored, the second element of an observer. A consumer and its negation have the same read operator and reverse every comparison, so the read operator alone does not fix the observer, and two cost matrices score the same pair of classifiers in opposite orders, so naming the output metric is naming what a downstream mistake is.",
+  "A dataset-level loss, accuracy, F1, a rank correlation, or dollars lost is not a local geometry on the score and cannot be inserted into the read-operator formula. Each interestingness measure of chapter 5 and each fairness metric of chapter 14 is an output metric, right for some consumer and wrong for others.",
+]
+
+[[entry]]
+id = "principal-component-analysis"
+kind = "instrument"
+title = "principal component analysis"
+glossary = "principal component analysis"
+equations = ["0.5", "0.7", "4.2"]
+ledger = ["GO-6", "GO-1"]
+first_stated = "Pearson, on lines and planes of closest fit, 1901, and Hotelling, 1933, as chapter 4 section 4.1 of *Data Mining as Observation* reads them, with the program's truncation record in `turboquant-pro/benchmarks/RESULTS_glove.md:1-40`."
+book_records = ["RESULTS_glove", "CLAIMS.md:28-49", "spectrum.py"]
+book_terms = ["principal component", "\\bPCA\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/PCA.lean"
+related = ["covariance-matrix", "explained-variance", "effective-rank", "projection", "identity-reader", "flip-the"]
+conditions = [
+  "Projection of the data onto the eigenvectors of its covariance with the largest eigenvalues. The variance along a unit direction lies between the smallest and the largest eigenvalue, a basis direction attains its own eigenvalue, and the error of keeping the first k components is the sum of the dropped eigenvalues.",
+  "It is the reduction that minimizes reconstruction error for the identity reader, which weighs all directions equally, which is to say for no particular reader at all. At matched reconstruction the consumer-aware code beat it in twelve of twelve domains, and truncation loses on compact sets.",
+]
+
+[[entry]]
+id = "sources-table"
+kind = "instrument"
+title = "sources table"
+glossary = "sources table"
+equations = ["8.1"]
+ledger = []
+first_stated = "Chapter 0 section 0.21 of *Data Mining as Observation*, with the program's claims ledger that the same discipline enforces in `turboquant-pro/CLAIMS.md:1-27`."
+book_records = ["test_claims_ledger", "CLAIMS.md:1-27"]
+book_terms = ["sources table", "Sources for every number"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
+related = ["commit-hash", "sealed", "ledger-class", "preregistration", "certificate"]
+conditions = [
+  "The table at the end of every chapter naming, for each number, the repository, file, and line range it came from, so that no number in the book has to be taken on trust. A row that names a commit hash binds the number to one state of the file, since a changed digest proves a changed file.",
+  "The table is a citation and not a proof. The book's checker verifies that every cited path exists, and the encyclopedia's checker verifies the numbers of its hand-filled entries against the generated ones, but the numbers themselves are the records' and the reader who wants them opens the file.",
+]
+
+[[entry]]
+id = "spectral-embedding"
+kind = "instrument"
+title = "spectral embedding"
+glossary = "spectral embedding"
+equations = ["0.19", "0.20", "3.3"]
+ledger = ["NEG-1"]
+first_stated = "Ng, Jordan, and Weiss, on spectral clustering, 2002, as chapter 3 section 3.3 of *Data Mining as Observation* reads it, with the program's angular reading in `the-angular-observer/theorem.md:110-146`."
+book_records = ["theorem.md:110-146", "ch09_legibility.md:10-41", "ch09_legibility.md:31-41"]
+book_terms = ["spectral embedding", "spectral clustering", "row normalization"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/SpectralEmbedding.lean", "observation-data-mining:lean/DataMiningAsObservation/Laplacian.lean"]
+related = ["laplacian", "commute-time", "geodesic-distance", "degree", "recognizer"]
+conditions = [
+  "The coordinates a node receives from its values in the first few nontrivial eigenvectors of the graph Laplacian. Row normalization puts every embedded row on the unit sphere, leaves the cosine between rows unchanged, and ignores a positive rescaling of a row, so it is the projection onto the read subspace of the geodesic-rank consumer.",
+  "Its magnitude converges to degree noise and its angle keeps the geodesics, so the cosine between embedded rows is the right similarity and the Euclidean distance the wrong one. Clustering the normalized coordinates is spectral clustering, and a density reader of the same embedding reads the complementary coordinate.",
+]
+
+[[entry]]
+id = "token"
+kind = "concept"
+title = "token"
+glossary = "token"
+equations = ["0.22", "0.23", "11.1"]
+ledger = []
+first_stated = "Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's serving measurements in `geometric-observation/experiments/GO-kv-serving-flip-NOTES.md`."
+book_records = ["GO-kv-serving-flip-NOTES", "GO-P-2026-077-kv"]
+book_terms = ["\\btokens?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Perplexity.lean"
+related = ["perplexity", "attention", "kv-cache", "rotary-position-embedding", "teacher-forcing"]
+conditions = [
+  "A piece of text, roughly a word, the unit a language model reads and writes. A model reads a sequence of tokens and outputs a probability for the next one, and perplexity is two to the power of the average bits per token, so it is at least one and equals the vocabulary size for a uniform guess.",
+  "The key-value cache stores one key and one value per token per head, and a generation of 512 tokens under a wrong codebook was where the retracted degradation curve was measured. Token counts are the budget in every serving row of chapter 13.",
+]
+
+[[entry]]
+id = "transmission-time-interval"
+kind = "concept"
+title = "transmission time interval"
+glossary = "transmission time interval"
+equations = ["0.25", "13.2"]
+ledger = []
+first_stated = "Chapter 0 section 0.13 of *Data Mining as Observation*, with the program's sealed floors in `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:20-35`."
+book_records = ["RADIO-FRESHNESS-TRACK", "CSI-refreshfloor"]
+book_terms = ["transmission time interval", "\\bTTIs?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/TTI.lean"
+related = ["block-error-rate", "coherence-time", "refresh-floor", "freshness"]
+conditions = [
+  "The one-millisecond slot in which a 5G tower schedules a transmission, abbreviated TTI. A duration of m milliseconds spans m slots, slots add over consecutive durations, and a longer duration spans more of them, which is the arithmetic the refresh floors are counted in.",
+  "The sealed floors were 4, 1, and 1 slots at Doppler frequencies of 10, 50, and 400 hertz, and the earlier fit of the floor as a fixed fraction of the coherence time was refuted and is not to be cited.",
+]
+
+[[entry]]
+id = "weyls-law"
+kind = "concept"
+title = "Weyl's law"
+glossary = "Weyl's law"
+equations = ["0.31", "9.2", "0.19"]
+ledger = ["GO-3"]
+first_stated = "Weyl, 1911, as chapter 0 section 0.15 of *Data Mining as Observation* states it, with the program's dimension reading in `geometric-observation/chapters/ch11_the_recognizer.md:1-95`."
+book_records = ["ch11_the_recognizer.md:1-95", "battery_result.json"]
+book_terms = ["Weyl"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/IntrinsicDimension.lean"
+related = ["intrinsic-dimension", "manifold", "laplacian", "multiplet", "recognizer"]
+conditions = [
+  "The rule that the number of eigenvalues below a value grows like that value to the power of half the dimension, so the dimension is in the exponent and is read from the slope of the count against the value on log axes. Doubling the value multiplies the count by two to the half dimension.",
+  "Chapter 9 reads a dataset's dimension from its spectrum before reading its shape, and the recognizer's battery recovered dimensions of 1.81, 2.80, and 1.74 on three sealed templates. The finer geometry is in the constant and the multiplets, not the exponent.",
+]

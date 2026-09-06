@@ -145,9 +145,24 @@ acceptance test for the generator that will fill them from the records.
 | [challenge set](generated/challenge-set.md) | instrument | a test collection on which a benchmark-passing shortcut fails, necessarily outside the benchmark |
 | [cross-validation](generated/cross-validation.md) | instrument | folds tested once each, whose size-weighted mean accuracy is the overall accuracy, sharing training data |
 | [rotary position embedding](generated/rotary-position-embedding.md) | concept | a rotation by position under which a head reads relative position only |
+| [anisotropic](generated/anisotropic.md) | concept | a covariance with unequal variances across directions, the condition under which readers disagree |
+| [anti-monotonicity](generated/anti-monotonicity.md) | concept | support cannot rise as an itemset grows, the license Apriori prunes under |
+| [attribution](generated/attribution.md) | instrument | a per-feature share of one prediction, which for a gradient sums to the output change and estimates the read operator |
+| [commute time](generated/commute-time.md) | concept | steps there and back for a random walk, symmetric, whose collapsed resistance depends on degrees alone |
+| [expected calibration error](generated/expected-calibration-error.md) | instrument | the bin-weighted gap between mean score and positive fraction, zero exactly when calibrated |
+| [finite difference](generated/finite-difference.md) | instrument | a derivative from two evaluations a step apart, exact on quadratics when centred, at a price of 2d |
+| [latent semantic analysis](generated/latent-semantic-analysis.md) | instrument | principal components on the TF-IDF matrix, the identity reader on term-document variance |
+| [multiplet](generated/multiplet.md) | concept | a group of equal or near-equal eigenvalues, the circle's paired at k and n minus k |
+| [output metric](generated/output-metric.md) | concept | the rule that scores a consumer's mistakes, under which a negated consumer keeps its read operator and reverses every ranking |
+| [principal component analysis](generated/principal-component-analysis.md) | instrument | projection onto the top eigenvectors, whose dropped error is the dropped eigenvalues, the identity reader's code |
+| [sources table](generated/sources-table.md) | instrument | the per-chapter table naming the file and lines behind every number, bound by a commit hash |
+| [spectral embedding](generated/spectral-embedding.md) | instrument | a node's low-eigenvector coordinates, whose row normalization is the unit sphere and keeps the cosine |
+| [token](generated/token.md) | concept | the unit a language model reads and writes, whose bits per token set the perplexity |
+| [transmission time interval](generated/transmission-time-interval.md) | concept | the one-millisecond slot a 5G tower schedules in, the unit the refresh floors are counted in |
+| [Weyl's law](generated/weyls-law.md) | concept | the eigenvalue count grows like the value to half the dimension, which the slope reads off |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other one hundred and thirty-five exist only as generated entries, built from the records by `generate.py`.
+other one hundred and fifty exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -174,6 +189,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, one hundred and five files as of 2026-09-05, and the book's appendix C states what each
+its checkable core, one hundred and thirteen files as of 2026-09-06, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
