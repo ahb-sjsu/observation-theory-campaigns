@@ -2071,3 +2071,88 @@ conditions = [
   "One attention operation, with its own queries, keys, and values. A head's output lies between the smallest and largest value, it reads the keys only through their scores against its query, and a key change the query does not read leaves its output unchanged however large the change.",
   "Each head has its own read subspace, a few query-weighted directions of each key, so a compression that serves one head can fail another, and the serving-stack measurement of chapter 13 is per head.",
 ]
+
+[[entry]]
+id = "paraphrase-class"
+kind = "concept"
+title = "paraphrase class"
+glossary = "paraphrase class"
+equations = ["14.3"]
+ledger = []
+first_stated = "Chapter 14 section 14.4 of *Data Mining as Observation*, with the program's re-description test in `gtc-prototype/docs/REGATE.md:1-70` and the back-translation run."
+book_records = ["ratio definition, 0.407 to 0.219", "back-translation", "gold set 3 of 6", "19 of 79 refused"]
+book_terms = ["paraphrase", "re-description", "rewording"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ParaphraseClass.lean"
+related = ["quotient", "escalation", "certificate", "deployment-mismatch"]
+conditions = [
+  "A set of rewordings of one input that preserve its meaning. A verdict is invariant to re-description when it does not move across the class, and the ratio of equation 14.3 measures the movement under rewording over the spread between inputs. It is nonnegative, zero exactly when no item's score moves, and at most one half exactly when the movement is at most half the spread.",
+  "The measured ratios, 0.407 falling to 0.219 on sixty items and 0.482 to 0.301 under back-translation, with three of six gold items still flipping, are the program's numbers, and the items that flip are routed to escalation.",
+]
+
+[[entry]]
+id = "contrastive-objective"
+kind = "concept"
+title = "contrastive objective"
+glossary = "contrastive objective"
+equations = ["12.3", "11.1"]
+ledger = ["GO-B-legal (035→036)", "NEG-2"]
+first_stated = "Chapter 12 section 12.4 of *Data Mining as Observation*, with the program's encoders in xbse, `xbse/README.md:104-130`."
+book_records = ["xbse\\README.md:104", "LaBSE", "cross-corpus positives"]
+book_terms = ["contrastive", "declared similar", "fine-tun"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Contrastive.lean"
+related = ["encoder", "embedding", "cross-corpus-gate", "quotient"]
+conditions = [
+  "A training rule that pulls pairs declared similar together and pushes other pairs apart. With a margin loss the loss is nonnegative, zero exactly when every declared pair scores above every other pair by the margin, and never lower for a larger margin.",
+  "Swapping which pairs are declared similar reverses that condition, and with a positive margin no scorer satisfies both, so the declared pairs are where an encoder learns what similar means. Fine-tuning moves the reader, and the cross-corpus positives were the fix when within-corpus scores collapsed.",
+]
+
+[[entry]]
+id = "validity-index"
+kind = "concept"
+title = "validity index"
+glossary = "validity index"
+equations = ["9.1", "0.30"]
+ledger = ["GO-3"]
+first_stated = "TSK chapter 7 on cluster validity, as chapter 9 section 9.1 of *Data Mining as Observation* reads it, an output metric that needs a null."
+book_records = ["TSK 2e chapter 7", "the geodesic-rank reader", "SSE"]
+book_terms = ["validity ind", "silhouette", "SSE"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Silhouette.lean"
+related = ["silhouette", "recognizer", "vacuity-threshold", "null-model"]
+conditions = [
+  "A score for a clustering computed without labels. The silhouette is the case, in the interval from minus one to one, positive exactly when a row is closer to its own cluster, and unchanged by a common rescaling of the distances.",
+  "A validity index is an output metric and needs a null, since it is computed under the identity reader on the distances it is given, which is why chapter 9 asks the recognizer to name the manifold or certify that none is present.",
+]
+
+[[entry]]
+id = "query-key-value"
+kind = "concept"
+title = "query, key, value"
+glossary = "query, key, value"
+equations = ["0.23", "11.1"]
+ledger = ["NEG-2"]
+first_stated = "Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's key-side measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["KV_KEYS_FINDING", "key quantizer", "attention head"]
+book_terms = ["query", "\\bkeys?\\b", "\\bvalues?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Attention.lean"
+related = ["attention", "head", "kv-cache", "softmax"]
+conditions = [
+  "The three vectors each token produces inside attention. The query is compared to earlier keys and the result weights the values, so a head reads the keys only through their scores against the query and its output lies between the smallest and largest value.",
+  "Keys are read along the query and values are averaged, so a compression that preserves query-key scores preserves every output, and one that preserves the keys' cosine need not.",
+]
+
+[[entry]]
+id = "commit-hash"
+kind = "instrument"
+title = "commit hash"
+glossary = "commit hash"
+equations = ["8.3"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.12 of *Data Mining as Observation*, with the program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-10`, where every seal is a registration id, a sealing commit, and a hash."
+book_records = ["seal = commit plus SHA-256", "commit ea7ee82", "289bdfc", "sealing commit"]
+book_terms = ["commit"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
+related = ["hash", "sealed", "sources-table", "preregistration"]
+conditions = [
+  "The fingerprint git assigns to a snapshot of a repository, which fixes the time at which a file existed in that state. A changed hash proves a changed file and an equal hash is evidence, since a fixed-length digest of longer inputs cannot be injective.",
+  "Every row of a sources table cites its commit, every seal records its sealing commit, and the book's own colophon names the commit it was built from, so that a number can be reproduced at the state it was measured in.",
+]

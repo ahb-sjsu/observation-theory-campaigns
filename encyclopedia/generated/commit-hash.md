@@ -1,11 +1,11 @@
-# hash
+# commit hash
 
-**id.** hash
+**id.** commit-hash
 **kind.** instrument
 
 ## definition
 
-A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. Chapter 0 section 0.12.
+The fingerprint git assigns to a snapshot of a repository, which fixes the time at which a file existed in that state. Chapter 0 section 0.12.
 
 ## equation
 
@@ -19,7 +19,7 @@ Book equation 8.3.
 
 ## first stated
 
-Chapter 0 section 0.12 of *Data Mining as Observation*, with the program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-10`, where every seal records a SHA-256.
+Chapter 0 section 0.12 of *Data Mining as Observation*, with the program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-10`, where every seal is a registration id, a sealing commit, and a hash.
 
 ## measurements
 
@@ -31,8 +31,8 @@ none
 
 ## conditions
 
-- A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. A changed hash proves a changed file, an unchanged file has an unchanged hash, and a digest with fewer values than there are files sends two distinct files to the same digest, so an equal hash is evidence and not proof.
-- The seal ledger records the hash beside the commit, and the recognizer's templates and the probe's records carry theirs, so that a reader with the repository can check what was fixed before the measurement.
+- The fingerprint git assigns to a snapshot of a repository, which fixes the time at which a file existed in that state. A changed hash proves a changed file and an equal hash is evidence, since a fixed-length digest of longer inputs cannot be injective.
+- Every row of a sources table cites its commit, every seal records its sealing commit, and the book's own colophon names the commit it was built from, so that a number can be reproduced at the state it was measured in.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
@@ -46,7 +46,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## related
 
-sealed, preregistration, ledger-class, certificate
+hash, sealed, sources-table, preregistration
 
 ## status
 

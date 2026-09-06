@@ -1,11 +1,11 @@
-# softmax
+# query, key, value
 
-**id.** softmax
+**id.** query-key-value
 **kind.** concept
 
 ## definition
 
-The function that exponentiates a list of numbers and divides by their sum, so that they are positive and add to one. Equation 0.23.
+The three vectors each token produces inside attention. The query is compared to earlier keys and the result weights the values. Chapter 0 section 0.11.
 
 ## equation
 
@@ -13,18 +13,17 @@ Book equation 0.23.
 
     \operatorname{softmax}(z)_i=\frac{e^{z_i}}{\sum_j e^{z_j}},\qquad \text{output}=\sum_i\operatorname{softmax}\!\Big(\frac{q\cdot k_i}{\sqrt{d}}\Big)_{\!i}\,v_i.
 
-Book equation 0.24.
+Book equation 11.1.
 
-    \mathrm{KL}(p\,\|\,q)=\sum_i p_i\ln\frac{p_i}{q_i}\ \ge 0.
+    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
 
 ## ledger
 
-- NEG-8. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer. `[refuted]`. `geometric-observation/claims/LEDGER.md:101` at 7d91883.
-- NEG-9. The projected-variance trace tr(P_C·Σ_δ) is a complete rank statistic for softmax-KL across all arms. `[refuted]`. `geometric-observation/claims/LEDGER.md:102` at 7d91883.
+- NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 7d91883.
 
 ## first stated
 
-Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's softmax reader in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
+Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's key-side measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
 
 ## measurements
 
@@ -39,27 +38,26 @@ Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's softm
 
 ## failures and corrections
 
-- NEG-8, `[refuted]`. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer.
-- NEG-9, `[refuted]`. The projected-variance trace tr(P_C·Σ_δ) is a complete rank statistic for softmax-KL across all arms.
+- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality.
 
 ## conditions
 
-- The softmax exponentiates a list of scores and divides by the sum, so the weights are positive and add to one. Adding the same constant to every score leaves it unchanged, and a larger score gets a larger weight.
-- As a consumer it reads the scores through their differences, which is why the two proxies for softmax-KL in the ledger, the variance ratio and the projected-variance trace, were refuted.
+- The three vectors each token produces inside attention. The query is compared to earlier keys and the result weights the values, so a head reads the keys only through their scores against the query and its output lies between the smallest and largest value.
+- Keys are read along the query and values are averaged, so a compression that preserves query-key scores preserves every output, and one that preserves the keys' cosine need not.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Softmax.lean`, theorems `denom_pos`, `softmax_pos`, `softmax_sum`, `softmax_shift`, `softmax_lt_iff`, at observation-data-mining 416c9a3.
+`lean/DataMiningAsObservation/Attention.lean`, theorems `output_le_max`, `min_le_output`, `output_congr`, `output_nuisance`, at observation-data-mining 416c9a3.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 2, 3, 4, 8, 11.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.
 
 ## related
 
-attention, kl-divergence, perplexity, consumer
+attention, head, kv-cache, softmax
 
 ## status
 
