@@ -71,7 +71,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Flip.lean`, theorems `trace_eq`, `reading_difference`, `reader_swap_reverses`, `flip`, `cos_sq_pi_div_twelve`, `sin_sq_pi_div_twelve`, `reading_15_first`, `reading_15_second`, `sqrt_three_bounds`, `readings_15_to_three_decimals`, `reader_75_is_swap`, `four_to_one_flip`, at observation-data-mining 2b00d80.
+`lean/DataMiningAsObservation/Flip.lean`, theorems `trace_eq`, `reading_difference`, `reader_swap_reverses`, `flip`, `cos_sq_pi_div_twelve`, `sin_sq_pi_div_twelve`, `reading_15_first`, `reading_15_second`, `sqrt_three_bounds`, `readings_15_to_three_decimals`, `reader_75_is_swap`, `four_to_one_flip`, at observation-data-mining 8d30d9d.
 
 ## used in
 
@@ -83,4 +83,4 @@ read-distortion, alignment, anti-arm, rank-certificate, coupling-null
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns e448a13, theory-radar 37c4e6c, observation-data-mining 2b00d80, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 425c17a, theory-radar 37c4e6c, observation-data-mining 8d30d9d, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
