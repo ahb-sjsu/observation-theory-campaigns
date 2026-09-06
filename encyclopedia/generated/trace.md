@@ -1,11 +1,11 @@
-# covariance matrix
+# trace
 
-**id.** covariance-matrix
+**id.** trace
 **kind.** concept
 
 ## definition
 
-The matrix of pairwise covariances of a set of rows, whose trace is the total variance. Equation 0.3.
+The sum of a matrix's diagonal, which for a covariance is the total variance. Equation 0.3.
 
 ## equation
 
@@ -13,13 +13,9 @@ Book equation 0.3.
 
     \Sigma_{ij}=\mathbb E\big[(x_i-\mu_i)(x_j-\mu_j)\big],\qquad \operatorname{tr}\Sigma=\sum_{i}\Sigma_{ii}.
 
-Book equation 0.4.
+Book equation 0.10.
 
-    \operatorname{Var}(u\cdot x)=u^{\top}\Sigma\,u.
-
-Book equation 0.5.
-
-    \Sigma\,v_i=\lambda_i v_i,\qquad \Sigma=\sum_{i=1}^{d}\lambda_i\,v_i v_i^{\top},\qquad v_i\cdot v_j=0\ (i\ne j).
+    d_O=\operatorname{tr}(P_C\,M_\delta)=\mathbb E\!\left[\delta^{\top}P_C\,\delta\right],\qquad M_\delta=\mathbb E\!\left[\delta\delta^{\top}\right],\qquad P_C=I\ \Rightarrow\ d_O=\operatorname{tr}M_\delta.
 
 ## ledger
 
@@ -28,7 +24,7 @@ Book equation 0.5.
 
 ## first stated
 
-Chapter 0 section 0.2 of *Data Mining as Observation*, paired with the read operator in chapter 4, and Volume 14 chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`.
+Chapter 0 section 0.2 of *Data Mining as Observation*, with the trace pairing of Volume 14's invariance row OT-7.
 
 ## measurements
 
@@ -36,8 +32,6 @@ Chapter 0 section 0.2 of *Data Mining as Observation*, paired with the read oper
 |---|---|---|
 | chapter 2 section 2.2 | read subspace small, operator local, pullback composition, rank cannot increase | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:7-48`; `geometric-observation\chapters\ch06_mathematical_preliminaries.md:10-27` |
 | chapter 2 section 2.2 | read distortion controls but is not a complete rank statistic, twelve of twelve, one middle pair misordered, NEG-9 | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:49-75` |
-| chapter 4 section 4.2 | effective rank as participation ratio, energy rank | `readscope\readscope\spectrum.py:35-70` |
-| chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | `turboquant-pro\turboquant_pro\read_allocation.py:244-307` |
 
 ## failures and corrections
 
@@ -45,22 +39,22 @@ none
 
 ## conditions
 
-- The weighted average of the centred rows' outer products, the same construction as the read operator with the centred row in place of the sensitivity. Its quadratic form along a unit direction is the variance of the projection onto it, its trace is the total variance, and it is positive semidefinite.
-- Chapter 4 pairs it with the read operator in one basis. Where the two are proportional there is no flip, and where they are not the water-filling allocation reads both.
+- The sum of a matrix's diagonal. It is linear, the trace of the identity is the dimension, the trace of an outer product is the vector's squared length, the trace of a product does not depend on the order, and the trace of a read operator times a rank-one error is the read distortion of that error.
+- For a covariance the trace is the total variance, and the trace pairing of a read operator with a second moment is the invariant the ledger's row OT-7 names, unchanged by a change of basis where the spectrum and effective rank are not.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Covariance.lean`, theorems `var_eq_quad`, `trace_eq_total`, `quad_nonneg`, `cov_symm`, at observation-data-mining 8d458b2.
+`lean/DataMiningAsObservation/Trace.lean`, theorems `trace_add`, `trace_smul`, `trace_one`, `trace_vecMulVec`, `trace_mul_comm`, `trace_read`, `trace_identity_read`, at observation-data-mining 8d458b2.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 9, 10, 11, 12.
+*Data Mining as Observation* chapters 0, 1, 3, 4, 13.
 
 ## related
 
-read-operator, whitening, water-filling, alignment, explained-variance
+covariance-matrix, read-distortion, identity-reader, effective-rank
 
 ## status
 

@@ -1,25 +1,25 @@
-# recognizer
+# manifold
 
-**id.** recognizer
-**kind.** instrument
+**id.** manifold
+**kind.** concept
 
 ## definition
 
-The instrument that decides whether a clustering certificate is right, wrong, or vacuous, by naming the manifold from the eigenvalue multiplets or certifying that none is present. Chapter 9.
+A curved surface of some dimension that looks flat when viewed closely. A dataset lies on one when its rows vary along fewer directions than they have coordinates. Chapter 0 section 0.10.
 
 ## equation
 
-Book equation 9.3.
+Book equation 0.31.
 
-    \hat\mu=\frac{\bar s_{\mathrm{true}}-\bar s_{\mathrm{distr}}}{\sigma_{\mathrm{distr}}},\qquad \mu_{\mathrm{crit}}=\mathbb E\Big[\max_{N-1}\mathcal N(0,1)\Big],\qquad \rho=\frac{\hat\mu}{\mu_{\mathrm{crit}}},\qquad \rho=1\ \text{vacuous}.
-
-Book equation 0.32.
-
-    \operatorname{dist}(m,t)=\sqrt{\frac18\sum_{k=1}^{8}\big(\ln m_k-\ln t_k\big)^{2}}.
+    N(\lambda)=\#\{k:\lambda_k\le\lambda\}\ \sim\ C_d\,\lambda^{d/2}.
 
 Book equation 9.2.
 
     N(\lambda)=\#\{k:\lambda_k\le\lambda\}\ \sim\ C_d\,\lambda^{d/2}\qquad\Rightarrow\qquad d=2\,\frac{d\log N}{d\log\lambda}.
+
+Book equation 0.32.
+
+    \operatorname{dist}(m,t)=\sqrt{\frac18\sum_{k=1}^{8}\big(\ln m_k-\ln t_k\big)^{2}}.
 
 ## ledger
 
@@ -27,7 +27,7 @@ Book equation 9.2.
 
 ## first stated
 
-Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-95`, DOI 10.5281/zenodo.21776291, and the-angular-observer's recognizer battery, `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80`.
+Chapter 0 section 0.10 and chapter 9 section 9.2 of *Data Mining as Observation*, with the recognizer of Volume 14 chapter 11 and its battery in the-angular-observer.
 
 ## measurements
 
@@ -45,7 +45,6 @@ Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-
 | chapter 9 section 9.2 | the battery, three new templates, frozen ratios, code hash, bars at least 10 of 12 and the dimension ordering, eccentricity scope | `the-angular-observer\PREREG_RECOGNIZER_BATTERY.md:1-80` |
 | chapter 9 section 9.2 | 12 of 12, dimensions 1.81, 2.80, 1.74, angular Spearman ranges, eccentricity spreads, verdict confirmed, GO-P-2026-041 | `the-angular-observer\experiments\manifold-recovery\battery_result.json` |
 | chapter 9 section 9.2 | causal set 0.57 with dimension 2.9 to 10.7, small world 0.45, control 0.01, rung 4 decay 0.747 to 0.679 below 0.75 | `the-angular-observer\README.md:99-109`; `wolfram-observer-bridge\rung4_scaledm_result.json`; `wolfram-observer-bridge\review-2.txt` |
-| chapter 9 section 9.3 | the margin certificate, mu crit as the expected maximum of N minus 1 standard normals, rho, death at 0.948 within 6 percent, Spearman 0.991 vs 0.873, fourteen corpora, six gates, the v1 to v3 path, the standing correction | `geometric-observation\experiments\GO3-certificate-vacuity-v3-NOTES.md:1-60`; `geometric-observation\claims\LEDGER.md` row GO-3 |
 | chapter 11 section 11.1 | condition (A2), cosine satisfies it, post-rotary keys do not, the cone below cell size | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `the-angular-observer\README.md:26-31` |
 
 ## failures and corrections
@@ -54,22 +53,22 @@ none
 
 ## conditions
 
-- The recognizer names a manifold from the low eigenvalue multiplets of a neighbourhood graph's Laplacian by template match, or certifies that none is present, and it can only name shapes in its template set.
-- It was held to a preregistered held-out battery, and the vacuity threshold below which it certifies nothing is derived from the problem rather than tuned.
+- A curved surface of some dimension that looks flat when viewed closely. A dataset lies on one when its rows vary along fewer directions than they have coordinates, and under Weyl's law the count of Laplacian eigenvalues below a level grows like the level to half that dimension, so the dimension is twice the slope of log count against log level.
+- The recognizer names the manifold from the eigenvalue multiplets or certifies that none is present, and the twelve of twelve battery is the ledger's demonstrated row.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Recognizer.lean`, theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 8d458b2.
+`lean/DataMiningAsObservation/IntrinsicDimension.lean`, theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 8d458b2.
 
 ## used in
 
-*Data Mining as Observation* chapters 9.
+*Data Mining as Observation* chapters 0, 3, 9.
 
 ## related
 
-certificate, vacuity-threshold, hubness
+intrinsic-dimension, recognizer, graph, laplacian, template-match
 
 ## status
 
