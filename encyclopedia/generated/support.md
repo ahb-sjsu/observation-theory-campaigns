@@ -1,21 +1,21 @@
-# Apriori principle
+# support
 
-**id.** apriori
-**kind.** result
+**id.** support
+**kind.** concept
 
 ## definition
 
-The statement that every subset of a frequent itemset is frequent, the contrapositive of anti-monotonicity. Chapter 5.
+Of an itemset, the fraction of transactions that contain it. Chapter 5.
 
 ## equation
-
-Book equation 5.3.
-
-    X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
 
 Book equation 5.1.
 
     s(X)=\frac{\sigma(X)}{N},\qquad c(X\to Y)=\frac{\sigma(X\cup Y)}{\sigma(X)}=\frac{s(X\cup Y)}{s(X)}.
+
+Book equation 5.3.
+
+    X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
 
 ## ledger
 
@@ -23,7 +23,7 @@ none
 
 ## first stated
 
-Agrawal and Srikant, fast algorithms for mining association rules, 1994, as TSK chapter 5 presents it, and chapter 5 section 5.3 of *Data Mining as Observation*.
+TSK chapter 5, as chapter 5 section 5.1 of *Data Mining as Observation* states it, with anti-monotonicity as the Apriori license.
 
 ## measurements
 
@@ -37,8 +37,8 @@ none
 
 ## conditions
 
-- Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent. This holds for any finite collection of transactions.
-- The principle licenses pruning the lattice above an infrequent itemset without counting, and the count of candidates rather than the count of transactions decides whether the run finishes.
+- The fraction of transactions that contain an itemset. Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent, which is the license to prune the lattice.
+- The count of candidates rather than the count of transactions decides whether a run finishes, and a rare consequent lets lift reach the transaction count on a single co-occurrence.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
@@ -48,11 +48,11 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## used in
 
-*Data Mining as Observation* chapters 5.
+*Data Mining as Observation* chapters 2, 5, 6, 7, 8.
 
 ## related
 
-safe-pruning, monotone-invariance
+itemset, apriori, lift, cross-support-ratio
 
 ## status
 

@@ -44,7 +44,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DisparateImpact.lean`, theorems `ratio_eq_one_iff`, `ratio_swap`, `four_fifths_iff`, `verdict_le_iff`, `weighted_le_verdict`, at observation-data-mining 416c9a3.
+`lean/DataMiningAsObservation/DisparateImpact.lean`, theorems `ratio_eq_one_iff`, `ratio_swap`, `four_fifths_iff`, `verdict_le_iff`, `weighted_le_verdict`, at observation-data-mining 1c6cd64.
 
 ## used in
 
@@ -56,4 +56,4 @@ equalized-odds, min-over-strata, false-clear-rate, abstention
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 994ee12, theory-radar 37c4e6c, observation-data-mining 416c9a3, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 09cc919, theory-radar 37c4e6c, observation-data-mining 1c6cd64, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
