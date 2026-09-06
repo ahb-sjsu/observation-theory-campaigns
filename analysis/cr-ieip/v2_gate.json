@@ -1,0 +1,42 @@
+{
+  "cellD": {
+    "12": {
+      "gate_R2": 0.4195,
+      "in_regime": true
+    },
+    "18": {
+      "gate_R2": 0.303,
+      "in_regime": true
+    }
+  },
+  "cellE": {
+    "14": {
+      "gate_R2": 0.1738,
+      "in_regime": true
+    },
+    "21": {
+      "gate_R2": -0.1001,
+      "in_regime": false
+    }
+  },
+  "cellF": {
+    "12": {
+      "gate_R2": 0.0287,
+      "in_regime": false
+    },
+    "18": {
+      "gate_R2": -0.0395,
+      "in_regime": false
+    }
+  },
+  "cellG": {
+    "14": {
+      "gate_R2": 0.1476,
+      "in_regime": true
+    },
+    "21": {
+      "gate_R2": -0.1226,
+      "in_regime": false
+    }
+  }
+}

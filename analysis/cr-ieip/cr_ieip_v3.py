@@ -154,6 +154,7 @@ def paraphrase(texts):
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
     torch.set_num_threads(int(os.environ.get("IEIP_THREADS", "8")))
     name = os.environ.get("IEIP_PARA_MODEL", "humarin/chatgpt_paraphraser_on_T5_base")
+    beams = int(os.environ.get("IEIP_PARA_BEAMS", "1"))  # beam search stays deterministic
     tok = AutoTokenizer.from_pretrained(name)
     mt = AutoModelForSeq2SeqLM.from_pretrained(name)
     out = []
@@ -161,15 +162,56 @@ def paraphrase(texts):
         prompts = [f"paraphrase: {t}" for t in texts[s:s + 32]]
         enc = tok(prompts, return_tensors="pt", padding=True, truncation=True,
                   max_length=80)
-        gen = mt.generate(**enc, max_length=80, num_beams=1, do_sample=False)
+        gen = mt.generate(**enc, max_length=80, num_beams=beams, do_sample=False)
         out.extend(tok.batch_decode(gen, skip_special_tokens=True))
         if (s + 32) % 640 == 0:
             print(f"    para {s+32}/{len(texts)}", flush=True)
     return out
 
 
+# --- V3 locality-ladder transforms: pure deterministic string ops -----------
+_SYN = {" a ": " one ", " the ": " that ", "n't": " not", " big ": " large ",
+        " kids": " children", " buy ": " purchase ", " help ": " assist ",
+        " tell ": " inform ", " get ": " obtain ", " make ": " create "}
+
+
+def synonym_sub(texts):
+    out = []
+    for t in texts:
+        u = t
+        for k, v in _SYN.items():
+            u = u.replace(k, v)
+        out.append(u)
+    return out
+
+
+def word_shuffle(texts):
+    rng = np.random.default_rng(SEED)   # deterministic given the graded seed
+    out = []
+    for t in texts:
+        w = t.split()
+        if len(w) > 4:
+            mid = w[1:-1]
+            rng.shuffle(mid)
+            w = [w[0]] + mid + [w[-1]]
+        out.append(" ".join(w))
+    return out
+
+
+def truncate_half(texts):
+    return [" ".join(t.split()[: max(2, len(t.split()) // 2)]) for t in texts]
+
+
 def transform(texts):
-    return paraphrase(texts) if TRANSFORM == "para" else backtranslate(texts)
+    if TRANSFORM == "para":
+        return paraphrase(texts)
+    if TRANSFORM == "synonym":
+        return synonym_sub(texts)
+    if TRANSFORM == "shuffle":
+        return word_shuffle(texts)
+    if TRANSFORM == "truncate":
+        return truncate_half(texts)
+    return backtranslate(texts)
 
 
 

@@ -1,10 +1,10 @@
 # PREREG-CR-IEIP-V2 — the regime-gated conditional law
 
-**Status: DRAFT v0.1. FAMILY-CONSTRUCTED 2026-09-04 (the V1 graded family —
-cells A/B/C — and its RESULTS are this family's construction evidence).
-Earliest seal 2026-09-05 (cooling-off). Not sealed. V1 graded FAIL and stays
-FAIL; this family tests the sharper law V1's own record measured on both
-arms.**
+**Status: SEALED v1.0 (2026-09-05). FAMILY-CONSTRUCTED 2026-09-04 < seal
+date: cooling-off satisfied. V1 graded FAIL and stays FAIL; this family
+tests the sharper law V1's own record measured on both arms. The four open
+items are resolved in the "Seal record" section below; after this line
+nothing changes except by dated amendment. Verdicts commit as executed.**
 
 ## Claim
 
@@ -38,7 +38,7 @@ burned; graded V2 cells must be fresh pairs.
 |---|---|---|---|---|
 | D | Qwen2.5-0.5B | de backtranslation (opus-mt-en-de/de-en) | in-regime | 20260927 |
 | E | Qwen2.5-1.5B | fr backtranslation | in-regime | 20260928 |
-| F | Qwen2.5-0.5B | T5-para, second paraphraser (`Vamsi/T5_Paraphrase_Paws`) | out-of-regime | 20260929 |
+| F | Qwen2.5-0.5B | second paraphraser (`tuner007/pegasus_paraphrase`, beams=5) | out-of-regime | 20260929 |
 | G | Qwen2.5-1.5B | de backtranslation | in-regime | 20261002 |
 
 The ARM IS ASSIGNED BY THE GATE at run time, not by these predictions; the
@@ -69,14 +69,28 @@ substrate free (Atlas or NRP) per the ledger.
 **B1 = the in-regime arm bar AND the out-of-regime arm bar, every graded
 cell, both graded layers.** One family, one conditional claim, both arms.
 
-## Open items — resolved at seal (fresh day, ≥ 2026-09-05)
+## Seal record — the four open items, resolved 2026-09-05
 
-1. Seed collision re-scan (20260927/28/29, 20261002).
-2. Commit the second-paraphraser transform option (env `IEIP_PARA_MODEL`
-   already exists; smoke ≥ 80% differ on burned texts, mechanical only).
-3. Freeze the gate constant 0.05 and both arm bars exactly as written, or
-   amend with dated rationale BEFORE seal.
-4. Confirm corpora/footprints per the ledger; nothing sized by guess.
+1. **Seed re-scan clean** (20260927/28/29, 20261002 across the three repos).
+2. **Second paraphraser: SUBSTITUTED with dated rationale, pre-seal.** The
+   drafted candidate (`Vamsi/T5_Paraphrase_Paws`) FAILED the mechanical
+   smoke under the machinery's deterministic decode (0/50 differ — it copies
+   input under greedy decoding; the gate working as designed).
+   Replacement: `tuner007/pegasus_paraphrase` with deterministic beam search
+   (`IEIP_PARA_BEAMS=5`, a pre-seal runner knob committed with this seal;
+   beam search is deterministic, sampling remains forbidden). Smoke with the
+   runner's exact prompt: **40/50 differ = 80%, bar ≥ 80% PASS** (example:
+   "refuses to help a stranger in need" → "doesn't want to help a
+   stranger").
+3. **Constants frozen exactly as drafted:** gate ρ̂ held-out R² ≥ 0.05
+   (calibration-internal 80/20); in-regime bar fc_true ≤ fc_raw − 0.05;
+   out-of-regime bar fc_true ≥ fc_raw − 0.01; both graded layers, every
+   cell; verdict = both arms.
+4. **Sizing per the measured ledger:** cells run on Atlas under
+   `/usr/bin/time -v` (ledger: 1.5B×bt 22.7 GiB, 0.5B×para 14.4 GiB; no NRP
+   submission is planned for this family, so no request is sized — any
+   future NRP move sizes from these measurements via footprints.json).
+   Thermal: two cells at a time (8+8 threads), D+E then F+G.
 
 ## Amendment discipline
 
