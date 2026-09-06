@@ -37,8 +37,10 @@ missing layer. A validity attestation re-evaluated at use time, a measured
 false-clear rate for the network, and re-observation as the consumer test
 convert provenance into evidence. On real Breakthrough Listen L-band data, an
 ON-OFF cadence consumer rejects roughly $99.95\%$ of raw single-scan detections
-as interference, a discrimination no signature provides. For trusted
-observational datasets provenance is necessary and not sufficient, and the
+as interference, a discrimination no signature provides. By our characterization
+this $99.95\%$ is the base-rate false-clear that a provenance-only certificate
+over the same stream inherits. For trusted observational datasets provenance is
+necessary and not sufficient, and the
 validity layer, not the ledger, is where trust is earned.
 \end{abstract}
 
@@ -205,10 +207,20 @@ signature on any of these frames would have certified all 6651 as authentic and
 unaltered, and would have separated none of them. The discrimination comes from
 re-observation, not provenance.
 
-We report this as a mechanism demonstration, not as a benchmark of POSO, which we
-did not run. It establishes that a consumer test yields a large, measurable
-separation on real observational data, which is precisely the quantity a
-provenance certificate leaves at its base rate.
+We report the number as a mechanism demonstration, not as a benchmark of POSO's
+implementation, which we did not run. The tie to POSO is nonetheless exact at the
+level of the characterization. Take $C_{\mathrm{prov}}$ to be POSO's anchoring
+certificate and $V$ the re-observation test the technosignature consumer applies.
+Under the pure-provenance reading of Section~\ref{sec:background}, every one of
+the 6651 raw records anchors and clears identically, so $C_{\mathrm{prov}}=1$ on
+all 6651 while the consumer keeps 3. Equation~(2) then fixes the certificate's
+false-clear rate at the base rate $\Pr[V(x)=0]$, which on this real stream is
+$0.9995$. A POSO-style certificate over this observation stream false-clears at
+$0.9995$, not because its cryptography is weak but because~(2) pins it to a base
+rate that only re-observation moves. That rate is a property of what is anchored
+and which consumer reads it: anchor calibrated, cadence-screened products and it
+falls; anchor raw single-scan records, as the strongest-reading provenance-only
+design does, and it is this high.
 
 \section{Related work}\label{sec:related}
 Blockchain proposals for scientific data provenance and reproducibility are
