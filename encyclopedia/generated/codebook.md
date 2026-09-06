@@ -1,31 +1,30 @@
-# Landauer's principle
+# codebook
 
-**id.** landauers-principle
-**kind.** result
+**id.** codebook
+**kind.** concept
 
 ## definition
 
-Erasing one bit costs at least Boltzmann's constant times the absolute temperature times the natural log of two. Equation 0.27.
+The small set of allowed values a quantizer replaces each number with. Chapter 0 section 0.11.
 
 ## equation
 
-Book equation 0.27.
+Book equation 4.2.
 
-    E_{\min}=k_B\,T\ln 2\ \approx\ 2.87\times10^{-21}\ \text{J at }300\ \text{K}.
+    D(b)=\sum_i s_i\sigma_i^{2}\,2^{-2b_i},\qquad s_i=v_i^{\top}P_C\,v_i,\qquad b_i^{\star}=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i\sigma_i^{2}}{\theta}\Big),\qquad \sum_i b_i^{\star}=B,
 
-Book equation 13.3.
+Book equation 0.13.
 
-    W_{\mathrm{reset}}\ \ge\ k_BT\ln2\ \cdot\ H(M\mid S),\qquad H(M\mid S)\le H(M).
+    D(b)=\sum_i s_i v_i\,4^{-b_i},\qquad b_i=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i v_i}{\theta}\Big),\qquad \sum_i b_i=B.
 
 ## ledger
 
 - GO-7. A stored description's description rate and its conditional Landauer reset content are operationally separate resources: the same finite-$n$ code index needing $\hat R\approx0.67$ bits/symbol to describe is fully recoverable from retained side information at bin rate $0.26=0.39\hat R$, fails increasingly below its conditional content, and fails absolutely (err 1.00 at every bin rate) without $S$. `[replicated]`. `geometric-observation/claims/LEDGER.md:69` at 7d91883.
-- GO-8. On two independent source families (binary Markov; Gaussian AR(1)), a fixed stored record's operational reset threshold rises with the age of the retained side information exactly as the staleness–work complement prices it: same record, same bins, same decoder — the decodable bin rate climbs $0.10\to0.55$ bits/symbol across ages 0–64 of a $p=0.05$ Markov chain, tracking $R_c-1+h_2(\hat d \ast q_t)$ within one grid step at every age, and a fixed bin rate flips from 1% error (age 0) to 100% (age 32). `[replicated]`. `geometric-observation/claims/LEDGER.md:71` at 7d91883.
-- GO-9. Coordinated reset is operationally cheaper than independent reset by the records' shared-structure information: with two consumer records sharing a component, recovering either record's bin residual with the *other record intact* lowers the decodable threshold by $\mathrm{gap}_{TC}=1-h_2(\hat d \ast \hat d)$ (measured 0.60 and 0.45 vs 0.476 predicted) — including on the record whose own reset side information is useless; mismatched pairing saves nothing. Held on two independent source families (binary; Gaussian). `[replicated]`. `geometric-observation/claims/LEDGER.md:73` at 7d91883.
+- NEG-4. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:97` at 7d91883.
 
 ## first stated
 
-Landauer, irreversibility and heat generation in the computing process, 1961, as chapter 0 section 0.13 states it, and its consumer-relative form in Volume 14 and the rate-work paper of ledger rows GO-7 to GO-9.
+Chapter 0 section 0.11 and chapter 4 section 4.2 of *Data Mining as Observation*, with the six codebooks of ledger row GO-7 and the codebook confound of the honest negatives.
 
 ## measurements
 
@@ -47,26 +46,26 @@ Landauer, irreversibility and heat generation in the computing process, 1961, as
 
 ## failures and corrections
 
-none
+- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL.
 
 ## conditions
 
-- Erasing one bit costs at least Boltzmann's constant times the absolute temperature times the natural logarithm of two, 2.87 times ten to the minus twenty-one joules at 300 kelvin. The reset bound of chapter 13 charges that price per bit of the record's conditional entropy given what the consumer keeps.
-- Conditioning cannot raise entropy, so the consumer-relative bound is never above the consumer-free one, and a record that keeps nothing about the erased part costs nothing to reset. The entropies themselves are the ledger's measurements, two source families and six codebooks.
+- The small set of allowed values a quantizer replaces each input with, under the nearest-codeword rule. The distortion of an input is its distance to the nearest codeword, nonnegative, zero when the input is a codeword, achieved by some codeword, and never larger for a larger codebook.
+- Two arms compared at unequal codebooks are not a flip comparison, which is the twenty-five percent codebook confound the ledger carries, and the reset content of a stored description is separate from its rate, which is row GO-7's finding across six codebooks.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Landauer.lean`, theorems `eMin_300`, `resetBound_le`, `resetBound_zero`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/Codebook.lean`, theorems `distortion_nonneg`, `distortion_codeword`, `distortion_anti`, `exists_nearest`, at observation-data-mining 7eba709.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 13.
+*Data Mining as Observation* chapters 0, 4, 8, 11, 13.
 
 ## related
 
-budget, certificate, read-operator, coherence-time
+quantization, product-quantization, confound, flip
 
 ## status
 

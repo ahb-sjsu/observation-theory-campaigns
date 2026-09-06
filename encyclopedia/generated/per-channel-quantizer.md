@@ -1,21 +1,21 @@
-# KL divergence
+# per-channel quantizer
 
-**id.** kl-divergence
-**kind.** concept
+**id.** per-channel-quantizer
+**kind.** instrument
 
 ## definition
 
-A measure of how far one probability distribution is from another, zero when they are identical. Equation 0.24.
+A quantizer that chooses a scale per coordinate. Chapter 11.
 
 ## equation
 
-Book equation 0.24.
+Book equation 11.1.
 
-    \mathrm{KL}(p\,\|\,q)=\sum_i p_i\ln\frac{p_i}{q_i}\ \ge 0.
+    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
 
-Book equation 0.22.
+Book equation 0.13.
 
-    \mathrm{PPL}=2^{H},\qquad H=-\frac1T\sum_{t=1}^{T}\log_2 p\big(w_t\mid w_{<t}\big).
+    D(b)=\sum_i s_i v_i\,4^{-b_i},\qquad b_i=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i v_i}{\theta}\Big),\qquad \sum_i b_i=B.
 
 ## ledger
 
@@ -23,7 +23,7 @@ Book equation 0.22.
 
 ## first stated
 
-Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section 0.11 states it beside perplexity, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
+Chapter 11 section 11.2 of *Data Mining as Observation*, with the per-channel rows of the quantizer table in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
 
 ## measurements
 
@@ -42,22 +42,22 @@ Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section
 
 ## conditions
 
-- The expected log ratio of two distributions' masses under the first. It is nonnegative by Gibbs' inequality, zero when the distributions agree, and not symmetric, so the direction of the comparison is part of the claim.
-- The book's use is through perplexity. A reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude, which is the case that reconstruction error is not the consumer's error.
+- A quantizer that chooses a step per coordinate. The squared error of a vector is at most the sum of the squared half steps, and a finer step on one coordinate lowers that coordinate's bound alone, which is the allocation water-filling makes by sensitivity.
+- At four bits the per-channel uniform quantizer held the perplexity at 14.91 against 12.24 uncompressed, where the direction-only quantizer at the same bits did not.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KL.lean`, theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/Quantization.lean`, theorems `error_le_half_step`, `quantize_level`, `half_step_bound`, `sq_error_le`, `finer_step`, at observation-data-mining 7eba709.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 8, 11.
+*Data Mining as Observation* chapters 0, 3, 4, 11.
 
 ## related
 
-identity-reader, read-distortion, calibration, flip
+quantization, direction-only-quantizer, water-filling, kv-cache
 
 ## status
 
