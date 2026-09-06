@@ -1986,3 +1986,88 @@ conditions = [
   "Comparing a measured list of numbers, the eigenvalue ratios, to a stored list for each candidate shape and picking the smallest root-mean-square distance between the logarithms. The distance is zero between a list and itself, symmetric, and unchanged when both lists are scaled by the same factor, so the match reads shape and not size.",
   "The templates are frozen before the battery is run, with their code hash recorded, and the match can only name shapes in its template set, which is why the recognizer also certifies that none is present.",
 ]
+
+[[entry]]
+id = "cache"
+kind = "concept"
+title = "cache"
+glossary = "cache"
+equations = ["13.1", "0.26"]
+ledger = ["OT-11", "GO-12"]
+first_stated = "Chapter 13 section 13.5 of *Data Mining as Observation*, with the cache reader row of chapter 1's consumer table and the hot-and-cold substrate measurements of the freshness track."
+book_records = ["a cache reader", "hot 0.99 cold 0.01", "kvquant", "KV serving"]
+book_terms = ["\\bcache\\b", "cold", "warm"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Cache.lean"
+related = ["kv-cache", "eviction", "freshness", "replica", "consumer"]
+conditions = [
+  "A store of recently used data kept so that it need not be fetched again. A cache reader reads the entries in its footprint and nothing else, so its hit rate over a stream of requests lies in the unit interval, is zero cold and one warm, never falls when the cache holds more, and is unchanged by entries outside the requests.",
+  "A cold and a warm measurement of the same system are two observers of it. The ZooKeeper substrate's false-clear rate was 0.99 hot and 0.01 cold, which is the case that a cache's number is the requests' number.",
+]
+
+[[entry]]
+id = "hash"
+kind = "instrument"
+title = "hash"
+glossary = "hash"
+equations = ["8.3"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.12 of *Data Mining as Observation*, with the program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-10`, where every seal records a SHA-256."
+book_records = ["seal = commit plus SHA-256", "record sha", "code hash", "sha e12453"]
+book_terms = ["\\bhash", "SHA-256", "\\bsha\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
+related = ["sealed", "preregistration", "ledger-class", "certificate"]
+conditions = [
+  "A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. A changed hash proves a changed file, an unchanged file has an unchanged hash, and a digest with fewer values than there are files sends two distinct files to the same digest, so an equal hash is evidence and not proof.",
+  "The seal ledger records the hash beside the commit, and the recognizer's templates and the probe's records carry theirs, so that a reader with the repository can check what was fixed before the measurement.",
+]
+
+[[entry]]
+id = "encoder"
+kind = "concept"
+title = "encoder"
+glossary = "encoder"
+equations = ["12.3", "14.1"]
+ledger = ["GO-B-legal (035→036)"]
+first_stated = "Chapter 12 section 12.5 of *Data Mining as Observation*, with the program's encoders in xbse and the calibrated authority of `gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63`."
+book_records = ["rights encoder", "CALIBRATED_AUTHORITY.md", "xbse\\README.md", "LaBSE"]
+book_terms = ["encoder"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/CrossCorpusGate.lean"
+related = ["embedding", "cross-corpus-gate", "reliability-weight", "retrieval-augmented-pipeline"]
+conditions = [
+  "A model that maps an input to an embedding. An encoder votes only when its held-out AUROC on a corpus it was not trained on clears both nulls by the preregistered margin, its authority is its reliability weight, and a strictly monotone recalibration of its score changes neither the verdict nor the weight.",
+  "The rights encoder fell below the untrained baseline and was retired rather than tuned, and the legal-citation encoder's flip is the ledger's demonstrated row.",
+]
+
+[[entry]]
+id = "embedding"
+kind = "concept"
+title = "embedding"
+glossary = "embedding"
+equations = ["11.1", "11.2"]
+ledger = ["GO-B-legal (035→036)", "NEG-2"]
+first_stated = "Chapter 11 section 11.1 of *Data Mining as Observation*, with the program's embeddings in the legal-citation flip, the GloVe corpus of readscope, and the attention keys of the KV finding."
+book_records = ["RESULTS_glove", "LaBSE", "embedding as ceiling", "KV_KEYS_FINDING"]
+book_terms = ["embedding"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Embedding.lean"
+related = ["encoder", "dot-product", "rank-certificate", "hubness", "flip"]
+conditions = [
+  "A vector assigned to an object so that nearness in the vector space stands for a relation between the objects. Objects with the same embedding are indistinguishable to every consumer of the embedding, so the embedding is a quotient, and a cosine reader takes a further quotient in which the nearest neighbour is unchanged when the query is rescaled, where a dot-product reader does not.",
+  "What an embedding is worth to a consumer is the consumer's number. The keys that reconstructed at cosine 0.995 and raised the perplexity by three orders of magnitude are the case, and the rank certificate is the instrument that says which neighbour rankings a compressed embedding preserved.",
+]
+
+[[entry]]
+id = "head"
+kind = "concept"
+title = "head"
+glossary = "head"
+equations = ["0.23", "11.1"]
+ledger = ["NEG-2", "GO-2/GO-12/GO-13 operational"]
+first_stated = "Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's head-level measurements in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the planted probe of chapter 6."
+book_records = ["heads at 0.815", "attention head", "KV_KEYS_FINDING", "a2_probe"]
+book_terms = ["\\bheads?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Attention.lean"
+related = ["attention", "kv-cache", "read-subspace", "softmax"]
+conditions = [
+  "One attention operation, with its own queries, keys, and values. A head's output lies between the smallest and largest value, it reads the keys only through their scores against its query, and a key change the query does not read leaves its output unchanged however large the change.",
+  "Each head has its own read subspace, a few query-weighted directions of each key, so a compression that serves one head can fail another, and the serving-stack measurement of chapter 13 is per head.",
+]
