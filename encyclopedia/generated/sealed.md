@@ -15,8 +15,8 @@ Book equation 8.1.
 
 ## ledger
 
-- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 8c6986b.
-- OT-11. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. `[void]`. `geometric-observation/claims/LEDGER.md:48` at 8c6986b.
+- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 9f3829f.
+- OT-11. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. `[void]`. `geometric-observation/claims/LEDGER.md:48` at 9f3829f.
 
 ## first stated
 
@@ -34,7 +34,7 @@ The program's seal ledger, `observation-theory-campaigns/experiments/SEALS.md:1-
 
 ## failures and corrections
 
-- `observation-theory-campaigns/ERRATA.md:111-120` at 553a902. ## Standing note on records and runners Two failures this session shared one shape. A record was committed from a runner later found defective, and the correction was left uncommitted where nothing reading the repository could see it. The rule adopted in response is that a rerun writes to a new path and never over a committed record, and that the superseded record stays in the repository naming what replaced it. See the PF4-007 subsection of `experiments/CAMPAIGN.md`.
+- `observation-theory-campaigns/ERRATA.md:111-120` at 859676b. ## Standing note on records and runners Two failures this session shared one shape. A record was committed from a runner later found defective, and the correction was left uncommitted where nothing reading the repository could see it. The rule adopted in response is that a rerun writes to a new path and never over a committed record, and that the superseded record stays in the repository naming what replaced it. See the PF4-007 subsection of `experiments/CAMPAIGN.md`.
 
 ## conditions
 
@@ -46,7 +46,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 17f3e9f.
+`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 5bb2c0d.
 
 ## used in
 
@@ -58,4 +58,4 @@ preregistration, ledger-class, certificate, refresh-floor
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 8c6986b, observation-theory-campaigns 553a902, theory-radar 37c4e6c, observation-data-mining 17f3e9f, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 859676b, theory-radar 37c4e6c, observation-data-mining 5bb2c0d, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

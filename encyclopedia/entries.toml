@@ -2751,3 +2751,513 @@ conditions = [
   "The rule that the number of eigenvalues below a value grows like that value to the power of half the dimension, so the dimension is in the exponent and is read from the slope of the count against the value on log axes. Doubling the value multiplies the count by two to the half dimension.",
   "Chapter 9 reads a dataset's dimension from its spectrum before reading its shape, and the recognizer's battery recovered dimensions of 1.81, 2.80, and 1.74 on three sealed templates. The finer geometry is in the constant and the multiplets, not the exponent.",
 ]
+
+[[entry]]
+id = "anti-hub-recall"
+kind = "instrument"
+title = "anti-hub recall"
+glossary = "anti-hub recall"
+equations = ["10.7", "11.3", "0.35"]
+ledger = ["NEG-14"]
+first_stated = "Chapter 10 section 10.2 of *Data Mining as Observation*, with the program's gate in `turboquant-pro/docs/HUBNESS_PRIMER.md:86-131` and the strata result in `turboquant-pro/docs/RESULTS_strata_phase23_gates.md`."
+book_records = ["HUBNESS_PRIMER.md:86-131", "RESULTS_strata_phase23", "RESULTS_multilingual_strata"]
+book_terms = ["anti-hub recall"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/RecallAtK.lean", "observation-data-mining:lean/DataMiningAsObservation/Hubness.lean"]
+related = ["anti-hub", "recall-at-k", "min-over-strata", "hub", "stratification"]
+conditions = [
+  "Recall at k restricted to the rows that are rarely retrieved, the observer's outliers, reported as the minimum over strata so that a mean cannot hide the tail. It lies in the unit interval and is one exactly when every anti-hub's true neighbours are returned.",
+  "Compressed indexes fail on anti-hubs first while aggregate recall barely moves, and the remedy that promotes isolated rows is the remedy that compression damages first, which is why the gate is a build gate and not a report line.",
+]
+
+[[entry]]
+id = "boosting"
+kind = "instrument"
+title = "boosting"
+glossary = "boosting"
+equations = ["6.1", "0.8", "0.9"]
+ledger = ["GO-B-optim-D4"]
+first_stated = "Freund and Schapire, a decision-theoretic generalization of on-line learning, 1997, as chapter 7 section 7.1 of *Data Mining as Observation* reads it, with the curvature reader in `geometric-observation/claims/LEDGER.md` row GO-B-optim-D4."
+book_records = ["ESL 2e chapters 15 and 10.1", "XGBoost", "row GO-B-optim-D4", "theory-radar\\README.md:100-140"]
+book_terms = ["boost"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Boosting.lean"
+related = ["ensemble", "curvature", "decision-tree", "formula-classifier", "importance"]
+conditions = [
+  "Fitting a sequence of weak scorers, each on the rows the previous ones got wrong, and summing them with a step size set by the weighted error. The step size is positive exactly when the weak scorer beats chance, and after the rows are reweighted the weighted error of the scorer just fitted is one half, so the next scorer must find something new.",
+  "Gradient boosting reads the loss through its curvature, so the optimizer is a consumer whose read operator is the Hessian, and on the author's five-dataset benchmark the ensemble wins when the boundary needs many features and a formula wins when it needs few.",
+]
+
+[[entry]]
+id = "cold-warm"
+kind = "concept"
+title = "cold, warm"
+glossary = "cold, warm"
+equations = ["0.26", "13.2"]
+ledger = ["OT-11", "GO-12"]
+first_stated = "Chapter 0 section 0.13 of *Data Mining as Observation*, with the placement study's cold measurement in `turboquant-pro/docs/RESEARCH_ROADMAP.md:133-160`."
+book_records = ["RESEARCH_ROADMAP.md:133-160"]
+book_terms = ["\\bcold\\b", "\\bwarm\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Cache.lean"
+related = ["cache", "eviction", "replica", "budget", "certificate"]
+conditions = [
+  "A cold measurement is taken before the cache holds anything useful, a warm one after. The hit rate is zero on an empty cache, one when the cache holds the whole footprint, grows as the cache grows, and does not move when entries outside the footprint are added.",
+  "A single cold measurement at eight probes read 22.30 seconds against 0.835 seconds warm, and every previously reported placement number was warm, so a cost figure without the word warm or cold beside it is not a cost figure.",
+]
+
+[[entry]]
+id = "cosine"
+kind = "concept"
+title = "cosine"
+glossary = "cosine"
+equations = ["0.1", "3.1", "3.3"]
+ledger = ["NEG-2", "GO-B-legal"]
+first_stated = "Chapter 0 section 0.1 of *Data Mining as Observation*, equation 0.1, with the program's cosine-against-consumer negative in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["KV_KEYS_FINDING.md:1-49", "theorem.md:110-146", "row GO-B-legal"]
+book_terms = ["cosine"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Cosine.lean"
+related = ["dot-product", "euclidean-distance", "spectral-embedding", "quotient", "identity-reader"]
+conditions = [
+  "The dot product divided by the product of the two lengths. By Cauchy and Schwarz it lies between minus one and one, a vector has cosine one with itself, rescaling either vector by a positive factor does not change it, and it is the dot product of the two row-normalized vectors, so its distance is the angle on the quotient that discards length.",
+  "A reconstruction cosine of 0.995 sat beside a consumer's perplexity of ten thousand, so the cosine is never an acceptance metric for a code, and on a spectral embedding the cosine is the right similarity because the length has converged to degree noise.",
+]
+
+[[entry]]
+id = "curvature"
+kind = "concept"
+title = "curvature"
+glossary = "curvature"
+equations = ["0.8", "0.9", "6.1"]
+ledger = ["GO-B-optim-D4"]
+first_stated = "Chapter 0 section 0.5 and chapter 7 section 7.2 of *Data Mining as Observation*, with the curvature reader's flip in `geometric-observation/claims/LEDGER.md` row GO-B-optim-D4."
+book_records = ["row GO-B-optim-D4", "XGBoost"]
+book_terms = ["curvature", "second derivative", "second-order"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Curvature.lean"
+related = ["hessian", "finite-difference", "sensitivity", "boosting", "read-operator"]
+conditions = [
+  "The second derivative of a consumer, which the finite difference of equation 0.8 does not read. For a quadratic the second difference recovers it exactly at every step, the error of the linear model at a step is the curvature times the step squared, and the gradient at the two ends of a step differs by the curvature times the step. An affine consumer has none.",
+  "The reader of a gradient is the optimizer, and its read operator is the loss curvature, which chapter 4's flip was measured against on a real logistic model with its exact Hessian, anti three hundred of three hundred and the flip in 82 of 300.",
+]
+
+[[entry]]
+id = "dbscan"
+kind = "instrument"
+title = "DBSCAN"
+glossary = "DBSCAN"
+equations = ["9.1", "0.19", "10.3"]
+ledger = ["NEG-11"]
+first_stated = "Ester, Kriegel, Sander, and Xu, a density-based algorithm for discovering clusters, 1996, as chapter 9 section 9.1 of *Data Mining as Observation* reads it."
+book_records = ["TSK 2e chapter 9", "ch09_legibility.md:10-41"]
+book_terms = ["DBSCAN", "core point"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Dbscan.lean"
+related = ["density", "k-means", "hierarchical-clustering", "spectral-clustering", "outlier"]
+conditions = [
+  "A clustering that calls a point a core point when at least a minimum number of points lie within a radius, grows a cluster by reachability from core points, and leaves the rest as noise. A wider radius or a smaller count makes more core points, every reachability chain starts at a core point, and a point that is not a core point reaches nothing.",
+  "Its read subspace is the density coordinate, the one the geodesic reader of a spectral embedding discards, so two clustering consumers of one embedding read complementary coordinates.",
+]
+
+[[entry]]
+id = "decision-tree"
+kind = "instrument"
+title = "decision tree"
+glossary = "decision tree"
+equations = ["6.1", "0.8", "14.5"]
+ledger = ["GO-1"]
+first_stated = "Breiman, Friedman, Olshen, and Stone, classification and regression trees, 1984, as chapter 6 section 6.1 of *Data Mining as Observation* reads it, with the selection-consumer regime in `readscope/readscope/regimes.py:1-60`."
+book_records = ["regimes.py:1-60", "theory-radar\\README.md:100-140"]
+book_terms = ["decision tree", "\\btrees?\\b", "random forest"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/DecisionTree.lean"
+related = ["classifier", "importance", "boosting", "ensemble", "sensitivity"]
+conditions = [
+  "A classifier that scores by a sequence of axis-aligned splits and is flat within each leaf. Its finite difference is zero at every row that does not straddle a split, a split on one coordinate reads nothing of the others, and the Gini impurity it splits on is at most one half for two classes and zero exactly for a pure leaf.",
+  "Its read subspace is spanned by the coordinates it splits on and a feature that appears in no split is in its nuisance exactly, which is why a finite-difference probe of a tree returns zero at most rows and importances that count splits are the right sensitivity for this reader.",
+]
+
+[[entry]]
+id = "density"
+kind = "concept"
+title = "density"
+glossary = "density"
+equations = ["3.3", "0.19", "9.1"]
+ledger = ["NEG-1", "NEG-11"]
+first_stated = "Chapter 3 section 3.3 of *Data Mining as Observation*, with the radius-against-degree measurement in `the-angular-observer/README.md:135-139`."
+book_records = ["README.md:135-139", "ch09_legibility.md:10-41", "TSK 2e chapter 9"]
+book_terms = ["density"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Dbscan.lean", "observation-data-mining:lean/DataMiningAsObservation/Degree.lean"]
+related = ["degree", "spectral-embedding", "dbscan", "geodesic-distance", "hubness"]
+conditions = [
+  "The local crowding of rows around a point, which on a neighbourhood graph is the degree. The radius of the spectral embedding converges to one over the square root of the degree, so the geodesic reader discards the density and DBSCAN and the density detector read it. A wider radius or a smaller count makes more core points, and the sum of degrees is twice the edge count.",
+  "The radius-against-degree correlation was 0.92 to 0.99 across substrates, and the quotient that removed density to restore invariant fidelity was refuted four times, NEG-11.",
+]
+
+[[entry]]
+id = "ensemble"
+kind = "instrument"
+title = "ensemble"
+glossary = "ensemble"
+equations = ["6.1", "0.18", "8.2"]
+ledger = []
+first_stated = "Breiman, bagging predictors, 1996, as chapter 7 section 7.1 of *Data Mining as Observation* reads it, with the fair comparison in `constraint-gap/review/INDETERMINATES.md:1-40`."
+book_records = ["ESL 2e chapters 15 and 10.1", "INDETERMINATES.md:1-40", "theory-radar\\README.md:100-140"]
+book_terms = ["ensemble", "bagging", "random forest"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Ensemble.lean"
+related = ["boosting", "decision-tree", "formula-classifier", "standard-error", "nadeau-and-bengio-correction"]
+conditions = [
+  "A scorer that averages or votes several scorers. Its average lies between the smallest and the largest member, its squared error is at most the mean of the members' squared errors, and a constant ensemble is its constant. That arithmetic is why bagging reduces variance.",
+  "Whether an ensemble beats a formula is a measured question and not a principle, and the comparison is fair only inside one fold protocol with the Nadeau and Bengio correction applied, where nine wins to three became three wins, seventeen ties, and eleven losses.",
+]
+
+[[entry]]
+id = "hessian"
+kind = "concept"
+title = "Hessian"
+glossary = "Hessian"
+equations = ["6.1", "0.9"]
+ledger = ["GO-B-optim-D4"]
+first_stated = "Chapter 6 section 6.1 and chapter 7 section 7.2 of *Data Mining as Observation*, with the exact Hessian of a real logistic model in `geometric-observation/claims/LEDGER.md` row GO-B-optim-D4."
+book_records = ["row GO-B-optim-D4", "ESL 2e 10.9"]
+book_terms = ["Hessian", "cross-partial"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Curvature.lean", "observation-data-mining:lean/DataMiningAsObservation/NaiveBayes.lean"]
+related = ["curvature", "naive-bayes", "boosting", "read-operator", "jacobian"]
+conditions = [
+  "The matrix of second derivatives of a score, whose off-diagonal entries are the interactions. The second difference recovers a quadratic's curvature exactly, and a score that is additive across features, naive Bayes, has a diagonal Hessian because one feature's contribution is the same whatever the others are.",
+  "The read operator is not the Hessian. Two features' sensitivities can rise and fall together across rows even when neither changes the other's effect, so a diagonal Hessian does not give a diagonal read operator.",
+]
+
+[[entry]]
+id = "hierarchical-clustering"
+kind = "instrument"
+title = "hierarchical clustering"
+glossary = "hierarchical clustering"
+equations = ["9.1", "3.1"]
+ledger = []
+first_stated = "Chapter 9 section 9.1 of *Data Mining as Observation*, after TSK chapter 7."
+book_records = ["TSK 2e chapter 9", "ch09_legibility.md:10-41"]
+book_terms = ["hierarchical clustering", "linkage", "dendrogram"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Hierarchical.lean"
+related = ["k-means", "dbscan", "euclidean-distance", "validity-index", "quotient"]
+conditions = [
+  "A clustering that merges the closest pair of clusters at each step under a linkage that reads the nearest pair, the farthest pair, or the average. When the merged pair was the closest at some height, no updated distance falls below it, so the merge heights never decrease, single linkage is never above complete, and average linkage lies between them.",
+  "The dendrogram inherits the distance's quotient at every level, so the tree is a certificate about the chosen quotient and not about the data.",
+]
+
+[[entry]]
+id = "hubness"
+kind = "concept"
+title = "hubness"
+glossary = "hubness"
+equations = ["10.3", "0.17", "0.35"]
+ledger = ["NEG-11", "NEG-15"]
+first_stated = "Radovanović, Nanopoulos, and Ivanović, hubs in space, 2010, as chapter 3 section 3.5 of *Data Mining as Observation* reads it, with the program's primer in `turboquant-pro/docs/HUBNESS_PRIMER.md:1-60`."
+book_records = ["HUBNESS_PRIMER.md:1-60", "HUBNESS_PRIMER.md:38-59", "hubness.py", "QUERY_COUPLING_ARTIFACT"]
+book_terms = ["hubness"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Hubness.lean", "observation-data-mining:lean/DataMiningAsObservation/Hub.lean"]
+related = ["hub", "anti-hub", "poisson-ceiling", "robin-hood-index", "null-model"]
+conditions = [
+  "The excess of a few rows in the nearest-neighbour lists of many queries over what the Poisson ceiling allows, measured by the busiest count, the skew of the count distribution, and the Robin Hood index. The counts sum to the slots handed out, so the rows above any ceiling are few, and whether a row is a hub depends on the queries alone.",
+  "Query coupling inflated the first hub counts by a factor of several, the density quotient that was to remove hubness was refuted four times, and the Bell-boundary audit found no mechanism in it, NEG-15.",
+]
+
+[[entry]]
+id = "importance"
+kind = "instrument"
+title = "importance"
+glossary = "importance"
+equations = ["14.5", "0.9", "6.1"]
+ledger = ["GO-EC-3"]
+first_stated = "Breiman, random forests, 2001, as chapter 7 section 7.1 and chapter 14 section 14.5 of *Data Mining as Observation* read it, with the selection-consumer regime in `readscope/readscope/regimes.py:1-60`."
+book_records = ["regimes.py:1-60", "SPECTRUM_FINDINGS.md:90", "ESL 2e chapters 15 and 10.1"]
+book_terms = ["importances?", "permutation importance", "partial dependence"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Attribution.lean", "observation-data-mining:lean/DataMiningAsObservation/DecisionTree.lean"]
+related = ["attribution", "decision-tree", "sensitivity", "read-operator", "ensemble"]
+conditions = [
+  "A per-feature score of how much a classifier reads it. For a gradient reader the averaged squared sensitivity is the read operator's diagonal, and for a tree, whose finite difference is zero at every row that does not straddle a split, counting splits is the right sensitivity.",
+  "Permutation importance averages the consumer over rows that may never occur together, and partial dependence reads it at inputs it was never trained on, so the three answer different questions and the report names which.",
+]
+
+[[entry]]
+id = "imputation"
+kind = "instrument"
+title = "imputation"
+glossary = "imputation"
+equations = ["2.1", "0.9"]
+ledger = []
+first_stated = "Chapter 2 section 2.3 of *Data Mining as Observation*, with the missing-data rule as a required preregistration field in `observation-theory-campaigns/experiments/PREREG-TEMPLATE.md:47-52`."
+book_records = ["PREREG-TEMPLATE.md:47-52", "session-outlines.md:64-72", "TSK 2e section 2.2"]
+book_terms = ["imput"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Imputation.lean"
+related = ["standardization", "read-operator", "leakage", "preregistration"]
+conditions = [
+  "Writing a value into a missing cell that the consumer will read. Mean imputation leaves the column mean unchanged, the filled cells add nothing to the sum of squared deviations, and the variance shrinks because the same sum of squares is spread over more rows.",
+  "An imputation is a claim about the mechanism that produced the gap, and it is fit inside the fold and stated in the preregistration, because an imputation fit on all rows leaks the test fold into the training fold.",
+]
+
+[[entry]]
+id = "jaccard"
+kind = "concept"
+title = "Jaccard"
+glossary = "Jaccard"
+equations = ["0.1", "3.1"]
+ledger = []
+first_stated = "Jaccard, the distribution of the flora in the alpine zone, 1912, as chapter 0 section 0.6 and chapter 3 section 3.1 of *Data Mining as Observation* read it."
+book_records = ["TSK 2e chapter 2", "make_flip_figure"]
+book_terms = ["Jaccard"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Jaccard.lean"
+related = ["cosine", "quotient", "bag-of-words", "euclidean-distance", "itemset"]
+conditions = [
+  "The size of the intersection of two sets over the size of their union, between zero and one, one for a nonempty set against itself, symmetric, and zero exactly when the sets are disjoint. A subset's coefficient is its share of the larger set.",
+  "It reads nothing outside the union, so its distance lives on the quotient that discards joint absence, which is the right quotient for a consumer that reads presence and the wrong one for a consumer that reads counts.",
+]
+
+[[entry]]
+id = "jacobian"
+kind = "concept"
+title = "Jacobian"
+glossary = "Jacobian"
+equations = ["0.9", "2.1", "0.11"]
+ledger = ["OT-7"]
+first_stated = "Chapter 0 section 0.5 and chapter 2 section 2.2 of *Data Mining as Observation*, with the pullback composition and the rank bound in `geometric-observation/chapters/ch06_mathematical_preliminaries.md:10-27`."
+book_records = ["ch06_mathematical_preliminaries.md:10-27", "ch05_the_read_metric_and_the_quotient.md:7-48"]
+book_terms = ["Jacobian", "not differentiable"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Pipeline.lean", "observation-data-mining:lean/DataMiningAsObservation/ReadOperator.lean"]
+related = ["read-operator", "pipeline", "sensitivity", "hessian", "retrieval-augmented-pipeline"]
+conditions = [
+  "The matrix of partial derivatives of a vector-valued consumer, whose transpose times itself averages to the read operator. Along a chain of stages the rank of the composed operator is at most the rank of either stage, and a stage that identifies two inputs identifies them for every stage after it.",
+  "Chunking and indexing have no Jacobian, since a document goes to a set of pieces and a query to a candidate list, and what survives without a derivative is the statement about distinctions.",
+]
+
+[[entry]]
+id = "k-means"
+kind = "instrument"
+title = "k-means"
+glossary = "k-means"
+equations = ["9.1", "0.30", "4.2"]
+ledger = ["GO-3"]
+first_stated = "Lloyd, least squares quantization in PCM, 1957, as chapter 9 section 9.1 of *Data Mining as Observation* reads it."
+book_records = ["TSK 2e chapter 9", "SPECTRUM_FINDINGS.md:10-18"]
+book_terms = ["k-means", "K-means"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/KMeans.lean"
+related = ["identity-reader", "validity-index", "silhouette", "inverted-file", "dbscan"]
+conditions = [
+  "A clustering that minimizes the sum of squared errors to the cluster centres. The error about any centre is the error about the mean plus the row count times the squared distance between the two, so the mean minimizes each cluster's error, and assigning each row to its nearest centre never raises the total.",
+  "It is the identity reader's clustering. It weighs every direction equally, and a direction with large variance and no group structure pulls its centres exactly as variance-based reduction pulls its components.",
+]
+
+[[entry]]
+id = "logistic-regression"
+kind = "instrument"
+title = "logistic regression"
+glossary = "logistic regression"
+equations = ["6.1", "0.9", "0.28"]
+ledger = ["GO-B-optim-D4", "GO-1"]
+first_stated = "Cox, the regression analysis of binary sequences, 1958, as chapter 6 section 6.1 of *Data Mining as Observation* reads it, with the real logistic model's Hessian in `geometric-observation/claims/LEDGER.md` row GO-B-optim-D4."
+book_records = ["row GO-B-optim-D4", "ch04_the_observer_triple.md:60-135"]
+book_terms = ["logistic", "linear classifier", "sigmoid"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Logistic.lean"
+related = ["classifier", "decision-boundary", "threshold", "read-subspace", "hessian"]
+conditions = [
+  "A linear classifier whose score is the sigmoid of a weighted sum. The sigmoid lies strictly between zero and one, is one half at zero, is symmetric about one half, and is strictly increasing, so the decision at threshold one half is the sign of the weighted sum and the decision boundary is the hyperplane.",
+  "Its score moves only along its weight vector, so its read subspace is one direction and its nuisance is everything orthogonal, and its read operator is the outer product of the weight vector with itself scaled by how steep the sigmoid is at each row.",
+]
+
+[[entry]]
+id = "naive-bayes"
+kind = "instrument"
+title = "naive Bayes"
+glossary = "naive Bayes"
+equations = ["6.1", "0.9"]
+ledger = []
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, after TSK chapter 4."
+book_records = ["ch04_the_observer_triple.md:60-135", "regimes.py:1-60"]
+book_terms = ["naive Bayes"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/NaiveBayes.lean"
+related = ["classifier", "hessian", "confidence", "logistic-regression"]
+conditions = [
+  "A classifier that multiplies one-dimensional likelihoods and adds their logs. The log of the product is the sum of the logs, the log odds add across features, and one feature's contribution is the same whatever the others are, so the score has no interaction terms and its Hessian is diagonal.",
+  "What naive Bayes cannot read is the interaction, which is a limit of the model class rather than a direction in its kernel, and its read operator is still not diagonal in general because two sensitivities can rise and fall together across rows.",
+]
+
+[[entry]]
+id = "neighbourhood-graph"
+kind = "concept"
+title = "neighbourhood graph"
+glossary = "neighbourhood graph"
+equations = ["0.19", "0.20", "3.3"]
+ledger = ["NEG-1"]
+first_stated = "Chapter 0 section 0.10 of *Data Mining as Observation*, with the substrate table in `the-angular-observer/README.md:99-109`."
+book_records = ["README.md:99-109", "theorem.md:110-146"]
+book_terms = ["neighbou?rhood graph", "k-nearest"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Graph.lean"
+related = ["graph", "degree", "laplacian", "spectral-embedding", "geodesic-distance", "hub"]
+conditions = [
+  "A graph on a dataset that joins each row to its k nearest rows, or to every row within a radius. Every node of a k-nearest graph has out-degree k, the mutual neighbours of a node are at most k, and being mutual neighbours is symmetric.",
+  "As the graph grows on a manifold its low Laplacian eigenvectors converge to the smoothest functions on the manifold, so the embedding becomes a picture of the manifold, and the hubs of the graph are a property of the queries that built it.",
+]
+
+[[entry]]
+id = "operating-point"
+kind = "concept"
+title = "operating point"
+glossary = "operating point"
+equations = ["0.8", "11.4", "0.28"]
+ledger = ["OT-3", "GO-4"]
+first_stated = "Chapter 0 section 0.5 and chapter 11 section 11.7 of *Data Mining as Observation*, with the budget law in `readscope/README.md:118-141`."
+book_records = ["c2e-budget-law", "CALIBRATION.md:419", "c15-budget-surface"]
+book_terms = ["operating point"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/FiniteDifference.lean", "observation-data-mining:lean/DataMiningAsObservation/Threshold.lean"]
+related = ["finite-difference", "budget", "budget-cliff", "threshold", "blind-probe"]
+conditions = [
+  "The row at which a consumer is read, or the threshold at which a classifier is scored. A central-difference probe pays two evaluations per coordinate for one operating point, and raising a classifier's threshold can only shrink the set it calls positive.",
+  "Whether many cheaper operating points can average their way back to the population operator was measured within a budget range and not proved, and the cliff at k equal to d does not soften for a probe confined to the directions it chooses.",
+]
+
+[[entry]]
+id = "outlier"
+kind = "concept"
+title = "outlier"
+glossary = "outlier"
+equations = ["0.33", "10.3", "0.6"]
+ledger = ["NEG-14"]
+first_stated = "Chapter 0 section 0.16 and chapter 10 section 10.1 of *Data Mining as Observation*, after TSK chapter 9, with the hierarchical typing in `turboquant-pro/turboquant_pro/anatomy.py:98-170`."
+book_records = ["TSK 2e chapter 9", "anatomy.py:98-170"]
+book_terms = ["outlier", "z-score"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Outlier.lean", "observation-data-mining:lean/DataMiningAsObservation/Mahalanobis.lean"]
+related = ["mahalanobis-distance", "anti-hub", "abstention", "whitening", "density"]
+conditions = [
+  "A row the reader cannot place. The statistical detector scores a row by its distance from the mean in units of spread, which is zero at the mean, unchanged when data, mean, and spread are rescaled and shifted together, and past a threshold t exactly when the row lies more than t spreads from the mean. By Chebyshev the weight of rows beyond t is at most the mean squared score over t squared.",
+  "The four detector families read different coordinates, distance from the mean, distance to neighbours, density relative to neighbours, and cluster membership, and the observer's outliers, the anti-hubs, are the rows no detector of the data alone can see.",
+]
+
+[[entry]]
+id = "refresh-interval"
+kind = "instrument"
+title = "refresh interval"
+glossary = "refresh interval"
+equations = ["13.2", "0.25", "0.26"]
+ledger = ["OT-4"]
+first_stated = "Chapter 13 section 13.2 of *Data Mining as Observation*, with the sealed floors in `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:20-35` and the refuted fit in `observation-theory-campaigns/analysis/csi/CSI-refreshfloor.json`."
+book_records = ["RADIO-FRESHNESS-TRACK", "CSI-refreshfloor", "BOOK-OUTLINE.md:70-90"]
+book_terms = ["refresh interval", "refresh floor", "renewal"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/CoherenceTime.lean", "observation-data-mining:lean/DataMiningAsObservation/TTI.lean"]
+related = ["refresh-floor", "coherence-time", "certificate", "false-clear-rate", "transmission-time-interval"]
+conditions = [
+  "The longest renewal period that keeps a certificate within its promised error, a measured property of the system and not a convention. A certificate older than the interval is stale for every consumer whose floor is shorter, and the floors are counted in slots that add over consecutive durations.",
+  "There is no proportionality law between the interval and the coherence time. The fit of the floor as 0.177 of the coherence time was refuted and is not to be cited, and the sealed floors were 4, 1, and 1 slots at 10, 50, and 400 hertz.",
+]
+
+[[entry]]
+id = "roc-curve"
+kind = "instrument"
+title = "ROC curve"
+glossary = "ROC curve"
+equations = ["5.4", "0.28", "0.38"]
+ledger = []
+first_stated = "Chapter 5 section 5.4 of *Data Mining as Observation*, with the Youden ceiling and its correction to concave curves in `theory-radar/paper/astar_paper.tex:94-110`."
+book_records = ["astar_paper.tex:94-110", "astar_paper.tex:170-200"]
+book_terms = ["ROC"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Auroc.lean", "observation-data-mining:lean/DataMiningAsObservation/YoudenF1.lean"]
+related = ["auroc", "youden-index", "threshold", "precision-recall", "f1"]
+conditions = [
+  "The path of true positive rate against false positive rate as the threshold sweeps. Its area is the AUROC, which lies in the unit interval, is one half for a constant score, is one for a perfect ranking, and is unchanged by any strictly increasing transform of the score.",
+  "The bound from AUROC to the best F1 through the Youden index holds for concave curves and not for every curve, with the counterexample at AUROC 0.75, and the book corrects the source on that point.",
+]
+
+[[entry]]
+id = "seed"
+kind = "concept"
+title = "seed"
+glossary = "seed"
+equations = ["0.18", "8.2", "8.1"]
+ledger = ["NEG-14"]
+first_stated = "Chapter 8 section 8.1 of *Data Mining as Observation*, with the disjoint-seed rule of the database freshness track in `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md`."
+book_records = ["DATABASE-FRESHNESS-TRA", "row GO-4", "seeds 20260827"]
+book_terms = ["\\bseeds?\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/StandardError.lean", "observation-data-mining:lean/DataMiningAsObservation/Bootstrap.lean"]
+related = ["harness", "standard-error", "bootstrap", "preregistration", "sealed"]
+conditions = [
+  "The number that fixes a run's randomness, so that two runs with the same seed are one run and only runs with different seeds measure variance. The standard error over n seeds falls as one over the square root of n, and a paired comparison across seeds has smaller variance than an unpaired one exactly when the two arms covary.",
+  "A preregistration names its seeds before the run, the freshness tracks used disjoint seeds for the two arms, and a claim replicated on one seed is replicated once.",
+]
+
+[[entry]]
+id = "shard"
+kind = "instrument"
+title = "shard"
+glossary = "shard"
+equations = ["11.3", "11.4", "13.2"]
+ledger = ["GO-12"]
+first_stated = "Chapter 13 section 13.1 of *Data Mining as Observation*, with the placement study in `turboquant-pro/docs/RESEARCH_ROADMAP.md:133-160` and the fleet run in `openvector-bench/README.md:250-263`."
+book_records = ["RESEARCH_ROADMAP.md:133-160", "README.md:250-263"]
+book_terms = ["shard"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Shard.lean"
+related = ["inverted-file", "recall-at-k", "cold-warm", "cache", "budget"]
+conditions = [
+  "One partition of an index that is searched separately, with the results merged. If each shard returns its own top k and the global top k is strict, the global top k lies inside the union of the shards' answers, so the merge loses nothing and reads at most the number of shards times k candidates.",
+  "A placement study over 64 shards reported search times taken with the file cache already holding the shards, and a speedup of 63.7 times was fragmentation, so a sharded number names whether it is warm and what the shards were.",
+]
+
+[[entry]]
+id = "spectral-clustering"
+kind = "instrument"
+title = "spectral clustering"
+glossary = "spectral clustering"
+equations = ["0.19", "0.20", "3.3"]
+ledger = ["NEG-1", "GO-3"]
+first_stated = "Ng, Jordan, and Weiss, on spectral clustering, 2002, as chapter 3 section 3.3 and chapter 9 section 9.1 of *Data Mining as Observation* read it, with the angular reading in `the-angular-observer/theorem.md:110-146`."
+book_records = ["theorem.md:110-146", "ch09_legibility.md:10-41", "ch11_the_recognizer"]
+book_terms = ["spectral clustering", "row normalization"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/SpectralEmbedding.lean", "observation-data-mining:lean/DataMiningAsObservation/Laplacian.lean"]
+related = ["spectral-embedding", "laplacian", "k-means", "recognizer", "geodesic-distance"]
+conditions = [
+  "Clustering the rows of the row-normalized spectral embedding, which reads the angle and discards the density. Row normalization puts every row on the unit sphere, keeps the cosine between rows, and ignores a positive rescaling, and the Laplacian's quadratic form is nonnegative, zero on constants, and positive across any edge.",
+  "Ng, Jordan, and Weiss normalized because it improved results, and chapter 3 says why. The Euclidean distance in the embedding converges to degree noise and the angle keeps the geodesics.",
+]
+
+[[entry]]
+id = "standardization"
+kind = "instrument"
+title = "standardization"
+glossary = "standardization"
+equations = ["2.1", "0.6", "3.1"]
+ledger = []
+first_stated = "Chapter 2 section 2.5 of *Data Mining as Observation*, with the whitened code's record in `geometric-observation/chapters/ch08_value.md:84-97`."
+book_records = ["ch08_value.md:84-97", "TSK 2e section 2.1"]
+book_terms = ["standardi[sz]", "rescal"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Standardization.lean"
+related = ["whitening", "imputation", "euclidean-distance", "quotient", "outlier"]
+conditions = [
+  "Subtracting a column's mean and dividing by its spread. The standardized column has weighted mean zero and weighted variance one, the transform is invertible, and it preserves every ordering of the rows, so it changes the reader's geometry and not what the table holds.",
+  "An invertible transform identifies no two rows and forms no quotient. For a consumer that reads distances across columns the declaration that scale is irrelevant is almost always right, and for a consumer that reads one column it does nothing.",
+]
+
+[[entry]]
+id = "stratification"
+kind = "instrument"
+title = "stratification"
+glossary = "stratification"
+equations = ["10.7", "14.5", "8.2"]
+ledger = ["NEG-14", "GO-B-Llama"]
+first_stated = "Chapter 10 section 10.4 of *Data Mining as Observation*, with the strata design in `turboquant-pro/docs/STRATA_RFC.md:24-98`."
+book_records = ["STRATA_RFC", "RESULTS_multilingual_strata", "RESULTS_strata_phase23"]
+book_terms = ["stratif", "\\bstrata\\b"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Certificate.lean", "observation-data-mining:lean/DataMiningAsObservation/CrossValidation.lean"]
+related = ["min-over-strata", "abstention", "anti-hub-recall", "cross-validation", "harness"]
+conditions = [
+  "Splitting rows into strata, by difficulty or by group, and scoring each separately, so that the report can take the minimum over strata and count the strata too thin to score. A weighted aggregate over strata is at most the pass bar when one stratum fails by enough, and the folds of a stratified split test every row once.",
+  "The first strata run scored seven of fourteen eligible strata and abstained on those with two rows and one, and the second prediction inverted, which the record keeps.",
+]
+
+[[entry]]
+id = "youden-index"
+kind = "instrument"
+title = "Youden index"
+glossary = "Youden index"
+equations = ["5.4", "0.28", "0.38"]
+ledger = []
+first_stated = "Youden, index for rating diagnostic tests, 1950, as chapter 5 section 5.4 of *Data Mining as Observation* reads it, with the pointwise ceiling in `theory-radar/paper/astar_paper.tex:94-110`."
+book_records = ["astar_paper.tex:94-110", "astar_paper.tex:170-200", "theory-radar\\README.md:88-100"]
+book_terms = ["Youden"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/YoudenF1.lean"
+related = ["roc-curve", "auroc", "f1", "safe-pruning", "formula-classifier"]
+conditions = [
+  "True positive rate minus false positive rate at a threshold, whose maximum over thresholds bounds the best F1 the score can reach at any threshold. The bound is exact for concave ROC curves and fails for a curve at AUROC 0.75.",
+  "The pointwise ceiling on a node of the formula search is proved, and using it to prune the node's descendants is a heuristic that missed the optimum on two of five datasets in the rerun.",
+]
