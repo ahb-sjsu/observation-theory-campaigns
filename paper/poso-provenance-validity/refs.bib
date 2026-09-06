@@ -1,9 +1,25 @@
-% POSO paper references. Filled 2026-09-06; target generalized to the class of
-% onchain-observation systems 2026-09-06, so the specific SkyMapper/POSO CoinDesk
-% entry was removed (no verifiable primary source; name-collision with the ANU
-% SkyMapper Southern Survey). Verified against records where noted; one entry
-% (blockchain-critique = Wust-Gervais) carries % VERIFY -- DBLP was returning
-% empty this session.
+% POSO paper references. Filled 2026-09-06. The concrete target (SkyMapper, the
+% Avalanche-L1 telescope-data project) was re-instated with its primary sources
+% (skymapper.io + the SETI Institute announcement) after those were located;
+% distinct from the ANU SkyMapper Southern Survey. Verified against records where
+% noted; % VERIFY flags mark what could not be confirmed this session
+% (blockchain-critique via DBLP; skymapper-seti body/date, seti.org 403'd).
+
+@misc{skymapper,
+  author       = {{SkyMapper}},
+  title        = {{SkyMapper}: Verifiable Telescope Data on an {Avalanche L1}},
+  howpublished = {\url{https://skymapper.io/}},
+  year         = {2026},
+  note         = {Project site and blog, ``Beyond the Centralized Server: Solving Open Science's Permanence Paradox,'' \url{https://skymapper.io/blog/beyond-the-centralized-server-solving-open-sciences-permanence-paradox}. Accessed 2026-09-06.}
+}
+
+@misc{skymapper-seti,
+  author       = {{SETI Institute}},
+  title        = {{SkyMapper} Launches {Avalanche L1} to Bring Verifiable Telescope Data Onchain; {SETI} Institute Joins as Partner},
+  howpublished = {SETI Institute news},
+  year         = {2026},
+  note         = {\url{https://www.seti.org/news/skymapper-launches-avalanche-l1-to-bring-verifiable-telescope-data-onchain-seti-institute-joins-as-partner/}. \% VERIFY exact date; page returned 403 on fetch, headline from the URL.}
+}
 
 @techreport{rfc3161,
   author      = {C. Adams and P. Cain and D. Pinkas and R. Zuccherato},

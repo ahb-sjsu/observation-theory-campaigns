@@ -20,10 +20,11 @@
 
 \begin{abstract}
 A growing class of systems anchors scientific measurements on a blockchain to
-make them trustworthy: observations are signed at the source, time-stamped, and
-recorded on a distributed ledger, and are said to become provably reliable and
-reproducible. We show that this claim conflates two guarantees that must be kept
-apart. Cryptographic anchoring establishes provenance, the authenticity,
+make them trustworthy. SkyMapper, an Avalanche L1 launched with the SETI
+Institute as a partner, is a current example: telescope observations are signed
+at the source, anchored on a distributed ledger, and offered as a ``verified
+stream of truth'' said to be reliable and reproducible. We show that this claim
+conflates two guarantees that must be kept apart. Cryptographic anchoring establishes provenance, the authenticity,
 integrity, and time of a record. It does not, and by construction cannot,
 establish validity, whether the instrument was calibrated, whether it pointed
 where it claims, and whether the observation supports a downstream scientific
@@ -52,9 +53,13 @@ observation; false-clear rate; technosignature verification; blockchain critique
 Observational science is acquiring a new trust infrastructure. Systems now sign a
 measurement at the sensor, time-stamp it, and anchor it on a public ledger, and
 present the result as data that can be trusted without trusting the operator.
-Proposals that anchor scientific data provenance on a distributed ledger are
-numerous and active, contributing signed, time-stamped observations and naming
-reliable, tamper-proof, and reproducible datasets as the
+SkyMapper, an Avalanche L1 network launched with the SETI Institute as a partner,
+is a current and well-funded instance: it signs telescope observations at the
+source, anchors them onchain, and offers a ``verified stream of truth'' whose
+fingerprint anyone can recompute to check that ``no one altered a single
+pixel''~\cite{skymapper,skymapper-seti}. (This project is unrelated to the ANU
+SkyMapper Southern Survey of the same name.) Such proposals are numerous and
+active, and name reliable, tamper-proof, and reproducible datasets as the
 outcome~\cite{blockchain-science}.
 
 We make one argument. Cryptographic anchoring proves that a record is authentic,
@@ -88,11 +93,14 @@ data held in decentralized or content-addressed storage~\cite{merkle}. The state
 goals are tamper-evidence, non-repudiation, and an auditable history that any
 party can check without trusting a central operator.
 
-We treat such a system as a pure-provenance mechanism, which is the design these
-public claims describe. This is the strongest reading, because it takes the
-mechanism at face value. If a particular specification adds instrument-level
-checks, the critique in Section~\ref{sec:distinction} narrows from the design to
-the claim, and the constructive layer of Section~\ref{sec:layer} still applies.
+We treat such a system as a pure-provenance mechanism, which is the design its
+public materials describe: they record signing, upload, and read events onchain
+and guarantee immutability, and they do not describe instrument calibration,
+validity, or data-quality checks~\cite{skymapper}. This is the strongest reading,
+because it takes the mechanism at face value. If a particular specification adds
+instrument-level checks, the critique in Section~\ref{sec:distinction} narrows
+from the design to the claim, and the constructive layer of
+Section~\ref{sec:layer} still applies.
 
 Cryptographic timestamping and tamper-evident logs are mature and well understood
 outside the ledger setting~\cite{rfc3161,merkle}. A blockchain is one way to
@@ -238,10 +246,11 @@ observational datasets. It is not sufficient. We do not claim that anchoring is
 worthless. For attribution and for verifiable pre-registration it is the right
 tool, and we say so in Section~\ref{sec:intro}.
 
-We treat these systems at their strongest reading, as pure-provenance
-mechanisms. If a particular specification incorporates instrument-level validity
-checks, the critique narrows from the design to the claim, and the constructive
-layer still applies. Our empirical demonstration uses one cadence, one frequency
+We read SkyMapper's public materials and treat the system at its strongest
+reading, as a pure-provenance mechanism; those materials describe provenance and
+immutability, not instrument-level validity~\cite{skymapper}. If a later
+specification incorporates such checks, the critique narrows from the design to
+the claim, and the constructive layer still applies. Our empirical demonstration uses one cadence, one frequency
 sub-band, and one narrowband consumer. It is a demonstration that a consumer test
 separates real data, not a survey-scale statistic, and we do not generalize it
 beyond that.
