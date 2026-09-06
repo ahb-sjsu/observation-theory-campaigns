@@ -79,7 +79,7 @@ say so: a policy run near $10^{-1}$ must overrun $10^{-3}$ by about a hundredfol
 The measured content is the exact overrun (112), its persistence across the whole
 SNR range including the cell edge, and the quantified cost of the budget-aware
 policy that removes it. The second (\S\ref{sec:age}) is the paper's core. With
-the link calibrated so that fresh CSI genuinely meets the $10^{-1}$ budget, the
+the link calibrated so that fresh CSI meets the $10^{-1}$ budget, the
 age horizon, the longest a report can be held before the budget is lost, collapses
 to a few transmission intervals at $10$\,Hz Doppler and to a single interval above
 $50$\,Hz.
@@ -338,7 +338,7 @@ age horizon at the budget itself.
 \section{Discussion and Conclusion}
 The unit of correctness in link adaptation is not the CSI report. It is the pair
 of report and budget. Sized to the consumer's budget, margins and reporting
-cadence keep the certificate honest; sized to a nominal channel, they do not,
+cadence keep the certificate sound; sized to a nominal channel, they do not,
 and the costs are now numbers: a $112\times$ overrun for a mismatched budget,
 and an age horizon of a few milliseconds at a tight one. The evidence has limits
 worth stating. It is an NR LDPC-based link-to-system simulation, one TDL-A
