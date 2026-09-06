@@ -160,9 +160,39 @@ acceptance test for the generator that will fill them from the records.
 | [token](generated/token.md) | concept | the unit a language model reads and writes, whose bits per token set the perplexity |
 | [transmission time interval](generated/transmission-time-interval.md) | concept | the one-millisecond slot a 5G tower schedules in, the unit the refresh floors are counted in |
 | [Weyl's law](generated/weyls-law.md) | concept | the eigenvalue count grows like the value to half the dimension, which the slope reads off |
+| [anti-hub recall](generated/anti-hub-recall.md) | instrument | recall at k on the rarely retrieved rows, taken as the minimum over strata |
+| [boosting](generated/boosting.md) | instrument | weak scorers fitted in sequence, with a step size positive exactly when one beats chance and a reweighting that makes its error one half |
+| [cold, warm](generated/cold-warm.md) | concept | a measurement before or after the cache is filled, with the hit rate zero cold and one warm on the footprint |
+| [cosine](generated/cosine.md) | concept | the dot product over the two lengths, between minus one and one and unchanged by rescaling |
+| [curvature](generated/curvature.md) | concept | the second derivative of a consumer, which the finite difference does not read and which sets the linear model's error |
+| [DBSCAN](generated/dbscan.md) | instrument | core points by neighbour count within a radius, clusters by reachability, the rest noise |
+| [decision tree](generated/decision-tree.md) | instrument | axis-aligned splits, flat within a leaf, so the sensitivity is zero almost everywhere |
+| [density](generated/density.md) | concept | the local crowding of rows, the coordinate the geodesic reader discards and DBSCAN reads |
+| [ensemble](generated/ensemble.md) | instrument | an average of scorers, between its members and with squared error at most their mean squared error |
+| [Hessian](generated/hessian.md) | concept | the matrix of second derivatives, diagonal for a score additive across features |
+| [hierarchical clustering](generated/hierarchical-clustering.md) | instrument | merging the closest clusters under a linkage whose merge heights never decrease |
+| [hubness](generated/hubness.md) | concept | the excess of a few rows in many neighbour lists over the Poisson ceiling, a property of the queries |
+| [importance](generated/importance.md) | instrument | a per-feature score of how much a classifier reads it, counting splits for a tree |
+| [imputation](generated/imputation.md) | instrument | writing a value into a missing cell, which for the mean keeps the mean and shrinks the variance |
+| [Jaccard](generated/jaccard.md) | concept | intersection over union, in the unit interval and zero exactly when disjoint |
+| [Jacobian](generated/jacobian.md) | concept | the derivative matrix of a vector-valued consumer, absent for a discrete stage |
+| [k-means](generated/k-means.md) | instrument | the sum of squared errors to centres, minimized by the mean, the identity reader's clustering |
+| [logistic regression](generated/logistic-regression.md) | instrument | the sigmoid of a weighted sum, whose decision at one half is the sign of the sum |
+| [naive Bayes](generated/naive-bayes.md) | instrument | a product of one-dimensional likelihoods whose log is additive, blind to interactions |
+| [neighbourhood graph](generated/neighbourhood-graph.md) | concept | each row joined to its k nearest rows or to every row within a radius |
+| [operating point](generated/operating-point.md) | concept | the row at which a consumer is read or the threshold at which a classifier is scored, at 2d evaluations each |
+| [outlier](generated/outlier.md) | concept | a row the reader cannot place, past a z-score threshold for at most one over the threshold squared of the weight |
+| [refresh interval](generated/refresh-interval.md) | instrument | the longest renewal period that keeps a certificate within its error, measured and not assumed |
+| [ROC curve](generated/roc-curve.md) | instrument | true positive rate against false positive rate as the threshold sweeps, with area the AUROC |
+| [seed](generated/seed.md) | concept | the number that fixes a run's randomness, so only different seeds measure variance |
+| [shard](generated/shard.md) | instrument | a partition of an index searched separately, whose merged top k loses nothing |
+| [spectral clustering](generated/spectral-clustering.md) | instrument | clustering the row-normalized spectral embedding, which reads the angle and discards the density |
+| [standardization](generated/standardization.md) | instrument | subtracting the mean and dividing by the spread, invertible and order preserving |
+| [stratification](generated/stratification.md) | instrument | scoring strata separately so that the minimum over strata can be reported |
+| [Youden index](generated/youden-index.md) | instrument | true positive rate minus false positive rate, whose maximum bounds the best F1 |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other one hundred and fifty exist only as generated entries, built from the records by `generate.py`.
+other one hundred and eighty exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -189,6 +219,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, one hundred and thirteen files as of 2026-09-06, and the book's appendix C states what each
+its checkable core, one hundred and twenty-eight files as of 2026-09-06, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
