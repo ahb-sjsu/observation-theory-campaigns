@@ -3,6 +3,8 @@
 **id.** expected-calibration-error
 **kind.** instrument
 
+![The bin-weighted gap between the mean score and the fraction of positives.](../figures/expected-calibration-error.svg)
+
 ## definition
 
 The average over score bins of the absolute difference between the mean score and the fraction of positives in the bin. Equation 0.29.
@@ -17,13 +19,16 @@ Book equation 0.38.
 
     w=\max\big(0,\ 2\cdot\mathrm{AUROC}-1\big).
 
-Book equation 14.2.
+## conditions
 
-    \mathrm{coverage\ difference}_c=\mathrm{AUROC}_c(\text{embedding})-\mathrm{AUROC}_c(\text{validated axes}),\qquad \text{floor}\approx0.08\ \text{to}\ 0.12.
+- The average over score bins, weighted by bin size, of the absolute difference between the bin's mean score and its fraction of positives. It lies in the unit interval, it is zero exactly when every bin's mean score equals its positive fraction, and a calibrated scorer has error zero.
+- The program's validated encoders carry errors of 0.018 to 0.101 on held-out splits against raw values up to 0.223, and the reliability weight that gates an encoder's authority is computed beside it.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- NEG-4. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:97` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,23 +38,15 @@ Chapter 0 section 0.14 of *Data Mining as Observation*, equation 0.29, with the 
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.5 | ECE 0.018 to 0.101 vs raw up to 0.223, reliability weight, audit binding | `xbse\README.md:175-195`; `gtc-prototype\docs\CALIBRATED_AUTHORITY.md:19-63` |
-| chapter 14 section 14.2 | reliability weights and calibration errors per axis, the collapsed family's mean weight 0.559 against the general valence channel's own 0.735, the three design rules, 0.048 to 0.049 and 0.089 to 0.101 at 696 pairs | `gtc-prototype\docs\CALIBRATED_AUTHORITY.md:1-65` |
+| chapter 12 section 12.5 | ECE 0.018 to 0.101 vs raw up to 0.223, reliability weight, audit binding | `xbse/README.md:175-195`; [`gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63`](https://github.com/ahb-sjsu/gtc-prototype/blob/328741f/docs/CALIBRATED_AUTHORITY.md#L19-L63) |
 
 ## failures and corrections
 
-- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL.
-
-## conditions
-
-- The average over score bins, weighted by bin size, of the absolute difference between the bin's mean score and its fraction of positives. It lies in the unit interval, it is zero exactly when every bin's mean score equals its positive fraction, and a calibrated scorer has error zero.
-- The program's validated encoders carry errors of 0.018 to 0.101 on held-out splits against raw values up to 0.223, and the reliability weight that gates an encoder's authority is computed beside it.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Calibration.lean`, theorems `ece_nonneg`, `ece_le_one`, `ece_eq_zero_iff`, `ece_of_calibrated`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Calibration.lean`, theorems `ece_nonneg`, `ece_le_one`, `ece_eq_zero_iff`, `ece_of_calibrated`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -59,6 +56,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 calibration, reliability-weight, auroc, threshold
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 14.2.
+
+Ledger rows that cite the entry's records without naming it: NEG-4.
+
+Sources-table rows that share a record with the entry without naming it: chapter 14 section 14.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

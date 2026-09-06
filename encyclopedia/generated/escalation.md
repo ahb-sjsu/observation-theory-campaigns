@@ -3,23 +3,22 @@
 **id.** escalation
 **kind.** concept
 
+![A verdict handed up when the certificate cannot clear it.](../figures/escalation.svg)
+
 ## definition
 
 The decision to hand an item to a person rather than decide it, the single-decision form of abstention. Chapter 14.
 
 ## equation
 
-Book equation 14.5.
+none
 
-    \mathrm{FC}_g=\Pr\big[y=\text{violation}\ \big|\ \hat y=\text{clear},\ g\big],\qquad \text{verdict}=\max_{g:\ n_g\ge n_{\min}}\mathrm{FC}_g,\qquad \text{ABSTAIN otherwise}.
+## conditions
 
-Book equation 10.7.
+- The decision to hand an item to a person rather than decide it. A rule that escalates every item whose margin is below a bar decides a set that can only shrink as the bar rises, so coverage can only fall, every decided item carries at least the bar's margin, and a bar of zero escalates nothing.
+- Coverage times the decided false-clear rate is the fraction of all items cleared and wrong, so an escalation policy trades coverage for a false-clear rate and a deployment report states both.
 
-    \text{verdict}=\min_{i:\ n_i\ge n_{\min},\ |Q_i|\ge q_{\min}}\ \mathrm{score}_i,\qquad \text{ABSTAIN otherwise}.
-
-Book equation 0.26.
-
-    \mathrm{FC}=\Pr\big[W\ \text{refutes}\ \big|\ \mathcal C_t\ \text{clears}\big],\qquad \text{coverage}=\Pr\big[\mathcal C_t\ \text{clears}\big].
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -37,16 +36,9 @@ none
 
 none
 
-## conditions
-
-- The decision to hand an item to a person rather than decide it. A rule that escalates every item whose margin is below a bar decides a set that can only shrink as the bar rises, so coverage can only fall, every decided item carries at least the bar's margin, and a bar of zero escalates nothing.
-- Coverage times the decided false-clear rate is the fraction of all items cleared and wrong, so an escalation policy trades coverage for a false-clear rate and a deployment report states both.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Escalation.lean`, theorems `decided_anti`, `coverage_anti`, `decided_margin`, `decided_zero`, `joint_rate`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Escalation.lean`, theorems `decided_anti`, `coverage_anti`, `decided_margin`, `decided_zero`, `joint_rate`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -56,6 +48,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 abstention, margin, coverage, false-clear-rate, certificate
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 14.5, 10.7, 0.26.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

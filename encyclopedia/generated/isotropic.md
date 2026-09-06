@@ -3,23 +3,26 @@
 **id.** isotropic
 **kind.** concept
 
+![Every direction has the same variance.](../figures/isotropic.svg)
+
 ## definition
 
 Of a covariance, having the same variance in every direction. Chapter 0.
 
 ## equation
 
-Book equation 3.1.
+none
 
-    \begin{gathered} d_O(u)=u^{\top}\Sigma\,u, \qquad u=(\cos15^\circ,\ \sin15^\circ), \\ \Sigma_1=\operatorname{diag}(0.3,1.7),\ \Sigma_2=\operatorname{diag}(1.7,0.3), \qquad d_O=0.394\ \text{vs}\ 1.606. \end{gathered}
+## conditions
 
-Book equation 4.6.
+- An isotropic covariance has the same variance in every direction, so every unit reader reads it the same and no flip is possible. An anisotropic one has different variances in different directions, and two unit readers can read it differently.
+- The flip needs anisotropy. Two codes with the variances exchanged are read the same by every reader exactly when the two variances agree, which is the boundary the coupling null names from the other side.
 
-    \kappa=\operatorname{tr}\big(\bar P_C\,\bar\Sigma_x\big)\in[0,1],\qquad \kappa\to1\ \text{is the coupling null (no flip)}.
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- GO-2 (neg. half: not reconstruction). At matched bits, downstream preservation is not controlled by reconstruction error. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:63` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,16 +36,9 @@ none
 
 none
 
-## conditions
-
-- An isotropic covariance has the same variance in every direction, so every unit reader reads it the same and no flip is possible. An anisotropic one has different variances in different directions, and two unit readers can read it differently.
-- The flip needs anisotropy. Two codes with the variances exchanged are read the same by every reader exactly when the two variances agree, which is the boundary the coupling null names from the other side.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Isotropy.lean`, theorems `isotropic_reads_same`, `isotropic_no_flip`, `anisotropic_readers_differ`, `flip_iff_anisotropic`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Isotropy.lean`, theorems `isotropic_reads_same`, `isotropic_no_flip`, `anisotropic_readers_differ`, `flip_iff_anisotropic`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +48,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 flip, coupling-null, covariance-matrix, alignment
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 3.1, 4.6.
+
+Ledger rows that cite the entry's records without naming it: GO-2 (neg. half: not reconstruction).
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

@@ -3,9 +3,11 @@
 **id.** mahalanobis-distance
 **kind.** concept
 
+![Euclidean distance after whitening.](../figures/mahalanobis-distance.svg)
+
 ## definition
 
-The Euclidean distance of a row from the mean after whitening. Equation 0.33.
+The Euclidean distance of a row from the mean after whitening, which needs a positive-definite covariance or a pseudoinverse on its support. Equation 0.33.
 
 ## equation
 
@@ -16,6 +18,14 @@ Book equation 0.33.
 Book equation 10.1.
 
     z(x)=\frac{x-\mu}{\sigma},\qquad d_M(x)^{2}=(x-\mu)^{\top}\Sigma^{-1}(x-\mu)=\sum_i\frac{(v_i\cdot(x-\mu))^{2}}{\lambda_i}.
+
+## conditions
+
+- The Euclidean distance of a row from the mean after whitening. In the eigenbasis its square is the sum of the squared centred coordinates over the eigenvalues, nonnegative, zero at the mean, unchanged when data and covariance are rescaled together, and a deviation along a direction of larger variance counts for less.
+- The detector that scores by it treats every whitened direction equally, so it is the identity reader on whitened data, and a consumer that reads a subspace calls different rows outliers.
+- It needs a positive-definite covariance, or a pseudoinverse restricted to the covariance's support, and it equals the Euclidean distance after whitening.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -33,16 +43,9 @@ none
 
 none
 
-## conditions
-
-- The Euclidean distance of a row from the mean after whitening. In the eigenbasis its square is the sum of the squared centred coordinates over the eigenvalues, nonnegative, zero at the mean, unchanged when data and covariance are rescaled together, and a deviation along a direction of larger variance counts for less.
-- The detector that scores by it treats every whitened direction equally, so it is the identity reader on whitened data, and a consumer that reads a subspace calls different rows outliers.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Mahalanobis.lean`, theorems `dM2_nonneg`, `dM2_mean`, `dM2_scale`, `dM2_eq_whitened`, `dM2_antitone_in_variance`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Mahalanobis.lean`, theorems `dM2_nonneg`, `dM2_mean`, `dM2_scale`, `dM2_eq_whitened`, `dM2_antitone_in_variance`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +55,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 whitening, identity-reader, hubness, abstention
 
+## see also
+
+none
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

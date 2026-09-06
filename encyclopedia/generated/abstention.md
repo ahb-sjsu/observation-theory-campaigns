@@ -3,6 +3,8 @@
 **id.** abstention
 **kind.** concept
 
+![A verdict per group, with the group too thin to score reported as an abstention rather than dropped.](../figures/abstention.svg)
+
 ## definition
 
 The verdict a group receives when it has too few rows or too few queries to score. It is reported as a verdict, not dropped. Chapter 10.
@@ -13,9 +15,16 @@ Book equation 10.7.
 
     \text{verdict}=\min_{i:\ n_i\ge n_{\min},\ |Q_i|\ge q_{\min}}\ \mathrm{score}_i,\qquad \text{ABSTAIN otherwise}.
 
+## conditions
+
+- A stratum with too few rows or too few queries to score receives the verdict abstain, which is reported under a registered cause and excluded from the minimum. Abstain is not a pass, and when no stratum is eligible the verdict itself is abstain.
+- Raising the eligibility bar can only remove strata from the minimum and so can only raise the verdict, which is why every abstention is printed beside the verdict rather than dropped.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- NEG-14. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe). `[refuted]`. `geometric-observation/claims/LEDGER.md:108` at 9f3829f.
+none
 
 ## first stated
 
@@ -25,24 +34,16 @@ The strata design in turboquant-pro, `turboquant-pro/docs/STRATA_RFC.md:24-98`, 
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 10 section 10.3 | abstain below 2.5 k | `turboquant-pro\docs\HUBNESS_PRIMER.md:140-160` |
-| chapter 10 section 10.4 | area map, boundary rule, hash, refuse not warn, intra and transit counts, area classes, abstention rule | `turboquant-pro\docs\STRATA_RFC.md:24-98` |
-| chapter 10 section 10.4 | second prediction inverted, transit 0.389 vs 0.291, centrality difference signs, share 0.473 vs 0.391, seven of thirteen backbone | `turboquant-pro\docs\RESULTS_multilingual_strata.md:55-90`; `turboquant-pro\docs\STRATA_RFC.md:98-130` |
+| chapter 10 section 10.3 | abstain below 2.5 k | [`turboquant-pro/docs/HUBNESS_PRIMER.md:140-160`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/HUBNESS_PRIMER.md#L140-L160) |
+| chapter 10 section 10.4 | area map, boundary rule, hash, refuse not warn, intra and transit counts, area classes, abstention rule | [`turboquant-pro/docs/STRATA_RFC.md:24-98`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/STRATA_RFC.md#L24-L98) |
 
 ## failures and corrections
 
-- NEG-14, `[refuted]`. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe).
-
-## conditions
-
-- A stratum with too few rows or too few queries to score receives the verdict abstain, which is reported under a registered cause and excluded from the minimum. Abstain is not a pass, and when no stratum is eligible the verdict itself is abstain.
-- Raising the eligibility bar can only remove strata from the minimum and so can only raise the verdict, which is why every abstention is printed beside the verdict rather than dropped.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Abstention.lean`, theorems `abstain_not_passes`, `verdict_eq_none_iff`, `passes_verdict_iff`, `inf_le_of_subset`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Abstention.lean`, theorems `abstain_not_passes`, `verdict_eq_none_iff`, `passes_verdict_iff`, `inf_le_of_subset`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +53,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 min-over-strata, anti-hub, certificate, coverage
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: NEG-14.
+
+Sources-table rows that share a record with the entry without naming it: chapter 10 section 10.4.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

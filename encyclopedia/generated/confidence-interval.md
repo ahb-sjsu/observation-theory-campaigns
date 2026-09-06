@@ -3,19 +3,22 @@
 **id.** confidence-interval
 **kind.** concept
 
+![A range the estimate falls in with a stated frequency over repetitions.](../figures/confidence-interval.svg)
+
 ## definition
 
 A range that would contain the true value in a stated fraction of repeated samples, usually 95 percent. Chapter 0 section 0.9.
 
 ## equation
 
-Book equation 8.3.
+none
 
-    \Pr[\text{at least one of } m\text{ null tests passes}]=1-(1-\alpha)^{m},\qquad \alpha_{\mathrm{Bonferroni}}=\frac{\alpha}{m}.
+## conditions
 
-Book equation 8.2.
+- A range that would contain the true value in a stated fraction of repeated samples. An interval with coverage one minus alpha misses in a fraction alpha, over m independent intervals the expected misses are m alpha and the chance that all cover is one minus alpha to the m, and the chance that at least one misses is at most m alpha.
+- Nine intervals at ninety-five percent have a chance near seven percent of two or more misses, which is how the re-gate table's seven of nine inside the interval is read.
 
-    \begin{gathered} \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2}, \\ J=1000,\ \frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}=\frac14\ \Rightarrow\ 1+250=251,\ \ \sqrt{251}=15.84. \end{gathered}
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -33,16 +36,9 @@ none
 
 none
 
-## conditions
-
-- A range that would contain the true value in a stated fraction of repeated samples. An interval with coverage one minus alpha misses in a fraction alpha, over m independent intervals the expected misses are m alpha and the chance that all cover is one minus alpha to the m, and the chance that at least one misses is at most m alpha.
-- Nine intervals at ninety-five percent have a chance near seven percent of two or more misses, which is how the re-gate table's seven of nine inside the interval is read.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/ConfidenceInterval.lean`, theorems `missRate_eq`, `some_miss_le`, `nine_intervals`, `nine_expected`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ConfidenceInterval.lean`, theorems `missRate_eq`, `some_miss_le`, `nine_intervals`, `nine_expected`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +48,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 bootstrap, standard-error, p-value, preregistration
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 8.3, 8.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

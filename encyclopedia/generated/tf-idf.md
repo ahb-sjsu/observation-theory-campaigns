@@ -3,6 +3,8 @@
 **id.** tf-idf
 **kind.** concept
 
+![Term frequency scaled down by how many documents carry the term.](../figures/tf-idf.svg)
+
 ## definition
 
 A weighting of term counts by how rare the term is across the collection, so that a term in every document carries no weight. Equation 0.36.
@@ -17,9 +19,16 @@ Book equation 12.3.
 
     \text{validated}\iff \mathrm{AUROC}_{\text{cross}}-\max\big(\mathrm{AUROC}_{\text{untrained}},\ \mathrm{AUROC}_{\text{BoW}}\big)\ \ge\ 0.10.
 
+## conditions
+
+- A term's weight is its frequency in the document times the logarithm of the document count over the number containing it. A term in every document carries no weight, the weight is nonnegative and falls as the term spreads, and the frequency lies in the unit interval.
+- It is a reader that reads rarity. The legal-citation flip used a frozen TF-IDF to SVD baseline trained on the training split only, and the flip tied while its magnitude overshot, which the ledger carries as partial.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- GO-B-legal (035→036). Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer `[predicted]`. `geometric-observation/claims/LEDGER.md:119` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,16 +42,9 @@ none
 
 none
 
-## conditions
-
-- A term's weight is its frequency in the document times the logarithm of the document count over the number containing it. A term in every document carries no weight, the weight is nonnegative and falls as the term spreads, and the frequency lies in the unit interval.
-- It is a reader that reads rarity. The legal-citation flip used a frozen TF-IDF to SVD baseline trained on the training split only, and the flip tied while its magnitude overshot, which the ledger carries as partial.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/TFIDF.lean`, theorems `weight_everywhere`, `weight_nonneg`, `weight_antitone`, `tf_mem_unit`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/TFIDF.lean`, theorems `weight_everywhere`, `weight_nonneg`, `weight_antitone`, `tf_mem_unit`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +54,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 bag-of-words, retrieval-augmented-pipeline, cross-corpus-gate, quotient
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: GO-B-legal (035→036).
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

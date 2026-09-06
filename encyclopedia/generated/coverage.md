@@ -3,6 +3,8 @@
 **id.** coverage
 **kind.** concept
 
+![The fraction of decisions the certificate cleared.](../figures/coverage.svg)
+
 ## definition
 
 The fraction of decisions a certificate clears, reported beside its false-clear rate, since a certificate that clears nothing has a false-clear rate of zero and no use. Equation 0.26.
@@ -12,6 +14,14 @@ The fraction of decisions a certificate clears, reported beside its false-clear 
 Book equation 0.26.
 
     \mathrm{FC}=\Pr\big[W\ \text{refutes}\ \big|\ \mathcal C_t\ \text{clears}\big],\qquad \text{coverage}=\Pr\big[\mathcal C_t\ \text{clears}\big].
+
+## conditions
+
+- A naive certificate clears every decision, so its coverage is one and its conditional and joint false-clear rates coincide.
+- A witnessed certificate clears fewer decisions, and its false-clear rate is read beside its coverage, never alone.
+- The word also names, in chapter 14, what a moderation instrument can read of the signal its inputs carry, which is a different quantity and is not this entry.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -23,26 +33,15 @@ none
 
 ## measurements
 
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 12 section 12.6 | XPROTO-LLM, benchmark 0.909, 0.920, 0.909, thirty slices, target 0.8, naive 0.333, aware 0.033, spread 0.380, deployment mean 0.736, six bars on three seeds, sealed 2026-08-25 at b61f7f1 | `observation-theory-campaigns\experiments\LLM-EVAL-TRACK.md:1-50`; `observation-theory-campaigns\analysis\llm\XPROTO-LLM-graded.json`; `observation-theory-campaigns\experiments\SEALS.md:85` |
-| chapter 13 section 13.3 | ZooKeeper hot 0.99 cold 0.01 witnessed 0.0, Postgres 0.50 to 0.06, MongoDB 0.47 to 0.03, production Postgres 0.47 to 0.02, real substrates, disjoint seeds | `observation-theory-campaigns\experiments\DATABASE-FRESHNESS-TRACK.md:1-45` |
+none
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- A naive certificate clears every decision, so its coverage is one and its conditional and joint false-clear rates coincide.
-- A witnessed certificate clears fewer decisions, and its false-clear rate is read beside its coverage, never alone.
-- The word also names, in chapter 14, what a moderation instrument can read of the signal its inputs carry, which is a different quantity and is not this entry.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Certificate.lean`, theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Certificate.lean`, theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +51,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 false-clear-rate, certificate, witness
 
+## see also
+
+Sources-table rows that share a record with the entry without naming it: chapter 12 section 12.6, chapter 13 section 13.3.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

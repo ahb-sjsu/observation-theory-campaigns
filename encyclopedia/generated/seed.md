@@ -3,27 +3,28 @@
 **id.** seed
 **kind.** concept
 
+![The number that fixes a run's pseudo-randomness.](../figures/seed.svg)
+
 ## definition
 
-The number that fixes a run's randomness, so that two runs with the same seed are one run and only runs with different seeds measure variance. Chapter 8.
+The number that fixes a run's pseudo-randomness. Two runs with the same seed agree only when code, data, environment, and execution are also fixed, and different seeds are necessary but not sufficient for an independent replication. Chapter 8.
 
 ## equation
-
-Book equation 0.18.
-
-    \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2},\qquad \frac{\widehat{\operatorname{Var}}_{\mathrm{NB}}}{\hat\sigma^{2}/J}=1+J\,\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}.
-
-Book equation 8.2.
-
-    \begin{gathered} \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2}, \\ J=1000,\ \frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}=\frac14\ \Rightarrow\ 1+250=251,\ \ \sqrt{251}=15.84. \end{gathered}
 
 Book equation 8.1.
 
     O_{\mathrm{harness}}=\big(C_{\mathrm{score}},\ G_{\mathrm{metric}},\ B=\text{folds}\times\text{samples}\times\text{seeds}\big).
 
+## conditions
+
+- The number that fixes a run's pseudo-randomness. Two runs with the same seed reproduce each other only when the code, data, environment, and execution are also fixed, since nondeterministic execution can differ at the same seed, and runs with different seeds are necessary but not sufficient for an independent replication.
+- The standard error over n seeds falls as one over the square root of n, a paired comparison across seeds has smaller variance than an unpaired one exactly when the two arms covary, and a preregistration names its seeds before the run.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- NEG-14. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe). `[refuted]`. `geometric-observation/claims/LEDGER.md:108` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,25 +34,18 @@ Chapter 8 section 8.1 of *Data Mining as Observation*, with the disjoint-seed ru
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | GO-4 budget inversion, fixed m 10 rises, matched m 121, 126, 159 collapses, 3 seeds | `geometric-observation\claims\LEDGER.md` row GO-4 |
-| chapter 13 section 13.3 | ZooKeeper hot 0.99 cold 0.01 witnessed 0.0, Postgres 0.50 to 0.06, MongoDB 0.47 to 0.03, production Postgres 0.47 to 0.02, real substrates, disjoint seeds | `observation-theory-campaigns\experiments\DATABASE-FRESHNESS-TRACK.md:1-45` |
+| chapter 4 section 4.4 | GO-4 budget inversion, fixed m 10 rises, matched m 121, 126, 159 collapses, 3 seeds | [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md) row GO-4 |
+| chapter 13 section 13.3 | ZooKeeper hot 0.99 cold 0.01 witnessed 0.0, Postgres 0.50 to 0.06, MongoDB 0.47 to 0.03, production Postgres 0.47 to 0.02, real substrates, disjoint seeds | [`observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md:1-45`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/experiments/DATABASE-FRESHNESS-TRACK.md#L1-L45) |
 
 ## failures and corrections
 
-- NEG-14, `[refuted]`. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe).
-
-## conditions
-
-- The number that fixes a run's randomness, so that two runs with the same seed are one run and only runs with different seeds measure variance. The standard error over n seeds falls as one over the square root of n, and a paired comparison across seeds has smaller variance than an unpaired one exactly when the two arms covary.
-- A preregistration names its seeds before the run, the freshness tracks used disjoint seeds for the two arms, and a claim replicated on one seed is replicated once.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/StandardError.lean`, theorems `se_pos`, `se_quarter`, `se_antitone`, `se_tendsto_zero`, `thousand_folds`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/StandardError.lean`, theorems `se_pos`, `se_quarter`, `se_antitone`, `se_tendsto_zero`, `thousand_folds`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/Bootstrap.lean`, theorems `mean_sub`, `var_sub`, `paired_lt_iff`, `cov_comm`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Bootstrap.lean`, theorems `mean_sub`, `var_sub`, `paired_lt_iff`, `cov_comm`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -61,6 +55,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 harness, standard-error, bootstrap, preregistration, sealed
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.18, 8.2.
+
+Ledger rows that cite the entry's records without naming it: NEG-14.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

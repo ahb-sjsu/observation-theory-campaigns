@@ -3,23 +3,26 @@
 **id.** teacher-forcing
 **kind.** concept
 
+![The reference token fed in at each step, so an error cannot compound.](../figures/teacher-forcing.svg)
+
 ## definition
 
 Feeding a language model the correct text as context rather than its own earlier outputs. Chapter 0 section 0.11.
 
 ## equation
 
-Book equation 0.22.
+none
 
-    \mathrm{PPL}=2^{H},\qquad H=-\frac1T\sum_{t=1}^{T}\log_2 p\big(w_t\mid w_{<t}\big).
+## conditions
 
-Book equation 11.1.
+- Feeding a model the correct text as context rather than its own earlier outputs. The forced and free runs agree exactly as long as the forced predictions match the reference, and they part at the first token the model gets wrong, after which the free run's context is no longer the reference's.
+- Perplexity is measured under teacher forcing, so a good perplexity does not certify a free run. The C-12 record's thirteen-point difference vanished under teacher forcing, and the operator-drift claim it was meant to support is refuted in the ledger.
 
-    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- OT-4. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. `[refuted]`. `geometric-observation/claims/LEDGER.md:36` at 9f3829f.
+none
 
 ## first stated
 
@@ -31,18 +34,11 @@ none
 
 ## failures and corrections
 
-- OT-4, `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it.
-
-## conditions
-
-- Feeding a model the correct text as context rather than its own earlier outputs. The forced and free runs agree exactly as long as the forced predictions match the reference, and they part at the first token the model gets wrong, after which the free run's context is no longer the reference's.
-- Perplexity is measured under teacher forcing, so a good perplexity does not certify a free run. The C-12 record's thirteen-point difference vanished under teacher forcing, and the operator-drift claim it was meant to support is refuted in the ledger.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/TeacherForcing.lean`, theorems `free_eq_take`, `free_length`, `free_ne_of_error`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/TeacherForcing.lean`, theorems `free_eq_take`, `free_length`, `free_ne_of_error`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +48,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 perplexity, drift, harness, deployment-mismatch
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.22, 11.1.
+
+Ledger rows that cite the entry's records without naming it: OT-4.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

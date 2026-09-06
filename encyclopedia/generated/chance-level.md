@@ -3,23 +3,24 @@
 **id.** chance-level
 **kind.** concept
 
+![The score a null scorer reaches, which a bar must clear.](../figures/chance-level.svg)
+
 ## definition
 
 The value a rank statistic reaches on average under a random ranking. Zero for a correlation, one half for AUROC. Chapter 0 section 0.8.
 
 ## equation
 
-Book equation 0.16.
-
-    \mathrm{AUROC}=\Pr\big[s^{+}>s^{-}\big]\ +\ \tfrac12\Pr\big[s^{+}=s^{-}\big].
-
-Book equation 0.15.
-
-    \tau=\frac{\#\{\text{concordant pairs}\}-\#\{\text{discordant pairs}\}}{n(n-1)/2}.
-
 Book equation 0.38.
 
     w=\max\big(0,\ 2\cdot\mathrm{AUROC}-1\big).
+
+## conditions
+
+- The value a rank statistic reaches under a ranking that carries no information. A constant score ties every pair, so its AUROC is one half when both classes are present, its Kendall correlation with any score is zero, and its reliability weight is zero.
+- Every reading the probe reports comes with its chance overlap beside it, and a gate subtracts the chance level before it counts a margin.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -37,16 +38,9 @@ none
 
 none
 
-## conditions
-
-- The value a rank statistic reaches under a ranking that carries no information. A constant score ties every pair, so its AUROC is one half when both classes are present, its Kendall correlation with any score is zero, and its reliability weight is zero.
-- Every reading the probe reports comes with its chance overlap beside it, and a gate subtracts the chance level before it counts a margin.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/ChanceLevel.lean`, theorems `aurocNum_const`, `auroc_const`, `weight_const`, `tau_const`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ChanceLevel.lean`, theorems `aurocNum_const`, `auroc_const`, `weight_const`, `tau_const`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -56,6 +50,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 reliability-weight, cross-corpus-gate, kendall-correlation, harness
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.16, 0.15.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

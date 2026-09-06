@@ -3,41 +3,13 @@
 **id.** gaussian
 **kind.** concept
 
+![The normal distribution, isotropic when every direction is the same.](../figures/gaussian.svg)
+
 ## definition
 
 The normal distribution, in many dimensions the one whose density falls with the Mahalanobis distance. An isotropic Gaussian has every direction the same. Chapter 9 and chapter 10.
 
 ## equation
-
-Book equation 0.33.
-
-    d_M(x)=\sqrt{(x-\mu)^{\top}\Sigma^{-1}(x-\mu)}.
-
-Book equation 0.6.
-
-    x_{\mathrm w}=\Sigma^{-1/2}(x-\mu),\qquad \Sigma^{-1/2}=\sum_i\lambda_i^{-1/2}\,v_i v_i^{\top}.
-
-Book equation 9.3.
-
-    \hat\mu=\frac{\bar s_{\mathrm{true}}-\bar s_{\mathrm{distr}}}{\sigma_{\mathrm{distr}}},\qquad \mu_{\mathrm{crit}}=\mathbb E\Big[\max_{N-1}\mathcal N(0,1)\Big],\qquad \rho=\frac{\hat\mu}{\mu_{\mathrm{crit}}},\qquad \rho=1\ \text{vacuous}.
-
-## ledger
-
-- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 9f3829f.
-- GO-8. On two independent source families (binary Markov; Gaussian AR(1)), a fixed stored record's operational reset threshold rises with the age of the retained side information exactly as the staleness–work complement prices it: same record, same bins, same decoder — the decodable bin rate climbs $0.10\to0.55$ bits/symbol across ages 0–64 of a $p=0.05$ Markov chain, tracking $R_c-1+h_2(\hat d \ast q_t)$ within one grid step at every age, and a fixed bin rate flips from 1% error (age 0) to 100% (age 32). `[replicated]`. `geometric-observation/claims/LEDGER.md:71` at 9f3829f.
-
-## first stated
-
-Chapter 9 section 9.3 and chapter 10 section 10.3 of *Data Mining as Observation*, with the isotropic Gaussian control in `turboquant-pro/turboquant_pro/anatomy.py:98-170`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 10 section 10.3 | hierarchical typing, tails 0.95 and 0.85, prescriptions, two designs that died, correlation above 0.8 on an isotropic Gaussian | `turboquant-pro\turboquant_pro\anatomy.py:98-170` |
-| chapter 13 section 13.5 | GO-8, 0.10 to 0.55 across ages 0 to 64, flip probability 0.05, 1 percent to 100 percent at age 32, Gaussian pass 5 of 5, the control-statistic caveat | `geometric-observation\claims\LEDGER.md` row GO-8; `geometric-observation\experiments\GO-landauer-gaussian-secondsettings-NOTES.md` |
-
-## failures and corrections
 
 none
 
@@ -48,11 +20,30 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+- *measures.* GO-8 `[replicated]`. On two independent source families (binary Markov; Gaussian AR(1)), a fixed stored record's operational reset threshold rises with the age of the retained side information exactly as the staleness–work complement prices it: same record, … [`geometric-observation/claims/LEDGER.md:71`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L71).
+
+## first stated
+
+Chapter 9 section 9.3 and chapter 10 section 10.3 of *Data Mining as Observation*, with the isotropic Gaussian control in `turboquant-pro/turboquant_pro/anatomy.py:98-170`.
+
+## measurements
+
+| Where the book states it | Numbers, as the book's sources table records them | Source |
+|---|---|---|
+| chapter 10 section 10.3 | hierarchical typing, tails 0.95 and 0.85, prescriptions, two designs that died, correlation above 0.8 on an isotropic Gaussian | [`turboquant-pro/turboquant_pro/anatomy.py:98-170`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/turboquant_pro/anatomy.py#L98-L170) |
+| chapter 13 section 13.5 | GO-8, 0.10 to 0.55 across ages 0 to 64, flip probability 0.05, 1 percent to 100 percent at age 32, Gaussian pass 5 of 5, the control-statistic caveat | [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md) row GO-8; [`geometric-observation/experiments/GO-landauer-gaussian-secondsettings-NOTES.md`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/experiments/GO-landauer-gaussian-secondsettings-NOTES.md) |
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Isotropy.lean`, theorems `isotropic_reads_same`, `isotropic_no_flip`, `anisotropic_readers_differ`, `flip_iff_anisotropic`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Isotropy.lean`, theorems `isotropic_reads_same`, `isotropic_no_flip`, `anisotropic_readers_differ`, `flip_iff_anisotropic`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/Mahalanobis.lean`, theorems `dM2_nonneg`, `dM2_mean`, `dM2_scale`, `dM2_eq_whitened`, `dM2_antitone_in_variance`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Mahalanobis.lean`, theorems `dM2_nonneg`, `dM2_mean`, `dM2_scale`, `dM2_eq_whitened`, `dM2_antitone_in_variance`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -62,6 +53,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 isotropic, mahalanobis-distance, null-model, whitening, standard-error
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.33, 0.6, 9.3.
+
+Ledger rows that cite the entry's records without naming it: GO-3.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

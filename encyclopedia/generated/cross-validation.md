@@ -3,6 +3,8 @@
 **id.** cross-validation
 **kind.** instrument
 
+![Folds tested once each, sharing training data.](../figures/cross-validation.svg)
+
 ## definition
 
 Splitting the data into folds and evaluating on each fold a model trained on the others. Repeated cross-validation multiplies confidence it did not earn, chapter 8 section 8.5.
@@ -17,6 +19,13 @@ Book equation 0.18.
 
     \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2},\qquad \frac{\widehat{\operatorname{Var}}_{\mathrm{NB}}}{\hat\sigma^{2}/J}=1+J\,\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}.
 
+## conditions
+
+- Splitting the rows into folds and evaluating on each fold a model trained on the others, so every row is tested exactly once. The overall accuracy is the size-weighted mean of the fold accuracies, and with equal folds it is their plain mean.
+- The folds share training data, so repeated cross-validation multiplies confidence it did not earn, which the Nadeau and Bengio correction prices at one plus the fold count times the test-to-train ratio.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
 none
@@ -27,25 +36,15 @@ Stone, cross-validatory choice, 1974, as chapter 8 section 8.5 of *Data Mining a
 
 ## measurements
 
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 6 section 6.4 | the uncorrected t stored as sigma, 251 and 15.84, nine wins to three, seven, eight, 3 wins 17 ties 11 losses on 31 datasets, the three-way inconsistency | `constraint-gap\review\FINDINGS.md:1-35`; `constraint-gap\README.md:57-76` |
-| chapter 8 section 8.5 | variance inflation 251, SE inflation 15.84, J_eff 3.98, about 62 needed, 3 of 9 at full, 7 at half, 8 at a third | `constraint-gap\review\FINDINGS.md:1-35` |
+none
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- Splitting the rows into folds and evaluating on each fold a model trained on the others, so every row is tested exactly once. The overall accuracy is the size-weighted mean of the fold accuracies, and with equal folds it is their plain mean.
-- The folds share training data, so repeated cross-validation multiplies confidence it did not earn, which the Nadeau and Bengio correction prices at one plus the fold count times the test-to-train ratio.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/CrossValidation.lean`, theorems `sizes_sum`, `accuracy_weighted`, `accuracy_mean_of_equal`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/CrossValidation.lean`, theorems `sizes_sum`, `accuracy_weighted`, `accuracy_mean_of_equal`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -55,6 +54,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 nadeau-and-bengio-correction, harness, standard-error, leakage
 
+## see also
+
+Sources-table rows that share a record with the entry without naming it: chapter 6 section 6.4, chapter 8 section 8.5.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

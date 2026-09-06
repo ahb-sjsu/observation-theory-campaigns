@@ -3,19 +3,22 @@
 **id.** cross-support-ratio
 **kind.** concept
 
+![The support of the rarer item over the support of the commoner one.](../figures/cross-support-ratio.svg)
+
 ## definition
 
 The smallest item support in an itemset over the largest, with a threshold below which the itemset is discarded. Chapter 5.
 
 ## equation
 
-Book equation 5.3.
+none
 
-    X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
+## conditions
 
-Book equation 5.1.
+- The smallest item support in an itemset over the largest. It lies in the unit interval, is one exactly when every item has the same support, and adding an item can only lower it, so a threshold on it prunes supersets safely in chapter 5's sense.
+- It is a property of the item supports alone and says nothing about the itemset's own support, so it discards an itemset for pairing a common item with a rare one, not for being rare.
 
-    s(X)=\frac{\sigma(X)}{N},\qquad c(X\to Y)=\frac{\sigma(X\cup Y)}{\sigma(X)}=\frac{s(X\cup Y)}{s(X)}.
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -35,16 +38,9 @@ TSK chapter 5 on cross-support patterns, as chapter 5 section 5.5 of *Data Minin
 
 none
 
-## conditions
-
-- The smallest item support in an itemset over the largest. It lies in the unit interval, is one exactly when every item has the same support, and adding an item can only lower it, so a threshold on it prunes supersets safely in chapter 5's sense.
-- It is a property of the item supports alone and says nothing about the itemset's own support, so it discards an itemset for pairing a common item with a rare one, not for being rare.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/CrossSupport.lean`, theorems `ratio_mem_unit`, `ratio_eq_one_iff`, `ratio_anti`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/CrossSupport.lean`, theorems `ratio_mem_unit`, `ratio_eq_one_iff`, `ratio_anti`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -54,6 +50,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 apriori, safe-pruning, lift, multiple-comparisons
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 5.3, 5.1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

@@ -3,41 +3,13 @@
 **id.** truncation
 **kind.** instrument
 
+![The first k components kept and the rest dropped.](../figures/truncation.svg)
+
 ## definition
 
 Keeping the first k components of a spectrum and dropping the rest, a bet that the consumer reads the top of the spectrum. Chapter 4 section 4.5.
 
 ## equation
-
-Book equation 4.2.
-
-    D(b)=\sum_i s_i\sigma_i^{2}\,2^{-2b_i},\qquad s_i=v_i^{\top}P_C\,v_i,\qquad b_i^{\star}=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i\sigma_i^{2}}{\theta}\Big),\qquad \sum_i b_i^{\star}=B,
-
-Book equation 0.7.
-
-    r_{\mathrm{eff}}=\frac{\big(\sum_i\lambda_i\big)^{2}}{\sum_i\lambda_i^{2}}.
-
-Book equation 11.4.
-
-    \text{directions resolved}(k)=\begin{cases}1\ \text{or}\ 2,& k<d\\[2pt] \operatorname{rank}P_C,& k\ge d\end{cases}\qquad \text{cost}=2d\ \text{consumer calls per operating point}.
-
-## ledger
-
-- GO-4. Fixed-budget verdicts invert under budget-matched observation, per the wavelength mechanism. `[replicated]`. `geometric-observation/claims/LEDGER.md:66` at 9f3829f.
-
-## first stated
-
-Chapter 4 section 4.5 of *Data Mining as Observation*, with the truncation claim in `turboquant-pro/CLAIMS.md:28-49` and the GloVe table in `turboquant-pro/benchmarks/RESULTS_glove.md:1-40`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 4 section 4.5 | GloVe table, 73 percent at 64 components, 0.685 vs 0.862 and 0.866, 0.906 at matched bytes, 0.989 at 37 bytes, 768 to 256 keeps about 99 percent, the 95 percent rule | `turboquant-pro\benchmarks\RESULTS_glove.md:1-40` |
-| chapter 4 section 4.5 | truncation claim reproducible, loses on compact sets | `turboquant-pro\CLAIMS.md:28-49` |
-| chapter 11 section 11.5 | 9.6x at recall 0.999 CI-gated on GloVe 1.18M; 32x at 0.9993 on private 199k LaBSE, ties OPQ, beats RaBitQ, 20x build; 27.7x and 114x reported; PCA truncation loses on compact sets; 20x at 199k and 4x at 1M over OPQ; RaBitQ builds in under a second | `turboquant-pro\CLAIMS.md:28-49` |
-
-## failures and corrections
 
 none
 
@@ -48,11 +20,30 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 4 section 4.5 of *Data Mining as Observation*, with the truncation claim in `turboquant-pro/CLAIMS.md:28-49` and the GloVe table in `turboquant-pro/benchmarks/RESULTS_glove.md:1-40`.
+
+## measurements
+
+| Where the book states it | Numbers, as the book's sources table records them | Source |
+|---|---|---|
+| chapter 4 section 4.5 | truncation claim reproducible, loses on compact sets | [`turboquant-pro/CLAIMS.md:28-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/CLAIMS.md#L28-L49) |
+| chapter 11 section 11.5 | 9.6x at recall 0.999 CI-gated on GloVe 1.18M; 32x at 0.9993 on private 199k LaBSE, ties OPQ, beats RaBitQ, 20x build; 27.7x and 114x reported; PCA truncation loses on compact sets; 20x at 199k and 4x at 1M over OPQ; RaBitQ builds in under a second | [`turboquant-pro/CLAIMS.md:28-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/CLAIMS.md#L28-L49) |
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/PCA.lean`, theorems `varAlong_basis`, `varAlong_le`, `varAlong_ge`, `dropped_eq`, `dropped_nonneg`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/PCA.lean`, theorems `varAlong_basis`, `varAlong_le`, `varAlong_ge`, `dropped_eq`, `dropped_nonneg`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/ExplainedVariance.lean`, theorems `explained_mem_unit`, `explained_mono`, `explained_full`, `retained_identity`, `retained_example`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ExplainedVariance.lean`, theorems `explained_mem_unit`, `explained_mono`, `explained_full`, `retained_identity`, `retained_example`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -62,6 +53,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 principal-component-analysis, explained-variance, budget, spectrum, concentrated
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 4.2, 0.7, 11.4.
+
+Ledger rows that cite the entry's records without naming it: GO-4.
+
+Sources-table rows that share a record with the entry without naming it: chapter 4 section 4.5.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

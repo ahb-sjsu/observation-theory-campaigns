@@ -18,6 +18,7 @@ readscope = "readscope"
 [[entry]]
 id = "flip"
 kind = "result"
+known_as = "Consumer-relative compression sits beside the information bottleneck of Tishby, Pereira, and Bialek and beside task-based quantization. The flip is the measured claim that at matched bits the code that reconstructs worse can serve the consumer better."
 title = "the flip"
 glossary = "flip, the"
 equations = ["4.5", "3.1", "0.10"]
@@ -40,6 +41,7 @@ match = "NEG-(4|5|6|7|8|9|10)\\b"
 [[entry]]
 id = "false-clear-rate"
 kind = "concept"
+strict = false
 title = "false-clear rate"
 glossary = "false-clear rate"
 equations = ["0.26", "13.1", "12.4"]
@@ -74,6 +76,7 @@ match = "Corrected 2026-09-03"
 [[entry]]
 id = "youden-f1-bound"
 kind = "correction"
+definition = "The bound on the best F1 a score can reach at any threshold, from the Youden index, true positive rate minus false positive rate, maximized over thresholds. The bound holds for every score. The form that reads the ceiling from the AUROC holds only for concave ROC curves, with a counterexample at AUROC 0.75."
 title = "Youden F1 bound"
 glossary = ""
 equations = ["5.4"]
@@ -100,6 +103,7 @@ note = "Rerun of the A* paper's pruning tables by `theory-radar/rerun_youden_202
 [[entry]]
 id = "read-distortion"
 kind = "concept"
+known_as = "The consumer-weighted squared error. Task-based quantization studies the same objective for a known task."
 title = "read distortion"
 glossary = "read distortion"
 equations = ["0.10", "1.2", "4.1"]
@@ -215,6 +219,7 @@ conditions = [
   "In the percentile setting the implementation computes the distortion on the retained central pairs and the concentration over all pairs, and the floor is a robust estimate, not a guarantee on either set.",
   "The floor is about the global ordering of the sampled pairwise distances. It does not directly certify a query's top-k recall, one query's neighbour order, or the trimmed tail.",
   "A floor on a sample of anchors is a statement about that sample. Carrying it to the corpus needs a sampling argument the certificate records the inputs for and does not supply.",
+  "A vacuous certificate supplies no guarantee about the corpus. Reranking exactly is the policy the program adopts when the certificate is vacuous, and not something the certificate proves necessary.",
 ]
 [[entry.errata]]
 repo = "turboquant-pro"
@@ -308,6 +313,7 @@ match = "sample-complexity"
 [[entry]]
 id = "read-operator"
 kind = "concept"
+known_as = "In the scalar Euclidean-output case the read operator is the active-subspace matrix of Constantine and Gleich, the covariance of the gradient. What the program adds is the pullback through the output metric, the observer triple, the budget, and the audit discipline."
 title = "read operator"
 glossary = "read operator"
 equations = ["0.9", "0.11", "2.1", "6.1"]
@@ -331,6 +337,7 @@ match = "as a field, not a constant"
 [[entry]]
 id = "quotient"
 kind = "concept"
+known_as = "The information bottleneck's view of relevant information, what the consumer does not read may be discarded, stated for a fixed consumer without a variational objective."
 title = "quotient"
 glossary = "quotient"
 equations = ["0.12a", "0.12b"]
@@ -430,6 +437,7 @@ related = ["certificate", "vacuity-threshold", "hubness"]
 conditions = [
   "The recognizer names a manifold from the low eigenvalue multiplets of a neighbourhood graph's Laplacian by template match, or certifies that none is present, and it can only name shapes in its template set.",
   "It was held to a preregistered held-out battery, and the vacuity threshold below which it certifies nothing is derived from the problem rather than tuned.",
+  "The limitation applies to every spectral reading in the book. A finite graph spectrum names a shape only against a finite list of templates, and the manifold, multiplet, and Weyl's law entries carry the same scope.",
 ]
 
 [[entry]]
@@ -474,6 +482,7 @@ conditions = [
 [[entry]]
 id = "water-filling"
 kind = "concept"
+known_as = "Reverse water-filling of rate-distortion theory, per Cover and Thomas, applied to the read-weighted spectrum."
 title = "water-filling"
 glossary = "water-filling"
 equations = ["0.13", "4.2"]
@@ -502,8 +511,8 @@ book_terms = ["Monotone Invariance", "strictly monotone"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean"
 related = ["formula-search", "safe-pruning", "youden-f1-bound"]
 conditions = [
-  "A strictly monotone transform of a score leaves AUROC, defined pairwise with ties counted one half, and optimal thresholded F1, defined by sweeping the threshold over every score value in both directions, unchanged, because both depend only on the ranking.",
-  "The theorem licenses pruning every monotone unary node of a formula search with zero loss. It says nothing about non-monotone transforms, which can change both quantities.",
+  "Two statements with different scope. A strictly monotone transform of a score in either direction cannot change its optimal thresholded F1, because the sweep tries thresholds in both directions and so reaches every partition the transform can. A strictly increasing transform leaves the AUROC unchanged, and a strictly decreasing one sends it to 1 minus A.",
+  "The F1 half licenses the pruning of monotone unary nodes in the formula search. The AUROC half licenses nothing about decreasing transforms. The Lean file states the increasing case, and the AUROC file states the reversal.",
 ]
 
 [[entry]]
@@ -574,6 +583,7 @@ match = "sigma|Nadeau"
 [[entry]]
 id = "observer"
 kind = "concept"
+known_as = "The observer triple extends the active-subspace matrix with an output metric, a budget, and an audit discipline."
 title = "observer"
 glossary = "observer"
 equations = ["1.1", "0.9", "0.11"]
@@ -645,6 +655,7 @@ conditions = [
 [[entry]]
 id = "read-subspace"
 kind = "concept"
+known_as = "The active subspace of Constantine and Gleich when the output is scalar and Euclidean."
 title = "read subspace"
 glossary = "read subspace"
 equations = ["0.9", "2.1", "6.1"]
@@ -663,6 +674,7 @@ conditions = [
 [[entry]]
 id = "sensitivity"
 kind = "concept"
+known_as = "The gradient of the consumer at a row, the quantity active-subspace methods average."
 title = "sensitivity"
 glossary = "sensitivity"
 equations = ["0.8", "0.11", "14.4"]
@@ -771,9 +783,8 @@ book_terms = ["\\bseal(?:ed|s|ing)?\\b"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
 related = ["preregistration", "ledger-class", "certificate", "refresh-floor"]
 conditions = [
-  "A prediction is sealed when its file is committed and the commit and the content hash are recorded in the seal ledger before the measurement is run, so that anyone with the repository can verify it has not changed.",
-  "A seal fixes the text, not its correctness. The version 1.0 declaration was sealed with one count wrong, and the correction is recorded beside the seal rather than by editing the sealed file.",
-  "An unsealed exploration can be reported and cannot carry a claim, and the refuted refresh-floor law is the program's standing example.",
+  "Of a prediction, committed with its hash recorded before the measurement, so that anyone with the repository can verify that the file has not changed. The hash proves the content. The time it existed is established by the public push, the signed tag, the transparency log, or the archival deposit that the seal names, since a commit's dates are supplied fields.",
+  "A changed digest proves a changed file, an equal digest is evidence and not proof because a fixed-length digest of longer inputs cannot be injective, and every claim class in the ledger rests on a seal.",
 ]
 [[entry.errata]]
 repo = "observation-theory-campaigns"
@@ -796,6 +807,7 @@ conditions = [
   "The effective rank is the square of the sum of the eigenvalues over the sum of their squares, between one and the dimension for a nonnegative spectrum, with no cutoff to choose.",
   "It is not invariant under a change of basis of the input, unlike the trace pairing and the rank, and the ledger row that says so is the one that licenses comparing read operators across coordinate systems.",
   "An allocation over a spectrum with effective rank below two concentrates on one direction, and the allocation report says so before giving a gain.",
+  "It is defined for a nonnegative spectrum that is not all zero, and it lies between one and the dimension.",
 ]
 
 [[entry]]
@@ -845,9 +857,8 @@ book_terms = ["reliability weight"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/ReliabilityWeight.lean"
 related = ["monotone-invariance", "harness", "posited-versus-measured", "certificate"]
 conditions = [
-  "The weight is zero or twice the held-out AUROC minus one, whichever is larger, so it lies in the unit interval, is zero at chance and below, and is unchanged by any strictly monotone recalibration of the score.",
-  "It is a discrimination weight and not a calibration weight. The expected calibration error is reported beside it, and an encoder below the untrained baseline gets weight zero whatever its calibration.",
-  "One formula and one source. The registry that consumes the weights computes them from the recorded held-out AUROC and nothing else.",
+  "Zero or twice the held-out AUROC minus one, whichever is larger. It is a discrimination weight, unchanged by a strictly increasing transform of the encoder's score and not by a decreasing one, which sends A to 1 minus A and the weight to zero whenever A was above one half.",
+  "The calibration evidence is the expected calibration error reported beside it, and the weight is computed on a held-out split under the cross-corpus gate, so it is one formula from one source.",
 ]
 
 [[entry]]
@@ -905,6 +916,7 @@ conditions = [
   "An encoder votes only if its held-out AUROC on a corpus it was not trained on clears both nulls, the untrained encoder and the bag-of-words baseline, by the preregistered margin of one tenth. A validated encoder therefore beats each null by the margin.",
   "Since AUROC is at most one, a null above nine tenths cannot be cleared by any encoder, and the gate's verdict is unchanged by any strictly monotone recalibration of the score.",
   "The rights encoder fell below the untrained baseline and was retired rather than tuned, and the within-corpus scores that had collapsed on a second corpus were the reason the gate is cross-corpus.",
+  "The gate compares the AUROC as the encoder orients its score, so a reversed encoder fails rather than passing at 1 minus A, and the bag-of-words null is scored the same way.",
 ]
 
 [[entry]]
@@ -1027,8 +1039,8 @@ book_terms = ["intrinsic dimension", "Weyl"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/IntrinsicDimension.lean"
 related = ["recognizer", "effective-rank", "distance-concentration", "vacuity-threshold"]
 conditions = [
-  "The intrinsic dimension is the number of directions a dataset varies along, whatever its coordinate count. Under Weyl's law the count of eigenvalues below a level grows like the level to half the dimension, so the dimension is twice the slope of log count against log level between any two levels, whatever the constant.",
-  "Dimension emerges before shape. The recognizer reports it with confidence before it names a manifold, and the law is an asymptotic statement about manifolds that a finite sample approximates.",
+  "The number of directions a dataset varies along locally, whatever its number of coordinates. Read from the slope of the Laplacian eigenvalue count on log axes by Weyl's law, it is an asymptotic estimate that depends on the graph's construction and the range of eigenvalues fitted. It is not the number of covariance directions, since a circle has intrinsic dimension one and two covariance directions.",
+  "The recognizer reads dimension before shape, and the battery's dimensions of 1.81, 2.80, and 1.74 were read against sealed bars on templates built for the purpose.",
 ]
 
 [[entry]]
@@ -1061,8 +1073,8 @@ book_terms = ["multiple comparison", "Bonferroni", "forty models"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/MultipleComparisons.lean"
 related = ["harness", "nadeau-and-bengio-correction", "preregistration", "formula-search"]
 conditions = [
-  "Test many hypotheses and report the best, and the reported score is the maximum of many noisy draws, at least any single draw. Ten thousand null tests at five percent pass five hundred by chance, forty pass two, and the expected passes grow without bound in the number of tests.",
-  "The Bonferroni correction divides the threshold by the number of tests and keeps the family-wise rate under the target, and a preregistration that names one look needs no correction.",
+  "The inflation of false positives when many hypotheses are tested and the best is reported. The chance that at least one of m independent tests at level alpha is a false positive is one minus one minus alpha to the m, which needs the tests to be independent. The Bonferroni bound, m times alpha, is a union bound and holds under any dependence, and dividing the level by m keeps the family-wise rate at alpha.",
+  "Five hundred of ten thousand null hypotheses pass at five percent, and a harness that searches many formulas or thresholds and reports the best has run that many tests.",
 ]
 
 [[entry]]
@@ -1265,8 +1277,8 @@ book_terms = ["whiten"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/Whitening.lean"
 related = ["mahalanobis-distance", "identity-reader", "read-operator", "water-filling"]
 conditions = [
-  "Rescaling data so that its covariance becomes the identity. In the covariance's eigenbasis each coordinate is divided by the square root of its eigenvalue, each whitened coordinate then has unit variance, and the squared length of a whitened row is the Mahalanobis form.",
-  "Whitening is a change of reader, not a change of data. The whitened code won at every budget on the whale corpus because the consumer read the whitened directions, and the same code under a different consumer has no such guarantee.",
+  "Rescaling centred data by the inverse square root of its covariance, so that the covariance becomes the identity. It needs a positive-definite covariance, or a pseudoinverse restricted to the covariance's support, and after it every direction has variance one.",
+  "Euclidean distance after whitening equals Mahalanobis distance before it, so whitening changes which reader the Euclidean reader is and not what the data holds. The whitened code won at every budget on the whale corpus, 0.83, 0.85, 0.97 against 0.41, 0.80, 0.89.",
 ]
 
 [[entry]]
@@ -1284,6 +1296,7 @@ related = ["whitening", "identity-reader", "hubness", "abstention"]
 conditions = [
   "The Euclidean distance of a row from the mean after whitening. In the eigenbasis its square is the sum of the squared centred coordinates over the eigenvalues, nonnegative, zero at the mean, unchanged when data and covariance are rescaled together, and a deviation along a direction of larger variance counts for less.",
   "The detector that scores by it treats every whitened direction equally, so it is the identity reader on whitened data, and a consumer that reads a subspace calls different rows outliers.",
+  "It needs a positive-definite covariance, or a pseudoinverse restricted to the covariance's support, and it equals the Euclidean distance after whitening.",
 ]
 
 [[entry]]
@@ -1520,8 +1533,8 @@ book_terms = ["Laplacian", "eigenvector"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/Laplacian.lean"
 related = ["intrinsic-dimension", "recognizer", "rank-faithful", "bi-lipschitz"]
 conditions = [
-  "A matrix built from a graph's edges whose quadratic form is half the weighted sum of squared differences across edges, so it is nonnegative, zero on every constant, and positive on any function that differs across an edge of positive weight. The eigenvectors from the smallest eigenvalue up are therefore the smoothest functions on the graph.",
-  "The file states the unnormalized form, and equation 0.19's normalized form is the same quadratic form in rescaled coordinates. The commute-time scaling of the embedding and the uniform bi-Lipschitz claim for the commute filter are in the ledger, the second refuted.",
+  "The unnormalized Laplacian, the degree matrix less the adjacency, has quadratic form the sum over edges of the squared difference, so it is positive semidefinite, zero on the constant vector, and positive across any edge. The normalized form of equation 0.19 has the same ordering of eigenvalues, but its zero-eigenvalue vector is the square root of the degree times the constant vector, not the constant vector.",
+  "The Lean file checks the unnormalized form. The embedding of equation 0.20 divides each eigenvector entry by the square root of the degree, which is the scaling that carries the normalized eigenvectors back to the unnormalized ones.",
 ]
 
 [[entry]]
@@ -2019,6 +2032,7 @@ related = ["sealed", "preregistration", "ledger-class", "certificate"]
 conditions = [
   "A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. A changed hash proves a changed file, an unchanged file has an unchanged hash, and a digest with fewer values than there are files sends two distinct files to the same digest, so an equal hash is evidence and not proof.",
   "The seal ledger records the hash beside the commit, and the recognizer's templates and the probe's records carry theirs, so that a reader with the repository can check what was fixed before the measurement.",
+  "A hash proves content and not time. When a file existed in the hashed state is established by a public push, a signed tag, a transparency log, or an archival deposit.",
 ]
 
 [[entry]]
@@ -2036,6 +2050,7 @@ related = ["embedding", "cross-corpus-gate", "reliability-weight", "retrieval-au
 conditions = [
   "A model that maps an input to an embedding. An encoder votes only when its held-out AUROC on a corpus it was not trained on clears both nulls by the preregistered margin, its authority is its reliability weight, and a strictly monotone recalibration of its score changes neither the verdict nor the weight.",
   "The rights encoder fell below the untrained baseline and was retired rather than tuned, and the legal-citation encoder's flip is the ledger's demonstrated row.",
+  "An encoder's held-out AUROC depends on the orientation of its score. A score that ranks the wrong way scores 1 minus A, and the gate reads the score as the encoder produces it and not the better of the two orientations.",
 ]
 
 [[entry]]
@@ -2153,8 +2168,8 @@ book_terms = ["commit"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
 related = ["hash", "sealed", "sources-table", "preregistration"]
 conditions = [
-  "The fingerprint git assigns to a snapshot of a repository, which fixes the time at which a file existed in that state. A changed hash proves a changed file and an equal hash is evidence, since a fixed-length digest of longer inputs cannot be injective.",
-  "Every row of a sources table cites its commit, every seal records its sealing commit, and the book's own colophon names the commit it was built from, so that a number can be reproduced at the state it was measured in.",
+  "The fingerprint git assigns to a snapshot of a repository together with its history. It identifies exact content, so a changed hash proves a changed file and an equal hash is strong evidence of an unchanged one, but it does not by itself prove when that content existed, since git's author and committer dates are supplied fields.",
+  "Chronology comes from a public repository receipt, a signed tag, a transparency log, or an archival deposit such as a Zenodo DOI, and a sealed prediction names one of those beside its hash.",
 ]
 
 [[entry]]
@@ -2255,8 +2270,8 @@ book_terms = ["AUROC"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/Auroc.lean"
 related = ["monotone-invariance", "reliability-weight", "chance-level", "youden-f1-bound", "cross-corpus-gate"]
 conditions = [
-  "The probability that a random positive scores above a random negative, ties counted one half. It lies in the unit interval, is one when every positive scores above every negative and zero when every negative scores above every positive, is one half for a constant score, and is unchanged by a strictly monotone transform of the score.",
-  "It reads the ranking and not the values, so it is the discrimination half of every encoder's validation and says nothing about calibration.",
+  "The area under the ROC curve, the probability that a random positive scores above a random negative with ties counted as one half. It lies in the unit interval, is one half for a constant score, one for a perfect ranking, and zero for a perfectly reversed one.",
+  "A strictly increasing transform of the score leaves it unchanged. A strictly decreasing transform reverses every ranking and sends A to 1 minus A, so the AUROC is not free of orientation, and an authority that should ignore orientation reads the larger of A and 1 minus A.",
 ]
 
 [[entry]]
@@ -2323,8 +2338,8 @@ book_terms = ["manifold"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/IntrinsicDimension.lean"
 related = ["intrinsic-dimension", "recognizer", "graph", "laplacian", "template-match"]
 conditions = [
-  "A curved surface of some dimension that looks flat when viewed closely. A dataset lies on one when its rows vary along fewer directions than they have coordinates, and under Weyl's law the count of Laplacian eigenvalues below a level grows like the level to half that dimension, so the dimension is twice the slope of log count against log level.",
-  "The recognizer names the manifold from the eigenvalue multiplets or certifies that none is present, and the twelve of twelve battery is the ledger's demonstrated row.",
+  "A space that is locally like flat space of some dimension. A dataset lies on a manifold when it is locally low-dimensional, which does not mean it varies globally along fewer covariance directions. A circle in the plane is one-dimensional and uses both coordinates, so no linear projection recovers it.",
+  "Convergence of the graph Laplacian to the manifold's holds under stated conditions on sampling density, graph construction, kernel bandwidth, normalization, and scaling, after Belkin and Niyogi, and a finite graph spectrum names a shape only against a finite list of candidates, which is the recognizer's limitation and applies here.",
 ]
 
 [[entry]]
@@ -2544,7 +2559,7 @@ book_terms = ["attribution", "partial dependence", "Shapley"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/Attribution.lean"
 related = ["sensitivity", "read-operator", "finite-difference", "consumer"]
 conditions = [
-  "An assignment to each feature of a share of one prediction. A gradient-based attribution gives coordinate i the share g_i times the move along it, those shares sum exactly to the change in output for an affine consumer, a coordinate the consumer does not read gets share zero, and the average of the squared sensitivity is a diagonal entry of the read operator, so an averaged gradient attribution estimates the read operator.",
+  "An assignment to each feature of a share of one prediction. Three gradient quantities are kept apart. The raw gradient is the sensitivity at a row. Gradient times input, the sensitivity times the move along a coordinate, sums exactly to the change in output for an affine consumer and is zero on an unread coordinate. The weighted mean of the squared sensitivity is a diagonal entry of the read operator, so an averaged squared gradient estimates the read operator and a single-row attribution does not.",
   "Shapley, permutation, and partial-dependence methods measure other things and are named for them, and for a tree the sensitivity is zero almost everywhere, so importances that count splits are the right reading and finite differences the wrong one.",
 ]
 
@@ -2561,8 +2576,8 @@ book_terms = ["commute time", "resistance"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/CommuteTime.lean"
 related = ["spectral-embedding", "laplacian", "geodesic-distance", "degree", "graph"]
 conditions = [
-  "The expected number of steps a random walk on a graph needs to go from one node to another and back, the hitting time there plus the hitting time back, so it is symmetric and zero from a node to itself. Its scaling by the graph's volume is the resistance, and a particular scaling of the spectral embedding makes Euclidean distance equal it.",
-  "On a large neighbourhood graph of a shape of dimension three or more the resistance converges to one over each degree, so it depends on two nodes only through their degrees and carries no geometry, which is why the magnitude of the spectral embedding is degree noise. The program's own first claim of a commute-metric form was self-refuted, NEG-1.",
+  "The expected number of steps a random walk needs to go from one node to another and back, the hitting time there plus the hitting time back, so it is symmetric and zero from a node to itself. The resistance is the commute time divided by the volume, and the squared Euclidean distance in the embedding of equation 0.20 equals the resistance, not the commute time itself.",
+  "On a large neighbourhood graph of a shape of dimension three or more the resistance converges to one over each degree, uniformly over pairs, so it depends on two nodes only through their degrees and carries no geometry, which is why the magnitude of the spectral embedding is degree noise. The program's first claim of a commute-metric form was self-refuted, NEG-1.",
 ]
 
 [[entry]]
@@ -2612,7 +2627,7 @@ book_terms = ["latent semantic", "\\bLSA\\b"]
 lean = ["observation-data-mining:lean/DataMiningAsObservation/PCA.lean", "observation-data-mining:lean/DataMiningAsObservation/ExplainedVariance.lean", "observation-data-mining:lean/DataMiningAsObservation/TFIDF.lean"]
 related = ["tf-idf", "principal-component-analysis", "explained-variance", "bag-of-words", "blind-probe"]
 conditions = [
-  "The singular value decomposition of the TF-IDF matrix with the top components kept, which is principal components on documents. The fraction of variance kept grows with the components kept and reaches one at full rank, and the components dropped cost the sum of their eigenvalues.",
+  "The truncated singular value decomposition of the term-document matrix, ordinarily uncentred, with the top components kept. It coincides with principal components on documents only after the matrix is centred, or under an explicitly uncentred convention, and the fraction of squared singular values kept grows with the components kept and reaches one at full rank.",
   "It is the identity reader on term-document variance, and the components it keeps are the directions of largest variance whether or not the consumer reads them. The non-oracle test fit a frozen embedding of 100 components on the training split only and recovered the reader blind.",
 ]
 
@@ -2629,8 +2644,8 @@ book_terms = ["multiplet"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/Multiplet.lean"
 related = ["laplacian", "recognizer", "manifold", "weyls-law", "eigenvalue-eigenvector"]
 conditions = [
-  "A group of eigenvalues that are equal or nearly so, whose pattern names the shape a dataset lies on. The cycle's Laplacian eigenvalue at k equals the one at n minus k, so every eigenvalue of the discrete circle other than the constant mode and, for even n, the alternating mode appears twice.",
-  "Symmetric shapes produce multiplets, the sphere in groups of three, five, seven, and a product of shapes has the product of their patterns. The recognizer reads the pattern of the lowest eigenvalues against stored templates and refuses when none matches.",
+  "A group of eigenvalues that are equal or nearly so. The cycle's Laplacian eigenvalue at k equals the one at n minus k, so every eigenvalue of the discrete circle other than the constant mode and, for even n, the alternating mode appears twice.",
+  "Symmetric shapes produce multiplets in the continuum, the sphere in groups of three, five, seven. On a finite neighbourhood graph the multiplets are approximate, their spacing depends on sampling and graph construction, and the recognizer reads them against a finite list of templates and refuses when none matches.",
 ]
 
 [[entry]]
@@ -2663,7 +2678,7 @@ book_terms = ["principal component", "\\bPCA\\b"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/PCA.lean"
 related = ["covariance-matrix", "explained-variance", "effective-rank", "projection", "identity-reader", "flip-the"]
 conditions = [
-  "Projection of the data onto the eigenvectors of its covariance with the largest eigenvalues. The variance along a unit direction lies between the smallest and the largest eigenvalue, a basis direction attains its own eigenvalue, and the error of keeping the first k components is the sum of the dropped eigenvalues.",
+  "Projection of the centred data onto the eigenvectors of its covariance with the largest eigenvalues. Among linear orthogonal projections of rank k it minimizes the reconstruction error. In the eigenbasis the variance along a unit direction lies between the smallest and the largest eigenvalue, a basis direction attains its own eigenvalue, and the error of keeping k components is the sum of the dropped eigenvalues.",
   "It is the reduction that minimizes reconstruction error for the identity reader, which weighs all directions equally, which is to say for no particular reader at all. At matched reconstruction the consumer-aware code beat it in twelve of twelve domains, and truncation loses on compact sets.",
 ]
 
@@ -2699,6 +2714,7 @@ related = ["laplacian", "commute-time", "geodesic-distance", "degree", "recogniz
 conditions = [
   "The coordinates a node receives from its values in the first few nontrivial eigenvectors of the graph Laplacian. Row normalization puts every embedded row on the unit sphere, leaves the cosine between rows unchanged, and ignores a positive rescaling of a row, so it is the projection onto the read subspace of the geodesic-rank consumer.",
   "Its magnitude converges to degree noise and its angle keeps the geodesics, so the cosine between embedded rows is the right similarity and the Euclidean distance the wrong one. Clustering the normalized coordinates is spectral clustering, and a density reader of the same embedding reads the complementary coordinate.",
+  "The embedding of equation 0.20 scales each eigenvector entry by the eigenvalue and the degree. Its squared Euclidean distance is the resistance, commute time over volume, exactly for the full spectrum and approximately when only the low modes are kept.",
 ]
 
 [[entry]]
@@ -2748,8 +2764,8 @@ book_terms = ["Weyl"]
 lean = "observation-data-mining:lean/DataMiningAsObservation/IntrinsicDimension.lean"
 related = ["intrinsic-dimension", "manifold", "laplacian", "multiplet", "recognizer"]
 conditions = [
-  "The rule that the number of eigenvalues below a value grows like that value to the power of half the dimension, so the dimension is in the exponent and is read from the slope of the count against the value on log axes. Doubling the value multiplies the count by two to the half dimension.",
-  "Chapter 9 reads a dataset's dimension from its spectrum before reading its shape, and the recognizer's battery recovered dimensions of 1.81, 2.80, and 1.74 on three sealed templates. The finer geometry is in the constant and the multiplets, not the exponent.",
+  "An asymptotic statement about the continuum Laplacian. The number of eigenvalues below a value grows like that value to the power of half the dimension, so the dimension is in the exponent and is read from the slope of the count against the value on log axes. The Lean file checks that arithmetic and not the law.",
+  "Carrying it to a finite neighbourhood graph needs sampling, graph-construction, normalization, and scaling conditions under which the graph Laplacian converges, and only the low part of the spectrum is read. The recognizer's battery recovered dimensions of 1.81, 2.80, and 1.74 on three sealed templates under those conditions and against a finite list.",
 ]
 
 [[entry]]
@@ -3156,8 +3172,8 @@ book_terms = ["\\bseeds?\\b"]
 lean = ["observation-data-mining:lean/DataMiningAsObservation/StandardError.lean", "observation-data-mining:lean/DataMiningAsObservation/Bootstrap.lean"]
 related = ["harness", "standard-error", "bootstrap", "preregistration", "sealed"]
 conditions = [
-  "The number that fixes a run's randomness, so that two runs with the same seed are one run and only runs with different seeds measure variance. The standard error over n seeds falls as one over the square root of n, and a paired comparison across seeds has smaller variance than an unpaired one exactly when the two arms covary.",
-  "A preregistration names its seeds before the run, the freshness tracks used disjoint seeds for the two arms, and a claim replicated on one seed is replicated once.",
+  "The number that fixes a run's pseudo-randomness. Two runs with the same seed reproduce each other only when the code, data, environment, and execution are also fixed, since nondeterministic execution can differ at the same seed, and runs with different seeds are necessary but not sufficient for an independent replication.",
+  "The standard error over n seeds falls as one over the square root of n, a paired comparison across seeds has smaller variance than an unpaired one exactly when the two arms covary, and a preregistration names its seeds before the run.",
 ]
 
 [[entry]]
@@ -3192,6 +3208,7 @@ related = ["spectral-embedding", "laplacian", "k-means", "recognizer", "geodesic
 conditions = [
   "Clustering the rows of the row-normalized spectral embedding, which reads the angle and discards the density. Row normalization puts every row on the unit sphere, keeps the cosine between rows, and ignores a positive rescaling, and the Laplacian's quadratic form is nonnegative, zero on constants, and positive across any edge.",
   "Ng, Jordan, and Weiss normalized because it improved results, and chapter 3 says why. The Euclidean distance in the embedding converges to degree noise and the angle keeps the geodesics.",
+  "The row normalization applies to eigenvectors of the normalized Laplacian, whose leading vector is proportional to the square root of the degree and not constant.",
 ]
 
 [[entry]]
@@ -3294,23 +3311,25 @@ related = ["output-metric", "euclidean-distance", "read-operator", "quotient", "
 conditions = [
   "A rule for the distance between two rows, or between two outputs. A distance function is a choice of what to ignore, and the local metric on a consumer's output is the positive semidefinite matrix that says how a small change is scored. The squared Euclidean distance is symmetric and zero exactly between equal rows.",
   "A dataset-level loss, accuracy, F1, or a rank correlation is not a local metric and cannot be inserted into the read-operator formula, and the same two codes get opposite verdicts from two metrics.",
+  "A positive semidefinite read form is a pseudometric until the directions in its kernel are quotiented out. The book calls it a metric by convention, on the quotient.",
 ]
 
 [[entry]]
 id = "correction"
 kind = "concept"
+definition = "An erratum or retraction, a change to a published number or claim that the record keeps beside the original, naming what was wrong and what replaced it. The Nadeau and Bengio adjustment is a statistical correction and has its own entry."
 title = "correction"
 glossary = "correction"
-equations = ["8.2", "8.1", "2.1"]
+equations = []
 ledger = ["NEG-13", "NEG-9"]
 first_stated = "Chapter 2 section 2.4 and chapter 8 section 8.5 of *Data Mining as Observation*, with the standing corrections in `geometric-observation/claims/LEDGER.md`."
 book_records = ["FINDINGS.md:1-35", "REVISION_PLAN.md", "sha e12453effa2f"]
 book_terms = ["\\bcorrections?\\b", "corrected"]
-lean = ["observation-data-mining:lean/DataMiningAsObservation/NadeauBengio.lean", "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"
 related = ["nadeau-and-bengio-correction", "ledger-class", "sealed", "harness", "retraction"]
 conditions = [
-  "A change to a published number or claim that the record keeps beside the original, naming what was wrong and what replaced it. A statistical correction rescales a variance for a dependence the harness ignored, and a changed digest proves a changed file, so a correction is itself a sealed object.",
-  "A correction can be the wrong shape. The uncorrected t was stored as a sigma, the fitted correction that transferred with mean absolute error zero was the identity, and the rows stay visible with the correction pointing at them.",
+  "An erratum or retraction that the record keeps beside the original. A changed digest proves a changed file, so a correction is itself a sealed object, and the rows it corrects stay visible with the correction pointing at them.",
+  "A correction can be the wrong shape. The uncorrected t was stored as a sigma, and the fitted correction that transferred with mean absolute error zero was the identity. The rescaling of a variance for a dependence the harness ignored is a different object, the Nadeau and Bengio correction.",
 ]
 
 [[entry]]
@@ -3430,6 +3449,7 @@ related = ["preregistration", "sealed", "bar", "ledger-class", "declaration"]
 conditions = [
   "Of a claim, bar, null, or budget, written into a sealed file before the measurement, so that a changed digest would prove a changed prediction. A registered bar discriminates only when the null fails it and the real system passes it.",
   "A registered miss is kept as a miss, an identifier burned at pilot is not reused, and every number in the book was registered before it was measured or is labelled as not having been.",
+  "Registration proves what was claimed and not when, and its chronology rests on the seal's public receipt, signed tag, or archival deposit.",
 ]
 
 [[entry]]
@@ -3566,6 +3586,7 @@ related = ["registered", "sealed", "preregistration", "missingness", "commit-has
 conditions = [
   "A statement of what a study will count, drop, or treat as a failure, sealed before the run. A changed digest would prove a changed declaration, and a declaration drafted on one day and sealed the next is the record's normal shape.",
   "The declaration for the fourth crucible was drafted 2026-08-17, sealed 2026-08-18, and had one count corrected, and the missing-data rule is a required declared field.",
+  "The declaration's chronology rests on the seal's public receipt, signed tag, or archival deposit, since a commit's dates are supplied fields.",
 ]
 
 [[entry]]

@@ -3,23 +3,26 @@
 **id.** decision-boundary
 **kind.** concept
 
+![Where the score crosses the threshold.](../figures/decision-boundary.svg)
+
 ## definition
 
 The set of inputs whose score equals the threshold. Chapter 6.
 
 ## equation
 
-Book equation 6.1.
+none
 
-    s(x)=w\cdot x+b,\qquad P_C=\mathbb E\big[\sigma'(s)^{2}\big]\,w\,w^{\top},\qquad \operatorname{rank}P_C=1.
+## conditions
 
-Book equation 6.2.
+- The set of inputs whose score equals the threshold. For a linear classifier it is an affine hyperplane. Moving orthogonally to the weights never crosses it, moving along the weights crosses it exactly once, and every boundary point has the same projection on the weights.
+- The boundary is where the read direction and the threshold meet and nothing else about the input enters it, which is the classifier's nuisance drawn as a picture.
 
-    \begin{gathered} \max_{\tau,\ \mathrm{dir}}F_1\!\Big(\mathbf 1\big[\mathrm{dir}\big(g(f(X)),\tau\big)\big],\,y\Big)=\max_{\tau,\ \mathrm{dir}}F_1\!\Big(\mathbf 1\big[\mathrm{dir}\big(f(X),\tau\big)\big],\,y\Big) \\ \text{for every strictly monotone } g. \end{gathered}
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- GO-1. The consumer's invariant/nuisance split is identifiable ex ante from the consumer functional. `[predicted]`. `geometric-observation/claims/LEDGER.md:62` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,16 +36,9 @@ none
 
 none
 
-## conditions
-
-- The set of inputs whose score equals the threshold. For a linear classifier it is an affine hyperplane. Moving orthogonally to the weights never crosses it, moving along the weights crosses it exactly once, and every boundary point has the same projection on the weights.
-- The boundary is where the read direction and the threshold meet and nothing else about the input enters it, which is the classifier's nuisance drawn as a picture.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/DecisionBoundary.lean`, theorems `orth_stays`, `cross_once`, `same_projection`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/DecisionBoundary.lean`, theorems `orth_stays`, `cross_once`, `same_projection`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +48,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 classifier, threshold, margin, nuisance
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 6.1, 6.2.
+
+Ledger rows that cite the entry's records without naming it: GO-1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

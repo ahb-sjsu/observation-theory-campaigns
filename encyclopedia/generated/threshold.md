@@ -3,6 +3,8 @@
 **id.** threshold
 **kind.** concept
 
+![The value that turns a score into a decision.](../figures/threshold.svg)
+
 ## definition
 
 The value at which a score becomes a positive decision. Chapter 6.
@@ -16,6 +18,13 @@ Book equation 6.2.
 Book equation 0.28.
 
     P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN},\qquad F_1=\frac{2PR}{P+R}.
+
+## conditions
+
+- The value at which a score becomes a positive decision. Raising it can only shrink the predicted set, so true positives and false positives can only fall, which is why the ROC curve is traced by a single sweep, and below every score everything is positive while above every score nothing is.
+- A strictly increasing recalibration of the score with the matching recalibration of the threshold leaves every decision unchanged, which is the Monotone Invariance Theorem at the level of one decision.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -33,16 +42,9 @@ none
 
 none
 
-## conditions
-
-- The value at which a score becomes a positive decision. Raising it can only shrink the predicted set, so true positives and false positives can only fall, which is why the ROC curve is traced by a single sweep, and below every score everything is positive while above every score nothing is.
-- A strictly increasing recalibration of the score with the matching recalibration of the threshold leaves every decision unchanged, which is the Monotone Invariance Theorem at the level of one decision.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +54,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 monotone-invariance, youden-f1-bound, reliability-weight, calibration
 
+## see also
+
+none
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

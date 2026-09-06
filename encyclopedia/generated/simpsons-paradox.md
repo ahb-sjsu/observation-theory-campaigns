@@ -3,15 +3,22 @@
 **id.** simpsons-paradox
 **kind.** concept
 
+![Every group shows one sign and the aggregate shows the other.](../figures/simpsons-paradox.svg)
+
 ## definition
 
 A reversal of a comparison when groups are combined, which the book reads as an aggregation quotient. Chapter 5.
 
 ## equation
 
-Book equation 10.7.
+none
 
-    \text{verdict}=\min_{i:\ n_i\ge n_{\min},\ |Q_i|\ge q_{\min}}\ \mathrm{score}_i,\qquad \text{ABSTAIN otherwise}.
+## conditions
+
+- A pooled rate is the size-weighted mean of the group rates, so pooling is a quotient that declares the group labels irrelevant, and it can reverse a comparison that holds in every group when the groups have different sizes under the two arms.
+- With equal group sizes under both arms the pooled comparison agrees with a comparison that holds in every group. The book's answer is the min-over-strata verdict, which never pools.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -31,16 +38,9 @@ TSK chapter 5 on objective measures, as chapter 5 section 5.5 of *Data Mining as
 
 none
 
-## conditions
-
-- A pooled rate is the size-weighted mean of the group rates, so pooling is a quotient that declares the group labels irrelevant, and it can reverse a comparison that holds in every group when the groups have different sizes under the two arms.
-- With equal group sizes under both arms the pooled comparison agrees with a comparison that holds in every group. The book's answer is the min-over-strata verdict, which never pools.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Simpson.lean`, theorems `pooled_eq_weighted`, `reversal`, `no_reversal_of_equal_sizes`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Simpson.lean`, theorems `pooled_eq_weighted`, `reversal`, `no_reversal_of_equal_sizes`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -50,6 +50,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 quotient, min-over-strata, abstention, deployment-mismatch
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 10.7.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

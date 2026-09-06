@@ -3,19 +3,22 @@
 **id.** attribute-type
 **kind.** concept
 
+![The four scales and the transformations each permits, nested from ratio to nominal.](../figures/attribute-type.svg)
+
 ## definition
 
-The declaration of which transformations of a column keep its meaning: any injective relabelling for nominal, a strictly increasing map for ordinal, an affine map for interval, a positive rescaling for ratio, nested in that order. Chapter 2 section 2.1.
+The declaration of which transformations of a column keep its meaning, any injective relabelling for nominal, a strictly increasing map for ordinal, an affine map for interval, and a positive rescaling for ratio, nested in that order. Chapter 2 section 2.1.
 
 ## equation
 
-Book equation 2.1.
+none
 
-    P_{C_2\circ C_1}(x)=J_1(x)^{\top}\,P_{C_2}\big(C_1(x)\big)\,J_1(x),\qquad \operatorname{rank}P_{C_2\circ C_1}(x)\le\operatorname{rank}P_{C_2}\big(C_1(x)\big)\quad\text{at each row } x.
+## conditions
 
-Book equation 0.12a.
+- The declaration of which transformations of a column do not change its meaning. A ratio scale permits a positive rescaling, an interval scale an affine map with positive slope, an ordinal scale a strictly increasing map, and a nominal scale any injective relabelling, and the four classes are nested in that order.
+- A rescaling preserves ratios and an affine map preserves ratios of differences, so a consumer that reads a ratio of two interval-scale columns reads the origin the scale said was arbitrary.
 
-    x\sim_C x'\quad\Longleftrightarrow\quad d_G\big(C(x),C(x')\big)=0.
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -35,16 +38,9 @@ Stevens, on the theory of scales of measurement, 1946, as chapter 2 section 2.1 
 
 none
 
-## conditions
-
-- The declaration of which transformations of a column do not change its meaning. A ratio scale permits a positive rescaling, an interval scale an affine map with positive slope, an ordinal scale a strictly increasing map, and a nominal scale any injective relabelling, and the four classes are nested in that order.
-- A rescaling preserves ratios and an affine map preserves ratios of differences, so a consumer that reads a ratio of two interval-scale columns reads the origin the scale said was arbitrary.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/AttributeType.lean`, theorems `scale_affine`, `affine_strictMono`, `strictMono_injective`, `scale_preserves_ratio`, `affine_preserves_difference_ratio`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/AttributeType.lean`, theorems `scale_affine`, `affine_strictMono`, `strictMono_injective`, `scale_preserves_ratio`, `affine_preserves_difference_ratio`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -54,6 +50,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 standardization, discretization, quotient, monotone-invariance-theorem
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 2.1, 0.12a.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

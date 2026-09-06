@@ -3,9 +3,11 @@
 **id.** metric
 **kind.** concept
 
+![A rule for the distance between two rows or two outputs.](../figures/metric.svg)
+
 ## definition
 
-A rule for the distance between two rows or two outputs. A distance is a choice of what to ignore, and a local metric on an output is a positive semidefinite matrix. Chapter 3 section 3.1 and chapter 0 section 0.5.
+A rule for the distance between two rows or two outputs. A distance is a choice of what to ignore, and a local metric on an output is a positive semidefinite matrix, a pseudometric until its kernel is quotiented out, which the book calls a metric by convention. Chapter 3 section 3.1 and chapter 0 section 0.5.
 
 ## equation
 
@@ -17,13 +19,17 @@ Book equation 0.11.
 
     P_C(x)=J(x)^{\top}G\big(C(x)\big)\,J(x),\qquad J(x)=\frac{\partial C}{\partial x}(x),\qquad \bar P_{C,\mu}=\mathbb E_{\mu}\!\left[P_C(x)\right].
 
-Book equation 1.1.
+## conditions
 
-    O=(C,\ G,\ B).
+- A rule for the distance between two rows, or between two outputs. A distance function is a choice of what to ignore, and the local metric on a consumer's output is the positive semidefinite matrix that says how a small change is scored. The squared Euclidean distance is symmetric and zero exactly between equal rows.
+- A dataset-level loss, accuracy, F1, or a rank correlation is not a local metric and cannot be inserted into the read-operator formula, and the same two codes get opposite verdicts from two metrics.
+- A positive semidefinite read form is a pseudometric until the directions in its kernel are quotiented out. The book calls it a metric by convention, on the quotient.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- GO-EC-3. A read operator recovered from a black-box consumer by query-only finite-difference probing, composed with the Kalman covariance as tr(P̂_C Σ), prospectively selects sensors that improve the held-out consumer at matched budgets with probe cost charged — capturing 94.6% of the known analytic optimum's gain on the positive-control arm (gate ≥ 75%) and improving 16.3% over the best consumer-agnostic policy on non-analytic consumers (gate ≥ 8%), with trace-matched ordering carried by the composition at 86.9% over 61 pairs (gate ≥ 65%). `[predicted]`. `geometric-observation/claims/LEDGER.md:162` at 9f3829f.
+none
 
 ## first stated
 
@@ -31,27 +37,17 @@ Chapter 3 section 3.1 and chapter 0 section 0.5 of *Data Mining as Observation*,
 
 ## measurements
 
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 2 section 2.2 | read subspace small, operator local, pullback composition, rank cannot increase | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:7-48`; `geometric-observation\chapters\ch06_mathematical_preliminaries.md:10-27` |
-| chapter 3 section 3.2 | traces 2.0, diagonals 0.3 and 1.7, consumers at 15 and 75 degrees, distortion 0.39 vs 1.61, 4.1 to one, computed not drawn | `observation-theory\assets\make_flip_figure.py:4-24,107-119` |
+none
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- A rule for the distance between two rows, or between two outputs. A distance function is a choice of what to ignore, and the local metric on a consumer's output is the positive semidefinite matrix that says how a small change is scored. The squared Euclidean distance is symmetric and zero exactly between equal rows.
-- A dataset-level loss, accuracy, F1, or a rank correlation is not a local metric and cannot be inserted into the read-operator formula, and the same two codes get opposite verdicts from two metrics.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/EuclideanDistance.lean`, theorems `distSq_eq_quad_one`, `distSq_comm`, `distSq_eq_zero_iff`, `ranking_flips`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/EuclideanDistance.lean`, theorems `distSq_eq_quad_one`, `distSq_comm`, `distSq_eq_zero_iff`, `ranking_flips`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/OutputMetric.lean`, theorems `neg_reverses`, `readOp_of_neg`, `cost_flips`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/OutputMetric.lean`, theorems `neg_reverses`, `readOp_of_neg`, `cost_flips`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -61,6 +57,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 output-metric, euclidean-distance, read-operator, quotient, geodesic-distance
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 1.1.
+
+Ledger rows that cite the entry's records without naming it: GO-EC-3.
+
+Sources-table rows that share a record with the entry without naming it: chapter 2 section 2.2, chapter 3 section 3.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

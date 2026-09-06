@@ -3,33 +3,13 @@
 **id.** posited-versus-measured
 **kind.** concept
 
+![A claim written down before, and a number read after.](../figures/posited-versus-measured.svg)
+
 ## definition
 
 The division of every claim in a report into those asserted by design and those backed by an artifact. Chapter 14.
 
 ## equation
-
-Book equation 1.1.
-
-    O=(C,\ G,\ B).
-
-## ledger
-
-- OT-11. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. `[void]`. `geometric-observation/claims/LEDGER.md:48` at 9f3829f.
-- NEG-15 (Bell boundary). *Query-conditioned hubness supplies a mechanism for Bell-inequality violation without action at a distance.* Refuted as a mechanism; the settings-as-queries reframing survives only as vocabulary. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:93` at 9f3829f.
-
-## first stated
-
-The epistemic banners of the four posited volumes, `geometric-ai/README.md`, `geometric-cognition/README.md`, `geometric-reasoning/README.md`, `geometric-education/README.md`, and chapter 14 section 14.8 of *Data Mining as Observation*.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 14 section 14.8 | registry rules, V4 proved in Lean and verified 2026-08-17 at commit ea7ee82, D4 posited with the drift list, reliability weight as one formula one source, 8 of 9 | `erisml-lib\docs\CONCEPT_REGISTRY.md:1-160` |
-| chapter 14 section 14.8 | the four posited volumes | `geometric-ai\README.md`; `geometric-cognition\README.md`; `geometric-reasoning\README.md`; `geometric-education\README.md` epistemic banners |
-
-## failures and corrections
 
 none
 
@@ -41,9 +21,28 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+The epistemic banners of the four posited volumes, `geometric-ai/README.md`, `geometric-cognition/README.md`, `geometric-reasoning/README.md`, `geometric-education/README.md`, and chapter 14 section 14.8 of *Data Mining as Observation*.
+
+## measurements
+
+| Where the book states it | Numbers, as the book's sources table records them | Source |
+|---|---|---|
+| chapter 14 section 14.8 | registry rules, V4 proved in Lean and verified 2026-08-17 at commit ea7ee82, D4 posited with the drift list, reliability weight as one formula one source, 8 of 9 | `erisml-lib/docs/CONCEPT_REGISTRY.md:1-160` |
+| chapter 14 section 14.8 | the four posited volumes | `geometric-ai/README.md`; `geometric-cognition/README.md`; `geometric-reasoning/README.md`; `geometric-education/README.md` epistemic banners |
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Ledger.lean`, theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Ledger.lean`, theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -53,6 +52,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ledger-class, preregistration, sealed, reliability-weight
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 1.1.
+
+Ledger rows that cite the entry's records without naming it: OT-11, NEG-15 (Bell boundary).
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

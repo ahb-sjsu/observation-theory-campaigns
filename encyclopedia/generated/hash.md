@@ -3,19 +3,27 @@
 **id.** hash
 **kind.** instrument
 
+![A fixed-length fingerprint that changes whenever the file does.](../figures/hash.svg)
+
 ## definition
 
 A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. Chapter 0 section 0.12.
 
 ## equation
 
-Book equation 8.3.
+none
 
-    \Pr[\text{at least one of } m\text{ null tests passes}]=1-(1-\alpha)^{m},\qquad \alpha_{\mathrm{Bonferroni}}=\frac{\alpha}{m}.
+## conditions
+
+- A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. A changed hash proves a changed file, an unchanged file has an unchanged hash, and a digest with fewer values than there are files sends two distinct files to the same digest, so an equal hash is evidence and not proof.
+- The seal ledger records the hash beside the commit, and the recognizer's templates and the probe's records carry theirs, so that a reader with the repository can check what was fixed before the measurement.
+- A hash proves content and not time. When a file existed in the hashed state is established by a public push, a signed tag, a transparency log, or an archival deposit.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 9f3829f.
+none
 
 ## first stated
 
@@ -29,16 +37,9 @@ none
 
 none
 
-## conditions
-
-- A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. A changed hash proves a changed file, an unchanged file has an unchanged hash, and a digest with fewer values than there are files sends two distinct files to the same digest, so an equal hash is evidence and not proof.
-- The seal ledger records the hash beside the commit, and the recognizer's templates and the probe's records carry theirs, so that a reader with the repository can check what was fixed before the measurement.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -48,6 +49,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 sealed, preregistration, ledger-class, certificate
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 8.3.
+
+Ledger rows that cite the entry's records without naming it: OT-7.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

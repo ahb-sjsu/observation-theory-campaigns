@@ -3,15 +3,22 @@
 **id.** p-value
 **kind.** concept
 
+![The fraction of the null distribution at least as extreme as the observation.](../figures/p-value.svg)
+
 ## definition
 
 The probability of seeing a difference at least as large as the one observed if the true difference were zero. Chapter 0 section 0.9.
 
 ## equation
 
-Book equation 8.3.
+none
 
-    \Pr[\text{at least one of } m\text{ null tests passes}]=1-(1-\alpha)^{m},\qquad \alpha_{\mathrm{Bonferroni}}=\frac{\alpha}{m}.
+## conditions
+
+- Against a finite null sample, the fraction of null draws at least as large as the observation. It lies in the unit interval, never rises as the observation grows, and under the null the fraction of draws with p-value at or below a level is at most that level, which is what makes a threshold on it a false-positive rate.
+- A p-value counts one look. Forty looks at five percent pass two by chance, and the book's rule is to count every comparison made and correct for it.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -23,25 +30,15 @@ Chapter 0 section 0.9 of *Data Mining as Observation*, with the program's own p-
 
 ## measurements
 
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 6 section 6.4 | the uncorrected t stored as sigma, 251 and 15.84, nine wins to three, seven, eight, 3 wins 17 ties 11 losses on 31 datasets, the three-way inconsistency | `constraint-gap\review\FINDINGS.md:1-35`; `constraint-gap\README.md:57-76` |
-| chapter 8 section 8.5 | variance inflation 251, SE inflation 15.84, J_eff 3.98, about 62 needed, 3 of 9 at full, 7 at half, 8 at a third | `constraint-gap\review\FINDINGS.md:1-35` |
+none
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- Against a finite null sample, the fraction of null draws at least as large as the observation. It lies in the unit interval, never rises as the observation grows, and under the null the fraction of draws with p-value at or below a level is at most that level, which is what makes a threshold on it a false-positive rate.
-- A p-value counts one look. Forty looks at five percent pass two by chance, and the book's rule is to count every comparison made and correct for it.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/PValue.lean`, theorems `pvalue_mem_unit`, `pvalue_antitone`, `uniform_bound`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/PValue.lean`, theorems `pvalue_mem_unit`, `pvalue_antitone`, `uniform_bound`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -51,6 +48,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 multiple-comparisons, confidence-interval, harness, preregistration
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 8.3.
+
+Sources-table rows that share a record with the entry without naming it: chapter 6 section 6.4, chapter 8 section 8.5.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
