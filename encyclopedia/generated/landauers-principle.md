@@ -19,9 +19,9 @@ Book equation 13.3.
 
 ## ledger
 
-- GO-7. A stored description's description rate and its conditional Landauer reset content are operationally separate resources: the same finite-$n$ code index needing $\hat R\approx0.67$ bits/symbol to describe is fully recoverable from retained side information at bin rate $0.26=0.39\hat R$, fails increasingly below its conditional content, and fails absolutely (err 1.00 at every bin rate) without $S$. `[replicated]`. `geometric-observation/claims/LEDGER.md:69` at 8c6986b.
-- GO-8. On two independent source families (binary Markov; Gaussian AR(1)), a fixed stored record's operational reset threshold rises with the age of the retained side information exactly as the staleness–work complement prices it: same record, same bins, same decoder — the decodable bin rate climbs $0.10\to0.55$ bits/symbol across ages 0–64 of a $p=0.05$ Markov chain, tracking $R_c-1+h_2(\hat d \ast q_t)$ within one grid step at every age, and a fixed bin rate flips from 1% error (age 0) to 100% (age 32). `[replicated]`. `geometric-observation/claims/LEDGER.md:71` at 8c6986b.
-- GO-9. Coordinated reset is operationally cheaper than independent reset by the records' shared-structure information: with two consumer records sharing a component, recovering either record's bin residual with the *other record intact* lowers the decodable threshold by $\mathrm{gap}_{TC}=1-h_2(\hat d \ast \hat d)$ (measured 0.60 and 0.45 vs 0.476 predicted) — including on the record whose own reset side information is useless; mismatched pairing saves nothing. Held on two independent source families (binary; Gaussian). `[replicated]`. `geometric-observation/claims/LEDGER.md:73` at 8c6986b.
+- GO-7. A stored description's description rate and its conditional Landauer reset content are operationally separate resources: the same finite-$n$ code index needing $\hat R\approx0.67$ bits/symbol to describe is fully recoverable from retained side information at bin rate $0.26=0.39\hat R$, fails increasingly below its conditional content, and fails absolutely (err 1.00 at every bin rate) without $S$. `[replicated]`. `geometric-observation/claims/LEDGER.md:69` at 9f3829f.
+- GO-8. On two independent source families (binary Markov; Gaussian AR(1)), a fixed stored record's operational reset threshold rises with the age of the retained side information exactly as the staleness–work complement prices it: same record, same bins, same decoder — the decodable bin rate climbs $0.10\to0.55$ bits/symbol across ages 0–64 of a $p=0.05$ Markov chain, tracking $R_c-1+h_2(\hat d \ast q_t)$ within one grid step at every age, and a fixed bin rate flips from 1% error (age 0) to 100% (age 32). `[replicated]`. `geometric-observation/claims/LEDGER.md:71` at 9f3829f.
+- GO-9. Coordinated reset is operationally cheaper than independent reset by the records' shared-structure information: with two consumer records sharing a component, recovering either record's bin residual with the *other record intact* lowers the decodable threshold by $\mathrm{gap}_{TC}=1-h_2(\hat d \ast \hat d)$ (measured 0.60 and 0.45 vs 0.476 predicted) — including on the record whose own reset side information is useless; mismatched pairing saves nothing. Held on two independent source families (binary; Gaussian). `[replicated]`. `geometric-observation/claims/LEDGER.md:73` at 9f3829f.
 
 ## first stated
 
@@ -58,7 +58,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Landauer.lean`, theorems `eMin_300`, `resetBound_le`, `resetBound_zero`, at observation-data-mining 17f3e9f.
+`lean/DataMiningAsObservation/Landauer.lean`, theorems `eMin_300`, `resetBound_le`, `resetBound_zero`, at observation-data-mining 5bb2c0d.
 
 ## used in
 
@@ -70,4 +70,4 @@ budget, certificate, read-operator, coherence-time
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 8c6986b, observation-theory-campaigns 553a902, theory-radar 37c4e6c, observation-data-mining 17f3e9f, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 859676b, theory-radar 37c4e6c, observation-data-mining 5bb2c0d, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

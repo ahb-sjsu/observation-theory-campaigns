@@ -19,9 +19,9 @@ Book equation 0.12b.
 
 ## ledger
 
-- GO-1. The consumer's invariant/nuisance split is identifiable ex ante from the consumer functional. `[predicted]`. `geometric-observation/claims/LEDGER.md:62` at 8c6986b.
-- GO-5. An α=1 density/hubness quotient restores invariant fidelity in ≥1 non-spectral domain. `[refuted]`. `geometric-observation/claims/LEDGER.md:67` at 8c6986b.
-- NEG-6. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:99` at 8c6986b.
+- GO-1. The consumer's invariant/nuisance split is identifiable ex ante from the consumer functional. `[predicted]`. `geometric-observation/claims/LEDGER.md:62` at 9f3829f.
+- GO-5. An α=1 density/hubness quotient restores invariant fidelity in ≥1 non-spectral domain. `[refuted]`. `geometric-observation/claims/LEDGER.md:67` at 9f3829f.
+- NEG-6. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:99` at 9f3829f.
 
 ## first stated
 
@@ -52,7 +52,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReadOperator.lean`, theorems `rank_one_reads_one_direction`, `readOp_mulVec`, `quad_readOp`, `quad_readOp_nonneg`, `readOp_mulVec_eq_zero_iff`, `readOp_diag`, `readOp_offdiag`, `readOp_symm`, `readOp_neg`, `affine_const_along_nuisance`, `readOp_affine`, `readOp_sqLength_basis`, at observation-data-mining 17f3e9f.
+`lean/DataMiningAsObservation/ReadOperator.lean`, theorems `rank_one_reads_one_direction`, `readOp_mulVec`, `quad_readOp`, `quad_readOp_nonneg`, `readOp_mulVec_eq_zero_iff`, `readOp_diag`, `readOp_offdiag`, `readOp_symm`, `readOp_neg`, `affine_const_along_nuisance`, `readOp_affine`, `readOp_sqLength_basis`, at observation-data-mining 5bb2c0d.
 
 ## used in
 
@@ -64,4 +64,4 @@ read-operator, identity-reader, flip, hubness
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 8c6986b, observation-theory-campaigns 553a902, theory-radar 37c4e6c, observation-data-mining 17f3e9f, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 859676b, theory-radar 37c4e6c, observation-data-mining 5bb2c0d, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
