@@ -171,7 +171,6 @@ acceptance test for the generator that will fill them from the records.
 | [ensemble](generated/ensemble.md) | instrument | an average of scorers, between its members and with squared error at most their mean squared error |
 | [Hessian](generated/hessian.md) | concept | the matrix of second derivatives, diagonal for a score additive across features |
 | [hierarchical clustering](generated/hierarchical-clustering.md) | instrument | merging the closest clusters under a linkage whose merge heights never decrease |
-| [hubness](generated/hubness.md) | concept | the excess of a few rows in many neighbour lists over the Poisson ceiling, a property of the queries |
 | [importance](generated/importance.md) | instrument | a per-feature score of how much a classifier reads it, counting splits for a tree |
 | [imputation](generated/imputation.md) | instrument | writing a value into a missing cell, which for the mean keeps the mean and shrinks the variance |
 | [Jaccard](generated/jaccard.md) | concept | intersection over union, in the unit interval and zero exactly when disjoint |
@@ -192,7 +191,7 @@ acceptance test for the generator that will fill them from the records.
 | [Youden index](generated/youden-index.md) | instrument | true positive rate minus false positive rate, whose maximum bounds the best F1 |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other one hundred and eighty exist only as generated entries, built from the records by `generate.py`.
+other one hundred and seventy-nine exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
