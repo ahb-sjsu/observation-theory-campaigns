@@ -1,0 +1,42 @@
+{
+  "note": "POST-HOC exploratory survival study (not sealed). Reconstructed verbatim from the run's own printed output (survival_study.py, exit 0 on Atlas); the canonical copy also lives at /home/claude/cr-ieip/survival_study.json. Predictors vs the consumer-read advantage Delta across 22 graded units (V1 A/B + V2 D-G + V3 H-L). C excluded (states cache deleted).",
+  "units": [
+    {"unit": "A-L12", "fam": "para(T5)",  "Lambda": -1.661, "Delta": -0.504, "S_dir_ev": 0.559, "S_dir_cal": 0.574, "S_patch": -0.000},
+    {"unit": "A-L18", "fam": "para(T5)",  "Lambda": -1.263, "Delta": -0.383, "S_dir_ev": 0.566, "S_dir_cal": 0.602, "S_patch": 0.284},
+    {"unit": "B-L14", "fam": "bt(es)",    "Lambda": 0.494,  "Delta": 0.142,  "S_dir_ev": 0.612, "S_dir_cal": 0.629, "S_patch": 0.821},
+    {"unit": "B-L21", "fam": "bt(es)",    "Lambda": 0.460,  "Delta": 0.154,  "S_dir_ev": 0.585, "S_dir_cal": 0.590, "S_patch": 0.782},
+    {"unit": "D-L12", "fam": "bt(de)",    "Lambda": 0.368,  "Delta": 0.055,  "S_dir_ev": 0.689, "S_dir_cal": 0.683, "S_patch": 0.646},
+    {"unit": "D-L18", "fam": "bt(de)",    "Lambda": 0.381,  "Delta": 0.105,  "S_dir_ev": 0.682, "S_dir_cal": 0.673, "S_patch": 0.665},
+    {"unit": "E-L14", "fam": "bt(fr)",    "Lambda": 0.453,  "Delta": 0.200,  "S_dir_ev": 0.605, "S_dir_cal": 0.605, "S_patch": 0.812},
+    {"unit": "E-L21", "fam": "bt(fr)",    "Lambda": 0.399,  "Delta": 0.169,  "S_dir_ev": 0.572, "S_dir_cal": 0.571, "S_patch": 0.782},
+    {"unit": "F-L12", "fam": "para(peg)", "Lambda": -1.796, "Delta": -0.541, "S_dir_ev": 0.555, "S_dir_cal": 0.543, "S_patch": 0.001},
+    {"unit": "F-L18", "fam": "para(peg)", "Lambda": -1.304, "Delta": -0.382, "S_dir_ev": 0.567, "S_dir_cal": 0.576, "S_patch": 0.109},
+    {"unit": "G-L14", "fam": "bt(de)",    "Lambda": 0.316,  "Delta": 0.100,  "S_dir_ev": 0.635, "S_dir_cal": 0.645, "S_patch": 0.657},
+    {"unit": "G-L21", "fam": "bt(de)",    "Lambda": 0.284,  "Delta": 0.092,  "S_dir_ev": 0.613, "S_dir_cal": 0.620, "S_patch": 0.630},
+    {"unit": "H-L12", "fam": "synonym",   "Lambda": 0.872,  "Delta": 0.128,  "S_dir_ev": 0.446, "S_dir_cal": 0.530, "S_patch": 0.633},
+    {"unit": "H-L18", "fam": "synonym",   "Lambda": 0.854,  "Delta": 0.163,  "S_dir_ev": 0.503, "S_dir_cal": 0.587, "S_patch": 0.813},
+    {"unit": "I-L14", "fam": "shuffle",   "Lambda": 0.144,  "Delta": -0.184, "S_dir_ev": 0.495, "S_dir_cal": 0.486, "S_patch": 0.453},
+    {"unit": "I-L21", "fam": "shuffle",   "Lambda": -0.006, "Delta": -0.084, "S_dir_ev": 0.463, "S_dir_cal": 0.439, "S_patch": 0.563},
+    {"unit": "J-L12", "fam": "truncate",  "Lambda": -0.802, "Delta": 0.185,  "S_dir_ev": 0.649, "S_dir_cal": 0.646, "S_patch": 0.158},
+    {"unit": "J-L18", "fam": "truncate",  "Lambda": -0.723, "Delta": 0.189,  "S_dir_ev": 0.621, "S_dir_cal": 0.625, "S_patch": 0.206},
+    {"unit": "K-L14", "fam": "synonym",   "Lambda": 0.802,  "Delta": 0.119,  "S_dir_ev": 0.432, "S_dir_cal": 0.432, "S_patch": 0.541},
+    {"unit": "K-L21", "fam": "synonym",   "Lambda": 0.767,  "Delta": 0.125,  "S_dir_ev": 0.442, "S_dir_cal": 0.424, "S_patch": 0.743},
+    {"unit": "L-L12", "fam": "shuffle",   "Lambda": 0.385,  "Delta": -0.090, "S_dir_ev": 0.560, "S_dir_cal": 0.572, "S_patch": 0.603},
+    {"unit": "L-L18", "fam": "shuffle",   "Lambda": 0.297,  "Delta": -0.019, "S_dir_ev": 0.530, "S_dir_cal": 0.529, "S_patch": 0.646}
+  ],
+  "corr": {
+    "Lambda":    {"spearman": 0.589, "pearson": 0.793, "n": 22},
+    "S_dir_ev":  {"spearman": 0.269, "pearson": 0.129, "n": 22},
+    "S_dir_cal": {"spearman": 0.284, "pearson": 0.166, "n": 22},
+    "S_patch":   {"spearman": 0.590, "pearson": 0.733, "n": 22}
+  },
+  "separation_advantage_vs_inversion": {
+    "n_advantage_delta_gt_0.02": 14,
+    "n_inversion_delta_lt_-0.02": 7,
+    "Lambda":    {"median_adv": 0.426, "median_inv": -1.263, "gap": 1.689},
+    "S_dir_ev":  {"median_adv": 0.608, "median_inv": 0.559,  "gap": 0.049},
+    "S_dir_cal": {"median_adv": 0.612, "median_inv": 0.572,  "gap": 0.040},
+    "S_patch":   {"median_adv": 0.661, "median_inv": 0.284,  "gap": 0.377}
+  },
+  "verdict": "NO SUCCESSOR PREDICTOR FOUND. Directional survival cos(e,delta) is dead (Spearman 0.27, no adv/inv gap). Patch-response fidelity S_patch matches locality (Spearman 0.59) but no better, and misses on the SAME cells: truncate has a large advantage (Delta +0.19) yet low S_patch (0.16-0.21), and shuffle has high S_patch (0.60) yet no advantage. The truncate cell defeats every scalar tried (4 now: none, rho-hat fit, Lambda, survival x2). The advantage is a tail phenomenon no global scalar forecasts. The honest paper stands, reinforced."
+}

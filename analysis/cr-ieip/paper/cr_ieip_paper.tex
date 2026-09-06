@@ -246,16 +246,27 @@ is more non-local than several backtranslation units and does not invert, so
 advantage, shuffle and paraphrase, both rearrange or rewrite tokens while
 preserving length and surface plausibility; the two that keep it, backtranslation
 or synonym and outright truncation, either barely move the tokens or delete them.
-Whatever governs the sign is closer to whether the decision-relevant change
-survives into the patched residual than to any scalar the representation carries,
-and we did not seal a measure of that. It is a hypothesis for a later family, not
-a claim here.
+A natural reading is that what governs the sign is whether the decision-relevant
+change survives into the patched residual. We tested that reading post-hoc across
+all graded units, and it does not forecast the sign either. A directional
+survival measure, the cosine between the patched residual and the true
+perturbation, is uncorrelated with the advantage (Spearman $0.27$) and does not
+separate the advantage units from the inversion units. A stronger measure,
+whether patching the residual reproduces the true output change, matches locality
+but no more (Spearman $0.59$) and misses on the same cells: truncation has a
+large advantage yet low patch fidelity, and shuffling has high patch fidelity yet
+none. Four scalars have now failed to forecast the sign: no gate, map fit,
+locality, and survival in two forms. The advantage is a tail phenomenon, a
+false-clear rate at a matched flag quantile, and no global statistic of the
+representation or the patch that we have tried captures it. A forecaster, if one
+exists, is future work.
 
 \section{Consequence for monitor design}
 
-Three preregistered predictors of the consumer read's sign have now failed: no
-gate, the equivariance map's fit, and transform locality. The design
-consequence is the conservative one that this record actually supports. A
+Three preregistered predictors of the consumer read's sign have now failed, no
+gate, the equivariance map's fit, and transform locality, and a fourth,
+perturbation survival, fails when tested post-hoc. The design consequence is the
+conservative one that this record actually supports. A
 consumer-metric equivariance gate cannot be certified safe from a
 calibration-time statistic of the representation, because the natural candidates
 do not forecast when the read inverts, and the inversion is large, up to 57
