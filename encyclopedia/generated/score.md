@@ -1,13 +1,17 @@
-# Monotone Invariance Theorem
+# score
 
-**id.** monotone-invariance
-**kind.** result
+**id.** score
+**kind.** concept
 
 ## definition
 
-A strictly monotone transform of a score cannot change its optimal thresholded F1 or its AUROC, because both depend only on the ranking. Equation 6.2.
+The number a classifier produces per row before a threshold turns it into a decision. Chapter 6.
 
 ## equation
+
+Book equation 6.1.
+
+    s(x)=w\cdot x+b,\qquad P_C=\mathbb E\big[\sigma'(s)^{2}\big]\,w\,w^{\top},\qquad \operatorname{rank}P_C=1.
 
 Book equation 6.2.
 
@@ -19,7 +23,7 @@ none
 
 ## first stated
 
-theory-radar, `theory-radar/paper/theory_radar_paper.tex:290-304` and `theory-radar/paper/astar_paper.tex:94-110`, DOI 10.5281/zenodo.20660206, and chapter 6 section 6.3 of *Data Mining as Observation*.
+Chapter 6 section 6.1 of *Data Mining as Observation*, with the program's threshold sweeps in theory-radar.
 
 ## measurements
 
@@ -34,22 +38,22 @@ none
 
 ## conditions
 
-- A strictly monotone transform of a score leaves AUROC, defined pairwise with ties counted one half, and optimal thresholded F1, defined by sweeping the threshold over every score value in both directions, unchanged, because both depend only on the ranking.
-- The theorem licenses pruning every monotone unary node of a formula search with zero loss. It says nothing about non-monotone transforms, which can change both quantities.
+- The number a classifier produces per row before a threshold turns it into a decision. Every decision at every threshold is a function of the scores' ordering, so a strictly increasing recalibration of the scores with the matching recalibration of the threshold changes no decision.
+- What a recalibration can change is calibration, which is why the reliability weight reads the ordering and the expected calibration error reads the values, and neither stands in for the other.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/MonotoneInvariance.lean`, theorems `aurocNum_comp`, `auroc_comp`, `predicted_comp`, `predictedBelow_comp`, `sweptF1_comp`, `sweptF1Below_comp`, `optF1_comp`, at observation-data-mining 2b00d80.
+`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 2b00d80.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 5, 6, 12.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.
 
 ## related
 
-formula-search, safe-pruning, youden-f1-bound
+classifier, threshold, monotone-invariance, calibration, reliability-weight
 
 ## status
 
