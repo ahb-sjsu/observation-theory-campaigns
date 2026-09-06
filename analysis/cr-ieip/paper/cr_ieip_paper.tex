@@ -53,8 +53,9 @@ been validated empirically on the transform family it will face.
 Internal-equivariance monitors gate on $h_\ell(g x) \approx \hat\rho_\ell(g)\,
 h_\ell(x)$: a paraphrase $g$ should move a layer's representation the way a
 fitted linear map $\hat\rho_\ell$ predicts, and a residual that violates this
-flags a possible spec-gaming or drift. The residual is scored in raw L2 norm.
-Observation Theory raises an objection that applies to any such monitor. The
+flags a possible spec-gaming or drift \cite{ieip2026}. The residual is scored in
+raw L2 norm. Observation Theory raises an objection that applies to any such
+monitor \cite{turboquant,geoobs}. The
 layer's activations have a consumer, the downstream computation, and the norm
 that matters is the consumer's read of the residual, not its raw magnitude. A
 large residual in a direction the downstream network ignores is a false alarm;
@@ -75,6 +76,34 @@ reach for first, and the third rules out a variable that had looked clean on the
 first two families. We report what survives: a robust, replicated, double-signed
 effect whose sign we cannot yet predict from the representation, and the
 conservative rule that honesty about that forces.
+
+\section{Related work}
+
+Our instrument is activation patching, the causal-tracing technique that
+measures a component's effect on the output by replacing its activation and
+reading the change downstream \cite{meng2022,wang2022}. We use it not to localize
+a circuit but as the grading norm of a safety monitor: the model's output-KL
+response to the injected residual is the consumer's read. The choice of patching
+metric is known to change which components look important \cite{zhangnanda2024},
+which is why we fix the metric, the flag rate, and the bars in each
+preregistration before grading. Reading a representation through a downstream map
+is the probing-classifier idea \cite{alain2016}; the consumer read applies it to
+a monitor's residual rather than to a labeled concept. The object of study is an
+internal-equivariance monitor, which gates on a fitted paraphrase-invariance map
+and scores the residual in raw norm \cite{ieip2026}; monitoring and steering a
+model by reading its activations is an active safety direction \cite{zou2023}.
+The claim that a representation has no single geometry until a consumer reads it,
+and the read operator that follows, are developed in the Observation Theory
+program and shipped in its public artifacts \cite{turboquant,geoobs}. What is new
+here is neither patching nor consumer-relative reading but the measurement of a
+monitor built on both, and specifically the sealed negative: the consumer read's
+benefit is real and replicated, yet its sign is not forecastable from the three
+representation statistics we preregistered. We adopt preregistration in the form
+argued for language research by van Miltenburg et al.\ \cite{vanmiltenburg2021},
+with pass/fail bars and seeds frozen before grading and failed families reported
+as executed. We do not offer a better monitor. We offer the measurement of when
+reading a monitor's residual through the model helps, and the evidence that no
+representation scalar we tried tells you in advance.
 
 \section{Method}
 
@@ -258,5 +287,40 @@ three sealed preregistrations, per-cell graded JSONs, post-mortems, and the
 locality gate with the checksum that reproduces the earlier families' identity
 $R^2$. Figure~\ref{fig:law} and Table~\ref{tab:v3} regenerate from those records
 by script.
+
+\begin{thebibliography}{9}
+
+\bibitem{meng2022} Kevin Meng, David Bau, Alex Andonian, and Yonatan Belinkov.
+Locating and Editing Factual Associations in GPT. \emph{Advances in Neural
+Information Processing Systems (NeurIPS)}, 2022. arXiv:2202.05262.
+
+\bibitem{zhangnanda2024} Fred Zhang and Neel Nanda. Towards Best Practices of
+Activation Patching in Language Models: Metrics and Methods. \emph{International
+Conference on Learning Representations (ICLR)}, 2024. arXiv:2309.16042.
+
+\bibitem{wang2022} Kevin Wang, Alexandre Variengien, Arthur Conmy, Buck
+Shlegeris, and Jacob Steinhardt. Interpretability in the Wild: a Circuit for
+Indirect Object Identification in GPT-2 Small. arXiv:2211.00593, 2022.
+
+\bibitem{alain2016} Guillaume Alain and Yoshua Bengio. Understanding Intermediate
+Layers Using Linear Classifier Probes. arXiv:1610.01644, 2016.
+
+\bibitem{zou2023} Andy Zou, Long Phan, Sarah Chen, et al. Representation
+Engineering: A Top-Down Approach to AI Transparency. arXiv:2310.01405, 2023.
+
+\bibitem{vanmiltenburg2021} Emiel van Miltenburg, Chris van der Lee, and Emiel
+Krahmer. Preregistering NLP Research. \emph{Proceedings of NAACL-HLT}, 2021.
+
+\bibitem{turboquant} Andrew H. Bond. turboquant-pro: consumer-relative
+compression with distribution-free witnessed certificates. Software, Zenodo,
+doi:10.5281/zenodo.20660087.
+
+\bibitem{geoobs} Andrew H. Bond. Geometric Observation: the Observation Theory
+evidence ledger. Zenodo, doi:10.5281/zenodo.21776291.
+
+\bibitem{ieip2026} Internal Epistemic Invariance Probe (I-EIP) monitor. erisml-lib
+internal technical note, 2026. Unpublished.
+
+\end{thebibliography}
 
 \end{document}
