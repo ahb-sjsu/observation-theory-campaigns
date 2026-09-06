@@ -367,14 +367,14 @@ conditions = [
 id = "hubness"
 kind = "result"
 title = "hubness"
-glossary = "hub"
+glossary = "hubness"
 equations = ["0.17", "0.35", "10.3"]
 ledger = ["GO-5", "NEG-11", "NEG-15"]
 first_stated = "Radovanović, Nanopoulos, and Ivanović for the phenomenon. The observation program's reading, that hubness is almost entirely a property of the queries and the reader rather than the corpus, in openvector-bench and turboquant-pro, and in chapter 3 section 3.5 and chapter 10 of *Data Mining as Observation*."
 book_records = ["openvector-bench", "hubness", "anti-hub", "STRATA", "articles\\2026-08-03"]
 book_terms = ["hubness", "\\bhubs?\\b", "anti[- ]hubs?"]
-lean = "observation-data-mining:lean/DataMiningAsObservation/Hubness.lean"
-related = ["quotient", "certificate", "rank-certificate", "min-over-strata"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Hubness.lean", "observation-data-mining:lean/DataMiningAsObservation/Hub.lean"]
+related = ["hub", "anti-hub", "poisson-ceiling", "quotient", "certificate", "rank-certificate", "min-over-strata"]
 conditions = [
   "A hub is a row retrieved as a nearest neighbour far more often than the Poisson null allows, and the ceiling of that null is derived from the query count, the neighbourhood size, and the corpus size.",
   "Hubness is measured against a query workload and belongs to it. The two corpus-side mechanisms that were registered to explain it were refuted under seal.",
@@ -2937,23 +2937,6 @@ related = ["k-means", "dbscan", "euclidean-distance", "validity-index", "quotien
 conditions = [
   "A clustering that merges the closest pair of clusters at each step under a linkage that reads the nearest pair, the farthest pair, or the average. When the merged pair was the closest at some height, no updated distance falls below it, so the merge heights never decrease, single linkage is never above complete, and average linkage lies between them.",
   "The dendrogram inherits the distance's quotient at every level, so the tree is a certificate about the chosen quotient and not about the data.",
-]
-
-[[entry]]
-id = "hubness"
-kind = "concept"
-title = "hubness"
-glossary = "hubness"
-equations = ["10.3", "0.17", "0.35"]
-ledger = ["NEG-11", "NEG-15"]
-first_stated = "Radovanović, Nanopoulos, and Ivanović, hubs in space, 2010, as chapter 3 section 3.5 of *Data Mining as Observation* reads it, with the program's primer in `turboquant-pro/docs/HUBNESS_PRIMER.md:1-60`."
-book_records = ["HUBNESS_PRIMER.md:1-60", "HUBNESS_PRIMER.md:38-59", "hubness.py", "QUERY_COUPLING_ARTIFACT"]
-book_terms = ["hubness"]
-lean = ["observation-data-mining:lean/DataMiningAsObservation/Hubness.lean", "observation-data-mining:lean/DataMiningAsObservation/Hub.lean"]
-related = ["hub", "anti-hub", "poisson-ceiling", "robin-hood-index", "null-model"]
-conditions = [
-  "The excess of a few rows in the nearest-neighbour lists of many queries over what the Poisson ceiling allows, measured by the busiest count, the skew of the count distribution, and the Robin Hood index. The counts sum to the slots handed out, so the rows above any ceiling are few, and whether a row is a hub depends on the queries alone.",
-  "Query coupling inflated the first hub counts by a factor of several, the density quotient that was to remove hubness was refuted four times, and the Bell-boundary audit found no mechanism in it, NEG-15.",
 ]
 
 [[entry]]
