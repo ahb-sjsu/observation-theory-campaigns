@@ -3,44 +3,15 @@
 **id.** sampling
 **kind.** instrument
 
+![Which rows to read, and the standard error of the mean of those read.](../figures/sampling.svg)
+
 ## definition
 
 Choosing which rows to read. The standard error of a sample mean falls as one over the square root of the sample size. Chapter 2 section 2.7.
 
 ## equation
 
-Book equation 0.18.
-
-    \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2},\qquad \frac{\widehat{\operatorname{Var}}_{\mathrm{NB}}}{\hat\sigma^{2}/J}=1+J\,\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}.
-
-Book equation 8.2.
-
-    \begin{gathered} \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2}, \\ J=1000,\ \frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}=\frac14\ \Rightarrow\ 1+250=251,\ \ \sqrt{251}=15.84. \end{gathered}
-
-Book equation 2.1.
-
-    P_{C_2\circ C_1}(x)=J_1(x)^{\top}\,P_{C_2}\big(C_1(x)\big)\,J_1(x),\qquad \operatorname{rank}P_{C_2\circ C_1}(x)\le\operatorname{rank}P_{C_2}\big(C_1(x)\big)\quad\text{at each row } x.
-
-## ledger
-
-- NEG-14. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe). `[refuted]`. `geometric-observation/claims/LEDGER.md:108` at 9f3829f.
-
-## first stated
-
-Chapter 2 section 2.7 of *Data Mining as Observation*, with the first strata run's sample in `turboquant-pro/docs/STRATA_RFC.md:24-98`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 4 section 4.7 | ESL 7.10.2 numbers | Hastie, Tibshirani, Friedman, ESL 2e, section 7.10.2; chapter 8 of this book |
-| chapter 8 section 8.1 | ESL 7.10.2 numbers (N=50, p=5000, 100 selected, 3 percent vs 50 percent) | Hastie, Tibshirani, Friedman, ESL 2e, section 7.10.2 |
-| chapter 10 section 10.4 | area map, boundary rule, hash, refuse not warn, intra and transit counts, area classes, abstention rule | `turboquant-pro\docs\STRATA_RFC.md:24-98` |
-| chapter 10 section 10.4 | second prediction inverted, transit 0.389 vs 0.291, centrality difference signs, share 0.473 vs 0.391, seven of thirteen backbone | `turboquant-pro\docs\RESULTS_multilingual_strata.md:55-90`; `turboquant-pro\docs\STRATA_RFC.md:98-130` |
-
-## failures and corrections
-
-- NEG-14, `[refuted]`. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe).
+none
 
 ## conditions
 
@@ -49,11 +20,27 @@ Chapter 2 section 2.7 of *Data Mining as Observation*, with the first strata run
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 2 section 2.7 of *Data Mining as Observation*, with the first strata run's sample in `turboquant-pro/docs/STRATA_RFC.md:24-98`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/StandardError.lean`, theorems `se_pos`, `se_quarter`, `se_antitone`, `se_tendsto_zero`, `thousand_folds`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/StandardError.lean`, theorems `se_pos`, `se_quarter`, `se_antitone`, `se_tendsto_zero`, `thousand_folds`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/Ensemble.lean`, theorems `average_between`, `sq_average_le`, `average_const`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Ensemble.lean`, theorems `average_between`, `sq_average_le`, `average_const`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -63,6 +50,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 standard-error, aggregation, bootstrap, seed, stratification
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.18, 8.2, 2.1.
+
+Ledger rows that cite the entry's records without naming it: NEG-14.
+
+Sources-table rows that share a record with the entry without naming it: chapter 4 section 4.7, chapter 8 section 8.1, chapter 10 section 10.4.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

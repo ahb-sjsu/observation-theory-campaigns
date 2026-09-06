@@ -3,34 +3,15 @@
 **id.** distance-concentration
 **kind.** concept
 
+![Nearest and farthest converge as the dimension grows.](../figures/distance-concentration.svg)
+
 ## definition
 
 The narrowing of the spread of pairwise distances as dimension grows, read in the book as the reader running out of resolution. Chapter 3.
 
 ## equation
 
-Book equation 0.7.
-
-    r_{\mathrm{eff}}=\frac{\big(\sum_i\lambda_i\big)^{2}}{\sum_i\lambda_i^{2}}.
-
-## ledger
-
-- NEG-11. (GO-5, prospective ×4) The α=1 density/hubness quotient decisively and density-specifically restores invariant fidelity in a non-spectral domain. `[refuted]`. `geometric-observation/claims/LEDGER.md:104` at 9f3829f.
-
-## first stated
-
-The classical result on nearest neighbours in high dimension, as TSK chapter 2 presents it, and chapter 3 section 3.4 of *Data Mining as Observation*, where it is read as the reader running out of resolution.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 3 section 3.5 | Poisson null, hub excess, budget parameter | `openvector-bench\openvector_bench\hubness.py:41-100` |
-| chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | `turboquant-pro\turboquant_pro\read_allocation.py:244-307` |
-
-## failures and corrections
-
-- NEG-11, `[refuted]`. (GO-5, prospective ×4) The α=1 density/hubness quotient decisively and density-specifically restores invariant fidelity in a non-spectral domain.
+none
 
 ## conditions
 
@@ -39,9 +20,25 @@ The classical result on nearest neighbours in high dimension, as TSK chapter 2 p
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+The classical result on nearest neighbours in high dimension, as TSK chapter 2 presents it, and chapter 3 section 3.4 of *Data Mining as Observation*, where it is read as the reader running out of resolution.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/DistanceConcentration.lean`, theorems `relSpread_eq`, `relSpread_antitone`, `relSpread_tendsto_zero`, `exists_dim_relSpread_lt`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/DistanceConcentration.lean`, theorems `relSpread_eq`, `relSpread_antitone`, `relSpread_tendsto_zero`, `exists_dim_relSpread_lt`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -51,6 +48,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 hubness, effective-rank, read-subspace, rank-certificate
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.7.
+
+Ledger rows that cite the entry's records without naming it: NEG-11.
+
+Sources-table rows that share a record with the entry without naming it: chapter 3 section 3.5, chapter 4 section 4.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

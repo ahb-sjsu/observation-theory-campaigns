@@ -3,9 +3,11 @@
 **id.** commute-time
 **kind.** concept
 
+![Steps there and back for a random walk, whose scaling by the volume is the resistance.](../figures/commute-time.svg)
+
 ## definition
 
-The expected number of steps a random walk on a graph needs to go from one node to another and back. A particular scaling of the spectral embedding makes Euclidean distance equal it. Equation 0.20.
+The expected number of steps a random walk on a graph needs to go from one node to another and back. Divided by the graph's volume it is the resistance, which a particular scaling of the spectral embedding makes equal to the squared Euclidean distance. Equation 0.20.
 
 ## equation
 
@@ -13,17 +15,16 @@ Book equation 0.20.
 
     \Psi_i=\left(\frac{u_k(i)}{\sqrt{\lambda_k\,d_i}}\right)_{k\ge2},\qquad \|\Psi_i-\Psi_j\|^{2}=R(i,j)=\frac{C(i,j)}{\operatorname{vol}(G)}.
 
-Book equation 0.19.
+## conditions
 
-    L=I-D^{-1/2}AD^{-1/2},\qquad D=\operatorname{diag}(d_1,\dots,d_n),\qquad L\,u_k=\lambda_k u_k,\ \ 0=\lambda_1\le\lambda_2\le\cdots.
+- The expected number of steps a random walk needs to go from one node to another and back, the hitting time there plus the hitting time back, so it is symmetric and zero from a node to itself. The resistance is the commute time divided by the volume, and the squared Euclidean distance in the embedding of equation 0.20 equals the resistance, not the commute time itself.
+- On a large neighbourhood graph of a shape of dimension three or more the resistance converges to one over each degree, uniformly over pairs, so it depends on two nodes only through their degrees and carries no geometry, which is why the magnitude of the spectral embedding is degree noise. The program's first claim of a commute-metric form was self-refuted, NEG-1.
 
-Book equation 3.3.
-
-    X_i=r_i\,\theta_i,\qquad r_i\ \to\ \frac1{\sqrt{d_i}},\qquad \theta_i=\frac{X_i}{\|X_i\|}\in S^{m-1}.
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- NEG-1. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. `[refuted]`. `geometric-observation/claims/LEDGER.md:94` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,24 +34,15 @@ Chapter 0 section 0.10 of *Data Mining as Observation*, equation 0.20, with von 
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 3 section 3.3 | resistance converges to 1 over d_i plus 1 over d_j, simplex argument, radius converges to 1 over root d_i | `the-angular-observer\theorem.md:110-146` |
-| chapter 3 section 3.3 | the self-refuted v0.8 claim, NEG-1 | `the-angular-observer\README.md:170-175`; `geometric-observation\chapters\ch16_honest_negatives.md` NEG-1 |
-| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | `geometric-observation\chapters\ch09_legibility.md:10-41`; `the-angular-observer\theorem.md:110-146` |
+| chapter 3 section 3.3 | resistance converges to 1 over d_i plus 1 over d_j, simplex argument, radius converges to 1 over root d_i | `the-angular-observer/theorem.md:110-146` |
 
 ## failures and corrections
 
-- NEG-1, `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter.
-
-## conditions
-
-- The expected number of steps a random walk on a graph needs to go from one node to another and back, the hitting time there plus the hitting time back, so it is symmetric and zero from a node to itself. Its scaling by the graph's volume is the resistance, and a particular scaling of the spectral embedding makes Euclidean distance equal it.
-- On a large neighbourhood graph of a shape of dimension three or more the resistance converges to one over each degree, so it depends on two nodes only through their degrees and carries no geometry, which is why the magnitude of the spectral embedding is degree noise. The program's own first claim of a commute-metric form was self-refuted, NEG-1.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CommuteTime.lean`, theorems `commute_symm`, `commute_self`, `resistance_symm`, `commute_eq_resistance_mul`, `collapsed_congr`, `collapsed_const`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/CommuteTime.lean`, theorems `commute_symm`, `commute_self`, `resistance_symm`, `commute_eq_resistance_mul`, `collapsed_congr`, `collapsed_const`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -60,6 +52,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 spectral-embedding, laplacian, geodesic-distance, degree, graph
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.19, 3.3.
+
+Ledger rows that cite the entry's records without naming it: NEG-1.
+
+Sources-table rows that share a record with the entry without naming it: chapter 3 section 3.3, chapter 9 section 9.1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

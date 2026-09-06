@@ -3,9 +3,13 @@
 **id.** sensitivity
 **kind.** concept
 
+![The gradient of the consumer at a row.](../figures/sensitivity.svg)
+
 ## definition
 
 The vector of partial derivatives of a consumer with respect to each coordinate of its input, at one point. Equation 0.8.
+
+**Known as, or related to prior art.** The gradient of the consumer at a row, the quantity active-subspace methods average.
 
 ## equation
 
@@ -21,10 +25,17 @@ Book equation 14.4.
 
     \text{attribution}_j(x)\approx g_j(x)\,\delta_j,\qquad \overline{\text{importance}}_j\approx\big(P_C\big)_{jj}=\mathbb E\big[g_j^{2}\big].
 
+## conditions
+
+- The sensitivity of a consumer at a row is the vector of partial derivatives of its output with respect to each coordinate, measurable without the formula by a central finite difference at two calls per coordinate.
+- The read operator is the workload average of the sensitivity's outer product, so its diagonal is the expected squared sensitivity to each feature and its off-diagonal entries are co-sensitivities, not interactions.
+- A gradient-based attribution estimates the sensitivity. Permutation importance, partial dependence, and Shapley values measure other things.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- NEG-14. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe). `[refuted]`. `geometric-observation/claims/LEDGER.md:108` at 9f3829f.
-- GO-EC-3. A read operator recovered from a black-box consumer by query-only finite-difference probing, composed with the Kalman covariance as tr(P̂_C Σ), prospectively selects sensors that improve the held-out consumer at matched budgets with probe cost charged — capturing 94.6% of the known analytic optimum's gain on the positive-control arm (gate ≥ 75%) and improving 16.3% over the best consumer-agnostic policy on non-analytic consumers (gate ≥ 8%), with trace-matched ordering carried by the composition at 86.9% over 61 pairs (gate ≥ 65%). `[predicted]`. `geometric-observation/claims/LEDGER.md:162` at 9f3829f.
+none
 
 ## first stated
 
@@ -34,26 +45,15 @@ Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_t
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 2 section 2.2 | read subspace small, operator local, pullback composition, rank cannot increase | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:7-48`; `geometric-observation\chapters\ch06_mathematical_preliminaries.md:10-27` |
-| chapter 2 section 2.2 | read distortion controls but is not a complete rank statistic, twelve of twelve, one middle pair misordered, NEG-9 | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:49-75` |
-| chapter 2 section 2.3 | refusal regimes, selection consumers read order, recurrences compound | `readscope\readscope\regimes.py:1-60` |
-| chapter 6 section 6.1 | selection consumers have zero sensitivity almost everywhere | `readscope\readscope\regimes.py:1-60` |
+| chapter 6 section 6.1 | selection consumers have zero sensitivity almost everywhere | [`readscope/readscope/regimes.py:1-60`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/readscope/regimes.py#L1-L60) |
 
 ## failures and corrections
 
-- NEG-14, `[refuted]`. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe).
-
-## conditions
-
-- The sensitivity of a consumer at a row is the vector of partial derivatives of its output with respect to each coordinate, measurable without the formula by a central finite difference at two calls per coordinate.
-- The read operator is the workload average of the sensitivity's outer product, so its diagonal is the expected squared sensitivity to each feature and its off-diagonal entries are co-sensitivities, not interactions.
-- A gradient-based attribution estimates the sensitivity. Permutation importance, partial dependence, and Shapley values measure other things.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReadOperator.lean`, theorems `rank_one_reads_one_direction`, `readOp_mulVec`, `quad_readOp`, `quad_readOp_nonneg`, `readOp_mulVec_eq_zero_iff`, `readOp_diag`, `readOp_offdiag`, `readOp_symm`, `readOp_neg`, `affine_const_along_nuisance`, `readOp_affine`, `readOp_sqLength_basis`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ReadOperator.lean`, theorems `rank_one_reads_one_direction`, `readOp_mulVec`, `quad_readOp`, `quad_readOp_nonneg`, `readOp_mulVec_eq_zero_iff`, `readOp_diag`, `readOp_offdiag`, `readOp_symm`, `readOp_neg`, `affine_const_along_nuisance`, `readOp_affine`, `readOp_sqLength_basis`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -63,6 +63,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 read-operator, consumer, blind-probe, read-subspace
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: NEG-14, GO-EC-3.
+
+Sources-table rows that share a record with the entry without naming it: chapter 2 section 2.2, chapter 2 section 2.3.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

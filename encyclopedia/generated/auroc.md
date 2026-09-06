@@ -3,9 +3,11 @@
 **id.** auroc
 **kind.** concept
 
+![The area under the curve is the chance that a random positive outscores a random negative.](../figures/auroc.svg)
+
 ## definition
 
-The area under the receiver operating characteristic curve, equal to the probability that a random positive scores above a random negative, ties counted as one half. Equation 0.16.
+The area under the receiver operating characteristic curve, equal to the probability that a random positive scores above a random negative, ties counted as one half. A strictly increasing transform of the score leaves it unchanged and a strictly decreasing one sends it to one minus itself. Equation 0.16.
 
 ## equation
 
@@ -21,10 +23,16 @@ Book equation 12.3.
 
     \text{validated}\iff \mathrm{AUROC}_{\text{cross}}-\max\big(\mathrm{AUROC}_{\text{untrained}},\ \mathrm{AUROC}_{\text{BoW}}\big)\ \ge\ 0.10.
 
+## conditions
+
+- The area under the ROC curve, the probability that a random positive scores above a random negative with ties counted as one half. It lies in the unit interval, is one half for a constant score, one for a perfect ranking, and zero for a perfectly reversed one.
+- A strictly increasing transform of the score leaves it unchanged. A strictly decreasing transform reverses every ranking and sends A to 1 minus A, so the AUROC is not free of orientation, and an authority that should ignore orientation reads the larger of A and 1 minus A.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- GO-B-legal (035→036). Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer `[predicted]`. `geometric-observation/claims/LEDGER.md:119` at 9f3829f.
-- GO-B-whale (038). Sperm-whale coda dialect (DSWP/Sharma 2024), Clan classifier — cetacean communication; promotes the exploratory (A2) verdict to a sealed flip `[predicted]`. `geometric-observation/claims/LEDGER.md:120` at 9f3829f.
+none
 
 ## first stated
 
@@ -38,16 +46,9 @@ none
 
 none
 
-## conditions
-
-- The probability that a random positive scores above a random negative, ties counted one half. It lies in the unit interval, is one when every positive scores above every negative and zero when every negative scores above every positive, is one half for a constant score, and is unchanged by a strictly monotone transform of the score.
-- It reads the ranking and not the values, so it is the discrimination half of every encoder's validation and says nothing about calibration.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Auroc.lean`, theorems `pair_nonneg`, `auroc_nonneg`, `auroc_le_one`, `auroc_perfect`, `auroc_reversed`, `auroc_chance`, `auroc_monotone_invariant`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Auroc.lean`, theorems `pair_nonneg`, `auroc_nonneg`, `auroc_le_one`, `auroc_perfect`, `auroc_reversed`, `auroc_chance`, `auroc_monotone_invariant`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -57,6 +58,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 monotone-invariance, reliability-weight, chance-level, youden-f1-bound, cross-corpus-gate
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: GO-B-legal (035→036), GO-B-whale (038).
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

@@ -3,37 +3,13 @@
 **id.** ledger-class
 **kind.** concept
 
+![Proved, demonstrated, replicated, predicted, exploratory, refuted, missed, or void.](../figures/ledger-class.svg)
+
 ## definition
 
 One of six labels every headline claim carries, proved, demonstrated, replicated, predicted, exploratory, or refuted, defined in the evidence ledger of Volume 14. Chapter 1.
 
 ## equation
-
-Book equation 1.1.
-
-    O=(C,\ G,\ B).
-
-## ledger
-
-- OT-11. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. `[void]`. `geometric-observation/claims/LEDGER.md:48` at 9f3829f.
-- GO-2 (neg. half: not reconstruction). At matched bits, downstream preservation is not controlled by reconstruction error. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:63` at 9f3829f.
-- NEG-15 (Bell boundary). *Query-conditioned hubness supplies a mechanism for Bell-inequality violation without action at a distance.* Refuted as a mechanism; the settings-as-queries reframing survives only as vocabulary. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:93` at 9f3829f.
-
-## first stated
-
-Volume 14, `geometric-observation/PROTOCOL.md:58-75` and `geometric-observation/OBSERVATION.md:43-45`, DOI 10.5281/zenodo.21776291, with the ledger itself at `geometric-observation/claims/LEDGER.md`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 1 section 1.5 | the six classes and the ledger rule | `geometric-observation\PROTOCOL.md:58-75`; `geometric-observation\OBSERVATION.md:43-45` |
-| chapter 8 section 8.3 | OT-11 void, strata 0.81 to 0.87 | `geometric-observation\claims\LEDGER.md:48` |
-| chapter 8 section 8.8 | sixteen standing negatives | `geometric-observation\claims\LEDGER.md` NEG-1 to NEG-16 |
-| chapter 8 section 8.10 | the six classes | `geometric-observation\PROTOCOL.md:58-75` |
-| chapter 11 section 11.5 | CI fails when CLAIMS.md and claims.yaml disagree | `turboquant-pro\CLAIMS.md:1-27`; `turboquant-pro\tests\test_claims_ledger.py` |
-
-## failures and corrections
 
 none
 
@@ -45,9 +21,25 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Volume 14, `geometric-observation/PROTOCOL.md:58-75` and `geometric-observation/OBSERVATION.md:43-45`, DOI 10.5281/zenodo.21776291, with the ledger itself at `geometric-observation/claims/LEDGER.md`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Ledger.lean`, theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Ledger.lean`, theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -57,6 +49,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 preregistration, sealed, certificate, false-clear-rate
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 1.1.
+
+Ledger rows that cite the entry's records without naming it: OT-11, GO-2 (neg. half: not reconstruction), NEG-15 (Bell boundary).
+
+Sources-table rows that share a record with the entry without naming it: chapter 1 section 1.5, chapter 8 section 8.3, chapter 8 section 8.8, chapter 8 section 8.10, chapter 11 section 11.5.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

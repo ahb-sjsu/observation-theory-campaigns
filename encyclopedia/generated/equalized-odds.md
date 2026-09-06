@@ -3,6 +3,8 @@
 **id.** equalized-odds
 **kind.** concept
 
+![Equal true and false positive rates across groups.](../figures/equalized-odds.svg)
+
 ## definition
 
 The requirement that the true-positive rate and the false-positive rate be the same across groups. Equation 0.37.
@@ -12,6 +14,13 @@ The requirement that the true-positive rate and the false-positive rate be the s
 Book equation 0.37.
 
     \mathrm{DI}=\frac{\Pr[\hat y=1\mid g=a]}{\Pr[\hat y=1\mid g=b]},\qquad \text{equalized odds}:\ \mathrm{TPR}_a=\mathrm{TPR}_b,\ \mathrm{FPR}_a=\mathrm{FPR}_b.
+
+## conditions
+
+- Equal true-positive and false-positive rates across groups. A group's favourable rate is its true-positive rate times its base rate plus its false-positive rate times the rest, so under equalized odds the favourable rates agree exactly when the base rates do, given that the classifier separates at all.
+- Equalized odds and parity of outcomes therefore conflict whenever the base rates differ. With rates 0.8 and 0.2 and base rates one half and one tenth the favourable rates are 0.5 and 0.26, a ratio below four fifths.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -23,24 +32,15 @@ Chapter 0 section 0.18 and chapter 14 section 14.6 of *Data Mining as Observatio
 
 ## measurements
 
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 14 section 14.1 | the re-gate table, prediction before result, both reports kept, binding nulls, 7 of 9 inside the interval, rights as a hard rule | `gtc-prototype\docs\REGATE.md:1-70` |
+none
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- Equal true-positive and false-positive rates across groups. A group's favourable rate is its true-positive rate times its base rate plus its false-positive rate times the rest, so under equalized odds the favourable rates agree exactly when the base rates do, given that the classifier separates at all.
-- Equalized odds and parity of outcomes therefore conflict whenever the base rates differ. With rates 0.8 and 0.2 and base rates one half and one tenth the favourable rates are 0.5 and 0.26, a ratio below four fifths.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/EqualizedOdds.lean`, theorems `parity_of_equal_base`, `favourable_sub`, `parity_iff_equal_base`, `example_conflict`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/EqualizedOdds.lean`, theorems `parity_of_equal_base`, `favourable_sub`, `parity_iff_equal_base`, `example_conflict`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -50,6 +50,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 disparate-impact-ratio, calibration, min-over-strata, certificate
 
+## see also
+
+Sources-table rows that share a record with the entry without naming it: chapter 14 section 14.1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

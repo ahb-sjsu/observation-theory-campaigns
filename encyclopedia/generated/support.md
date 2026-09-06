@@ -3,6 +3,8 @@
 **id.** support
 **kind.** concept
 
+![The fraction of transactions that contain the itemset.](../figures/support.svg)
+
 ## definition
 
 Of an itemset, the fraction of transactions that contain it. Chapter 5.
@@ -16,6 +18,13 @@ Book equation 5.1.
 Book equation 5.3.
 
     X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
+
+## conditions
+
+- The fraction of transactions that contain an itemset. Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent, which is the license to prune the lattice.
+- The count of candidates rather than the count of transactions decides whether a run finishes, and a rare consequent lets lift reach the transaction count on a single co-occurrence.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -35,16 +44,9 @@ TSK chapter 5, as chapter 5 section 5.1 of *Data Mining as Observation* states i
 
 none
 
-## conditions
-
-- The fraction of transactions that contain an itemset. Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent, which is the license to prune the lattice.
-- The count of candidates rather than the count of transactions decides whether a run finishes, and a rare consequent lets lift reach the transaction count on a single co-occurrence.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -54,6 +56,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 itemset, apriori, lift, cross-support-ratio
 
+## see also
+
+none
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

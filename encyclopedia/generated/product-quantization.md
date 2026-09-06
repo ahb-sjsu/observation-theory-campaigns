@@ -3,38 +3,15 @@
 **id.** product-quantization
 **kind.** instrument
 
+![A vector split into pieces, each with its own codebook.](../figures/product-quantization.svg)
+
 ## definition
 
 Splitting a vector into pieces and quantizing each piece with its own codebook. Chapter 11.
 
 ## equation
 
-Book equation 11.3.
-
-    \begin{gathered} \mathrm{recall}@k=\frac{\big|\text{returned top-}k\ \cap\ \text{true top-}k\big|}{k}, \\ \text{true top-}k\text{ computed from the uncompressed vectors}. \end{gathered}
-
-Book equation 4.2.
-
-    D(b)=\sum_i s_i\sigma_i^{2}\,2^{-2b_i},\qquad s_i=v_i^{\top}P_C\,v_i,\qquad b_i^{\star}=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i\sigma_i^{2}}{\theta}\Big),\qquad \sum_i b_i^{\star}=B,
-
-## ledger
-
-- NEG-14. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe). `[refuted]`. `geometric-observation/claims/LEDGER.md:108` at 9f3829f.
-
-## first stated
-
-Jégou, Douze, and Schmid, product quantization for nearest neighbor search, 2011, as chapter 11 section 11.3 of *Data Mining as Observation* presents it, with the program's comparisons in openvector-bench and turboquant-pro.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 10 section 10.4 | area map, boundary rule, hash, refuse not warn, intra and transit counts, area classes, abstention rule | `turboquant-pro\docs\STRATA_RFC.md:24-98` |
-| chapter 10 section 10.4 | second prediction inverted, transit 0.389 vs 0.291, centrality difference signs, share 0.473 vs 0.391, seven of thirteen backbone | `turboquant-pro\docs\RESULTS_multilingual_strata.md:55-90`; `turboquant-pro\docs\STRATA_RFC.md:98-130` |
-
-## failures and corrections
-
-- NEG-14, `[refuted]`. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe).
+none
 
 ## conditions
 
@@ -43,9 +20,25 @@ Jégou, Douze, and Schmid, product quantization for nearest neighbor search, 201
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Jégou, Douze, and Schmid, product quantization for nearest neighbor search, 2011, as chapter 11 section 11.3 of *Data Mining as Observation* presents it, with the program's comparisons in openvector-bench and turboquant-pro.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/ProductQuantization.lean`, theorems `sq_error_add`, `inf_add`, `bits_of_codebooks`, `table_row`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ProductQuantization.lean`, theorems `sq_error_add`, `inf_add`, `bits_of_codebooks`, `table_row`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -55,6 +48,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 recall-at-k, anti-hub, water-filling, rank-certificate
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 11.3, 4.2.
+
+Ledger rows that cite the entry's records without naming it: NEG-14.
+
+Sources-table rows that share a record with the entry without naming it: chapter 10 section 10.4.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

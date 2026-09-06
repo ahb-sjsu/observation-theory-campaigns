@@ -287,3 +287,11 @@ entry, a table of contents, the entries in alphabetical order with cross-referen
 page numbers, and back matter listing the entries by kind, by chapter of the book, by Lean file,
 and by ledger row, followed by the provenance of the records. It needs pandoc and xelatex and is
 rebuilt and committed after every batch.
+
+## Figures and relationships
+
+Every entry carries a schematic drawn by `encyclopedia/figures.py` in the book's figure style,
+saved in `encyclopedia/figures/<id>.svg` and placed at the top of the entry. A record joins an
+entry by a typed edge, defines, proves, measures, or refutes and corrects, and only records that
+name the entry appear in its body. Records cited beside an entry without naming it are listed
+under its see-also heading. `SCHEMA.md` states the rules.

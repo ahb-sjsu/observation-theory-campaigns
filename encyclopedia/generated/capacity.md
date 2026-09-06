@@ -3,40 +3,13 @@
 **id.** capacity
 **kind.** concept
 
+![The distinctions a model class can draw, the model-side half of the budget.](../figures/capacity.svg)
+
 ## definition
 
 The number of distinctions a model class can draw, the model-side half of the budget. Chapter 6.
 
 ## equation
-
-Book equation 1.1.
-
-    O=(C,\ G,\ B).
-
-Book equation 6.1.
-
-    s(x)=w\cdot x+b,\qquad P_C=\mathbb E\big[\sigma'(s)^{2}\big]\,w\,w^{\top},\qquad \operatorname{rank}P_C=1.
-
-Book equation 11.4.
-
-    \text{directions resolved}(k)=\begin{cases}1\ \text{or}\ 2,& k<d\\[2pt] \operatorname{rank}P_C,& k\ge d\end{cases}\qquad \text{cost}=2d\ \text{consumer calls per operating point}.
-
-## ledger
-
-- GO-4. Fixed-budget verdicts invert under budget-matched observation, per the wavelength mechanism. `[replicated]`. `geometric-observation/claims/LEDGER.md:66` at 9f3829f.
-
-## first stated
-
-Chapter 6 section 6.1 of *Data Mining as Observation*, with the budget inversion in `geometric-observation/claims/LEDGER.md` row GO-4.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 4 section 4.4 | GO-4 budget inversion, fixed m 10 rises, matched m 121, 126, 159 collapses, 3 seeds | `geometric-observation\claims\LEDGER.md` row GO-4 |
-| chapter 6 section 6.3 | depth three, ten binary and eight unary operations, exact optimal F1 by sort and sweep, beam, projections | `theory-radar\README.md:50-100,140-200` |
-
-## failures and corrections
 
 none
 
@@ -47,11 +20,27 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 6 section 6.1 of *Data Mining as Observation*, with the budget inversion in `geometric-observation/claims/LEDGER.md` row GO-4.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/ProbeCliff.lean`, theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ProbeCliff.lean`, theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/Rank.lean`, theorems `rank_le_width`, `rank_le_height`, `rank_outer_le_one`, `rank_mul_le`, `rank_zero`, `rank_transpose`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Rank.lean`, theorems `rank_le_width`, `rank_le_height`, `rank_outer_le_one`, `rank_mul_le`, `rank_zero`, `rank_transpose`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -61,6 +50,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 budget, budget-cliff, rank, formula-classifier, ensemble
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 1.1, 6.1, 11.4.
+
+Ledger rows that cite the entry's records without naming it: GO-4.
+
+Sources-table rows that share a record with the entry without naming it: chapter 4 section 4.4, chapter 6 section 6.3.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

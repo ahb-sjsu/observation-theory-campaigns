@@ -3,6 +3,8 @@
 **id.** percentile
 **kind.** concept
 
+![The value below which a given fraction of the rows fall.](../figures/percentile.svg)
+
 ## definition
 
 The value below which a given fraction of the rows fall. The fraction at or below a value is nondecreasing in the value. Chapter 11 section 11.3.
@@ -13,17 +15,16 @@ Book equation 11.2.
 
     \begin{gathered} r=\frac{d_{\mathrm{compressed}}}{d_{\mathrm{exact}}},\qquad \kappa_{\text{strict}}=\frac{\max r}{\min r},\qquad \tau\ \ge\ 1-2\hat\mu(\kappa_{\text{strict}}),\qquad \rho_S\ \ge\ 1-3\hat\mu(\kappa_{\text{strict}}), \\ \kappa_{97.5/2.5}=\frac{q_{97.5}(r)}{q_{2.5}(r)}\ \text{ gives the same two expressions as estimates, not floors.} \end{gathered}
 
-Book equation 0.35.
+## conditions
 
-    \mathrm{RH}=\sum_i\max\!\Big(0,\ \frac{N_i}{\sum_j N_j}-\frac1n\Big).
+- The value below which a given fraction of the rows fall. The fraction at or below a value is nonnegative, at most one, nondecreasing in the value, one at or above the largest row and zero below the smallest, and an upper percentile over a lower one is at least one.
+- The rank certificate's percentile setting reads the 97.5 over 2.5 percentile ratio as a robust estimate where the strict setting reads the max over min, and the anti-hub gate reads the fifth percentile of recall.
 
-Book equation 10.3.
-
-    N_k(x\mid Q)=\big|\{q\in Q:\ x\in\operatorname{top}_k(q)\}\big|,\qquad \text{anti-hub}:\ N_k(x)=0.
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- NEG-14. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe). `[refuted]`. `geometric-observation/claims/LEDGER.md:108` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,25 +34,15 @@ Chapter 11 section 11.3 of *Data Mining as Observation*, with the percentile set
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 10 section 10.2 | anti-hubs as where compressed indexes fail first, aggregate recall barely moves | `turboquant-pro\docs\HUBNESS_PRIMER.md:86-131` |
-| chapter 10 section 10.3 | hierarchical typing, tails 0.95 and 0.85, prescriptions, two designs that died, correlation above 0.8 on an isotropic Gaussian | `turboquant-pro\turboquant_pro\anatomy.py:98-170` |
-| chapter 11 section 11.2 | the calibration-time probe and the streaming monitor | `turboquant-pro\turboquant_pro\a2_probe.py:315-438`; `turboquant-pro\tests\test_a2_probe.py` |
-| chapter 11 section 11.6 | anti-hub recall, p05, hub-rank correlation, hub-set overlap, the build gate | `turboquant-pro\docs\HUBNESS_PRIMER.md:86-131` |
+| chapter 11 section 11.6 | anti-hub recall, p05, hub-rank correlation, hub-set overlap, the build gate | [`turboquant-pro/docs/HUBNESS_PRIMER.md:86-131`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/HUBNESS_PRIMER.md#L86-L131) |
 
 ## failures and corrections
 
-- NEG-14, `[refuted]`. (GO-P-2026-037, prospective) `a2_probe.median_unit_displacement` is a single-statistic predictor of the flip regime (unit_disp ≷ 1.0 ⇒ generic-polar-flip vs needs-blind-probe).
-
-## conditions
-
-- The value below which a given fraction of the rows fall. The fraction at or below a value is nonnegative, at most one, nondecreasing in the value, one at or above the largest row and zero below the smallest, and an upper percentile over a lower one is at least one.
-- The rank certificate's percentile setting reads the 97.5 over 2.5 percentile ratio as a robust estimate where the strict setting reads the max over min, and the anti-hub gate reads the fifth percentile of recall.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Percentile.lean`, theorems `cdf_nonneg`, `cdf_le_one`, `cdf_mono`, `cdf_of_all`, `cdf_of_none`, `ratio_ge_one`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Percentile.lean`, theorems `cdf_nonneg`, `cdf_le_one`, `cdf_mono`, `cdf_of_all`, `cdf_of_none`, `ratio_ge_one`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -61,6 +52,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 rank-certificate, anti-hub-recall, skewness, threshold, robin-hood-index
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.35, 10.3.
+
+Ledger rows that cite the entry's records without naming it: NEG-14.
+
+Sources-table rows that share a record with the entry without naming it: chapter 10 section 10.2, chapter 10 section 10.3, chapter 11 section 11.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

@@ -3,6 +3,8 @@
 **id.** rotary-position-embedding
 **kind.** concept
 
+![A rotation by position, under which a head reads relative position only.](../figures/rotary-position-embedding.svg)
+
 ## definition
 
 A rotation applied to queries and keys that encodes where each token sits in the sequence. Chapter 0 section 0.11.
@@ -13,13 +15,16 @@ Book equation 0.23.
 
     \operatorname{softmax}(z)_i=\frac{e^{z_i}}{\sum_j e^{z_j}},\qquad \text{output}=\sum_i\operatorname{softmax}\!\Big(\frac{q\cdot k_i}{\sqrt{d}}\Big)_{\!i}\,v_i.
 
-Book equation 11.1.
+## conditions
 
-    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
+- A rotation applied to queries and keys by an angle proportional to position. A rotation preserves length, and the score of a query at one position against a key at another depends only on the difference of positions, so a head reads relative position and shifting both positions by the same amount changes no score.
+- A key quantizer that rounds the rotated key rounds its position as well as its content, which is part of why the direction-only quantizer moved the scores.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 9f3829f.
+none
 
 ## first stated
 
@@ -29,27 +34,16 @@ Su and others, RoFormer, 2021, as chapter 0 section 0.11 of *Data Mining as Obse
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 1 section 1.4 | cosine 0.995 and perplexity of order ten thousand, the recalibration negative | `geometric-observation\chapters\ch02_failure_of_observer_free_measurement.md:40-60`; `geometric-observation\chapters\ch16_honest_negatives.md` NEG-2 and NEG-4; `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
-| chapter 2 section 2.5 | cosine 0.995 and the softmax reader | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
-| chapter 3 section 3.2 | condition (A2), tangential displacement | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `geometric-observation\chapters\ch09_legibility.md:42-54` |
-| chapter 8 section 8.2 | cosine 0.995, perplexity near 1e4 | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49`; `geometric-observation\chapters\ch16_honest_negatives.md` NEG-2 |
-| chapter 11 section 11.1 | condition (A2), cosine satisfies it, post-rotary keys do not, the cone below cell size | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `the-angular-observer\README.md:26-31` |
-| chapter 11 section 11.2 | fp16 12.24, values-only 13.12, PolarQuant K4 10643 and 0.095, per-channel uniform K4 14.91 and 0.062, per-channel NUQ K3 15.77 and 0.148, 2.4x and 670x, pre-rotary near 22000, 2 key heads serve 12 query heads | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
+| chapter 11 section 11.1 | condition (A2), cosine satisfies it, post-rotary keys do not, the cone below cell size | [`turboquant-pro/docs/KV_KEYS_FINDING.md:61-86`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/KV_KEYS_FINDING.md#L61-L86); `the-angular-observer/README.md:26-31` |
+| chapter 11 section 11.2 | fp16 12.24, values-only 13.12, PolarQuant K4 10643 and 0.095, per-channel uniform K4 14.91 and 0.062, per-channel NUQ K3 15.77 and 0.148, 2.4x and 670x, pre-rotary near 22000, 2 key heads serve 12 query heads | [`turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/KV_KEYS_FINDING.md#L1-L49) |
 
 ## failures and corrections
 
-- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality.
-
-## conditions
-
-- A rotation applied to queries and keys by an angle proportional to position. A rotation preserves length, and the score of a query at one position against a key at another depends only on the difference of positions, so a head reads relative position and shifting both positions by the same amount changes no score.
-- A key quantizer that rounds the rotated key rounds its position as well as its content, which is part of why the direction-only quantizer moved the scores.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Rope.lean`, theorems `rot_length`, `rot_dot`, `relative_position`, `shift_invariant`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Rope.lean`, theorems `rot_length`, `rot_dot`, `relative_position`, `shift_invariant`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -59,6 +53,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 attention, query-key-value, kv-cache, dot-product
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 11.1.
+
+Ledger rows that cite the entry's records without naming it: NEG-2.
+
+Sources-table rows that share a record with the entry without naming it: chapter 1 section 1.4, chapter 2 section 2.5, chapter 3 section 3.2, chapter 8 section 8.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

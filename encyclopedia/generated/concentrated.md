@@ -3,36 +3,13 @@
 **id.** concentrated
 **kind.** concept
 
+![A few eigenvalues carry most of the total.](../figures/concentrated.svg)
+
 ## definition
 
 Of a spectrum, having a few eigenvalues that carry most of the total. Chapter 0 section 0.4.
 
 ## equation
-
-Book equation 0.7.
-
-    r_{\mathrm{eff}}=\frac{\big(\sum_i\lambda_i\big)^{2}}{\sum_i\lambda_i^{2}}.
-
-Book equation 0.5.
-
-    \Sigma\,v_i=\lambda_i v_i,\qquad \Sigma=\sum_{i=1}^{d}\lambda_i\,v_i v_i^{\top},\qquad v_i\cdot v_j=0\ (i\ne j).
-
-## ledger
-
-- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 9f3829f.
-
-## first stated
-
-Chapter 0 section 0.4 of *Data Mining as Observation*, with the allocation report's concentration caution in `turboquant-pro/turboquant_pro/read_allocation.py:244-307`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 4 section 4.2 | effective rank as participation ratio, energy rank | `readscope\readscope\spectrum.py:35-70` |
-| chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | `turboquant-pro\turboquant_pro\read_allocation.py:244-307` |
-
-## failures and corrections
 
 none
 
@@ -43,9 +20,27 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 0 section 0.4 of *Data Mining as Observation*, with the allocation report's concentration caution in `turboquant-pro/turboquant_pro/read_allocation.py:244-307`.
+
+## measurements
+
+| Where the book states it | Numbers, as the book's sources table records them | Source |
+|---|---|---|
+| chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | [`turboquant-pro/turboquant_pro/read_allocation.py:244-307`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/turboquant_pro/read_allocation.py#L244-L307) |
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Concentrated.lean`, theorems `sq_le_sum_sq`, `effRank_le_of_fraction`, `effRank_le_four`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Concentrated.lean`, theorems `sq_le_sum_sq`, `effRank_le_of_fraction`, `effRank_le_four`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -55,6 +50,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 spectrum, effective-rank, water-filling, isotropic
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.7, 0.5.
+
+Ledger rows that cite the entry's records without naming it: OT-7.
+
+Sources-table rows that share a record with the entry without naming it: chapter 4 section 4.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

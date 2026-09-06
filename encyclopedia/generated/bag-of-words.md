@@ -3,6 +3,8 @@
 **id.** bag-of-words
 **kind.** concept
 
+![Documents with the same counts are the same document to the reader, whatever the order.](../figures/bag-of-words.svg)
+
 ## definition
 
 A representation of a document as a vector with one coordinate per vocabulary term holding that term's count. Chapter 12.
@@ -16,6 +18,13 @@ Book equation 0.36.
 Book equation 12.3.
 
     \text{validated}\iff \mathrm{AUROC}_{\text{cross}}-\max\big(\mathrm{AUROC}_{\text{untrained}},\ \mathrm{AUROC}_{\text{BoW}}\big)\ \ge\ 0.10.
+
+## conditions
+
+- A document as the vector of its term counts. Two documents that are rearrangements of each other have the same bag, so the bag is a quotient that declares word order irrelevant, the counts are nonnegative, and they sum to the document's length.
+- As a null model it reads only counts, and an encoder is validated only when its held-out AUROC clears the bag's by the preregistered margin. The scorecard's bag scores lie between 0.46 and 0.54, near chance.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -33,16 +42,9 @@ none
 
 none
 
-## conditions
-
-- A document as the vector of its term counts. Two documents that are rearrangements of each other have the same bag, so the bag is a quotient that declares word order irrelevant, the counts are nonnegative, and they sum to the document's length.
-- As a null model it reads only counts, and an encoder is validated only when its held-out AUROC clears the bag's by the preregistered margin. The scorecard's bag scores lie between 0.46 and 0.54, near chance.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/BagOfWords.lean`, theorems `bag_perm`, `bag_example`, `bag_sum`, `bag_absent`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/BagOfWords.lean`, theorems `bag_perm`, `bag_example`, `bag_sum`, `bag_absent`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +54,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 tf-idf, cross-corpus-gate, quotient, nuisance
 
+## see also
+
+none
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

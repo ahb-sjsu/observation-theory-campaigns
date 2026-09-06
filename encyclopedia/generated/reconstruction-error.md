@@ -3,29 +3,27 @@
 **id.** reconstruction-error
 **kind.** concept
 
+![The squared length of the difference between a row and its approximation.](../figures/reconstruction-error.svg)
+
 ## definition
 
 The squared length of the difference between a row and its approximation, the identity reader's distortion. Chapter 1 section 1.4.
 
 ## equation
 
-Book equation 4.2.
+none
 
-    D(b)=\sum_i s_i\sigma_i^{2}\,2^{-2b_i},\qquad s_i=v_i^{\top}P_C\,v_i,\qquad b_i^{\star}=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i\sigma_i^{2}}{\theta}\Big),\qquad \sum_i b_i^{\star}=B,
+## conditions
 
-Book equation 1.1.
+- The squared length of the difference between a row and its approximation, the identity reader's distortion. It is nonnegative, zero exactly when the approximation is the row, a sum of per-coordinate squared errors, and for a projection onto a unit direction it is the squared length less the squared component along it.
+- A reconstruction cosine of 0.995 sat beside a perplexity of ten thousand, recalibration improved reconstruction and worsened the consumer, and at matched reconstruction the consumer-aware code won in twelve of twelve domains.
 
-    O=(C,\ G,\ B).
-
-Book equation 0.5.
-
-    \Sigma\,v_i=\lambda_i v_i,\qquad \Sigma=\sum_{i=1}^{d}\lambda_i\,v_i v_i^{\top},\qquad v_i\cdot v_j=0\ (i\ne j).
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- GO-2 (neg. half: not reconstruction). At matched bits, downstream preservation is not controlled by reconstruction error. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:63` at 9f3829f.
-- GO-6. At matched rate, output coding ≤ surrogate ≤ reconstruction on the consumer metric; the output–reconstruction gap is governed by the $\ker P_C$ entropy share, and the surrogate–output gap vanishes as rate grows. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:68` at 9f3829f.
-- NEG-4. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. `[refuted]`. `geometric-observation/claims/LEDGER.md:97` at 9f3829f.
+- *measures.* GO-2 (neg. half: not reconstruction) `[demonstrated]`. At matched bits, downstream preservation is not controlled by reconstruction error. [`geometric-observation/claims/LEDGER.md:63`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L63).
+- *measures.* GO-6 `[demonstrated]`. At matched rate, output coding ≤ surrogate ≤ reconstruction on the consumer metric; the output–reconstruction gap is governed by the $\ker P_C$ entropy share, and the surrogate–output gap vanishes as rate grows. [`geometric-observation/claims/LEDGER.md:68`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L68).
 
 ## first stated
 
@@ -35,26 +33,17 @@ Chapter 1 section 1.4 and chapter 4 section 4.1 of *Data Mining as Observation*,
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 1 section 1.4 | three virtues one vice, the identity slice | `geometric-observation\chapters\ch02_failure_of_observer_free_measurement.md:1-40` |
-| chapter 3 section 3.2 | traces 2.0, diagonals 0.3 and 1.7, consumers at 15 and 75 degrees, distortion 0.39 vs 1.61, 4.1 to one, computed not drawn | `observation-theory\assets\make_flip_figure.py:4-24,107-119` |
-| chapter 4 section 4.2 | GO-6, d 8 and r 4, output at or below surrogate at or below reconstruction at every rate, about 500 times, gap 0.41 to 0.005, isotropic control collapses | `geometric-observation\claims\LEDGER.md` row GO-6; `geometric-observation\chapters\ch07_cost.md` |
+| chapter 4 section 4.2 | GO-6, d 8 and r 4, output at or below surrogate at or below reconstruction at every rate, about 500 times, gap 0.41 to 0.005, isotropic control collapses | [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md) row GO-6; [`geometric-observation/chapters/ch07_cost.md`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/chapters/ch07_cost.md) |
 
 ## failures and corrections
 
-- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL.
-
-## conditions
-
-- The squared length of the difference between a row and its approximation, the identity reader's distortion. It is nonnegative, zero exactly when the approximation is the row, a sum of per-coordinate squared errors, and for a projection onto a unit direction it is the squared length less the squared component along it.
-- A reconstruction cosine of 0.995 sat beside a perplexity of ten thousand, recalibration improved reconstruction and worsened the consumer, and at matched reconstruction the consumer-aware code won in twelve of twelve domains.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReconstructionError.lean`, theorems `recon_nonneg`, `recon_eq_zero_iff`, `recon_sum`, `recon_proj`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ReconstructionError.lean`, theorems `recon_nonneg`, `recon_eq_zero_iff`, `recon_sum`, `recon_proj`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/ReadDistortion.lean`, theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ReadDistortion.lean`, theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -64,6 +53,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 identity-reader, read-distortion, distortion, principal-component-analysis, flip-the
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 4.2, 1.1, 0.5.
+
+Ledger rows that cite the entry's records without naming it: NEG-4.
+
+Sources-table rows that share a record with the entry without naming it: chapter 1 section 1.4, chapter 3 section 3.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

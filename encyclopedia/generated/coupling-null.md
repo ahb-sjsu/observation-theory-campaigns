@@ -3,6 +3,8 @@
 **id.** coupling-null
 **kind.** concept
 
+![Hubs that appear because the queries were drawn from the corpus.](../figures/coupling-null.svg)
+
 ## definition
 
 The case, alignment near one, in which the read subspace and the high-variance subspace coincide and the reconstruction-optimal code is also the read-preserving one. The flip's stated boundary. Chapter 4.
@@ -13,10 +15,16 @@ Book equation 4.6.
 
     \kappa=\operatorname{tr}\big(\bar P_C\,\bar\Sigma_x\big)\in[0,1],\qquad \kappa\to1\ \text{is the coupling null (no flip)}.
 
+## conditions
+
+- The coupling null is the case in which the read subspace and the high-variance subspace coincide, alignment near one, so that the reconstruction-optimal code is also the read-preserving one and no flip is possible.
+- It is the flip's stated boundary, and a comparison that finds no flip there has confirmed the boundary rather than refuted the flip.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- GO-4. Fixed-budget verdicts invert under budget-matched observation, per the wavelength mechanism. `[replicated]`. `geometric-observation/claims/LEDGER.md:66` at 9f3829f.
-- GO-B-optim-D4 (034 · D4). Optimization — gradient compression, curvature (Hessian) read operator, on a REAL model (logistic regression); optional stretch `[predicted]`. `geometric-observation/claims/LEDGER.md:122` at 9f3829f.
+none
 
 ## first stated
 
@@ -26,24 +34,15 @@ Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:108-116`, th
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | `geometric-observation\chapters\ch08_value.md:108-116` |
-| chapter 4 section 4.4 | alignment law, retrospective fit exploratory, one prospective point | `geometric-observation\chapters\ch12_failure_taxonomy_and_kappa.md:56-82` |
-| chapter 7 section 7.2 | real logistic model, exact Hessian, anti 300 of 300, flip 82 of 300, coupling diagnosis, bound not refutation | `geometric-observation\claims\LEDGER.md` row GO-B-optim-D4 |
+| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | [`geometric-observation/chapters/ch08_value.md:108-116`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/chapters/ch08_value.md#L108-L116) |
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- The coupling null is the case in which the read subspace and the high-variance subspace coincide, alignment near one, so that the reconstruction-optimal code is also the read-preserving one and no flip is possible.
-- It is the flip's stated boundary, and a comparison that finds no flip there has confirmed the boundary rather than refuted the flip.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Alignment.lean`, theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Alignment.lean`, theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -53,6 +52,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 alignment, flip, read-distortion
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: GO-4, GO-B-optim-D4 (034 · D4).
+
+Sources-table rows that share a record with the entry without naming it: chapter 4 section 4.4, chapter 7 section 7.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

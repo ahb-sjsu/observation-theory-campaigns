@@ -13,6 +13,7 @@ encyclopedia/pdf/Observation-Theory-Encyclopedia.pdf, stamped with the commit.
 """
 import collections
 import datetime
+import glob
 import os
 import re
 import shutil
@@ -33,6 +34,25 @@ def run(cmd, cwd):
 
 
 COMMIT = run(["git", "rev-parse", "--short", "HEAD"], REPO).stdout.strip()
+CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+FIGPDF = os.path.join(BUILD, "figpdf")
+os.makedirs(FIGPDF, exist_ok=True)
+for svg in sorted(glob.glob(os.path.join(ROOT, "figures", "*.svg"))):
+    name = os.path.basename(svg)[:-4]
+    pdfp = os.path.join(FIGPDF, name + ".pdf")
+    if os.path.exists(pdfp) and os.path.getmtime(pdfp) > os.path.getmtime(svg):
+        continue
+    s = open(svg, encoding="utf-8").read()
+    w = int(re.search(r'width="(\d+)"', s).group(1))
+    h = int(re.search(r'height="(\d+)"', s).group(1))
+    html = (f'<html><head><style>@page{{size:{w}px {h}px;margin:0}} html,body{{margin:0;padding:0}} svg{{display:block}}</style></head>'
+            f'<body>{s}</body></html>')
+    hp = os.path.join(FIGPDF, name + ".html")
+    open(hp, "w", encoding="utf-8").write(html)
+    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", f"--print-to-pdf={pdfp}", "file:///" + hp.replace("\\", "/")],
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+    if not os.path.exists(pdfp):
+        print("figure conversion failed", name)
 DATE = datetime.date.today().isoformat()
 
 entries = tomllib.load(open(os.path.join(ROOT, "entries.toml"), "rb"))["entry"]
@@ -91,6 +111,9 @@ for e in entries:
         if line.startswith("    ") and "\\" in line:
             out.append("$$" + line.strip() + "$$")
             continue
+        if line.startswith("![") and "](../figures/" in line:
+            out.append(re.sub(r"\]\(\.\./figures/([a-z0-9-]+)\.svg\)", r"](figpdf/\1.pdf){width=100%}", line))
+            continue
         if line.startswith("|---|---|---|"):
             out.append("|-----|--------|-------|")
             continue
@@ -132,18 +155,33 @@ its conditions, and the list of related entries, live in `encyclopedia/entries.t
 
 **How to read an entry.** Every entry carries the same headings in the same order. A heading
 with nothing to say keeps the word none, so that a missing field and an empty field cannot be
-confused.
+confused. A record joins an entry by a typed edge. An equation defines the entry when the
+book's paragraph around it names the entry's terms. A ledger row proves, measures, or refutes
+and corrects the entry, by its class, when its claim names the entry, and a sources-table row
+measures the entry when its claim names it. Records that were cited beside an entry without
+naming it are not printed in the body. They are listed under the entry's see-also heading,
+and the back matter lists every ledger row with the entries it bears on. A result or
+correction entry trusts every record chosen for it. The status line at the end of each entry
+gives the date it was generated and the book commit, and the provenance section gives the
+commit of every other record.
 
 {field_table}
 
 **Conventions.** A ledger row carries its class in brackets, proved, demonstrated,
-replicated, predicted, exploratory, or refuted, and a refuted row sits in the entry at the
-same size as the results it bounds. A number names its repository, file, line range, and
+replicated, predicted, exploratory, refuted, missed, or void, and a refuted row sits in the
+entry at the same size as the results it bounds. A ledger row is printed once in full in the
+ledger itself. An entry carries the row's first sentence, its class, and a link to the line. A number names its repository, file, line range, and
 commit, exactly as the book's sources tables do, and a number without a row was removed. The
 machine-checked heading names the Lean file and theorems that check the entry's core against
 Mathlib, built with no sorry and the standard axioms only, and the book's appendix C says
 what each check does and does not cover. Book equation numbers, chapter numbers, and section
 numbers refer to *Data Mining as Observation*, draft 0.2.
+
+**Prior art.** Where an idea has a name outside the program, the entry says so under the
+heading known as. The read operator is, in the scalar Euclidean case, the active-subspace
+matrix of Constantine and Gleich, and consumer-relative compression sits beside the
+information bottleneck and task-based quantization. What the program adds is the output-metric
+pullback, the observer triple, the budget, and the audit discipline.
 
 **How to cite.** Cite the repository ahb-sjsu/observation-theory-campaigns at commit
 {COMMIT}, the entry by its id, and, for a number, the source row the entry gives. The
@@ -166,22 +204,26 @@ for e in entries:
     body.append("")
 
 # ---------------------------------------------------------------- back matter
-def back_heading(title):
-    return f"\n\\clearpage\n\n# {title} {{-}}\n\n\\markboth{{{title}}}{{}}\n"
+def back_heading(title, columns=True):
+    s = f"\n\\clearpage\n\n# {title} {{-}}\n\n\\markboth{{{title}}}{{}}\n"
+    if columns:
+        s += "\n```{=latex}\n\\begin{multicols}{2}\\small\n```\n"
+    return s
 
 
+COLS_END = "\n```{=latex}\n\\end{multicols}\n```\n"
 back = [back_heading("Entries by kind")]
 for k in ("concept", "instrument", "result", "correction", "reference"):
     items = [e for e in entries if e["kind"] == k]
     back.append(f"\n**{kind_words[k][0].upper() + kind_words[k][1:]}, {len(items)}.** " + "; ".join(link(e["id"]) for e in items) + ".\n")
 
-back.append(back_heading("Entries by chapter of the book"))
+back.append(COLS_END + back_heading("Entries by chapter of the book"))
 back.append("\nThe chapter of *Data Mining as Observation* in whose body the entry's terms appear.\n")
 for c in sorted(used_in):
     items = sorted(set(used_in[c]), key=lambda i: sort_key(by_id[i]))
     back.append(f"\n**Chapter {c}, {len(items)} entries.** " + "; ".join(link(i) for i in items) + ".\n")
 
-back.append(back_heading("Entries by Lean file"))
+back.append(COLS_END + back_heading("Entries by Lean file"))
 back.append("\nThe Lean file in the book's repository that machine-checks each entry's core, and the entries it checks.\n")
 by_lean = collections.defaultdict(list)
 for e in entries:
@@ -194,7 +236,7 @@ for f in sorted(by_lean, key=str.lower):
     items = sorted(set(by_lean[f]), key=lambda i: sort_key(by_id[i]))
     back.append(f"\n`{f}`. " + "; ".join(link(i) for i in items) + ".\n")
 
-back.append(back_heading("Entries by ledger row"))
+back.append(COLS_END + back_heading("Entries by ledger row"))
 back.append("\nThe rows of the claims ledger in geometric-observation, and the entries each bears on.\n")
 by_row = collections.defaultdict(list)
 for e in entries:
@@ -211,7 +253,7 @@ for r in sorted(by_row, key=row_key):
     items = sorted(set(by_row[r]), key=lambda i: sort_key(by_id[i]))
     back.append(f"\n**{r}.** " + "; ".join(link(i) for i in items) + ".\n")
 
-back.append(back_heading("Provenance"))
+back.append(COLS_END + back_heading("Provenance", columns=False))
 status = next(iter(status_lines.values()), "")
 back.append(f"\nThis document was built on {DATE} from commit {COMMIT} of ahb-sjsu/observation-theory-campaigns by `encyclopedia/build_pdf.py`. The entries were {status[0].lower() + status[1:] if status else 'generated by encyclopedia/generate.py.'}\n")
 back.append("\nThe hand-filled entries, the flip, the false-clear rate, and the Youden F1 bound, were written on 2026-09-03 to fix the schema and are the generator's acceptance test. `encyclopedia/check.py` verifies that every number in each of them appears in its generated counterpart and that every cited path exists.\n")
@@ -251,6 +293,8 @@ open(header, "w", encoding="utf-8").write(r"""
 \titlespacing*{\subsection}{0pt}{18pt}{6pt}
 \titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
 \renewcommand{\arraystretch}{1.15}
+\usepackage{multicol}
+\setlength{\columnsep}{18pt}
 \let\oldtableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{\clearpage\markboth{Contents}{}\oldtableofcontents}
 """)
@@ -259,7 +303,8 @@ pdf = os.path.join(BUILD, "encyclopedia.pdf")
 cmd = ["pandoc", allmd, "-f", "markdown+pipe_tables+tex_math_dollars+smart+raw_tex", "-o", pdf,
        "--pdf-engine=xelatex", "--toc", "--toc-depth=2", "--top-level-division=section",
        "-V", "documentclass=article", "-V", "geometry:letterpaper", "-V", "geometry:margin=1in",
-       "-V", "mainfont=Cambria", "-V", "monofont=Consolas", "-V", "monofontoptions=Scale=0.82",
+       "-V", "mainfont=Cambria", "-V", "mainfontoptions=Ligatures=NoCommon", "-V", "monofont=Consolas",
+       "-V", "monofontoptions=Scale=0.82", "--lua-filter", os.path.join(ROOT, "code_breaks.lua"),
        "-V", "colorlinks=true", "-V", "linkcolor=blue", "-V", "urlcolor=blue", "-V", "fontsize=10pt",
        "-V", "secnumdepth=0", "-H", header]
 r = run(cmd, BUILD)

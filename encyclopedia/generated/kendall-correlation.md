@@ -3,6 +3,8 @@
 **id.** kendall-correlation
 **kind.** concept
 
+![Concordant pairs less discordant pairs over all pairs.](../figures/kendall-correlation.svg)
+
 ## definition
 
 The fraction of item pairs two rankings order the same way, minus the fraction they order differently. Equation 0.15.
@@ -13,14 +15,16 @@ Book equation 0.15.
 
     \tau=\frac{\#\{\text{concordant pairs}\}-\#\{\text{discordant pairs}\}}{n(n-1)/2}.
 
-Book equation 11.2.
+## conditions
 
-    \begin{gathered} r=\frac{d_{\mathrm{compressed}}}{d_{\mathrm{exact}}},\qquad \kappa_{\text{strict}}=\frac{\max r}{\min r},\qquad \tau\ \ge\ 1-2\hat\mu(\kappa_{\text{strict}}),\qquad \rho_S\ \ge\ 1-3\hat\mu(\kappa_{\text{strict}}), \\ \kappa_{97.5/2.5}=\frac{q_{97.5}(r)}{q_{2.5}(r)}\ \text{ gives the same two expressions as estimates, not floors.} \end{gathered}
+- The fraction of item pairs two rankings order the same way minus the fraction they order differently. It lies between minus one and one, it is one when no pair disagrees, and since it depends only on the orderings a strictly increasing transform of either score leaves it unchanged.
+- It is the rank-agreement statistic the rank certificate bounds from below, and a floor on it is a floor on the consumer's rankings, not on any distance.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- GO-B-Llama. Trained frontier LLM (Llama-3.2-3B), softmax-attention consumer — blind probe on real post-RoPE keys `[predicted]`. `geometric-observation/claims/LEDGER.md:115` at 9f3829f.
-- GO-B-Llama-rematch. Trained frontier LLM (Llama-3.2-3B), softmax-attention consumer — recon-matched dissociation on real post-RoPE keys `[predicted]`. `geometric-observation/claims/LEDGER.md:118` at 9f3829f.
+none
 
 ## first stated
 
@@ -34,16 +38,9 @@ none
 
 none
 
-## conditions
-
-- The fraction of item pairs two rankings order the same way minus the fraction they order differently. It lies between minus one and one, it is one when no pair disagrees, and since it depends only on the orderings a strictly increasing transform of either score leaves it unchanged.
-- It is the rank-agreement statistic the rank certificate bounds from below, and a floor on it is a floor on the consumer's rankings, not on any distance.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Kendall.lean`, theorems `not_both`, `card_add_le`, `tau_mem`, `concordant_comp`, `discordant_comp`, `tau_comp`, `discordant_self`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Kendall.lean`, theorems `not_both`, `card_add_le`, `tau_mem`, `concordant_comp`, `discordant_comp`, `tau_comp`, `discordant_self`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -53,6 +50,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 rank-certificate, rank-faithful, monotone-invariance, recall-at-k
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 11.2.
+
+Ledger rows that cite the entry's records without naming it: GO-B-Llama, GO-B-Llama-rematch.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

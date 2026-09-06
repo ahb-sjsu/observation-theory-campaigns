@@ -3,20 +3,26 @@
 **id.** deployment-mismatch
 **kind.** concept
 
+![The harness reads a direction the deployed consumer never sees.](../figures/deployment-mismatch.svg)
+
 ## definition
 
 The failure in which the consumer that was evaluated is not the consumer that was deployed, or time moved between the two. Chapters 1 and 13.
 
 ## equation
 
-Book equation 13.1.
+none
 
-    \mathrm{FC}=\Pr\big[W\ \text{refutes}\ \big|\ \mathcal C_t\ \text{clears}\big],\qquad d_O(\Delta)=\operatorname{tr}\big(P_C\,M_{\mathrm{drift}}(\Delta)\big),\qquad M_{\mathrm{drift}}(\Delta)=\mathbb E\big[\delta_\Delta\delta_\Delta^{\top}\big].
+## conditions
+
+- The failure in which the consumer that was evaluated is not the consumer that was deployed, or time moved between the two. A deployment score is a weighted mean over the slices actually served, so it lies between the worst slice and the best, and a benchmark drawn from the best slice overstates it unless every weighted slice matches.
+- The chapter's case scores 0.909 on the benchmark against a target of 0.8 and 0.736 on the deployment mean, and the six bars that separate the two are preregistered.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- OT-4. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. `[refuted]`. `geometric-observation/claims/LEDGER.md:36` at 9f3829f.
-- GO-2/GO-12/GO-13 operational (KV serving, 077). Consumer-relative access width measured on a production serving stack (Qwen2.5-7B KV-cache eviction, matched budget): task quality tracks measured predictive uncertainty u about the consumer's future reads, not nominal scorer width — the 32-query snapshot beats the 1024-query scorer +0.4375±0.070 at 5% keep (bar 0.30) and survives 97% eviction with zero drop, while wide-window scoring is statistically indistinguishable from random eviction at extreme budgets; the recency-hoarding starvation signature replicated across three disjoint prompt sets (oracle-miss gap 0.370 vs bar 0.25). The novel equal-uncertainty analytic-equality control (degradation-titrated, constructible by design) REFUTED its own equality prediction on the pre-registered branch: with calibration health 4×–130× inside gates, equal scalar u did NOT give equal quality (V4 +0.078 vs 0.0625 tolerance; the pre-registered ρ=0.03 contrast firmed to +0.359±0.068, 5.3 SE) — equal scalar uncertainty is insufficient, error structure matters, consistent with GO-13 Theorem 1's own r≥2 scoping of equal-q universality (a scalar-context privilege). Successor arc: 056 honest miss → 075 ID burned on a disclosed design failure → 077 sealed and split-verdict. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:81` at 9f3829f.
+none
 
 ## first stated
 
@@ -26,24 +32,15 @@ Chapter 1 section 1.7 and chapter 13 of *Data Mining as Observation*, with the p
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.6 | XPROTO-LLM, benchmark 0.909, 0.920, 0.909, thirty slices, target 0.8, naive 0.333, aware 0.033, spread 0.380, deployment mean 0.736, six bars on three seeds, sealed 2026-08-25 at b61f7f1 | `observation-theory-campaigns\experiments\LLM-EVAL-TRACK.md:1-50`; `observation-theory-campaigns\analysis\llm\XPROTO-LLM-graded.json`; `observation-theory-campaigns\experiments\SEALS.md:85` |
-| chapter 13 section 13.6 | attempt two, broken proxy, control did not exist, identifier burned, 16 prompts, 1360 s | `geometric-observation\prereg\GO-P-2026-077-kv-consumer-relative.md:1-15`; `geometric-observation\results\GO13-kvaw-pilot-disclosed.json` |
-| chapter 13 section 13.6 | attempt three, windows 1024, 256, 32, uncertainty 0.982 to 0.892, 5 of 6, 0.4375 with SE 0.070 at 5 percent keep vs 0.30, 97 percent eviction, oracle-miss 0.370 vs 0.25, V4 0.078 vs 0.0625, contrast 0.359 with SE 0.068, n 64, seed 20260812, 89 duty cycles | `geometric-observation\claims\LEDGER.md` row GO-2/GO-12/GO-13 operational; `geometric-observation\prereg\GO-P-2026-077-kv-consumer-relative.md`; `geometric-observation\results\GO13-kvaw2-governed.json` |
+| chapter 12 section 12.6 | XPROTO-LLM, benchmark 0.909, 0.920, 0.909, thirty slices, target 0.8, naive 0.333, aware 0.033, spread 0.380, deployment mean 0.736, six bars on three seeds, sealed 2026-08-25 at b61f7f1 | [`observation-theory-campaigns/experiments/LLM-EVAL-TRACK.md:1-50`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/experiments/LLM-EVAL-TRACK.md#L1-L50); [`observation-theory-campaigns/analysis/llm/XPROTO-LLM-graded.json`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/analysis/llm/XPROTO-LLM-graded.json); [`observation-theory-campaigns/experiments/SEALS.md:85`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/experiments/SEALS.md#L85) |
 
 ## failures and corrections
 
-- OT-4, `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it.
-
-## conditions
-
-- The failure in which the consumer that was evaluated is not the consumer that was deployed, or time moved between the two. A deployment score is a weighted mean over the slices actually served, so it lies between the worst slice and the best, and a benchmark drawn from the best slice overstates it unless every weighted slice matches.
-- The chapter's case scores 0.909 on the benchmark against a target of 0.8 and 0.736 on the deployment mean, and the six bars that separate the two are preregistered.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DeploymentMismatch.lean`, theorems `deployment_le_max`, `min_le_deployment`, `deployment_lt_max_of_gap`, `book_numbers`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/DeploymentMismatch.lean`, theorems `deployment_le_max`, `min_le_deployment`, `deployment_lt_max_of_gap`, `book_numbers`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -53,6 +50,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 observer, certificate, coherence-time, min-over-strata
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 13.1.
+
+Ledger rows that cite the entry's records without naming it: OT-4, GO-2/GO-12/GO-13 operational (KV serving, 077).
+
+Sources-table rows that share a record with the entry without naming it: chapter 13 section 13.6.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

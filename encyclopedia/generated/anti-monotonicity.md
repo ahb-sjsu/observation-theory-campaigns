@@ -3,19 +3,22 @@
 **id.** anti-monotonicity
 **kind.** concept
 
+![Support cannot rise as an itemset grows, so a superset of an infrequent itemset is pruned.](../figures/anti-monotonicity.svg)
+
 ## definition
 
 The property that support cannot increase when an itemset grows, which licenses Apriori to prune every superset of an infrequent itemset without loss. Chapter 5.
 
 ## equation
 
-Book equation 5.1.
+none
 
-    s(X)=\frac{\sigma(X)}{N},\qquad c(X\to Y)=\frac{\sigma(X\cup Y)}{\sigma(X)}=\frac{s(X\cup Y)}{s(X)}.
+## conditions
 
-Book equation 5.3.
+- The property that support cannot increase when an itemset grows, since every transaction containing the larger set contains the smaller. It licenses Apriori to prune every superset of an infrequent itemset without loss, because no frequent itemset can lie above an infrequent one.
+- The license is a statement about the measure and not about the data, and the book's sidebar carries it to thresholds outside itemsets, where the analogous license is the ceiling on a score that a Youden bound supplies.
 
-    X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -27,27 +30,17 @@ Agrawal and Srikant, fast algorithms for mining association rules, 1994, as chap
 
 ## measurements
 
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 5 section 5.1 to 5.3, 5.5 | support, confidence, lift, the Apriori principle, FP-growth, closed and maximal itemsets, objective measures, Simpson's paradox, cross-support | TSK 2e chapter 5 |
-| chapter 5 section 5.3 | the transferable idea as a course learning outcome | instructor working documents, not public [@bond2026course], `ECE_514-01_FA26_session-outlines.md:117-136` |
+none
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- The property that support cannot increase when an itemset grows, since every transaction containing the larger set contains the smaller. It licenses Apriori to prune every superset of an infrequent itemset without loss, because no frequent itemset can lie above an infrequent one.
-- The license is a statement about the measure and not about the data, and the book's sidebar carries it to thresholds outside itemsets, where the analogous license is the ceiling on a score that a Youden bound supplies.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/ItemSet.lean`, theorems `supportFrac_mem_unit`, `supportFrac_empty`, `supportFrac_anti`, `supportFrac_union_le`, `closed_of_maximal`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ItemSet.lean`, theorems `supportFrac_mem_unit`, `supportFrac_empty`, `supportFrac_anti`, `supportFrac_union_le`, `closed_of_maximal`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -57,6 +50,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 apriori-principle, support, safe-pruning, itemset
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 5.1, 5.3.
+
+Sources-table rows that share a record with the entry without naming it: chapter 5 section 5.1 to 5.3, 5.5, chapter 5 section 5.3.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

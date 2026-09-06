@@ -3,6 +3,8 @@
 **id.** margin
 **kind.** concept
 
+![The distance from the boundary to the nearest rows.](../figures/margin.svg)
+
 ## definition
 
 How far a row's score sits from the threshold. Chapter 6.
@@ -13,13 +15,16 @@ Book equation 9.3.
 
     \hat\mu=\frac{\bar s_{\mathrm{true}}-\bar s_{\mathrm{distr}}}{\sigma_{\mathrm{distr}}},\qquad \mu_{\mathrm{crit}}=\mathbb E\Big[\max_{N-1}\mathcal N(0,1)\Big],\qquad \rho=\frac{\hat\mu}{\mu_{\mathrm{crit}}},\qquad \rho=1\ \text{vacuous}.
 
-Book equation 11.2.
+## conditions
 
-    \begin{gathered} r=\frac{d_{\mathrm{compressed}}}{d_{\mathrm{exact}}},\qquad \kappa_{\text{strict}}=\frac{\max r}{\min r},\qquad \tau\ \ge\ 1-2\hat\mu(\kappa_{\text{strict}}),\qquad \rho_S\ \ge\ 1-3\hat\mu(\kappa_{\text{strict}}), \\ \kappa_{97.5/2.5}=\frac{q_{97.5}(r)}{q_{2.5}(r)}\ \text{ gives the same two expressions as estimates, not floors.} \end{gathered}
+- How far a row's score sits from the threshold. A perturbation whose length times the weight length is smaller than the margin cannot move a linear classifier's score across the threshold, by Cauchy–Schwarz, and a step along the weights of exactly that size reaches the boundary.
+- The margin is therefore a certificate on a decision, and chapter 9's margin certificate is the same idea with a noise model in place of a perturbation bound and a vacuity threshold derived from it.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,16 +38,9 @@ none
 
 none
 
-## conditions
-
-- How far a row's score sits from the threshold. A perturbation whose length times the weight length is smaller than the margin cannot move a linear classifier's score across the threshold, by Cauchy–Schwarz, and a step along the weights of exactly that size reaches the boundary.
-- The margin is therefore a certificate on a decision, and chapter 9's margin certificate is the same idea with a noise model in place of a perturbation bound and a vacuity threshold derived from it.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Margin.lean`, theorems `score_add`, `decision_stable`, `tight_along_weights`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Margin.lean`, theorems `score_add`, `decision_stable`, `tight_along_weights`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +50,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 classifier, decision-boundary, vacuity-threshold, rank-certificate, escalation
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 11.2.
+
+Ledger rows that cite the entry's records without naming it: GO-3.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

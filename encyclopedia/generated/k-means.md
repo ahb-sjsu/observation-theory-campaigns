@@ -3,6 +3,8 @@
 **id.** k-means
 **kind.** instrument
 
+![Centres at the means, rows assigned to the nearest.](../figures/k-means.svg)
+
 ## definition
 
 A clustering that minimizes the sum of squared errors to the cluster centres. The mean minimizes each cluster's error and assigning each row to its nearest centre never raises the total, so it is the identity reader's clustering. Chapter 9.
@@ -13,33 +15,6 @@ Book equation 9.1.
 
     \mathrm{SSE}=\sum_{k=1}^{K}\sum_{i\in\mathcal C_k}\|x_i-c_k\|^{2},\qquad\text{the }P_C=I\text{ distortion summed within clusters}.
 
-Book equation 0.30.
-
-    \mathrm{SSE}=\sum_{k}\sum_{i\in\mathcal C_k}\|x_i-c_k\|^{2},\qquad s_i=\frac{b_i-a_i}{\max(a_i,b_i)}.
-
-Book equation 4.2.
-
-    D(b)=\sum_i s_i\sigma_i^{2}\,2^{-2b_i},\qquad s_i=v_i^{\top}P_C\,v_i,\qquad b_i^{\star}=\max\!\Big(0,\ \tfrac12\log_2\frac{s_i\sigma_i^{2}}{\theta}\Big),\qquad \sum_i b_i^{\star}=B,
-
-## ledger
-
-- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 9f3829f.
-
-## first stated
-
-Lloyd, least squares quantization in PCM, 1957, as chapter 9 section 9.1 of *Data Mining as Observation* reads it.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:10-18` |
-| chapter 10 section 10.1 | the four detector families | TSK 2e chapter 9 |
-
-## failures and corrections
-
-none
-
 ## conditions
 
 - A clustering that minimizes the sum of squared errors to the cluster centres. The error about any centre is the error about the mean plus the row count times the squared distance between the two, so the mean minimizes each cluster's error, and assigning each row to its nearest centre never raises the total.
@@ -47,9 +22,25 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Lloyd, least squares quantization in PCM, 1957, as chapter 9 section 9.1 of *Data Mining as Observation* reads it.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/KMeans.lean`, theorems `sse_decomposition`, `mean_minimizes`, `assign_nearest`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/KMeans.lean`, theorems `sse_decomposition`, `mean_minimizes`, `assign_nearest`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -59,6 +50,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 identity-reader, validity-index, silhouette, inverted-file, dbscan
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.30, 4.2.
+
+Ledger rows that cite the entry's records without naming it: GO-3.
+
+Sources-table rows that share a record with the entry without naming it: chapter 9 section 9.4, chapter 10 section 10.1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
