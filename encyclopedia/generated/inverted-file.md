@@ -49,7 +49,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/InvertedFile.lean`, theorems `scanned_mono`, `found_iff`, `scannedFraction_mem_unit`, `equal_cells`, `scanned_univ`, at observation-data-mining 8d458b2.
+`lean/DataMiningAsObservation/InvertedFile.lean`, theorems `scanned_mono`, `found_iff`, `scannedFraction_mem_unit`, `equal_cells`, `scanned_univ`, at observation-data-mining 7eba709.
 
 ## used in
 
@@ -61,4 +61,4 @@ recall-at-k, product-quantization, vacuity-threshold, anti-hub
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 429cc9d, theory-radar 37c4e6c, observation-data-mining 8d458b2, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

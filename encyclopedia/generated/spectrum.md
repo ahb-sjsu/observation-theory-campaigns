@@ -1,11 +1,11 @@
-# eigenvalue, eigenvector
+# spectrum
 
-**id.** eigenvalue-eigenvector
+**id.** spectrum
 **kind.** concept
 
 ## definition
 
-A direction a symmetric matrix only stretches, and the factor by which it stretches it. The eigenvectors of a covariance are its principal directions. Equation 0.5.
+The list of a matrix's eigenvalues. Chapter 0 section 0.4.
 
 ## equation
 
@@ -24,10 +24,11 @@ Book equation 9.2.
 ## ledger
 
 - OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 7d91883.
+- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 7d91883.
 
 ## first stated
 
-Chapter 0 section 0.4 of *Data Mining as Observation*, with the program's spectrum records in readscope and the recognizer battery.
+Chapter 0 section 0.4 of *Data Mining as Observation*, with the program's spectrum records in readscope, `readscope/readscope/spectrum.py:35-70`, and the recognizer battery.
 
 ## measurements
 
@@ -46,22 +47,22 @@ none
 
 ## conditions
 
-- A direction a symmetric matrix only stretches, and the factor by which it stretches it. Eigenvectors with distinct eigenvalues are orthogonal, every eigenvalue of a semidefinite matrix is nonnegative, and the quadratic form along an eigenvector is the eigenvalue times the squared length.
-- The eigenvectors of a covariance are its principal directions, the basis in which chapter 4 pairs the covariance with the read operator, and the eigenvalues of a Laplacian are what the recognizer reads.
+- The list of a matrix's eigenvalues. Its effective rank, the square of its sum over the sum of its squares, lies between one and the dimension, is the dimension for a flat spectrum, and is one for a single eigenvalue.
+- The spectrum is not invariant under a change of basis of the input where the trace pairing and the rank are, and the Laplacian's spectrum is what the recognizer reads for dimension and shape.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Eigen.lean`, theorems `pairing_symm`, `orthogonal_of_ne`, `eigenvalue_nonneg`, `quad_eigen`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/EffectiveRank.lean`, theorems `sq_sum_le`, `effRank_le`, `sum_sq_le_sq_sum`, `one_le_effRank`, `effRank_const`, `effRank_single`, at observation-data-mining 7eba709.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 3, 4, 9, 11.
+*Data Mining as Observation* chapters 0, 3, 4, 9, 11, 14.
 
 ## related
 
-covariance-matrix, effective-rank, whitening, recognizer, laplacian
+eigenvalue-eigenvector, effective-rank, recognizer, laplacian, isotropic
 
 ## status
 

@@ -2326,3 +2326,88 @@ conditions = [
   "A curved surface of some dimension that looks flat when viewed closely. A dataset lies on one when its rows vary along fewer directions than they have coordinates, and under Weyl's law the count of Laplacian eigenvalues below a level grows like the level to half that dimension, so the dimension is twice the slope of log count against log level.",
   "The recognizer names the manifold from the eigenvalue multiplets or certifies that none is present, and the twelve of twelve battery is the ledger's demonstrated row.",
 ]
+
+[[entry]]
+id = "quantization"
+kind = "concept"
+title = "quantization"
+glossary = "quantization"
+equations = ["0.13", "11.1"]
+ledger = ["NEG-2", "GO-2 (neg. half"]
+first_stated = "Chapter 0 section 0.11 and chapter 11 section 11.2 of *Data Mining as Observation*, with the program's quantizer table in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["key quantizer", "fp16 12.24", "KV_KEYS_FINDING", "kvquant"]
+book_terms = ["quantiz"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Quantization.lean"
+related = ["bit", "codebook", "per-channel-quantizer", "direction-only-quantizer", "flip"]
+conditions = [
+  "Replacing each number with one of a small set of allowed values so that it can be stored in a few bits. A uniform quantizer with a given step has error at most half the step and zero error on a level, and halving the step halves the bound.",
+  "Those are the identity reader's bounds. What a quantizer does to a consumer is the flip's question, and the key quantizer table of chapter 11 is the case in which the smaller reconstruction error was the worse code.",
+]
+
+[[entry]]
+id = "codebook"
+kind = "concept"
+title = "codebook"
+glossary = "codebook"
+equations = ["4.2", "0.13"]
+ledger = ["GO-7", "NEG-4"]
+first_stated = "Chapter 0 section 0.11 and chapter 4 section 4.2 of *Data Mining as Observation*, with the six codebooks of ledger row GO-7 and the codebook confound of the honest negatives."
+book_records = ["codebook confound", "six codebooks", "row GO"]
+book_terms = ["codebook", "codeword"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Codebook.lean"
+related = ["quantization", "product-quantization", "confound", "flip"]
+conditions = [
+  "The small set of allowed values a quantizer replaces each input with, under the nearest-codeword rule. The distortion of an input is its distance to the nearest codeword, nonnegative, zero when the input is a codeword, achieved by some codeword, and never larger for a larger codebook.",
+  "Two arms compared at unequal codebooks are not a flip comparison, which is the twenty-five percent codebook confound the ledger carries, and the reset content of a stored description is separate from its rate, which is row GO-7's finding across six codebooks.",
+]
+
+[[entry]]
+id = "direction-only-quantizer"
+kind = "instrument"
+title = "direction-only quantizer"
+glossary = "direction-only quantizer"
+equations = ["11.1", "0.1"]
+ledger = ["NEG-2", "GO-B-LOCATA"]
+first_stated = "Chapter 11 section 11.2 of *Data Mining as Observation*, with PolarQuant in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the LOCATA comparison of the ledger."
+book_records = ["PolarQuant", "KV_KEYS_FINDING", "cosine 0.995"]
+book_terms = ["direction-only", "PolarQuant", "polar"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/DirectionQuantizer.lean"
+related = ["quantization", "dot-product", "kv-cache", "attention", "flip"]
+conditions = [
+  "A quantizer that stores each vector's length exactly and rounds its direction to a unit codeword. The quantized vector keeps the original's length, its cosine with any query is the codeword's cosine, and its score against a query is the length times the query's dot product with the codeword, so the score error is the length times the query's dot product with the direction error.",
+  "A key's cosine with its own quantized form can be near one while its score against a query moves by a multiple of its length, which is why keys at cosine 0.995 raised the perplexity by three orders of magnitude.",
+]
+
+[[entry]]
+id = "per-channel-quantizer"
+kind = "instrument"
+title = "per-channel quantizer"
+glossary = "per-channel quantizer"
+equations = ["11.1", "0.13"]
+ledger = ["NEG-2"]
+first_stated = "Chapter 11 section 11.2 of *Data Mining as Observation*, with the per-channel rows of the quantizer table in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`."
+book_records = ["per-channel uniform K4 14.91", "per-channel", "KV_KEYS_FINDING"]
+book_terms = ["per-channel"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Quantization.lean"
+related = ["quantization", "direction-only-quantizer", "water-filling", "kv-cache"]
+conditions = [
+  "A quantizer that chooses a step per coordinate. The squared error of a vector is at most the sum of the squared half steps, and a finer step on one coordinate lowers that coordinate's bound alone, which is the allocation water-filling makes by sensitivity.",
+  "At four bits the per-channel uniform quantizer held the perplexity at 14.91 against 12.24 uncompressed, where the direction-only quantizer at the same bits did not.",
+]
+
+[[entry]]
+id = "spectrum"
+kind = "concept"
+title = "spectrum"
+glossary = "spectrum"
+equations = ["0.5", "0.7", "9.2"]
+ledger = ["OT-7", "GO-3"]
+first_stated = "Chapter 0 section 0.4 of *Data Mining as Observation*, with the program's spectrum records in readscope, `readscope/readscope/spectrum.py:35-70`, and the recognizer battery."
+book_records = ["spectrum.py", "SPECTRUM_FINDINGS.md", "eigenvalue sums"]
+book_terms = ["spectrum", "spectra"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/EffectiveRank.lean"
+related = ["eigenvalue-eigenvector", "effective-rank", "recognizer", "laplacian", "isotropic"]
+conditions = [
+  "The list of a matrix's eigenvalues. Its effective rank, the square of its sum over the sum of its squares, lies between one and the dimension, is the dimension for a flat spectrum, and is one for a single eigenvalue.",
+  "The spectrum is not invariant under a change of basis of the input where the trace pairing and the rank are, and the Laplacian's spectrum is what the recognizer reads for dimension and shape.",
+]
