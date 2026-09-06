@@ -2156,3 +2156,88 @@ conditions = [
   "The fingerprint git assigns to a snapshot of a repository, which fixes the time at which a file existed in that state. A changed hash proves a changed file and an equal hash is evidence, since a fixed-length digest of longer inputs cannot be injective.",
   "Every row of a sources table cites its commit, every seal records its sealing commit, and the book's own colophon names the commit it was built from, so that a number can be reproduced at the state it was measured in.",
 ]
+
+[[entry]]
+id = "itemset"
+kind = "concept"
+title = "itemset"
+glossary = "itemset"
+equations = ["5.1", "5.3"]
+ledger = []
+first_stated = "Agrawal, Imieliński, and Swami, mining association rules, 1993, as TSK chapter 5 presents it and chapter 5 section 5.1 of *Data Mining as Observation* states it."
+book_records = ["support, confidence, lift", "TSK 2e chapter 5"]
+book_terms = ["itemset"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/ItemSet.lean"
+related = ["support", "apriori", "safe-pruning", "confidence"]
+conditions = [
+  "A set of items that appear together in a transaction. Its support lies in the unit interval, the empty itemset has support one, a superset has support at most that of a subset, and the support of a union is at most the smaller of the two supports.",
+  "A closed itemset has no strict superset with the same support and a maximal frequent itemset has no frequent strict superset, and every maximal frequent itemset is closed, since a superset with the same support would be frequent too.",
+]
+
+[[entry]]
+id = "support"
+kind = "concept"
+title = "support"
+glossary = "support"
+equations = ["5.1", "5.3"]
+ledger = []
+first_stated = "TSK chapter 5, as chapter 5 section 5.1 of *Data Mining as Observation* states it, with anti-monotonicity as the Apriori license."
+book_records = ["support, confidence, lift", "TSK 2e chapter 5"]
+book_terms = ["\\bsupport\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/SafePruning.lean"
+related = ["itemset", "apriori", "lift", "cross-support-ratio"]
+conditions = [
+  "The fraction of transactions that contain an itemset. Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent, which is the license to prune the lattice.",
+  "The count of candidates rather than the count of transactions decides whether a run finishes, and a rare consequent lets lift reach the transaction count on a single co-occurrence.",
+]
+
+[[entry]]
+id = "confidence"
+kind = "concept"
+title = "confidence"
+glossary = "confidence"
+equations = ["5.1", "5.2"]
+ledger = []
+first_stated = "TSK chapter 5, as chapter 5 section 5.1 of *Data Mining as Observation* states it."
+book_records = ["support, confidence, lift", "TSK 2e chapter 5"]
+book_terms = ["\\bconfidence\\b(?! interval)"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Confidence.lean"
+related = ["lift", "support", "itemset", "multiple-comparisons"]
+conditions = [
+  "The support of a rule's itemset over the support of its antecedent, in the unit interval and not symmetric. Under independence the confidence equals the consequent's support whatever the antecedent, so a consequent in nine of ten transactions gives every rule into it confidence 0.9 with no association at all.",
+  "Lift is confidence over the consequent's support and is one in that case, which is why chapter 5 sends rule evaluation to chapter 8's nulls.",
+]
+
+[[entry]]
+id = "precision-recall"
+kind = "concept"
+title = "precision, recall"
+glossary = "precision, recall"
+equations = ["0.28", "6.2"]
+ledger = []
+first_stated = "Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's precision targets in `gtc-prototype/docs/SPECTRUM_FINDINGS.md:84-88`."
+book_records = ["80 and 95 percent precision", "SPECTRUM_FINDINGS.md:84"]
+book_terms = ["precision", "\\brecall\\b(?! at)"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/PrecisionRecall.lean"
+related = ["f1", "threshold", "recall-at-k", "youden-f1-bound"]
+conditions = [
+  "The fraction of predicted positives that are truly positive, and the fraction of true positives that were predicted, both in the unit interval. F1 is their harmonic mean, between the smaller of the two and their arithmetic mean, equal to both when they agree, and zero when either is zero.",
+  "In counts F1 is twice the true positives over twice the true positives plus the false positives and false negatives, the form the Youden ceiling bounds.",
+]
+
+[[entry]]
+id = "f1"
+kind = "concept"
+title = "F1"
+glossary = "F1"
+equations = ["0.28", "6.2", "5.4"]
+ledger = []
+first_stated = "Chapter 0 section 0.14 and chapter 6 section 6.3 of *Data Mining as Observation*, with the program's optimal thresholded F1 in theory-radar, DOI 10.5281/zenodo.20660206."
+book_records = ["exact optimal F1", "theory_radar_paper.tex", "A* optima"]
+book_terms = ["\\bF1\\b", "F_1"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/MonotoneInvariance.lean"
+related = ["precision-recall", "monotone-invariance", "youden-f1-bound", "formula-search", "threshold"]
+conditions = [
+  "Twice the product of precision and recall over their sum. The optimal thresholded F1 of a score is the best F1 over every threshold in both directions, and it depends only on the score's ranking, so a strictly monotone transform of the score leaves it unchanged.",
+  "Its ceiling from the Youden index holds for every score, and the AUROC form of that ceiling only for concave ROC curves, which is the theory-radar erratum.",
+]
