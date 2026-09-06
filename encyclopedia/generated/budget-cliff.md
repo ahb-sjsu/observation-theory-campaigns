@@ -15,8 +15,8 @@ Book equation 11.4.
 
 ## ledger
 
-- OT-3. Under subspace-confined second-order transcripts, fewer than d directions cannot identify a hidden leading eigenspace (theorem, adaptive to d−2 / oblivious to d−1); a known k₀-dim exclusion moves the cliff to exactly d−k₀ and never softens it. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:31` at 01e53bc.
-- OT-10. The noisy cliff: noise floors accuracy at a derived level; the cliff's location never moves. `[**`[refuted-as-sealed]`** ⚠]`. `geometric-observation/claims/LEDGER.md:45` at 01e53bc.
+- OT-3. Under subspace-confined second-order transcripts, fewer than d directions cannot identify a hidden leading eigenspace (theorem, adaptive to d−2 / oblivious to d−1); a known k₀-dim exclusion moves the cliff to exactly d−k₀ and never softens it. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:31` at 8c6986b.
+- OT-10. The noisy cliff: noise floors accuracy at a derived level; the cliff's location never moves. `[**`[refuted-as-sealed]`** ⚠]`. `geometric-observation/claims/LEDGER.md:45` at 8c6986b.
 
 ## first stated
 
@@ -54,4 +54,4 @@ blind-probe, read-operator
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 01e53bc, observation-theory-campaigns 0c2e3f9, theory-radar 37c4e6c, observation-data-mining 17f3e9f, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 8c6986b, observation-theory-campaigns 553a902, theory-radar 37c4e6c, observation-data-mining 17f3e9f, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
