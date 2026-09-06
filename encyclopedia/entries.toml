@@ -2241,3 +2241,88 @@ conditions = [
   "Twice the product of precision and recall over their sum. The optimal thresholded F1 of a score is the best F1 over every threshold in both directions, and it depends only on the score's ranking, so a strictly monotone transform of the score leaves it unchanged.",
   "Its ceiling from the Youden index holds for every score, and the AUROC form of that ceiling only for concave ROC curves, which is the theory-radar erratum.",
 ]
+
+[[entry]]
+id = "auroc"
+kind = "concept"
+title = "AUROC"
+glossary = "AUROC"
+equations = ["0.16", "0.38", "12.3"]
+ledger = ["GO-B-whale", "GO-B-legal (035→036)"]
+first_stated = "Chapter 0 section 0.8 of *Data Mining as Observation*, the pairwise definition with ties counted one half, and the held-out AUROC of every encoder gate and flip in the program."
+book_records = ["AUROC 0.8035", "held-out AUROC", "AUROC 0.975", "AUROC 0.934"]
+book_terms = ["AUROC"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Auroc.lean"
+related = ["monotone-invariance", "reliability-weight", "chance-level", "youden-f1-bound", "cross-corpus-gate"]
+conditions = [
+  "The probability that a random positive scores above a random negative, ties counted one half. It lies in the unit interval, is one when every positive scores above every negative and zero when every negative scores above every positive, is one half for a constant score, and is unchanged by a strictly monotone transform of the score.",
+  "It reads the ranking and not the values, so it is the discrimination half of every encoder's validation and says nothing about calibration.",
+]
+
+[[entry]]
+id = "trace"
+kind = "concept"
+title = "trace"
+glossary = "trace"
+equations = ["0.3", "0.10"]
+ledger = ["OT-7", "OT-2"]
+first_stated = "Chapter 0 section 0.2 of *Data Mining as Observation*, with the trace pairing of Volume 14's invariance row OT-7."
+book_records = ["traces 2.0", "trace pairing", "ch05_the_read_metric_and_the_quotient.md"]
+book_terms = ["\\btrace\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Trace.lean"
+related = ["covariance-matrix", "read-distortion", "identity-reader", "effective-rank"]
+conditions = [
+  "The sum of a matrix's diagonal. It is linear, the trace of the identity is the dimension, the trace of an outer product is the vector's squared length, the trace of a product does not depend on the order, and the trace of a read operator times a rank-one error is the read distortion of that error.",
+  "For a covariance the trace is the total variance, and the trace pairing of a read operator with a second moment is the invariant the ledger's row OT-7 names, unchanged by a change of basis where the spectrum and effective rank are not.",
+]
+
+[[entry]]
+id = "bit"
+kind = "concept"
+title = "bit"
+glossary = "bit"
+equations = ["0.13", "4.2"]
+ledger = ["GO-4", "GO-7"]
+first_stated = "Chapter 0 section 0.7 of *Data Mining as Observation*, with the program's matched-bits comparisons in Volume 14 and turboquant-pro."
+book_records = ["bits per symbol", "k over d table", "audit-matched bits", "matched bits"]
+book_terms = ["\\bbits?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Bit.lean"
+related = ["budget", "water-filling", "flip", "landauers-principle"]
+conditions = [
+  "The unit of a budget. A direction quantized with b bits is stored at one of two to the b levels, so one more bit doubles the levels, halves a uniform quantizer's step, and quarters the squared error of the high-rate model, and bits add across directions since the levels multiply.",
+  "Every flip comparison is at matched bits, since a code that spends more bits is a different budget and not a better reader.",
+]
+
+[[entry]]
+id = "graph"
+kind = "concept"
+title = "graph"
+glossary = "graph"
+equations = ["0.19", "0.20"]
+ledger = ["NEG-1", "GO-3"]
+first_stated = "Chapter 0 section 0.10 of *Data Mining as Observation*, with the neighbourhood graphs of the-angular-observer and the recognizer battery."
+book_records = ["the-angular-observer", "radius against degree", "ch09_legibility.md"]
+book_terms = ["\\bgraph"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Graph.lean"
+related = ["degree", "laplacian", "geodesic-distance", "spectral-embedding", "manifold"]
+conditions = [
+  "A set of nodes and a set of edges joining pairs of them. A neighbourhood graph joins each row to its k nearest rows, so every node has exactly k out-neighbours. The mutual form keeps an edge only when each node is among the other's neighbours, is symmetric, is a subgraph of the directed form, and gives no node more than k mutual neighbours.",
+  "The Laplacian of the graph carries the dimension in its eigenvalue count and the geodesic ranking in its low eigenvectors' angles, which is what chapters 3 and 9 read.",
+]
+
+[[entry]]
+id = "manifold"
+kind = "concept"
+title = "manifold"
+glossary = "manifold"
+equations = ["0.31", "9.2", "0.32"]
+ledger = ["GO-3"]
+first_stated = "Chapter 0 section 0.10 and chapter 9 section 9.2 of *Data Mining as Observation*, with the recognizer of Volume 14 chapter 11 and its battery in the-angular-observer."
+book_records = ["ch11_the_recognizer.md", "the-angular-observer", "template matched", "recovered dimension"]
+book_terms = ["manifold"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/IntrinsicDimension.lean"
+related = ["intrinsic-dimension", "recognizer", "graph", "laplacian", "template-match"]
+conditions = [
+  "A curved surface of some dimension that looks flat when viewed closely. A dataset lies on one when its rows vary along fewer directions than they have coordinates, and under Weyl's law the count of Laplacian eigenvalues below a level grows like the level to half that dimension, so the dimension is twice the slope of log count against log level.",
+  "The recognizer names the manifold from the eigenvalue multiplets or certifies that none is present, and the twelve of twelve battery is the ledger's demonstrated row.",
+]
