@@ -74,7 +74,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/GeodesicDistance.lean`, theorems `dist_self`, `dist_comm`, `dist_triangle`, `dist_adj`, `geodesic_rank_invariant`, at observation-data-mining 8d30d9d.
+`lean/DataMiningAsObservation/GeodesicDistance.lean`, theorems `dist_self`, `dist_comm`, `dist_triangle`, `dist_adj`, `geodesic_rank_invariant`, at observation-data-mining 416c9a3.
 
 ## used in
 
@@ -86,4 +86,4 @@ rank-faithful, laplacian, recognizer, bi-lipschitz
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 425c17a, theory-radar 37c4e6c, observation-data-mining 8d30d9d, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 994ee12, theory-radar 37c4e6c, observation-data-mining 416c9a3, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
