@@ -1,11 +1,11 @@
-# Laplacian
+# graph
 
-**id.** laplacian
+**id.** graph
 **kind.** concept
 
 ## definition
 
-A matrix built from a graph's edges whose eigenvectors, from the smallest eigenvalue up, are the smoothest functions on the graph. Equation 0.19.
+A set of nodes and a set of edges joining pairs of them. A neighbourhood graph joins each row of a dataset to its nearest rows. Chapter 0 section 0.10.
 
 ## equation
 
@@ -17,12 +17,9 @@ Book equation 0.20.
 
     \Psi_i=\left(\frac{u_k(i)}{\sqrt{\lambda_k\,d_i}}\right)_{k\ge2},\qquad \|\Psi_i-\Psi_j\|^{2}=R(i,j)=\frac{C(i,j)}{\operatorname{vol}(G)}.
 
-Book equation 9.2.
-
-    N(\lambda)=\#\{k:\lambda_k\le\lambda\}\ \sim\ C_d\,\lambda^{d/2}\qquad\Rightarrow\qquad d=2\,\frac{d\log N}{d\log\lambda}.
-
 ## ledger
 
+- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 7d91883.
 - NEG-16 (KV serving, end-task). *At matched bits and matched reconstruction error, steering KV quantization error into the attention read subspace degrades LongBench task score by the registered floors on a deployed-class model.* Refuted at its registered effect sizes on this model and task. `[refuted]`. `geometric-observation/claims/LEDGER.md:92` at 7d91883.
 - NEG-15 (Bell boundary). *Query-conditioned hubness supplies a mechanism for Bell-inequality violation without action at a distance.* Refuted as a mechanism; the settings-as-queries reframing survives only as vocabulary. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:93` at 7d91883.
 - NEG-1. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. `[refuted]`. `geometric-observation/claims/LEDGER.md:94` at 7d91883.
@@ -34,7 +31,7 @@ Book equation 9.2.
 
 ## first stated
 
-Chapter 0 section 0.10 of *Data Mining as Observation*, with the program's spectral work in Volume 14 chapter 9 and the-angular-observer.
+Chapter 0 section 0.10 of *Data Mining as Observation*, with the neighbourhood graphs of the-angular-observer and the recognizer battery.
 
 ## measurements
 
@@ -53,12 +50,7 @@ Chapter 0 section 0.10 of *Data Mining as Observation*, with the program's spect
 | chapter 9 section 9.2 | the battery, three new templates, frozen ratios, code hash, bars at least 10 of 12 and the dimension ordering, eccentricity scope | `the-angular-observer\PREREG_RECOGNIZER_BATTERY.md:1-80` |
 | chapter 9 section 9.2 | 12 of 12, dimensions 1.81, 2.80, 1.74, angular Spearman ranges, eccentricity spreads, verdict confirmed, GO-P-2026-041 | `the-angular-observer\experiments\manifold-recovery\battery_result.json` |
 | chapter 9 section 9.2 | causal set 0.57 with dimension 2.9 to 10.7, small world 0.45, control 0.01, rung 4 decay 0.747 to 0.679 below 0.75 | `the-angular-observer\README.md:99-109`; `wolfram-observer-bridge\rung4_scaledm_result.json`; `wolfram-observer-bridge\review-2.txt` |
-| chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:10-18` |
 | chapter 11 section 11.1 | condition (A2), cosine satisfies it, post-rotary keys do not, the cone below cell size | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `the-angular-observer\README.md:26-31` |
-| chapter 14 section 14.3 | floor 0.08 to 0.12, balanced resample 3001 items, identity attack 0.237 with interval 0.20 to 0.28 on 289, sexual 0.204, threat 0.093 retracted, first pass 18 positives, 87.7 and 1.4 percent | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:20-64` |
-| chapter 14 section 14.3 | contraction 0.779 to 0.863, 77 of 1600, 4.8 percent, 0.872 to 0.863, weight 2.69 | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:66-99` |
-| chapter 14 section 14.5 | the contraction formula fairness minus the general component | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:90-99` |
-| chapter 14 section 14.7 | 51 percent moderated at 80 and 95 percent precision on the balanced set | `gtc-prototype\docs\SPECTRUM_FINDINGS.md:84-88` |
 
 ## failures and corrections
 
@@ -71,22 +63,22 @@ Chapter 0 section 0.10 of *Data Mining as Observation*, with the program's spect
 
 ## conditions
 
-- A matrix built from a graph's edges whose quadratic form is half the weighted sum of squared differences across edges, so it is nonnegative, zero on every constant, and positive on any function that differs across an edge of positive weight. The eigenvectors from the smallest eigenvalue up are therefore the smoothest functions on the graph.
-- The file states the unnormalized form, and equation 0.19's normalized form is the same quadratic form in rescaled coordinates. The commute-time scaling of the embedding and the uniform bi-Lipschitz claim for the commute filter are in the ledger, the second refuted.
+- A set of nodes and a set of edges joining pairs of them. A neighbourhood graph joins each row to its k nearest rows, so every node has exactly k out-neighbours. The mutual form keeps an edge only when each node is among the other's neighbours, is symmetric, is a subgraph of the directed form, and gives no node more than k mutual neighbours.
+- The Laplacian of the graph carries the dimension in its eigenvalue count and the geodesic ranking in its low eigenvectors' angles, which is what chapters 3 and 9 read.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Laplacian.lean`, theorems `quad_eq`, `quad_nonneg`, `quad_const`, `quad_pos_of_edge`, at observation-data-mining 8d458b2.
+`lean/DataMiningAsObservation/Graph.lean`, theorems `outDegree`, `mutual_symm`, `mutual_sub`, `mutualNbrs_card_le`, `mem_mutualNbrs`, at observation-data-mining 8d458b2.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 3, 4, 9, 11.
+*Data Mining as Observation* chapters 0, 3, 9, 10, 11.
 
 ## related
 
-intrinsic-dimension, recognizer, rank-faithful, bi-lipschitz
+degree, laplacian, geodesic-distance, spectral-embedding, manifold
 
 ## status
 
