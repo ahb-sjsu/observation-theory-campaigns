@@ -189,9 +189,66 @@ acceptance test for the generator that will fill them from the records.
 | [standardization](generated/standardization.md) | instrument | subtracting the mean and dividing by the spread, invertible and order preserving |
 | [stratification](generated/stratification.md) | instrument | scoring strata separately so that the minimum over strata can be reported |
 | [Youden index](generated/youden-index.md) | instrument | true positive rate minus false positive rate, whose maximum bounds the best F1 |
+| [variance](generated/variance.md) | concept | the weighted mean of the squared deviation of a column from its weighted mean |
+| [rank](generated/rank.md) | concept | the dimension of a matrix's column space |
+| [metric](generated/metric.md) | concept | a rule for the distance between two rows, or between two outputs |
+| [correction](generated/correction.md) | concept | a change to a published number or claim that the record keeps beside the original, naming what was wrong and what replaced it |
+| [correlation](generated/correlation.md) | concept | the cosine of two centred columns |
+| [floor, ceiling](generated/floor-ceiling.md) | concept | a floor is a lower bound a quantity cannot fall below, and a ceiling an upper bound it cannot exceed, each proved or measured and named as such |
+| [gate](generated/gate.md) | instrument | a bar that a build or a claim must pass before it proceeds, with the bar and the null written down first |
+| [distortion](generated/distortion.md) | concept | the error a code costs a reader, the trace of the read operator against the error covariance |
+| [bar](generated/bar.md) | instrument | a threshold a statistic must reach, written down before the measurement |
+| [verdict](generated/verdict.md) | concept | the outcome of a registered test, pass, fail, or abstain, taken as the worst group with the groups too thin to score counted |
+| [registered](generated/registered.md) | concept | of a claim, bar, null, or budget, written into a sealed file before the measurement, so that a changed digest would prove a changed prediction |
+| [refusal](generated/refusal.md) | concept | an instrument's declining to report a number it cannot support, when samples do not exceed the dimension, when no template matches, or when a group is too thin |
+| [control](generated/control.md) | instrument | a comparison arm that should not show the effect, run beside the arm that should |
+| [sweep](generated/sweep.md) | instrument | running a measurement across a range of one parameter, a threshold, a budget, or a degradation, and reading the curve |
+| [baseline](generated/baseline.md) | instrument | the simplest scorer a claim must beat, chance, a constant, an untrained encoder, or a single model, run under the same protocol |
+| [audit](generated/audit.md) | instrument | a check of a published number or system against its record, by a reader who did not produce it |
+| [planted](generated/planted.md) | instrument | of a case, built so that the answer is known before the instrument reads it |
+| [matched bits](generated/matched-bits.md) | instrument | the rule that two codes are compared only at the same bit count, since each added bit halves the step and quarters the squared error |
+| [declaration](generated/declaration.md) | instrument | a statement of what a study will count, drop, or treat as a failure, sealed before the run |
+| [split](generated/split.md) | instrument | a partition of the rows into a part the model is fit on and a part it is scored on |
+| [reconstruction error](generated/reconstruction-error.md) | concept | the squared length of the difference between a row and its approximation, the identity reader's distortion |
+| [nearest neighbour](generated/nearest-neighbour.md) | concept | a row at minimal distance from a query under a chosen distance |
+| [aggregation](generated/aggregation.md) | concept | combining rows or groups into one number, a mean, a sum, or a rate |
+| [session deck](generated/session-deck.md) | reference | the lecture deck of the course the book accompanies, ECE 514, cited by line range from the instructor's session outlines |
+| [detector](generated/detector.md) | instrument | a scorer that calls a row an outlier, of four families |
+| [chunk](generated/chunk.md) | concept | a piece of a document, the unit a retrieval pipeline encodes and indexes |
+| [sampling](generated/sampling.md) | instrument | choosing which rows to read |
+| [skewness](generated/skewness.md) | concept | the weighted mean cubed deviation of a column from its mean over the cube of its spread |
+| [percentile](generated/percentile.md) | concept | the value below which a given fraction of the rows fall |
+| [transaction](generated/transaction.md) | concept | one row of a market-basket table, the set of items bought together |
+| [footprint](generated/footprint.md) | concept | the set of entries a reader reads |
+| [allocation](generated/allocation.md) | instrument | the assignment of a bit budget across directions |
+| [rerank](generated/rerank.md) | instrument | reordering a candidate list with a second scorer |
+| [kernel](generated/kernel.md) | concept | the directions a matrix sends to zero |
+| [orthogonal](generated/orthogonal.md) | concept | of two vectors, having dot product zero |
+| [language model](generated/language-model.md) | concept | a model that reads a sequence of tokens and outputs a probability for the next one |
+| [truncation](generated/truncation.md) | instrument | keeping the first k components of a spectrum and dropping the rest |
+| [query set](generated/query-set.md) | concept | the rows a retrieval benchmark asks about |
+| [fine-tuning](generated/fine-tuning.md) | instrument | continuing to train an encoder on a new objective or corpus, so that its quotient changes |
+| [read direction](generated/read-direction.md) | concept | an eigenvector of the read operator with a nonzero eigenvalue, a direction the consumer is sensitive to |
+| [paired](generated/paired.md) | instrument | of a comparison, made on the same rows or the same seeds for both arms, so that the difference is scored row by row |
+| [outer product](generated/outer-product.md) | concept | the matrix whose entry in row i and column j is the product of the i-th and j-th coordinates of a vector |
+| [positive semidefinite](generated/positive-semidefinite.md) | concept | of a symmetric matrix, having every quadratic form nonnegative |
+| [nat](generated/nat.md) | concept | the unit of information measured with the natural logarithm, as a bit is measured with the logarithm to base two |
+| [surrogate](generated/surrogate.md) | instrument | a quadratic stand-in for the consumer's output metric, the read distortion, used to allocate bits when the output itself cannot be |
+| [discretization](generated/discretization.md) | instrument | collapsing an ordered quantity to a few labels by binning it |
+| [random forest](generated/random-forest.md) | instrument | an ensemble of decision trees, each fit on a bootstrap sample with a random subset of features at each split, that averages or votes |
+| [bagging](generated/bagging.md) | instrument | fitting the same model on bootstrap resamples of the rows and averaging |
+| [linear classifier](generated/linear-classifier.md) | instrument | a classifier that scores by a weighted sum, logistic regression or a linear support vector machine |
+| [lag](generated/lag.md) | concept | how far a replica trails the primary, in writes or in time |
+| [early stopping](generated/early-stopping.md) | instrument | halting a boosting or gradient run when a held-out score stops improving |
+| [attribute type](generated/attribute-type.md) | concept | the declaration of which transformations of a column do not change its meaning |
+| [residualization](generated/residualization.md) | instrument | removing from a column the least-squares multiple of another |
+| [contraction](generated/contraction.md) | instrument | a formula that reduces several axes to one verdict, here ten axes to a toxicity verdict |
+| [capacity](generated/capacity.md) | concept | the number of distinctions a model class can draw, the budget's model-side half |
+| [Gaussian](generated/gaussian.md) | concept | the normal distribution, in many dimensions the one with density falling with the Mahalanobis distance |
+| [sum of squared errors](generated/sum-of-squared-errors.md) | concept | the sum over rows of the squared distance to the row's cluster centre, the validity index k-means minimizes |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other one hundred and seventy-nine exist only as generated entries, built from the records by `generate.py`.
+other two hundred and thirty-six exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -218,6 +275,6 @@ errata files and the records that carry them, whole section or paragraph, with l
 Lean theorem names from the proof files. Uses from the chapters that mention the term.
 Conditions are the one field curated by hand in `entries.toml`, and the generated entry says
 so. Every entry now carries a machine-checked section naming the book's Lean file that checks
-its checkable core, one hundred and twenty-eight files as of 2026-09-06, and the book's appendix C states what each
+its checkable core, one hundred and forty-three files as of 2026-09-06, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
