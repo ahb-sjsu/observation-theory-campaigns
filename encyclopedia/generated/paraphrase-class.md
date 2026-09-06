@@ -38,7 +38,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ParaphraseClass.lean`, theorems `movement_nonneg`, `ratio_nonneg`, `movement_eq_zero_iff`, `ratio_invariant`, `bar_iff`, at observation-data-mining 8d458b2.
+`lean/DataMiningAsObservation/ParaphraseClass.lean`, theorems `movement_nonneg`, `ratio_nonneg`, `movement_eq_zero_iff`, `ratio_invariant`, `bar_iff`, at observation-data-mining 7eba709.
 
 ## used in
 
@@ -50,4 +50,4 @@ quotient, escalation, certificate, deployment-mismatch
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns 429cc9d, theory-radar 37c4e6c, observation-data-mining 8d458b2, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

@@ -1,29 +1,30 @@
-# KL divergence
+# direction-only quantizer
 
-**id.** kl-divergence
-**kind.** concept
+**id.** direction-only-quantizer
+**kind.** instrument
 
 ## definition
 
-A measure of how far one probability distribution is from another, zero when they are identical. Equation 0.24.
+A quantizer that stores each vector's length exactly and rounds its direction. Chapter 11.
 
 ## equation
 
-Book equation 0.24.
+Book equation 11.1.
 
-    \mathrm{KL}(p\,\|\,q)=\sum_i p_i\ln\frac{p_i}{q_i}\ \ge 0.
+    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
 
-Book equation 0.22.
+Book equation 0.1.
 
-    \mathrm{PPL}=2^{H},\qquad H=-\frac1T\sum_{t=1}^{T}\log_2 p\big(w_t\mid w_{<t}\big).
+    x\cdot y=\sum_{i=1}^{d}x_i y_i,\qquad \|x\|=\sqrt{x\cdot x},\qquad \cos\theta=\frac{x\cdot y}{\|x\|\,\|y\|}.
 
 ## ledger
 
 - NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 7d91883.
+- GO-B-LOCATA. Real microphone-array recordings (LOCATA), DOA consumer — held-out confirmation with the PolarQuant compressor `[predicted]`. `geometric-observation/claims/LEDGER.md:117` at 7d91883.
 
 ## first stated
 
-Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section 0.11 states it beside perplexity, with the program's case in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`.
+Chapter 11 section 11.2 of *Data Mining as Observation*, with PolarQuant in `turboquant-pro/docs/KV_KEYS_FINDING.md:1-49` and the LOCATA comparison of the ledger.
 
 ## measurements
 
@@ -42,22 +43,22 @@ Kullback and Leibler, on information and sufficiency, 1951, as chapter 0 section
 
 ## conditions
 
-- The expected log ratio of two distributions' masses under the first. It is nonnegative by Gibbs' inequality, zero when the distributions agree, and not symmetric, so the direction of the comparison is part of the claim.
-- The book's use is through perplexity. A reconstruction at cosine 0.995 raised the perplexity by three orders of magnitude, which is the case that reconstruction error is not the consumer's error.
+- A quantizer that stores each vector's length exactly and rounds its direction to a unit codeword. The quantized vector keeps the original's length, its cosine with any query is the codeword's cosine, and its score against a query is the length times the query's dot product with the codeword, so the score error is the length times the query's dot product with the direction error.
+- A key's cosine with its own quantized form can be near one while its score against a query moves by a multiple of its length, which is why keys at cosine 0.995 raised the perplexity by three orders of magnitude.
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KL.lean`, theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/DirectionQuantizer.lean`, theorems `length_preserved`, `score_eq`, `score_error`, `cosine_eq`, at observation-data-mining 7eba709.
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 8, 11.
+*Data Mining as Observation* chapters 0, 3, 4, 11.
 
 ## related
 
-identity-reader, read-distortion, calibration, flip
+quantization, dot-product, kv-cache, attention, flip
 
 ## status
 
