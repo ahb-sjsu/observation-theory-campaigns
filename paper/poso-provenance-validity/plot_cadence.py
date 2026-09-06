@@ -1,11 +1,18 @@
-"""Figure 1 of the POSO paper, reconstructed from the published numbers.
+"""Figure 1 of the POSO paper.
 
 (a) per-scan raw turboSETI narrowband hits over the six-scan ABACAD cadence of
 HIP101027 (GBT L-band, MJD 57574, coarse channels 119-144); (b) the cadence
 consumer: 6651 raw on-source hits collapse to 3 that survive the ON-OFF test,
-a false-clear rate of 1 - 3/6651 = 0.9995. The underlying real-data pipeline
-lives in /archive/seti (turbo_seti ABACAD run); this script redraws the figure
-from the reported counts. Output: poso-cadence.pdf (300 dpi, serif).
+a false-clear rate of 1 - 3/6651 = 0.99955.
+
+Per-scan counts VERIFIED 2026-09-06 against the raw turbo_seti .dat outputs in
+/archive/seti/data/cadence/dats (rows minus comment header), snr=10, max_drift=4:
+  A HIP101027 2112 (ON) | B HIP100014 2190 (OFF) | A HIP101027 2239 (ON) |
+  C HIP100244 2252 (OFF) | A HIP101027 2300 (ON) | D HIP100325 2325 (OFF).
+ON total 2112+2239+2300 = 6651 (cadence_result.json total_on_hits); 3 hits
+survive the threshold-3 cadence filter (events_f3.csv); false_clear_all_on =
+1 - 3/6651 = 0.99955. This script redraws those verified counts.
+Output: poso-cadence.pdf (300 dpi, serif).
 """
 import matplotlib
 matplotlib.use("Agg")
