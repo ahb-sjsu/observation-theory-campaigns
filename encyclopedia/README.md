@@ -278,3 +278,12 @@ so. Every entry now carries a machine-checked section naming the book's Lean fil
 its checkable core, one hundred and forty-three files as of 2026-09-06, and the book's appendix C states what each
 check does not cover. On 2026-09-04 the three generated entries carried every number of their hand-filled
 counterparts.
+
+## The PDF
+
+`python encyclopedia/build_pdf.py` builds the whole encyclopedia as one document,
+`encyclopedia/pdf/Observation-Theory-Encyclopedia.pdf`, with a preface that says how to read an
+entry, a table of contents, the entries in alphabetical order with cross-references that carry
+page numbers, and back matter listing the entries by kind, by chapter of the book, by Lean file,
+and by ledger row, followed by the provenance of the records. It needs pandoc and xelatex and is
+rebuilt and committed after every batch.

@@ -13,3 +13,4 @@ paper/*.synctex.gz
 paper/*Notes.bib
 *.aux
 *.log~
+encyclopedia/build/
