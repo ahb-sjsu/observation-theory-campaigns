@@ -20,11 +20,10 @@
 
 \begin{abstract}
 A growing class of systems anchors scientific measurements on a blockchain to
-make them trustworthy. SkyMapper L1 and its Proof of Space Observation are a
-current example: telescope observations are signed at the source, time-stamped,
-and recorded on a distributed ledger, and are said to become provably reliable
-and reproducible. We show that this claim conflates two guarantees that must be
-kept apart. Cryptographic anchoring establishes provenance, the authenticity,
+make them trustworthy: observations are signed at the source, time-stamped, and
+recorded on a distributed ledger, and are said to become provably reliable and
+reproducible. We show that this claim conflates two guarantees that must be kept
+apart. Cryptographic anchoring establishes provenance, the authenticity,
 integrity, and time of a record. It does not, and by construction cannot,
 establish validity, whether the instrument was calibrated, whether it pointed
 where it claims, and whether the observation supports a downstream scientific
@@ -53,10 +52,10 @@ observation; false-clear rate; technosignature verification; blockchain critique
 Observational science is acquiring a new trust infrastructure. Systems now sign a
 measurement at the sensor, time-stamp it, and anchor it on a public ledger, and
 present the result as data that can be trusted without trusting the operator.
-SkyMapper L1 and its Proof of Space Observation (POSO) are a current and
-well-funded instance, contributing live telescope data across many sites and
-naming reliable, tamper-proof, and reproducible datasets as the
-outcome~\cite{skymapper}.
+Proposals that anchor scientific data provenance on a distributed ledger are
+numerous and active, contributing signed, time-stamped observations and naming
+reliable, tamper-proof, and reproducible datasets as the
+outcome~\cite{blockchain-science}.
 
 We make one argument. Cryptographic anchoring proves that a record is authentic,
 unaltered, and old. It does not prove that the record is right. Those are
@@ -73,9 +72,8 @@ not dispute these. It disputes the slide from provenance to validity that the
 reliability and reproducibility framing performs.
 
 The contribution is threefold. First, we separate provenance from validity
-precisely and locate the conflation in the class of onchain-observation systems,
-with POSO as the motivating case (Sections~\ref{sec:background}
-and~\ref{sec:distinction}). Second, we characterize such a system, through
+precisely and locate the conflation in the class of onchain-observation systems
+(Sections~\ref{sec:background} and~\ref{sec:distinction}). Second, we characterize such a system, through
 consumer-relative observation, as a false-clear mechanism, and define a
 measurable false-clear rate for it (Section~\ref{sec:falseclear}). Third, we give
 the validity layer that the provenance layer lacks, and we demonstrate the
@@ -90,9 +88,9 @@ data held in decentralized or content-addressed storage~\cite{merkle}. The state
 goals are tamper-evidence, non-repudiation, and an auditable history that any
 party can check without trusting a central operator.
 
-We treat POSO as a pure-provenance mechanism, which is the design its public
-claims describe. This is the strongest reading for the system, because it takes
-the mechanism at face value. If a later specification adds instrument-level
+We treat such a system as a pure-provenance mechanism, which is the design these
+public claims describe. This is the strongest reading, because it takes the
+mechanism at face value. If a particular specification adds instrument-level
 checks, the critique in Section~\ref{sec:distinction} narrows from the design to
 the claim, and the constructive layer of Section~\ref{sec:layer} still applies.
 
@@ -207,17 +205,17 @@ signature on any of these frames would have certified all 6651 as authentic and
 unaltered, and would have separated none of them. The discrimination comes from
 re-observation, not provenance.
 
-We report the number as a mechanism demonstration, not as a benchmark of POSO's
-implementation, which we did not run. The tie to POSO is nonetheless exact at the
-level of the characterization. Take $C_{\mathrm{prov}}$ to be POSO's anchoring
-certificate and $V$ the re-observation test the technosignature consumer applies.
-Under the pure-provenance reading of Section~\ref{sec:background}, every one of
-the 6651 raw records anchors and clears identically, so $C_{\mathrm{prov}}=1$ on
-all 6651 while the consumer keeps 3. Equation~(2) then fixes the certificate's
-false-clear rate at the base rate $\Pr[V(x)=0]$, which on this real stream is
-$0.9995$. A POSO-style certificate over this observation stream false-clears at
-$0.9995$, not because its cryptography is weak but because~(2) pins it to a base
-rate that only re-observation moves. That rate is a property of what is anchored
+We report the number as a mechanism demonstration, not as a benchmark of any
+deployed system. The tie to onchain anchoring is nonetheless exact at the level
+of the characterization. Take $C_{\mathrm{prov}}$ to be a provenance-only
+anchoring certificate and $V$ the re-observation test the technosignature
+consumer applies. Under the pure-provenance reading of Section~\ref{sec:background},
+every one of the 6651 raw records anchors and clears identically, so
+$C_{\mathrm{prov}}=1$ on all 6651 while the consumer keeps 3. Equation~(2) then
+fixes the certificate's false-clear rate at the base rate $\Pr[V(x)=0]$, which on
+this real stream is $0.9995$. A provenance-only certificate over this observation
+stream false-clears at $0.9995$, not because its cryptography is weak but
+because~(2) pins it to a base rate that only re-observation moves. That rate is a property of what is anchored
 and which consumer reads it: anchor calibrated, cadence-screened products and it
 falls; anchor raw single-scan records, as the strongest-reading provenance-only
 design does, and it is this high.
@@ -240,10 +238,10 @@ observational datasets. It is not sufficient. We do not claim that anchoring is
 worthless. For attribution and for verifiable pre-registration it is the right
 tool, and we say so in Section~\ref{sec:intro}.
 
-We read SkyMapper's public description and treat POSO as a pure-provenance
-mechanism. If its specification incorporates instrument-level validity checks,
-the critique narrows from the design to the claim, and the constructive layer
-still applies. Our empirical demonstration uses one cadence, one frequency
+We treat these systems at their strongest reading, as pure-provenance
+mechanisms. If a particular specification incorporates instrument-level validity
+checks, the critique narrows from the design to the claim, and the constructive
+layer still applies. Our empirical demonstration uses one cadence, one frequency
 sub-band, and one narrowband consumer. It is a demonstration that a consumer test
 separates real data, not a survey-scale statistic, and we do not generalize it
 beyond that.
