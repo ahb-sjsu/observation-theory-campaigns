@@ -3,6 +3,8 @@
 **id.** apriori
 **kind.** result
 
+![Every superset of an infrequent itemset is infrequent.](../figures/apriori.svg)
+
 ## definition
 
 The statement that every subset of a frequent itemset is frequent, the contrapositive of anti-monotonicity. Chapter 5.
@@ -16,6 +18,13 @@ Book equation 5.3.
 Book equation 5.1.
 
     s(X)=\frac{\sigma(X)}{N},\qquad c(X\to Y)=\frac{\sigma(X\cup Y)}{\sigma(X)}=\frac{s(X\cup Y)}{s(X)}.
+
+## conditions
+
+- Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent. This holds for any finite collection of transactions.
+- The principle licenses pruning the lattice above an infrequent itemset without counting, and the count of candidates rather than the count of transactions decides whether the run finishes.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -35,16 +44,9 @@ Agrawal and Srikant, fast algorithms for mining association rules, 1994, as TSK 
 
 none
 
-## conditions
-
-- Support cannot increase when an itemset grows, so an infrequent itemset has only infrequent supersets and every subset of a frequent itemset is frequent. This holds for any finite collection of transactions.
-- The principle licenses pruning the lattice above an infrequent itemset without counting, and the count of candidates rather than the count of transactions decides whether the run finishes.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -54,6 +56,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 safe-pruning, monotone-invariance
 
+## see also
+
+none
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

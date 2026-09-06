@@ -3,38 +3,15 @@
 **id.** contrastive-objective
 **kind.** concept
 
+![Pairs declared similar pulled together, others pushed apart.](../figures/contrastive-objective.svg)
+
 ## definition
 
 A training rule that pulls pairs declared similar together and pushes other pairs apart. The declared pairs are where an encoder learns what similar means. Chapter 12.
 
 ## equation
 
-Book equation 12.3.
-
-    \text{validated}\iff \mathrm{AUROC}_{\text{cross}}-\max\big(\mathrm{AUROC}_{\text{untrained}},\ \mathrm{AUROC}_{\text{BoW}}\big)\ \ge\ 0.10.
-
-Book equation 11.1.
-
-    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
-
-## ledger
-
-- NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 9f3829f.
-- GO-B-legal (035→036). Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer `[predicted]`. `geometric-observation/claims/LEDGER.md:119` at 9f3829f.
-
-## first stated
-
-Chapter 12 section 12.4 of *Data Mining as Observation*, with the program's encoders in xbse, `xbse/README.md:104-130`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 12 section 12.5 | within 0.75 to 0.955 collapsing to 0.47 to 0.55, cross-corpus positives as the fix, adversary not load-bearing | `xbse\README.md:104-130,160-172` |
-
-## failures and corrections
-
-- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality.
+none
 
 ## conditions
 
@@ -43,9 +20,25 @@ Chapter 12 section 12.4 of *Data Mining as Observation*, with the program's enco
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 12 section 12.4 of *Data Mining as Observation*, with the program's encoders in xbse, `xbse/README.md:104-130`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Contrastive.lean`, theorems `loss_nonneg`, `loss_eq_zero_iff`, `not_both`, `loss_mono_margin`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Contrastive.lean`, theorems `loss_nonneg`, `loss_eq_zero_iff`, `not_both`, `loss_mono_margin`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -55,6 +48,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 encoder, embedding, cross-corpus-gate, quotient
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 12.3, 11.1.
+
+Ledger rows that cite the entry's records without naming it: NEG-2, GO-B-legal (035→036).
+
+Sources-table rows that share a record with the entry without naming it: chapter 12 section 12.5.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

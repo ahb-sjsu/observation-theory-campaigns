@@ -3,6 +3,8 @@
 **id.** covariance-matrix
 **kind.** concept
 
+![Variances on the diagonal and covariances off it, symmetric and positive semidefinite.](../figures/covariance-matrix.svg)
+
 ## definition
 
 The matrix of pairwise covariances of a set of rows, whose trace is the total variance. Equation 0.3.
@@ -13,35 +15,9 @@ Book equation 0.3.
 
     \Sigma_{ij}=\mathbb E\big[(x_i-\mu_i)(x_j-\mu_j)\big],\qquad \operatorname{tr}\Sigma=\sum_{i}\Sigma_{ii}.
 
-Book equation 0.4.
-
-    \operatorname{Var}(u\cdot x)=u^{\top}\Sigma\,u.
-
 Book equation 0.5.
 
     \Sigma\,v_i=\lambda_i v_i,\qquad \Sigma=\sum_{i=1}^{d}\lambda_i\,v_i v_i^{\top},\qquad v_i\cdot v_j=0\ (i\ne j).
-
-## ledger
-
-- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 9f3829f.
-- OT-2. Loading is a covariance, not a distance: reading error under a change of measure is priced by ε·‖E[h·A]‖ — predicted from the base measure alone — and a full-magnitude shift orthogonal to the operator's variation does nothing. `[predicted]`. `geometric-observation/claims/LEDGER.md:33` at 9f3829f.
-
-## first stated
-
-Chapter 0 section 0.2 of *Data Mining as Observation*, paired with the read operator in chapter 4, and Volume 14 chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 2 section 2.2 | read subspace small, operator local, pullback composition, rank cannot increase | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:7-48`; `geometric-observation\chapters\ch06_mathematical_preliminaries.md:10-27` |
-| chapter 2 section 2.2 | read distortion controls but is not a complete rank statistic, twelve of twelve, one middle pair misordered, NEG-9 | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:49-75` |
-| chapter 4 section 4.2 | effective rank as participation ratio, energy rank | `readscope\readscope\spectrum.py:35-70` |
-| chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | `turboquant-pro\turboquant_pro\read_allocation.py:244-307` |
-
-## failures and corrections
-
-none
 
 ## conditions
 
@@ -50,9 +26,26 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+- *measures.* OT-7 `[demonstrated]`. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and … [`geometric-observation/claims/LEDGER.md:30`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L30).
+- *measures.* OT-2 `[predicted]`. Loading is a covariance, not a distance: reading error under a change of measure is priced by ε·‖E[h·A]‖ — predicted from the base measure alone — and a full-magnitude shift orthogonal to the operator's variation does nothing. [`geometric-observation/claims/LEDGER.md:33`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L33).
+
+## first stated
+
+Chapter 0 section 0.2 of *Data Mining as Observation*, paired with the read operator in chapter 4, and Volume 14 chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Covariance.lean`, theorems `var_eq_quad`, `trace_eq_total`, `quad_nonneg`, `cov_symm`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Covariance.lean`, theorems `var_eq_quad`, `trace_eq_total`, `quad_nonneg`, `cov_symm`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -62,6 +55,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 read-operator, whitening, water-filling, alignment, explained-variance
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.4.
+
+Sources-table rows that share a record with the entry without naming it: chapter 2 section 2.2, chapter 4 section 4.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

@@ -3,6 +3,8 @@
 **id.** confidence
 **kind.** concept
 
+![The fraction of transactions with the antecedent that also hold the consequent.](../figures/confidence.svg)
+
 ## definition
 
 Of a rule, the support of the rule's itemset divided by the support of its antecedent. It is not symmetric and it misleads when the consequent is common. Chapter 5.
@@ -16,6 +18,13 @@ Book equation 5.1.
 Book equation 5.2.
 
     \mathrm{lift}(X\to Y)=\frac{c(X\to Y)}{s(Y)}=\frac{s(X\cup Y)}{s(X)\,s(Y)}.
+
+## conditions
+
+- The support of a rule's itemset over the support of its antecedent, in the unit interval and not symmetric. Under independence the confidence equals the consequent's support whatever the antecedent, so a consequent in nine of ten transactions gives every rule into it confidence 0.9 with no association at all.
+- Lift is confidence over the consequent's support and is one in that case, which is why chapter 5 sends rule evaluation to chapter 8's nulls.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -35,16 +44,9 @@ TSK chapter 5, as chapter 5 section 5.1 of *Data Mining as Observation* states i
 
 none
 
-## conditions
-
-- The support of a rule's itemset over the support of its antecedent, in the unit interval and not symmetric. Under independence the confidence equals the consequent's support whatever the antecedent, so a consequent in nine of ten transactions gives every rule into it confidence 0.9 with no association at all.
-- Lift is confidence over the consequent's support and is one in that case, which is why chapter 5 sends rule evaluation to chapter 8's nulls.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Confidence.lean`, theorems `confidence_mem_unit`, `confidence_asymm`, `confidence_indep`, `common_consequent`, `lift_of_indep`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Confidence.lean`, theorems `confidence_mem_unit`, `confidence_asymm`, `confidence_indep`, `common_consequent`, `lift_of_indep`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -54,6 +56,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 lift, support, itemset, multiple-comparisons
 
+## see also
+
+none
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

@@ -3,6 +3,8 @@
 **id.** silhouette
 **kind.** concept
 
+![Distance to the nearest other cluster against distance within its own.](../figures/silhouette.svg)
+
 ## definition
 
 For a row, the difference between its mean distance to the nearest other cluster and its mean distance to its own cluster, divided by the larger of the two. Equation 0.30.
@@ -13,9 +15,12 @@ Book equation 0.30.
 
     \mathrm{SSE}=\sum_{k}\sum_{i\in\mathcal C_k}\|x_i-c_k\|^{2},\qquad s_i=\frac{b_i-a_i}{\max(a_i,b_i)}.
 
-Book equation 9.1.
+## conditions
 
-    \mathrm{SSE}=\sum_{k=1}^{K}\sum_{i\in\mathcal C_k}\|x_i-c_k\|^{2},\qquad\text{the }P_C=I\text{ distortion summed within clusters}.
+- For a row, the difference between its mean distance to the nearest other cluster and its mean distance to its own cluster, over the larger of the two. It lies between minus one and one, is positive exactly when the row is closer to its own cluster, and is unchanged when every distance is scaled by the same factor.
+- It is computed under the identity reader on the distances it is given, so it validates a clustering for that reader and not for a consumer that reads other directions, which is why chapter 9 asks the recognizer to name the manifold instead.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -33,16 +38,9 @@ none
 
 none
 
-## conditions
-
-- For a row, the difference between its mean distance to the nearest other cluster and its mean distance to its own cluster, over the larger of the two. It lies between minus one and one, is positive exactly when the row is closer to its own cluster, and is unchanged when every distance is scaled by the same factor.
-- It is computed under the identity reader on the distances it is given, so it validates a clustering for that reader and not for a consumer that reads other directions, which is why chapter 9 asks the recognizer to name the manifold instead.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Silhouette.lean`, theorems `silhouette_mem`, `silhouette_pos_iff`, `silhouette_scale`, `silhouette_self`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Silhouette.lean`, theorems `silhouette_mem`, `silhouette_pos_iff`, `silhouette_scale`, `silhouette_self`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +50,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 recognizer, vacuity-threshold, identity-reader, quotient
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 9.1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

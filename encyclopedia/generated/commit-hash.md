@@ -3,19 +3,26 @@
 **id.** commit-hash
 **kind.** instrument
 
+![A fingerprint of a snapshot and its history, proving content and not time.](../figures/commit-hash.svg)
+
 ## definition
 
-The fingerprint git assigns to a snapshot of a repository, which fixes the time at which a file existed in that state. Chapter 0 section 0.12.
+The fingerprint git assigns to a snapshot of a repository and its history, which identifies the content exactly and does not by itself prove when it existed. Chronology comes from a public push, a signed tag, or an archival deposit. Chapter 0 section 0.12.
 
 ## equation
 
-Book equation 8.3.
+none
 
-    \Pr[\text{at least one of } m\text{ null tests passes}]=1-(1-\alpha)^{m},\qquad \alpha_{\mathrm{Bonferroni}}=\frac{\alpha}{m}.
+## conditions
+
+- The fingerprint git assigns to a snapshot of a repository together with its history. It identifies exact content, so a changed hash proves a changed file and an equal hash is strong evidence of an unchanged one, but it does not by itself prove when that content existed, since git's author and committer dates are supplied fields.
+- Chronology comes from a public repository receipt, a signed tag, a transparency log, or an archival deposit such as a Zenodo DOI, and a sealed prediction names one of those beside its hash.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- OT-7. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and P3's cliff cannot be bought down by reparameterization. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:30` at 9f3829f.
+none
 
 ## first stated
 
@@ -29,16 +36,9 @@ none
 
 none
 
-## conditions
-
-- The fingerprint git assigns to a snapshot of a repository, which fixes the time at which a file existed in that state. A changed hash proves a changed file and an equal hash is evidence, since a fixed-length digest of longer inputs cannot be injective.
-- Every row of a sources table cites its commit, every seal records its sealing commit, and the book's own colophon names the commit it was built from, so that a number can be reproduced at the state it was measured in.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -48,6 +48,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 hash, sealed, sources-table, preregistration
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 8.3.
+
+Ledger rows that cite the entry's records without naming it: OT-7.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

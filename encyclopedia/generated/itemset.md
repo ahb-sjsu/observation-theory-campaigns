@@ -3,6 +3,8 @@
 **id.** itemset
 **kind.** concept
 
+![A set of items, with the transactions that contain it as its support.](../figures/itemset.svg)
+
 ## definition
 
 A set of items that appear together in a transaction. A closed itemset has no superset with the same support and a maximal one has no frequent superset. Chapter 5.
@@ -16,6 +18,13 @@ Book equation 5.1.
 Book equation 5.3.
 
     X\subseteq Y\ \Longrightarrow\ s(X)\ge s(Y).
+
+## conditions
+
+- A set of items that appear together in a transaction. Its support lies in the unit interval, the empty itemset has support one, a superset has support at most that of a subset, and the support of a union is at most the smaller of the two supports.
+- A closed itemset has no strict superset with the same support and a maximal frequent itemset has no frequent strict superset, and every maximal frequent itemset is closed, since a superset with the same support would be frequent too.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -35,16 +44,9 @@ Agrawal, Imieliński, and Swami, mining association rules, 1993, as TSK chapter 
 
 none
 
-## conditions
-
-- A set of items that appear together in a transaction. Its support lies in the unit interval, the empty itemset has support one, a superset has support at most that of a subset, and the support of a union is at most the smaller of the two supports.
-- A closed itemset has no strict superset with the same support and a maximal frequent itemset has no frequent strict superset, and every maximal frequent itemset is closed, since a superset with the same support would be frequent too.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/ItemSet.lean`, theorems `supportFrac_mem_unit`, `supportFrac_empty`, `supportFrac_anti`, `supportFrac_union_le`, `closed_of_maximal`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ItemSet.lean`, theorems `supportFrac_mem_unit`, `supportFrac_empty`, `supportFrac_anti`, `supportFrac_union_le`, `closed_of_maximal`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -54,6 +56,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 support, apriori, safe-pruning, confidence
 
+## see also
+
+none
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

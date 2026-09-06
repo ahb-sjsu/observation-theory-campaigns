@@ -3,6 +3,8 @@
 **id.** drift
 **kind.** concept
 
+![The read operator moving over time, so an old certificate no longer describes the reader.](../figures/drift.svg)
+
 ## definition
 
 A change over time in what a consumer reads or in the data it reads. Chapter 8 tests a drift claim against its null and finds half of it was noise.
@@ -13,14 +15,17 @@ Book equation 13.1.
 
     \mathrm{FC}=\Pr\big[W\ \text{refutes}\ \big|\ \mathcal C_t\ \text{clears}\big],\qquad d_O(\Delta)=\operatorname{tr}\big(P_C\,M_{\mathrm{drift}}(\Delta)\big),\qquad M_{\mathrm{drift}}(\Delta)=\mathbb E\big[\delta_\Delta\delta_\Delta^{\top}\big].
 
-Book equation 0.10.
+## conditions
 
-    d_O=\operatorname{tr}(P_C\,M_\delta)=\mathbb E\!\left[\delta^{\top}P_C\,\delta\right],\qquad M_\delta=\mathbb E\!\left[\delta\delta^{\top}\right],\qquad P_C=I\ \Rightarrow\ d_O=\operatorname{tr}M_\delta.
+- A drift is a change over time in what a consumer reads or in the data it reads, and its damage is the read distortion of the drift, so it is consumer-relative. The same drift is read as its full squared size by one consumer and as nothing by another, and a drift confined to the nuisance is read as zero however large.
+- The operator-drift claim was tested against a paired null and half of it was noise. The rank-one drift held in fourteen of sixteen cells on one model, and the refresh intervention derived from it was refuted, which the ledger carries.
+
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- OT-4. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. `[refuted]`. `geometric-observation/claims/LEDGER.md:36` at 9f3829f.
-- OT-11. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. `[void]`. `geometric-observation/claims/LEDGER.md:48` at 9f3829f.
+- *refutes or corrects.* OT-4 `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. [`geometric-observation/claims/LEDGER.md:36`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L36).
+- *refutes or corrects.* OT-11 `[void]`. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. [`geometric-observation/claims/LEDGER.md:48`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L48).
 
 ## first stated
 
@@ -30,25 +35,16 @@ Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.4 | C-11c paired null, rank 2 positional 0.385 vs null 0.572, 0.615 vs 0.224, 14 of 16 cells, scope 16 cells one 3B model 192 positions | `readscope\SPEC.md:806-857`; `readscope\calibration\records\c11c-operator-drift.json` |
-| chapter 11 section 11.9 | drift at rank one 0.667 vs null 0.933, sixteen cells | `readscope\CALIBRATION.md:600-660` F-24; `readscope\calibration\records\c11c-operator-drift.json` |
-| chapter 11 section 11.9 | C-12 four bars, 40 documents, 512 tokens, 13.4 point difference, teacher forcing removes it, negative 0.015 vs 0.005, Spearman negative 0.13 at p 0.45, sign test p 0.42, verdict FAIL, feedback compounding | `readscope\calibration\records\c12-longgen-drift-sym.json`; `readscope\calibration\DECLARATION-C12.md` at commit `90e2ce2`; `readscope\SPEC.md:806-825` |
-| chapter 13 section 13.2 | the grammar, certificate, witness, refresh floor, false-clear rate, vacuity, the witness table | `geometric-observation\chapters\ch19_the_certificate_that_ages.md:1-95`; `observation-theory-campaigns\experiments\FRESHNESS-PROGRAM.md:1-40` |
+| chapter 11 section 11.9 | drift at rank one 0.667 vs null 0.933, sixteen cells | [`readscope/CALIBRATION.md:600-660`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/CALIBRATION.md#L600-L660) F-24; [`readscope/calibration/records/c11c-operator-drift.json`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/calibration/records/c11c-operator-drift.json) |
 
 ## failures and corrections
 
-- OT-4, `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it.
-
-## conditions
-
-- A drift is a change over time in what a consumer reads or in the data it reads, and its damage is the read distortion of the drift, so it is consumer-relative. The same drift is read as its full squared size by one consumer and as nothing by another, and a drift confined to the nuisance is read as zero however large.
-- The operator-drift claim was tested against a paired null and half of it was noise. The rank-one drift held in fourteen of sixteen cells on one model, and the refresh intervention derived from it was refuted, which the ledger carries.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+- OT-4, `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. [`geometric-observation/claims/LEDGER.md:36`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L36).
+- OT-11, `[void]`. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. [`geometric-observation/claims/LEDGER.md:48`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L48).
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Drift.lean`, theorems `damage_rank_one`, `same_drift_two_consumers`, `damage_eq_zero_of_nuisance`, `damage_nonneg`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Drift.lean`, theorems `damage_rank_one`, `same_drift_two_consumers`, `damage_eq_zero_of_nuisance`, `damage_nonneg`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -58,6 +54,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 coherence-time, freshness, certificate, read-distortion
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.10.
+
+Sources-table rows that share a record with the entry without naming it: chapter 8 section 8.4, chapter 11 section 11.9, chapter 13 section 13.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

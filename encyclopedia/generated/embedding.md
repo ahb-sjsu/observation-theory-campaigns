@@ -3,44 +3,15 @@
 **id.** embedding
 **kind.** concept
 
+![A row mapped to a vector by an encoder whose quotient is learned.](../figures/embedding.svg)
+
 ## definition
 
 A vector assigned to an object, a word, a sentence, a node, a document, so that nearness in the vector space stands for a relation between the objects. Chapter 11.
 
 ## equation
 
-Book equation 11.1.
-
-    \cos\big(k,\hat k\big)=0.995\qquad\text{while}\qquad \mathrm{PPL}:\ 12.24\ \to\ 10643.
-
-Book equation 11.2.
-
-    \begin{gathered} r=\frac{d_{\mathrm{compressed}}}{d_{\mathrm{exact}}},\qquad \kappa_{\text{strict}}=\frac{\max r}{\min r},\qquad \tau\ \ge\ 1-2\hat\mu(\kappa_{\text{strict}}),\qquad \rho_S\ \ge\ 1-3\hat\mu(\kappa_{\text{strict}}), \\ \kappa_{97.5/2.5}=\frac{q_{97.5}(r)}{q_{2.5}(r)}\ \text{ gives the same two expressions as estimates, not floors.} \end{gathered}
-
-## ledger
-
-- NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 9f3829f.
-- GO-B-legal (035→036). Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer `[predicted]`. `geometric-observation/claims/LEDGER.md:119` at 9f3829f.
-
-## first stated
-
-Chapter 11 section 11.1 of *Data Mining as Observation*, with the program's embeddings in the legal-citation flip, the GloVe corpus of readscope, and the attention keys of the KV finding.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 1 section 1.4 | cosine 0.995 and perplexity of order ten thousand, the recalibration negative | `geometric-observation\chapters\ch02_failure_of_observer_free_measurement.md:40-60`; `geometric-observation\chapters\ch16_honest_negatives.md` NEG-2 and NEG-4; `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
-| chapter 2 section 2.5 | cosine 0.995 and the softmax reader | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
-| chapter 3 section 3.2 | condition (A2), tangential displacement | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `geometric-observation\chapters\ch09_legibility.md:42-54` |
-| chapter 4 section 4.5 | GloVe table, 73 percent at 64 components, 0.685 vs 0.862 and 0.866, 0.906 at matched bytes, 0.989 at 37 bytes, 768 to 256 keeps about 99 percent, the 95 percent rule | `turboquant-pro\benchmarks\RESULTS_glove.md:1-40` |
-| chapter 8 section 8.2 | cosine 0.995, perplexity near 1e4 | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49`; `geometric-observation\chapters\ch16_honest_negatives.md` NEG-2 |
-| chapter 11 section 11.1 | condition (A2), cosine satisfies it, post-rotary keys do not, the cone below cell size | `turboquant-pro\docs\KV_KEYS_FINDING.md:61-86`; `the-angular-observer\README.md:26-31` |
-| chapter 11 section 11.2 | fp16 12.24, values-only 13.12, PolarQuant K4 10643 and 0.095, per-channel uniform K4 14.91 and 0.062, per-channel NUQ K3 15.77 and 0.148, 2.4x and 670x, pre-rotary near 22000, 2 key heads serve 12 query heads | `turboquant-pro\docs\KV_KEYS_FINDING.md:1-49` |
-
-## failures and corrections
-
-- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality.
+none
 
 ## conditions
 
@@ -49,9 +20,25 @@ Chapter 11 section 11.1 of *Data Mining as Observation*, with the program's embe
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+- *measures.* GO-B-legal (035→036) `[predicted]`. Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer [`geometric-observation/claims/LEDGER.md:119`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L119).
+
+## first stated
+
+Chapter 11 section 11.1 of *Data Mining as Observation*, with the program's embeddings in the legal-citation flip, the GloVe corpus of readscope, and the attention keys of the KV finding.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Embedding.lean`, theorems `quotient`, `cosine_scale_free`, `nearest_scale_free`, `dot_not_scale_free`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Embedding.lean`, theorems `quotient`, `cosine_scale_free`, `nearest_scale_free`, `dot_not_scale_free`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -61,6 +48,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 encoder, dot-product, rank-certificate, hubness, flip
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 11.1, 11.2.
+
+Ledger rows that cite the entry's records without naming it: NEG-2.
+
+Sources-table rows that share a record with the entry without naming it: chapter 1 section 1.4, chapter 2 section 2.5, chapter 3 section 3.2, chapter 4 section 4.5, chapter 8 section 8.2, chapter 11 section 11.1, chapter 11 section 11.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

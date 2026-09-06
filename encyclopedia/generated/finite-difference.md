@@ -3,6 +3,8 @@
 **id.** finite-difference
 **kind.** instrument
 
+![A derivative from two evaluations a step apart.](../figures/finite-difference.svg)
+
 ## definition
 
 An estimate of a derivative from two evaluations of the function at points a small step apart. Equation 0.8.
@@ -13,34 +15,6 @@ Book equation 0.8.
 
     g_j\;\approx\;\frac{C(x+h\,e_j)-C(x-h\,e_j)}{2h},\qquad j=1,\dots,d.
 
-Book equation 0.9.
-
-    P_C=\mathbb E\!\left[g\,g^{\top}\right],\qquad g=\nabla C(x).
-
-Book equation 11.4.
-
-    \text{directions resolved}(k)=\begin{cases}1\ \text{or}\ 2,& k<d\\[2pt] \operatorname{rank}P_C,& k\ge d\end{cases}\qquad \text{cost}=2d\ \text{consumer calls per operating point}.
-
-## ledger
-
-- GO-1. The consumer's invariant/nuisance split is identifiable ex ante from the consumer functional. `[predicted]`. `geometric-observation/claims/LEDGER.md:62` at 9f3829f.
-
-## first stated
-
-Chapter 0 section 0.5 of *Data Mining as Observation*, equation 0.8, with the budget law measured in `readscope/README.md:118-141` and `readscope/CALIBRATION.md:419-434`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 11 section 11.7 | k over d table 1, 2, 2, 16, 16, 16 | `readscope\README.md:118-141`; `readscope\SPEC.md:243-285`, record `readscope\calibration\records\c2e-budget-law.json` |
-| chapter 11 section 11.7 | rank-independent, 0.646 vs 0.366 at half dimension, never 0.90 below k equals d | `readscope\CALIBRATION.md:419-434` F-15 |
-| chapter 11 section 11.7 | GO-1 overlap 0.936 vs 0.059, flip 12 of 12, reconstruction 0.40 | `geometric-observation\claims\LEDGER.md` row GO-1; `geometric-observation\chapters\ch10_the_blind_probe.md:34-52` |
-
-## failures and corrections
-
-none
-
 ## conditions
 
 - An estimate of a derivative from two evaluations of the function at points a small step apart. The central difference recovers the derivative of a quadratic exactly at every step size, while the one-sided difference is off by the curvature times the step, which is why doing it in both directions is more accurate.
@@ -48,9 +22,25 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 0 section 0.5 of *Data Mining as Observation*, equation 0.8, with the budget law measured in `readscope/README.md:118-141` and `readscope/CALIBRATION.md:419-434`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/FiniteDifference.lean`, theorems `central_quad`, `forward_quad`, `forward_error`, `central_cost`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/FiniteDifference.lean`, theorems `central_quad`, `forward_quad`, `forward_error`, `central_cost`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -60,6 +50,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 sensitivity, read-operator, blind-probe, budget, budget-cliff
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.9, 11.4.
+
+Ledger rows that cite the entry's records without naming it: GO-1.
+
+Sources-table rows that share a record with the entry without naming it: chapter 11 section 11.7.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

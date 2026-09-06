@@ -187,7 +187,7 @@ def results_summary(repo, rel):
         lines.append(f"| {r['dataset']} | {s['f1']:.4f}, {s['formula']} | {f['f1']:.4f} | {y['f1']:.4f}, {y['formula']} | {s['expansions']}, {f['expansions']}, {y['expansions']} |")
     part_b = ["| Dataset | strict F1 and formula | fast F1 | youden F1 and formula | expansions strict, fast, youden |",
               "|---|---|---|---|---|"] + lines
-    return ["Part A, recorded at commit " + d.get("commit", "?") + " of theory-radar."] + part_a + [""] + ["Part B."] + part_b
+    return ["Part A, recorded at commit " + d.get("commit", "?") + " of theory-radar.", ""] + part_a + ["", "Part B.", ""] + part_b
 
 
 def lean_theorems(spec):
@@ -197,69 +197,183 @@ def lean_theorems(spec):
     return f"`{rel}`, theorems " + ", ".join(f"`{n}`" for n in names) + f", at {repo} {COMMITS.get(repo, '?')}."
 
 
+# ---------------------------------------------------------------- relationships
+GITHUB = "https://github.com/ahb-sjsu"
+CLASS_EDGE = {"proved": "proves", "demonstrated": "measures", "replicated": "measures", "predicted": "measures",
+              "exploratory": "measures", "refuted": "refutes or corrects", "missed": "refutes or corrects",
+              "void": "refutes or corrects"}
+
+
+def term_patterns(e):
+    pats = [re.compile(p, re.I) for p in e.get("book_terms", [])]
+    words = [w for w in re.split(r"[^a-z0-9]+", e["title"].lower()) if len(w) > 2]
+    if words:
+        pats.append(re.compile(r"\b" + r"\W+".join(re.escape(w) for w in words) + r"s?\b", re.I))
+    return pats
+
+
+def about(e, *texts):
+    """Whether any of the texts names the entry, by its book terms or its title. A result or
+    correction entry, or one that sets strict = false, trusts every record it cites."""
+    if not e.get("strict", e["kind"] not in ("result", "correction")):
+        return True
+    pats = term_patterns(e)
+    return any(p.search(t) for t in texts if t for p in pats)
+
+
+def equation_context(tag):
+    """The equation with the paragraph before and after its display in the book."""
+    for name, text in CHTEXT.items():
+        m = re.search(r"^\$\$([^\n]*?)\s*\\tag\{" + re.escape(tag) + r"\}\$\$", text, re.M)
+        if m:
+            before = text[:m.start()].rstrip().split("\n\n")[-1]
+            after = text[m.end():].lstrip().split("\n\n")[0]
+            return m.group(1).strip(), before + " " + after
+    problems.append(f"book equation {tag} not found")
+    return "", ""
+
+
+def clean(s):
+    """One hyphen, no raw markdown headings, no stray pipes or dollars from record text."""
+    s = s.replace("‑", "-").replace("‐", "-")
+    s = re.sub(r"(^|\s)#{1,6}\s+", r"\1", s)
+    return s
+
+
+def cell_text(s):
+    return clean(s).replace("|", "\|")
+
+
+def linkify(src):
+    """Turn `repo\\path:a-b` citations into links to the file at the commit it was read at,
+    with one separator convention."""
+    def rep(m):
+        repo, path, a, b = m.group(1), m.group(2).replace("\\", "/"), m.group(3), m.group(4)
+        lines = (f":{a}" + (f"-{b}" if b else "")) if a else ""
+        label = f"{repo}/{path}{lines}"
+        if repo not in REPOS:
+            return f"`{label}`"
+        frag = (f"#L{a}" + (f"-L{b}" if b else "")) if a else ""
+        return f"[`{label}`]({GITHUB}/{repo}/blob/{COMMITS.get(repo, 'master')}/{path}{frag})"
+    return re.sub(r"`([\w.-]+)[\\/]([^`:]+?)(?::(\d+)(?:-(\d+))?)?`", rep, clean(src))
+
+
+def ledger_link(ln):
+    return f"[`geometric-observation/claims/LEDGER.md:{ln}`]({GITHUB}/geometric-observation/blob/{COMMITS['geometric-observation']}/claims/LEDGER.md#L{ln})"
+
+
+def short(claim, n=240):
+    claim = clean(claim.strip())
+    first = re.split(r"(?<=[.!?])\s+(?=[A-Z])", claim, maxsplit=1)[0]
+    if len(first) > n:
+        first = first[:n].rsplit(" ", 1)[0] + " …"
+    return first
+
+
 # ---------------------------------------------------------------- assembly
+FIGDIR = os.path.join(HERE, "figures")
+CAPTIONS = {}
+if os.path.exists(os.path.join(FIGDIR, "captions.toml")):
+    CAPTIONS = tomllib.load(open(os.path.join(FIGDIR, "captions.toml"), "rb"))
+
+
 def build(e):
     out = [f"# {e['title']}", "", f"**id.** {e['id']}", f"**kind.** {e['kind']}", ""]
-    out += ["## definition", "", glossary_definition(e["glossary"]) if e.get("glossary") else "none", ""]
-    out += ["## equation", ""]
+    if os.path.exists(os.path.join(FIGDIR, e["id"] + ".svg")):
+        out += [f"![{CAPTIONS.get(e['id'], e['title'])}](../figures/{e['id']}.svg)", ""]
+    definition = e.get("definition") or (glossary_definition(e["glossary"]) if e.get("glossary") else "")
+    out += ["## definition", "", definition or "none", ""]
+    if e.get("known_as"):
+        out += [f"**Known as, or related to prior art.** {e['known_as']}", ""]
+    # equations: defining ones are those whose paragraph in the book names the entry
+    defining, nearby = [], []
     for tag in e.get("equations", []):
-        eq = book_equation(tag)
-        if eq:
+        eq, ctx = equation_context(tag)
+        if not eq:
+            continue
+        (defining if about(e, ctx, eq) else nearby).append((tag, eq))
+    out += ["## equation", ""]
+    if defining:
+        for tag, eq in defining:
             out += [f"Book equation {tag}.", "", "    " + eq.replace("\n", " "), ""]
-    out += ["## ledger", ""]
-    rows = ledger_rows(e.get("ledger", []))
-    if rows:
-        for key, claim, cls, ln in rows:
-            out.append(f"- {key}. {claim} `[{cls}]`. `geometric-observation/claims/LEDGER.md:{ln}` at {COMMITS['geometric-observation']}.")
     else:
+        out += ["none", ""]
+    conds = e.get("conditions", [])
+    out += ["## conditions", ""]
+    out += [f"- {c}" for c in conds] if conds else ["none"]
+    if conds:
+        out += ["", "Conditions are curated in `entries.toml` rather than read from a record."]
+    out.append("")
+    # ledger rows: typed, and only rows that name the entry appear in the body
+    rows = ledger_rows(e.get("ledger", []))
+    typed = {"proves": [], "measures": [], "refutes or corrects": []}
+    mentions = []
+    for key, claim, cls, ln in rows:
+        edge = CLASS_EDGE.get(cls, "measures")
+        if about(e, key, claim):
+            typed[edge].append((key, claim, cls, ln))
+        else:
+            mentions.append(key)
+    out += ["## ledger", ""]
+    any_row = False
+    for edge in ("proves", "measures", "refutes or corrects"):
+        for key, claim, cls, ln in typed[edge]:
+            out.append(f"- *{edge}.* {key} `[{cls}]`. {short(claim)} {ledger_link(ln)}.")
+            any_row = True
+    if not any_row:
         out.append("none")
-    out += ["", "## first stated", "", e.get("first_stated", "none"), ""]
+    out += ["", "## first stated", "", clean(e.get("first_stated", "none")), ""]
+    # measurements: only rows whose claim or section names the entry appear in the body
     out += ["## measurements", ""]
     srows = sources_rows(e.get("book_records", []))
+    kept = [(w, c, s) for w, c, s in srows if about(e, w, c)]
+    passing = [(w, c, s) for w, c, s in srows if not about(e, w, c)]
     cells = [(c, table_rows(c["repo"], c["file"], c["match"]), c) for c in e.get("cells", [])]
-    if srows:
+    if kept:
         out += ["| Where the book states it | Numbers, as the book's sources table records them | Source |", "|---|---|---|"]
-        for where, claim, src in srows:
-            out.append(f"| {where} | {claim} | {src} |")
+        for where, claim, src in kept:
+            out.append(f"| {where} | {clean(claim)} | {linkify(src)} |")
         out.append("")
     for c, rows_, spec in cells:
         if rows_:
             out += [f"From `{c['repo']}/{c['file']}` at {COMMITS[c['repo']]}.", ""]
             for cells_, ln in rows_:
-                out.append("- line " + str(ln) + ". " + " | ".join(cells_))
+                out.append("- line " + str(ln) + ". " + "; ".join(cell_text(x) for x in cells_ if x))
             out.append("")
     for r in e.get("results", []):
         if r.get("note"):
             out += [r["note"], ""]
-        out += results_summary(r["repo"], r["file"]) + [""]
-    if not srows and not cells and not e.get("results"):
+        out += [""] + results_summary(r["repo"], r["file"]) + [""]
+    if not kept and not cells and not e.get("results"):
         out += ["none", ""]
     out += ["## failures and corrections", ""]
     found = False
-    for key, claim, cls, ln in rows:
-        if cls == "refuted":
-            out.append(f"- {key}, `[refuted]`. {claim}")
-            found = True
+    for key, claim, cls, ln in typed["refutes or corrects"]:
+        out.append(f"- {key}, `[{cls}]`. {short(claim)} {ledger_link(ln)}.")
+        found = True
     for er in e.get("errata", []):
         for a, b, para in errata_sections(er["repo"], er["file"], er["match"]):
-            out.append(f"- `{er['repo']}/{er['file']}:{a}-{b}` at {COMMITS[er['repo']]}. {para}")
+            out.append(f"- {linkify('`' + er['repo'] + '/' + er['file'] + ':' + str(a) + '-' + str(b) + '`')} at {COMMITS[er['repo']]}. {cell_text(para)}")
             found = True
     if not found:
         out.append("none")
-    out += ["", "## conditions", ""]
-    conds = e.get("conditions", [])
-    out += [f"- {c}" for c in conds] if conds else ["none"]
-    if conds:
-        out.append("")
-        out.append("Conditions are curated in `entries.toml` rather than read from a record.")
     lean = e.get("lean")
     lean = [lean] if isinstance(lean, str) else (lean or [])
     out += ["", "## machine checked", "", "\n\n".join(lean_theorems(s) for s in lean) if lean else "none", ""]
     chs = chapters_mentioning(e.get("book_terms", [])) if e.get("book_terms") else []
     out += ["## used in", "", ("*Data Mining as Observation* chapters " + ", ".join(str(c) for c in chs) + ".") if chs else "none", ""]
     out += ["## related", "", ", ".join(e.get("related", [])) or "none", ""]
-    commits = ", ".join(f"{k} {v}" for k, v in COMMITS.items())
-    out += ["## status", "", f"Generated {date.today().isoformat()} by `encyclopedia/generate.py` from {commits}.", ""]
+    # what was cited beside the entry but is not about it, kept out of the body
+    see = []
+    if nearby:
+        see.append("Book equations stated beside the entry's terms, not defining it: " + ", ".join(t for t, _ in nearby) + ".")
+    if mentions:
+        see.append("Ledger rows that cite the entry's records without naming it: " + ", ".join(mentions) + ".")
+    if passing:
+        secs = sorted({w for w, _, _ in passing}, key=lambda s: [int(x) for x in re.findall(r"\d+", s)])
+        see.append("Sources-table rows that share a record with the entry without naming it: " + ", ".join(secs) + ".")
+    out += ["## see also", "", "\n\n".join(see) if see else "none", ""]
+    out += ["## status", "", f"Generated {date.today().isoformat()} by `encyclopedia/generate.py`; book at observation-data-mining {COMMITS.get('observation-data-mining', '?')}; the commit of every record is listed in the encyclopedia's provenance.", ""]
     return "\n".join(out)
 
 

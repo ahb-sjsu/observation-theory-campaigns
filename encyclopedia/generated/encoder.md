@@ -3,6 +3,8 @@
 **id.** encoder
 **kind.** concept
 
+![A model that maps an input to an embedding.](../figures/encoder.svg)
+
 ## definition
 
 A model that maps an input to an embedding. Chapter 12.
@@ -17,9 +19,17 @@ Book equation 14.1.
 
     S=\frac{\sum_i w_i\,s_i}{\sum_i w_i},\qquad w_i=\max\big(0,\ 2\cdot\mathrm{AUROC}_i-1\big).
 
+## conditions
+
+- A model that maps an input to an embedding. An encoder votes only when its held-out AUROC on a corpus it was not trained on clears both nulls by the preregistered margin, its authority is its reliability weight, and a strictly monotone recalibration of its score changes neither the verdict nor the weight.
+- The rights encoder fell below the untrained baseline and was retired rather than tuned, and the legal-citation encoder's flip is the ledger's demonstrated row.
+- An encoder's held-out AUROC depends on the orientation of its score. A score that ranks the wrong way scores 1 minus A, and the gate reads the score as the encoder produces it and not the better of the two orientations.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- GO-B-legal (035→036). Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer `[predicted]`. `geometric-observation/claims/LEDGER.md:119` at 9f3829f.
+none
 
 ## first stated
 
@@ -29,27 +39,15 @@ Chapter 12 section 12.5 of *Data Mining as Observation*, with the program's enco
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.6 | rights encoder 0.467 below untrained baseline, the AUROC lesson, cross-corpus same-sign fix | `xbse\README.md:160-172`; `xbse\experiments\rights_r6_summary.json` |
-| chapter 12 section 12.5 | within 0.75 to 0.955 collapsing to 0.47 to 0.55, cross-corpus positives as the fix, adversary not load-bearing | `xbse\README.md:104-130,160-172` |
-| chapter 12 section 12.5 | the gate, both nulls, margin 0.10, scorecard 0.622 to 0.853, bag of words 0.46 to 0.54, rights 0.509 vs 0.512 and 0.467 | `xbse\README.md:130-160,195-219` |
-| chapter 12 section 12.5 | ECE 0.018 to 0.101 vs raw up to 0.223, reliability weight, audit binding | `xbse\README.md:175-195`; `gtc-prototype\docs\CALIBRATED_AUTHORITY.md:19-63` |
-| chapter 14 section 14.1 | the three questions, the trust beats, the audit binding | `gtc-prototype\README.md:10-58`; `xbse\README.md:195-219` |
-| chapter 14 section 14.2 | reliability weights and calibration errors per axis, the collapsed family's mean weight 0.559 against the general valence channel's own 0.735, the three design rules, 0.048 to 0.049 and 0.089 to 0.101 at 696 pairs | `gtc-prototype\docs\CALIBRATED_AUTHORITY.md:1-65` |
+| chapter 8 section 8.6 | rights encoder 0.467 below untrained baseline, the AUROC lesson, cross-corpus same-sign fix | `xbse/README.md:160-172`; `xbse/experiments/rights_r6_summary.json` |
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- A model that maps an input to an embedding. An encoder votes only when its held-out AUROC on a corpus it was not trained on clears both nulls by the preregistered margin, its authority is its reliability weight, and a strictly monotone recalibration of its score changes neither the verdict nor the weight.
-- The rights encoder fell below the untrained baseline and was retired rather than tuned, and the legal-citation encoder's flip is the ledger's demonstrated row.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/CrossCorpusGate.lean`, theorems `clears_bow`, `clears_untrained`, `not_validated_of_saturated`, `margin_example`, `validated_comp`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/CrossCorpusGate.lean`, theorems `clears_bow`, `clears_untrained`, `not_validated_of_saturated`, `margin_example`, `validated_comp`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -59,6 +57,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 embedding, cross-corpus-gate, reliability-weight, retrieval-augmented-pipeline
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: GO-B-legal (035→036).
+
+Sources-table rows that share a record with the entry without naming it: chapter 12 section 12.5, chapter 14 section 14.1, chapter 14 section 14.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

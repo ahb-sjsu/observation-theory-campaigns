@@ -3,38 +3,13 @@
 **id.** challenge-set
 **kind.** instrument
 
+![A collection on which a benchmark-passing shortcut fails, outside the benchmark.](../figures/challenge-set.svg)
+
 ## definition
 
 A test collection built so that a shortcut which passes the benchmark fails on it. Chapter 12.
 
 ## equation
-
-Book equation 14.2.
-
-    \mathrm{coverage\ difference}_c=\mathrm{AUROC}_c(\text{embedding})-\mathrm{AUROC}_c(\text{validated axes}),\qquad \text{floor}\approx0.08\ \text{to}\ 0.12.
-
-Book equation 12.3.
-
-    \text{validated}\iff \mathrm{AUROC}_{\text{cross}}-\max\big(\mathrm{AUROC}_{\text{untrained}},\ \mathrm{AUROC}_{\text{BoW}}\big)\ \ge\ 0.10.
-
-## ledger
-
-- NEG-15 (Bell boundary). *Query-conditioned hubness supplies a mechanism for Bell-inequality violation without action at a distance.* Refuted as a mechanism; the settings-as-queries reframing survives only as vocabulary. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:93` at 9f3829f.
-
-## first stated
-
-Chapter 12 section 12.6 and chapter 14 section 14.3 of *Data Mining as Observation*, with the program's identity-attack and euphemism sets in `gtc-prototype/docs/SPECTRUM_FINDINGS.md:66-99`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 6 section 6.4 | five analyses negative, 0.2 percent of floor, twelve times the band, learning-curve redesign | `constraint-gap\README.md:57-76`; `constraint-gap\review\REDESIGN.md:1-45` |
-| chapter 7 section 7.3 | correlation negative 0.59 at p 4.8e-4 with size, negative 0.562 at p 0.001 with the ensemble's score, predictive 0.345 and 0.589, interval negative 0.165 to 0.125, the one-line summary | `constraint-gap\review\INDETERMINATES.md:60-80`; `constraint-gap\review\REDESIGN.md:45-70` |
-| chapter 7 section 7.4 | the redesign, grid 50 to N, ten folds, twenty repetitions, crossing size, the 800-row boundary declared in advance, seventeen at median 0.006 and p 0.964, store the folds | `constraint-gap\review\REDESIGN.md:1-110` |
-| chapter 8 section 8.5 | 9/3/19 to 3/17/11, five negative analyses, 0.2 percent of floor, twelve times the band, learning-curve redesign | `constraint-gap\README.md:57-76`; `constraint-gap\review\REDESIGN.md` |
-
-## failures and corrections
 
 none
 
@@ -45,9 +20,25 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 12 section 12.6 and chapter 14 section 14.3 of *Data Mining as Observation*, with the program's identity-attack and euphemism sets in `gtc-prototype/docs/SPECTRUM_FINDINGS.md:66-99`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/ChallengeSet.lean`, theorems `shortcut_passes`, `shortcut_fails`, `benchmark_blind`, `challenge_outside`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/ChallengeSet.lean`, theorems `shortcut_passes`, `shortcut_fails`, `benchmark_blind`, `challenge_outside`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -57,6 +48,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 leakage, harness, deployment-mismatch, preregistration
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 14.2, 12.3.
+
+Ledger rows that cite the entry's records without naming it: NEG-15 (Bell boundary).
+
+Sources-table rows that share a record with the entry without naming it: chapter 6 section 6.4, chapter 7 section 7.3, chapter 7 section 7.4, chapter 8 section 8.5.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

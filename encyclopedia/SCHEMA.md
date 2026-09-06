@@ -54,3 +54,28 @@ listed in `encyclopedia/entries.yaml`, which maps an id to the ledger rows, trac
 book sections it draws on. Fail the build if a cited path does not exist at the named commit,
 as the book's checker does. Until the generator exists, entries are maintained by hand under
 the same rules, and their `status` line says so.
+
+## Relationships
+
+A record joins an entry by a typed edge, and only the first four kinds appear in the body of the
+entry. The rest are collapsed into the entry's "see also" heading.
+
+| Edge | What it means | How the generator decides |
+|---|---|---|
+| defines | a book equation that states the entry | the paragraph around the display names the entry's terms |
+| proves | a ledger row of class proved that names the entry | the row's claim text matches `book_terms` or the title |
+| measures | a ledger row of class demonstrated, replicated, predicted, or exploratory that names the entry, or a sources-table row whose claim names it | the same match |
+| refutes or corrects | a ledger row of class refuted, missed, or void that names the entry, or an erratum | the same match |
+| uses | a book equation stated beside the entry's terms that does not define it | cited but not matched |
+| mentions | a ledger row or sources-table row that cites the entry's records without naming it | cited but not matched |
+
+An entry of kind `result` or `correction`, or one that sets `strict = false`, trusts every
+record it cites, because its records were chosen for it. A ledger row appears once in full, in
+the ledger; the entry carries the row's first sentence, its class, and a link to the line. The
+ledger classes are `[proved]`, `[demonstrated]`, `[replicated]`, `[predicted]`, `[exploratory]`,
+`[refuted]`, `[missed]`, and `[void]`.
+
+Two optional fields sit beside `definition`: `definition` in `entries.toml` overrides the
+glossary when an entry has no glossary headword, and `known_as` names the prior art the entry
+sits beside or extends. Source citations are written with one separator, `repo/path:lines`,
+and link to the file at the commit it was read at.

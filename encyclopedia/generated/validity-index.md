@@ -3,6 +3,8 @@
 **id.** validity-index
 **kind.** concept
 
+![A score for a clustering without labels.](../figures/validity-index.svg)
+
 ## definition
 
 A score for a clustering computed without labels. Chapter 9.
@@ -17,9 +19,16 @@ Book equation 0.30.
 
     \mathrm{SSE}=\sum_{k}\sum_{i\in\mathcal C_k}\|x_i-c_k\|^{2},\qquad s_i=\frac{b_i-a_i}{\max(a_i,b_i)}.
 
+## conditions
+
+- A score for a clustering computed without labels. The silhouette is the case, in the interval from minus one to one, positive exactly when a row is closer to its own cluster, and unchanged by a common rescaling of the distances.
+- A validity index is an output metric and needs a null, since it is computed under the identity reader on the distances it is given, which is why chapter 9 asks the recognizer to name the manifold or certify that none is present.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 9f3829f.
+none
 
 ## first stated
 
@@ -33,16 +42,9 @@ none
 
 none
 
-## conditions
-
-- A score for a clustering computed without labels. The silhouette is the case, in the interval from minus one to one, positive exactly when a row is closer to its own cluster, and unchanged by a common rescaling of the distances.
-- A validity index is an output metric and needs a null, since it is computed under the identity reader on the distances it is given, which is why chapter 9 asks the recognizer to name the manifold or certify that none is present.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Silhouette.lean`, theorems `silhouette_mem`, `silhouette_pos_iff`, `silhouette_scale`, `silhouette_self`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Silhouette.lean`, theorems `silhouette_mem`, `silhouette_pos_iff`, `silhouette_scale`, `silhouette_self`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -52,6 +54,10 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 silhouette, recognizer, vacuity-threshold, null-model
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: GO-3.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

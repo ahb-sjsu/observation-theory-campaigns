@@ -3,6 +3,8 @@
 **id.** classifier
 **kind.** concept
 
+![A score per row and a threshold that turns it into a decision.](../figures/classifier.svg)
+
 ## definition
 
 A consumer that produces a score per row and turns it into a decision with a threshold. Chapter 6.
@@ -13,30 +15,6 @@ Book equation 6.1.
 
     s(x)=w\cdot x+b,\qquad P_C=\mathbb E\big[\sigma'(s)^{2}\big]\,w\,w^{\top},\qquad \operatorname{rank}P_C=1.
 
-Book equation 1.1.
-
-    O=(C,\ G,\ B).
-
-## ledger
-
-- GO-1. The consumer's invariant/nuisance split is identifiable ex ante from the consumer functional. `[predicted]`. `geometric-observation/claims/LEDGER.md:62` at 9f3829f.
-- GO-B-whale (038). Sperm-whale coda dialect (DSWP/Sharma 2024), Clan classifier — cetacean communication; promotes the exploratory (A2) verdict to a sealed flip `[predicted]`. `geometric-observation/claims/LEDGER.md:120` at 9f3829f.
-
-## first stated
-
-Chapter 6 section 6.1 of *Data Mining as Observation*, with the classifier row of Volume 14's consumer table and the whale clan classifier of ledger row GO-B-whale.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 2 section 2.3 | refusal regimes, selection consumers read order, recurrences compound | `readscope\readscope\regimes.py:1-60` |
-| chapter 6 section 6.1 | selection consumers have zero sensitivity almost everywhere | `readscope\readscope\regimes.py:1-60` |
-
-## failures and corrections
-
-none
-
 ## conditions
 
 - A consumer that produces a score per row and turns it into a decision with a threshold. For a linear classifier the sensitivity is the link's slope times the weight direction, so the read operator is the workload mean of the squared slope times the outer product of the weights, sends every vector to a multiple of the weights, and reads nothing orthogonal to them.
@@ -44,9 +22,25 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+- *measures.* GO-B-whale (038) `[predicted]`. Sperm-whale coda dialect (DSWP/Sharma 2024), Clan classifier — cetacean communication; promotes the exploratory (A2) verdict to a sealed flip [`geometric-observation/claims/LEDGER.md:120`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L120).
+
+## first stated
+
+Chapter 6 section 6.1 of *Data Mining as Observation*, with the classifier row of Volume 14's consumer table and the whale clan classifier of ledger row GO-B-whale.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Classifier.lean`, theorems `readOp_classifier`, `readOp_classifier_mulVec`, `readOp_classifier_orth`, `score_orth`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Classifier.lean`, theorems `readOp_classifier`, `readOp_classifier_mulVec`, `readOp_classifier_orth`, `score_orth`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -56,6 +50,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 consumer, read-operator, threshold, decision-boundary, margin
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 1.1.
+
+Ledger rows that cite the entry's records without naming it: GO-1.
+
+Sources-table rows that share a record with the entry without naming it: chapter 2 section 2.3, chapter 6 section 6.1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

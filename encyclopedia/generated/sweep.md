@@ -3,43 +3,13 @@
 **id.** sweep
 **kind.** instrument
 
+![A measurement run across a range of one parameter.](../figures/sweep.svg)
+
 ## definition
 
 Running a measurement across a range of one parameter and reading the curve. Chapter 5 section 5.4 and chapter 9 section 9.3.
 
 ## equation
-
-Book equation 6.2.
-
-    \begin{gathered} \max_{\tau,\ \mathrm{dir}}F_1\!\Big(\mathbf 1\big[\mathrm{dir}\big(g(f(X)),\tau\big)\big],\,y\Big)=\max_{\tau,\ \mathrm{dir}}F_1\!\Big(\mathbf 1\big[\mathrm{dir}\big(f(X),\tau\big)\big],\,y\Big) \\ \text{for every strictly monotone } g. \end{gathered}
-
-Book equation 0.28.
-
-    P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN},\qquad F_1=\frac{2PR}{P+R}.
-
-Book equation 9.3.
-
-    \hat\mu=\frac{\bar s_{\mathrm{true}}-\bar s_{\mathrm{distr}}}{\sigma_{\mathrm{distr}}},\qquad \mu_{\mathrm{crit}}=\mathbb E\Big[\max_{N-1}\mathcal N(0,1)\Big],\qquad \rho=\frac{\hat\mu}{\mu_{\mathrm{crit}}},\qquad \rho=1\ \text{vacuous}.
-
-## ledger
-
-- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 9f3829f.
-- GO-4. Fixed-budget verdicts invert under budget-matched observation, per the wavelength mechanism. `[replicated]`. `geometric-observation/claims/LEDGER.md:66` at 9f3829f.
-
-## first stated
-
-Chapter 5 section 5.4 and chapter 9 section 9.3 of *Data Mining as Observation*, with the degradation sweep in `openvector-bench/README.md:60-96`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 5 section 5.4 | seven thresholds up to 0.75, eight datasets, 56 conditions, zero admissibility violations, reductions 70 to 99.1 percent | `theory-radar\paper\astar_paper.tex:170-200` |
-| chapter 11 section 11.4 | 0.999 against own ranking vs 0.592 against fp32 truth, three truth layers, difficulty strata | `openvector-bench\README.md:60-96` |
-| chapter 11 section 11.7 | C-15 equal budget, 3072 observations, medians 0.02, 0.11, 0.05, 0.04, 1.0, 1.0, margin 0.883 vs 0.3, 0.062 to 0.057 at 8x | `readscope\SPEC.md:285-323`, record `readscope\calibration\records\c15-budget-surface.json`, `readscope\calibration\DECLARATION-C15.md` |
-| chapter 12 section 12.2 | recall 0.999 vs 0.592, the derived death point within 6 percent across fourteen corpora | `openvector-bench\README.md:60-96`; `geometric-observation\claims\LEDGER.md` row GO-3 |
-
-## failures and corrections
 
 none
 
@@ -50,9 +20,25 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 5 section 5.4 and chapter 9 section 9.3 of *Data Mining as Observation*, with the degradation sweep in `openvector-bench/README.md:60-96`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -62,6 +48,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 threshold, roc-curve, budget-cliff, sensitivity, harness
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 6.2, 0.28, 9.3.
+
+Ledger rows that cite the entry's records without naming it: GO-3, GO-4.
+
+Sources-table rows that share a record with the entry without naming it: chapter 5 section 5.4, chapter 11 section 11.4, chapter 11 section 11.7, chapter 12 section 12.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

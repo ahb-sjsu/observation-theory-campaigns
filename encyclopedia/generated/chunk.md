@@ -3,37 +3,13 @@
 **id.** chunk
 **kind.** concept
 
+![A document goes to pieces at a stage that has no Jacobian.](../figures/chunk.svg)
+
 ## definition
 
 A piece of a document, the unit a retrieval pipeline encodes and indexes. Chunking is a discrete stage with no Jacobian. Chapter 12.
 
 ## equation
-
-Book equation 12.3.
-
-    \text{validated}\iff \mathrm{AUROC}_{\text{cross}}-\max\big(\mathrm{AUROC}_{\text{untrained}},\ \mathrm{AUROC}_{\text{BoW}}\big)\ \ge\ 0.10.
-
-Book equation 0.36.
-
-    w_{t,d}=\mathrm{tf}_{t,d}\cdot\ln\frac{N}{\mathrm{df}_t},\qquad \mathrm{tf}_{t,d}=\frac{\text{count of }t\text{ in }d}{\text{length of }d},\qquad \mathrm{df}_t=\text{documents containing }t.
-
-## ledger
-
-- GO-B-legal (035→036). Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer `[predicted]`. `geometric-observation/claims/LEDGER.md:119` at 9f3829f.
-
-## first stated
-
-Chapter 12 section 12.2 of *Data Mining as Observation*, with the pullback composition in `geometric-observation/chapters/ch06_mathematical_preliminaries.md:10-27`.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 2 section 2.2 | read subspace small, operator local, pullback composition, rank cannot increase | `geometric-observation\chapters\ch05_the_read_metric_and_the_quotient.md:7-48`; `geometric-observation\chapters\ch06_mathematical_preliminaries.md:10-27` |
-| chapter 11 section 11.4 | R80 table, 25x probe depth, 92 percent own cell, one third cross-article, 0.53 matches same-article share, relative contrast discriminates nothing | `openvector-bench\results\R80_ANN.md:1-40`; `turboquant-pro\docs\RESEARCH_ROADMAP.md:133-160` |
-| chapter 12 section 12.2 | pullback composition and the rank bound | `geometric-observation\chapters\ch06_mathematical_preliminaries.md:10-27`; chapter 2 of this book |
-
-## failures and corrections
 
 none
 
@@ -44,9 +20,25 @@ none
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 12 section 12.2 of *Data Mining as Observation*, with the pullback composition in `geometric-observation/chapters/ch06_mathematical_preliminaries.md:10-27`.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Pipeline.lean`, theorems `quotient_inherited`, `quotient_inherited_chain`, `rank_comp_le_first`, `rank_comp_le_second`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Pipeline.lean`, theorems `quotient_inherited`, `quotient_inherited_chain`, `rank_comp_le_first`, `rank_comp_le_second`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -56,6 +48,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 retrieval-augmented-pipeline, jacobian, pipeline, encoder, inverted-file
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 12.3, 0.36.
+
+Ledger rows that cite the entry's records without naming it: GO-B-legal (035→036).
+
+Sources-table rows that share a record with the entry without naming it: chapter 2 section 2.2, chapter 11 section 11.4, chapter 12 section 12.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

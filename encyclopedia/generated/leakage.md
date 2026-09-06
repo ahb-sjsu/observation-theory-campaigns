@@ -3,6 +3,8 @@
 **id.** leakage
 **kind.** concept
 
+![A transform fit on all rows reads the test fold.](../figures/leakage.svg)
+
 ## definition
 
 Any information in the training data that could only be known after the decision, or any identifier that lets the model recognize a row it will be tested on. Chapter 8.
@@ -13,26 +15,6 @@ Book equation 8.1.
 
     O_{\mathrm{harness}}=\big(C_{\mathrm{score}},\ G_{\mathrm{metric}},\ B=\text{folds}\times\text{samples}\times\text{seeds}\big).
 
-## ledger
-
-- NEG-2. Reconstruction cosine as a proxy for key quality. `[refuted]`. `geometric-observation/claims/LEDGER.md:95` at 9f3829f.
-
-## first stated
-
-Chapter 8 section 8.1 of *Data Mining as Observation*, with the ESL example of selection before the split, Hastie, Tibshirani, and Friedman, section 7.10.2.
-
-## measurements
-
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 4 section 4.7 | ESL 7.10.2 numbers | Hastie, Tibshirani, Friedman, ESL 2e, section 7.10.2; chapter 8 of this book |
-| chapter 8 section 8.1 | ESL 7.10.2 numbers (N=50, p=5000, 100 selected, 3 percent vs 50 percent) | Hastie, Tibshirani, Friedman, ESL 2e, section 7.10.2 |
-| chapter 8 section 8.1 | G1 339.9 vs 71.9 same corpus, real about 61, rounds 1 to 4 at 300 to 420, three families falsified | `openvector-bench\results\QUERY_COUPLING_ARTIFACT.md:1-20` |
-
-## failures and corrections
-
-- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality.
-
 ## conditions
 
 - Leakage is any information in the training data that could only be known after the decision, or any identifier that lets the model recognize a row it will be tested on. It is a property of the harness's read subspace, not of the model.
@@ -41,9 +23,25 @@ Chapter 8 section 8.1 of *Data Mining as Observation*, with the ESL example of s
 
 Conditions are curated in `entries.toml` rather than read from a record.
 
+## ledger
+
+none
+
+## first stated
+
+Chapter 8 section 8.1 of *Data Mining as Observation*, with the ESL example of selection before the split, Hastie, Tibshirani, and Friedman, section 7.10.2.
+
+## measurements
+
+none
+
+## failures and corrections
+
+none
+
 ## machine checked
 
-`lean/DataMiningAsObservation/Leakage.lean`, theorems `errors_lookup_eq_zero`, `lookup_default`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Leakage.lean`, theorems `errors_lookup_eq_zero`, `lookup_default`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -53,6 +51,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 harness, preregistration, sealed, hubness
 
+## see also
+
+Ledger rows that cite the entry's records without naming it: NEG-2.
+
+Sources-table rows that share a record with the entry without naming it: chapter 4 section 4.7, chapter 8 section 8.1.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

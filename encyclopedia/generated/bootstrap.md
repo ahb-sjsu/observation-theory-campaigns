@@ -3,19 +3,22 @@
 **id.** bootstrap
 **kind.** instrument
 
+![Resampling the rows with replacement to see how far the estimate moves.](../figures/bootstrap.svg)
+
 ## definition
 
 An estimate of a confidence interval made by resampling the data with replacement many times and recomputing the statistic each time. A paired bootstrap resamples the same rows for two methods at once so that shared sampling variation cancels. Chapter 0 section 0.9.
 
 ## equation
 
-Book equation 8.2.
+none
 
-    \begin{gathered} \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2}, \\ J=1000,\ \frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}=\frac14\ \Rightarrow\ 1+250=251,\ \ \sqrt{251}=15.84. \end{gathered}
+## conditions
 
-Book equation 0.18.
+- An interval estimated by resampling the data with replacement and recomputing the statistic each time. A paired bootstrap resamples the same rows for two methods at once, and the variance of the difference is the sum of the two variances minus twice their covariance, so pairing narrows the interval exactly when the two scores covary positively across rows.
+- Resampling rows does not undo dependence between folds, which is the correction's job, and the bootstrap's interval is only as wide as the sample it resamples.
 
-    \widehat{\operatorname{Var}}_{\mathrm{NB}}=\Big(\frac1J+\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}\Big)\hat\sigma^{2},\qquad \frac{\widehat{\operatorname{Var}}_{\mathrm{NB}}}{\hat\sigma^{2}/J}=1+J\,\frac{n_{\mathrm{test}}}{n_{\mathrm{train}}}.
+Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
@@ -27,25 +30,15 @@ Efron, bootstrap methods, 1979, as chapter 0 section 0.9 states it, with the pro
 
 ## measurements
 
-| Where the book states it | Numbers, as the book's sources table records them | Source |
-|---|---|---|
-| chapter 6 section 6.4 | the uncorrected t stored as sigma, 251 and 15.84, nine wins to three, seven, eight, 3 wins 17 ties 11 losses on 31 datasets, the three-way inconsistency | `constraint-gap\review\FINDINGS.md:1-35`; `constraint-gap\README.md:57-76` |
-| chapter 8 section 8.5 | variance inflation 251, SE inflation 15.84, J_eff 3.98, about 62 needed, 3 of 9 at full, 7 at half, 8 at a third | `constraint-gap\review\FINDINGS.md:1-35` |
+none
 
 ## failures and corrections
 
 none
 
-## conditions
-
-- An interval estimated by resampling the data with replacement and recomputing the statistic each time. A paired bootstrap resamples the same rows for two methods at once, and the variance of the difference is the sum of the two variances minus twice their covariance, so pairing narrows the interval exactly when the two scores covary positively across rows.
-- Resampling rows does not undo dependence between folds, which is the correction's job, and the bootstrap's interval is only as wide as the sample it resamples.
-
-Conditions are curated in `entries.toml` rather than read from a record.
-
 ## machine checked
 
-`lean/DataMiningAsObservation/Bootstrap.lean`, theorems `mean_sub`, `var_sub`, `paired_lt_iff`, `cov_comm`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Bootstrap.lean`, theorems `mean_sub`, `var_sub`, `paired_lt_iff`, `cov_comm`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -55,6 +48,12 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 confidence-interval, standard-error, nadeau-and-bengio-correction, harness
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 8.2, 0.18.
+
+Sources-table rows that share a record with the entry without naming it: chapter 6 section 6.4, chapter 8 section 8.5.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.

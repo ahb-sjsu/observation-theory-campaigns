@@ -3,6 +3,8 @@
 **id.** spectral-clustering
 **kind.** instrument
 
+![Clustering the row-normalized spectral embedding.](../figures/spectral-clustering.svg)
+
 ## definition
 
 Clustering the rows of the row-normalized spectral embedding, which reads the angle and discards the density. Chapter 3 section 3.3 and chapter 9.
@@ -13,18 +15,21 @@ Book equation 0.19.
 
     L=I-D^{-1/2}AD^{-1/2},\qquad D=\operatorname{diag}(d_1,\dots,d_n),\qquad L\,u_k=\lambda_k u_k,\ \ 0=\lambda_1\le\lambda_2\le\cdots.
 
-Book equation 0.20.
-
-    \Psi_i=\left(\frac{u_k(i)}{\sqrt{\lambda_k\,d_i}}\right)_{k\ge2},\qquad \|\Psi_i-\Psi_j\|^{2}=R(i,j)=\frac{C(i,j)}{\operatorname{vol}(G)}.
-
 Book equation 3.3.
 
     X_i=r_i\,\theta_i,\qquad r_i\ \to\ \frac1{\sqrt{d_i}},\qquad \theta_i=\frac{X_i}{\|X_i\|}\in S^{m-1}.
 
+## conditions
+
+- Clustering the rows of the row-normalized spectral embedding, which reads the angle and discards the density. Row normalization puts every row on the unit sphere, keeps the cosine between rows, and ignores a positive rescaling, and the Laplacian's quadratic form is nonnegative, zero on constants, and positive across any edge.
+- Ng, Jordan, and Weiss normalized because it improved results, and chapter 3 says why. The Euclidean distance in the embedding converges to degree noise and the angle keeps the geodesics.
+- The row normalization applies to eigenvectors of the normalized Laplacian, whose leading vector is proportional to the square root of the degree and not constant.
+
+Conditions are curated in `entries.toml` rather than read from a record.
+
 ## ledger
 
-- GO-3. The certificate's vacuity threshold predicts where single-stage retrieval dies. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:65` at 9f3829f.
-- NEG-1. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. `[refuted]`. `geometric-observation/claims/LEDGER.md:94` at 9f3829f.
+none
 
 ## first stated
 
@@ -34,26 +39,17 @@ Ng, Jordan, and Weiss, on spectral clustering, 2002, as chapter 3 section 3.3 an
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 3 section 3.3 | resistance converges to 1 over d_i plus 1 over d_j, simplex argument, radius converges to 1 over root d_i | `the-angular-observer\theorem.md:110-146` |
-| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | `geometric-observation\chapters\ch09_legibility.md:10-41`; `the-angular-observer\theorem.md:110-146` |
-| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | `geometric-observation\chapters\ch11_the_recognizer.md:1-95` |
+| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | [`geometric-observation/chapters/ch09_legibility.md:10-41`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/chapters/ch09_legibility.md#L10-L41); `the-angular-observer/theorem.md:110-146` |
 
 ## failures and corrections
 
-- NEG-1, `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter.
-
-## conditions
-
-- Clustering the rows of the row-normalized spectral embedding, which reads the angle and discards the density. Row normalization puts every row on the unit sphere, keeps the cosine between rows, and ignores a positive rescaling, and the Laplacian's quadratic form is nonnegative, zero on constants, and positive across any edge.
-- Ng, Jordan, and Weiss normalized because it improved results, and chapter 3 says why. The Euclidean distance in the embedding converges to degree noise and the angle keeps the geodesics.
-
-Conditions are curated in `entries.toml` rather than read from a record.
+none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/SpectralEmbedding.lean`, theorems `dot_self_nonneg`, `rowNormalize_unit`, `dot_rowNormalize`, `rowNormalize_smul`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/SpectralEmbedding.lean`, theorems `dot_self_nonneg`, `rowNormalize_unit`, `dot_rowNormalize`, `rowNormalize_smul`, at observation-data-mining 08b4794.
 
-`lean/DataMiningAsObservation/Laplacian.lean`, theorems `quad_eq`, `quad_nonneg`, `quad_const`, `quad_pos_of_edge`, at observation-data-mining af776fd.
+`lean/DataMiningAsObservation/Laplacian.lean`, theorems `quad_eq`, `quad_nonneg`, `quad_const`, `quad_pos_of_edge`, at observation-data-mining 08b4794.
 
 ## used in
 
@@ -63,6 +59,14 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 spectral-embedding, laplacian, k-means, recognizer, geodesic-distance
 
+## see also
+
+Book equations stated beside the entry's terms, not defining it: 0.20.
+
+Ledger rows that cite the entry's records without naming it: GO-3, NEG-1.
+
+Sources-table rows that share a record with the entry without naming it: chapter 3 section 3.3, chapter 9 section 9.2.
+
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py` from geometric-observation 9f3829f, observation-theory-campaigns 9d86211, theory-radar 37c4e6c, observation-data-mining af776fd, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
