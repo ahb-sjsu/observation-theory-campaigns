@@ -19,8 +19,8 @@ Book equation 4.2.
 
 ## ledger
 
-- GO-4. Fixed-budget verdicts invert under budget-matched observation, per the wavelength mechanism. `[replicated]`. `geometric-observation/claims/LEDGER.md:66` at 7d91883.
-- GO-7. A stored description's description rate and its conditional Landauer reset content are operationally separate resources: the same finite-$n$ code index needing $\hat R\approx0.67$ bits/symbol to describe is fully recoverable from retained side information at bin rate $0.26=0.39\hat R$, fails increasingly below its conditional content, and fails absolutely (err 1.00 at every bin rate) without $S$. `[replicated]`. `geometric-observation/claims/LEDGER.md:69` at 7d91883.
+- GO-4. Fixed-budget verdicts invert under budget-matched observation, per the wavelength mechanism. `[replicated]`. `geometric-observation/claims/LEDGER.md:66` at 01e53bc.
+- GO-7. A stored description's description rate and its conditional Landauer reset content are operationally separate resources: the same finite-$n$ code index needing $\hat R\approx0.67$ bits/symbol to describe is fully recoverable from retained side information at bin rate $0.26=0.39\hat R$, fails increasingly below its conditional content, and fails absolutely (err 1.00 at every bin rate) without $S$. `[replicated]`. `geometric-observation/claims/LEDGER.md:69` at 01e53bc.
 
 ## first stated
 
@@ -43,7 +43,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Bit.lean`, theorems `levels_succ`, `levels_add`, `step_succ`, `sqError_succ`, `sqError_antitone`, `levels_zero`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/Bit.lean`, theorems `levels_succ`, `levels_add`, `step_succ`, `sqError_succ`, `sqError_antitone`, `levels_zero`, at observation-data-mining 424e077.
 
 ## used in
 
@@ -55,4 +55,4 @@ budget, water-filling, flip, landauers-principle
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 01e53bc, observation-theory-campaigns 55ee1c6, theory-radar 37c4e6c, observation-data-mining 424e077, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.

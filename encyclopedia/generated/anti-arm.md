@@ -15,10 +15,10 @@ Book equation 4.5.
 
 ## ledger
 
-- GO-2 (neg. half: not reconstruction). At matched bits, downstream preservation is not controlled by reconstruction error. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:63` at 7d91883.
-- NEG-16 (KV serving, end-task). *At matched bits and matched reconstruction error, steering KV quantization error into the attention read subspace degrades LongBench task score by the registered floors on a deployed-class model.* Refuted at its registered effect sizes on this model and task. `[refuted]`. `geometric-observation/claims/LEDGER.md:92` at 7d91883.
-- GO-B-whale (038). Sperm-whale coda dialect (DSWP/Sharma 2024), Clan classifier — cetacean communication; promotes the exploratory (A2) verdict to a sealed flip `[predicted]`. `geometric-observation/claims/LEDGER.md:120` at 7d91883.
-- GO-B-blind (041). Blind, NON-ORACLE prospective flip on a fresh untouched domain (20 Newsgroups sci.space vs rec.autos), logistic classifier — the reviewer's decisive test: recover P_C non-oracle and commit the winning code + sign + magnitude *before* opening the test split `[predicted]`. `geometric-observation/claims/LEDGER.md:121` at 7d91883.
+- GO-2 (neg. half: not reconstruction). At matched bits, downstream preservation is not controlled by reconstruction error. `[demonstrated]`. `geometric-observation/claims/LEDGER.md:63` at 01e53bc.
+- NEG-16 (KV serving, end-task). *At matched bits and matched reconstruction error, steering KV quantization error into the attention read subspace degrades LongBench task score by the registered floors on a deployed-class model.* Refuted at its registered effect sizes on this model and task. `[refuted]`. `geometric-observation/claims/LEDGER.md:92` at 01e53bc.
+- GO-B-whale (038). Sperm-whale coda dialect (DSWP/Sharma 2024), Clan classifier — cetacean communication; promotes the exploratory (A2) verdict to a sealed flip `[predicted]`. `geometric-observation/claims/LEDGER.md:120` at 01e53bc.
+- GO-B-blind (041). Blind, NON-ORACLE prospective flip on a fresh untouched domain (20 Newsgroups sci.space vs rec.autos), logistic classifier — the reviewer's decisive test: recover P_C non-oracle and commit the winning code + sign + magnitude *before* opening the test split `[predicted]`. `geometric-observation/claims/LEDGER.md:121` at 01e53bc.
 
 ## first stated
 
@@ -50,7 +50,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/AntiArm.lean`, theorems `readDiag_le_max`, `readDiag_le_total`, `anti_arm_worst`, at observation-data-mining 7eba709.
+`lean/DataMiningAsObservation/AntiArm.lean`, theorems `readDiag_le_max`, `readDiag_le_total`, `anti_arm_worst`, at observation-data-mining 424e077.
 
 ## used in
 
@@ -62,4 +62,4 @@ flip, read-distortion, read-operator
 
 ## status
 
-Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 7d91883, observation-theory-campaigns f5585e7, theory-radar 37c4e6c, observation-data-mining 7eba709, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
+Generated 2026-09-05 by `encyclopedia/generate.py` from geometric-observation 01e53bc, observation-theory-campaigns 55ee1c6, theory-radar 37c4e6c, observation-data-mining 424e077, turboquant-pro 856c4cb, gtc-prototype 328741f, readscope c8d0289.
