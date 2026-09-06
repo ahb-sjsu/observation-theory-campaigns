@@ -33,8 +33,8 @@ for tag, (fam, layers) in CELLS.items():
         d = res[str(L)]["false_clear"]["raw"] - res[str(L)]["false_clear"]["true"]
         pts.append((lval, d, fam))
 
-# append V3 cells H-L if their results + a lambda file exist
-v3lam = os.path.join(D, "v3_gate.json")
+# append V3 cells H-L: measured Lambda in v3_lambda.json (sealed gate machinery)
+v3lam = os.path.join(D, "v3_lambda.json")
 if os.path.exists(v3lam):
     vg = json.load(open(v3lam))
     V3 = {"cellH": ("synonym", [12, 18]), "cellI": ("shuffle", [14, 21]),
@@ -46,7 +46,7 @@ if os.path.exists(v3lam):
             continue
         res = json.load(open(rp))
         for L in layers:
-            lval = vg.get(tag, {}).get(str(L), {}).get("gate_R2")
+            lval = vg.get(tag, {}).get("lambda", {}).get(str(L))
             if lval is None:
                 continue
             d = res[str(L)]["false_clear"]["raw"] - res[str(L)]["false_clear"]["true"]
