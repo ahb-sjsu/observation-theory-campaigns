@@ -1897,3 +1897,92 @@ conditions = [
   "The decision to hand an item to a person rather than decide it. A rule that escalates every item whose margin is below a bar decides a set that can only shrink as the bar rises, so coverage can only fall, every decided item carries at least the bar's margin, and a bar of zero escalates nothing.",
   "Coverage times the decided false-clear rate is the fraction of all items cleared and wrong, so an escalation policy trades coverage for a false-clear rate and a deployment report states both.",
 ]
+
+[[entry]]
+id = "score"
+kind = "concept"
+title = "score"
+glossary = "score"
+equations = ["6.1", "6.2"]
+ledger = []
+first_stated = "Chapter 6 section 6.1 of *Data Mining as Observation*, with the program's threshold sweeps in theory-radar."
+book_records = ["sort and sweep", "theory_radar_paper.tex"]
+book_terms = ["\\bscores?\\b"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Threshold.lean"
+related = ["classifier", "threshold", "monotone-invariance", "calibration", "reliability-weight"]
+conditions = [
+  "The number a classifier produces per row before a threshold turns it into a decision. Every decision at every threshold is a function of the scores' ordering, so a strictly increasing recalibration of the scores with the matching recalibration of the threshold changes no decision.",
+  "What a recalibration can change is calibration, which is why the reliability weight reads the ordering and the expected calibration error reads the values, and neither stands in for the other.",
+]
+
+[[entry]]
+id = "confound"
+kind = "concept"
+title = "confound"
+glossary = "confound"
+equations = ["8.3", "8.2"]
+ledger = ["NEG-4", "NEG-5", "NEG-6"]
+first_stated = "Chapter 8 section 8.6 of *Data Mining as Observation*, with the program's codebook confound in Volume 14's honest negatives and the negative controls of the constraint-gap review."
+book_records = ["codebook confound", "negative_control.md", "FINDINGS.md:7-31", "NEG-4 through NEG-10"]
+book_terms = ["confound", "control"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Confound.lean"
+related = ["harness", "null-model", "simpsons-paradox", "preregistration"]
+conditions = [
+  "A variable that moves with both the treatment and the outcome. In the linear case the naive difference of group means is the treatment effect plus the confound's effect times the difference of the confound's means between the groups, so it equals the effect exactly when the confound is balanced or has no effect, and the bias can have either sign and any size.",
+  "Controls come before claims. The twenty-five percent codebook confound in the flip's early arms and the smooth-perturbation control that was withdrawn are the program's cases, each carried in the ledger.",
+]
+
+[[entry]]
+id = "replica"
+kind = "concept"
+title = "replica"
+glossary = "replica"
+equations = ["0.26", "13.1"]
+ledger = ["OT-11"]
+first_stated = "Chapter 13 section 13.3 of *Data Mining as Observation*, with the program's substrate measurements in `observation-theory-campaigns/analysis/mongo/PREREG-XPROTO-MG.md` and the database rows of the freshness track."
+book_records = ["ZooKeeper", "Postgres", "MongoDB", "write-ahead", "PREREG-XPROTO-MG"]
+book_terms = ["replica"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Replica.lean"
+related = ["freshness", "certificate", "witness", "false-clear-rate", "coverage"]
+conditions = [
+  "A copy of a database kept on another machine, trailing the primary by a lag. The keys stale under a lag grow with the lag and vanish at no lag. A naive certificate that clears every read has coverage one and a false-clear rate equal to the stale fraction, and a witness-backed certificate that clears only keys outside the lag has a false-clear rate of zero at the price of coverage.",
+  "Which reads are stale is consumer-relative, since two readers of the same replica have different coherence times, and the measured false-clear rates on ZooKeeper, Postgres, and MongoDB are the ledger's numbers.",
+]
+
+[[entry]]
+id = "block-error-rate"
+kind = "concept"
+title = "block error rate"
+glossary = "block error rate"
+equations = ["13.2", "0.25"]
+ledger = ["OT-11", "OT-4"]
+first_stated = "Chapter 13 section 13.4 of *Data Mining as Observation*, with the radio freshness track, `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:20-35`, and the sealed sweep `observation-theory-campaigns/analysis/csi/PREREG-XPROTO-CSI-SWEEP2.md`."
+book_records = ["RADIO-FRESHNESS-TRACK.md", "CSI-SWEEP2", "radio 0.27 to 0.42", "0.5 dB calibration"]
+book_terms = ["block error", "BLER"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/BlockErrorRate.lean"
+related = ["coherence-time", "refresh-floor", "freshness", "false-clear-rate"]
+conditions = [
+  "The fraction of transmitted radio blocks the receiver cannot decode, in the unit interval. A block of n symbols each lost independently with probability q fails with probability one minus one minus q to the n, at most n q, never falling as the block grows, and equal to q for a single symbol.",
+  "The measured rates of the radio track and the refuted refresh law fit against them are the ledger's numbers, with the sealed sweep's calibrated baseline as the correction.",
+]
+[[entry.errata]]
+repo = "observation-theory-campaigns"
+file = "experiments/RADIO-FRESHNESS-TRACK.md"
+match = "CSI-refreshfloor"
+
+[[entry]]
+id = "template-match"
+kind = "instrument"
+title = "template match"
+glossary = "template match"
+equations = ["0.32", "9.3"]
+ledger = ["GO-3"]
+first_stated = "Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-95`, DOI 10.5281/zenodo.21776291, and the recognizer battery in the-angular-observer."
+book_records = ["template matched", "three new templates", "frozen ratios", "the-angular-observer"]
+book_terms = ["template"]
+lean = "observation-data-mining:lean/DataMiningAsObservation/Recognizer.lean"
+related = ["recognizer", "vacuity-threshold", "intrinsic-dimension", "laplacian"]
+conditions = [
+  "Comparing a measured list of numbers, the eigenvalue ratios, to a stored list for each candidate shape and picking the smallest root-mean-square distance between the logarithms. The distance is zero between a list and itself, symmetric, and unchanged when both lists are scaled by the same factor, so the match reads shape and not size.",
+  "The templates are frozen before the battery is run, with their code hash recorded, and the match can only name shapes in its template set, which is why the recognizer also certifies that none is present.",
+]
