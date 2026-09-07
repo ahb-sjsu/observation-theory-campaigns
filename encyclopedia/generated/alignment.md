@@ -36,7 +36,7 @@ Volume 14, chapter 12, `geometric-observation/chapters/ch12_failure_taxonomy_and
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | alignment law, retrospective fit exploratory, one prospective point | [`geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/chapters/ch12_failure_taxonomy_and_kappa.md#L56-L82) |
+| chapter 4 section 4.4 | alignment law, retrospective fit exploratory, one prospective point | [`geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch12_failure_taxonomy_and_kappa.md#L56-L82) |
 
 ## failures and corrections
 
@@ -44,7 +44,7 @@ none
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Alignment.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Alignment.lean), theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Alignment.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/Alignment.lean), theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
 
 ## used in
 
@@ -62,4 +62,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

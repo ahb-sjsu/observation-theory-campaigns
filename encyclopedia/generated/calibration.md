@@ -31,7 +31,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* NEG-4 `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L97).
+- *refutes or corrects.* NEG-4 `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L97).
 
 ## first stated
 
@@ -46,11 +46,11 @@ Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's calib
 
 ## failures and corrections
 
-- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L97).
+- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L97).
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Calibration.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Calibration.lean), theorems `ece_nonneg`, `ece_le_one`, `ece_eq_zero_iff`, `ece_of_calibrated`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Calibration.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/Calibration.lean), theorems `ece_nonneg`, `ece_le_one`, `ece_eq_zero_iff`, `ece_of_calibrated`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
 
 ## used in
 
@@ -66,4 +66,4 @@ none
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

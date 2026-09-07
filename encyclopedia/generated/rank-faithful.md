@@ -36,8 +36,8 @@ Volume 14, chapter 9, `geometric-observation/chapters/ch09_legibility.md:10-41`,
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 3 section 3.3 | row normalization is the projection onto the read subspace of the geodesic-rank consumer | [`geometric-observation/chapters/ch09_legibility.md:31-41`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/chapters/ch09_legibility.md#L31-L41); [`geometric-observation/chapters/ch03_historical_precursors.md:98-110`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/chapters/ch03_historical_precursors.md#L98-L110) |
-| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | [`geometric-observation/chapters/ch09_legibility.md:10-41`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/chapters/ch09_legibility.md#L10-L41); `the-angular-observer/theorem.md:110-146` |
+| chapter 3 section 3.3 | row normalization is the projection onto the read subspace of the geodesic-rank consumer | [`geometric-observation/chapters/ch09_legibility.md:31-41`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch09_legibility.md#L31-L41); [`geometric-observation/chapters/ch03_historical_precursors.md:98-110`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch03_historical_precursors.md#L98-L110) |
+| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | [`geometric-observation/chapters/ch09_legibility.md:10-41`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch09_legibility.md#L10-L41); `the-angular-observer/theorem.md:110-146` |
 
 ## failures and corrections
 
@@ -45,7 +45,7 @@ none
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/RankFaithful.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/RankFaithful.lean), theorems `isRankFaithful_of_strictMono`, `closer_set_eq`, `nearest_eq`, `sq_rankFaithful_on_nonneg`, `sq_not_bi_lipschitz`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/RankFaithful.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/RankFaithful.lean), theorems `isRankFaithful_of_strictMono`, `closer_set_eq`, `nearest_eq`, `sq_rankFaithful_on_nonneg`, `sq_not_bi_lipschitz`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
 
 ## used in
 
@@ -65,4 +65,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

@@ -56,7 +56,7 @@ Nadeau and Bengio, inference for the generalization error, 2003, as chapter 8 ci
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/NadeauBengio.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/NadeauBengio.lean), theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/NadeauBengio.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/NadeauBengio.lean), theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
 
 ## used in
 
@@ -72,4 +72,4 @@ none
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
