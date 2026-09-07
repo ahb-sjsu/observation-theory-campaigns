@@ -306,7 +306,9 @@ defining equation, the assumptions and scope, the prior art, the evidence links,
 semantic review date, followed by the schematic and the full entry. `kinds.html`, `chapters.html`,
 `lean.html`, and `ledger.html` are the back matter, the ledger page printing every cited row once in
 full, and `provenance.html` names the records' commits. `all.html` is the whole site in one file
-with hash routing, for viewing without a server. The PDF is the archival snapshot of the same
+with hash routing, for viewing without a server. The site is hosted at https://erisml.org/encyclopedia/ from
+the erisml-lib repository's `docs/encyclopedia`, which `publish_site.py` copies the built site into;
+commit and push erisml-lib after each rebuild. The PDF is the archival snapshot of the same
 records.
 
 ## From TSK to the encyclopedia
