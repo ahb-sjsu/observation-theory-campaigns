@@ -26,7 +26,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* NEG-1 `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L94).
+- *refutes or corrects.* NEG-1 `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L94).
 
 ## first stated
 
@@ -38,11 +38,11 @@ none
 
 ## failures and corrections
 
-- NEG-1, `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L94).
+- NEG-1, `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L94).
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/BiLipschitz.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/BiLipschitz.lean), theorems `one_le_factor`, `within_comp`, `nn_preserved`, `not_rank_faithful`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/BiLipschitz.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/BiLipschitz.lean), theorems `one_le_factor`, `within_comp`, `nn_preserved`, `not_rank_faithful`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
 
 ## used in
 
@@ -58,4 +58,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

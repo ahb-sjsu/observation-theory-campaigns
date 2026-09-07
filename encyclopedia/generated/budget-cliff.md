@@ -27,8 +27,8 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* OT-3 `[demonstrated]`. Under subspace-confined second-order transcripts, fewer than d directions cannot identify a hidden leading eigenspace (theorem, adaptive to d−2 / oblivious to d−1); a known k₀-dim exclusion moves the cliff to exactly d−k₀ and never softens … [`geometric-observation/claims/LEDGER.md:31`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L31).
-- *measures.* OT-10 `[**`[refuted-as-sealed]`** ⚠]`. The noisy cliff: noise floors accuracy at a derived level; the cliff's location never moves. [`geometric-observation/claims/LEDGER.md:45`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/claims/LEDGER.md#L45).
+- *measures.* OT-3 `[demonstrated]`. Under subspace-confined second-order transcripts, fewer than d directions cannot identify a hidden leading eigenspace (theorem, adaptive to d−2 / oblivious to d−1); a known k₀-dim exclusion moves the cliff to exactly d−k₀ and never softens … [`geometric-observation/claims/LEDGER.md:31`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L31).
+- *measures.* OT-10 `[**`[refuted-as-sealed]`** ⚠]`. The noisy cliff: noise floors accuracy at a derived level; the cliff's location never moves. [`geometric-observation/claims/LEDGER.md:45`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L45).
 
 ## first stated
 
@@ -38,7 +38,7 @@ readscope, predicted then measured, and proved as the confinement theorem in Vol
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 11 section 11.7 | confinement theorem, side information moves the cliff to d minus k0, noisy cliff proved then measured | [`readscope/PRINCIPLES.md:112-142`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/PRINCIPLES.md#L112-L142); [`geometric-observation/crucible/OT3-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/crucible/OT3-THEOREM.md); [`geometric-observation/crucible/OT3-NOISY-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/d1f8988/crucible/OT3-NOISY-THEOREM.md) |
+| chapter 11 section 11.7 | confinement theorem, side information moves the cliff to d minus k0, noisy cliff proved then measured | [`readscope/PRINCIPLES.md:112-142`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/PRINCIPLES.md#L112-L142); [`geometric-observation/crucible/OT3-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/crucible/OT3-THEOREM.md); [`geometric-observation/crucible/OT3-NOISY-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/crucible/OT3-NOISY-THEOREM.md) |
 
 ## failures and corrections
 
@@ -46,7 +46,7 @@ readscope, predicted then measured, and proved as the confinement theorem in Vol
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/ProbeCliff.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ProbeCliff.lean), theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/ProbeCliff.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/ProbeCliff.lean), theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
 
 ## used in
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

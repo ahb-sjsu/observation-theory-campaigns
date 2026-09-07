@@ -99,6 +99,7 @@ freshness = "A value written at 10:00 and read at 10:05 with a coherence time of
 gate = "The build gate required anti-hub recall of at least 0.90 in every stratum; the compressed index read 0.663 and failed."
 gaussian = "Values 1, 2, and 3 from a normal distribution with mean 2 and spread 1 have z-scores −1, 0, and 1."
 geodesic-distance = "On a circle of radius 1, two points a quarter turn apart are 1.414 apart through the plane and 1.571 apart along the circle."
+geometric-decision-cost = "In the ultimatum encoding an offer of 48 percent has social, identity, and epistemic displacements 0.373, 0.278, and 0.003 from the reference, so its cost is the square root of 0.373 squared over 78.26 plus 0.278 squared over 32.28 plus 0.003 squared over 0.01262, about 0.071, and no offer on the integer grid costs less."
 graph = "Four nodes joined in a square have four edges, and every node has degree 2."
 harness = "Ten folds, five seeds, and 100 samples per fold is a budget of 5000 reads of the data."
 hash = "Changing one byte of a file changes its SHA-256 digest, and two files with different digests are different files."

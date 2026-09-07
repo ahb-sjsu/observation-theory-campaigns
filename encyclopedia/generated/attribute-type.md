@@ -42,7 +42,7 @@ none
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/AttributeType.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/AttributeType.lean), theorems `scale_affine`, `affine_strictMono`, `strictMono_injective`, `scale_preserves_ratio`, `affine_preserves_difference_ratio`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/AttributeType.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/AttributeType.lean), theorems `scale_affine`, `affine_strictMono`, `strictMono_injective`, `scale_preserves_ratio`, `affine_preserves_difference_ratio`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
 
 ## used in
 
@@ -58,4 +58,4 @@ Book equations stated beside the entry's terms, not defining it: 2.1, 0.12a.
 
 ## status
 
-Generated 2026-09-06 by `encyclopedia/generate.py`; book at observation-data-mining 08b4794; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
