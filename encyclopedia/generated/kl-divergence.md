@@ -9,6 +9,8 @@
 
 A measure of how far one probability distribution is from another, zero when they are identical. Equation 0.24.
 
+**Example.** A fair coin coded as if heads had probability 0.9 costs about 0.74 bits of divergence per toss.
+
 ## equation
 
 Book equation 0.24.
@@ -47,7 +49,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KL.lean`, theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/KL.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/KL.lean), theorems `kl_nonneg`, `kl_self`, `kl_not_symm`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

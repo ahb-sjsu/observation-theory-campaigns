@@ -9,6 +9,8 @@
 
 A matrix built from a graph's edges whose eigenvectors, from the smallest eigenvalue up, are the smoothest functions on the graph. The unnormalized form is zero on the constant vector, and the normalized form of equation 0.19 is zero on the square root of the degree. Equation 0.19.
 
+**Example.** A path of three nodes has unnormalized Laplacian with rows (1, −1, 0), (−1, 2, −1), and (0, −1, 1), which is zero on (1, 1, 1).
+
 ## equation
 
 Book equation 0.19.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Laplacian.lean`, theorems `quad_eq`, `quad_nonneg`, `quad_const`, `quad_pos_of_edge`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Laplacian.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Laplacian.lean), theorems `quad_eq`, `quad_nonneg`, `quad_const`, `quad_pos_of_edge`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 An independent measurement of whether a certificate's claim was true. Chapter 13.
 
+**Example.** The witness read the replica's actual position where the certificate had said fresh, and that disagreement is one false clear.
+
 ## equation
 
 Book equation 0.26.
@@ -36,14 +38,14 @@ Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that
 
 ## measurements
 
-From `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md` at ea929f5.
+From `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md` at c38dc0d.
 
 - line 23. XPROTO-PG (analysis/pgrep); Postgres, recovery_min_apply_delay; WAL LSN; ~0.50 → ~0.06
 - line 24. XPROTO-MG (analysis/mongo); MongoDB delayed secondary; oplog ts; ~0.47 → ~0.03
 - line 25. XPROTO-PGX (analysis/pgx); production PG, netem lag; WAL LSN, pg_stat_statements footprint; ~0.47 → ~0.02
 - line 27. XPROTO-ZK (analysis/zk); ZooKeeper 3.9 ensemble; zxid, sync(); hot 0.99 / cold 0.01, witnessed 0.0
 
-From `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md` at ea929f5.
+From `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md` at c38dc0d.
 
 - line 25. XPROTO-CSI (analysis/csi); CQI → MCS; HARQ; 0.34–0.37 → 0.10 (OLLA); ✅ 08-23
 - line 26. XPROTO-BEAM (analysis/beam); mmWave beam index; HARQ; 0.31 → 0.02 (BFR); ✅ 08-23
@@ -57,7 +59,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Certificate.lean`, theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Certificate.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Certificate.lean), theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

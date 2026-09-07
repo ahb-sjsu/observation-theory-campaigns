@@ -9,6 +9,8 @@
 
 The number of directions a matrix really uses, the square of the sum of its eigenvalues over the sum of their squares, defined for a nonnegative spectrum that is not all zero, with no cutoff to choose. Equation 0.7.
 
+**Example.** Eigenvalues (1, 1, 1, 1) have effective rank 4, and (1, 0.12, 0.06, 0.02) have effective rank about 1.4.
+
 ## equation
 
 Book equation 0.7.
@@ -46,7 +48,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/EffectiveRank.lean`, theorems `sq_sum_le`, `effRank_le`, `sum_sq_le_sq_sum`, `one_le_effRank`, `effRank_const`, `effRank_single`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/EffectiveRank.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/EffectiveRank.lean), theorems `sq_sum_le`, `effRank_le`, `sum_sq_le_sq_sum`, `one_le_effRank`, `effRank_const`, `effRank_single`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

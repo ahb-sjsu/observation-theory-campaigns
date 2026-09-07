@@ -9,6 +9,8 @@
 
 Comparing a measured list of numbers, such as eigenvalue ratios, to a stored list for each candidate shape and picking the smallest distance between the logarithms. Equation 0.32.
 
+**Example.** The lowest eight eigenvalue ratios matched the sphere template within tolerance, and the torus template did not.
+
 ## equation
 
 Book equation 0.32.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Recognizer.lean`, theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Recognizer.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Recognizer.lean), theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

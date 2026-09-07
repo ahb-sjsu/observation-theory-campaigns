@@ -9,6 +9,8 @@
 
 The mean of the per-class recalls, so that a large class cannot hide a small one. Equation 0.34.
 
+**Example.** Recalls of 0.90 on class A and 0.30 on class B give balanced accuracy 0.60, whatever the class sizes.
+
 ## equation
 
 Book equation 0.34.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/BalancedAccuracy.lean`, theorems `min_le_balanced`, `balanced_le_max`, `hidden_class`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/BalancedAccuracy.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/BalancedAccuracy.lean), theorems `min_le_balanced`, `balanced_le_max`, `hidden_class`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

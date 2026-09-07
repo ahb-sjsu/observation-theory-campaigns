@@ -9,6 +9,8 @@
 
 The asymptotic rule for how the number of eigenvalues of a continuum Laplacian below a value grows with that value, whose exponent reveals the dimension of the space. Reading it from a finite graph needs the conditions under which the graph Laplacian converges. Equation 0.31.
 
+**Example.** On a surface, dimension two, the eigenvalue count grows linearly with the value; on a curve, as the square root.
+
 ## equation
 
 Book equation 0.31.
@@ -46,7 +48,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/IntrinsicDimension.lean`, theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/IntrinsicDimension.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/IntrinsicDimension.lean), theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

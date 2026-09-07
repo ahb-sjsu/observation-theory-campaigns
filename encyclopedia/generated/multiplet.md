@@ -9,6 +9,8 @@
 
 A group of eigenvalues that are equal or nearly so, whose pattern names the shape a dataset lies on against a finite list of templates. On a finite graph the groups are approximate. Chapter 9.
 
+**Example.** The cycle on 8 nodes has eigenvalues 0, 0.586, 0.586, 2, 2, 3.414, 3.414, and 4.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Multiplet.lean`, theorems `cycleEig_zero`, `cycleEig_nonneg`, `cycleEig_le_four`, `cycleEig_pair`, `pair_distinct`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Multiplet.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Multiplet.lean), theorems `cycleEig_zero`, `cycleEig_nonneg`, `cycleEig_le_four`, `cycleEig_pair`, `pair_distinct`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

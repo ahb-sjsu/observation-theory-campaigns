@@ -9,6 +9,8 @@
 
 The smallest item support in an itemset over the largest, with a threshold below which the itemset is discarded. Chapter 5.
 
+**Example.** An item in 2 percent of baskets paired with one in 40 percent has cross-support ratio 0.05.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CrossSupport.lean`, theorems `ratio_mem_unit`, `ratio_eq_one_iff`, `ratio_anti`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/CrossSupport.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/CrossSupport.lean), theorems `ratio_mem_unit`, `ratio_eq_one_iff`, `ratio_anti`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

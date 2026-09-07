@@ -173,9 +173,11 @@ def card(e):
     elif "none" not in eq_html[:40]:
         first_eq = eq_html.split("</p>", 2)[0] + "</p>"
     conds = re.findall(r"<li>(.*?)</li>", HTML[eid].get("conditions", ""), re.S)
+    ex = re.search(r"<p><strong>Example\.</strong>(.*?)</p>", HTML[eid].get("definition", ""), re.S)
     rows = [
-        ("Definition", html.escape(secs.get("definition", "none")) + (" <span class=al>Also " + ", ".join(html.escape(a) for a in aliases(e)) + ".</span>" if aliases(e) else "")),
-        ("Book", f"<em>Data Mining as Observation</em>, draft 0.2, commit <code>{book_commit}</code>; entry id <code>{eid}</code>, kind {e['kind']}."),
+        ("Definition", html.escape(secs.get("definition", "none").split("\n")[0]) + (" <span class=al>Also " + ", ".join(html.escape(a) for a in aliases(e)) + ".</span>" if aliases(e) else "")),
+        ("Example", ex.group(1).strip() if ex else "none"),
+        ("Book",f"<em>Data Mining as Observation</em>, draft 0.2, commit <code>{book_commit}</code>; entry id <code>{eid}</code>, kind {e['kind']}."),
         ("Status", f"{html.escape(epi)}. Corrections: {corr}."),
         ("Defining equation", first_eq or "none"),
         ("Assumptions and scope", ("<ul>" + "".join(f"<li>{c}</li>" for c in conds) + "</ul>") if conds else "none"),
@@ -220,7 +222,7 @@ MATHJAX = '<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\\\(","\\\\)"]]
 
 def shell(title, body, single=False, extra_head=""):
     nav = (f'<header class="top"><a class="brand" href="{"#top" if single else "index.html"}">The Observation Theory Encyclopedia</a>'
-           f'<a href="{"#about" if single else "about.html"}">About</a><a href="{"#kinds" if single else "kinds.html"}">By kind</a>'
+           f'<a href="{"#tsk" if single else "tsk.html"}">From TSK</a><a href="{"#about" if single else "about.html"}">About</a><a href="{"#kinds" if single else "kinds.html"}">By kind</a>'
            f'<a href="{"#chapters" if single else "chapters.html"}">By chapter</a><a href="{"#lean" if single else "lean.html"}">By Lean file</a>'
            f'<a href="{"#ledger" if single else "ledger.html"}">Ledger</a><a href="{"#provenance" if single else "provenance.html"}">Provenance</a></header>')
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -308,6 +310,13 @@ def lists_html(single):
             "<code>encyclopedia/check.py</code> verifies that every number in each of them appears in its generated counterpart and that every cited path exists. "
             "An archival PDF snapshot, <code>encyclopedia/pdf/Observation-Theory-Encyclopedia.pdf</code>, is rebuilt and committed with the site.</p>")
     parts.append(('provenance', "Provenance", prov))
+    tsk_rows = tomllib.load(open(os.path.join(ROOT, "tsk_map.toml"), "rb"))["row"]
+    tb = ["<p>A student reading Tan, Steinbach, Karpatne, and Kumar, <em>Introduction to Data Mining</em>, second edition, meets a term and does not know which entries to read. For each TSK term, the entries to read in order and the chapter of <em>Data Mining as Observation</em> that takes the term up.</p>",
+          "<table><tr><th>TSK term</th><th>TSK</th><th>Entries to read</th><th>Book chapter</th></tr>"]
+    for r in tsk_rows:
+        tb.append(f"<tr><td>{html.escape(r['tsk'])}</td><td>{html.escape(r['where'])}</td><td>" + "; ".join(elink(i, single) for i in r["entries"] if i in by_id) + f"</td><td>{r['chapter']}</td></tr>")
+    tb.append("</table>")
+    parts.insert(0, ('tsk', "From TSK to the encyclopedia", "".join(tb)))
     return parts
 
 

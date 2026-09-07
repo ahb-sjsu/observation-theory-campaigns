@@ -9,6 +9,8 @@
 
 A copy of a database kept on another machine. Its lag is how far it trails the primary. Chapter 13.
 
+**Example.** A replica 50 writes behind the primary returns the old value for those 50 rows.
+
 ## equation
 
 Book equation 0.26.
@@ -40,11 +42,11 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Replica.lean`, theorems `stale_mono`, `stale_zero`, `naive_certificate`, `witnessed_certificate`, `witnessed_coverage`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Replica.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Replica.lean), theorems `stale_mono`, `stale_zero`, `naive_certificate`, `witnessed_certificate`, `witnessed_coverage`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 4, 13.
+*Data Mining as Observation* chapters 1, 4, 13.
 
 ## related
 

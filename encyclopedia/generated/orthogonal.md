@@ -9,6 +9,8 @@
 
 Of two vectors, having dot product zero. The squared length of a sum of orthogonal vectors is the sum of the squared lengths. Chapter 0 section 0.1.
 
+**Example.** (1, 0) and (0, 1) are orthogonal, and the squared length of their sum is 1 + 1 = 2.
+
 ## equation
 
 Book equation 0.1.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Orthogonal.lean`, theorems `orth_symm`, `pythagoras`, `orth_smul`, `orth_zero`, `residual_orth`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Orthogonal.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Orthogonal.lean), theorems `orth_symm`, `pythagoras`, `orth_smul`, `orth_zero`, `residual_orth`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

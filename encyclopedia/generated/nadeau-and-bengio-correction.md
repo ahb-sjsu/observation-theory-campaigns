@@ -9,6 +9,8 @@
 
 The inflation of the variance of a repeated cross-validation estimate by one plus the ratio of test to training size times the number of repeats, because the folds are not independent. Equation 0.18.
 
+**Example.** With 1000 folds and a test-to-train ratio of one quarter, the variance is inflated 251 times and the standard error 15.84 times.
+
 ## equation
 
 Book equation 0.18.
@@ -54,7 +56,7 @@ Nadeau and Bengio, inference for the generalization error, 2003, as chapter 8 ci
 
 ## machine checked
 
-`lean/DataMiningAsObservation/NadeauBengio.lean`, theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/NadeauBengio.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/NadeauBengio.lean), theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

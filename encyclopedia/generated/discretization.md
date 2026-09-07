@@ -9,6 +9,8 @@
 
 Collapsing an ordered quantity to a few labels by binning it, so that values in one cell become indistinguishable. It forms a quotient. Chapter 2 section 2.5.
 
+**Example.** Ages 23, 27, and 29 all become the label 20 to 29 in ten-year bins.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Discretization.lean`, theorems `bin_mono`, `bin_of_mem`, `bin_eq_of_same_cell`, `card_bins_le`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Discretization.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Discretization.lean), theorems `bin_mono`, `bin_of_mem`, `bin_eq_of_same_cell`, `card_bins_le`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

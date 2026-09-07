@@ -9,6 +9,8 @@
 
 The dot product divided by the product of the two lengths, between minus one and one, unchanged by rescaling either vector. Its distance is the angle. Equation 0.1.
 
+**Example.** Vectors (1, 0) and (1, 1) have cosine one over root 2, about 0.707, and doubling either vector leaves it unchanged.
+
 ## equation
 
 Book equation 0.1.
@@ -45,11 +47,11 @@ Chapter 0 section 0.1 of *Data Mining as Observation*, equation 0.1, with the pr
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Cosine.lean`, theorems `abs_dot_le`, `cosine_le_one`, `neg_one_le_cosine`, `cosine_self`, `cosine_smul`, `cosine_eq_dot_rowNormalize`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Cosine.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Cosine.lean), theorems `abs_dot_le`, `cosine_le_one`, `neg_one_le_cosine`, `cosine_self`, `cosine_smul`, `cosine_eq_dot_rowNormalize`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 2, 3, 5, 6, 8, 10, 11, 12.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 6, 8, 10, 11, 12.
 
 ## related
 

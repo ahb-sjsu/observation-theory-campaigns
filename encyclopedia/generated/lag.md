@@ -9,6 +9,8 @@
 
 How far a replica trails the primary. The same lag gives two readers two staleness rates. Chapter 0 section 0.13 and chapter 13.
 
+**Example.** A replica 50 writes behind the primary is fresh for a reader that touches none of those 50 rows and stale for one that does.
+
 ## equation
 
 none
@@ -38,13 +40,13 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Replica.lean`, theorems `stale_mono`, `stale_zero`, `naive_certificate`, `witnessed_certificate`, `witnessed_coverage`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Replica.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Replica.lean), theorems `stale_mono`, `stale_zero`, `naive_certificate`, `witnessed_certificate`, `witnessed_coverage`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/Freshness.lean`, theorems `disagree`, `mixedRate_between`, `mixedRate_eq_left_iff`, `stale_for_all`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Freshness.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Freshness.lean), theorems `disagree`, `mixedRate_between`, `mixedRate_eq_left_iff`, `stale_for_all`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 13.
+*Data Mining as Observation* chapters 13.
 
 ## related
 

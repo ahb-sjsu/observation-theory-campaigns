@@ -9,6 +9,8 @@
 
 An assignment to each feature of a share of one prediction. The raw gradient is the sensitivity at a row, gradient times input is the share of the change in output, and the averaged squared gradient is a diagonal entry of the read operator, and the three are kept apart. Shapley, permutation, and partial-dependence methods measure other things and are named for them. Chapter 14.
 
+**Example.** For the affine consumer 3x1 + 2x2, moving from (0, 0) to (1, 1) gives attributions 3 and 2, which sum to the change in output, 5.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Attribution.lean`, theorems `attr_sum_affine`, `attr_unread`, `sq_sensitivity_eq_readOp_diag`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Attribution.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Attribution.lean), theorems `attr_sum_affine`, `attr_unread`, `sq_sensitivity_eq_readOp_diag`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

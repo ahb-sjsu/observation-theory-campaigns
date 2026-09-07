@@ -9,6 +9,8 @@
 
 The matrix of second derivatives of a score, whose off-diagonal entries are the interactions. Naive Bayes has a diagonal one. Chapter 6.
 
+**Example.** For the score 3x1 + 2x2 + x1 x2 the Hessian has 1 off the diagonal; for naive Bayes it has 0.
+
 ## equation
 
 none
@@ -40,9 +42,9 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Curvature.lean`, theorems `second_quad`, `second_affine`, `linear_error`, `gradient_change`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Curvature.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Curvature.lean), theorems `second_quad`, `second_affine`, `linear_error`, `gradient_change`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/NaiveBayes.lean`, theorems `log_likelihood_sum`, `log_odds_sum`, `contribution_independent`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/NaiveBayes.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/NaiveBayes.lean), theorems `log_likelihood_sum`, `log_odds_sum`, `contribution_independent`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The finding that recovery of a read operator by a probe is a cliff at the full dimension of the space rather than a slope, and that the cliff does not move with the operator's rank. Chapter 11.
 
+**Example.** At half the dimension the probe recovered 0.366 and at the full dimension 1.000, with nothing in between reaching 0.90.
+
 ## equation
 
 Book equation 11.4.
@@ -44,7 +46,7 @@ readscope, predicted then measured, and proved as the confinement theorem in Vol
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ProbeCliff.lean`, theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ProbeCliff.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ProbeCliff.lean), theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

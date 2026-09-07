@@ -9,6 +9,8 @@
 
 A consumer that produces a score per row and turns it into a decision with a threshold. Chapter 6.
 
+**Example.** A score of 0.7 against a threshold of 0.5 is a positive decision, and raising the threshold to 0.8 flips it.
+
 ## equation
 
 Book equation 6.1.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Classifier.lean`, theorems `readOp_classifier`, `readOp_classifier_mulVec`, `readOp_classifier_orth`, `score_orth`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Classifier.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Classifier.lean), theorems `readOp_classifier`, `readOp_classifier_mulVec`, `readOp_classifier_orth`, `score_orth`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The value below which a given fraction of the rows fall. The fraction at or below a value is nondecreasing in the value. Chapter 11 section 11.3.
 
+**Example.** Among 100 sorted ratios, the 97.5th over the 2.5th percentile is the rank certificate's percentile setting.
+
 ## equation
 
 Book equation 11.2.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Percentile.lean`, theorems `cdf_nonneg`, `cdf_le_one`, `cdf_mono`, `cdf_of_all`, `cdf_of_none`, `ratio_ge_one`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Percentile.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Percentile.lean), theorems `cdf_nonneg`, `cdf_le_one`, `cdf_mono`, `cdf_of_all`, `cdf_of_none`, `ratio_ge_one`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

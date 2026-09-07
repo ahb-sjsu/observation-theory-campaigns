@@ -9,6 +9,8 @@
 
 The mean squared deviation of a column from its mean, the identity reader's measure of spread. Chapter 0 section 0.3.
 
+**Example.** Values 2, 4, and 6 have mean 4 and variance (4 + 0 + 4) over 3, or 2.667.
+
 ## equation
 
 Book equation 9.1.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Variance.lean`, theorems `variance_nonneg`, `variance_eq`, `variance_const`, `variance_smul`, `eq_mean_of_variance_eq_zero`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Variance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Variance.lean), theorems `variance_nonneg`, `variance_eq`, `variance_const`, `variance_smul`, `eq_mean_of_variance_eq_zero`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

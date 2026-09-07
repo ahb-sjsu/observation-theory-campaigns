@@ -9,6 +9,8 @@
 
 Writing a value into a missing cell that the consumer will read. Mean imputation leaves the column mean unchanged and shrinks its variance. Chapter 2.
 
+**Example.** Filling three missing cells of a column with mean 5 leaves the mean at 5 and shrinks the variance.
+
 ## equation
 
 Book equation 2.1.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Imputation.lean`, theorems `mean_imputed`, `sum_sq_imputed`, `variance_imputed_le`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Imputation.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Imputation.lean), theorems `mean_imputed`, `sum_sq_imputed`, `variance_imputed_le`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

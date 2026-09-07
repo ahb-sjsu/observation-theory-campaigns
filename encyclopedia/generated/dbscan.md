@@ -9,6 +9,8 @@
 
 A clustering that calls a point a core point when at least a minimum number of points lie within a radius, grows clusters by reachability from core points, and leaves the rest as noise. Chapter 9.
 
+**Example.** With radius 0.5 and a minimum of 4 neighbours, a point with 6 neighbours within 0.5 is a core point and a point with none is noise.
+
 ## equation
 
 Book equation 9.1.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Dbscan.lean`, theorems `ball_mono`, `core_mono`, `core_anti`, `reach_from_core`, `noise_unreachable`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Dbscan.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Dbscan.lean), theorems `ball_mono`, `core_mono`, `core_anti`, `reach_from_core`, `noise_unreachable`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

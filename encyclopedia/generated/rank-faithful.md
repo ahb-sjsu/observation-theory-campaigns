@@ -9,6 +9,8 @@
 
 Of a map, preserving the ordering of distances without any bound on the stretch. Chapter 0 section 0.10.
 
+**Example.** A compression under which every one of the 19900 pair rankings is kept is rank-faithful.
+
 ## equation
 
 Book equation 0.21.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/RankFaithful.lean`, theorems `isRankFaithful_of_strictMono`, `closer_set_eq`, `nearest_eq`, `sq_rankFaithful_on_nonneg`, `sq_not_bi_lipschitz`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/RankFaithful.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/RankFaithful.lean), theorems `isRankFaithful_of_strictMono`, `closer_set_eq`, `nearest_eq`, `sq_rankFaithful_on_nonneg`, `sq_not_bi_lipschitz`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

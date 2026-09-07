@@ -9,6 +9,8 @@
 
 The property of a score that a value of 0.8 means the row is positive eighty percent of the time. Measured by expected calibration error, equation 0.29.
 
+**Example.** If the rows scored near 0.8 are positive 80 percent of the time, the score is calibrated at 0.8.
+
 ## equation
 
 Book equation 0.29.
@@ -48,7 +50,7 @@ Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's calib
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Calibration.lean`, theorems `ece_nonneg`, `ece_le_one`, `ece_eq_zero_iff`, `ece_of_calibrated`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Calibration.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Calibration.lean), theorems `ece_nonneg`, `ece_le_one`, `ece_eq_zero_iff`, `ece_of_calibrated`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

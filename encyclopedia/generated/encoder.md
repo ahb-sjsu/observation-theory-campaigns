@@ -9,6 +9,8 @@
 
 A model that maps an input to an embedding. Chapter 12.
 
+**Example.** LaBSE maps a sentence in any of its languages to a 768-dimensional vector.
+
 ## equation
 
 Book equation 12.3.
@@ -47,7 +49,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CrossCorpusGate.lean`, theorems `clears_bow`, `clears_untrained`, `not_validated_of_saturated`, `margin_example`, `validated_comp`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/CrossCorpusGate.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/CrossCorpusGate.lean), theorems `clears_bow`, `clears_untrained`, `not_validated_of_saturated`, `margin_example`, `validated_comp`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 One partition of an index that is searched separately, with the results merged. The global top k lies inside the union of the shards' top k. Chapter 13.
 
+**Example.** Eight shards each returning their top 10 hand the merger 80 candidates, among which the global top 10 lies.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Shard.lean`, theorems `global_in_local`, `global_in_union`, `merge_cost`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Shard.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Shard.lean), theorems `global_in_local`, `global_in_union`, `merge_cost`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

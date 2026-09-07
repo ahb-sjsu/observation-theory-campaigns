@@ -9,6 +9,8 @@
 
 The expected number of steps a random walk on a graph needs to go from one node to another and back. Divided by the graph's volume it is the resistance, which a particular scaling of the spectral embedding makes equal to the squared Euclidean distance. Equation 0.20.
 
+**Example.** On a path of three nodes the commute time between the ends is 8 steps, and dividing by the volume, 4, gives the resistance, 2.
+
 ## equation
 
 Book equation 0.20.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CommuteTime.lean`, theorems `commute_symm`, `commute_self`, `resistance_symm`, `commute_eq_resistance_mul`, `collapsed_congr`, `collapsed_const`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/CommuteTime.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/CommuteTime.lean), theorems `commute_symm`, `commute_self`, `resistance_symm`, `commute_eq_resistance_mul`, `collapsed_congr`, `collapsed_const`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

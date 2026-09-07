@@ -9,6 +9,8 @@
 
 The allocation of a bit budget across directions that gives each direction half the log of its sensitivity-weighted variance over a common water level, and nothing to directions under the water. Equation 0.13.
 
+**Example.** Directions with variances 4, 1, and 0.1 and a water level of 0.5 get bits in proportion to the log of 8, the log of 2, and nothing.
+
 **Known as, or related to prior art.** Reverse water-filling of rate-distortion theory, per Cover and Thomas, applied to the read-weighted spectrum.
 
 ## equation
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/WaterFilling.lean`, theorems `contribution_eq_water`, `terms_mul`, `two_sqrt_le`, `distortion2_ge`, `distortion2_eq_of_equal`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/WaterFilling.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/WaterFilling.lean), theorems `contribution_eq_water`, `terms_mul`, `two_sqrt_le`, `distortion2_ge`, `distortion2_eq_of_equal`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

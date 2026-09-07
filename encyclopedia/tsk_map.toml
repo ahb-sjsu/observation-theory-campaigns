@@ -1,0 +1,323 @@
+# From TSK to the encyclopedia. One row per index term of Tan, Steinbach, Karpatne, and
+# Kumar, Introduction to Data Mining, second edition, as a student meets it, with the
+# entries to read and the chapter of Data Mining as Observation that takes the term up.
+# Curated by hand. `tsk` is the term as TSK names it, `where` its TSK chapter or section,
+# `entries` the ids to read in order, and `chapter` the book chapter.
+
+[[row]]
+tsk = "attribute types, nominal, ordinal, interval, ratio"
+where = "2.1"
+entries = ["attribute-type", "standardization", "discretization"]
+chapter = 2
+
+[[row]]
+tsk = "data quality, noise and outliers"
+where = "2.2"
+entries = ["outlier", "detector", "skewness"]
+chapter = 2
+
+[[row]]
+tsk = "missing values"
+where = "2.2"
+entries = ["imputation", "leakage"]
+chapter = 2
+
+[[row]]
+tsk = "aggregation and sampling"
+where = "2.3"
+entries = ["aggregation", "sampling", "simpsons-paradox"]
+chapter = 2
+
+[[row]]
+tsk = "dimensionality reduction"
+where = "2.3, appendix B"
+entries = ["principal-component-analysis", "truncation", "explained-variance", "flip"]
+chapter = 4
+
+[[row]]
+tsk = "feature subset selection"
+where = "2.3"
+entries = ["read-subspace", "nuisance", "importance"]
+chapter = 4
+
+[[row]]
+tsk = "discretization and binarization"
+where = "2.3"
+entries = ["discretization", "quotient"]
+chapter = 2
+
+[[row]]
+tsk = "variable transformation, standardization"
+where = "2.3"
+entries = ["standardization", "whitening"]
+chapter = 2
+
+[[row]]
+tsk = "Euclidean distance, Minkowski distance"
+where = "2.4"
+entries = ["euclidean-distance", "metric", "identity-reader"]
+chapter = 3
+
+[[row]]
+tsk = "cosine similarity"
+where = "2.4"
+entries = ["cosine", "dot-product", "read-direction", "quotient"]
+chapter = 3
+
+[[row]]
+tsk = "Jaccard coefficient, simple matching"
+where = "2.4"
+entries = ["jaccard", "quotient"]
+chapter = 3
+
+[[row]]
+tsk = "correlation"
+where = "2.4"
+entries = ["correlation", "spearman-correlation", "kendall-correlation"]
+chapter = 3
+
+[[row]]
+tsk = "Mahalanobis distance"
+where = "2.4"
+entries = ["mahalanobis-distance", "whitening", "covariance-matrix"]
+chapter = 10
+
+[[row]]
+tsk = "decision tree induction"
+where = "3.3"
+entries = ["decision-tree", "importance", "classifier"]
+chapter = 6
+
+[[row]]
+tsk = "model overfitting"
+where = "3.4"
+entries = ["capacity", "harness", "early-stopping"]
+chapter = 6
+
+[[row]]
+tsk = "model selection, validation set"
+where = "3.5, 3.6"
+entries = ["split", "cross-validation", "leakage"]
+chapter = 8
+
+[[row]]
+tsk = "model evaluation, holdout, cross-validation, bootstrap"
+where = "3.6"
+entries = ["cross-validation", "bootstrap", "nadeau-and-bengio-correction", "seed"]
+chapter = 8
+
+[[row]]
+tsk = "confusion matrix, accuracy, precision, recall, F-measure"
+where = "3.2, 4.11"
+entries = ["precision-recall", "f1", "balanced-accuracy", "threshold"]
+chapter = 6
+
+[[row]]
+tsk = "ROC curve"
+where = "4.11"
+entries = ["roc-curve", "auroc", "youden-index", "monotone-invariance"]
+chapter = 5
+
+[[row]]
+tsk = "rule-based classifier"
+where = "4.2"
+entries = ["formula-search", "safe-pruning"]
+chapter = 6
+
+[[row]]
+tsk = "nearest neighbor classifier"
+where = "4.3"
+entries = ["nearest-neighbour", "neighbourhood-graph", "hub"]
+chapter = 6
+
+[[row]]
+tsk = "naive Bayes classifier"
+where = "4.4"
+entries = ["naive-bayes", "hessian"]
+chapter = 6
+
+[[row]]
+tsk = "logistic regression"
+where = "4.6"
+entries = ["logistic-regression", "linear-classifier", "decision-boundary"]
+chapter = 6
+
+[[row]]
+tsk = "artificial neural network, deep learning"
+where = "4.7, 4.8"
+entries = ["encoder", "embedding", "attention", "language-model"]
+chapter = 11
+
+[[row]]
+tsk = "support vector machine, margin"
+where = "4.9"
+entries = ["margin", "linear-classifier", "decision-boundary"]
+chapter = 6
+
+[[row]]
+tsk = "ensemble methods, bagging, boosting, random forest"
+where = "4.10"
+entries = ["ensemble", "bagging", "boosting", "random-forest"]
+chapter = 7
+
+[[row]]
+tsk = "class imbalance"
+where = "4.11"
+entries = ["balanced-accuracy", "chance-level", "stratification"]
+chapter = 6
+
+[[row]]
+tsk = "itemset, support, frequent itemset"
+where = "5.1, 5.2"
+entries = ["itemset", "support", "transaction"]
+chapter = 5
+
+[[row]]
+tsk = "Apriori principle, candidate pruning"
+where = "5.2"
+entries = ["apriori", "anti-monotonicity", "safe-pruning"]
+chapter = 5
+
+[[row]]
+tsk = "association rule, confidence"
+where = "5.3"
+entries = ["confidence", "lift", "cross-support-ratio"]
+chapter = 5
+
+[[row]]
+tsk = "FP-growth, closed and maximal itemsets"
+where = "5.4, 5.5"
+entries = ["itemset", "anti-monotonicity"]
+chapter = 5
+
+[[row]]
+tsk = "objective interestingness measures"
+where = "5.6"
+entries = ["lift", "output-metric", "simpsons-paradox"]
+chapter = 5
+
+[[row]]
+tsk = "k-means"
+where = "7.2"
+entries = ["k-means", "sum-of-squared-errors", "identity-reader"]
+chapter = 9
+
+[[row]]
+tsk = "agglomerative hierarchical clustering, linkage"
+where = "7.3"
+entries = ["hierarchical-clustering", "metric"]
+chapter = 9
+
+[[row]]
+tsk = "DBSCAN, density-based clustering"
+where = "7.4"
+entries = ["dbscan", "density", "degree"]
+chapter = 9
+
+[[row]]
+tsk = "cluster validity, silhouette, SSE"
+where = "7.5"
+entries = ["validity-index", "silhouette", "sum-of-squared-errors", "vacuity-threshold"]
+chapter = 9
+
+[[row]]
+tsk = "spectral clustering, graph-based clustering"
+where = "8.5"
+entries = ["spectral-clustering", "spectral-embedding", "laplacian", "commute-time"]
+chapter = 3
+
+[[row]]
+tsk = "curse of dimensionality"
+where = "8.1"
+entries = ["distance-concentration", "intrinsic-dimension", "manifold"]
+chapter = 3
+
+[[row]]
+tsk = "statistical anomaly detection"
+where = "9.3"
+entries = ["outlier", "gaussian", "mahalanobis-distance"]
+chapter = 10
+
+[[row]]
+tsk = "proximity-based and density-based anomaly detection"
+where = "9.4, 9.5"
+entries = ["detector", "density", "anti-hub"]
+chapter = 10
+
+[[row]]
+tsk = "clustering-based and reconstruction-based anomaly detection"
+where = "9.6, 9.7"
+entries = ["detector", "reconstruction-error"]
+chapter = 10
+
+[[row]]
+tsk = "evaluation of anomaly detection"
+where = "9.10"
+entries = ["min-over-strata", "abstention", "anti-hub-recall"]
+chapter = 10
+
+[[row]]
+tsk = "hypothesis testing, p-value, null hypothesis"
+where = "10.2"
+entries = ["p-value", "null-model", "control", "bar"]
+chapter = 8
+
+[[row]]
+tsk = "multiple hypothesis testing, Bonferroni, false discovery rate"
+where = "10.3"
+entries = ["multiple-comparisons", "harness"]
+chapter = 8
+
+[[row]]
+tsk = "pitfalls, p-hacking, data dredging"
+where = "10.4"
+entries = ["preregistration", "sealed", "registered", "declaration"]
+chapter = 8
+
+[[row]]
+tsk = "confidence interval, standard error"
+where = "appendix C, 10.2"
+entries = ["confidence-interval", "standard-error", "paired"]
+chapter = 8
+
+[[row]]
+tsk = "eigenvalues and eigenvectors, matrix rank"
+where = "appendix A"
+entries = ["eigenvalue-eigenvector", "spectrum", "rank", "positive-semidefinite"]
+chapter = 0
+
+[[row]]
+tsk = "singular value decomposition, PCA"
+where = "appendix B"
+entries = ["principal-component-analysis", "latent-semantic-analysis", "effective-rank"]
+chapter = 4
+
+[[row]]
+tsk = "covariance matrix, variance"
+where = "appendix A, C"
+entries = ["covariance-matrix", "variance", "trace", "anisotropic"]
+chapter = 0
+
+[[row]]
+tsk = "gradient, derivative"
+where = "appendix E"
+entries = ["sensitivity", "finite-difference", "curvature", "jacobian"]
+chapter = 0
+
+[[row]]
+tsk = "TF-IDF, document vectors"
+where = "2.4, 8.1"
+entries = ["tf-idf", "bag-of-words", "latent-semantic-analysis"]
+chapter = 12
+
+[[row]]
+tsk = "vector quantization, compression"
+where = "7.2, 2.3"
+entries = ["quantization", "codebook", "product-quantization", "bit", "matched-bits"]
+chapter = 11
+
+[[row]]
+tsk = "scalability, indexing, nearest-neighbour search"
+where = "4.3, 8.4"
+entries = ["inverted-file", "recall-at-k", "shard", "rerank", "rank-certificate"]
+chapter = 11

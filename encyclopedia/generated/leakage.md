@@ -9,6 +9,8 @@
 
 Any information in the training data that could only be known after the decision, or any identifier that lets the model recognize a row it will be tested on. Chapter 8.
 
+**Example.** An imputation fit on all 1000 rows before the split has read the 100 test rows.
+
 ## equation
 
 Book equation 8.1.
@@ -41,7 +43,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Leakage.lean`, theorems `errors_lookup_eq_zero`, `lookup_default`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Leakage.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Leakage.lean), theorems `errors_lookup_eq_zero`, `lookup_default`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

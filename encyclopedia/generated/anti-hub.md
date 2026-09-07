@@ -9,6 +9,8 @@
 
 A row that is never or almost never retrieved as anyone's nearest neighbour. Chapter 10 names five kinds and shows one is manufactured by the query budget. Chapters 3 and 10.
 
+**Example.** With 1000 queries at k equal to 10 there are 10000 slots, so in a corpus of 100000 rows at least 90 percent are never retrieved.
+
 ## equation
 
 Book equation 10.3.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Hubness.lean`, theorems `sum_count`, `sum_count_eq`, `count_congr`, `antiHub_iff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Hubness.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Hubness.lean), theorems `sum_count`, `sum_count_eq`, `count_congr`, `antiHub_iff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

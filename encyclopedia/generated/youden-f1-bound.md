@@ -9,6 +9,8 @@
 
 The bound on the best F1 a score can reach at any threshold, from the Youden index, true positive rate minus false positive rate, maximized over thresholds. The bound holds for every score. The form that reads the ceiling from the AUROC holds only for concave ROC curves, with a counterexample at AUROC 0.75.
 
+**Example.** A Youden index of 0.5 at the best threshold bounds the F1 the score can reach at any threshold, for every score.
+
 ## equation
 
 Book equation 5.4.
@@ -72,7 +74,7 @@ Part B.
 
 ## machine checked
 
-`lean/DataMiningAsObservation/YoudenF1.lean`, theorems `f1_eq`, `f1_le_of_youden`, `auroc_eq`, `youden_eq`, `youden_exceeds_auroc_form`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/YoudenF1.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/YoudenF1.lean), theorems `f1_eq`, `f1_le_of_youden`, `auroc_eq`, `youden_eq`, `youden_exceeds_auroc_form`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

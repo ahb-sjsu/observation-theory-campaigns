@@ -9,6 +9,8 @@
 
 Of a spectrum, having a few eigenvalues that carry most of the total. Chapter 0 section 0.4.
 
+**Example.** A spectrum of 1.0, 0.12, 0.06, and 0.02 puts 83 percent of its total in one direction.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Concentrated.lean`, theorems `sq_le_sum_sq`, `effRank_le_of_fraction`, `effRank_le_four`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Concentrated.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Concentrated.lean), theorems `sq_le_sum_sq`, `effRank_le_of_fraction`, `effRank_le_four`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

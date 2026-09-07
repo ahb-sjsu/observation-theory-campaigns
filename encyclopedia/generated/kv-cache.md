@@ -9,6 +9,8 @@
 
 The stored keys and values of earlier tokens, kept so they need not be recomputed. Compressing it is where several of the book's examples go wrong. Chapters 0 and 11.
 
+**Example.** Serving 14000 tokens with 32 heads keeps 14000 keys and values per head for the next token to read.
+
 ## equation
 
 Book equation 0.23.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KVCache.lean`, theorems `cacheBits_tokens`, `cacheBits_half`, `ratios`, `output_of_scores_preserved`, `cosine_not_score`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/KVCache.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/KVCache.lean), theorems `cacheBits_tokens`, `cacheBits_half`, `ratios`, `output_of_scores_preserved`, `cosine_not_score`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

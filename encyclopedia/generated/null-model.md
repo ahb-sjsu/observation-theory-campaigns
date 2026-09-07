@@ -9,6 +9,8 @@
 
 A version of the data with the structure under test removed and everything else kept, the right comparison for any measured statistic. Chapter 0 section 0.9.
 
+**Example.** Shuffling the labels 1000 times and rescoring gives the null distribution the measured score is compared against.
+
 ## equation
 
 Book equation 0.17.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/NullModel.lean`, theorems `card_pos_perm`, `scores_perm`, `stat_of_counts_const`, `excess_eq_zero_iff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/NullModel.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/NullModel.lean), theorems `card_pos_perm`, `scores_perm`, `stat_of_counts_const`, `excess_eq_zero_iff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

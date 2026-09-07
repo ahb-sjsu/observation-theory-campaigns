@@ -9,6 +9,8 @@
 
 A direction a symmetric matrix only stretches, and the factor by which it stretches it. The eigenvectors of a covariance are its principal directions. Equation 0.5.
 
+**Example.** diag(0.3, 1.7) has eigenvalues 0.3 and 1.7 with eigenvectors along the two axes.
+
 ## equation
 
 Book equation 0.5.
@@ -48,7 +50,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Eigen.lean`, theorems `pairing_symm`, `orthogonal_of_ne`, `eigenvalue_nonneg`, `quad_eigen`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Eigen.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Eigen.lean), theorems `pairing_symm`, `orthogonal_of_ne`, `eigenvalue_nonneg`, `quad_eigen`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

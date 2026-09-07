@@ -9,6 +9,8 @@
 
 A row at minimal distance from a query. A strictly increasing transform of the distance names the same nearest neighbours, so the classifier reads the distance's order and nothing else. Chapter 6.
 
+**Example.** Among rows at distances 0.9, 0.4, and 1.2 from a query, the second is the nearest, under any increasing rescaling of the distances.
+
 ## equation
 
 none
@@ -38,9 +40,9 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/NearestNeighbour.lean`, theorems `nearest_comp`, `nearest_smul`, `self_nearest`, `nearest_same_distance`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/NearestNeighbour.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/NearestNeighbour.lean), theorems `nearest_comp`, `nearest_smul`, `self_nearest`, `nearest_same_distance`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/Graph.lean`, theorems `outDegree`, `mutual_symm`, `mutual_sub`, `mutualNbrs_card_le`, `mem_mutualNbrs`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Graph.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Graph.lean), theorems `outDegree`, `mutual_symm`, `mutual_sub`, `mutualNbrs_card_le`, `mem_mutualNbrs`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
