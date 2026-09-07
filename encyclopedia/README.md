@@ -295,3 +295,15 @@ saved in `encyclopedia/figures/<id>.svg` and placed at the top of the entry. A r
 entry by a typed edge, defines, proves, measures, or refutes and corrects, and only records that
 name the entry appear in its body. Records cited beside an entry without naming it are listed
 under its see-also heading. `SCHEMA.md` states the rules.
+
+## The website
+
+`python encyclopedia/build_site.py C:/source` builds the web-first form into `encyclopedia/site/`.
+`index.html` has search, a letter rail, and a tile per entry. Each entry's page opens with a card,
+the definition and aliases, the book version and commit, the epistemic and correction status, the
+defining equation, the assumptions and scope, the prior art, the evidence links, and the last
+semantic review date, followed by the schematic and the full entry. `kinds.html`, `chapters.html`,
+`lean.html`, and `ledger.html` are the back matter, the ledger page printing every cited row once in
+full, and `provenance.html` names the records' commits. `all.html` is the whole site in one file
+with hash routing, for viewing without a server. The PDF is the archival snapshot of the same
+records.
