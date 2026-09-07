@@ -64,3 +64,28 @@ not forecastable from the representation. The paper's successor paragraph is
 updated to report this post-hoc test as executed. A forecaster, if one exists,
 would have to be a tail statistic (of the flagging quantiles, not a global
 correlation) and is genuine future work, not a queued family.
+
+## Tail-statistic probe — the one candidate named above (2026-09-07)
+
+`survival_tail.py` tests that tail idea directly: statistics of the FLAGGED tail
+(`changed = KL[ev] > quantile(KL[cal], 0.75)`, the top-quartile flag set that
+defines the false-clear), not global correlations, across the same 22 units.
+
+| predictor | Spearman | Pearson | adv/inv gap |
+|---|---|---|---|
+| **S_tail_cos** = median cos(e, δ) over the flagged tail | **+0.683** | **+0.878** | +0.331 |
+| S_cos_q90 = 90th-pct \|cos(e, δ)\| over eval | +0.196 | +0.252 | +0.067 |
+| S_rp_q90 = 90th-pct \|e·δ̂\| over eval | +0.398 | +0.416 | +10.9 |
+| S_tail_enorm = median ‖e‖(tail)/median ‖e‖(eval) | −0.534 | −0.253 | −0.392 |
+
+**Near-miss, no rescue.** Restricting the read-alignment cos(e, δ) to the flagged
+tail is by far the strongest forecaster the whole arc has produced — Spearman
+0.683, Pearson 0.878, clean sign separation (advantage median 0.687 vs inversion
+0.356). It confirms the signal lives exactly where the tail hypothesis predicted:
+the advantage tracks read-alignment among the samples that actually get flagged,
+which every central statistic averages away. But 0.683 is below the pre-stated
+0.70 law floor, so by the committed rule there is **no successor and no rescue** —
+the three-strikes negative stands. S_tail_cos is a lead for a future
+preregistration (a directional read-alignment gate evaluated on the flag set),
+not a forecaster this record can stand behind. Records: `survival_tail.py`,
+`survival_tail.json`.
