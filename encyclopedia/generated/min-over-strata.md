@@ -9,6 +9,8 @@
 
 The rule that a verdict over several groups is the worst group's verdict, with abstention counted as a verdict, never the average. Chapter 10.
 
+**Example.** Strata at 0.95, 0.93, 0.97, and 0.66 have a mean of 0.878 and a minimum of 0.66, and the minimum is the verdict.
+
 ## equation
 
 Book equation 10.7.
@@ -47,7 +49,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Certificate.lean`, theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Certificate.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Certificate.lean), theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The requirement that the true-positive rate and the false-positive rate be the same across groups. Equation 0.37.
 
+**Example.** True positive rates of 0.90 and 0.88 with false positive rates of 0.10 and 0.11 across two groups are nearly equalized odds.
+
 ## equation
 
 Book equation 0.37.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/EqualizedOdds.lean`, theorems `parity_of_equal_base`, `favourable_sub`, `parity_iff_equal_base`, `example_conflict`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/EqualizedOdds.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/EqualizedOdds.lean), theorems `parity_of_equal_base`, `favourable_sub`, `parity_iff_equal_base`, `example_conflict`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

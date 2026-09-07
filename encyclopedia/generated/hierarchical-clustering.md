@@ -9,6 +9,8 @@
 
 A clustering that merges the closest pair of clusters at each step, under a linkage that reads the nearest pair, the farthest, or the average, so that merge heights never decrease. Chapter 9.
 
+**Example.** Points at 0, 1, 5, and 6 merge 0 with 1 and 5 with 6 at height 1, then the two pairs at height 4 under single linkage.
+
 ## equation
 
 Book equation 9.1.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Hierarchical.lean`, theorems `single_ge`, `complete_ge`, `average_ge`, `single_le_complete`, `average_between`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Hierarchical.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Hierarchical.lean), theorems `single_ge`, `complete_ge`, `average_ge`, `single_le_complete`, `average_between`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The area under the receiver operating characteristic curve, equal to the probability that a random positive scores above a random negative, ties counted as one half. A strictly increasing transform of the score leaves it unchanged and a strictly decreasing one sends it to one minus itself. Equation 0.16.
 
+**Example.** Positives scoring 0.9 and 0.7 against negatives scoring 0.8 and 0.2 win three of the four pairs, so the AUROC is 0.75.
+
 ## equation
 
 Book equation 0.16.
@@ -48,7 +50,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Auroc.lean`, theorems `pair_nonneg`, `auroc_nonneg`, `auroc_le_one`, `auroc_perfect`, `auroc_reversed`, `auroc_chance`, `auroc_monotone_invariant`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Auroc.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Auroc.lean), theorems `pair_nonneg`, `auroc_nonneg`, `auroc_le_one`, `auroc_perfect`, `auroc_reversed`, `auroc_chance`, `auroc_monotone_invariant`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

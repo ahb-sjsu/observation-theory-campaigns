@@ -9,6 +9,8 @@
 
 The component of a vector along a unit direction. Equation 0.2.
 
+**Example.** The projection of (3, 4) onto the unit direction (1, 0) is (3, 0), and the residual (0, 4) is orthogonal to it.
+
 ## equation
 
 Book equation 0.2.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Projection.lean`, theorems `proj_proj`, `dot_sub_proj`, `proj_sq_le`, `proj_add_orth`, `proj_add`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Projection.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Projection.lean), theorems `proj_proj`, `dot_sub_proj`, `proj_sq_le`, `proj_add_orth`, `proj_add`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

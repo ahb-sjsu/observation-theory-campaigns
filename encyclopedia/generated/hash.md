@@ -9,6 +9,8 @@
 
 A short fixed-length fingerprint of a file, computed so that any change to the file changes the fingerprint. Chapter 0 section 0.12.
 
+**Example.** Changing one byte of a file changes its SHA-256 digest, and two files with different digests are different files.
+
 ## equation
 
 none
@@ -39,7 +41,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Seal.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Seal.lean), theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

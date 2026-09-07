@@ -9,6 +9,8 @@
 
 The squared length of the difference between a row and its approximation, the identity reader's distortion. Chapter 1 section 1.4.
 
+**Example.** Approximating (3, 4) by (3, 0) costs reconstruction error 16.
+
 ## equation
 
 none
@@ -41,9 +43,9 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReconstructionError.lean`, theorems `recon_nonneg`, `recon_eq_zero_iff`, `recon_sum`, `recon_proj`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ReconstructionError.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ReconstructionError.lean), theorems `recon_nonneg`, `recon_eq_zero_iff`, `recon_sum`, `recon_proj`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/ReadDistortion.lean`, theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ReadDistortion.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ReadDistortion.lean), theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The number of directions a dataset varies along locally, whatever the number of its coordinates and whatever the number of its covariance directions. Chapter 0 section 0.10.
 
+**Example.** A circle drawn in three coordinates has intrinsic dimension 1; the recognizer read 1.81, 2.80, and 1.74 on its three templates.
+
 ## equation
 
 Book equation 0.31.
@@ -46,7 +48,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/IntrinsicDimension.lean`, theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/IntrinsicDimension.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/IntrinsicDimension.lean), theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

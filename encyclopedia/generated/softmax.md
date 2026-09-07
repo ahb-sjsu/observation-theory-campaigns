@@ -9,6 +9,8 @@
 
 The function that exponentiates a list of numbers and divides by their sum, so that they are positive and add to one. Equation 0.23.
 
+**Example.** Scores 2, 1, and 0 give weights 0.665, 0.245, and 0.090, which sum to one.
+
 ## equation
 
 Book equation 0.23.
@@ -44,7 +46,7 @@ Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's softm
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Softmax.lean`, theorems `denom_pos`, `softmax_pos`, `softmax_sum`, `softmax_shift`, `softmax_lt_iff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Softmax.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Softmax.lean), theorems `denom_pos`, `softmax_pos`, `softmax_sum`, `softmax_shift`, `softmax_lt_iff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

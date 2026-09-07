@@ -9,6 +9,8 @@
 
 The probability of seeing a difference at least as large as the one observed if the true difference were zero. Chapter 0 section 0.9.
 
+**Example.** A score more extreme than 970 of 1000 null scores has p-value 0.03.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/PValue.lean`, theorems `pvalue_mem_unit`, `pvalue_antitone`, `uniform_bound`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/PValue.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/PValue.lean), theorems `pvalue_mem_unit`, `pvalue_antitone`, `uniform_bound`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

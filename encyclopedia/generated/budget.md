@@ -9,6 +9,8 @@
 
 The third element of an observer. The bits, rows, calls, seconds, or dollars a consumer may spend. Chapter 1.
 
+**Example.** A probe with 2d calls at d equal to 16 spends 32 evaluations for one operating point.
+
 ## equation
 
 Book equation 11.4.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ProbeCliff.lean`, theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ProbeCliff.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ProbeCliff.lean), theorems `centralDiff_affine`, `centralDiff_basis`, `exists_blind_direction`, `indistinguishable`, `budget_cliff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The value at which a score becomes a positive decision. Chapter 6.
 
+**Example.** Scores 0.3, 0.6, and 0.9 at threshold 0.5 give one negative and two positives; at 0.7, two negatives and one positive.
+
 ## equation
 
 Book equation 6.2.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Threshold.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Threshold.lean), theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

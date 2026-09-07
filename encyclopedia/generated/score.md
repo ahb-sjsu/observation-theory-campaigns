@@ -9,6 +9,8 @@
 
 The number a classifier produces per row before a threshold turns it into a decision. Chapter 6.
 
+**Example.** A classifier outputs 0.73 for a row; the threshold, not the score, makes the decision.
+
 ## equation
 
 Book equation 6.1.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Threshold.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Threshold.lean), theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

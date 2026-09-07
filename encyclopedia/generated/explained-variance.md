@@ -9,6 +9,8 @@
 
 The fraction of total variance retained by a set of principal components, the identity reader's criterion for a reduction. Chapter 4.
 
+**Example.** Keeping 2 of the eigenvalues 4, 3, 2, and 1 explains 7 of 10, or 70 percent.
+
 ## equation
 
 Book equation 4.1.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ExplainedVariance.lean`, theorems `explained_mem_unit`, `explained_mono`, `explained_full`, `retained_identity`, `retained_example`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ExplainedVariance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ExplainedVariance.lean), theorems `explained_mem_unit`, `explained_mono`, `explained_full`, `retained_identity`, `retained_example`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

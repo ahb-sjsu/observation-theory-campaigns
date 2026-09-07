@@ -9,6 +9,8 @@
 
 A range that would contain the true value in a stated fraction of repeated samples, usually 95 percent. Chapter 0 section 0.9.
 
+**Example.** A mean of 0.62 with standard error 0.04 has a 95 percent interval of about 0.54 to 0.70.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ConfidenceInterval.lean`, theorems `missRate_eq`, `some_miss_le`, `nine_intervals`, `nine_expected`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ConfidenceInterval.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ConfidenceInterval.lean), theorems `missRate_eq`, `some_miss_le`, `nine_intervals`, `nine_expected`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

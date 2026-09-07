@@ -9,6 +9,8 @@
 
 An instrument's declining to report a number it cannot support. A refusal is a verdict, and it is counted. Chapter 2 section 2.4 and chapter 9 section 9.2.
 
+**Example.** The probe refused to report when 16 samples in 128 dimensions could not resolve rank fifteen.
+
 ## equation
 
 none
@@ -41,7 +43,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Abstention.lean`, theorems `abstain_not_passes`, `verdict_eq_none_iff`, `passes_verdict_iff`, `inf_le_of_subset`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Abstention.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Abstention.lean), theorems `abstain_not_passes`, `verdict_eq_none_iff`, `passes_verdict_iff`, `inf_le_of_subset`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

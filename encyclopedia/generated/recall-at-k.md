@@ -9,6 +9,8 @@
 
 The fraction of a query's true k nearest neighbours that an index returned. Equation 11.3.
 
+**Example.** Returning 7 of a query's 10 true neighbours is recall at 10 of 0.7.
+
 ## equation
 
 Book equation 11.3.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/RecallAtK.lean`, theorems `recallAtK_mem_unit`, `recallAtK_eq_one_iff`, `aggregate_le_of_failing`, `aggregate_example`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/RecallAtK.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/RecallAtK.lean), theorems `recallAtK_mem_unit`, `recallAtK_eq_one_iff`, `aggregate_le_of_failing`, `aggregate_example`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

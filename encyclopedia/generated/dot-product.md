@@ -9,6 +9,8 @@
 
 The sum of the coordinatewise products of two vectors. Equation 0.1.
 
+**Example.** (1, 2) · (3, 4) = 3 + 8 = 11.
+
 ## equation
 
 Book equation 0.1.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DotProduct.lean`, theorems `self_nonneg`, `dot_comm`, `dot_sq_le`, `cosine_mem`, `dot_smul`, `cosine_smul`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/DotProduct.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/DotProduct.lean), theorems `self_nonneg`, `dot_comm`, `dot_sq_le`, `cosine_mem`, `dot_smul`, `cosine_smul`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

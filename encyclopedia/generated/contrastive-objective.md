@@ -9,6 +9,8 @@
 
 A training rule that pulls pairs declared similar together and pushes other pairs apart. The declared pairs are where an encoder learns what similar means. Chapter 12.
 
+**Example.** Two paraphrases are pulled to cosine near one and an unrelated pair pushed toward zero, and the choice of pairs decides what the encoder can tell apart.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Contrastive.lean`, theorems `loss_nonneg`, `loss_eq_zero_iff`, `not_both`, `loss_mono_margin`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Contrastive.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Contrastive.lean), theorems `loss_nonneg`, `loss_eq_zero_iff`, `not_both`, `loss_mono_margin`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

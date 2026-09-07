@@ -9,6 +9,8 @@
 
 The set of inputs whose score equals the threshold. Chapter 6.
 
+**Example.** For the score 2x1 + x2 − 3 at threshold zero, the boundary is the line 2x1 + x2 = 3.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DecisionBoundary.lean`, theorems `orth_stays`, `cross_once`, `same_projection`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/DecisionBoundary.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/DecisionBoundary.lean), theorems `orth_stays`, `cross_once`, `same_projection`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

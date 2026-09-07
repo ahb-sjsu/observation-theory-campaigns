@@ -9,6 +9,8 @@
 
 The case, alignment near one, in which the read subspace and the high-variance subspace coincide and the reconstruction-optimal code is also the read-preserving one. The flip's stated boundary. Chapter 4.
 
+**Example.** Queries drawn from the corpus itself inflated the busiest count from about 61 to 339.9.
+
 ## equation
 
 Book equation 4.6.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Alignment.lean`, theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Alignment.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Alignment.lean), theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

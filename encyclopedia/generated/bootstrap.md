@@ -9,6 +9,8 @@
 
 An estimate of a confidence interval made by resampling the data with replacement many times and recomputing the statistic each time. A paired bootstrap resamples the same rows for two methods at once so that shared sampling variation cancels. Chapter 0 section 0.9.
 
+**Example.** Resample 100 rows with replacement 1000 times, and the spread of the 1000 means is the bootstrap standard error.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Bootstrap.lean`, theorems `mean_sub`, `var_sub`, `paired_lt_iff`, `cov_comm`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Bootstrap.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Bootstrap.lean), theorems `mean_sub`, `var_sub`, `paired_lt_iff`, `cov_comm`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 A classifier that scores by a sequence of axis-aligned splits, flat within each leaf, so that its sensitivity is zero almost everywhere and its importances count splits. Chapter 6.
 
+**Example.** Split on x1 below 5, then on x2 below 4 in the left branch; a row at x1 equal to 5.1 lands in the right leaf whatever x2 is.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DecisionTree.lean`, theorems `stump_flat_left`, `stump_flat_right`, `split_reads_one_axis`, `gini_le_half`, `gini_eq_zero_iff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/DecisionTree.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/DecisionTree.lean), theorems `stump_flat_left`, `stump_flat_right`, `split_reads_one_axis`, `gini_le_half`, `gini_eq_zero_iff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

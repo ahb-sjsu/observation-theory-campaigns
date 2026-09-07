@@ -9,6 +9,8 @@
 
 Of a map between two spaces, neither stretching nor shrinking any distance by more than a fixed factor. Equation 0.21.
 
+**Example.** A map with factor 2 sends a distance of 1 to something between 0.5 and 2.
+
 ## equation
 
 Book equation 0.21.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/BiLipschitz.lean`, theorems `one_le_factor`, `within_comp`, `nn_preserved`, `not_rank_faithful`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/BiLipschitz.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/BiLipschitz.lean), theorems `one_le_factor`, `within_comp`, `nn_preserved`, `not_rank_faithful`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

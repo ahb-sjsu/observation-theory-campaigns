@@ -9,6 +9,8 @@
 
 A clustering that minimizes the sum of squared errors to the cluster centres. The mean minimizes each cluster's error and assigning each row to its nearest centre never raises the total, so it is the identity reader's clustering. Chapter 9.
 
+**Example.** Points 1, 2, and 6 with two centres settle at 1.5 and 6, with sum of squared errors 0.5.
+
 ## equation
 
 Book equation 9.1.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KMeans.lean`, theorems `sse_decomposition`, `mean_minimizes`, `assign_nearest`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/KMeans.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/KMeans.lean), theorems `sse_decomposition`, `mean_minimizes`, `assign_nearest`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

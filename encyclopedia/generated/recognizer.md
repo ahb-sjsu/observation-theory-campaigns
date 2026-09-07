@@ -9,6 +9,8 @@
 
 The instrument that decides whether a clustering certificate is right, wrong, or vacuous, by naming the manifold from the eigenvalue multiplets or certifying that none is present. Chapter 9.
 
+**Example.** The ratios of the lowest eight eigenvalues matched the sphere template, and a shape matching no template was refused.
+
 ## equation
 
 Book equation 9.2.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Recognizer.lean`, theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Recognizer.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Recognizer.lean), theorems `templateDist_self`, `templateDist_comm`, `templateDist_scale`, `templateDist_nonneg`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

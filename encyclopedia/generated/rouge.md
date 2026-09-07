@@ -9,6 +9,8 @@
 
 A family of scores for generated text against a reference. Chapter 0 section 0.11.
 
+**Example.** A generated text that reproduces 6 of a reference's 8 unigrams has ROUGE-1 recall 0.75.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Rouge.lean`, theorems `overlap_le`, `rouge1_mem_unit`, `rouge1_self`, `rouge1_perm`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Rouge.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Rouge.lean), theorems `overlap_le`, `rouge1_mem_unit`, `rouge1_self`, `rouge1_perm`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

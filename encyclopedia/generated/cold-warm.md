@@ -9,6 +9,8 @@
 
 A cold measurement is taken before the cache holds anything useful, a warm one after. A cost figure without one of the two words beside it is not a cost figure. Chapter 0 section 0.13 and chapter 13.
 
+**Example.** The first search at eight probes took 22.30 seconds cold and 0.835 seconds warm.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Cache.lean`, theorems `hitRate_mem_unit`, `hitRate_cold`, `hitRate_warm`, `hitRate_mono`, `hitRate_footprint`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Cache.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Cache.lean), theorems `hitRate_mem_unit`, `hitRate_cold`, `hitRate_warm`, `hitRate_mono`, `hitRate_footprint`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

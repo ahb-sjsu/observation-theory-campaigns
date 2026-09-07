@@ -9,6 +9,8 @@
 
 A test collection built so that a shortcut which passes the benchmark fails on it. Chapter 12.
 
+**Example.** The identity-attack set scored 0.237, with an interval of 0.20 to 0.28 on 289 items, while the benchmark scored 0.909.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ChallengeSet.lean`, theorems `shortcut_passes`, `shortcut_fails`, `benchmark_blind`, `challenge_outside`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ChallengeSet.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ChallengeSet.lean), theorems `shortcut_passes`, `shortcut_fails`, `benchmark_blind`, `challenge_outside`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

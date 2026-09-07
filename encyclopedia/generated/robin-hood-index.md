@@ -9,6 +9,8 @@
 
 The fraction of a total count that would have to move from points above the mean to points below it to make every count equal. Equation 0.35.
 
+**Example.** If 20 percent of the rows take 60 percent of the retrievals, the Robin Hood index is 0.40.
+
 ## equation
 
 Book equation 0.35.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/RobinHood.lean`, theorems `sum_dev`, `excess_eq_half_abs`, `robinHood_nonneg`, `robinHood_eq_zero_iff`, `robinHood_le_one`, `robinHood_scale`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/RobinHood.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/RobinHood.lean), theorems `sum_dev`, `excess_eq_half_abs`, `robinHood_nonneg`, `robinHood_eq_zero_iff`, `robinHood_le_one`, `robinHood_scale`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

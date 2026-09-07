@@ -9,6 +9,8 @@
 
 The sum over rows of the squared distance to the row's cluster centre, the validity index k-means minimizes. Chapter 0 section 0.15.
 
+**Example.** Points 1, 2, and 6 with centres 1.5 and 6 have sum of squared errors 0.25 + 0.25 + 0 = 0.5.
+
 ## equation
 
 Book equation 9.1.
@@ -44,9 +46,9 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/KMeans.lean`, theorems `sse_decomposition`, `mean_minimizes`, `assign_nearest`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/KMeans.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/KMeans.lean), theorems `sse_decomposition`, `mean_minimizes`, `assign_nearest`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/ReconstructionError.lean`, theorems `recon_nonneg`, `recon_eq_zero_iff`, `recon_sum`, `recon_proj`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ReconstructionError.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ReconstructionError.lean), theorems `recon_nonneg`, `recon_eq_zero_iff`, `recon_sum`, `recon_proj`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

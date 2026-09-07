@@ -9,6 +9,8 @@
 
 A sealed statement of what a study will count, drop, or treat as a failure, written before the run. Chapter 8 section 8.8.
 
+**Example.** The declaration named timeouts and numerical failures as counted trajectories before the run, and one count was corrected the next day.
+
 ## equation
 
 none
@@ -41,7 +43,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Seal.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Seal.lean), theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

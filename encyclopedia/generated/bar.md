@@ -9,6 +9,8 @@
 
 A threshold a statistic must reach, written down before the measurement. A bar discriminates only when the null fails it and the real system passes it, and a bar the null passes is vacuous. Chapter 8 section 8.3.
 
+**Example.** A null scoring 0.30 and a system scoring 0.72 are separated by a bar at 0.55, and a bar at 0.25 is vacuous, since the null passes it.
+
 ## equation
 
 Book equation 10.7.
@@ -34,7 +36,7 @@ Chapter 8 section 8.3 of *Data Mining as Observation*, with the anti-vacuity bar
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.3 | anti-vacuity bar, quoted | [`observation-theory-campaigns/experiments/PREREG-PF5-002.md:79-86`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/experiments/PREREG-PF5-002.md#L79-L86) |
+| chapter 8 section 8.3 | anti-vacuity bar, quoted | [`observation-theory-campaigns/experiments/PREREG-PF5-002.md:79-86`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/c38dc0d/experiments/PREREG-PF5-002.md#L79-L86) |
 | chapter 9 section 9.2 | the battery, three new templates, frozen ratios, code hash, bars at least 10 of 12 and the dimension ordering, eccentricity scope | `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80` |
 
 ## failures and corrections
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Bar.lean`, theorems `passes_anti`, `passes_mono`, `discriminates_iff`, `no_bar_of_null_ge`, `exists_bar_of_lt`, `vacuous_of_null_passes`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Bar.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Bar.lean), theorems `passes_anti`, `passes_mono`, `discriminates_iff`, `no_bar_of_null_ge`, `exists_bar_of_lt`, `vacuous_of_null_passes`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

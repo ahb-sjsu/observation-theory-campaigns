@@ -9,6 +9,8 @@
 
 The second derivative of a consumer, which the finite difference of equation 0.8 does not read and which sets the error of the linear model at a step. Chapter 0 section 0.5 and chapter 7 section 7.2.
 
+**Example.** For C(x) equal to x squared, the central difference at 0.8 with step 0.6 gives exactly 1.6, and the one-sided difference gives 2.2.
+
 ## equation
 
 Book equation 0.8.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Curvature.lean`, theorems `second_quad`, `second_affine`, `linear_error`, `gradient_change`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Curvature.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Curvature.lean), theorems `second_quad`, `second_affine`, `linear_error`, `gradient_change`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

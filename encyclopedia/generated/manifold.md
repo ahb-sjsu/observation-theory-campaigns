@@ -9,6 +9,8 @@
 
 A curved surface of some dimension that looks flat when viewed closely. A dataset lies on one when it is locally low-dimensional, which is not the same as varying along fewer covariance directions, since a circle is one-dimensional and uses two coordinates. Chapter 0 section 0.10.
 
+**Example.** A circle in the plane is a one-dimensional manifold that uses both coordinates.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/IntrinsicDimension.lean`, theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/IntrinsicDimension.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/IntrinsicDimension.lean), theorems `log_weyl`, `dimension_from_slope`, `weyl_double`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

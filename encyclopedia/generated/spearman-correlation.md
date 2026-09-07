@@ -9,6 +9,8 @@
 
 The ordinary correlation between two lists of ranks. Equation 0.14.
 
+**Example.** Ranks (1, 2, 3) against (1, 3, 2) give Spearman correlation 0.5.
+
 ## equation
 
 Book equation 0.14.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Spearman.lean`, theorems `rho_le_one`, `rho_identical`, `rho_reversed_three`, `rank_comp`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Spearman.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Spearman.lean), theorems `rho_le_one`, `rho_identical`, `rho_reversed_three`, `rank_comp`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

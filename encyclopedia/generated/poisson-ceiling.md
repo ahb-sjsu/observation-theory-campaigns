@@ -9,6 +9,8 @@
 
 The largest neighbour count that at least one point in a dataset would reach by chance under a Poisson null, above which a count is evidence of a hub. Equation 0.17.
 
+**Example.** With 1000 queries at k equal to 10 over 1000 rows, each row expects 10 retrievals, and a count above about 20 is beyond chance.
+
 ## equation
 
 Book equation 0.17.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/PoissonCeiling.lean`, theorems `mass_nonneg`, `tail_antitone`, `tail_zero`, `tail_le_one`, `expectedAtLeast_antitone`, `example_mean`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/PoissonCeiling.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/PoissonCeiling.lean), theorems `mass_nonneg`, `tail_antitone`, `tail_zero`, `tail_le_one`, `expectedAtLeast_antitone`, `example_mean`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

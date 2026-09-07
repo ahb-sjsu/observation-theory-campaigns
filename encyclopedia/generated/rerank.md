@@ -9,6 +9,8 @@
 
 Reordering a candidate list with a second scorer. Its recall is at most the candidate coverage. Chapter 10 section 10.5.
 
+**Example.** Reranking 100 candidates that hold 70 of the true neighbours can reach recall 0.7 and no more.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Rerank.lean`, theorems `hits_le_coverage`, `recall_le_coverage`, `oracle_rerank`, `coverage_mono`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Rerank.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Rerank.lean), theorems `hits_le_coverage`, `recall_le_coverage`, `oracle_rerank`, `coverage_mono`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

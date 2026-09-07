@@ -9,6 +9,8 @@
 
 A change over time in what a consumer reads or in the data it reads. Chapter 8 tests a drift claim against its null and finds half of it was noise.
 
+**Example.** A read operator measured at rank one moved to correlation 0.667 with its earlier self, against a null of 0.933.
+
 ## equation
 
 Book equation 13.1.
@@ -44,7 +46,7 @@ Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Drift.lean`, theorems `damage_rank_one`, `same_drift_two_consumers`, `damage_eq_zero_of_nuisance`, `damage_nonneg`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Drift.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Drift.lean), theorems `damage_rank_one`, `same_drift_two_consumers`, `damage_eq_zero_of_nuisance`, `damage_nonneg`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

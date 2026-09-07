@@ -9,6 +9,8 @@
 
 An index that partitions vectors into cells by k-means and answers a query by searching only the cells nearest to it. The number of cells searched is the probe count. Chapter 11.
 
+**Example.** A million vectors in 1024 cells, probing 8 cells, scores about 8000 candidates per query.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/InvertedFile.lean`, theorems `scanned_mono`, `found_iff`, `scannedFraction_mem_unit`, `equal_cells`, `scanned_univ`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/InvertedFile.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/InvertedFile.lean), theorems `scanned_mono`, `found_iff`, `scannedFraction_mem_unit`, `equal_cells`, `scanned_univ`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

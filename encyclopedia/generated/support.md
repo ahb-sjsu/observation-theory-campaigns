@@ -9,6 +9,8 @@
 
 Of an itemset, the fraction of transactions that contain it. Chapter 5.
 
+**Example.** An itemset in 30 of 200 baskets has support 0.15.
+
 ## equation
 
 Book equation 5.1.
@@ -46,7 +48,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/SafePruning.lean`, theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/SafePruning.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/SafePruning.lean), theorems `support_anti`, `apriori`, `subset_of_frequent`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

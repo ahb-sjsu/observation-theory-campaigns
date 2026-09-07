@@ -9,6 +9,8 @@
 
 A scorer that averages or votes several scorers. Its average lies between its members and its squared error is at most their mean squared error. Chapter 7.
 
+**Example.** Scores 0.6, 0.7, and 0.8 average 0.7, and the average's squared error is at most the mean of the three squared errors.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Ensemble.lean`, theorems `average_between`, `sq_average_le`, `average_const`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Ensemble.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Ensemble.lean), theorems `average_between`, `sq_average_le`, `average_const`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The operation inside a language model that lets each token look at earlier ones by comparing its query to their keys and averaging their values. Chapter 0 section 0.11.
 
+**Example.** Scores 2, 1, and 0 against three keys give softmax weights 0.665, 0.245, and 0.090.
+
 ## equation
 
 Book equation 0.23.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Attention.lean`, theorems `output_le_max`, `min_le_output`, `output_congr`, `output_nuisance`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Attention.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Attention.lean), theorems `output_le_max`, `min_le_output`, `output_congr`, `output_nuisance`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

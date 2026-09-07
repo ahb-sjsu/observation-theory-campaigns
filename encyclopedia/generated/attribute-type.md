@@ -9,6 +9,8 @@
 
 The declaration of which transformations of a column keep its meaning, any injective relabelling for nominal, a strictly increasing map for ordinal, an affine map for interval, and a positive rescaling for ratio, nested in that order. Chapter 2 section 2.1.
 
+**Example.** Temperature in Celsius is an interval scale, so a ratio of two temperatures means nothing, while 4 metres is twice 2 metres on the ratio scale of length.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/AttributeType.lean`, theorems `scale_affine`, `affine_strictMono`, `strictMono_injective`, `scale_preserves_ratio`, `affine_preserves_difference_ratio`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/AttributeType.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/AttributeType.lean), theorems `scale_affine`, `affine_strictMono`, `strictMono_injective`, `scale_preserves_ratio`, `affine_preserves_difference_ratio`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

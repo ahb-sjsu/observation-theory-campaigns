@@ -9,6 +9,8 @@
 
 Feeding a language model the correct text as context rather than its own earlier outputs. Chapter 0 section 0.11.
 
+**Example.** At step 5 the model is fed the reference's fifth token, not its own fourth guess.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/TeacherForcing.lean`, theorems `free_eq_take`, `free_length`, `free_ne_of_error`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/TeacherForcing.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/TeacherForcing.lean), theorems `free_eq_take`, `free_length`, `free_ne_of_error`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

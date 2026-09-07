@@ -9,6 +9,8 @@
 
 A weighting of term counts by how rare the term is across the collection, so that a term in every document carries no weight. Equation 0.36.
 
+**Example.** A term appearing 5 times in a 100-word document and in 1 of 100 documents weighs 0.05 times the log of 100.
+
 ## equation
 
 Book equation 0.36.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/TFIDF.lean`, theorems `weight_everywhere`, `weight_nonneg`, `weight_antitone`, `tf_mem_unit`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/TFIDF.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/TFIDF.lean), theorems `weight_everywhere`, `weight_nonneg`, `weight_antitone`, `tf_mem_unit`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

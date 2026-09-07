@@ -9,6 +9,8 @@
 
 A representation of a document as a vector with one coordinate per vocabulary term holding that term's count. Chapter 12.
 
+**Example.** The texts 'the reader reads the row' and 'the row reads the reader' have the same counts and are one document to a bag of words.
+
 ## equation
 
 Book equation 0.36.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/BagOfWords.lean`, theorems `bag_perm`, `bag_example`, `bag_sum`, `bag_absent`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/BagOfWords.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/BagOfWords.lean), theorems `bag_perm`, `bag_example`, `bag_sum`, `bag_absent`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

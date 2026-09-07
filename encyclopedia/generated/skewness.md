@@ -9,6 +9,8 @@
 
 The mean cubed deviation of a column from its mean over the cube of its spread, zero for a symmetric column. The hubness gate reads it. Chapter 3 section 3.5.
 
+**Example.** Counts of 1, 1, 1, 1, and 10 have a long right tail and positive skewness, and a symmetric column has zero.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Skewness.lean`, theorems `skew_shift`, `skew_scale`, `skew_neg`, `skew_symmetric`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Skewness.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Skewness.lean), theorems `skew_shift`, `skew_scale`, `skew_neg`, `skew_symmetric`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The failure in which the consumer that was evaluated is not the consumer that was deployed, or time moved between the two. Chapters 1 and 13.
 
+**Example.** The harness read a direction the deployed consumer never sees, and its 0.909 became 0.736 in deployment.
+
 ## equation
 
 none
@@ -32,7 +34,7 @@ Chapter 1 section 1.7 and chapter 13 of *Data Mining as Observation*, with the p
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.6 | XPROTO-LLM, benchmark 0.909, 0.920, 0.909, thirty slices, target 0.8, naive 0.333, aware 0.033, spread 0.380, deployment mean 0.736, six bars on three seeds, sealed 2026-08-25 at b61f7f1 | [`observation-theory-campaigns/experiments/LLM-EVAL-TRACK.md:1-50`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/experiments/LLM-EVAL-TRACK.md#L1-L50); [`observation-theory-campaigns/analysis/llm/XPROTO-LLM-graded.json`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/analysis/llm/XPROTO-LLM-graded.json); [`observation-theory-campaigns/experiments/SEALS.md:85`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/ea929f5/experiments/SEALS.md#L85) |
+| chapter 12 section 12.6 | XPROTO-LLM, benchmark 0.909, 0.920, 0.909, thirty slices, target 0.8, naive 0.333, aware 0.033, spread 0.380, deployment mean 0.736, six bars on three seeds, sealed 2026-08-25 at b61f7f1 | [`observation-theory-campaigns/experiments/LLM-EVAL-TRACK.md:1-50`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/c38dc0d/experiments/LLM-EVAL-TRACK.md#L1-L50); [`observation-theory-campaigns/analysis/llm/XPROTO-LLM-graded.json`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/c38dc0d/analysis/llm/XPROTO-LLM-graded.json); [`observation-theory-campaigns/experiments/SEALS.md:85`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/c38dc0d/experiments/SEALS.md#L85) |
 
 ## failures and corrections
 
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DeploymentMismatch.lean`, theorems `deployment_le_max`, `min_le_deployment`, `deployment_lt_max_of_gap`, `book_numbers`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/DeploymentMismatch.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/DeploymentMismatch.lean), theorems `deployment_le_max`, `min_le_deployment`, `deployment_lt_max_of_gap`, `book_numbers`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

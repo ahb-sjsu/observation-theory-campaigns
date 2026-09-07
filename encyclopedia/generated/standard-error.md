@@ -9,6 +9,8 @@
 
 The spread of an estimate across repeated samples. Chapter 0 section 0.9.
 
+**Example.** A spread of 0.4 over 16 seeds gives standard error 0.1, and over 64 seeds 0.05.
+
 ## equation
 
 Book equation 8.2.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/StandardError.lean`, theorems `se_pos`, `se_quarter`, `se_antitone`, `se_tendsto_zero`, `thousand_folds`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/StandardError.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/StandardError.lean), theorems `se_pos`, `se_quarter`, `se_antitone`, `se_tendsto_zero`, `thousand_folds`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

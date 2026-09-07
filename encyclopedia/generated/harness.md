@@ -9,6 +9,8 @@
 
 The code that evaluates a model. It is itself a consumer with a read subspace, and chapter 8 shows how it reads the test fold when allowed to.
 
+**Example.** Ten folds, five seeds, and 100 samples per fold is a budget of 5000 reads of the data.
+
 ## equation
 
 Book equation 8.1.
@@ -41,7 +43,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Bonferroni.lean`, theorems `family_error_le`, `bonferroni`, `one_look`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Bonferroni.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Bonferroni.lean), theorems `family_error_le`, `bonferroni`, `one_look`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The value of a certificate's statistic below which the certificate is uninformative, derived from the problem rather than tuned to the data. Chapter 9.
 
+**Example.** A certificate statistic at the maximum certifiable value, 1.83, is vacuous, and the derived threshold says so before the data is read.
+
 ## equation
 
 Book equation 9.3.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Vacuity.lean`, theorems `maxOver_mono`, `rho_eq_one_iff`, `rho_lt_one_of_lt`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Vacuity.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Vacuity.lean), theorems `maxOver_mono`, `rho_eq_one_iff`, `rho_lt_one_of_lt`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

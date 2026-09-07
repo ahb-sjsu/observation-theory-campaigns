@@ -9,6 +9,8 @@
 
 Erasing one bit costs at least Boltzmann's constant times the absolute temperature times the natural log of two. Equation 0.27.
 
+**Example.** Erasing one bit at 300 kelvin costs at least 2.87 times 10 to the minus 21 joules.
+
 ## equation
 
 Book equation 0.27.
@@ -60,11 +62,11 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Landauer.lean`, theorems `eMin_300`, `resetBound_le`, `resetBound_zero`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Landauer.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Landauer.lean), theorems `eMin_300`, `resetBound_le`, `resetBound_zero`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 13.
+*Data Mining as Observation* chapters 13.
 
 ## related
 

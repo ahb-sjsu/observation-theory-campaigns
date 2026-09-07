@@ -9,6 +9,8 @@
 
 Removing from a column the least-squares multiple of another. The residual is orthogonal to the column removed. Chapter 8 section 8.6 and chapter 12 section 12.5.
 
+**Example.** Removing the least-squares multiple of (1, 1) from (3, 1) leaves (1, −1), which is orthogonal to (1, 1).
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Residual.lean`, theorems `residual_orth`, `residual_sq`, `residual_of_orth`, `residual_self`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Residual.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Residual.lean), theorems `residual_orth`, `residual_sq`, `residual_of_orth`, `residual_self`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
@@ -56,7 +58,7 @@ Book equations stated beside the entry's terms, not defining it: 0.1, 12.3, 14.2
 
 Ledger rows that cite the entry's records without naming it: GO-B-legal (035→036).
 
-Sources-table rows that share a record with the entry without naming it: chapter 12 section 12.5, chapter 14 section 14.8.
+Sources-table rows that share a record with the entry without naming it: chapter 8 section 8.6, chapter 12 section 12.5, chapter 14 section 14.8.
 
 ## status
 

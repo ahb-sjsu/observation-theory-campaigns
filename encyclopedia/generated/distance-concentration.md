@@ -9,6 +9,8 @@
 
 The narrowing of the spread of pairwise distances as dimension grows, read in the book as the reader running out of resolution. Chapter 3.
 
+**Example.** In 500 dimensions the nearest and the farthest of 1000 random points differ in distance by a few percent.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DistanceConcentration.lean`, theorems `relSpread_eq`, `relSpread_antitone`, `relSpread_tendsto_zero`, `exists_dim_relSpread_lt`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/DistanceConcentration.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/DistanceConcentration.lean), theorems `relSpread_eq`, `relSpread_antitone`, `relSpread_tendsto_zero`, `exists_dim_relSpread_lt`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

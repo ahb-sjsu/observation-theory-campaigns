@@ -9,6 +9,8 @@
 
 The normalized overlap between a consumer's average read operator and the covariance of the data on the read subspace, written kappa, between zero and one. Near one the read subspace and the high-variance subspace coincide and no flip is possible. Chapter 4, equation 4.6.
 
+**Example.** A read operator that lies wholly in one direction and a covariance with half its variance in that direction have alignment one half.
+
 ## equation
 
 Book equation 4.6.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Alignment.lean`, theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Alignment.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Alignment.lean), theorems `overlap_sq_le`, `alignment_le_one`, `alignment_nonneg`, `alignment_eq_one_of_proportional`, `coupling_null`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

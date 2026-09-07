@@ -9,6 +9,8 @@
 
 The value a rank statistic reaches on average under a random ranking. Zero for a correlation, one half for AUROC. Chapter 0 section 0.8.
 
+**Example.** A constant score has AUROC 0.5, and recall at 10 from 100000 rows at random is 0.0001.
+
 ## equation
 
 Book equation 0.38.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ChanceLevel.lean`, theorems `aurocNum_const`, `auroc_const`, `weight_const`, `tau_const`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ChanceLevel.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ChanceLevel.lean), theorems `aurocNum_const`, `auroc_const`, `weight_const`, `tau_const`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

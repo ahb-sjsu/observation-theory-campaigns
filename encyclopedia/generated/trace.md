@@ -9,6 +9,8 @@
 
 The sum of a matrix's diagonal, which for a covariance is the total variance. Equation 0.3.
 
+**Example.** diag(0.3, 1.7) has trace 2.0, the total variance.
+
 ## equation
 
 Book equation 0.3.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Trace.lean`, theorems `trace_add`, `trace_smul`, `trace_one`, `trace_vecMulVec`, `trace_mul_comm`, `trace_read`, `trace_identity_read`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Trace.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Trace.lean), theorems `trace_add`, `trace_smul`, `trace_one`, `trace_vecMulVec`, `trace_mul_comm`, `trace_read`, `trace_identity_read`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

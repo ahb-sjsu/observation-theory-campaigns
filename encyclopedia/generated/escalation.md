@@ -9,6 +9,8 @@
 
 The decision to hand an item to a person rather than decide it, the single-decision form of abstention. Chapter 14.
 
+**Example.** A decision the certificate cannot clear at its bar is handed to a person, and the count of escalations is reported.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Escalation.lean`, theorems `decided_anti`, `coverage_anti`, `decided_margin`, `decided_zero`, `joint_rate`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Escalation.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Escalation.lean), theorems `decided_anti`, `coverage_anti`, `decided_margin`, `decided_zero`, `joint_rate`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
