@@ -9,6 +9,8 @@
 
 A rule for the distance between two rows or two outputs. A distance is a choice of what to ignore, and a local metric on an output is a positive semidefinite matrix, a pseudometric until its kernel is quotiented out, which the book calls a metric by convention. Chapter 3 section 3.1 and chapter 0 section 0.5.
 
+**Example.** Euclidean distance between (0, 0) and (3, 4) is 5, and a metric that ignores the second coordinate reads 3.
+
 ## equation
 
 Book equation 3.1.
@@ -45,9 +47,9 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/EuclideanDistance.lean`, theorems `distSq_eq_quad_one`, `distSq_comm`, `distSq_eq_zero_iff`, `ranking_flips`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/EuclideanDistance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/EuclideanDistance.lean), theorems `distSq_eq_quad_one`, `distSq_comm`, `distSq_eq_zero_iff`, `ranking_flips`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/OutputMetric.lean`, theorems `neg_reverses`, `readOp_of_neg`, `cost_flips`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/OutputMetric.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/OutputMetric.lean), theorems `neg_reverses`, `readOp_of_neg`, `cost_flips`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

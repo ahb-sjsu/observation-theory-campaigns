@@ -9,6 +9,8 @@
 
 The row at which a consumer is read, or the threshold at which a classifier is scored. A probe pays 2d evaluations for one. Chapter 0 section 0.5 and chapter 11 section 11.7.
 
+**Example.** A probe at one row with 16 directions spends 32 calls at that one operating point.
+
 ## equation
 
 Book equation 0.8.
@@ -44,9 +46,9 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/FiniteDifference.lean`, theorems `central_quad`, `forward_quad`, `forward_error`, `central_cost`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/FiniteDifference.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/FiniteDifference.lean), theorems `central_quad`, `forward_quad`, `forward_error`, `central_cost`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/Threshold.lean`, theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Threshold.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Threshold.lean), theorems `predicted_anti`, `tp_anti`, `fp_anti`, `decision_comp`, `predicted_extremes`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

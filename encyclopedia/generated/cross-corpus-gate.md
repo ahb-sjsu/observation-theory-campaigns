@@ -9,6 +9,8 @@
 
 The validation rule that an encoder votes only if its held-out AUROC on a corpus it was not trained on clears a preregistered margin over a bag-of-words null. Chapters 12 and 14.
 
+**Example.** The rights encoder needed a margin of 0.10 over a bag-of-words null on a corpus it never saw; it scored 0.509 against the null's 0.512 and failed.
+
 ## equation
 
 Book equation 12.3.
@@ -45,7 +47,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CrossCorpusGate.lean`, theorems `clears_bow`, `clears_untrained`, `not_validated_of_saturated`, `margin_example`, `validated_comp`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/CrossCorpusGate.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/CrossCorpusGate.lean), theorems `clears_bow`, `clears_untrained`, `not_validated_of_saturated`, `margin_example`, `validated_comp`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

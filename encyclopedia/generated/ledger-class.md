@@ -9,6 +9,8 @@
 
 One of six labels every headline claim carries, proved, demonstrated, replicated, predicted, exploratory, or refuted, defined in the evidence ledger of Volume 14. Chapter 1.
 
+**Example.** GO-1 is demonstrated, NEG-2 is refuted, and a row whose bar the null passed is void.
+
 ## equation
 
 none
@@ -39,7 +41,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Ledger.lean`, theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Ledger.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Ledger.lean), theorems `step_none`, `step_miss_le`, `step_pass_ge`, `step_miss_refuted`, `exploratory_stays`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

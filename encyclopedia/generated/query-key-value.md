@@ -9,6 +9,8 @@
 
 The three vectors each token produces inside attention. The query is compared to earlier keys and the result weights the values. Chapter 0 section 0.11.
 
+**Example.** A query scores each key, the scores become softmax weights, and the weights mix the values into one output.
+
 ## equation
 
 Book equation 0.23.
@@ -47,7 +49,7 @@ Chapter 0 section 0.11 of *Data Mining as Observation*, with the program's key-s
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Attention.lean`, theorems `output_le_max`, `min_le_output`, `output_congr`, `output_nuisance`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Attention.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Attention.lean), theorems `output_le_max`, `min_le_output`, `output_congr`, `output_nuisance`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 A set of items that appear together in a transaction. A closed itemset has no superset with the same support and a maximal one has no frequent superset. Chapter 5.
 
+**Example.** Bread and butter together is an itemset, and its support is the number of baskets holding both.
+
 ## equation
 
 Book equation 5.1.
@@ -46,7 +48,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ItemSet.lean`, theorems `supportFrac_mem_unit`, `supportFrac_empty`, `supportFrac_anti`, `supportFrac_union_le`, `closed_of_maximal`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ItemSet.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ItemSet.lean), theorems `supportFrac_mem_unit`, `supportFrac_empty`, `supportFrac_anti`, `supportFrac_union_le`, `closed_of_maximal`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 A graph on a dataset that joins each row to its k nearest rows, or to every row within a radius. Chapter 0 section 0.10.
 
+**Example.** A 5-nearest-neighbour graph on 1000 rows has 5000 out-edges, five from each row.
+
 ## equation
 
 Book equation 0.20.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Graph.lean`, theorems `outDegree`, `mutual_symm`, `mutual_sub`, `mutualNbrs_card_le`, `mem_mutualNbrs`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Graph.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Graph.lean), theorems `outDegree`, `mutual_symm`, `mutual_sub`, `mutualNbrs_card_le`, `mem_mutualNbrs`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

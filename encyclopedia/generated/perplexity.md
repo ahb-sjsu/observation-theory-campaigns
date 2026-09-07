@@ -9,6 +9,8 @@
 
 Two to the power of the average number of bits a language model needs per token of a test text. Lower is better. Equation 0.22.
 
+**Example.** An average of 3.585 bits per token gives perplexity 2 to the 3.585, which is 12.
+
 ## equation
 
 Book equation 0.22.
@@ -47,7 +49,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Perplexity.lean`, theorems `bits_nonneg`, `one_le_perplexity`, `perplexity_uniform`, `perplexity_mono`, `bits_of_finding`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Perplexity.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Perplexity.lean), theorems `bits_nonneg`, `one_le_perplexity`, `perplexity_uniform`, `perplexity_mono`, `bits_of_finding`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

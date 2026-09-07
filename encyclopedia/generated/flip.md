@@ -9,6 +9,8 @@
 
 At matched bits, the outcome in which the code with the worse reconstruction error scores better on the consumer's task, while a code built to destroy the read subspace scores worst. The book's central empirical claim. Chapter 4.
 
+**Example.** Codes diag(0.3, 1.7) and diag(1.7, 0.3) have the same total error 2.0, and a reader at 15 degrees pays 0.394 for one and 1.606 for the other.
+
 **Known as, or related to prior art.** Consumer-relative compression sits beside the information bottleneck of Tishby, Pereira, and Bialek and beside task-based quantization. The flip is the measured claim that at matched bits the code that reconstructs worse can serve the consumer better.
 
 ## equation
@@ -75,7 +77,7 @@ Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:1-30`, DOI 1
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Flip.lean`, theorems `trace_eq`, `reading_difference`, `reader_swap_reverses`, `flip`, `cos_sq_pi_div_twelve`, `sin_sq_pi_div_twelve`, `reading_15_first`, `reading_15_second`, `sqrt_three_bounds`, `readings_15_to_three_decimals`, `reader_75_is_swap`, `four_to_one_flip`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Flip.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Flip.lean), theorems `trace_eq`, `reading_difference`, `reader_swap_reverses`, `flip`, `cos_sq_pi_div_twelve`, `sin_sq_pi_div_twelve`, `reading_15_first`, `reading_15_second`, `sqrt_three_bounds`, `readings_15_to_three_decimals`, `reader_75_is_swap`, `four_to_one_flip`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

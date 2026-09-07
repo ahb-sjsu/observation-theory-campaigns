@@ -9,6 +9,8 @@
 
 For a row, the difference between its mean distance to the nearest other cluster and its mean distance to its own cluster, divided by the larger of the two. Equation 0.30.
 
+**Example.** A point with mean distance 1 to its own cluster and 4.5 to the nearest other has silhouette 3.5 over 4.5, or 0.778.
+
 ## equation
 
 Book equation 0.30.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Silhouette.lean`, theorems `silhouette_mem`, `silhouette_pos_iff`, `silhouette_scale`, `silhouette_self`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Silhouette.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Silhouette.lean), theorems `silhouette_mem`, `silhouette_pos_iff`, `silhouette_scale`, `silhouette_self`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

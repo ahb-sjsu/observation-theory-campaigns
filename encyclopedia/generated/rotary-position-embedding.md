@@ -9,6 +9,8 @@
 
 A rotation applied to queries and keys that encodes where each token sits in the sequence. Chapter 0 section 0.11.
 
+**Example.** A query at position 5 and a key at position 3 score exactly as they would at positions 105 and 103.
+
 ## equation
 
 Book equation 0.23.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Rope.lean`, theorems `rot_length`, `rot_dot`, `relative_position`, `shift_invariant`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Rope.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Rope.lean), theorems `rot_length`, `rot_dot`, `relative_position`, `shift_invariant`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

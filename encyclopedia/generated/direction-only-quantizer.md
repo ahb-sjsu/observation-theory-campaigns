@@ -9,6 +9,8 @@
 
 A quantizer that stores each vector's length exactly and rounds its direction. Chapter 11.
 
+**Example.** A vector of length 5 at 30 degrees is stored as the length 5 exactly and the direction rounded to the nearest of 16 angles.
+
 ## equation
 
 Book equation 11.1.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DirectionQuantizer.lean`, theorems `length_preserved`, `score_eq`, `score_error`, `cosine_eq`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/DirectionQuantizer.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/DirectionQuantizer.lean), theorems `length_preserved`, `score_eq`, `score_error`, `cosine_eq`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

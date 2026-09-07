@@ -9,6 +9,8 @@
 
 The consumer whose read operator is the identity, for which read distortion is mean squared error. Every consumer-blind metric assumes it. Chapter 0 section 0.5.
 
+**Example.** The identity reader charges 0.3 + 1.7 = 2.0 for either of the two codes and cannot tell them apart.
+
 ## equation
 
 Book equation 0.10.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReadDistortion.lean`, theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ReadDistortion.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ReadDistortion.lean), theorems `read_distortion`, `identity_reader`, `quad_one`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

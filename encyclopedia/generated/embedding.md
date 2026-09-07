@@ -9,6 +9,8 @@
 
 A vector assigned to an object, a word, a sentence, a node, a document, so that nearness in the vector space stands for a relation between the objects. Chapter 11.
 
+**Example.** A sentence becomes a vector of 768 numbers, and two paraphrases become vectors with cosine near one.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Embedding.lean`, theorems `quotient`, `cosine_scale_free`, `nearest_scale_free`, `dot_not_scale_free`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Embedding.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Embedding.lean), theorems `quotient`, `cosine_scale_free`, `nearest_scale_free`, `dot_not_scale_free`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

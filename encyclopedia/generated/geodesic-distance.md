@@ -9,6 +9,8 @@
 
 The length of the shortest path along edges between two nodes of a graph. Chapter 0 section 0.10.
 
+**Example.** On a circle of radius 1, two points a quarter turn apart are 1.414 apart through the plane and 1.571 apart along the circle.
+
 ## equation
 
 Book equation 3.2.
@@ -47,7 +49,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/GeodesicDistance.lean`, theorems `dist_self`, `dist_comm`, `dist_triangle`, `dist_adj`, `geodesic_rank_invariant`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/GeodesicDistance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/GeodesicDistance.lean), theorems `dist_self`, `dist_comm`, `dist_triangle`, `dist_adj`, `geodesic_rank_invariant`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

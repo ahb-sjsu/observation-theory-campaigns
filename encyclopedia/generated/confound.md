@@ -9,6 +9,8 @@
 
 A variable that moves with both the treatment and the outcome so that a measured difference cannot be attributed. Chapter 8 requires controls before a claim.
 
+**Example.** A codebook change that arrived with a compression change moved 25 percent of the score on its own, so the comparison was confounded.
+
 ## equation
 
 Book equation 8.3.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Confound.lean`, theorems `mean_outcome`, `naive_diff`, `naive_diff_of_balanced`, `naive_diff_of_no_effect`, `bias_unbounded`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Confound.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Confound.lean), theorems `mean_outcome`, `naive_diff`, `naive_diff_of_balanced`, `naive_diff_of_no_effect`, `bias_unbounded`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The fraction of decisions a certificate clears, reported beside its false-clear rate, since a certificate that clears nothing has a false-clear rate of zero and no use. Equation 0.26.
 
+**Example.** A certificate that clears 500 of 1000 decisions has coverage one half.
+
 ## equation
 
 Book equation 0.26.
@@ -41,7 +43,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Certificate.lean`, theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Certificate.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Certificate.lean), theorems `falseClear_mul_coverage`, `coverage_empty`, `falseClear_mem_unit`, `minOverStrata_passes_iff`, `minOverStrata_le_weighted_mean`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

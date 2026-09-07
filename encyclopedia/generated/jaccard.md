@@ -9,6 +9,8 @@
 
 The size of the intersection of two sets over the size of their union, between zero and one, zero exactly when the sets are disjoint, which discards joint absence. Chapter 0 section 0.6 and chapter 3.
 
+**Example.** Sets {a, b, c} and {b, c, d} share 2 of 4 elements, a Jaccard coefficient of 0.5.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Jaccard.lean`, theorems `jaccard_nonneg`, `jaccard_le_one`, `jaccard_self`, `jaccard_comm`, `jaccard_eq_zero_iff`, `jaccard_subset`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Jaccard.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Jaccard.lean), theorems `jaccard_nonneg`, `jaccard_le_one`, `jaccard_self`, `jaccard_comm`, `jaccard_eq_zero_iff`, `jaccard_subset`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 A system that answers a question by chunking documents, embedding the chunks, indexing them, retrieving the nearest to the embedded question, and handing them to a generator. A chain of observers. Chapter 12.
 
+**Example.** Chunker, encoder, index, generator: a query becomes a vector, the vector a candidate list, and the list with the question an answer.
+
 ## equation
 
 Book equation 12.1.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Pipeline.lean`, theorems `quotient_inherited`, `quotient_inherited_chain`, `rank_comp_le_first`, `rank_comp_le_second`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Pipeline.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Pipeline.lean), theorems `quotient_inherited`, `quotient_inherited_chain`, `rank_comp_le_first`, `rank_comp_le_second`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

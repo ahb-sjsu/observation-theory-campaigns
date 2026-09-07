@@ -9,6 +9,8 @@
 
 Splitting the data into folds and evaluating on each fold a model trained on the others. Repeated cross-validation multiplies confidence it did not earn, chapter 8 section 8.5.
 
+**Example.** Ten folds of 100 rows each test every row once, and the overall accuracy is the mean of the ten fold accuracies.
+
 ## equation
 
 Book equation 8.2.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CrossValidation.lean`, theorems `sizes_sum`, `accuracy_weighted`, `accuracy_mean_of_equal`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/CrossValidation.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/CrossValidation.lean), theorems `sizes_sum`, `accuracy_weighted`, `accuracy_mean_of_equal`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

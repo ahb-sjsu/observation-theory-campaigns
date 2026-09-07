@@ -9,6 +9,8 @@
 
 A bound, computed from a compressed representation, that certifies which neighbour rankings the compression preserved for a consumer and which it did not. In its strict setting the floor is a guarantee, in its percentile setting an estimate. A vacuous result supplies no guarantee about the corpus, and falling back to exact reranking is the program's policy for it rather than a consequence. Chapter 11.
 
+**Example.** A ratio spread kappa of 1.0148 with mu of 0.0664 certifies Kendall tau at least 0.8671 across 19900 pairs.
+
 ## equation
 
 none
@@ -41,7 +43,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/RankCertificate.lean`, theorems `nn_preserved`, `nn_preserved_of_kappa_one`, `kappa_ge_one`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/RankCertificate.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/RankCertificate.lean), theorems `nn_preserved`, `nn_preserved_of_kappa_one`, `kappa_ge_one`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

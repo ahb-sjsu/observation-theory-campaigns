@@ -79,3 +79,12 @@ Two optional fields sit beside `definition`: `definition` in `entries.toml` over
 glossary when an entry has no glossary headword, and `known_as` names the prior art the entry
 sits beside or extends. Source citations are written with one separator, `repo/path:lines`,
 and link to the file at the commit it was read at.
+
+## Examples and the TSK map
+
+`examples.toml` holds one worked example per entry, a line a student can check by hand, in
+the manner of the book's chapter 0. The generator prints it under the definition and fails
+the build when an entry has no example or an example names no entry. `tsk_map.toml` is the
+curated table from a term of Tan, Steinbach, Karpatne, and Kumar, *Introduction to Data
+Mining*, second edition, to the entries to read and the chapter of *Data Mining as
+Observation* that takes the term up. The README, the PDF, and the site print it.

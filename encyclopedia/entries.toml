@@ -4273,3 +4273,21 @@ conditions = [
   "The sum over rows of the squared distance to the row's cluster centre, the validity index k-means minimizes. The error about any centre is the error about the mean plus the count times the squared distance between the two, so the mean minimizes it, and it is the identity reader's distortion summed within clusters.",
   "Two clusterings of the same rows with the same sum of squared errors can be read oppositely by a consumer that weighs directions unequally.",
 ]
+
+[[entry]]
+id = "licensed"
+kind = "concept"
+title = "licensed, not licensed"
+glossary = "licensed, not licensed"
+reviewed = "2026-09-06"
+equations = ["8.3"]
+ledger = ["OT-11", "GO-2 (neg. half"]
+first_stated = "The table in how to use this book, and chapter 8 section 8.10 of *Data Mining as Observation*, with the six classes in `geometric-observation/PROTOCOL.md:58-75`."
+book_records = ["PROTOCOL.md:58-75", "OBSERVATION.md:43-45"]
+book_terms = ["\blicensed\b", "not licensed"]
+lean = ["observation-data-mining:lean/DataMiningAsObservation/Bar.lean", "observation-data-mining:lean/DataMiningAsObservation/Seal.lean"]
+related = ["ledger-class", "sealed", "bar", "posited-versus-measured", "registered"]
+conditions = [
+  "A claim is licensed when it is a theorem checked in Lean, or a measurement sealed with its commit hash before the run that survived its registered null and bar, so that a changed digest would prove a changed prediction and the bar discriminated the system from the null. A chapter may rest its thesis on a licensed claim.",
+  "A claim is not licensed when it is exploratory, a retrospective fit, a single seed, or posited, and a chapter may mention it and may not lean on it. The classes between, demonstrated, replicated, and predicted, are defined in chapter 8, and a row of the table names which one each claim carries.",
+]

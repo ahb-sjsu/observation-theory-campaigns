@@ -9,6 +9,8 @@
 
 The fraction of predicted positives that are truly positive, and the fraction of true positives that were predicted. Equation 0.28.
 
+**Example.** Ten rows called positive, six of them correct, out of eight true positives, is precision 0.6 and recall 0.75.
+
 ## equation
 
 Book equation 0.28.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/PrecisionRecall.lean`, theorems `precision_mem_unit`, `recall_mem_unit`, `f1_le_mean`, `min_le_f1`, `f1_self`, `f1_zero`, `f1_counts`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/PrecisionRecall.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/PrecisionRecall.lean), theorems `precision_mem_unit`, `recall_mem_unit`, `f1_le_mean`, `min_le_f1`, `f1_self`, `f1_zero`, `f1_counts`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

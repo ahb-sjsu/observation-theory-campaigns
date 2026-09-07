@@ -9,6 +9,8 @@
 
 The matrix of pairwise covariances of a set of rows, whose trace is the total variance. Equation 0.3.
 
+**Example.** Two columns with variances 0.3 and 1.7 and no covariance have covariance matrix diag(0.3, 1.7) and trace 2.0.
+
 ## equation
 
 Book equation 0.3.
@@ -45,7 +47,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Covariance.lean`, theorems `var_eq_quad`, `trace_eq_total`, `quad_nonneg`, `cov_symm`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Covariance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Covariance.lean), theorems `var_eq_quad`, `trace_eq_total`, `quad_nonneg`, `cov_symm`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

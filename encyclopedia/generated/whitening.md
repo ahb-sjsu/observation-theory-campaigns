@@ -9,6 +9,8 @@
 
 Rescaling centred data by the inverse square root of a positive-definite covariance, or a pseudoinverse on its support, so that the covariance becomes the identity. Euclidean distance after whitening is Mahalanobis distance before it. Equation 0.6.
 
+**Example.** With covariance diag(1, 4), the row (3, 4) whitens to (3, 2).
+
 ## equation
 
 Book equation 0.6.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Whitening.lean`, theorems `whiten_unit_variance`, `whiten_sq_sum`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Whitening.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Whitening.lean), theorems `whiten_unit_variance`, `whiten_sq_sum`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

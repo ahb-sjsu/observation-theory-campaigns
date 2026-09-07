@@ -24,6 +24,7 @@ import tomllib
 from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+GITHUB = "https://github.com/ahb-sjsu"
 SRC = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 CFG = tomllib.load(open(os.path.join(HERE, "entries.toml"), "rb"))
 REPOS = {name: os.path.join(SRC, rel) for name, rel in CFG["repos"].items()}
@@ -56,7 +57,7 @@ def read(repo, rel):
 
 
 # ---------------------------------------------------------------- the book
-CHAPTERS = sorted(glob.glob(os.path.join(BOOK, "chapters", "ch*.md")))
+CHAPTERS = sorted(glob.glob(os.path.join(BOOK, "chapters", "ch*.md"))) + sorted(glob.glob(os.path.join(BOOK, "chapters", "appendix_*.md")))
 CHTEXT = {os.path.basename(p): open(p, encoding="utf-8").read() for p in CHAPTERS}
 GLOSSARY = open(os.path.join(BOOK, "chapters", "glossary.md"), encoding="utf-8").read()
 
@@ -79,6 +80,8 @@ def sources_rows(substrings):
     """Rows of the book's sources tables whose Source cell mentions any of the substrings."""
     rows = []
     for name, text in CHTEXT.items():
+        if not name.startswith("ch"):
+            continue
         chnum = int(name[2:4])
         in_sources = False
         for line in text.split("\n"):
@@ -99,7 +102,7 @@ def chapters_mentioning(patterns):
     out = []
     for name, text in CHTEXT.items():
         body = "\n".join(l for l in text.split("\n") if not l.startswith("|"))
-        if rx.search(body):
+        if rx.search(body) and name.startswith("ch"):
             out.append(int(name[2:4]))
     return out
 
@@ -194,11 +197,13 @@ def lean_theorems(spec):
     repo, rel = spec.split(":", 1)
     text = read(repo, rel)
     names = re.findall(r"^theorem (\w+)", text, re.M)
-    return f"`{rel}`, theorems " + ", ".join(f"`{n}`" for n in names) + f", at {repo} {COMMITS.get(repo, '?')}."
+    url = f"{GITHUB}/{repo}/blob/{COMMITS.get(repo, 'master')}/{rel}"
+    appx = f"{GITHUB}/{repo}/blob/{COMMITS.get(repo, 'master')}/chapters/machine_checked.md"
+    return (f"[`{rel}`]({url}), theorems " + ", ".join(f"`{n}`" for n in names)
+            + f", at {repo} {COMMITS.get(repo, '?')}; what the check covers is stated in the book's [appendix C]({appx}).")
 
 
 # ---------------------------------------------------------------- relationships
-GITHUB = "https://github.com/ahb-sjsu"
 CLASS_EDGE = {"proved": "proves", "demonstrated": "measures", "replicated": "measures", "predicted": "measures",
               "exploratory": "measures", "refuted": "refutes or corrects", "missed": "refutes or corrects",
               "void": "refutes or corrects"}
@@ -271,6 +276,7 @@ def short(claim, n=240):
 
 
 # ---------------------------------------------------------------- assembly
+EXAMPLES = tomllib.load(open(os.path.join(HERE, "examples.toml"), "rb")) if os.path.exists(os.path.join(HERE, "examples.toml")) else {}
 FIGDIR = os.path.join(HERE, "figures")
 CAPTIONS = {}
 if os.path.exists(os.path.join(FIGDIR, "captions.toml")):
@@ -283,6 +289,8 @@ def build(e):
         out += [f"![{CAPTIONS.get(e['id'], e['title'])}](../figures/{e['id']}.svg)", ""]
     definition = e.get("definition") or (glossary_definition(e["glossary"]) if e.get("glossary") else "")
     out += ["## definition", "", definition or "none", ""]
+    if e["id"] in EXAMPLES:
+        out += [f"**Example.** {EXAMPLES[e['id']]}", ""]
     if e.get("known_as"):
         out += [f"**Known as, or related to prior art.** {e['known_as']}", ""]
     # equations: defining ones are those whose paragraph in the book names the entry
@@ -377,6 +385,13 @@ def build(e):
     return "\n".join(out)
 
 
+ids = {e["id"] for e in CFG["entry"]}
+for k in EXAMPLES:
+    if k not in ids:
+        problems.append(f"example for unknown entry {k}")
+for e in CFG["entry"]:
+    if e["id"] not in EXAMPLES:
+        problems.append(f"no example for {e['id']}")
 for e in CFG["entry"]:
     text = build(e)
     open(os.path.join(OUT, e["id"] + ".md"), "w", encoding="utf-8").write(text)

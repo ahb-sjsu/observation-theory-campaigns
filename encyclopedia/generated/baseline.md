@@ -9,6 +9,8 @@
 
 The simplest scorer a claim must beat under the same protocol, chance, a constant, an untrained encoder, or a single model. A score below it is a finding. Chapter 6 section 6.3 and chapter 7 section 7.4.
 
+**Example.** An untrained encoder scored 0.50 on the rights corpus and the trained one 0.467, below the baseline.
+
 ## equation
 
 none
@@ -40,9 +42,9 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ChanceLevel.lean`, theorems `aurocNum_const`, `auroc_const`, `weight_const`, `tau_const`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ChanceLevel.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ChanceLevel.lean), theorems `aurocNum_const`, `auroc_const`, `weight_const`, `tau_const`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/Bar.lean`, theorems `passes_anti`, `passes_mono`, `discriminates_iff`, `no_bar_of_null_ge`, `exists_bar_of_lt`, `vacuous_of_null_passes`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Bar.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Bar.lean), theorems `passes_anti`, `passes_mono`, `discriminates_iff`, `no_bar_of_null_ge`, `exists_bar_of_lt`, `vacuous_of_null_passes`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

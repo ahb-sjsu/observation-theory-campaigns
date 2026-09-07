@@ -9,6 +9,8 @@
 
 The small set of allowed values a quantizer replaces each number with. Chapter 0 section 0.11.
 
+**Example.** A codebook of four values, 0, 1, 2, and 3, replaces 1.4 with 1 and 2.6 with 3.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Codebook.lean`, theorems `distortion_nonneg`, `distortion_codeword`, `distortion_anti`, `exists_nearest`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Codebook.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Codebook.lean), theorems `distortion_nonneg`, `distortion_codeword`, `distortion_anti`, `exists_nearest`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

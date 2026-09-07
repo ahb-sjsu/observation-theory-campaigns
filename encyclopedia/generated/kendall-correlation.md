@@ -9,6 +9,8 @@
 
 The fraction of item pairs two rankings order the same way, minus the fraction they order differently. Equation 0.15.
 
+**Example.** Rankings (1, 2, 3) and (1, 3, 2) agree on two pairs and disagree on one, Kendall tau one third.
+
 ## equation
 
 Book equation 0.15.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Kendall.lean`, theorems `not_both`, `card_add_le`, `tau_mem`, `concordant_comp`, `discordant_comp`, `tau_comp`, `discordant_self`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Kendall.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Kendall.lean), theorems `not_both`, `card_add_le`, `tau_mem`, `concordant_comp`, `discordant_comp`, `tau_comp`, `discordant_self`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

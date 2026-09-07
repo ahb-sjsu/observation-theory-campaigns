@@ -9,6 +9,8 @@
 
 The cosine of two centred columns, between minus one and one, unchanged by shifting or rescaling either. Its distance lives on the quotient that discards shift and scale. Chapter 0 section 0.6.
 
+**Example.** Columns (1, 2, 3) and (2, 4, 6) have correlation 1, and (1, 2, 3) and (3, 2, 1) have correlation minus 1.
+
 ## equation
 
 none
@@ -40,11 +42,11 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Correlation.lean`, theorems `abs_corr_le_one`, `corr_self`, `cosine_comm`, `corr_comm`, `center_shift`, `center_smul`, `corr_shift`, `corr_smul`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Correlation.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Correlation.lean), theorems `abs_corr_le_one`, `corr_self`, `cosine_comm`, `corr_comm`, `center_shift`, `center_smul`, `corr_shift`, `corr_smul`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.
+*Data Mining as Observation* chapters 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14.
 
 ## related
 

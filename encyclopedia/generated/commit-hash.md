@@ -9,6 +9,8 @@
 
 The fingerprint git assigns to a snapshot of a repository and its history, which identifies the content exactly and does not by itself prove when it existed. Chronology comes from a public push, a signed tag, or an archival deposit. Chapter 0 section 0.12.
 
+**Example.** Commit 3172e00 identifies one snapshot of the book's repository and every file in it, and says nothing about the clock.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Seal.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Seal.lean), theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

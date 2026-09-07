@@ -9,6 +9,8 @@
 
 The rate of a favourable decision in one group divided by the rate in another. Equation 0.37.
 
+**Example.** Positive rates of 0.48 for one group and 0.60 for another give a ratio of 0.8.
+
 ## equation
 
 Book equation 0.37.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/DisparateImpact.lean`, theorems `ratio_eq_one_iff`, `ratio_swap`, `four_fifths_iff`, `verdict_le_iff`, `weighted_le_verdict`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/DisparateImpact.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/DisparateImpact.lean), theorems `ratio_eq_one_iff`, `ratio_swap`, `four_fifths_iff`, `verdict_le_iff`, `weighted_le_verdict`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

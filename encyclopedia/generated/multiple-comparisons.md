@@ -9,6 +9,8 @@
 
 The inflation of false positives when many hypotheses are tested and the best is reported. The rate one minus one minus alpha to the m assumes independent tests, and the Bonferroni bound, which divides the threshold by the number of tests, holds under any dependence. Chapter 0 section 0.9.
 
+**Example.** Forty independent tests at 5 percent pass at least one by chance 87 percent of the time, and Bonferroni tests each at 0.125 percent.
+
 ## equation
 
 Book equation 8.3.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/MultipleComparisons.lean`, theorems `max_ge_each`, `book_numbers`, `corrected_family_rate`, `expectedPasses_unbounded`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/MultipleComparisons.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/MultipleComparisons.lean), theorems `max_ge_each`, `book_numbers`, `corrected_family_rate`, `expectedPasses_unbounded`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

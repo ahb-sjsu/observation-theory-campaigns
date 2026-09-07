@@ -9,6 +9,8 @@
 
 A row retrieved as a nearest neighbour far more often than chance allows. The book shows hubness is almost entirely a property of the queries and the reader, not of the corpus. Chapters 3 and 10.
 
+**Example.** One row appeared in 287 of the queries' neighbour lists, far above what chance allows.
+
 ## equation
 
 Book equation 10.3.
@@ -49,7 +51,7 @@ Radovanović, Nanopoulos, and Ivanović, hubs in space, 2010, as chapter 3 secti
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Hub.lean`, theorems `card_hubs_le`, `hubs_congr`, `hubs_anti`, `hubs_empty`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Hub.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Hub.lean), theorems `card_hubs_le`, `hubs_congr`, `hubs_anti`, `hubs_empty`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

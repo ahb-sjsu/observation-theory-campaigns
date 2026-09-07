@@ -9,6 +9,8 @@
 
 Of a rule, the support of the rule's itemset divided by the support of its antecedent. It is not symmetric and it misleads when the consequent is common. Chapter 5.
 
+**Example.** If 30 baskets hold bread and 24 of them also hold butter, the confidence of bread implies butter is 0.8.
+
 ## equation
 
 Book equation 5.1.
@@ -46,7 +48,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Confidence.lean`, theorems `confidence_mem_unit`, `confidence_asymm`, `confidence_indep`, `common_consequent`, `lift_of_indep`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Confidence.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Confidence.lean), theorems `confidence_mem_unit`, `confidence_asymm`, `confidence_indep`, `common_consequent`, `lift_of_indep`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

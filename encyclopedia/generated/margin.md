@@ -9,6 +9,8 @@
 
 How far a row's score sits from the threshold. Chapter 6.
 
+**Example.** Points at distance 0.5 and 0.8 from the boundary on either side give a margin of 0.5.
+
 ## equation
 
 Book equation 9.3.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Margin.lean`, theorems `score_add`, `decision_stable`, `tight_along_weights`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Margin.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Margin.lean), theorems `score_add`, `decision_stable`, `tight_along_weights`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

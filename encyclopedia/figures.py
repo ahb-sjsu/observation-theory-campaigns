@@ -904,6 +904,7 @@ m("laplacian", t_matrix, "Degrees on the diagonal, minus the adjacency off it.",
 m("latent-semantic-analysis", t_spectrum, "The top singular components of the term-document matrix.", kept=2)
 m("leakage", t_folds, "A transform fit on all rows reads the test fold.", leak=True)
 m("ledger-class", t_seal, "Proved, demonstrated, replicated, predicted, exploratory, refuted, missed, or void.")
+m("licensed", t_barnull, "A claim is licensed when it was sealed before the run and its bar separated it from the null.")
 m("lift", t_venn, "Confidence over the base rate of the consequent.", a="antecedent", b="consequent")
 m("linear-classifier", t_scatter, "A weighted sum, whose boundary is a hyperplane.", kind="margin")
 m("logistic-regression", t_sigmoid, "The sigmoid of a weighted sum, above one half on one side of the hyperplane.")

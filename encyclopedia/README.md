@@ -74,6 +74,7 @@ acceptance test for the generator that will fill them from the records.
 | [silhouette](generated/silhouette.md) | concept | a row's nearest-other minus own-cluster distance over the larger, a validity index under the identity reader |
 | [whitening](generated/whitening.md) | concept | rescaling data so its covariance is the identity, a change of reader |
 | [Mahalanobis distance](generated/mahalanobis-distance.md) | concept | Euclidean distance from the mean after whitening, the identity reader on whitened data |
+| [licensed, not licensed](generated/licensed.md) | concept | a theorem checked in Lean or a sealed measurement that survived its null and bar, against exploratory or posited |
 | [lift](generated/lift.md) | concept | confidence over the consequent's support, one under independence, and unbounded at low support |
 | [explained variance](generated/explained-variance.md) | concept | the fraction of variance the first k components carry, the identity reader's criterion |
 | [cross-support ratio](generated/cross-support-ratio.md) | concept | the smallest item support over the largest, anti-monotone in the itemset |
@@ -248,7 +249,7 @@ acceptance test for the generator that will fill them from the records.
 | [sum of squared errors](generated/sum-of-squared-errors.md) | concept | the sum over rows of the squared distance to the row's cluster centre, the validity index k-means minimizes |
 
 The first three entries were filled by hand and are the generator's acceptance test. The
-other two hundred and thirty-six exist only as generated entries, built from the records by `generate.py`.
+other two hundred and thirty-seven exist only as generated entries, built from the records by `generate.py`.
 
 The authority for a claim's class is `geometric-observation/claims/LEDGER.md`. The authority
 for a measurement is the campaign track file that recorded it. An entry that disagrees with
@@ -307,3 +308,63 @@ semantic review date, followed by the schematic and the full entry. `kinds.html`
 full, and `provenance.html` names the records' commits. `all.html` is the whole site in one file
 with hash routing, for viewing without a server. The PDF is the archival snapshot of the same
 records.
+
+## From TSK to the encyclopedia
+
+A student reading Tan, Steinbach, Karpatne, and Kumar meets a term and does not know which entries to read. This table, curated in `tsk_map.toml`, gives the entries in reading order and the chapter of *Data Mining as Observation* that takes the term up.
+
+| TSK term | TSK | Entries to read | Book chapter |
+|---|---|---|---|
+| attribute types, nominal, ordinal, interval, ratio | 2.1 | [attribute type](generated/attribute-type.md), [standardization](generated/standardization.md), [discretization](generated/discretization.md) | 2 |
+| data quality, noise and outliers | 2.2 | [outlier](generated/outlier.md), [detector](generated/detector.md), [skewness](generated/skewness.md) | 2 |
+| missing values | 2.2 | [imputation](generated/imputation.md), [leakage](generated/leakage.md) | 2 |
+| aggregation and sampling | 2.3 | [aggregation](generated/aggregation.md), [sampling](generated/sampling.md), [Simpson's paradox](generated/simpsons-paradox.md) | 2 |
+| dimensionality reduction | 2.3, appendix B | [principal component analysis](generated/principal-component-analysis.md), [truncation](generated/truncation.md), [explained variance](generated/explained-variance.md), [the flip](generated/flip.md) | 4 |
+| feature subset selection | 2.3 | [read subspace](generated/read-subspace.md), [nuisance](generated/nuisance.md), [importance](generated/importance.md) | 4 |
+| discretization and binarization | 2.3 | [discretization](generated/discretization.md), [quotient](generated/quotient.md) | 2 |
+| variable transformation, standardization | 2.3 | [standardization](generated/standardization.md), [whitening](generated/whitening.md) | 2 |
+| Euclidean distance, Minkowski distance | 2.4 | [Euclidean distance](generated/euclidean-distance.md), [metric](generated/metric.md), [identity reader](generated/identity-reader.md) | 3 |
+| cosine similarity | 2.4 | [cosine](generated/cosine.md), [dot product](generated/dot-product.md), [read direction](generated/read-direction.md), [quotient](generated/quotient.md) | 3 |
+| Jaccard coefficient, simple matching | 2.4 | [Jaccard](generated/jaccard.md), [quotient](generated/quotient.md) | 3 |
+| correlation | 2.4 | [correlation](generated/correlation.md), [Spearman correlation](generated/spearman-correlation.md), [Kendall correlation](generated/kendall-correlation.md) | 3 |
+| Mahalanobis distance | 2.4 | [Mahalanobis distance](generated/mahalanobis-distance.md), [whitening](generated/whitening.md), [covariance matrix](generated/covariance-matrix.md) | 10 |
+| decision tree induction | 3.3 | [decision tree](generated/decision-tree.md), [importance](generated/importance.md), [classifier](generated/classifier.md) | 6 |
+| model overfitting | 3.4 | [capacity](generated/capacity.md), [harness](generated/harness.md), [early stopping](generated/early-stopping.md) | 6 |
+| model selection, validation set | 3.5, 3.6 | [split](generated/split.md), [cross-validation](generated/cross-validation.md), [leakage](generated/leakage.md) | 8 |
+| model evaluation, holdout, cross-validation, bootstrap | 3.6 | [cross-validation](generated/cross-validation.md), [bootstrap](generated/bootstrap.md), [Nadeau and Bengio correction](generated/nadeau-and-bengio-correction.md), [seed](generated/seed.md) | 8 |
+| confusion matrix, accuracy, precision, recall, F-measure | 3.2, 4.11 | [precision, recall](generated/precision-recall.md), [F1](generated/f1.md), [balanced accuracy](generated/balanced-accuracy.md), [threshold](generated/threshold.md) | 6 |
+| ROC curve | 4.11 | [ROC curve](generated/roc-curve.md), [AUROC](generated/auroc.md), [Youden index](generated/youden-index.md), [Monotone Invariance Theorem](generated/monotone-invariance.md) | 5 |
+| rule-based classifier | 4.2 | [formula search](generated/formula-search.md), [safe pruning](generated/safe-pruning.md) | 6 |
+| nearest neighbor classifier | 4.3 | [nearest neighbour](generated/nearest-neighbour.md), [neighbourhood graph](generated/neighbourhood-graph.md), [hub](generated/hub.md) | 6 |
+| naive Bayes classifier | 4.4 | [naive Bayes](generated/naive-bayes.md), [Hessian](generated/hessian.md) | 6 |
+| logistic regression | 4.6 | [logistic regression](generated/logistic-regression.md), [linear classifier](generated/linear-classifier.md), [decision boundary](generated/decision-boundary.md) | 6 |
+| artificial neural network, deep learning | 4.7, 4.8 | [encoder](generated/encoder.md), [embedding](generated/embedding.md), [attention](generated/attention.md), [language model](generated/language-model.md) | 11 |
+| support vector machine, margin | 4.9 | [margin](generated/margin.md), [linear classifier](generated/linear-classifier.md), [decision boundary](generated/decision-boundary.md) | 6 |
+| ensemble methods, bagging, boosting, random forest | 4.10 | [ensemble](generated/ensemble.md), [bagging](generated/bagging.md), [boosting](generated/boosting.md), [random forest](generated/random-forest.md) | 7 |
+| class imbalance | 4.11 | [balanced accuracy](generated/balanced-accuracy.md), [chance level](generated/chance-level.md), [stratification](generated/stratification.md) | 6 |
+| itemset, support, frequent itemset | 5.1, 5.2 | [itemset](generated/itemset.md), [support](generated/support.md), [transaction](generated/transaction.md) | 5 |
+| Apriori principle, candidate pruning | 5.2 | [Apriori principle](generated/apriori.md), [anti-monotonicity](generated/anti-monotonicity.md), [safe pruning](generated/safe-pruning.md) | 5 |
+| association rule, confidence | 5.3 | [confidence](generated/confidence.md), [lift](generated/lift.md), [cross-support ratio](generated/cross-support-ratio.md) | 5 |
+| FP-growth, closed and maximal itemsets | 5.4, 5.5 | [itemset](generated/itemset.md), [anti-monotonicity](generated/anti-monotonicity.md) | 5 |
+| objective interestingness measures | 5.6 | [lift](generated/lift.md), [output metric](generated/output-metric.md), [Simpson's paradox](generated/simpsons-paradox.md) | 5 |
+| k-means | 7.2 | [k-means](generated/k-means.md), [sum of squared errors](generated/sum-of-squared-errors.md), [identity reader](generated/identity-reader.md) | 9 |
+| agglomerative hierarchical clustering, linkage | 7.3 | [hierarchical clustering](generated/hierarchical-clustering.md), [metric](generated/metric.md) | 9 |
+| DBSCAN, density-based clustering | 7.4 | [DBSCAN](generated/dbscan.md), [density](generated/density.md), [degree](generated/degree.md) | 9 |
+| cluster validity, silhouette, SSE | 7.5 | [validity index](generated/validity-index.md), [silhouette](generated/silhouette.md), [sum of squared errors](generated/sum-of-squared-errors.md), [vacuity threshold](generated/vacuity-threshold.md) | 9 |
+| spectral clustering, graph-based clustering | 8.5 | [spectral clustering](generated/spectral-clustering.md), [spectral embedding](generated/spectral-embedding.md), [Laplacian](generated/laplacian.md), [commute time](generated/commute-time.md) | 3 |
+| curse of dimensionality | 8.1 | [distance concentration](generated/distance-concentration.md), [intrinsic dimension](generated/intrinsic-dimension.md), [manifold](generated/manifold.md) | 3 |
+| statistical anomaly detection | 9.3 | [outlier](generated/outlier.md), [Gaussian](generated/gaussian.md), [Mahalanobis distance](generated/mahalanobis-distance.md) | 10 |
+| proximity-based and density-based anomaly detection | 9.4, 9.5 | [detector](generated/detector.md), [density](generated/density.md), [anti-hub](generated/anti-hub.md) | 10 |
+| clustering-based and reconstruction-based anomaly detection | 9.6, 9.7 | [detector](generated/detector.md), [reconstruction error](generated/reconstruction-error.md) | 10 |
+| evaluation of anomaly detection | 9.10 | [min-over-strata](generated/min-over-strata.md), [abstention](generated/abstention.md), [anti-hub recall](generated/anti-hub-recall.md) | 10 |
+| hypothesis testing, p-value, null hypothesis | 10.2 | [p-value](generated/p-value.md), [null model](generated/null-model.md), [control](generated/control.md), [bar](generated/bar.md) | 8 |
+| multiple hypothesis testing, Bonferroni, false discovery rate | 10.3 | [multiple comparisons](generated/multiple-comparisons.md), [harness](generated/harness.md) | 8 |
+| pitfalls, p-hacking, data dredging | 10.4 | [preregistration](generated/preregistration.md), [sealed](generated/sealed.md), [registered](generated/registered.md), [declaration](generated/declaration.md) | 8 |
+| confidence interval, standard error | appendix C, 10.2 | [confidence interval](generated/confidence-interval.md), [standard error](generated/standard-error.md), [paired](generated/paired.md) | 8 |
+| eigenvalues and eigenvectors, matrix rank | appendix A | [eigenvalue, eigenvector](generated/eigenvalue-eigenvector.md), [spectrum](generated/spectrum.md), [rank](generated/rank.md), [positive semidefinite](generated/positive-semidefinite.md) | 0 |
+| singular value decomposition, PCA | appendix B | [principal component analysis](generated/principal-component-analysis.md), [latent semantic analysis](generated/latent-semantic-analysis.md), [effective rank](generated/effective-rank.md) | 4 |
+| covariance matrix, variance | appendix A, C | [covariance matrix](generated/covariance-matrix.md), [variance](generated/variance.md), [trace](generated/trace.md), [anisotropic](generated/anisotropic.md) | 0 |
+| gradient, derivative | appendix E | [sensitivity](generated/sensitivity.md), [finite difference](generated/finite-difference.md), [curvature](generated/curvature.md), [Jacobian](generated/jacobian.md) | 0 |
+| TF-IDF, document vectors | 2.4, 8.1 | [TF-IDF](generated/tf-idf.md), [bag of words](generated/bag-of-words.md), [latent semantic analysis](generated/latent-semantic-analysis.md) | 12 |
+| vector quantization, compression | 7.2, 2.3 | [quantization](generated/quantization.md), [codebook](generated/codebook.md), [product quantization](generated/product-quantization.md), [bit](generated/bit.md), [matched bits](generated/matched-bits.md) | 11 |
+| scalability, indexing, nearest-neighbour search | 4.3, 8.4 | [inverted file](generated/inverted-file.md), [recall at k](generated/recall-at-k.md), [shard](generated/shard.md), [rerank](generated/rerank.md), [rank certificate](generated/rank-certificate.md) | 11 |

@@ -9,6 +9,8 @@
 
 Zero or twice a validated encoder's held-out AUROC minus one, whichever is larger, used as that encoder's authority. It is a discrimination weight, unchanged by increasing transforms of the score and not by decreasing ones, and the calibration evidence is the expected calibration error reported beside it. Equation 0.38.
 
+**Example.** A held-out AUROC of 0.8035 gives reliability weight 0.607, and an AUROC of 0.45 gives zero.
+
 ## equation
 
 Book equation 0.38.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ReliabilityWeight.lean`, theorems `pair_le_one`, `aurocNum_le`, `auroc_le_one`, `weight_mem_unit`, `weight_eq_zero_of_le_half`, `weight_comp`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ReliabilityWeight.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ReliabilityWeight.lean), theorems `pair_le_one`, `aurocNum_le`, `auroc_le_one`, `weight_mem_unit`, `weight_eq_zero_of_le_half`, `weight_comp`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

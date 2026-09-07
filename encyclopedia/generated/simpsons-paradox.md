@@ -9,6 +9,8 @@
 
 A reversal of a comparison when groups are combined, which the book reads as an aggregation quotient. Chapter 5.
 
+**Example.** A treatment better in both the young and the old can be worse overall when the two groups are mixed unequally.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Simpson.lean`, theorems `pooled_eq_weighted`, `reversal`, `no_reversal_of_equal_sizes`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Simpson.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Simpson.lean), theorems `pooled_eq_weighted`, `reversal`, `no_reversal_of_equal_sizes`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

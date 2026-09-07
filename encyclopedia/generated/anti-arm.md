@@ -9,6 +9,8 @@
 
 In a flip comparison, a third code built to destroy the consumer's read subspace at the same bits. It is expected to score worst, and a comparison in which it does not is not a flip. Chapter 4.
 
+**Example.** Put the whole error of 0.4 on the direction the reader reads and the reader sees 0.4; put it on the other direction and the reader sees zero.
+
 ## equation
 
 Book equation 4.5.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/AntiArm.lean`, theorems `readDiag_le_max`, `readDiag_le_total`, `anti_arm_worst`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/AntiArm.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/AntiArm.lean), theorems `readDiag_le_max`, `readDiag_le_total`, `anti_arm_worst`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

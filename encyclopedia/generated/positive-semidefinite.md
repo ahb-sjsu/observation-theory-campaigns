@@ -9,6 +9,8 @@
 
 Of a symmetric matrix, having every quadratic form nonnegative, as the read operator and the covariance are. Chapter 0 section 0.3.
 
+**Example.** The matrix with rows (1, 2) and (2, 4) is positive semidefinite, and the one with rows (1, 3) and (3, 1) is not, since (1, −1) gives −4.
+
 ## equation
 
 Book equation 0.9.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/PositiveSemidefinite.lean`, theorems `psd_add`, `psd_smul`, `psd_outer`, `psd_readOp`, `psd_diag_nonneg`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/PositiveSemidefinite.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/PositiveSemidefinite.lean), theorems `psd_add`, `psd_smul`, `psd_outer`, `psd_readOp`, `psd_diag_nonneg`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

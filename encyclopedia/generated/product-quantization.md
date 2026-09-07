@@ -9,6 +9,8 @@
 
 Splitting a vector into pieces and quantizing each piece with its own codebook. Chapter 11.
 
+**Example.** A 768-dimensional vector split into 8 pieces of 96, each coded with 256 centroids, costs 8 bytes.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ProductQuantization.lean`, theorems `sq_error_add`, `inf_add`, `bits_of_codebooks`, `table_row`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ProductQuantization.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ProductQuantization.lean), theorems `sq_error_add`, `inf_add`, `bits_of_codebooks`, `table_row`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 The rule by which a consumer's mistakes are scored, the second element of an observer. Chapter 1.
 
+**Example.** Classifiers with one and three false positives against three and one false negatives tie on accuracy and split on any cost matrix.
+
 ## equation
 
 none
@@ -38,7 +40,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/OutputMetric.lean`, theorems `neg_reverses`, `readOp_of_neg`, `cost_flips`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/OutputMetric.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/OutputMetric.lean), theorems `neg_reverses`, `readOp_of_neg`, `cost_flips`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

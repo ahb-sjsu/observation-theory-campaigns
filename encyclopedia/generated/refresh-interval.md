@@ -9,6 +9,8 @@
 
 The longest renewal period that keeps a certificate within its promised error, a measured property of the system and not a convention. Chapter 13.
 
+**Example.** A certificate that stays within its error for 40 milliseconds has refresh interval 40 milliseconds.
+
 ## equation
 
 Book equation 13.2.
@@ -40,13 +42,13 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/CoherenceTime.lean`, theorems `clarke_to_three_decimals`, `examples`, `refuted_law_exceeds_sealed`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/CoherenceTime.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/CoherenceTime.lean), theorems `clarke_to_three_decimals`, `examples`, `refuted_law_exceeds_sealed`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
-`lean/DataMiningAsObservation/TTI.lean`, theorems `slots_of_ms`, `slots_add`, `slots_mono`, `slots_coherence`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/TTI.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/TTI.lean), theorems `slots_of_ms`, `slots_add`, `slots_mono`, `slots_coherence`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 13, 14.
+*Data Mining as Observation* chapters 0, 13, 14.
 
 ## related
 

@@ -9,6 +9,8 @@
 
 A set of rewordings of one input that preserve its meaning. A decision is invariant to re-description when it does not move across the class. Chapter 14.
 
+**Example.** The sentences 'the row is stale' and 'the row is out of date' land in one paraphrase class for the encoder.
+
 ## equation
 
 Book equation 14.3.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/ParaphraseClass.lean`, theorems `movement_nonneg`, `ratio_nonneg`, `movement_eq_zero_iff`, `ratio_invariant`, `bar_iff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/ParaphraseClass.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/ParaphraseClass.lean), theorems `movement_nonneg`, `ratio_nonneg`, `movement_eq_zero_iff`, `ratio_invariant`, `bar_iff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 An estimate of a derivative from two evaluations of the function at points a small step apart. Equation 0.8.
 
+**Example.** For C(x) equal to x squared, evaluating at 0.8 plus and minus 0.6 gives (1.96 − 0.04) over 1.2, exactly 1.6.
+
 ## equation
 
 Book equation 0.8.
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/FiniteDifference.lean`, theorems `central_quad`, `forward_quad`, `forward_error`, `central_cost`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/FiniteDifference.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/FiniteDifference.lean), theorems `central_quad`, `forward_quad`, `forward_error`, `central_cost`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

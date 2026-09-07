@@ -9,6 +9,8 @@
 
 Of a node in a graph, the number of edges it has. Chapter 0 section 0.10.
 
+**Example.** A node with edges to three others has degree 3, and the degrees of a graph sum to twice its edge count.
+
 ## equation
 
 Book equation 0.19.
@@ -46,7 +48,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Degree.lean`, theorems `sum_degrees`, `degree_lt_card`, `sum_degrees_even`, `average_degree`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Degree.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Degree.lean), theorems `sum_degrees`, `degree_lt_card`, `sum_degrees_even`, `average_degree`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

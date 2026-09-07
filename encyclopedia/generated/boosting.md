@@ -9,6 +9,8 @@
 
 Fitting a sequence of weak scorers, each on the rows the previous ones got wrong, and summing them. Its step size is positive exactly when the weak scorer beats chance, and the reweighting makes the last scorer's weighted error one half. Chapter 7.
 
+**Example.** A weak scorer with weighted error 0.25 gets step size one half of the log of 3, about 0.549, and after reweighting its error is one half.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Boosting.lean`, theorems `alpha_pos_iff`, `alpha_half`, `reweighted_error_half`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Boosting.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Boosting.lean), theorems `alpha_pos_iff`, `alpha_half`, `reweighted_error_half`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

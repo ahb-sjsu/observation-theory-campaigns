@@ -9,6 +9,8 @@
 
 Subtracting a column's mean and dividing by its spread, so that it has mean zero and variance one. It is invertible and preserves every ordering, so it changes the reader and not the data. Chapter 2.
 
+**Example.** Values 2, 4, and 6 with mean 4 and spread 1.633 become −1.22, 0, and 1.22.
+
 ## equation
 
 Book equation 2.1.
@@ -44,7 +46,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Standardization.lean`, theorems `mean_zero`, `variance_one`, `standardize_inv`, `standardize_lt_iff`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Standardization.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Standardization.lean), theorems `mean_zero`, `variance_one`, `standardize_inv`, `standardize_lt_iff`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 An erratum or retraction, a change to a published number or claim that the record keeps beside the original, naming what was wrong and what replaced it. The Nadeau and Bengio adjustment is a statistical correction and has its own entry.
 
+**Example.** The uncorrected t was stored as a sigma, and the corrected table changed nine wins to three, with seventeen ties.
+
 ## equation
 
 none
@@ -40,7 +42,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Seal.lean`, theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Seal.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Seal.lean), theorems `changed_of_hash_ne`, `hash_eq_of_eq`, `exists_collision`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

@@ -9,6 +9,8 @@
 
 Choosing what to drop when a cache is full. Chapter 13.
 
+**Example.** A cache of 4 entries receiving a fifth drops the least recently used one.
+
 ## equation
 
 none
@@ -40,11 +42,11 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Eviction.lean`, theorems `kept_weights_sum`, `keptOutput_le_max`, `min_le_keptOutput`, `keptOutput_const`, `keptOutput_univ`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Eviction.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Eviction.lean), theorems `kept_weights_sum`, `keptOutput_le_max`, `min_le_keptOutput`, `keptOutput_const`, `keptOutput_univ`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 13.
+*Data Mining as Observation* chapters 13.
 
 ## related
 

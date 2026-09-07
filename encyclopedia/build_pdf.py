@@ -259,6 +259,12 @@ back.append(f"\nThis document was built on {DATE} from commit {COMMIT} of ahb-sj
 back.append("\nThe hand-filled entries, the flip, the false-clear rate, and the Youden F1 bound, were written on 2026-09-03 to fix the schema and are the generator's acceptance test. `encyclopedia/check.py` verifies that every number in each of them appears in its generated counterpart and that every cited path exists.\n")
 
 # ---------------------------------------------------------------- assemble and build
+tsk_rows = tomllib.load(open(os.path.join(ROOT, "tsk_map.toml"), "rb"))["row"]
+tsk = ["\n\\clearpage\n\n# From TSK to the encyclopedia {-}\n\n\\markboth{From TSK to the encyclopedia}{}\n",
+       "A student reading Tan, Steinbach, Karpatne, and Kumar, *Introduction to Data Mining*, second edition, meets a term and does not know which entries to read. This table gives, for each TSK term, the entries to read in order and the chapter of *Data Mining as Observation* that takes the term up.\n",
+       "| TSK term | TSK | Entries to read | Book chapter |", "|---------|--|-------------------|---|"]
+for r in tsk_rows:
+    tsk.append(f"| {r['tsk']} | {r['where']} | " + "; ".join(link(i) for i in r["entries"] if i in by_id) + f" | {r['chapter']} |")
 parts = [
     "---",
     "title: The Observation Theory Encyclopedia",
@@ -268,6 +274,7 @@ parts = [
     "toc-title: Contents",
     "---",
     preface,
+    "\n".join(tsk),
     "\n\\clearpage\n",
     "\n".join(body),
     "\n".join(back),

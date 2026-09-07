@@ -9,6 +9,8 @@
 
 Confidence divided by the consequent's support, so that lift one is the independence baseline. It fails at low support. Chapter 5.
 
+**Example.** Confidence 0.8 for bread implies butter against a butter base rate of 0.4 is lift 2.
+
 ## equation
 
 Book equation 5.2.
@@ -42,7 +44,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/Lift.lean`, theorems `lift_indep`, `lift_symm`, `lift_le_inv`, `lift_single`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/Lift.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/Lift.lean), theorems `lift_indep`, `lift_symm`, `lift_le_inv`, `lift_single`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 

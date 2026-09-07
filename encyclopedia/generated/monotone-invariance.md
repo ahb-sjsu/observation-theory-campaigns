@@ -9,6 +9,8 @@
 
 A strictly monotone transform of a score in either direction cannot change its optimal thresholded F1, because the sweep tries thresholds both ways. A strictly increasing transform leaves the AUROC unchanged, and a strictly decreasing one sends it to one minus itself. Equation 6.2.
 
+**Example.** Squaring a positive score keeps every ranking, so its AUROC and its optimal F1 are unchanged, and negating it sends AUROC 0.75 to 0.25.
+
 ## equation
 
 Book equation 6.2.
@@ -43,7 +45,7 @@ none
 
 ## machine checked
 
-`lean/DataMiningAsObservation/MonotoneInvariance.lean`, theorems `aurocNum_comp`, `auroc_comp`, `predicted_comp`, `predictedBelow_comp`, `sweptF1_comp`, `sweptF1Below_comp`, `optF1_comp`, at observation-data-mining 08b4794.
+[`lean/DataMiningAsObservation/MonotoneInvariance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/lean/DataMiningAsObservation/MonotoneInvariance.lean), theorems `aurocNum_comp`, `auroc_comp`, `predicted_comp`, `predictedBelow_comp`, `sweptF1_comp`, `sweptF1Below_comp`, `optF1_comp`, at observation-data-mining 08b4794; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/08b4794/chapters/machine_checked.md).
 
 ## used in
 
