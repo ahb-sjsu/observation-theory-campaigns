@@ -18,6 +18,7 @@ readscope = "readscope"
 [[entry]]
 id = "flip"
 kind = "result"
+reviewed = "2026-09-06"
 known_as = "Consumer-relative compression sits beside the information bottleneck of Tishby, Pereira, and Bialek and beside task-based quantization. The flip is the measured claim that at matched bits the code that reconstructs worse can serve the consumer better."
 title = "the flip"
 glossary = "flip, the"
@@ -76,6 +77,7 @@ match = "Corrected 2026-09-03"
 [[entry]]
 id = "youden-f1-bound"
 kind = "correction"
+reviewed = "2026-09-06"
 definition = "The bound on the best F1 a score can reach at any threshold, from the Youden index, true positive rate minus false positive rate, maximized over thresholds. The bound holds for every score. The form that reads the ceiling from the AUROC holds only for concave ROC curves, with a counterexample at AUROC 0.75."
 title = "Youden F1 bound"
 glossary = ""
@@ -103,6 +105,7 @@ note = "Rerun of the A* paper's pruning tables by `theory-radar/rerun_youden_202
 [[entry]]
 id = "read-distortion"
 kind = "concept"
+reviewed = "2026-09-06"
 known_as = "The consumer-weighted squared error. Task-based quantization studies the same objective for a known task."
 title = "read distortion"
 glossary = "read distortion"
@@ -205,6 +208,7 @@ conditions = [
 [[entry]]
 id = "rank-certificate"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "rank certificate"
 glossary = "rank certificate"
 equations = ["11.2", "11.3"]
@@ -313,6 +317,7 @@ match = "sample-complexity"
 [[entry]]
 id = "read-operator"
 kind = "concept"
+reviewed = "2026-09-06"
 known_as = "In the scalar Euclidean-output case the read operator is the active-subspace matrix of Constantine and Gleich, the covariance of the gradient. What the program adds is the pullback through the output metric, the observer triple, the budget, and the audit discipline."
 title = "read operator"
 glossary = "read operator"
@@ -337,6 +342,7 @@ match = "as a field, not a constant"
 [[entry]]
 id = "quotient"
 kind = "concept"
+reviewed = "2026-09-06"
 known_as = "The information bottleneck's view of relevant information, what the consumer does not read may be discarded, stated for a fixed consumer without a variational objective."
 title = "quotient"
 glossary = "quotient"
@@ -425,6 +431,7 @@ conditions = [
 [[entry]]
 id = "recognizer"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "recognizer"
 glossary = "recognizer"
 equations = ["9.3", "0.32", "9.2"]
@@ -482,6 +489,7 @@ conditions = [
 [[entry]]
 id = "water-filling"
 kind = "concept"
+reviewed = "2026-09-06"
 known_as = "Reverse water-filling of rate-distortion theory, per Cover and Thomas, applied to the read-weighted spectrum."
 title = "water-filling"
 glossary = "water-filling"
@@ -501,6 +509,7 @@ conditions = [
 [[entry]]
 id = "monotone-invariance"
 kind = "result"
+reviewed = "2026-09-06"
 title = "Monotone Invariance Theorem"
 glossary = "Monotone Invariance Theorem"
 equations = ["6.2"]
@@ -583,6 +592,7 @@ match = "sigma|Nadeau"
 [[entry]]
 id = "observer"
 kind = "concept"
+reviewed = "2026-09-06"
 known_as = "The observer triple extends the active-subspace matrix with an output metric, a budget, and an audit discipline."
 title = "observer"
 glossary = "observer"
@@ -655,6 +665,7 @@ conditions = [
 [[entry]]
 id = "read-subspace"
 kind = "concept"
+reviewed = "2026-09-06"
 known_as = "The active subspace of Constantine and Gleich when the output is scalar and Euclidean."
 title = "read subspace"
 glossary = "read subspace"
@@ -674,6 +685,7 @@ conditions = [
 [[entry]]
 id = "sensitivity"
 kind = "concept"
+reviewed = "2026-09-06"
 known_as = "The gradient of the consumer at a row, the quantity active-subspace methods average."
 title = "sensitivity"
 glossary = "sensitivity"
@@ -773,6 +785,7 @@ conditions = [
 [[entry]]
 id = "sealed"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "sealed"
 glossary = "sealed"
 equations = ["8.1"]
@@ -794,6 +807,7 @@ match = "Standing note on records and runners"
 [[entry]]
 id = "effective-rank"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "effective rank"
 glossary = "effective rank"
 equations = ["0.7", "4.2"]
@@ -847,6 +861,7 @@ conditions = [
 [[entry]]
 id = "reliability-weight"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "reliability weight"
 glossary = "reliability weight"
 equations = ["0.38", "0.16"]
@@ -903,6 +918,7 @@ match = "sigma|Nadeau"
 [[entry]]
 id = "cross-corpus-gate"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "cross-corpus gate"
 glossary = "cross-corpus gate"
 equations = ["12.3", "0.16"]
@@ -1029,6 +1045,7 @@ match = "CSI-refreshfloor"
 [[entry]]
 id = "intrinsic-dimension"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "intrinsic dimension"
 glossary = "intrinsic dimension"
 equations = ["0.31", "9.2", "0.7"]
@@ -1063,6 +1080,7 @@ conditions = [
 [[entry]]
 id = "multiple-comparisons"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "multiple comparisons"
 glossary = "multiple comparisons"
 equations = ["8.3"]
@@ -1267,6 +1285,7 @@ conditions = [
 [[entry]]
 id = "whitening"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "whitening"
 glossary = "whitening"
 equations = ["0.6", "0.5"]
@@ -1284,6 +1303,7 @@ conditions = [
 [[entry]]
 id = "mahalanobis-distance"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "Mahalanobis distance"
 glossary = "Mahalanobis distance"
 equations = ["0.33", "10.1"]
@@ -1523,6 +1543,7 @@ conditions = [
 [[entry]]
 id = "laplacian"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "Laplacian"
 glossary = "Laplacian"
 equations = ["0.19", "0.20", "9.2"]
@@ -2020,6 +2041,7 @@ conditions = [
 [[entry]]
 id = "hash"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "hash"
 glossary = "hash"
 equations = ["8.3"]
@@ -2038,6 +2060,7 @@ conditions = [
 [[entry]]
 id = "encoder"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "encoder"
 glossary = "encoder"
 equations = ["12.3", "14.1"]
@@ -2158,6 +2181,7 @@ conditions = [
 [[entry]]
 id = "commit-hash"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "commit hash"
 glossary = "commit hash"
 equations = ["8.3"]
@@ -2260,6 +2284,7 @@ conditions = [
 [[entry]]
 id = "auroc"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "AUROC"
 glossary = "AUROC"
 equations = ["0.16", "0.38", "12.3"]
@@ -2328,6 +2353,7 @@ conditions = [
 [[entry]]
 id = "manifold"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "manifold"
 glossary = "manifold"
 equations = ["0.31", "9.2", "0.32"]
@@ -2549,6 +2575,7 @@ conditions = [
 [[entry]]
 id = "attribution"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "attribution"
 glossary = "attribution"
 equations = ["0.8", "0.9", "14.5"]
@@ -2566,6 +2593,7 @@ conditions = [
 [[entry]]
 id = "commute-time"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "commute time"
 glossary = "commute time"
 equations = ["0.20", "0.19", "3.3"]
@@ -2617,6 +2645,7 @@ conditions = [
 [[entry]]
 id = "latent-semantic-analysis"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "latent semantic analysis"
 glossary = "latent semantic analysis"
 equations = ["0.36", "0.5", "4.2"]
@@ -2634,6 +2663,7 @@ conditions = [
 [[entry]]
 id = "multiplet"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "multiplet"
 glossary = "multiplet"
 equations = ["0.19", "0.31", "9.2"]
@@ -2668,6 +2698,7 @@ conditions = [
 [[entry]]
 id = "principal-component-analysis"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "principal component analysis"
 glossary = "principal component analysis"
 equations = ["0.5", "0.7", "4.2"]
@@ -2702,6 +2733,7 @@ conditions = [
 [[entry]]
 id = "spectral-embedding"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "spectral embedding"
 glossary = "spectral embedding"
 equations = ["0.19", "0.20", "3.3"]
@@ -2754,6 +2786,7 @@ conditions = [
 [[entry]]
 id = "weyls-law"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "Weyl's law"
 glossary = "Weyl's law"
 equations = ["0.31", "9.2", "0.19"]
@@ -3162,6 +3195,7 @@ conditions = [
 [[entry]]
 id = "seed"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "seed"
 glossary = "seed"
 equations = ["0.18", "8.2", "8.1"]
@@ -3196,6 +3230,7 @@ conditions = [
 [[entry]]
 id = "spectral-clustering"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "spectral clustering"
 glossary = "spectral clustering"
 equations = ["0.19", "0.20", "3.3"]
@@ -3299,6 +3334,7 @@ conditions = [
 [[entry]]
 id = "metric"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "metric"
 glossary = "metric"
 equations = ["3.1", "0.11", "1.1"]
@@ -3317,6 +3353,7 @@ conditions = [
 [[entry]]
 id = "correction"
 kind = "concept"
+reviewed = "2026-09-06"
 definition = "An erratum or retraction, a change to a published number or claim that the record keeps beside the original, naming what was wrong and what replaced it. The Nadeau and Bengio adjustment is a statistical correction and has its own entry."
 title = "correction"
 glossary = "correction"
@@ -3437,6 +3474,7 @@ conditions = [
 [[entry]]
 id = "registered"
 kind = "concept"
+reviewed = "2026-09-06"
 title = "registered"
 glossary = "registered"
 equations = ["8.1", "8.3"]
@@ -3574,6 +3612,7 @@ conditions = [
 [[entry]]
 id = "declaration"
 kind = "instrument"
+reviewed = "2026-09-06"
 title = "declaration"
 glossary = "declaration"
 equations = ["8.1", "8.3"]
