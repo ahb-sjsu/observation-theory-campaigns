@@ -75,6 +75,7 @@ acceptance test for the generator that will fill them from the records.
 | [whitening](generated/whitening.md) | concept | rescaling data so its covariance is the identity, a change of reader |
 | [Mahalanobis distance](generated/mahalanobis-distance.md) | concept | Euclidean distance from the mean after whitening, the identity reader on whitened data |
 | [geometric decision cost](generated/geometric-decision-cost.md) | concept | the Mahalanobis distance of an alternative's encoding from a task's reference point, the pullback distance of the encoding under the inverse covariance |
+| [Geometric Evaluation Theory](generated/geometric-evaluation-theory.md) | concept | evaluator, metric, and budget induce the distinctions from which preference and choice follow, with the world supplying the map and the evaluator owning the rest |
 | [licensed, not licensed](generated/licensed.md) | concept | a theorem checked in Lean or a sealed measurement that survived its null and bar, against exploratory or posited |
 | [lift](generated/lift.md) | concept | confidence over the consequent's support, one under independence, and unbounded at low support |
 | [explained variance](generated/explained-variance.md) | concept | the fraction of variance the first k components carry, the identity reader's criterion |

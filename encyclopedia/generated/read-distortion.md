@@ -37,7 +37,7 @@ Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_t
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 2 section 2.2 | read distortion controls but is not a complete rank statistic, twelve of twelve, one middle pair misordered, NEG-9 | [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:49-75`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch05_the_read_metric_and_the_quotient.md#L49-L75) |
+| chapter 2 section 2.2 | read distortion controls but is not a complete rank statistic, twelve of twelve, one middle pair misordered, NEG-9 | [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:49-75`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch05_the_read_metric_and_the_quotient.md#L49-L75) |
 
 ## failures and corrections
 

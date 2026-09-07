@@ -28,7 +28,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* OT-7 `[demonstrated]`. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and … [`geometric-observation/claims/LEDGER.md:30`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L30).
+- *measures.* OT-7 `[demonstrated]`. The damage form, trace pairing, rank, and loading covariance are GL(d)-invariant under `P' = A⁻ᵀPA⁻¹`, while spectrum, effective rank, principal angles, and water-filling are O(d)-only — consumer-weighted damage is a geometric scalar, and … [`geometric-observation/claims/LEDGER.md:30`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L30).
 
 ## first stated
 
@@ -38,7 +38,7 @@ The participation ratio of a spectrum, applied to read operators in readscope, `
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.2 | effective rank as participation ratio, energy rank | [`readscope/readscope/spectrum.py:35-70`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/readscope/spectrum.py#L35-L70) |
+| chapter 4 section 4.2 | effective rank as participation ratio, energy rank | [`readscope/readscope/spectrum.py:35-70`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/readscope/spectrum.py#L35-L70) |
 | chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | [`turboquant-pro/turboquant_pro/read_allocation.py:244-307`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/turboquant_pro/read_allocation.py#L244-L307) |
 | chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:10-18`](https://github.com/ahb-sjsu/gtc-prototype/blob/328741f/docs/SPECTRUM_FINDINGS.md#L10-L18) |
 

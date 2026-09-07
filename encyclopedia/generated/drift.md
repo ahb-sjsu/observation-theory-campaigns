@@ -26,8 +26,8 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* OT-4 `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. [`geometric-observation/claims/LEDGER.md:36`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L36).
-- *refutes or corrects.* OT-11 `[void]`. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. [`geometric-observation/claims/LEDGER.md:48`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L48).
+- *refutes or corrects.* OT-4 `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. [`geometric-observation/claims/LEDGER.md:36`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L36).
+- *refutes or corrects.* OT-11 `[void]`. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. [`geometric-observation/claims/LEDGER.md:48`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L48).
 
 ## first stated
 
@@ -37,12 +37,12 @@ Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 11 section 11.9 | drift at rank one 0.667 vs null 0.933, sixteen cells | [`readscope/CALIBRATION.md:600-660`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/CALIBRATION.md#L600-L660) F-24; [`readscope/calibration/records/c11c-operator-drift.json`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/calibration/records/c11c-operator-drift.json) |
+| chapter 11 section 11.9 | drift at rank one 0.667 vs null 0.933, sixteen cells | [`readscope/CALIBRATION.md:600-660`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/CALIBRATION.md#L600-L660) F-24; [`readscope/calibration/records/c11c-operator-drift.json`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/calibration/records/c11c-operator-drift.json) |
 
 ## failures and corrections
 
-- OT-4, `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. [`geometric-observation/claims/LEDGER.md:36`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L36).
-- OT-11, `[void]`. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. [`geometric-observation/claims/LEDGER.md:48`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L48).
+- OT-4, `[refuted]`. Operator drift predicts a real long-generation degradation and a derived refresh intervention moves it. [`geometric-observation/claims/LEDGER.md:36`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L36).
+- OT-11, `[void]`. Feedback-free staleness: streaming-retrieval damage tracks measured drift; derived-cadence re-allocation removes it. [`geometric-observation/claims/LEDGER.md:48`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L48).
 
 ## machine checked
 

@@ -31,7 +31,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* NEG-4 `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L97).
+- *refutes or corrects.* NEG-4 `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L97).
 
 ## first stated
 
@@ -46,7 +46,7 @@ Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's calib
 
 ## failures and corrections
 
-- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L97).
+- NEG-4, `[refuted]`. Lightweight online (Lloyd) key calibration beats the calibration-free default on softmax-KL. [`geometric-observation/claims/LEDGER.md:97`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L97).
 
 ## machine checked
 

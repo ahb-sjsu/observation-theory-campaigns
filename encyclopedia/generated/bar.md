@@ -36,7 +36,7 @@ Chapter 8 section 8.3 of *Data Mining as Observation*, with the anti-vacuity bar
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.3 | anti-vacuity bar, quoted | [`observation-theory-campaigns/experiments/PREREG-PF5-002.md:79-86`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/f6d1fe2/experiments/PREREG-PF5-002.md#L79-L86) |
+| chapter 8 section 8.3 | anti-vacuity bar, quoted | [`observation-theory-campaigns/experiments/PREREG-PF5-002.md:79-86`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/a2f4ceb/experiments/PREREG-PF5-002.md#L79-L86) |
 | chapter 9 section 9.2 | the battery, three new templates, frozen ratios, code hash, bars at least 10 of 12 and the dimension ordering, eccentricity scope | `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80` |
 
 ## failures and corrections

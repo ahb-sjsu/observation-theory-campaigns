@@ -36,7 +36,7 @@ Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:108-116`, th
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | [`geometric-observation/chapters/ch08_value.md:108-116`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch08_value.md#L108-L116) |
+| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | [`geometric-observation/chapters/ch08_value.md:108-116`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch08_value.md#L108-L116) |
 
 ## failures and corrections
 

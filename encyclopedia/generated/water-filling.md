@@ -37,7 +37,7 @@ Shannon's power allocation across channels, applied with a consumer's sensitivit
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.2 | water-filling formula, directions below the water get no bits, the surrogate caveat | [`readscope/readscope/allocate.py:1-100`](https://github.com/ahb-sjsu/readscope/blob/c8d0289/readscope/allocate.py#L1-L100) |
+| chapter 4 section 4.2 | water-filling formula, directions below the water get no bits, the surrogate caveat | [`readscope/readscope/allocate.py:1-100`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/readscope/allocate.py#L1-L100) |
 
 ## failures and corrections
 

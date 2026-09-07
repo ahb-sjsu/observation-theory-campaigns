@@ -42,7 +42,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* GO-EC-3 `[predicted]`. A read operator recovered from a black-box consumer by query-only finite-difference probing, composed with the Kalman covariance as tr(P̂_C Σ), prospectively selects sensors that improve the held-out consumer at matched budgets with probe … [`geometric-observation/claims/LEDGER.md:162`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/claims/LEDGER.md#L162).
+- *measures.* GO-EC-3 `[predicted]`. A read operator recovered from a black-box consumer by query-only finite-difference probing, composed with the Kalman covariance as tr(P̂_C Σ), prospectively selects sensors that improve the held-out consumer at matched budgets with probe … [`geometric-observation/claims/LEDGER.md:162`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L162).
 
 ## first stated
 
@@ -52,11 +52,11 @@ Volume 14, chapters 4 and 5, `geometric-observation/chapters/ch04_the_observer_t
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 1 section 1.2 | the observer triple, read subspace, nuisance, same read operator means same read geometry | [`geometric-observation/chapters/ch04_the_observer_triple.md:9-60`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch04_the_observer_triple.md#L9-L60); [`geometric-observation/OBSERVATION.md:1-10`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/OBSERVATION.md#L1-L10) |
+| chapter 1 section 1.2 | the observer triple, read subspace, nuisance, same read operator means same read geometry | [`geometric-observation/chapters/ch04_the_observer_triple.md:9-60`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch04_the_observer_triple.md#L9-L60); [`geometric-observation/OBSERVATION.md:1-10`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/OBSERVATION.md#L1-L10) |
 
 ## failures and corrections
 
-- [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:42-47`](https://github.com/ahb-sjsu/geometric-observation/blob/787a933/chapters/ch05_the_read_metric_and_the_quotient.md#L42-L47) at 787a933. **Operating-point dependence.** $P_C$ is a *local* object — it depends on $x_0$ through $J$. For a linear consumer it is global; for a nonlinear one it varies over $X$, and the honest version of every result carries $P_C$ as a field, not a constant. The blind probe of Chapter 10 recovers $P_C$ *at* an operating point precisely because it is local; averaging it over a data distribution gives the $\bar P_C$ that enters the alignment law $\kappa$ (Chapter 12).
+- [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:42-47`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch05_the_read_metric_and_the_quotient.md#L42-L47) at 0792c84. **Operating-point dependence.** $P_C$ is a *local* object — it depends on $x_0$ through $J$. For a linear consumer it is global; for a nonlinear one it varies over $X$, and the honest version of every result carries $P_C$ as a field, not a constant. The blind probe of Chapter 10 recovers $P_C$ *at* an operating point precisely because it is local; averaging it over a data distribution gives the $\bar P_C$ that enters the alignment law $\kappa$ (Chapter 12).
 
 ## machine checked
 
