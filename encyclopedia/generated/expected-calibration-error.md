@@ -40,7 +40,7 @@ Chapter 0 section 0.14 of *Data Mining as Observation*, equation 0.29, with the 
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.5 | ECE 0.018 to 0.101 vs raw up to 0.223, reliability weight, audit binding | `xbse/README.md:175-195`; [`gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63`](https://github.com/ahb-sjsu/gtc-prototype/blob/328741f/docs/CALIBRATED_AUTHORITY.md#L19-L63) |
+| chapter 12 section 12.5 | ECE 0.018 to 0.101 vs raw up to 0.223, reliability weight, audit binding | `xbse/README.md:175-195`; [`gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63`](https://github.com/ahb-sjsu/gtc-prototype/blob/217b366/docs/CALIBRATED_AUTHORITY.md#L19-L63) |
 
 ## failures and corrections
 

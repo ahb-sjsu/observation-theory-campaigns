@@ -34,7 +34,7 @@ Chapter 0 section 0.9 and chapter 8 section 8.4 of *Data Mining as Observation*,
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.4 | C-11c paired null, rank 2 positional 0.385 vs null 0.572, 0.615 vs 0.224, 14 of 16 cells, scope 16 cells one 3B model 192 positions | [`readscope/SPEC.md:806-857`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/SPEC.md#L806-L857); [`readscope/calibration/records/c11c-operator-drift.json`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/calibration/records/c11c-operator-drift.json) |
+| chapter 8 section 8.4 | C-11c paired null, rank 2 positional 0.385 vs null 0.572, 0.615 vs 0.224, 14 of 16 cells, scope 16 cells one 3B model 192 positions | [`readscope/SPEC.md:806-857`](https://github.com/ahb-sjsu/readscope/blob/856e678/SPEC.md#L806-L857); [`readscope/calibration/records/c11c-operator-drift.json`](https://github.com/ahb-sjsu/readscope/blob/856e678/calibration/records/c11c-operator-drift.json) |
 
 ## failures and corrections
 

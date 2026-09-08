@@ -37,7 +37,7 @@ Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 11 section 11.9 | drift at rank one 0.667 vs null 0.933, sixteen cells | [`readscope/CALIBRATION.md:600-660`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/CALIBRATION.md#L600-L660) F-24; [`readscope/calibration/records/c11c-operator-drift.json`](https://github.com/ahb-sjsu/readscope/blob/83fee4c/calibration/records/c11c-operator-drift.json) |
+| chapter 11 section 11.9 | drift at rank one 0.667 vs null 0.933, sixteen cells | [`readscope/CALIBRATION.md:600-660`](https://github.com/ahb-sjsu/readscope/blob/856e678/CALIBRATION.md#L600-L660) F-24; [`readscope/calibration/records/c11c-operator-drift.json`](https://github.com/ahb-sjsu/readscope/blob/856e678/calibration/records/c11c-operator-drift.json) |
 
 ## failures and corrections
 
