@@ -1,6 +1,6 @@
 # Transformation registry for the Geometric Evaluation Theory campaign (repository
 # ahb-sjsu/geometric-evaluation-theory). Filled 2026-09-08 from that repository's CAMPAIGN.md,
-# ledger, and result files at commit fa3ee1c. Records are cited as repo/path:lines at that commit.
+# ledger, and result files at commit fa3ee1c (G5 outcome updated at b54d55f). Records are cited as repo/path:lines at that commit.
 
 [registry]
 track = "GET"
@@ -97,8 +97,8 @@ revision = "none yet: an error model would have to be registered before any of t
 transformation = "GET:battery-below-design-bound"
 claim = "the metric's action off the affine span of the battery and the ideal's component in the metric's kernel are not revealed by choices, while the in-span part and the range component are"
 entries = ["geometric-evaluation-theory"]
-outcome = "predicted"
-record = "geometric-evaluation-theory/CAMPAIGN.md:107-107"
+outcome = "survived"
+record = "geometric-evaluation-theory/CAMPAIGN.md:108-125"
 witness = ""
 absorbed_by = ""
 revision = "none"

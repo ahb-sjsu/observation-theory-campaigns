@@ -36,7 +36,7 @@ Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's preci
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 14 section 14.7 | 51 percent moderated at 80 and 95 percent precision on the balanced set | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:84-88`](https://github.com/ahb-sjsu/gtc-prototype/blob/5d53262/docs/SPECTRUM_FINDINGS.md#L84-L88) |
+| chapter 14 section 14.7 | 51 percent moderated at 80 and 95 percent precision on the balanced set | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:84-88`](https://github.com/ahb-sjsu/gtc-prototype/blob/05226a2/docs/SPECTRUM_FINDINGS.md#L84-L88) |
 
 ## failures and corrections
 

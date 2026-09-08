@@ -40,7 +40,7 @@ The participation ratio of a spectrum, applied to read operators in readscope, `
 |---|---|---|
 | chapter 4 section 4.2 | effective rank as participation ratio, energy rank | [`readscope/readscope/spectrum.py:35-70`](https://github.com/ahb-sjsu/readscope/blob/856e678/readscope/spectrum.py#L35-L70) |
 | chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | [`turboquant-pro/turboquant_pro/read_allocation.py:244-307`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/turboquant_pro/read_allocation.py#L244-L307) |
-| chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:10-18`](https://github.com/ahb-sjsu/gtc-prototype/blob/5d53262/docs/SPECTRUM_FINDINGS.md#L10-L18) |
+| chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:10-18`](https://github.com/ahb-sjsu/gtc-prototype/blob/05226a2/docs/SPECTRUM_FINDINGS.md#L10-L18) |
 
 ## failures and corrections
 
