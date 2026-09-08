@@ -41,6 +41,11 @@ Chapter 0 section 0.7 of *Data Mining as Observation*, with the omission floor i
 
 none
 
+## invariance envelope
+
+none declared
+
+
 ## machine checked
 
 [`lean/DataMiningAsObservation/NatUnit.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/NatUnit.lean), theorems `log_two_pos`, `nats_bits`, `bits_nats`, `bitsOfNats_mono`, `one_nat_in_bits`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
@@ -65,4 +70,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

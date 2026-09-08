@@ -206,7 +206,55 @@ def lean_theorems(spec):
 # ---------------------------------------------------------------- relationships
 CLASS_EDGE = {"proved": "proves", "demonstrated": "measures", "replicated": "measures", "predicted": "measures",
               "exploratory": "measures", "refuted": "refutes or corrects", "missed": "refutes or corrects",
-              "void": "refutes or corrects"}
+              "void": "refutes or corrects", "witness": "refutes or corrects", "revised": "refutes or corrects"}
+
+
+# ---------------------------------------------------------------- transformation registries
+
+def load_registries():
+    """Every claims/transformations/*.toml in the campaigns repository, read from the
+    repository this generator lives in (so a worktree sees its own registries)."""
+    base = os.path.dirname(HERE)
+    d = os.path.join(base, "claims", "transformations")
+    if not os.path.isdir(d):
+        return []
+    regs = []
+    for fn in sorted(os.listdir(d)):
+        if fn.endswith(".toml"):
+            regs.append(tomllib.load(open(os.path.join(d, fn), "rb")))
+    return regs
+
+
+REGISTRIES = load_registries()
+
+
+def envelope_lines(e):
+    """The invariance envelope of an entry: every registry test that names it, grouped by
+    outcome, each with its transformation, claim, record, and, for failures and boundaries,
+    the witness and what absorbed it."""
+    groups = {"survived": [], "proved": [], "boundary": [], "failed": [], "predicted": []}
+    for reg in REGISTRIES:
+        fams = {t["id"]: t for t in reg.get("transformation", [])}
+        for t in reg.get("test", []):
+            if e["id"] not in t.get("entries", []):
+                continue
+            fam = fams.get(t["transformation"], {})
+            claim = t["claim"][:1].upper() + t["claim"][1:]
+            line = f"- {t['transformation']}, {fam.get('family', '')}. Claim: {claim}. {linkify('`' + t['record'] + '`')}."
+            if t.get("boundary"):
+                line += f" Boundary: {t['boundary']}."
+            if t.get("witness"):
+                line += f" Witness: {t['witness']}. Absorbed by: {t.get('absorbed_by', '?')}."
+            if t.get("revision") and t["revision"] != "none":
+                line += f" Revision: {t['revision']}."
+            groups.setdefault(t["outcome"], []).append(line)
+    out = []
+    labels = [("proved", "Proved invariant"), ("survived", "Survived"), ("boundary", "Boundary measured"),
+              ("failed", "Failed, with witness"), ("predicted", "Predicted, sealed and unrun")]
+    for key, label in labels:
+        if groups.get(key):
+            out += [f"**{label}.**", ""] + groups[key] + [""]
+    return out if out else ["none declared", ""]
 
 
 def term_patterns(e):
@@ -365,6 +413,7 @@ def build(e):
             found = True
     if not found:
         out.append("none")
+    out += ["", "## invariance envelope", ""] + envelope_lines(e)
     lean = e.get("lean")
     lean = [lean] if isinstance(lean, str) else (lean or [])
     out += ["", "## machine checked", "", "\n\n".join(lean_theorems(s) for s in lean) if lean else "none", ""]

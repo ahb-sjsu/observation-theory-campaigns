@@ -75,6 +75,11 @@ Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:1-30`, DOI 1
 - [`geometric-observation/chapters/ch16_honest_negatives.md:56-61`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch16_honest_negatives.md#L56-L61) at 0792c84. **NEG-10 — the flip appears on any independent representation (prospective).** `[refuted]`. On embedding retrieval, arm b reconstructed strictly better *and* Pareto-dominated downstream — no flip — so reconstruction was not falsified there. **Precondition discovered: the flip is observable only for reconstruction-matched arms.** The anti-probe half still transferred. This negative is why every later flip row is built on recon-matched arms; the miss defined the protocol.
 - [`geometric-observation/chapters/ch16_honest_negatives.md:106-112`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch16_honest_negatives.md#L106-L112) at 0792c84. - **Identifiability** (fixable): NEG-5, NEG-10, legal-035, NEG-12 — the read operator was mis-estimated or the arms weren't recon-matched. Fixed by the blind probe and by protocol. - **Coupling** (a true boundary): D4 — read and signal energy intrinsically aligned; not rehabilitatable by any read-operator recovery. - **Precondition** (needs a working consumer): moral-on-frozen-embeddings — no read direction to protect until the consumer is competent. - **Mechanism-absent** (a genuine refutation): NEG-11 — the claimed effect does not exist.
 
+## invariance envelope
+
+none declared
+
+
 ## machine checked
 
 [`lean/DataMiningAsObservation/Flip.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/Flip.lean), theorems `trace_eq`, `reading_difference`, `reader_swap_reverses`, `flip`, `cos_sq_pi_div_twelve`, `sin_sq_pi_div_twelve`, `reading_15_first`, `reading_15_second`, `sqrt_three_bounds`, `readings_15_to_three_decimals`, `reader_75_is_swap`, `four_to_one_flip`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
@@ -93,4 +98,4 @@ none
 
 ## status
 
-Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

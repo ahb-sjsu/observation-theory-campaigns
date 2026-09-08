@@ -23,6 +23,21 @@ document that concerns you. Each track section below says what the track
 asks in plain language, what it has established, and where its files
 live.
 
+## The discovery discipline, four records added 2026-09-08
+
+The tracks ask which quantities are the substrate's and which are the declared
+observer's, keep every failure with its cause named, run a sealed generator that
+searches domains for research packets, and print every entry's failures beside its
+measurements. That is the loop that *Discovery Philosophy Engineering* (Bond, draft
+September 2026) names, formalize, derive, search, probe, witness, revise. Four of the
+loop's objects now exist as records rather than prose: a machine-readable
+transformation registry per track (`claims/transformations/`, schema there), an
+invariance envelope printed for every encyclopedia entry from the registries, and two
+ledger classes, `[witness]` for a reduced counterexample with the component that absorbed
+it and `[revised]` for a commitment changed in response to one. `standards/DPE-RECORDS.md`
+states the four and the protocol steps they enforce. The first registries are the gauge
+track's, filled from its own status rows, and the Geometric Evaluation Theory campaign's.
+
 ## The twenty tracks
 
 Each track carries one icon everywhere in this file, chosen for what

@@ -38,6 +38,11 @@ none
 
 none
 
+## invariance envelope
+
+none declared
+
+
 ## machine checked
 
 [`lean/DataMiningAsObservation/Escalation.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/Escalation.lean), theorems `decided_anti`, `coverage_anti`, `decided_margin`, `decided_zero`, `joint_rate`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
@@ -56,4 +61,4 @@ Book equations stated beside the entry's terms, not defining it: 14.5, 10.7, 0.2
 
 ## status
 
-Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

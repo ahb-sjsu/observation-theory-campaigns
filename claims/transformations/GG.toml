@@ -1,0 +1,78 @@
+# Transformation registry for the GG track, gauge redundancy as consumer bookkeeping.
+# Filled 2026-09-08 from experiments/GAUGE-TRACK.md and the README status ledger at commit
+# e4af34d. Every test cites the row it comes from; the registry adds the DPE reading only.
+
+[registry]
+track = "GG"
+title = "Gauge redundancy as consumer bookkeeping"
+commit = "e4af34d"
+x = "link configurations of Z2 gauge theory on the 3 by 3 periodic lattice, 18 links, all 2^18 configurations enumerated exactly at K = 0.4"
+y = "expectations read by an observer: the nine plaquette Wilson expectations, a declared area-two loop, and the eighteen link readings"
+equivalence = "agreement within 1e-12 for exact quantities (1e-13 for declared zeros); an observer dependence is a disagreement of at least 0.1"
+complexity_ordering = "gauge fixings by the size of the spanning tree they fix, then ensemble deformations by the power of epsilon at which they first act"
+
+[[transformation]]
+id = "GG:tree-gauge-observer"
+family = "change of observer among gauge-fixed observers: maximal-tree gauge slices on different declared spanning trees, and the unitary gauge of the coupled matter theory"
+parameters = "three declared spanning trees (GG-1); unitary versus tree observer (GG-3)"
+closure = "composition of gauge transformations, the full 512-element orbit of GG-0"
+rank = 1
+declared = "2026-08-05"
+
+[[transformation]]
+id = "GG:link-weight-deformation"
+family = "deformation of the ensemble weights by exp(epsilon times the sum of links), breaking the gauge constraint"
+parameters = "epsilon on the ladder 0, 1e-3, 1e-2, 1e-1"
+closure = "none, a one-parameter family"
+rank = 2
+declared = "2026-08-06"
+
+[[test]]
+transformation = "GG:tree-gauge-observer"
+claim = "every gauge-invariant observable reads the same on every observer's slice as in the full ensemble"
+entries = []
+outcome = "survived"
+record = "observation-theory-campaigns/README.md:165-165"
+witness = ""
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "GG:tree-gauge-observer"
+claim = "link readings are observer-independent"
+entries = []
+outcome = "failed"
+record = "observation-theory-campaigns/README.md:165-165"
+witness = "a non-tree link reading equals the full-ensemble Wilson loop that the observer's tree selects, deviation exactly 0.0, so observers disagree by exactly the difference in which loops their trees select (maximum pairwise difference at least 0.1) while the Elitzur zero of the full ensemble stands"
+absorbed_by = "declaration"
+revision = "the reading is declared as bookkeeping: a gauge-variant reading is a relabeled gauge-invariant loop selected by the observer's tree, observation-theory-campaigns/experiments/GAUGE-TRACK.md:67-99"
+
+[[test]]
+transformation = "GG:tree-gauge-observer"
+claim = "the bare matter field reads the same on the unitary observer and on a tree observer"
+entries = []
+outcome = "failed"
+record = "observation-theory-campaigns/README.md:178-178"
+witness = "the unitary observer reads bare matter as exactly 1 and the tree observer 0.101 (spread 0.899) while the dressed line correlator agrees (0.1008 against 0.1004) and bare sigma-sigma is 0 to 1e-16"
+absorbed_by = "declaration"
+revision = "bare matter is a fiber coordinate of the observer's projection, the dressed correlator the invariant, observation-theory-campaigns/README.md:178-178"
+
+[[test]]
+transformation = "GG:link-weight-deformation"
+claim = "the link sector responds to the deformation at first order"
+entries = []
+outcome = "survived"
+record = "observation-theory-campaigns/README.md:170-171"
+witness = ""
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "GG:link-weight-deformation"
+claim = "the invariant sector responds at second order (declared log-log slope window 1.5 to 2.5)"
+entries = []
+outcome = "failed"
+record = "observation-theory-campaigns/README.md:170-170"
+witness = "measured slope 4.000003: no two links form a closed loop with a plaquette on this graph, so the epsilon-squared coefficient vanishes identically and the first surviving response is quartic; the declaration assumed a generic quadratic response the loop structure forbids"
+absorbed_by = "declaration"
+revision = "GG-2b, the window restated to 3.5 to 4.5 with the loop-parity prediction declared before the run, demonstrated in model, observation-theory-campaigns/README.md:171-171"

@@ -1,0 +1,104 @@
+# Transformation registry for the Geometric Evaluation Theory campaign (repository
+# ahb-sjsu/geometric-evaluation-theory). Filled 2026-09-08 from that repository's CAMPAIGN.md,
+# ledger, and result files at commit fa3ee1c. Records are cited as repo/path:lines at that commit.
+
+[registry]
+track = "GET"
+title = "Geometric Evaluation Theory campaign"
+commit = "fa3ee1c"
+x = "consequence space of an evaluation object, y in R^m; for the shared-code gates the 128-dimensional whitened key space of one KV head of Llama-3.2-3B; for the hull-law gate respondents' placements of five objects on two 7-point scales"
+y = "the evaluator's ordering and choice; for the shared-code gates each query head's attention loss under a code; for the hull-law gate the respondent's thermometer ranking"
+equivalence = "orderings compared exactly; losses compared to the second-order prediction within 25 percent per triple; population statistics compared to a within-respondent shuffle null with a registered margin"
+complexity_ordering = "changes of basis first, then rank-limited codes by rank, then perturbations by size in whitened units, then transfers of population"
+
+[[transformation]]
+id = "GET:change-of-basis"
+family = "invertible change of basis of the consequence space, z' = A z, with the metric transported as G' = A^-T G A^-1"
+parameters = "any invertible A"
+closure = "the general linear group"
+rank = 1
+declared = "2026-09-07"
+
+[[transformation]]
+id = "GET:all-keys-rank-truncation"
+family = "a shared rank-k orthogonal projector in whitened coordinates applied to every key of a cell at once"
+parameters = "rank k in 2, 4, 8 (ladder revised from 8 to 64 after the probe); codes: each head's own, the compromise, key PCA, 32 random"
+closure = "none"
+rank = 2
+declared = "2026-09-07"
+
+[[transformation]]
+id = "GET:one-key-isotropic-perturbation"
+family = "one key at a probed operating point perturbed by eps (I - Q) u with u standard normal in whitened coordinates, antithetic pair, common random numbers across codes"
+parameters = "eps in 0.02, 0.05, 0.1, 0.2; ranks 2, 4, 8"
+closure = "none"
+rank = 3
+declared = "2026-09-08"
+
+[[transformation]]
+id = "GET:population-transfer"
+family = "transfer of the hull law from a representable evaluator to a human population with a known consequence map (self-placed candidates), scored against a within-respondent shuffle null"
+parameters = "ANES 1972 post-election Form II, five objects, six scale pairs"
+closure = "none"
+rank = 4
+declared = "2026-09-07"
+
+[[transformation]]
+id = "GET:battery-below-design-bound"
+family = "restriction of the battery of consequences to fewer than m + 1 points, or to a proper affine subspace, in the identification gate"
+parameters = "n = m - 1 and m in general position; m + 64 points inside an (m-1)-dimensional affine subspace"
+closure = "none"
+rank = 5
+declared = "2026-09-08"
+
+[[test]]
+transformation = "GET:change-of-basis"
+claim = "the evaluative distance (y - t)^T G (y - t) is unchanged"
+entries = ["geometric-evaluation-theory"]
+outcome = "proved"
+record = "geometric-evaluation-theory/paper/geometric-evaluation-theory.tex:108-130"
+witness = ""
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "GET:all-keys-rank-truncation"
+claim = "each head's loss under a shared code is the second-order prediction tr(Pt (I - Q)) from its recovered read operator, and the regret formula and bound follow"
+entries = ["geometric-evaluation-theory"]
+outcome = "failed"
+record = "geometric-evaluation-theory/CAMPAIGN.md:73-81"
+witness = "measured attention loss 20 to 330 times the prediction (mean KL about 4 nats per query) at ranks 2 to 8; reduced to two causes, the registered prediction was a one-key operator while the measurement coded all 1,024 keys at once, and the codes sat far outside the second-order regime; the ordering claim survived on measured losses in 32 of 32 non-vacuous cell-ranks while the own-code claim failed in 10, 13 and 15 of 16 cells; ledger row GET-9w, geometric-evaluation-theory/claims/LEDGER.md:22-22"
+absorbed_by = "measurement"
+revision = "the second registration PREREG-G4B.md (blob d6d1c44fcd8454f749bd204e914b02059b8e658f), the object the formula predicts measured directly; ledger row GET-9r, geometric-evaluation-theory/claims/LEDGER.md:23-23"
+
+[[test]]
+transformation = "GET:one-key-isotropic-perturbation"
+claim = "the measured loss equals eps^2 tr(Pt (I - Q)) within 25 percent per triple"
+entries = ["geometric-evaluation-theory"]
+outcome = "boundary"
+record = "geometric-evaluation-theory/CAMPAIGN.md:89-98"
+boundary = "the ratio of measured to predicted loss is flat in eps up to 0.1 whitened units (median over cells 1.02 to 1.05) and rises by 4 percent at 0.2; the per-triple bar is missed at every eps (64 to 70 percent within tolerance against 80) by a per-cell scatter of standard deviation 0.16 to 0.24"
+witness = "a seed check with fresh draws re-centred the five most extreme cells on one, so the scatter is the fluctuation of 64 common draws through operators of low local rank; the registration's Monte Carlo error estimate used the averaged operator and was wrong, recorded as a registration error"
+absorbed_by = "declaration"
+revision = "none proposed: inside the second-order regime the regret formula and bound follow from the recovered operators by the theorem, so the only empirical content there is the quadratic model itself, which holds at the median"
+
+[[test]]
+transformation = "GET:population-transfer"
+claim = "no action is ranked strictly below every action whose consequences surround it (the hull law), deterministically"
+entries = ["geometric-evaluation-theory"]
+outcome = "boundary"
+record = "geometric-evaluation-theory/CAMPAIGN.md:43-54"
+boundary = "the law holds as a population tendency, 50 percent of 489 testable respondents violate it at least once against 66 percent under the shuffle null (permutation p below 0.005, five replication pairs agree), and fails as a deterministic statement for about half the respondents"
+witness = "the population itself; no error model for integer placements and integer ratings was registered, so no part of the half is attributed to rounding"
+absorbed_by = "declaration"
+revision = "none yet: an error model would have to be registered before any of the half is attributed"
+
+[[test]]
+transformation = "GET:battery-below-design-bound"
+claim = "the metric's action off the affine span of the battery and the ideal's component in the metric's kernel are not revealed by choices, while the in-span part and the range component are"
+entries = ["geometric-evaluation-theory"]
+outcome = "predicted"
+record = "geometric-evaluation-theory/CAMPAIGN.md:107-107"
+witness = ""
+absorbed_by = ""
+revision = "none"

@@ -37,11 +37,16 @@ Chapter 8 section 8.1 of *Data Mining as Observation*, with the disjoint-seed ru
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
 | chapter 4 section 4.4 | GO-4 budget inversion, fixed m 10 rises, matched m 121, 126, 159 collapses, 3 seeds | [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md) row GO-4 |
-| chapter 13 section 13.3 | ZooKeeper hot 0.99 cold 0.01 witnessed 0.0, Postgres 0.50 to 0.06, MongoDB 0.47 to 0.03, production Postgres 0.47 to 0.02, real substrates, disjoint seeds | [`observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md:1-45`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/75bc84a/experiments/DATABASE-FRESHNESS-TRACK.md#L1-L45) |
+| chapter 13 section 13.3 | ZooKeeper hot 0.99 cold 0.01 witnessed 0.0, Postgres 0.50 to 0.06, MongoDB 0.47 to 0.03, production Postgres 0.47 to 0.02, real substrates, disjoint seeds | [`observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md:1-45`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/80d1414/experiments/DATABASE-FRESHNESS-TRACK.md#L1-L45) |
 
 ## failures and corrections
 
 none
+
+## invariance envelope
+
+none declared
+
 
 ## machine checked
 
@@ -65,4 +70,4 @@ Ledger rows that cite the entry's records without naming it: NEG-14.
 
 ## status
 
-Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

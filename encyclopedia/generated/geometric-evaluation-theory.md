@@ -48,6 +48,26 @@ none
 
 none
 
+## invariance envelope
+
+**Proved invariant.**
+
+- GET:change-of-basis, invertible change of basis of the consequence space, z' = A z, with the metric transported as G' = A^-T G A^-1. Claim: The evaluative distance (y - t)^T G (y - t) is unchanged. [`geometric-evaluation-theory/paper/geometric-evaluation-theory.tex:108-130`](https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/fa3ee1c/paper/geometric-evaluation-theory.tex#L108-L130).
+
+**Boundary measured.**
+
+- GET:one-key-isotropic-perturbation, one key at a probed operating point perturbed by eps (I - Q) u with u standard normal in whitened coordinates, antithetic pair, common random numbers across codes. Claim: The measured loss equals eps^2 tr(Pt (I - Q)) within 25 percent per triple. [`geometric-evaluation-theory/CAMPAIGN.md:89-98`](https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/fa3ee1c/CAMPAIGN.md#L89-L98). Boundary: the ratio of measured to predicted loss is flat in eps up to 0.1 whitened units (median over cells 1.02 to 1.05) and rises by 4 percent at 0.2; the per-triple bar is missed at every eps (64 to 70 percent within tolerance against 80) by a per-cell scatter of standard deviation 0.16 to 0.24. Witness: a seed check with fresh draws re-centred the five most extreme cells on one, so the scatter is the fluctuation of 64 common draws through operators of low local rank; the registration's Monte Carlo error estimate used the averaged operator and was wrong, recorded as a registration error. Absorbed by: declaration. Revision: none proposed: inside the second-order regime the regret formula and bound follow from the recovered operators by the theorem, so the only empirical content there is the quadratic model itself, which holds at the median.
+- GET:population-transfer, transfer of the hull law from a representable evaluator to a human population with a known consequence map (self-placed candidates), scored against a within-respondent shuffle null. Claim: No action is ranked strictly below every action whose consequences surround it (the hull law), deterministically. [`geometric-evaluation-theory/CAMPAIGN.md:43-54`](https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/fa3ee1c/CAMPAIGN.md#L43-L54). Boundary: the law holds as a population tendency, 50 percent of 489 testable respondents violate it at least once against 66 percent under the shuffle null (permutation p below 0.005, five replication pairs agree), and fails as a deterministic statement for about half the respondents. Witness: the population itself; no error model for integer placements and integer ratings was registered, so no part of the half is attributed to rounding. Absorbed by: declaration. Revision: none yet: an error model would have to be registered before any of the half is attributed.
+
+**Failed, with witness.**
+
+- GET:all-keys-rank-truncation, a shared rank-k orthogonal projector in whitened coordinates applied to every key of a cell at once. Claim: Each head's loss under a shared code is the second-order prediction tr(Pt (I - Q)) from its recovered read operator, and the regret formula and bound follow. [`geometric-evaluation-theory/CAMPAIGN.md:73-81`](https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/fa3ee1c/CAMPAIGN.md#L73-L81). Witness: measured attention loss 20 to 330 times the prediction (mean KL about 4 nats per query) at ranks 2 to 8; reduced to two causes, the registered prediction was a one-key operator while the measurement coded all 1,024 keys at once, and the codes sat far outside the second-order regime; the ordering claim survived on measured losses in 32 of 32 non-vacuous cell-ranks while the own-code claim failed in 10, 13 and 15 of 16 cells; ledger row GET-9w, geometric-evaluation-theory/claims/LEDGER.md:22-22. Absorbed by: measurement. Revision: the second registration PREREG-G4B.md (blob d6d1c44fcd8454f749bd204e914b02059b8e658f), the object the formula predicts measured directly; ledger row GET-9r, geometric-evaluation-theory/claims/LEDGER.md:23-23.
+
+**Predicted, sealed and unrun.**
+
+- GET:battery-below-design-bound, restriction of the battery of consequences to fewer than m + 1 points, or to a proper affine subspace, in the identification gate. Claim: The metric's action off the affine span of the battery and the ideal's component in the metric's kernel are not revealed by choices, while the in-span part and the range component are. [`geometric-evaluation-theory/CAMPAIGN.md:107-107`](https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/fa3ee1c/CAMPAIGN.md#L107-L107).
+
+
 ## machine checked
 
 none
@@ -66,4 +86,4 @@ none
 
 ## status
 
-Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

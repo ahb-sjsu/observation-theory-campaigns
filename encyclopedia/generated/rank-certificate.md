@@ -41,6 +41,11 @@ none
 
 - [`turboquant-pro/turboquant_pro/rank_certificate.py:25-36`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/turboquant_pro/rank_certificate.py#L25-L36) at 856c4cb. * **Strict** (``lo=0, hi=100``): kappa is the true worst-case distortion (max/min per-pair ratio). The bound is then unconditional -- a genuine distribution-free floor over *all* pairs -- but a single collapsed or near-duplicate pair (ratio -> 0 or huge) sends kappa -> inf and makes the certificate vacuous, so it is brittle to data-artifact pairs. * **Robust** (the ``lo=2.5, hi=97.5`` default): kappa is the percentile-robust distortion, trimming the most-distorted ~5% of pairs. This is the sensible default and matches the source paper's torus protocol, but the resulting floor is **conditional**: it holds for the central 95% of pairs, *not* unconditionally over all of them. The trimmed tail can invert arbitrarily, so the reported floor is a robust estimate, not a hard worst-case guarantee. Use the strict regime when you need the unconditional bound.
 
+## invariance envelope
+
+none declared
+
+
 ## machine checked
 
 [`lean/DataMiningAsObservation/RankCertificate.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/RankCertificate.lean), theorems `nn_preserved`, `nn_preserved_of_kappa_one`, `kappa_ge_one`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
@@ -63,4 +68,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-07 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

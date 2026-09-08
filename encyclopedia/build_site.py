@@ -56,7 +56,7 @@ captions = tomllib.load(open(os.path.join(ROOT, "figures", "captions.toml"), "rb
 
 # ---------------------------------------------------------------- parse the generated pages
 SECTIONS = ["definition", "equation", "conditions", "ledger", "first stated", "measurements", "failures and corrections",
-            "machine checked", "used in", "related", "see also", "status"]
+            "invariance envelope", "machine checked", "used in", "related", "see also", "status"]
 
 
 def parse_page(eid):
@@ -241,7 +241,7 @@ def entry_body(e, single):
     eid = e["id"]
     h = HTML[eid]
     body = [f'<h1 id="{eid}">{html.escape(e["title"])} <span class="kind {e["kind"]}">{e["kind"]}</span></h1>', card(e), figure_html(eid)]
-    for k in ("equation", "conditions", "ledger", "first stated", "measurements", "failures and corrections", "machine checked", "used in"):
+    for k in ("equation", "conditions", "ledger", "first stated", "measurements", "failures and corrections", "invariance envelope", "machine checked", "used in"):
         if k in h:
             body.append(f"<h3>{k[0].upper() + k[1:]}</h3>" + h[k])
     rel = [x for x in e.get("related", []) if x in by_id]

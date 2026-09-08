@@ -24,6 +24,7 @@ the word "none", so that a missing field and an empty field cannot be confused.
 | `first stated` | where the idea first appears in the record, with a DOI or commit | papers, volumes |
 | `measurements` | a table of the numbers, each with the file and line range and the commit it was read at | campaign tracks, experiment results |
 | `failures and corrections` | every retraction, refuted bar, vacuous pass, and erratum that touches the entry, dated, at the same prominence as the measurements | ledger, `ERRATA.md` files |
+| `invariance envelope` | every registered transformation test that names the entry, grouped as proved invariant, survived, boundary measured, failed with its witness and what absorbed it, and predicted; `none declared` otherwise | `claims/transformations/*.toml` in the campaigns repository, schema in `claims/transformations/SCHEMA.md` |
 | `conditions` | the assumptions under which the theorem or law holds, stated so a reader can tell when it does not apply | the volume, the book's revision notes |
 | `machine checked` | the Lean file and theorem names, or none | `observation-data-mining/lean/`, `ot-lean` |
 | `used in` | papers by DOI, book chapters by number, instruments by repository | the book's sources tables and index |
@@ -73,7 +74,13 @@ An entry of kind `result` or `correction`, or one that sets `strict = false`, tr
 record it cites, because its records were chosen for it. A ledger row appears once in full, in
 the ledger; the entry carries the row's first sentence, its class, and a link to the line. The
 ledger classes are `[proved]`, `[demonstrated]`, `[replicated]`, `[predicted]`, `[exploratory]`,
-`[refuted]`, `[missed]`, and `[void]`.
+`[refuted]`, `[missed]`, and `[void]`, and, since 2026-09-08, two record classes that carry no
+evidence grade of their own: `[witness]`, a row whose content is a reduced counterexample, the
+smallest admissible transformation or the named cause that breaks a claim, and the component
+that absorbed it; and `[revised]`, a row recording a commitment changed in response to a
+named witness, with what changed and where the new commitment is sealed. Both render under
+failures and corrections. `standards/DPE-RECORDS.md` in the campaigns repository states the
+protocol steps they enforce.
 
 Two optional fields sit beside `definition`: `definition` in `entries.toml` overrides the
 glossary when an entry has no glossary headword, and `known_as` names the prior art the entry
