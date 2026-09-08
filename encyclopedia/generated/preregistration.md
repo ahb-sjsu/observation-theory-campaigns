@@ -35,12 +35,12 @@ Chapter 8 section 8.8 of *Data Mining as Observation*, with the program's templa
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 2 section 2.3 | the missing-data rule as a required preregistration field | [`observation-theory-campaigns/experiments/PREREG-TEMPLATE.md:47-52`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/0520fcb/experiments/PREREG-TEMPLATE.md#L47-L52) |
+| chapter 2 section 2.3 | the missing-data rule as a required preregistration field | [`observation-theory-campaigns/experiments/PREREG-TEMPLATE.md:47-52`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/75bc84a/experiments/PREREG-TEMPLATE.md#L47-L52) |
 | chapter 7 section 7.6 | the preregistration fields | instructor working documents, not public [@bond2026course], `ECE_514-01_FA26_session-outlines.md:157-176`; chapter 8 section 8.8 of this book |
 
 ## failures and corrections
 
-- [`observation-theory-campaigns/ERRATA.md:90-110`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/0520fcb/ERRATA.md#L90-L110) at 0520fcb. E3. Two wrong bar values in the campaign notes **Found** 2026-08-07, same pass. Not a published error. `experiments/CAMPAIGN.md` twice described the PF4-006 entry-point and timestep clause as having a bar of 1e-10. The sealed declaration and the committed record both set that bar at 1e-8. The 1e-10 figure is the separate translation-covariance bar. The narrative was wrong and the verdict was not, since the clause failed at 1.3e-2 against either number. The same document described PREREG-PF4-009 as passing all six bars. The sealed document groups its requirements into six bars and the governed runner reports eight items, and the mapping between them was never declared. Both statements are now made explicitly. Corrected in place, since these are working notes rather than sealed documents or published records. ---
+- [`observation-theory-campaigns/ERRATA.md:90-110`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/75bc84a/ERRATA.md#L90-L110) at 75bc84a. E3. Two wrong bar values in the campaign notes **Found** 2026-08-07, same pass. Not a published error. `experiments/CAMPAIGN.md` twice described the PF4-006 entry-point and timestep clause as having a bar of 1e-10. The sealed declaration and the committed record both set that bar at 1e-8. The 1e-10 figure is the separate translation-covariance bar. The narrative was wrong and the verdict was not, since the clause failed at 1.3e-2 against either number. The same document described PREREG-PF4-009 as passing all six bars. The sealed document groups its requirements into six bars and the governed runner reports eight items, and the mapping between them was never declared. Both statements are now made explicitly. Corrected in place, since these are working notes rather than sealed documents or published records. ---
 
 ## machine checked
 

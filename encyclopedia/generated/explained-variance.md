@@ -36,7 +36,7 @@ TSK appendix B on principal component analysis, as chapter 4 section 4.1 of *Dat
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:10-18`](https://github.com/ahb-sjsu/gtc-prototype/blob/217b366/docs/SPECTRUM_FINDINGS.md#L10-L18) |
+| chapter 9 section 9.4 | explained ratios, effective rank 5.19 of 8, convergence with a second method, property of the representation not the space | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:10-18`](https://github.com/ahb-sjsu/gtc-prototype/blob/5d53262/docs/SPECTRUM_FINDINGS.md#L10-L18) |
 
 ## failures and corrections
 
