@@ -1,0 +1,36 @@
+== start Wed Sep  9 07:08:02 PM UTC 2026 HEAD d27de9d role pilot seal 
+{"world": "g_a0_d64", "rows": 72, "rank_eff": 3.64, "null": 23.87, "jac_same": 0.343, "jac_diff": 0.165, "seconds": 4.9}
+{"world": "g_a0_d128", "rows": 72, "rank_eff": 4.99, "null": 23.87, "jac_same": 0.296, "jac_diff": 0.119, "seconds": 5.0}
+{"world": "g_a05_d32", "rows": 72, "rank_eff": 2.67, "null": 23.84, "jac_same": 0.398, "jac_diff": 0.218, "seconds": 4.5}
+{"world": "g_a05_d64", "rows": 82, "rank_eff": 3.57, "null": 23.87, "jac_same": 0.344, "jac_diff": 0.166, "seconds": 6.9}
+{"world": "g_a1_d64", "rows": 72, "rank_eff": 3.38, "null": 23.89, "jac_same": 0.339, "jac_diff": 0.169, "seconds": 4.4}
+{"world": "g_a1_d128", "rows": 72, "rank_eff": 4.09, "null": 23.85, "jac_same": 0.308, "jac_diff": 0.133, "seconds": 4.9}
+{"world": "cube_d32", "rows": 72, "rank_eff": 3.52, "null": 23.88, "jac_same": 0.34, "jac_diff": 0.161, "seconds": 4.5}
+{"world": "cube_d128", "rows": 72, "rank_eff": 6.35, "null": 23.88, "jac_same": 0.255, "jac_diff": 0.084, "seconds": 4.9}
+{"world": "ball_d64", "rows": 72, "rank_eff": 10.33, "null": 23.86, "jac_same": 0.217, "jac_diff": 0.052, "seconds": 4.5}
+{"world": "ball_d128", "rows": 72, "rank_eff": 13.92, "null": 23.87, "jac_same": 0.194, "jac_diff": 0.032, "seconds": 4.9}
+{"world": "t5_d32", "rows": 72, "rank_eff": 2.19, "null": 23.86, "jac_same": 0.436, "jac_diff": 0.279, "seconds": 4.2}
+{"world": "t5_d128", "rows": 72, "rank_eff": 2.88, "null": 23.87, "jac_same": 0.453, "jac_diff": 0.236, "seconds": 4.9}
+{"world": "mix4_d64", "rows": 72, "rank_eff": 4.05, "null": 23.86, "jac_same": 0.308, "jac_diff": 0.133, "seconds": 4.6}
+{"world": "sub_m4_d64", "rows": 72, "rank_eff": 2.9, "null": 23.87, "jac_same": 0.232, "jac_diff": 0.062, "seconds": 4.6}
+{"world": "sub_m8_d64", "rows": 72, "rank_eff": 2.12, "null": 23.85, "jac_same": 0.264, "jac_diff": 0.096, "seconds": 4.7}
+{"world": "sub_m16_d128", "rows": 72, "rank_eff": 2.13, "null": 23.86, "jac_same": 0.424, "jac_diff": 0.258, "seconds": 5.1}
+{"world": "fou_m4_d64", "rows": 72, "rank_eff": 3.36, "null": 23.84, "jac_same": 0.238, "jac_diff": 0.057, "seconds": 4.4}
+{"world": "fou_m8_d128", "rows": 72, "rank_eff": 3.13, "null": 23.85, "jac_same": 0.252, "jac_diff": 0.084, "seconds": 4.9}
+{"world": "fou_m16_d64", "rows": 72, "rank_eff": 3.61, "null": 23.84, "jac_same": 0.334, "jac_diff": 0.159, "seconds": 4.6}
+{"world": "tor_m4_d64", "rows": 72, "rank_eff": 4.29, "null": 23.87, "jac_same": 0.275, "jac_diff": 0.087, "seconds": 4.6}
+{"world": "tor_m8_d128", "rows": 72, "rank_eff": 7.47, "null": 23.84, "jac_same": 0.225, "jac_diff": 0.049, "seconds": 5.0}
+{"world": "tor_m16_d64", "rows": 72, "rank_eff": 12.35, "null": 23.86, "jac_same": 0.19, "jac_diff": 0.022, "seconds": 4.5}
+{"world": "roll_d64", "rows": 72, "rank_eff": 3.5, "null": 23.88, "jac_same": 0.266, "jac_diff": 0.084, "seconds": 4.3}
+{"world": "roll_d128", "rows": 72, "rank_eff": 4.03, "null": 23.86, "jac_same": 0.257, "jac_diff": 0.078, "seconds": 5.0}
+{"world": "g_a05_d64_N2000", "rows": 72, "rank_eff": 3.67, "null": 23.76, "jac_same": 0.34, "jac_diff": 0.161, "seconds": 1.3}
+{"world": "h_g_a025_d48", "rows": 36, "rank_eff": 2.68, "null": 11.97, "jac_same": 0.338, "jac_diff": 0.175, "seconds": 2.2}
+{"world": "h_t3_d64", "rows": 36, "rank_eff": 2.15, "null": 11.97, "jac_same": 0.475, "jac_diff": 0.299, "seconds": 2.3}
+{"world": "h_ball_d96", "rows": 36, "rank_eff": 8.01, "null": 11.97, "jac_same": 0.129, "jac_diff": 0.03, "seconds": 2.4}
+{"world": "h_mix8_d48", "rows": 36, "rank_eff": 3.19, "null": 11.97, "jac_same": 0.307, "jac_diff": 0.14, "seconds": 2.2}
+{"world": "h_sub_m6_d96", "rows": 36, "rank_eff": 1.98, "null": 11.96, "jac_same": 0.212, "jac_diff": 0.046, "seconds": 2.3}
+{"world": "h_fou_m12_d96", "rows": 36, "rank_eff": 3.65, "null": 11.96, "jac_same": 0.304, "jac_diff": 0.135, "seconds": 2.4}
+{"world": "h_tor_m6_d48", "rows": 36, "rank_eff": 5.36, "null": 11.97, "jac_same": 0.169, "jac_diff": 0.03, "seconds": 2.2}
+{"world": "h_sub_m8_d64_noisy", "rows": 36, "rank_eff": 1.91, "null": 11.97, "jac_same": 0.235, "jac_diff": 0.108, "seconds": 2.2}
+{"law": {"target": "skew", "features": ["inv_cv_knn", "log_id_twonn", "sqrt_d_eff"], "coef": [-1.4628576690119044, -0.013192891062075884, 0.7474626475449352, 0.06863493234331555], "transform": "log1p", "train_rmse": 0.7808176165065629, "heldout_rmse": 0.4812226684319372, "n_terms": 3}, "competitor": {"target": "skew", "features": ["N", "log_d_nom_x_log_k"], "coef": [4.424381026518544, -0.0006307938955918052, -0.042614220600367125], "transform": "identity", "train_rmse": 2.2407590891844964, "heldout_rmse": 1.8020692362829882, "n_terms": 2}}
+== PILOT_DONE rc=0

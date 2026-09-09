@@ -1,0 +1,75 @@
+{
+ "law": {
+  "target": "skew",
+  "features": [
+   "inv_cv_knn",
+   "log_id_twonn",
+   "sqrt_d_eff"
+  ],
+  "coef": [
+   -1.4628576690119044,
+   -0.013192891062075884,
+   0.7474626475449352,
+   0.06863493234331555
+  ],
+  "transform": "log1p",
+  "train_rmse": 0.7808176165065629,
+  "heldout_rmse": 0.4812226684319372,
+  "n_terms": 3
+ },
+ "competitor_nominal": {
+  "target": "skew",
+  "features": [
+   "N",
+   "log_d_nom_x_log_k"
+  ],
+  "coef": [
+   4.424381026518544,
+   -0.0006307938955918052,
+   -0.042614220600367125
+  ],
+  "transform": "identity",
+  "train_rmse": 2.2407590891844964,
+  "heldout_rmse": 1.8020692362829882,
+  "n_terms": 2
+ },
+ "competitor_d2": {
+  "target": "skew",
+  "features": [
+   "inv_cv_d",
+   "sqrt_d_eff_over_k"
+  ],
+  "coef": [
+   -0.026165647256707177,
+   0.4206954447231824,
+   0.8172228220333909
+  ],
+  "transform": "identity",
+  "note": "the law gate D2 froze on Gaussian clouds (observation-theory-campaigns/experiments/OD/D2/law.json), carried as a fixed competitor"
+ },
+ "competitor_d2v2": {
+  "target": "skew",
+  "features": [
+   "d_ent",
+   "inv_cv_d",
+   "sqrt_top_share"
+  ],
+  "coef": [
+   2.8109594094123245,
+   0.004706131843131253,
+   -0.09277311281123587,
+   -2.461264557894105
+  ],
+  "transform": "log1p",
+  "note": "the law gate D2v2 froze on seven full-dimensional families (observation-theory-campaigns/experiments/OD/D2v2/law.json), carried as a fixed competitor"
+ },
+ "target": "skew",
+ "frozen_from": "pilot",
+ "seed": 20260928,
+ "n_train": 1800,
+ "n_heldout": 288,
+ "d2_law_heldout_rmse": 2.2956042885591277,
+ "d2_law_train_rmse": 2.2485665291486407,
+ "d2v2_law_heldout_rmse": 1.3322031980922573,
+ "d2v2_law_train_rmse": 1.4062216865245414
+}

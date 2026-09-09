@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 sealed (blob 0073aea0857a3fa8b7d7c2e7989d8c7d4ea3da83) and running; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -260,6 +260,25 @@ sets the hubness. The exploratory budget sweep reproduced D2's finding on the fr
 slice: a resolution of a quarter of the neighbour distance changed the polarity of 55 percent
 of points under the isotropic reader (6 percent at a tenth), 7 percent under the anisotropic
 one.
+
+### D2v3. Observer-relative hubness, the law with manifold worlds
+
+Prediction. D2v2's repair: the discovery families gain clouds on embedded manifolds (a
+Gaussian in a random subspace, a random Fourier embedding of a Gaussian, a product of circles
+read through four harmonics, a swiss-roll sheet), so that the intrinsic dimension carries
+information the spectral dimension does not; the law discovered on eleven families transfers
+to unseen families, corpora and sizes and beats the nominal formula and the frozen D2 and D2v2
+laws. Latent rank and polarity as before.
+World. D2v2's observers and cells; 25 training and 8 held-out worlds; on the run only, the
+D2v2 unseen families plus three unseen manifolds, four fresh real slices, and five scale cells.
+Search. As D2v2. Bars. As D2v2, with the frozen D2v2 law added to L5 at 0.9.
+Record. Registered 2026-09-09. The probe found the Fourier manifold reproducing the Wikipedia
+signature (spectral dimension 54, intrinsic 12, skewness 0.24). The pilot froze
+log(1 + skew) = -1.463 - 0.013 / cv_knn + 0.748 log(id_twonn) + 0.069 sqrt(d_eff): with
+manifolds in the discovery set the search took the intrinsic dimension as its main term;
+held-out error 0.48, pooled 0.75 = REF, against 1.40 for the D2v2 law, 2.26 for the D2 law and
+2.19 for the nominal competitor. FRAC_X = 0.90 by the cap. SEALED 2026-09-09 as
+`experiments/OD/D2v3/PREREG-D2V3.md`, blob 0073aea0857a3fa8b7d7c2e7989d8c7d4ea3da83. Run: pending.
 
 ### D3. The observational predictability horizon
 
