@@ -17,11 +17,13 @@ off-diagonal entries is revealed (any operator with the same diagonal answers ev
 same way, so the off-diagonal error of a consistent estimate is at chance).
 
 World B, mixed probes. Queries in random directions at radius rho. Prediction: when
-lambda_min rho^2 < B^2 < lambda_max rho^2 with both sides clearing a registered margin, the
-consistent estimator recovers every eigenvalue, above and below the threshold, with error
-falling as queries grow; when B^2 lies outside that interval the oracle is constant and nothing
-is recovered. The estimator is the minimal-trace ellipsoid consistent with the answers at half
-the maximum margin (two semidefinite programs), a canonical point of the feasible set.
+lambda_min rho^2 < B^2 < lambda_max rho^2, with lambda_min the smallest eigenvalue including
+zero, the consistent estimator recovers every eigenvalue, above and below the threshold, with
+error falling as queries grow, in cells where the crossing is substantial (both oracle answers
+in at least a tenth of the queries); when B^2 lies outside that interval the oracle is constant
+and nothing is recovered. The estimator is the analytic centre of the set of positive
+semidefinite operators consistent with the answers, inside a declared cap on the operator norm,
+a canonical point of the feasible set.
 
     python d1_identify.py --selftest
     python d1_identify.py --config prereg_config.json --seed-role pilot --out pilot.json
@@ -98,8 +100,11 @@ def queries(n: int, rho: float, n_q: int, rng: np.random.Generator) -> np.ndarra
     return rho * u
 
 
-def estimate(deltas: np.ndarray, answers: np.ndarray, B: float, solver: str | None = "CLARABEL") -> np.ndarray:
-    """Minimal-trace ellipsoid consistent with the answers at half the maximum margin."""
+def estimate(deltas: np.ndarray, answers: np.ndarray, B: float, solver: str | None = "CLARABEL",
+             cap: float = 1000.0, rho: float = 1.0) -> np.ndarray:
+    """Analytic centre of the set of positive semidefinite operators consistent with the answers,
+    inside the declared cap P <= cap * (B^2 / rho^2) * I, which keeps the set bounded where the
+    answers bound a direction only from below."""
     import cvxpy as cp
     n = deltas.shape[1]
 
@@ -118,7 +123,9 @@ def estimate(deltas: np.ndarray, answers: np.ndarray, B: float, solver: str | No
     P = cp.Variable((n, n), PSD=True)
     forms = [cp.quad_form(d, P) / B ** 2 for d in deltas]
     slacks = cp.hstack([(f - 1.0) if a else (1.0 - f) for f, a in zip(forms, answers)])
-    if not solve(cp.Problem(cp.Maximize(cp.sum(cp.log(slacks))))):
+    thr = B ** 2 / rho ** 2
+    cons = [cap * thr * np.eye(n) - P >> 0]
+    if not solve(cp.Problem(cp.Maximize(cp.sum(cp.log(slacks))), cons)):
         raise RuntimeError("analytic-centre program failed")
     Ph = np.asarray(P.value); return 0.5 * (Ph + Ph.T)
 
@@ -130,8 +137,9 @@ def analyse_mixed(P: np.ndarray, lam: np.ndarray, V: np.ndarray, Ph: np.ndarray,
     est_along = np.array([V[:, i] @ Ph @ V[:, i] for i in range(len(lam))])
     rel = np.abs(est_along - lam) / np.maximum(lam, thr)
     above = lam > thr; below = ~above
-    pos = lam > 1e-12
-    crossing = bool((lam[pos].min() * rho ** 2 < B ** 2) and (B ** 2 < lam.max() * rho ** 2)) if pos.any() else False
+    # the sphere of radius rho crosses the ellipsoid (a cylinder along the kernel) exactly when
+    # the smallest eigenvalue, zero included, sits below the threshold and the largest above it
+    crossing = bool((lam.min() * rho ** 2 < B ** 2) and (B ** 2 < lam.max() * rho ** 2))
     d_obs = int(above.sum())
     angle = 0.0
     if d_obs > 0:
@@ -193,17 +201,21 @@ def run_cells(cfg: dict, seed: int, out_path: str) -> dict:
                     if ans.all() or (~ans).all():
                         rows.append({"skipped": True, "reason": "oracle constant", "crossing": False}); continue
                     try:
-                        Ph = estimate(D, ans, float(B), cfg.get("solver", "CLARABEL"))
+                        Ph = estimate(D, ans, float(B), cfg.get("solver", "CLARABEL"), float(cfg.get("cap", 1000.0)), rho)
                     except RuntimeError as ex:
                         rows.append({"skipped": True, "reason": str(ex)}); continue
                     r = analyse_mixed(P, lam, V, Ph, float(B), rho)
+                    r["answer_balance"] = float(min(ans.mean(), 1.0 - ans.mean()))
                     r["chance"] = chance_mixed(lam, V, float(B), rho, np.random.default_rng(seed + 31 * e + 7 * int(n_q) + 3 * n))
                     r["n_distinguishable"] = int(ans.sum())
                     rows.append(r)
                 good = [r for r in rows if not r.get("skipped")]
                 summ = {"n_graded": len(good), "n_skipped_constant": sum(1 for r in rows if r.get("reason") == "oracle constant")}
                 if good:
+                    bal = float(np.median([r["answer_balance"] for r in good]))
                     summ.update({"crossing": bool(good[0]["crossing"]),
+                                 "answer_balance_median": bal,
+                                 "well_crossed": bool(bal >= float(cfg.get("well_crossed_min_balance", 0.1)) and len(good) >= 0.9 * n_ev),
                                  "above_rel_err_median": float(np.median([x for r in good for x in r["above_rel_err"]])) if any(r["above_rel_err"] for r in good) else float("nan"),
                                  "below_rel_err_median": float(np.median([x for r in good for x in r["below_rel_err"]])) if any(r["below_rel_err"] for r in good) else float("nan"),
                                  "chance_above": float(np.median([r["chance"]["above_rel_err"] for r in good])),
@@ -242,10 +254,10 @@ def selftest() -> int:
         D = queries(n, rho, 800, rng); ans = oracle(P, B, D)
         if ans.all() or (~ans).all():
             print(f"mixed B={B}: oracle constant (crossing expected False)")
-            if lam[lam > 0].min() < B ** 2 < lam.max():
+            if lam.min() < B ** 2 < lam.max():
                 print("FAIL constant oracle inside the crossing interval"); fails += 1
             continue
-        Ph = estimate(D, ans, B)
+        Ph = estimate(D, ans, B, rho=rho)
         r = analyse_mixed(P, lam, V, Ph, B, rho)
         print(f"mixed B={B}: crossing {r['crossing']} above {[round(x,3) for x in r['above_rel_err']]} below {[round(x,3) for x in r['below_rel_err']]} frob {r['frobenius_rel_err']:.3f}")
         # recovery under crossing is slow when B^2 is small against the typical form on the

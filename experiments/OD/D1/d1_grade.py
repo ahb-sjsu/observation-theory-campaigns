@@ -39,6 +39,12 @@ def grade(res: dict, rec: float, unrev: float = 0.5) -> dict:
             continue
         g = good[qmax]
         crossing = bool(np.mean([r["crossing"] for r in g]) > 0.5)
+        well = bool(cells[qmax]["summary"].get("well_crossed", False))
+        if crossing and not well:
+            out["mixed"][f"{world}_B{B}"] = {"crossing": True, "well_crossed": False, "graded": len(g),
+                                            "answer_balance_median": cells[qmax]["summary"].get("answer_balance_median"),
+                                            "note": "poorly crossed: reported, not graded under B1"}
+            continue
         frob = float(np.median([r["frobenius_rel_err"] for r in g])); ch_frob = float(np.median([r["chance"]["frobenius_rel_err"] for r in g]))
         below = [x for r in g for x in r["below_rel_err"]]; ch_below = [r["chance"]["below_rel_err"] for r in g if r["chance"]["below_rel_err"] == r["chance"]["below_rel_err"]]
         above = [x for r in g for x in r["above_rel_err"]]; ch_above = [r["chance"]["above_rel_err"] for r in g if r["chance"]["above_rel_err"] == r["chance"]["above_rel_err"]]
@@ -51,7 +57,7 @@ def grade(res: dict, rec: float, unrev: float = 0.5) -> dict:
             fail = True
         cell_pass = b1 and b1a and b1b and b3
         all_pass = all_pass and cell_pass
-        out["mixed"][f"{world}_B{B}"] = {"crossing": crossing, "graded": len(g),
+        out["mixed"][f"{world}_B{B}"] = {"crossing": crossing, "well_crossed": well, "graded": len(g),
                                         "B1_full_recovery": bool(b1), "frobenius_median": frob, "chance_frobenius": ch_frob,
                                         "B1a_above": bool(b1a), "B1b_below_recovered_too": bool(b1b),
                                         "below_median": float(np.median(below)) if below else None, "chance_below": float(np.median(ch_below)) if ch_below else None,

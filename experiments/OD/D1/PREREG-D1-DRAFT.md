@@ -20,8 +20,11 @@ This is the identifiability setting of inverse problems, one parameter at a time
 (B) Mixed probes. An experimenter who perturbs in random directions on the sphere of radius rho
 learns the whole operator, every eigenvalue above and below the threshold, whenever the sphere
 crosses the ellipsoid {delta : delta^T P delta = B^2}, that is when
-lambda_min rho^2 < B^2 < lambda_max rho^2, and learns nothing when it does not, because the
-oracle is then constant. The budget hides small eigenvalues from single-direction probes and
+lambda_min rho^2 < B^2 < lambda_max rho^2 with lambda_min the smallest eigenvalue including
+zero (with a kernel the ellipsoid is a cylinder the sphere always meets), and learns nothing
+when it does not, because the oracle is then constant. Recovery in finite samples needs the
+crossing to be substantial: the gate calls a cell well-crossed when the median evaluator sees
+both oracle answers in at least a tenth of its queries, and grades full recovery there only. The budget hides small eigenvalues from single-direction probes and
 not from mixed ones.
 
 ## 2. World
@@ -48,9 +51,11 @@ from Theorem 2 read along e_i, and the gate checks them against the truth exactl
 
 World B: the analytic centre of the set of positive semidefinite operators consistent with the
 answers, the maximiser of the summed log slacks (q_j / B^2 - 1 for a distinguishable query,
-1 - q_j / B^2 otherwise), a convex program solved by cvxpy 1.9.2 with Clarabel, SCS as fallback.
-It is a canonical point of the feasible set, which shrinks to the truth as queries accumulate
-near the boundary. Nothing about the true operator enters.
+1 - q_j / B^2 otherwise), inside the declared cap P <= 1000 (B^2 / rho^2) I, which keeps the set
+bounded in a direction the answers bound only from below; a convex program solved by cvxpy
+1.9.2 with Clarabel, SCS as fallback. It is a canonical point of the feasible set, which
+shrinks to the truth as queries accumulate near the boundary. Nothing about the true operator
+enters; the cap is a declared prior on the eigenvalue range, inactive in every world here.
 
 ## 4. Errors and chance
 
@@ -66,8 +71,8 @@ frame, median over 64 draws.
 - A1, single-parameter probes. In every world and budget, every evaluator's verdicts and
   brackets are exact (fraction 1.0). This is Theorem 2 read along a coordinate and is expected
   to be exact; a single failure is a counterexample to the theorem or a defect in the oracle.
-- B1, full recovery under crossing. In every World B cell whose sphere crosses the ellipsoid,
-  at the largest query count, the median Frobenius relative error is at most REC times its
+- B1, full recovery under crossing. In every well-crossed World B cell, at the largest query
+  count, the median Frobenius relative error is at most REC times its
   chance median, and the same for the medians of the above-threshold and the below-threshold
   eigenvalue errors separately, so that the below-threshold eigenvalues are shown to be
   recovered by mixed probes.
@@ -107,6 +112,14 @@ was wide (n = 8 at B = 0.25 and 0.5, errors at or beyond chance, kernel directio
 the threshold), and a minimal-trace estimator tried next biased every eigenvalue down; the
 analytic centre replaced both. The two-world design of this document followed. Nothing from
 the first pilot fixes a bar here.
+
+Second pilot, first launch (2026-09-09 07:03 UTC, stopped after four cells): World A exact in
+all 20 evaluators at n = 5, B = 0.25; World B at n = 5, B = 0.25 was non-constant in 6 to 11 of
+20 evaluators although the crossing test said no crossing, because the test used the smallest
+positive eigenvalue and the world has a kernel, and the few kernel-side answers left the
+analytic centre nearly unbounded (errors in the thousands). Corrected before continuing: the
+crossing test counts the kernel, the estimator carries the declared cap, and full recovery is
+graded in well-crossed cells only.
 
 Second pilot (`pilot.json`): every cell of Section 2. REC is fixed as the largest ratio of a
 graded median (Frobenius, above, below) to its chance median over the crossing cells at the

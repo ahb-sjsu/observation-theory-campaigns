@@ -68,5 +68,8 @@
     0.25,
     0.5,
     1.0
-  ]
+  ],
+  "cap": 1000.0,
+  "well_crossed_min_balance": 0.1,
+  "estimator_note": "analytic centre inside the declared cap P <= cap * (B^2/rho^2) I; a cell is well-crossed when the median evaluator has both oracle answers in at least well_crossed_min_balance of its queries and at least 90 percent of evaluators are graded; the crossing test counts the kernel"
 }
