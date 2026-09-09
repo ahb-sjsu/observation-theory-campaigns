@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2 and D3 recorded 2026-09-09"
+commit = "D1, D2, D3 and D3v2 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -164,4 +164,24 @@ record = "experiments/OD/D2/grade.json B1"
 boundary = "monotone in all four sweeps; at a tenth of the neighbour distance 12 percent of Gaussian points and 6 percent of Wikipedia points change polarity under the isotropic observer, at a quarter 24 and 79 percent, against 4 to 7 percent under the anisotropic observer"
 witness = "the finite budget is a first-order effect on real embeddings under an isotropic reader; not graded, as declared"
 absorbed_by = "declaration"
+revision = "none"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "an observer's horizon offset from the full reader at budget B equals the first-passage time Delta_O(B) = E_s[inf{t >= s : L(t) - L(s) + g_O(t) >= log B} - inf{t >= s : L(t) - L(s) >= log B}] of its read-fraction process along the leading Lyapunov direction, computed on an independent long trajectory (the horizon offset law)"
+entries = ["observer", "read-operator", "budget"]
+outcome = "survived"
+record = "experiments/DISCOVERY-TRACK.md, D3v2 record; experiments/OD/D3v2/grade.json"
+witness = "all 22 cells (eleven observers of Lorenz-63 and Lorenz-96 at B = 1000 and 10000) within 0.259 time units, largest error 0.149; signs and the Lorenz-63 order exact; the symmetric site blocks of Lorenz-96 equal within 0.07; anisotropic offsets inside the D3 bracket; the constant-fraction approximation -E[log f_O] / lambda_1, refuted by the first probe, wrong by 0.09 to 1.0 on the same rows"
+absorbed_by = ""
+revision = "the law replaced the constant-fraction statement before any pilot; recorded in the registration's Section 7"
+
+[[test]]
+transformation = "OD:simulation-resolution"
+claim = "the horizon offset law holds across a change of dynamical system, from Lorenz-63 (exponent 0.906) to Lorenz-96 at N = 40 (exponent 1.699)"
+entries = ["observer", "budget"]
+outcome = "survived"
+record = "experiments/OD/D3v2/grade.json O1 by world"
+witness = "Lorenz-96 errors 0.001 to 0.138 over four observers and two budgets, Lorenz-63 0.014 to 0.149 over seven"
+absorbed_by = ""
 revision = "none"

@@ -1,0 +1,18 @@
+== start Wed Sep  9 03:54:10 PM UTC 2026 HEAD 58505fc role run seal 66397b664e64982759d34694f6f1445e50e438af
+{"world": "lorenz63", "starts_done": 16, "seconds": 11.0}
+{"world": "lorenz63", "starts_done": 32, "seconds": 22.0}
+{"world": "lorenz63", "starts_done": 48, "seconds": 33.1}
+{"world": "lorenz63", "starts_done": 64, "seconds": 44.0}
+{"world": "lorenz63", "starts_done": 80, "seconds": 54.7}
+{"world": "lorenz63", "starts_done": 96, "seconds": 65.6}
+{"world": "lorenz63", "starts_done": 112, "seconds": 76.5}
+{"world": "lorenz63", "starts_done": 128, "seconds": 87.4}
+{"world": "lorenz63", "lambda_1": 0.9064, "first_passage_offsets_at_largest_B": {"full": 0.0, "aniso": -0.563, "x_only": 1.013, "y_only": 0.226, "z_only": 0.125, "u1": 0.294, "u2": 0.853, "xy_plane": 0.167}, "constant_fraction_offsets": {"full": 0.0, "aniso": -0.173, "x_only": 1.337, "y_only": 0.956, "z_only": 0.795, "u1": 0.814, "u2": 1.869, "xy_plane": 0.513}}
+{"world": "lorenz63", "rows": 128, "seconds": 193.5}
+{"world": "lorenz96", "starts_done": 16, "seconds": 34.1}
+{"world": "lorenz96", "starts_done": 32, "seconds": 68.6}
+{"world": "lorenz96", "starts_done": 48, "seconds": 103.1}
+{"world": "lorenz96", "starts_done": 64, "seconds": 137.6}
+{"world": "lorenz96", "lambda_1": 1.6989, "first_passage_offsets_at_largest_B": {"full": 0.0, "aniso": -0.273, "sub": 0.666, "sub2": 0.672, "site0": 1.435}, "constant_fraction_offsets": {"full": 0.0, "aniso": -0.263, "sub": 0.732, "sub2": 0.738, "site0": 1.87}}
+{"world": "lorenz96", "rows": 64, "seconds": 200.3}
+== RUN_DONE rc=0

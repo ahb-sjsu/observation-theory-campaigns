@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 sealed (blob 66397b664e64982759d34694f6f1445e50e438af) and running; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -293,7 +293,32 @@ law (Section 7 of the registration); the law was restated as the first passage b
 pilot; the second probe and the pilot then matched every one of the twelve observers within one
 to two standard errors in both flows, with the order exact. Tolerances by the declared-multiple
 rule: TOL_O1 = 0.259, TOL_O2 = 0.490, TOL_O4 = 0.137. SEALED 2026-09-09 as
-`experiments/OD/D3v2/PREREG-D3V2.md`, blob 66397b664e64982759d34694f6f1445e50e438af. Run: pending.
+`experiments/OD/D3v2/PREREG-D3V2.md`, blob 66397b664e64982759d34694f6f1445e50e438af.
+Run, 2026-09-09 (Atlas, screen `od-d3v2`, 15:54 to 16:01 UTC, `run.log`, code at 58505fc, seed
+20260923, fresh starts, perturbations and long trajectories, 192 rows). `results.json` and
+`grade.json` committed as executed; `d3v2_grade.py results.json --tols tolerances.json` run on
+Atlas and reproduced locally. Verdict by the sealed grader: PASS. Exact bars: no violation in
+1,920 window comparisons and 10,176 horizon checks. O1: the first-passage prediction matched
+the measured mean offset within the tolerance 0.259 in all 22 cells (eleven observers at two
+budgets), the largest error 0.149 (`x_only` at B = 1000, predicted 0.97, measured 0.82 with
+standard error 0.09); at B = 10000 Lorenz-63 gave `aniso` -0.56 against -0.50 (0.08), `x_only`
+1.01 against 1.14 (0.12), `y_only` 0.23 against 0.29 (0.07), `z_only` 0.13 against 0.14 (0.04),
+`u1` 0.29 against 0.38 (0.09), `u2` 0.85 against 0.98 (0.11), `xy_plane` 0.17 against 0.21
+(0.06), and Lorenz-96 `aniso` -0.27 against -0.26 (0.03), `sub` 0.67 against 0.62 (0.07), `sub2`
+0.67 against 0.70 (0.07), `site0` 1.44 against 1.57 (0.09). O2: offsets converged between the
+two budgets within 0.32 of the tolerance 0.49. O3: every sign agreed and the Lorenz-63 order
+was exact (Spearman 1.0). O4: the symmetric blocks of Lorenz-96 differed by 0.02 in prediction
+and at most 0.07 in measurement. O5: the anisotropic offsets, predicted and measured, sat
+inside the D3 bracket in both flows. Beside every prediction the constant-fraction value was
+recorded and is wrong by 0.09 to 1.0 time units, up to eight times the measured offset. What
+the gate establishes: an observer's predictability horizon on a chaotic flow is the full
+reader's horizon plus a first-passage time of the observer's read-fraction process along the
+leading Lyapunov direction, a quantity computable from one long trajectory without any horizon
+experiment, in two flows, for metrics, coordinate readers, rank-one readers and site blocks,
+with the symmetry and the bracket that the theory requires. Two exponents, 0.906 and 1.699,
+and eleven observers: the law is observer-relative in the track's sense, a functional of the
+read operator on the flow that survives the declared changes of observer and of dynamical
+system.
 
 ### D4. The geometry of the program's own discovery
 
