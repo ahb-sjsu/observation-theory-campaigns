@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 sealed (blob 8608a57538edfeaa328b536e879a3200d07a6813) and running; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -198,6 +198,30 @@ draft paper's hypothesis that observer-relative hubness is governed by general g
 is, for laws of this form, refuted as registered; a successor gate would need a variable that
 separates shape from spectrum (tail weight, or the concentration of the neighbour distances
 themselves) and would have to be discovered on more than one family.
+
+### D2v2. Observer-relative hubness, the law with a shape variable
+
+Prediction. D2's repair: hubness under an observer is a low-complexity function of quantities
+measured on the observed cloud alone, spectral summaries together with family-blind shape
+summaries (centroid-distance spread and tails, coordinate kurtosis, TwoNN dimension, neighbour
+distance concentration, relative contrast), discovered on seven families at once, frozen, and
+transferring to families, corpora and sizes it was not discovered on, beating both the best
+nominal-dimension formula and the frozen D2 law. Latent rank and polarity as in D2.
+World. D2's observers; training on Gaussian (three covariance exponents), cube, ball, Student t
+(5 degrees of freedom) and a four-centre mixture at d = 32, 64, 128; held-out on other shapes,
+dimensions and observer spectra; on the run only, Laplace, log-normal, the sphere, a two-scale
+mixture, Student t (2.5 degrees), the cube at d = 256, a steep Gaussian, two Wikipedia slices,
+SIFT base and SIFT queries, and four scale cells.
+Search. Enumeration of a declared 66-feature family in up to three terms under the identity and
+the log(1 + skew) transforms, ranked on held-out error, frozen at the pilot.
+Bars. As D2, with the frozen D2 law added to the competitor bar (L5).
+Record. Registered 2026-09-09. The pilot froze log(1 + skew) = 2.811 + 0.0047 d_ent
+- 0.0928 / cv_d - 2.461 sqrt(top_share): the search had the shape variables and chose none,
+the log transform and the top eigenvalue's share doing the work on the balls (errors 0.44 to
+0.95 where D2's law erred by up to 4.5); held-out error 0.45, pooled 0.92 = REF, against 2.04
+for the nominal competitor and 2.13 for the D2 law. Effective-rank ratios 0.09 to 0.67 (the
+ball at d = 96), so FRAC_X = 0.90 by the cap. SEALED 2026-09-09 as
+`experiments/OD/D2v2/PREREG-D2V2.md`, blob 8608a57538edfeaa328b536e879a3200d07a6813. Run: pending.
 
 ### D3. The observational predictability horizon
 

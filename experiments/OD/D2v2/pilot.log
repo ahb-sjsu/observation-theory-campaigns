@@ -1,0 +1,32 @@
+== start Wed Sep  9 05:24:15 PM UTC 2026 HEAD 89026ec role pilot seal 
+{"world": "g_a0_d32", "rows": 72, "rank_eff": 2.7, "null": 23.86, "jac_same": 0.41, "jac_diff": 0.231, "seconds": 4.8}
+{"world": "g_a0_d64", "rows": 72, "rank_eff": 3.61, "null": 23.88, "jac_same": 0.345, "jac_diff": 0.166, "seconds": 4.7}
+{"world": "g_a0_d128", "rows": 72, "rank_eff": 4.86, "null": 23.86, "jac_same": 0.291, "jac_diff": 0.117, "seconds": 4.9}
+{"world": "g_a05_d32", "rows": 72, "rank_eff": 2.67, "null": 23.87, "jac_same": 0.404, "jac_diff": 0.226, "seconds": 4.2}
+{"world": "g_a05_d64", "rows": 82, "rank_eff": 3.53, "null": 23.87, "jac_same": 0.341, "jac_diff": 0.168, "seconds": 7.2}
+{"world": "g_a05_d128", "rows": 72, "rank_eff": 4.63, "null": 23.88, "jac_same": 0.291, "jac_diff": 0.122, "seconds": 5.1}
+{"world": "g_a1_d32", "rows": 72, "rank_eff": 2.73, "null": 23.85, "jac_same": 0.367, "jac_diff": 0.204, "seconds": 4.5}
+{"world": "g_a1_d64", "rows": 72, "rank_eff": 3.41, "null": 23.88, "jac_same": 0.342, "jac_diff": 0.17, "seconds": 4.6}
+{"world": "g_a1_d128", "rows": 72, "rank_eff": 4.03, "null": 23.87, "jac_same": 0.305, "jac_diff": 0.134, "seconds": 5.0}
+{"world": "cube_d32", "rows": 72, "rank_eff": 3.46, "null": 23.86, "jac_same": 0.337, "jac_diff": 0.166, "seconds": 4.4}
+{"world": "cube_d64", "rows": 72, "rank_eff": 4.78, "null": 23.87, "jac_same": 0.289, "jac_diff": 0.111, "seconds": 4.5}
+{"world": "cube_d128", "rows": 72, "rank_eff": 6.38, "null": 23.83, "jac_same": 0.249, "jac_diff": 0.085, "seconds": 4.9}
+{"world": "ball_d32", "rows": 72, "rank_eff": 6.51, "null": 23.88, "jac_same": 0.276, "jac_diff": 0.104, "seconds": 4.3}
+{"world": "ball_d64", "rows": 72, "rank_eff": 10.94, "null": 23.86, "jac_same": 0.214, "jac_diff": 0.051, "seconds": 4.5}
+{"world": "ball_d128", "rows": 72, "rank_eff": 13.81, "null": 23.86, "jac_same": 0.192, "jac_diff": 0.031, "seconds": 4.9}
+{"world": "t5_d32", "rows": 72, "rank_eff": 2.15, "null": 23.87, "jac_same": 0.448, "jac_diff": 0.294, "seconds": 4.2}
+{"world": "t5_d64", "rows": 72, "rank_eff": 2.51, "null": 23.87, "jac_same": 0.455, "jac_diff": 0.272, "seconds": 4.4}
+{"world": "t5_d128", "rows": 72, "rank_eff": 2.83, "null": 23.88, "jac_same": 0.451, "jac_diff": 0.246, "seconds": 4.9}
+{"world": "mix4_d32", "rows": 72, "rank_eff": 2.94, "null": 23.86, "jac_same": 0.372, "jac_diff": 0.198, "seconds": 4.4}
+{"world": "mix4_d64", "rows": 72, "rank_eff": 3.98, "null": 23.86, "jac_same": 0.318, "jac_diff": 0.142, "seconds": 4.6}
+{"world": "mix4_d128", "rows": 72, "rank_eff": 5.39, "null": 23.87, "jac_same": 0.274, "jac_diff": 0.101, "seconds": 5.1}
+{"world": "g_a05_d64_N2000", "rows": 72, "rank_eff": 3.71, "null": 23.72, "jac_same": 0.337, "jac_diff": 0.164, "seconds": 1.3}
+{"world": "h_g_a025_d48", "rows": 36, "rank_eff": 2.58, "null": 11.97, "jac_same": 0.363, "jac_diff": 0.202, "seconds": 2.2}
+{"world": "h_g_a075_d96", "rows": 36, "rank_eff": 3.32, "null": 11.98, "jac_same": 0.308, "jac_diff": 0.133, "seconds": 2.4}
+{"world": "h_t3_d64", "rows": 36, "rank_eff": 2.21, "null": 11.96, "jac_same": 0.471, "jac_diff": 0.274, "seconds": 2.2}
+{"world": "h_ball_d96", "rows": 36, "rank_eff": 8.04, "null": 11.97, "jac_same": 0.114, "jac_diff": 0.029, "seconds": 2.4}
+{"world": "h_anisocube_d96", "rows": 36, "rank_eff": 4.24, "null": 11.97, "jac_same": 0.253, "jac_diff": 0.092, "seconds": 2.4}
+{"world": "h_mix8_d48", "rows": 36, "rank_eff": 3.3, "null": 11.98, "jac_same": 0.287, "jac_diff": 0.13, "seconds": 2.2}
+{"world": "h_cube_d48_N2000", "rows": 36, "rank_eff": 3.7, "null": 11.95, "jac_same": 0.293, "jac_diff": 0.119, "seconds": 0.6}
+{"law": {"target": "skew", "features": ["d_ent", "inv_cv_d", "sqrt_top_share"], "coef": [2.8110220033678144, 0.004715553474629097, -0.09275783861568364, -2.4612763419663515], "transform": "log1p", "train_rmse": 0.9761321297488285, "heldout_rmse": 0.4483780113040482, "n_terms": 3}, "competitor": {"target": "skew", "features": ["inv_k", "log_kN"], "coef": [-0.15957032320075823, -0.7847229520638552, -0.3990797995740509], "transform": "identity", "train_rmse": 2.054323723744228, "heldout_rmse": 1.971617689916922, "n_terms": 2}}
+== PILOT_DONE rc=0
