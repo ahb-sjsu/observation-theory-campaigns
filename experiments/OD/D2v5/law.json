@@ -1,0 +1,113 @@
+{
+ "law": {
+  "target": "skew",
+  "features": [
+   "inv_cv_d",
+   "log_id_twonn",
+   "sqrt_d_eff"
+  ],
+  "coef": [
+   -2.8022873414756475,
+   -0.5096103778790827,
+   1.1904884065877568,
+   1.066977067416814
+  ],
+  "transform": "identity",
+  "train_rmse": 0.8990563526984731,
+  "heldout_rmse": 0.7093253717224651,
+  "n_terms": 3
+ },
+ "competitor_nominal": {
+  "target": "skew",
+  "features": [
+   "d_nom",
+   "log_d_nom",
+   "sqrt_d_nom"
+  ],
+  "coef": [
+   28.182120423408634,
+   -0.1652925254522059,
+   -17.943215428781752,
+   7.2939298548167715
+  ],
+  "transform": "identity",
+  "train_rmse": 2.711596472142065,
+  "heldout_rmse": 2.382703341483977,
+  "n_terms": 3
+ },
+ "competitor_d2": {
+  "target": "skew",
+  "features": [
+   "inv_cv_d",
+   "sqrt_d_eff_over_k"
+  ],
+  "coef": [
+   -0.026165647256707177,
+   0.4206954447231824,
+   0.8172228220333909
+  ],
+  "transform": "identity",
+  "note": "the law gate D2 froze on Gaussian clouds (observation-theory-campaigns/experiments/OD/D2/law.json), carried as a fixed competitor"
+ },
+ "competitor_d2v2": {
+  "target": "skew",
+  "features": [
+   "d_ent",
+   "inv_cv_d",
+   "sqrt_top_share"
+  ],
+  "coef": [
+   2.8109594094123245,
+   0.004706131843131253,
+   -0.09277311281123587,
+   -2.461264557894105
+  ],
+  "transform": "log1p",
+  "note": "the law gate D2v2 froze on seven full-dimensional families (observation-theory-campaigns/experiments/OD/D2v2/law.json), carried as a fixed competitor"
+ },
+ "competitor_d2v3": {
+  "target": "skew",
+  "features": [
+   "inv_cv_knn",
+   "log_id_twonn",
+   "sqrt_d_eff"
+  ],
+  "coef": [
+   -1.462907521326016,
+   -0.013182421393936017,
+   0.7474954718371633,
+   0.06855322431693046
+  ],
+  "transform": "log1p",
+  "note": "the law gate D2v3 froze with manifold worlds in the discovery set (observation-theory-campaigns/experiments/OD/D2v3/law.json), carried as a fixed competitor"
+ },
+ "competitor_d2v4": {
+  "target": "skew",
+  "features": [
+   "cv_r_x_sqrt_d_eff",
+   "log_d_nom_x_log_k",
+   "log_id_twonn"
+  ],
+  "coef": [
+   -1.0937946857408793,
+   0.16852132160750913,
+   -0.03188415704240788,
+   0.7013760762316192
+  ],
+  "transform": "log1p",
+  "note": "the law gate D2v4 froze with d = 256 clouds and heavy tails in the discovery set (observation-theory-campaigns/experiments/OD/D2v4/law.json), carried as a fixed competitor"
+ },
+ "target": "skew",
+ "frozen_from": "pilot",
+ "seed": 20261005,
+ "n_train": 2376,
+ "n_heldout": 324,
+ "d2_law_heldout_rmse": 2.530637796161406,
+ "d2_law_train_rmse": 2.6538774856407867,
+ "d2v2_law_heldout_rmse": 1.4253576350107107,
+ "d2v2_law_train_rmse": 1.574585616911855,
+ "d2v3_law_heldout_rmse": 0.7022096547477147,
+ "d2v3_law_train_rmse": 0.959508881527962,
+ "d2v4_law_heldout_rmse": 1.1230974326900263,
+ "d2v4_law_train_rmse": 1.2254724784737823
+}

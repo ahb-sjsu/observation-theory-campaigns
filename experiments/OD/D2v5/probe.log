@@ -1,0 +1,5 @@
+== start Wed Sep  9 08:20:15 PM UTC 2026 HEAD 96e8688 role probe seal 
+{"world": "t4_d192", "rows": 72, "rank_eff": 2.95, "null": 23.86, "jac_same": 0.443, "jac_diff": 0.212, "seconds": 5.7}
+{"world": "lap_d128", "rows": 72, "rank_eff": 4.06, "null": 23.86, "jac_same": 0.332, "jac_diff": 0.154, "seconds": 5.1}
+{"world": "h_t3_d96", "rows": 36, "rank_eff": 2.32, "null": 11.97, "jac_same": 0.481, "jac_diff": 0.257, "seconds": 2.4}
+== PROBE_DONE rc=0
