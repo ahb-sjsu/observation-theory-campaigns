@@ -1,0 +1,6 @@
+== start Wed Sep  9 09:30:55 PM UTC 2026 HEAD 8abd455 role probe seal 
+{"world": "g_a0_d64", "rows": 72, "rank_eff": 3.68, "null": 23.88, "jac_same": 0.343, "jac_diff": 0.164, "seconds": 4.8}
+{"world": "roll_d64", "rows": 72, "rank_eff": 3.63, "null": 23.85, "jac_same": 0.277, "jac_diff": 0.086, "seconds": 4.5}
+{"world": "t3_d256", "rows": 72, "rank_eff": 3.11, "null": 23.84, "jac_same": 0.44, "jac_diff": 0.216, "seconds": 5.9}
+{"world": "h_g_a05_d192", "rows": 36, "rank_eff": 4.57, "null": 11.98, "jac_same": 0.268, "jac_diff": 0.088, "seconds": 2.7}
+== PROBE_DONE rc=0

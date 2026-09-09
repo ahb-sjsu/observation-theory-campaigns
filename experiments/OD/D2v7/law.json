@@ -1,0 +1,54 @@
+{
+ "law": {
+  "target": "log_excess",
+  "features": [
+   "inv_cv_knn",
+   "log_d_eff",
+   "sqrt_id_twonn"
+  ],
+  "coef": [
+   -1.1031826827055975,
+   -0.025315490538022678,
+   0.16656642745723538,
+   0.4337968152191875
+  ],
+  "transform": "identity",
+  "train_rmse": 0.333785426447501,
+  "heldout_rmse": 0.2719323125197795,
+  "n_terms": 3
+ },
+ "competitor_nominal": {
+  "target": "log_excess",
+  "features": [
+   "N",
+   "k",
+   "sqrt_d_nom"
+  ],
+  "coef": [
+   0.6166043960408931,
+   -0.0001454966343313953,
+   0.008896534372111846,
+   0.09148207213465112
+  ],
+  "transform": "identity",
+  "train_rmse": 1.1596143225466593,
+  "heldout_rmse": 0.9120003227613541,
+  "n_terms": 3
+ },
+ "competitor_unity": {
+  "target": "log_excess",
+  "features": [],
+  "coef": [
+   0.0
+  ],
+  "transform": "identity",
+  "note": "the chance level: hub excess 1, the busiest point explained by a random assignment of the retrieval slots"
+ },
+ "target": "log_excess",
+ "frozen_from": "pilot",
+ "seed": 20261011,
+ "n_train": 2664,
+ "n_heldout": 324,
+ "unity_heldout_rmse": 1.358297779142408,
+ "unity_train_rmse": 1.6242316601452176
+}
