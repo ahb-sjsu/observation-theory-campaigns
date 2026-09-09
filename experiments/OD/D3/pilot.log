@@ -1,0 +1,20 @@
+== start Wed Sep  9 02:49:54 PM UTC 2026 HEAD 13b280d role pilot seal 
+{"world": "lorenz63", "starts_done": 16, "seconds": 9.9}
+{"world": "lorenz63", "starts_done": 32, "seconds": 19.7}
+{"world": "lorenz63", "starts_done": 48, "seconds": 29.6}
+{"world": "lorenz63", "starts_done": 64, "seconds": 39.4}
+{"world": "lorenz63", "rows": 192, "seconds": 39.4}
+{"world": "K_mu2", "starts_done": 16, "seconds": 12.1}
+{"world": "K_mu2", "starts_done": 32, "seconds": 24.2}
+{"world": "K_mu2", "starts_done": 48, "seconds": 36.2}
+{"world": "K_mu2", "starts_done": 64, "seconds": 48.2}
+{"world": "K_mu2", "rows": 64, "seconds": 48.2}
+{"world": "K_mu05", "starts_done": 16, "seconds": 12.1}
+{"world": "K_mu05", "starts_done": 32, "seconds": 24.0}
+{"world": "K_mu05", "starts_done": 48, "seconds": 36.1}
+{"world": "K_mu05", "starts_done": 64, "seconds": 48.0}
+{"world": "K_mu05", "rows": 64, "seconds": 48.0}
+{"world": "lorenz96", "starts_done": 16, "seconds": 35.7}
+{"world": "lorenz96", "starts_done": 32, "seconds": 71.4}
+{"world": "lorenz96", "rows": 64, "seconds": 71.4}
+== PILOT_DONE rc=0

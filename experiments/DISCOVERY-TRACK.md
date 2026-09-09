@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D2 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 sealed (blob cde83217d6901d92003d25192092eb61eebd6169) and running; D2, D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -169,18 +169,40 @@ and the latent rank, not the reversal.
 
 ### D3. The observational predictability horizon
 
-Prediction. Proposition 1: for a positive definite read operator along a trajectory the
-observational Lyapunov exponent equals the classical one; with a kernel it can be smaller,
-zero for kernel-confined perturbations, and transiently larger; the horizon T_O(B) is set by
-the observer as much as by the flow.
-World. Lorenz-63 and Lorenz-96 at declared sizes; observers as declared partial and coarse
-read operators (subsets of coordinates, smoothed coordinates, a learned consumer's P_C);
-perturbation ensembles by seed.
-Bars. Equality of exponents within tolerance for positive definite observers; the kernel
-cases as predicted; T_O(B) monotone in B and different across observers at fixed B by more
-than the null.
-What falsifies. An exponent that differs for a positive definite observer, or a horizon that
-does not depend on the observer.
+Prediction. Proposition 1 of the article, restated with this gate (draft 0.3, ledger GET-16r):
+for a positive definite observer with spectrum in [a, b] the observational and the classical
+window exponents differ by at most log(b / a) / (2 (T - t0)), machine-checked in
+`geometric-evaluation-theory/lean/GET/Horizon.lean`; with a kernel the observational exponent
+is smaller when the perturbation's Euclidean growth is carried by unread components growing
+faster than the read ones, equal in the limit otherwise, transiently larger for a perturbation
+started in a kernel the flow does not preserve, and undefined for one confined to an invariant
+kernel. The horizon T_O(B) is non-decreasing in B, bracketed for a positive definite observer,
+never earlier than the Euclidean horizon for a projection, and observer-dependent at fixed B
+where no symmetry of the flow relates the observers, not where one does.
+World. Tangent perturbations under the linearised flow of Lorenz-63 (observers full, an
+anisotropic metric, x only, z only), of Lorenz-63 with a decoupled unread direction u' = mu u
+at mu = 2 and the control mu = 1/2 (World K), and of Lorenz-96 at N = 40 (full, anisotropic,
+one block of ten sites, the next block); 64 starts (32 for Lorenz-96) on the attractor; window
+ladder 1 to 20; budget ladder 10 to 10000 for a unit perturbation.
+Estimator. Window exponents and first-crossing horizons read off the recorded lengths; no
+fitting.
+Bars. Exact: E1 the window bound, KX the World K identity, H1 the horizon inclusions. With
+tolerances fixed from the pilot as declared multiples: E2 convergence under the anisotropic
+observers; K1 the smaller case at mu = 2 (gap at least 0.5, classical exponent near mu); K1c
+the control; K2 kernel starts larger on the first window and converging; K3 generic starts
+under projections converging; H2 horizons observer-dependent in Lorenz-63 by an exact paired
+sign test and not across the Lorenz-96 shift symmetry.
+What falsifies. A window exponent outside the bound; a kernel reader that sees the unread fast
+direction; a kernel start whose read length does not outgrow its Euclidean length at first; a
+horizon that decreases in B, leaves its bracket or precedes the Euclidean one; horizons
+independent of the observer in Lorenz-63 or dependent across the Lorenz-96 symmetry.
+Record. Registered 2026-09-09. The probe found the kernel-start transient already over by
+t = 0.1 for half the x-reader starts, so the kernel window starts at 0.01, and found a
+permutation test on medians underpowered where the paired sign test is not, so the horizon bar
+uses the paired design. The article's Proposition 1 was corrected before the seal ("undefined"
+for an invariant kernel, the smaller case with its condition, the window bound made explicit)
+and its bound checked in Lean. SEALED 2026-09-09 as `experiments/OD/D3/PREREG-D3.md`, blob
+cde83217d6901d92003d25192092eb61eebd6169. Run: pending.
 
 ### D4. The geometry of the program's own discovery
 

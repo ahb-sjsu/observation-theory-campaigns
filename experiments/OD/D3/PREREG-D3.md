@@ -1,7 +1,7 @@
-# PREREG D3 (DRAFT, NOT SEALED): the observational predictability horizon
+# PREREG D3: the observational predictability horizon
 
-Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D3 of the
-OD track (`experiments/DISCOVERY-TRACK.md`).
+Status: SEALED 2026-09-09 by the rename to `PREREG-D3.md`; blob hash recorded in
+`experiments/DISCOVERY-TRACK.md` and the README status ledger. Gate D3 of the OD track.
 
 ## 1. Claim under test
 
@@ -70,7 +70,7 @@ the starts of a cell. The observer-dependence bar uses an exact paired sign test
 observers of the same rank reading the same start and perturbation, ties and unreached pairs
 excluded.
 
-## 5. Bars (tolerances FIXED FROM THE PILOT before sealing as declared multiples; Section 7)
+## 5. Bars (tolerances fixed from the pilot by the rule below, `tolerances.json`; Section 7)
 
 Exact, zero violations:
 - E1. For every positive definite observer, every row and every window,
@@ -82,21 +82,23 @@ Exact, zero violations:
 
 With tolerances:
 - E2. For `aniso` in both flows, `random` direction: the median of |lambda_O - lambda_cl| is
-  non-increasing over the window ladder (5 percent for ties) and at T = 20 at most TOL_E2.
+  non-increasing over the window ladder (5 percent for ties) and at T = 20 at most TOL_E2 = 0.024.
 - K1. World K, mu = 2: in every start lambda_cl(20) - lambda_O(20) >= 0.5 and
   |lambda_cl(20) - 2| <= 0.15 (the classical exponent is mu up to log(1/2) / 20).
-- K1c. World K, mu = 1/2: in every start |lambda_cl(20) - lambda_O(20)| <= TOL_K1c.
+- K1c. World K, mu = 1/2: in every start |lambda_cl(20) - lambda_O(20)| <= TOL_K1c = 0.02.
 - K2. Kernel starts (`kernel_x` under `x_only`, `kernel_z` under `z_only`, `kernel_sub`
   under `sub`): the fraction of starts with lambda_O > lambda_cl on the first window (t0 to
-  T = 1) is at least FRAC_K2, and the median |lambda_O - lambda_cl| at T = 20 is at most
-  TOL_K2.
+  T = 1) is at least FRAC_K2 = 0.72, and the median |lambda_O - lambda_cl| at T = 20 is at most
+  TOL_K2 = 0.231.
 - K3. `random` direction under every projection observer: the median |lambda_O - lambda_cl|
-  is non-increasing over the window ladder and at T = 20 at most TOL_K3.
+  is non-increasing over the window ladder and at T = 20 at most TOL_K3 = 0.06.
 - H2. Lorenz-63, `random` direction, `x_only` against `z_only`: at every B whose median
   horizon is reached under both, the exact two-sided paired sign test on the horizons of the
   same start and perturbation (ties and unreached pairs excluded) gives p at most 0.01. Lorenz-96, `sub`
-  against `sub2`, which the flow's translation symmetry relates: p at least 0.05 at every such
-  B (a symmetry control that a real observer dependence must not fake).
+  against `sub2`, which the flow's translation symmetry relates: p at least 0.01 at every such
+  B (a symmetry control that a real observer dependence must not fake; the level is 0.01 rather
+  than 0.05 because four budgets are tested and a control at 0.05 would fail by chance about
+  one run in eight, a decision taken from the null before sealing, not from the pilot).
 
 Tolerance rule. Each TOL is 1.5 times the pilot's value of the same statistic, rounded up to
 three decimals, with a floor of 0.02 on TOL_K1c; FRAC_K2 is 0.8 times the pilot's fraction,
@@ -151,7 +153,20 @@ sign test gives 0.0013, so the registered statistic is the exact paired sign tes
 the design (the same perturbation read twice). In Lorenz-96 the sign test between `sub` and
 `sub2` gives p = 0.38 to 1.0 and fractions 0.41 to 0.50, the symmetry control.
 
-Pilot (`pilot.json`, seed 20260916): TO BE RECORDED, with every TOL and FRAC of Section 5.
+Pilot (`pilot.json`, `pilot.log`, seed 20260916, Atlas 2026-09-09 14:49 to 14:53 UTC, 384
+rows, t0 = 0.01 for kernel starts). Exact bars: E1 no violation, worst ratio to the bound 0.958;
+KX exact; H1 no violation, no horizon unreached. Statistics that fix the tolerances: E2 final
+median 0.0157 (the larger of the two flows), so TOL_E2 = 0.024; K1c largest difference
+0.0072, so TOL_K1c = 0.02 by the floor; K2 final median 0.154 (the largest of the three kernel
+cells), so TOL_K2 = 0.231, and fractions larger on the first window 0.95 (`kernel_x`), 0.91
+(`kernel_z`), 1.00 (`kernel_sub`), so FRAC_K2 = 0.72; K3 final median 0.040 (the largest of
+the four projections), so TOL_K3 = 0.06. K1: gap 0.75 to 1.25 in every start, classical
+exponent 1.965 in every start. H2: x later than z in 68 to 77 percent of pairs, sign-test p from
+0.0000 to 0.0052 over the four budgets; Lorenz-96 `sub` against `sub2` fractions 0.34 to 0.53,
+p from 0.11 to 0.86. The pilot passes every bar at these tolerances by `d3_grade.py`
+(`pilot_grade.json`). With t0 moved to 0.01 the kernel-start excess on the first window is
++1.89 (`kernel_x`), +2.35 (`kernel_z`), +3.57 (`kernel_sub`) at the median and falls to 0.08,
+0.13, 0.15 by T = 20, which is the transient of Proposition 1 as restated.
 
 Article correction, made with this registration: Proposition 1's clause "can be zero for a
 perturbation whose growth stays in the kernel" becomes "is undefined for a perturbation
@@ -162,9 +177,9 @@ read ones. Recorded in the article as draft 0.3 and in the ledger as a `[revised
 ## 8. Sealing procedure
 
 1. Self-test, probe and pilot on Atlas; record them in Section 7; fix the tolerances in
-   Section 5 and write them to `tolerances.json`; commit `probe.json` and `pilot.json`.
+   Section 5 and write them to `tolerances.json`; commit `probe.json` and `pilot.json`. Done.
 2. Rename this file to `PREREG-D3.md`, commit, record its blob hash in the track document and
-   the README status ledger.
+   the README status ledger. Done by this commit.
 3. Run on the run seed, grade with `d3_grade.py results.json --tols tolerances.json`, commit
    `results.json` and `grade.json` as executed, enter the registry tests in
    `claims/transformations/OD.toml`.

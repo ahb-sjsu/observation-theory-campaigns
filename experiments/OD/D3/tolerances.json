@@ -1,0 +1,20 @@
+{
+ "E2": 0.024,
+ "K1c": 0.02,
+ "K2": 0.231,
+ "K2_frac": 0.72,
+ "K3": 0.06,
+ "rule": "PREREG-D3 Section 5: 1.5 x pilot value rounded up to 3 decimals (K1c floor 0.02); FRAC_K2 = 0.8 x pilot minimum fraction rounded down to 2 decimals, floor 0.5",
+ "pilot_statistics": {
+  "E2": 0.015660348283800307,
+  "K1c": 0.007192051809610467,
+  "K2": 0.15396997327437445,
+  "K2_frac_min": 0.90625,
+  "K3": 0.039938447388436604,
+  "K2_fractions": {
+   "lorenz63_kernel_x": 0.953125,
+   "lorenz63_kernel_z": 0.90625,
+   "lorenz96_kernel_sub": 1.0
+  }
+ }
+}

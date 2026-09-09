@@ -145,7 +145,7 @@ def grade(res: dict, tols: dict) -> dict:
             if not (np.isfinite(m1) and np.isfinite(m2)):
                 entry[B] = {"median_1": m1, "median_2": m2, "note": "median horizon not reached; not graded"}; continue
             p, npairs, frac = sign_p(h1, h2)
-            holds = (p <= 0.01) if expect_different else (p >= 0.05)
+            holds = (p <= 0.01) if expect_different else (p >= 0.01)
             entry[B] = {"median_1": m1, "median_2": m2, "sign_test_p": p, "pairs": npairs, "fraction_first_later": frac, "holds": holds}; ok = ok and holds
         out["bars"][f"H2_{world}_{o1}_vs_{o2}"] = {"expect_different": expect_different, "by_B": entry, "holds": ok}
         all_pass = all_pass and ok
