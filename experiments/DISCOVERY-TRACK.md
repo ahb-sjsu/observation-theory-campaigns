@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 done, INDETERMINATE (the intrinsic-dimension law fits every real corpus within REF and beats all three competitors on every transfer group; misses the per-world limit on Laplace and a 256-dimensional cube and on heavy tails at N = 16000); D2v4 sealed (blob 810a2b198d6efda21461632f79240a7774aa2f3c) and running; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 done, INDETERMINATE (the intrinsic-dimension law fits every real corpus within REF and beats all three competitors on every transfer group; misses the per-world limit on Laplace and a 256-dimensional cube and on heavy tails at N = 16000); D2v4 done, INDETERMINATE (extrapolates to d = 512 and to heavy tails at scale, fits real corpora within half the pilot error, beats every earlier law; misses heavier tails at higher dimension than it was shown); D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -327,7 +327,34 @@ the concentration term changes form, and a small nominal-dimension product enter
 first time; pooled error 1.065 = REF against 1.13 for the D2v3 law, 1.43 for D2v2, 2.62 for
 the nominal competitor; the cube and Gaussian at d = 256 now fit (0.98, 1.03 against 2.56, 2.72
 for the D2v3 law) while Laplace at d = 64 fits no law of the family (3.86). SEALED 2026-09-09 as
-`experiments/OD/D2v4/PREREG-D2V4.md`, blob 810a2b198d6efda21461632f79240a7774aa2f3c. Run: pending.
+`experiments/OD/D2v4/PREREG-D2V4.md`, blob 810a2b198d6efda21461632f79240a7774aa2f3c.
+Run, 2026-09-09 (Atlas, screen `od-d2v4`, 19:50 to 19:58 UTC, `run.log`, code at 349776c, seed
+20261003, 62 worlds, 3,924 law rows). `results.json` and `grade.json` committed as executed;
+`d2v4_grade.py results.json --tols tolerances.json` run on Atlas and reproduced locally.
+Verdict by the sealed grader: INDETERMINATE. What held: L1, fresh seeds at 1.25 against 1.60;
+L3, the four fresh real slices at 0.16 to 0.64 against 3.20, the real group pooled at 0.43, the
+best fit to real embeddings of any registration (D2v3's law 0.64 on the same slices); L5, the
+law beats all four competitors pooled over the transfer groups (1.62 against 3.18 nominal, 3.47
+D2, 2.38 D2v2, 1.77 D2v3) and within every group; X1 in all 62 worlds (ratios at most 0.68
+against 0.90); P1 in all 62 worlds. What the widening bought: the clouds at d = 512, beyond the
+new training worlds at 256, now fit (cube 1.30, Gaussian 1.79 against 2.13, where the D2v3 law
+errs by 3.86 and 4.50), and Student t with 3 degrees at N = 16000, D2v3's scale miss, fits at
+0.47. What missed: L2, the unseen group pooled at 1.95 against 1.60, with ten of twelve unseen
+worlds inside the per-world limit and two outside, both heavier tails at higher dimension than
+the training set holds, Student t with 4 degrees at d = 256 (3.52, skewness up to 20) and
+Laplace at d = 192 (4.75, where every law of the family errs by 2.2 to 6.5); and L4, Student t
+with 5 degrees at N = 16000 at 2.19 against 2.13. What the gate establishes: with full-dimensional
+clouds at d = 256 in the discovery set the law extrapolates to d = 512; with Student t at 3
+degrees in the set it holds at scale for that family; the real corpora fit within half the pilot
+error. What it does not establish, twice over: a law of this feature family for heavy-tailed
+clouds at dimensions and tail weights outside its training set. The feature family has no
+tail-weight variable that survives the observer's rescaling except the coordinate kurtosis, which
+the search never chose, and the registry records that as the next repair: a tail variable
+measured on the neighbour distances rather than on the coordinates, or a discovery set with the
+heavy tails placed at the dimensions the transfer asks about. The exploratory budget sweep
+reproduced the polarity finding on a fourth Wikipedia slice: 65 percent of points change status
+at a quarter of the neighbour distance under the isotropic reader, 7 percent under the
+anisotropic one.
 
 ### D3. The observational predictability horizon
 
