@@ -41,7 +41,7 @@ Ng, Jordan, and Weiss, on spectral clustering, 2002, as chapter 3 section 3.3 an
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | [`geometric-observation/chapters/ch09_legibility.md:10-41`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/chapters/ch09_legibility.md#L10-L41); `the-angular-observer/theorem.md:110-146` |
+| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | [`geometric-observation/chapters/ch09_legibility.md:10-41`](https://github.com/ahb-sjsu/geometric-observation/blob/ab4a0db/chapters/ch09_legibility.md#L10-L41); `the-angular-observer/theorem.md:110-146` |
 
 ## failures and corrections
 

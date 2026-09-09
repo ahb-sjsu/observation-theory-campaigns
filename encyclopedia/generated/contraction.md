@@ -34,8 +34,8 @@ Chapter 14 section 14.5 of *Data Mining as Observation*, with the formula in `gt
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 14 section 14.3 | contraction 0.779 to 0.863, 77 of 1600, 4.8 percent, 0.872 to 0.863, weight 2.69 | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:66-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/05226a2/docs/SPECTRUM_FINDINGS.md#L66-L99) |
-| chapter 14 section 14.5 | the contraction formula fairness minus the general component | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:90-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/05226a2/docs/SPECTRUM_FINDINGS.md#L90-L99) |
+| chapter 14 section 14.3 | contraction 0.779 to 0.863, 77 of 1600, 4.8 percent, 0.872 to 0.863, weight 2.69 | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:66-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/c4ca1ef/docs/SPECTRUM_FINDINGS.md#L66-L99) |
+| chapter 14 section 14.5 | the contraction formula fairness minus the general component | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:90-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/c4ca1ef/docs/SPECTRUM_FINDINGS.md#L90-L99) |
 
 ## failures and corrections
 

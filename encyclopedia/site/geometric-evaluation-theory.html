@@ -423,7 +423,7 @@ campaign, prior-art record, and claim ledger beside it.</p>
 <li>GET:change-of-basis, invertible change of basis of the consequence
 space, z’ = A z, with the metric transported as G’ = A^-T G A^-1. Claim:
 The evaluative distance (y - t)^T G (y - t) is unchanged. <a
-href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/4097f4f/paper/geometric-evaluation-theory.tex#L108-L130"><code>geometric-evaluation-theory/paper/geometric-evaluation-theory.tex:108-130</code></a>.</li>
+href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/35c1684/paper/geometric-evaluation-theory.tex#L108-L130"><code>geometric-evaluation-theory/paper/geometric-evaluation-theory.tex:108-130</code></a>.</li>
 </ul>
 <p><strong>Survived.</strong></p>
 <ul>
@@ -433,7 +433,7 @@ in the identification gate. Claim: The metric’s action off the affine
 span of the battery and the ideal’s component in the metric’s kernel are
 not revealed by choices, while the in-span part and the range component
 are. <a
-href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/4097f4f/CAMPAIGN.md#L108-L125"><code>geometric-evaluation-theory/CAMPAIGN.md:108-125</code></a>.</li>
+href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/35c1684/CAMPAIGN.md#L108-L125"><code>geometric-evaluation-theory/CAMPAIGN.md:108-125</code></a>.</li>
 <li>GET:output-resolution-coarsening, coarsening of the resolution at
 which a computational evaluator receives and reports consequences:
 values rendered at fewer decimals, or the report limited to fewer
@@ -442,7 +442,7 @@ semiorder equals the resolution budget within a registered factor 1.5
 wherever the budget exceeds the evaluator’s floor, is monotone along
 each ladder, and the ordering of pairs separated by more than twice the
 largest threshold is unchanged. <a
-href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/4097f4f/CAMPAIGN.md#L56-L64"><code>geometric-evaluation-theory/CAMPAIGN.md:56-64</code></a>.
+href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/35c1684/CAMPAIGN.md#L56-L64"><code>geometric-evaluation-theory/CAMPAIGN.md:56-64</code></a>.
 Witness: on fresh pairs every graded threshold sits at 0.87 to 0.88 of
 its step (rendering 0.869, 0.0868, 0.00856, 0.00087 against 1, 0.1,
 0.01, 0.001; report 0.872, 0.872, 0.0873, 0.00877, 0.00087 at 2 to 6
@@ -454,13 +454,34 @@ weight precision at fixed rendering and report length, bfloat16 to 8-bit
 to 4-bit NF4. Claim: The threshold is non-decreasing as weight bits are
 removed, within the factor 1.5, and well-separated pairs stay ordered.
 <a
-href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/4097f4f/CAMPAIGN.md#L56-L64"><code>geometric-evaluation-theory/CAMPAIGN.md:56-64</code></a>.
+href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/35c1684/CAMPAIGN.md#L56-L64"><code>geometric-evaluation-theory/CAMPAIGN.md:56-64</code></a>.
 Witness: held as an equality: 8-bit and 4-bit weights left every
 threshold where bfloat16 put it (4-bit at 3 decimals 0.00093 against
 0.00087, accuracy at gap 20 0.985 against 1.00), so on this scorer and
 task weight precision at 8 or 4 bits is not a resolution budget; a
 ladder coarse enough to move the threshold was not registered. Absorbed
 by: .</li>
+<li>OD:budget, change of the observation budget B at fixed consumer and
+output metric. Claim: A single-direction probe along coordinate e_i at
+size rho is reported identifiable at budget B exactly when P_ii &gt; B^2
+/ rho^2, and a ladder of sizes brackets P_ii between B^2 / r_hi^2 and
+B^2 / r_lo^2 (article Theorem 2(b), Corollary 3).
+<code>experiments/DISCOVERY-TRACK.md, D1 record; experiments/OD/D1/grade.json axis</code>.
+Witness: exact in every evaluator of all fifteen World A cells (three
+worlds, five budgets, 20 evaluators each) on the run seed, as in every
+pilot. Absorbed by: .</li>
+<li>OD:observer-family, change of observer within a declared family:
+read operators of declared spectrum, coordinate subsets, coarsenings,
+and learned consumers’ recovered read operators. Claim: In a positive
+definite world the analytic centre returns the pencil’s end P* = s* P +
+(1 - s<em>) c I, s</em> = c / (c - lambda_min), so the estimate is
+nearer P* than P (article Corollary 4).
+<code>experiments/OD/D1/grade.json, B4; experiments/OD/D1/pencil_probe.json</code>.
+Witness: nearer P* in 20 of 20 evaluators at B = 1 and at B = 1.5 on the
+run seed (Frobenius 0.223 against P, 0.181 against P*; 0.117 against
+0.102), 20 of 20 in the third pilot, 6 of 6 cells in the pre-seal probe;
+in the kernel worlds the pencil’s end is P itself and the two errors
+coincide. Absorbed by: .</li>
 </ul>
 <p><strong>Boundary measured.</strong></p>
 <ul>
@@ -469,7 +490,7 @@ point perturbed by eps (I - Q) u with u standard normal in whitened
 coordinates, antithetic pair, common random numbers across codes. Claim:
 The measured loss equals eps^2 tr(Pt (I - Q)) within 25 percent per
 triple. <a
-href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/4097f4f/CAMPAIGN.md#L89-L98"><code>geometric-evaluation-theory/CAMPAIGN.md:89-98</code></a>.
+href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/35c1684/CAMPAIGN.md#L89-L98"><code>geometric-evaluation-theory/CAMPAIGN.md:89-98</code></a>.
 Boundary: the ratio of measured to predicted loss is flat in eps up to
 0.1 whitened units (median over cells 1.02 to 1.05) and rises by 4
 percent at 0.2; the per-triple bar is missed at every eps (64 to 70
@@ -488,7 +509,7 @@ representable evaluator to a human population with a known consequence
 map (self-placed candidates), scored against a within-respondent shuffle
 null. Claim: No action is ranked strictly below every action whose
 consequences surround it (the hull law), deterministically. <a
-href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/4097f4f/CAMPAIGN.md#L43-L54"><code>geometric-evaluation-theory/CAMPAIGN.md:43-54</code></a>.
+href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/35c1684/CAMPAIGN.md#L43-L54"><code>geometric-evaluation-theory/CAMPAIGN.md:43-54</code></a>.
 Boundary: the law holds as a population tendency, 50 percent of 489
 testable respondents violate it at least once against 66 percent under
 the shuffle null (permutation p below 0.005, five replication pairs
@@ -498,6 +519,24 @@ placements and integer ratings was registered, so no part of the half is
 attributed to rounding. Absorbed by: declaration. Revision: none yet: an
 error model would have to be registered before any of the half is
 attributed.</li>
+<li>OD:observer-family, change of observer within a declared family:
+read operators of declared spectrum, coordinate subsets, coarsenings,
+and learned consumers’ recovered read operators. Claim: Mixed probes at
+one radius, where the sphere crosses the ellipsoid substantially,
+recover the read operator up to the pencil s P + (1 - s)(B^2 / rho^2) I,
+below-threshold eigenvalues included, with Frobenius, above-threshold
+and below-threshold medians at most 0.30 of chance at 960 queries.
+<code>experiments/DISCOVERY-TRACK.md, D1 record; experiments/OD/D1/grade.json mixed</code>.
+Boundary: held in five of six well-crossed cells (Frobenius 0.045 to
+0.111 of chance, above 0.055 to 0.111, below 0.037 to 0.172); in the
+positive definite world at B = 1 the Frobenius ratio 0.198 and the below
+ratio 0.068 held and the above ratio was 0.303 against 0.30. Witness:
+the tolerance was fixed as the pilot’s own maximum in that same cell
+(0.299) rounded up to two decimals, so it carried no margin for a fresh
+seed; the estimator, the crossing and the recovery are unchanged between
+pilot and run. Absorbed by: declaration. Revision: none for the claim;
+for later gates, fix a tolerance as a declared multiple of the pilot’s
+maximum.</li>
 </ul>
 <p><strong>Failed, with witness.</strong></p>
 <ul>
@@ -506,7 +545,7 @@ in whitened coordinates applied to every key of a cell at once. Claim:
 Each head’s loss under a shared code is the second-order prediction
 tr(Pt (I - Q)) from its recovered read operator, and the regret formula
 and bound follow. <a
-href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/4097f4f/CAMPAIGN.md#L73-L81"><code>geometric-evaluation-theory/CAMPAIGN.md:73-81</code></a>.
+href="https://github.com/ahb-sjsu/geometric-evaluation-theory/blob/35c1684/CAMPAIGN.md#L73-L81"><code>geometric-evaluation-theory/CAMPAIGN.md:73-81</code></a>.
 Witness: measured attention loss 20 to 330 times the prediction (mean KL
 about 4 nats per query) at ranks 2 to 8; reduced to two causes, the
 registered prediction was a one-key operator while the measurement coded

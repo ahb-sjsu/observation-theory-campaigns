@@ -34,7 +34,7 @@ Deerwester, Dumais, Furnas, Landauer, and Harshman, indexing by latent semantic 
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.3 | 041 non-oracle, frozen LSA TF-IDF to SVD 100 train-only, AUROC 0.975 vs 0.910, flip tied, magnitude overshot, partial | [`geometric-observation/chapters/ch10_the_blind_probe.md:100-118`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/chapters/ch10_the_blind_probe.md#L100-L118); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/claims/LEDGER.md) row GO-B-blind 041 |
+| chapter 12 section 12.3 | 041 non-oracle, frozen LSA TF-IDF to SVD 100 train-only, AUROC 0.975 vs 0.910, flip tied, magnitude overshot, partial | [`geometric-observation/chapters/ch10_the_blind_probe.md:100-118`](https://github.com/ahb-sjsu/geometric-observation/blob/ab4a0db/chapters/ch10_the_blind_probe.md#L100-L118); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/ab4a0db/claims/LEDGER.md) row GO-B-blind 041 |
 
 ## failures and corrections
 
