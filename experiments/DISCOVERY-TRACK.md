@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 in registration; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 sealed (blob 66397b664e64982759d34694f6f1445e50e438af) and running; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -261,6 +261,39 @@ flow removes the dependence, as it must. What it does not establish: the registe
 largest budget, where the effect is real in direction and short of the level. Registration lesson,
 alongside D1's: a per-budget bar at a fixed level over a ladder whose effect shrinks along it
 should have declared the level per budget, or graded the ladder as a whole.
+
+### D3v2. The horizon offset law
+
+Prediction. Once a perturbation has aligned with the leading Lyapunov vector, an observer's
+horizon differs from the full reader's by the time the growth needs to close the deficit of the
+observer's read fraction at the crossing. Because the read fraction fluctuates on the fast
+timescale of the flow, the mean log fraction is not the law (the probe refuted it by factors of
+two to eight); the law is the first passage computed on one independent long trajectory
+carrying the aligned vector, Delta_O(B) = E_s[inf{t >= s : L(t) - L(s) + g_O(t) >= log B} -
+inf{t >= s : L(t) - L(s) >= log B}], with L the accumulated log growth and g_O the log read
+fraction. It is zero for the full reader, equal across observers a symmetry relates, negative
+for a metric exceeding the Euclidean one on the leading direction, and inside D3's bracket for a
+positive definite observer.
+World. D3's flows with the observer family widened: Lorenz-63 with the full reader, an
+anisotropic metric, three coordinate readers, two rank-one readers along declared vectors and
+the xy plane; Lorenz-96 with the full reader, an anisotropic metric, two blocks of sites and one
+site; 128 and 64 random starts; budgets 10 to 10000; the long trajectory of 2000 (600) time
+units integrated separately.
+Estimator. First-crossing horizons and their paired mean differences; the prediction from the
+long trajectory alone. No fitting.
+Bars. Exact E1 and H1 inherited from D3; O1 the law within TOL_O1 at B = 1000 and 10000 for
+every observer; O2 convergence between the two budgets; O3 sign and order (Spearman at least
+0.9 over the Lorenz-63 observers); O4 the symmetric pair equal within TOL_O4; O5 the
+anisotropic offset inside the bracket.
+What falsifies. A measured offset off the first-passage prediction by more than the
+tolerance, an offset that keeps moving with the budget, a sign or an order the law does not
+give, unequal offsets across a symmetry, an anisotropic offset outside the bracket.
+Record. Registered 2026-09-09 from D3's lesson. The first probe refuted the constant-fraction
+law (Section 7 of the registration); the law was restated as the first passage before any
+pilot; the second probe and the pilot then matched every one of the twelve observers within one
+to two standard errors in both flows, with the order exact. Tolerances by the declared-multiple
+rule: TOL_O1 = 0.259, TOL_O2 = 0.490, TOL_O4 = 0.137. SEALED 2026-09-09 as
+`experiments/OD/D3v2/PREREG-D3V2.md`, blob 66397b664e64982759d34694f6f1445e50e438af. Run: pending.
 
 ### D4. The geometry of the program's own discovery
 

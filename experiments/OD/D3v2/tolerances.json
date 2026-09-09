@@ -1,0 +1,20 @@
+{
+ "O1": 0.259,
+ "O2": 0.49,
+ "O4": 0.137,
+ "rule": "PREREG-D3V2 Section 5: 1.5 x pilot largest value rounded up to 3 decimals; O2, O4 floored at 0.05",
+ "pilot_statistics": {
+  "O1_worst": [
+   "lorenz63",
+   "u2",
+   "10000.0",
+   0.17223093913612564
+  ],
+  "O2_worst": [
+   "lorenz63",
+   "u2",
+   0.326640625
+  ],
+  "O4_max": 0.09078125000000004
+ }
+}

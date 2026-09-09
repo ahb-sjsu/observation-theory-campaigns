@@ -1,0 +1,18 @@
+== start Wed Sep  9 03:45:42 PM UTC 2026 HEAD bee2177 role pilot seal 
+{"world": "lorenz63", "starts_done": 16, "seconds": 10.0}
+{"world": "lorenz63", "starts_done": 32, "seconds": 20.1}
+{"world": "lorenz63", "starts_done": 48, "seconds": 30.2}
+{"world": "lorenz63", "starts_done": 64, "seconds": 40.1}
+{"world": "lorenz63", "starts_done": 80, "seconds": 50.0}
+{"world": "lorenz63", "starts_done": 96, "seconds": 59.9}
+{"world": "lorenz63", "starts_done": 112, "seconds": 69.9}
+{"world": "lorenz63", "starts_done": 128, "seconds": 79.8}
+{"world": "lorenz63", "lambda_1": 0.8998, "first_passage_offsets_at_largest_B": {"full": 0.0, "aniso": -0.599, "x_only": 0.995, "y_only": 0.221, "z_only": 0.126, "u1": 0.307, "u2": 0.841, "xy_plane": 0.17}, "constant_fraction_offsets": {"full": 0.0, "aniso": -0.175, "x_only": 1.341, "y_only": 0.966, "z_only": 0.81, "u1": 0.825, "u2": 1.878, "xy_plane": 0.513}}
+{"world": "lorenz63", "rows": 128, "seconds": 181.6}
+{"world": "lorenz96", "starts_done": 16, "seconds": 30.2}
+{"world": "lorenz96", "starts_done": 32, "seconds": 60.2}
+{"world": "lorenz96", "starts_done": 48, "seconds": 90.4}
+{"world": "lorenz96", "starts_done": 64, "seconds": 120.8}
+{"world": "lorenz96", "lambda_1": 1.7328, "first_passage_offsets_at_largest_B": {"full": 0.0, "aniso": -0.277, "sub": 0.663, "sub2": 0.674, "site0": 1.457}, "constant_fraction_offsets": {"full": 0.0, "aniso": -0.258, "sub": 0.704, "sub2": 0.736, "site0": 1.872}}
+{"world": "lorenz96", "rows": 64, "seconds": 177.9}
+== PILOT_DONE rc=0

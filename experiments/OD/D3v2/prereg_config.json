@@ -1,0 +1,62 @@
+{
+  "world": "The D3 world with the observer family widened: tangent perturbations under the linearised flow of Lorenz-63 (sigma 10, rho 28, beta 8/3) and Lorenz-96 (N = 40, F = 8); observers as constant read operators including rank-one projections along declared unit vectors; random unit perturbations at starts on the attractor; one independent long trajectory per world for the leading exponent and the mean log read-fraction of the leading Lyapunov vector under every observer.",
+  "T_max": 20.0,
+  "record_dt": 0.01,
+  "T_ladder": [1, 2, 5, 10, 20],
+  "B_ladder": [10, 100, 1000, 10000],
+  "kernel_start_t0": 0.01,
+  "seed_probe": 20260921,
+  "seed_pilot": 20260922,
+  "seed_run": 20260923,
+  "worlds": [
+    {
+      "name": "lorenz63",
+      "flow": "lorenz63",
+      "dt": 0.002,
+      "x0": [1.0, 1.0, 1.0],
+      "spinup": 100.0,
+      "start_spacing": 5.0,
+      "n_starts": 128,
+      "clv_T_long": 2000.0,
+      "clv_T_transient": 50.0,
+      "observers": {
+        "full": {"kind": "full"},
+        "aniso": {"kind": "diag", "diag": [1.0, 4.0, 0.25]},
+        "x_only": {"kind": "coords", "coords": [0]},
+        "y_only": {"kind": "coords", "coords": [1]},
+        "z_only": {"kind": "coords", "coords": [2]},
+        "u1": {"kind": "rank1", "vector": [1.0, 1.0, 1.0]},
+        "u2": {"kind": "rank1", "vector": [1.0, -1.0, 0.0]},
+        "xy_plane": {"kind": "coords", "coords": [0, 1]}
+      },
+      "directions": {
+        "random": {"kind": "random"}
+      }
+    },
+    {
+      "name": "lorenz96",
+      "flow": "lorenz96",
+      "n": 40,
+      "F": 8.0,
+      "dt": 0.005,
+      "x0": [8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0],
+      "spinup": 50.0,
+      "start_spacing": 2.0,
+      "n_starts": 64,
+      "clv_T_long": 600.0,
+      "clv_T_transient": 30.0,
+      "observers": {
+        "full": {"kind": "full"},
+        "aniso": {"kind": "alternating", "values": [1.0, 4.0]},
+        "sub": {"kind": "coords", "coords": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]},
+        "sub2": {"kind": "coords", "coords": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]},
+        "site0": {"kind": "coords", "coords": [0]}
+      },
+      "directions": {
+        "random": {"kind": "random"}
+      }
+    }
+  ],
+  "offset_budgets": [1000, 10000],
+  "bars": "PREREG-D3V2.md Section 5; tolerances fixed from the pilot as declared multiples, applied to the run seed only"
+}

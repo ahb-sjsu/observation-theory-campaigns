@@ -1,0 +1,18 @@
+== start Wed Sep  9 03:38:43 PM UTC 2026 HEAD 8947800 role probe seal 
+{"world": "lorenz63", "starts_done": 16, "seconds": 10.3}
+{"world": "lorenz63", "starts_done": 32, "seconds": 20.6}
+{"world": "lorenz63", "starts_done": 48, "seconds": 30.7}
+{"world": "lorenz63", "starts_done": 64, "seconds": 40.8}
+{"world": "lorenz63", "starts_done": 80, "seconds": 51.1}
+{"world": "lorenz63", "starts_done": 96, "seconds": 61.5}
+{"world": "lorenz63", "starts_done": 112, "seconds": 71.8}
+{"world": "lorenz63", "starts_done": 128, "seconds": 82.2}
+{"world": "lorenz63", "lambda_1": 0.9049, "first_passage_offsets_at_largest_B": {"full": 0.0, "aniso": -0.544, "x_only": 1.007, "y_only": 0.216, "z_only": 0.132, "u1": 0.306, "u2": 0.867, "xy_plane": 0.163}, "constant_fraction_offsets": {"full": 0.0, "aniso": -0.174, "x_only": 1.334, "y_only": 0.96, "z_only": 0.798, "u1": 0.814, "u2": 1.871, "xy_plane": 0.511}}
+{"world": "lorenz63", "rows": 128, "seconds": 183.5}
+{"world": "lorenz96", "starts_done": 16, "seconds": 29.1}
+{"world": "lorenz96", "starts_done": 32, "seconds": 57.8}
+{"world": "lorenz96", "starts_done": 48, "seconds": 86.5}
+{"world": "lorenz96", "starts_done": 64, "seconds": 115.2}
+{"world": "lorenz96", "lambda_1": 1.6815, "first_passage_offsets_at_largest_B": {"full": 0.0, "aniso": -0.278, "sub": 0.701, "sub2": 0.666, "site0": 1.472}, "constant_fraction_offsets": {"full": 0.0, "aniso": -0.265, "sub": 0.758, "sub2": 0.708, "site0": 1.927}}
+{"world": "lorenz96", "rows": 64, "seconds": 168.7}
+== PROBE_DONE rc=0
