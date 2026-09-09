@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 done, INDETERMINATE (the intrinsic-dimension law fits every real corpus within REF and beats all three competitors on every transfer group; misses the per-world limit on Laplace and a 256-dimensional cube and on heavy tails at N = 16000); D2v4 done, INDETERMINATE (extrapolates to d = 512 and to heavy tails at scale, fits real corpora within half the pilot error, beats every earlier law; misses heavier tails at higher dimension than it was shown); D2v5 done, INDETERMINATE (the search declined the neighbour-distance tail variables; D2v3's form refitted halves the D2v4 misses at d = 192 and 256, keeps the real corpora and d = 512, and loses heavy tails at N = 16000; the D2v3 law edges it on the real slices); D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 done, INDETERMINATE (the intrinsic-dimension law fits every real corpus within REF and beats all three competitors on every transfer group; misses the per-world limit on Laplace and a 256-dimensional cube and on heavy tails at N = 16000); D2v4 done, INDETERMINATE (extrapolates to d = 512 and to heavy tails at scale, fits real corpora within half the pilot error, beats every earlier law; misses heavier tails at higher dimension than it was shown); D2v5 done, INDETERMINATE (the search declined the neighbour-distance tail variables; D2v3's form refitted halves the D2v4 misses at d = 192 and 256, keeps the real corpora and d = 512, and loses heavy tails at N = 16000; the D2v3 law edges it on the real slices); D2v6 sealed (blob D2V6HASH) and running, its pilot having recorded that the family and not the set is the limit; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -406,6 +406,28 @@ repair D2v4's record named, heavy tails placed at the transfer dimensions in the
 is registered as D2v6. The budget sweep reproduced the polarity finding on a fifth Wikipedia
 slice: 76 percent of points change status at a quarter of the neighbour distance under the
 isotropic reader, 8 percent under the anisotropic one.
+
+### D2v6. Observer-relative hubness, the law with heavy tails placed at the transfer dimensions
+
+Prediction. D2v4's second repair: heavy-tailed clouds in the discovery set at the dimensions
+the transfer asks about (Student t with 3 and 5 degrees at d = 256, Laplace at d = 192 and
+256), bracketing the unseen Student t with 4 degrees at d = 256 in tail weight and an unseen
+Laplace at d = 224 in dimension; the law transfers to the bracketed worlds, to D2v5's other
+unseen families, to fresh real slices and to larger N, and beats the nominal formula and the
+frozen D2 to D2v5 laws. Pool, search and target as D2v5. Latent rank and polarity as before.
+World. 37 training and 9 held-out worlds; on the run only, 15 unseen worlds, 4 real slices, 8
+scale cells.
+Search. As before. Bars. As D2v5, with the frozen D2v5 law added to L5 at 0.95.
+Record. Registered 2026-09-09. The pilot froze log(1 + skew) = -0.399 - 0.013 / cv_knn
+- 0.037 log(d_nom) log(k) + 0.358 sqrt(id_twonn), again without a tail variable, and for the
+first time in the track the frozen law's pooled pilot error (1.453 = REF) exceeds two
+competitors' on the same rows (D2v5 law 1.189, D2v3 law 1.274): the search ranks by held-out
+error, where the new law leads, and loses on the training rows, which now hold the hardest
+worlds. In sample it fits the bracketing Laplace worlds and misses Student t with 3 degrees
+at d = 256 by 5.41 where the D2v5 law reads 1.42. Section 6's third clause is recorded at the
+pilot: the family, not the coverage of the set, is the limit. Sealed and run as registered,
+with L5 against the D2v5 law at 0.95 the sharp bar. SEALED 2026-09-09 as
+`experiments/OD/D2v6/PREREG-D2V6.md`, blob D2V6HASH. Run: pending.
 
 ### D3. The observational predictability horizon
 

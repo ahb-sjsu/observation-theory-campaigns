@@ -1,0 +1,5 @@
+== start Wed Sep  9 08:50:57 PM UTC 2026 HEAD d5cb9c5 role probe seal 
+{"world": "t3_d256", "rows": 72, "rank_eff": 3.11, "null": 23.89, "jac_same": 0.437, "jac_diff": 0.201, "seconds": 6.2}
+{"world": "lap_d192", "rows": 72, "rank_eff": 4.86, "null": 23.88, "jac_same": 0.318, "jac_diff": 0.128, "seconds": 5.4}
+{"world": "u_t4_d256", "rows": 72, "rank_eff": 3.03, "null": 23.86, "jac_same": 0.454, "jac_diff": 0.219, "seconds": 5.9}
+== PROBE_DONE rc=0
