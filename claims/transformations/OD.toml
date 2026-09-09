@@ -1,0 +1,43 @@
+# Transformation registry for the OD track, observational discovery. Opened 2026-09-09 with the
+# families the gates declare; tests are entered when a gate's verdict is committed.
+
+[registry]
+track = "OD"
+title = "Observational discovery, from the read operator to laws that survive observers"
+commit = "opened"
+x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
+y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
+equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
+complexity_ordering = "changes of observer within a declared family first, then changes of data world, then changes of scale, then changes of dynamical system"
+
+[[transformation]]
+id = "OD:observer-family"
+family = "change of observer within a declared family: read operators of declared spectrum, coordinate subsets, coarsenings, and learned consumers' recovered read operators"
+parameters = "declared per gate"
+closure = "none"
+rank = 1
+declared = "2026-09-09"
+
+[[transformation]]
+id = "OD:budget"
+family = "change of the observation budget B at fixed consumer and output metric"
+parameters = "a ladder declared per gate"
+closure = "none, a one-parameter family"
+rank = 2
+declared = "2026-09-09"
+
+[[transformation]]
+id = "OD:world-transfer"
+family = "transfer of a law frozen on synthetic worlds to embedding corpora, ANN corpora, and dynamical state spaces without retuning"
+parameters = "the worlds declared per gate"
+closure = "none"
+rank = 3
+declared = "2026-09-09"
+
+[[transformation]]
+id = "OD:simulation-resolution"
+family = "change of the simulation resolution N at fixed observation budget B, for dynamical systems"
+parameters = "a ladder declared per gate"
+closure = "none"
+rank = 4
+declared = "2026-09-09"
