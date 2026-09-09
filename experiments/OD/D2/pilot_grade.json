@@ -1,0 +1,318 @@
+{
+ "tolerances": {
+  "REF": 0.7964318608918537,
+  "REF_note": "the frozen law's RMSE pooled over every pilot row (training and held-out), the held-out RMSE alone being 0.3716",
+  "FRAC_X": 0.48,
+  "rule": "PREREG-D2 Section 5: REF = frozen law's held-out RMSE at the pilot; FRAC_X = 1.5 x pilot max rank ratio rounded up to 2 decimals, at most 0.9",
+  "pilot_rank_ratios": {
+   "g_a0_d32": 0.11149601131249912,
+   "g_a0_d64": 0.15412532914578767,
+   "g_a0_d128": 0.20902495076837962,
+   "g_a05_d32": 0.11432833137189045,
+   "g_a05_d64": 0.14955245848325782,
+   "g_a05_d128": 0.19676322664745932,
+   "g_a1_d32": 0.11647342873220703,
+   "g_a1_d64": 0.14062273124011482,
+   "g_a1_d128": 0.16580770815290036,
+   "g_a05_d64_N2000": 0.1586146010599152,
+   "h_a025_d48": 0.22176494687004672,
+   "h_a075_d48": 0.21849402857371497,
+   "h_a025_d96": 0.3138655829322024,
+   "h_a075_d96": 0.271097255355126
+  }
+ },
+ "law": {
+  "target": "skew",
+  "features": [
+   "inv_cv_d",
+   "sqrt_d_eff_over_k"
+  ],
+  "coef": [
+   -0.026165647256707177,
+   0.4206954447231824,
+   0.8172228220333909
+  ],
+  "train_rmse": 0.8564708260180722,
+  "heldout_rmse": 0.37163271540806536,
+  "n_terms": 2
+ },
+ "competitor": {
+  "target": "skew",
+  "features": [
+   "d_nom",
+   "sqrt_d_nom"
+  ],
+  "coef": [
+   -4.00309230047201,
+   -0.07976224850321473,
+   1.4604236369895924
+  ],
+  "train_rmse": 1.8789053642987152,
+  "heldout_rmse": 1.7840247079405673,
+  "n_terms": 2
+ },
+ "groups": {
+  "train": {
+   "n": 720,
+   "rmse_law": 0.8564708260180722,
+   "rmse_competitor": 1.8789053642987152
+  },
+  "heldout": {
+   "n": 144,
+   "rmse_law": 0.37163271540806536,
+   "rmse_competitor": 1.7840247079405673
+  },
+  "unseen": {
+   "n": 0,
+   "rmse_law": null,
+   "rmse_competitor": null
+  },
+  "real": {
+   "n": 0,
+   "rmse_law": null,
+   "rmse_competitor": null
+  },
+  "scale": {
+   "n": 0,
+   "rmse_law": null,
+   "rmse_competitor": null
+  }
+ },
+ "bars": {
+  "L1_fresh_seeds": {
+   "rmse": 0.7964318608918537,
+   "limit": 1.1946477913377804,
+   "holds": true
+  },
+  "L2_unseen": {
+   "per_world": {},
+   "pooled": null,
+   "limits": [
+    1.5928637217837074,
+    1.1946477913377804
+   ],
+   "holds": null
+  },
+  "L3_real": {
+   "per_world": {},
+   "limit": 2.389295582675561,
+   "holds": null
+  },
+  "L4_scale": {
+   "per_world": {},
+   "limit": 1.5928637217837074,
+   "holds": null
+  },
+  "L5_vs_nominal": {
+   "rmse_law": null,
+   "rmse_competitor": null,
+   "holds": null
+  },
+  "X1_latent_rank": {
+   "ratio_by_world": {
+    "g_a0_d32": 0.11149601131249912,
+    "g_a0_d64": 0.15412532914578767,
+    "g_a0_d128": 0.20902495076837962,
+    "g_a05_d32": 0.11432833137189045,
+    "g_a05_d64": 0.14955245848325782,
+    "g_a05_d128": 0.19676322664745932,
+    "g_a1_d32": 0.11647342873220703,
+    "g_a1_d64": 0.14062273124011482,
+    "g_a1_d128": 0.16580770815290036,
+    "g_a05_d64_N2000": 0.1586146010599152,
+    "h_a025_d48": 0.22176494687004672,
+    "h_a075_d48": 0.21849402857371497,
+    "h_a025_d96": 0.3138655829322024,
+    "h_a075_d96": 0.271097255355126
+   },
+   "limit": 0.48,
+   "holds": true
+  },
+  "P1_polarity": {
+   "by_world": {
+    "g_a0_d32": {
+     "hub_jaccard_same": 0.4118051575330016,
+     "hub_jaccard_diff": 0.23152434024585722,
+     "reversal_same": 2.777777777777778e-05,
+     "reversal_diff": 0.00019166666666666667
+    },
+    "g_a0_d64": {
+     "hub_jaccard_same": 0.3472576899143636,
+     "hub_jaccard_diff": 0.16739553703263296,
+     "reversal_same": 6.944444444444446e-05,
+     "reversal_diff": 0.0007625
+    },
+    "g_a0_d128": {
+     "hub_jaccard_same": 0.2858972707701609,
+     "hub_jaccard_diff": 0.11594903683650352,
+     "reversal_same": 0.00020138888888888892,
+     "reversal_diff": 0.0014739583333333334
+    },
+    "g_a05_d32": {
+     "hub_jaccard_same": 0.3914672469418682,
+     "hub_jaccard_diff": 0.21160659787597022,
+     "reversal_same": 1.388888888888889e-05,
+     "reversal_diff": 0.00020104166666666667
+    },
+    "g_a05_d64": {
+     "hub_jaccard_same": 0.3339246800540489,
+     "hub_jaccard_diff": 0.1629391038292042,
+     "reversal_same": 9.027777777777779e-05,
+     "reversal_diff": 0.0005135416666666668
+    },
+    "g_a05_d128": {
+     "hub_jaccard_same": 0.2942106527593348,
+     "hub_jaccard_diff": 0.12197232118146,
+     "reversal_same": 0.00018055555555555557,
+     "reversal_diff": 0.0011833333333333335
+    },
+    "g_a1_d32": {
+     "hub_jaccard_same": 0.35998978683557603,
+     "hub_jaccard_diff": 0.1967527824575253,
+     "reversal_same": 2.777777777777778e-05,
+     "reversal_diff": 8.229166666666667e-05
+    },
+    "g_a1_d64": {
+     "hub_jaccard_same": 0.3412382669196399,
+     "hub_jaccard_diff": 0.16498912105834757,
+     "reversal_same": 5.555555555555556e-05,
+     "reversal_diff": 0.00024375000000000002
+    },
+    "g_a1_d128": {
+     "hub_jaccard_same": 0.3054257249207132,
+     "hub_jaccard_diff": 0.13618290140740588,
+     "reversal_same": 7.638888888888891e-05,
+     "reversal_diff": 0.00040104166666666673
+    },
+    "g_a05_d64_N2000": {
+     "hub_jaccard_same": 0.3108616289430355,
+     "hub_jaccard_diff": 0.13936672978795359,
+     "reversal_same": 6.944444444444444e-05,
+     "reversal_diff": 0.0005291666666666667
+    },
+    "h_a025_d48": {
+     "hub_jaccard_same": 0.35142500306115243,
+     "hub_jaccard_diff": 0.19031297788241552,
+     "reversal_same": 6.944444444444444e-05,
+     "reversal_diff": 0.00022395833333333336
+    },
+    "h_a075_d48": {
+     "hub_jaccard_same": 0.36018894473919194,
+     "hub_jaccard_diff": 0.19935230631803758,
+     "reversal_same": 2.777777777777778e-05,
+     "reversal_diff": 9.895833333333333e-05
+    },
+    "h_a025_d96": {
+     "hub_jaccard_same": 0.3110457869371601,
+     "hub_jaccard_diff": 0.12056880842228218,
+     "reversal_same": 0.00020833333333333332,
+     "reversal_diff": 0.000890625
+    },
+    "h_a075_d96": {
+     "hub_jaccard_same": 0.30486030901530825,
+     "hub_jaccard_diff": 0.1416533673604261,
+     "reversal_same": 0.00025,
+     "reversal_diff": 0.0005416666666666668
+    }
+   },
+   "holds": true
+  },
+  "B1_budget_reported": {
+   "g_a05_d64_a0.0_r0": {
+    "changed_by_budget": {
+     "0.1": 0.1215,
+     "0.25": 0.217,
+     "0.5": 0.373,
+     "1.0": 0.85525,
+     "2.0": 0.855
+    },
+    "nondecreasing": false,
+    "small_budget_quiet": false
+   },
+   "g_a05_d64_a1.0_r0": {
+    "changed_by_budget": {
+     "0.1": 0.0395,
+     "0.25": 0.0645,
+     "0.5": 0.1185,
+     "1.0": 0.223,
+     "2.0": 0.846
+    },
+    "nondecreasing": true,
+    "small_budget_quiet": true
+   }
+  }
+ },
+ "gate": "NOT ALL GROUPS RUN (pilot or probe): all run bars hold",
+ "worlds": {
+  "g_a0_d32": {
+   "group": "train",
+   "rmse_law": 0.2960192338782524,
+   "rmse_competitor": 1.3461431847108156
+  },
+  "g_a0_d64": {
+   "group": "train",
+   "rmse_law": 0.4421729155705769,
+   "rmse_competitor": 1.8085925390038315
+  },
+  "g_a0_d128": {
+   "group": "train",
+   "rmse_law": 1.342868378031301,
+   "rmse_competitor": 2.033630943021541
+  },
+  "g_a05_d32": {
+   "group": "train",
+   "rmse_law": 0.34489317788365026,
+   "rmse_competitor": 1.3457694607613853
+  },
+  "g_a05_d64": {
+   "group": "train",
+   "rmse_law": 1.6948646195122987,
+   "rmse_competitor": 3.0248392158057054
+  },
+  "g_a05_d128": {
+   "group": "train",
+   "rmse_law": 0.7131054191248177,
+   "rmse_competitor": 1.983996482926573
+  },
+  "g_a1_d32": {
+   "group": "train",
+   "rmse_law": 0.28144428355970763,
+   "rmse_competitor": 0.8910896569475346
+  },
+  "g_a1_d64": {
+   "group": "train",
+   "rmse_law": 0.6907829337886953,
+   "rmse_competitor": 1.5638541557377672
+  },
+  "g_a1_d128": {
+   "group": "train",
+   "rmse_law": 0.4502854054080881,
+   "rmse_competitor": 1.4148447690368091
+  },
+  "g_a05_d64_N2000": {
+   "group": "train",
+   "rmse_law": 0.9948856161882148,
+   "rmse_competitor": 2.4383671455995795
+  },
+  "h_a025_d48": {
+   "group": "heldout",
+   "rmse_law": 0.40748207548286175,
+   "rmse_competitor": 1.2748660532163227
+  },
+  "h_a075_d48": {
+   "group": "heldout",
+   "rmse_law": 0.3498312796796305,
+   "rmse_competitor": 1.3498713065295658
+  },
+  "h_a025_d96": {
+   "group": "heldout",
+   "rmse_law": 0.4460231360138599,
+   "rmse_competitor": 2.700454004043076
+  },
+  "h_a075_d96": {
+   "group": "heldout",
+   "rmse_law": 0.2551142816553823,
+   "rmse_competitor": 1.4110594630922633
+  }
+ }
+}

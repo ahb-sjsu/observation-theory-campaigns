@@ -1,0 +1,22 @@
+{
+ "REF": 0.7964318608918537,
+ "REF_note": "the frozen law's RMSE pooled over every pilot row (training and held-out), the held-out RMSE alone being 0.3716",
+ "FRAC_X": 0.48,
+ "rule": "PREREG-D2 Section 5: REF = the frozen law's RMSE pooled over every pilot row (training and held-out); FRAC_X = 1.5 x the pilot's largest rank ratio rounded up to 2 decimals, at most 0.9",
+ "pilot_rank_ratios": {
+  "g_a0_d32": 0.11149601131249912,
+  "g_a0_d64": 0.15412532914578767,
+  "g_a0_d128": 0.20902495076837962,
+  "g_a05_d32": 0.11432833137189045,
+  "g_a05_d64": 0.14955245848325782,
+  "g_a05_d128": 0.19676322664745932,
+  "g_a1_d32": 0.11647342873220703,
+  "g_a1_d64": 0.14062273124011482,
+  "g_a1_d128": 0.16580770815290036,
+  "g_a05_d64_N2000": 0.1586146010599152,
+  "h_a025_d48": 0.22176494687004672,
+  "h_a075_d48": 0.21849402857371497,
+  "h_a025_d96": 0.3138655829322024,
+  "h_a075_d96": 0.271097255355126
+ }
+}

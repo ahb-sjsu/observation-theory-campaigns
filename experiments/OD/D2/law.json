@@ -1,0 +1,37 @@
+{
+ "law": {
+  "target": "skew",
+  "features": [
+   "inv_cv_d",
+   "sqrt_d_eff_over_k"
+  ],
+  "coef": [
+   -0.026165647256707177,
+   0.4206954447231824,
+   0.8172228220333909
+  ],
+  "train_rmse": 0.8564708260180722,
+  "heldout_rmse": 0.37163271540806536,
+  "n_terms": 2
+ },
+ "competitor_nominal": {
+  "target": "skew",
+  "features": [
+   "d_nom",
+   "sqrt_d_nom"
+  ],
+  "coef": [
+   -4.00309230047201,
+   -0.07976224850321473,
+   1.4604236369895924
+  ],
+  "train_rmse": 1.8789053642987152,
+  "heldout_rmse": 1.7840247079405673,
+  "n_terms": 2
+ },
+ "target": "skew",
+ "frozen_from": "pilot",
+ "seed": 20260919,
+ "n_train": 720,
+ "n_heldout": 144
+}

@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2, D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 sealed (blob 319f6c6e107757c96e0328dd0cb34b4f782e1c4e) and running; D3v2 in registration; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -127,45 +127,38 @@ exactly, as the sealed Section 7 records.
 
 ### D2. Observer-relative hubness, the law
 
-Prediction. There is a low-complexity relation H_k = F(d_eff(P_C), kappa(P_C), B, k / N, ...)
-between a point's k-occurrence under an observer's distance and the observer's spectrum, and
-it survives a change of observer within a declared family, a change of data from synthetic
-to real embeddings, and a change of scale.
-World. The trillion-vector machinery and the hubness track's corpora; observers as declared
-read operators (isotropic, anisotropic with declared spectra, learned consumers' recovered
-P_C); the null of the Poisson ceiling per observer.
-Search. Theory-radar's symbolic search over expressions in the registry's variables, scored on
-held-out accuracy, expression complexity, and invariance across the declared observer family
-(the envelope), with the evaluator's own metric over those criteria recovered from the
-program's past acceptances and rejections by the G5 estimator rather than asserted.
-Discipline. Discover on synthetic Gaussian and anisotropic worlds; freeze; test on embeddings
-and ANN corpora without retuning; the transfer is a registry test with outcome survived,
-boundary, or failed.
-Bars. Held-out accuracy above the null; the frozen law within a registered tolerance on the
-unseen worlds; the law's envelope strictly containing that of the best classical
-(observer-free) hubness predictor at comparable complexity.
-What falsifies. A frozen law that fails on the unseen worlds, or a classical predictor with
-the same envelope at no more complexity.
-Paper. The draft *Hub Relativity: Observer-Dependent Geometry in High-Dimensional Spaces*
-(Bond, 2026, unpublished) is this gate's paper. Its objects map onto the gate as follows: the
-observer-relative k-occurrence H_k(x | O) and the polarity score with thresholds fixed before
-validation are the measured quantities; the cross-observer hubness matrix H[i, j] over N points
-and M observers, with its effective rank, is the gate's central new object and gets its own
-registered bar (effective rank far below min(N, M) against a spectrum-matched random-observer
-null); the observer-sensitivity R_H and the hubness distance between observers D_H define the
-observer equivalence classes, which are the registry's families read back from the data; and
-its Appendix A experiments are the gate's cells, A1 the dimensional baseline (calibration, no
-claim), A2 the observer swap on fixed data (the polarity-reversal rate against the
-random-orientation null), A3 the controlled spectrum sweep (polarity crossings located in the
-spectral exponent), A4 the budget sweep (the critical resolution B_c), A5 the cross-observer
-matrix, A6 the frozen law on unseen distributions, A7 the scale test. The paper's own
-falsifiers, whitening removing the effect, nominal dimension predicting as well as effective
-dimension, finite resolution adding nothing beyond dimensionality reduction, and laws that
-fail beyond one family, are the gate's. Before any seal the paper must cite the hubness
-literature it builds on (Radovanovic, Nanopoulos and Ivanovic 2010; hubness reduction by
-local scaling and mutual proximity, Schnitzer et al. 2012; Feldbauer and Flexer 2019), since
-"a change of representation changes hubness" is known there, and the gate's claim is the law
-and the latent rank, not the reversal.
+Prediction. Within a family of observers with declared spectra and random orientation, the
+hubness of a point cloud under an observer (skewness of the k-occurrence counts) is a
+low-complexity function of summaries of the observed geometry and not of the nominal dimension;
+discovered on Gaussian clouds and frozen, it transfers without refitting to distributions it was
+not discovered on, to real embeddings and to a larger N, and beats the best nominal-dimension
+formula at the same complexity. The cross-observer hubness matrix has an effective rank far
+below its shuffled null. A change of spectrum changes the hub sets more than a change of
+orientation.
+World. Observers C = diag(i^-alpha) R, G = I, alpha on 0 to 2 with four rotations; Gaussian
+clouds with covariance eigenvalues i^-alpha_data (training), unseen spectra and shapes
+(held-out), then, on the run only, uniform cube and ball, Student t, a Gaussian mixture, an
+anisotropic cube, 4000 Cohere Wikipedia embeddings (1024-d), 4000 BigANN SIFT descriptors, and
+scale cells at N = 16000 and 12000; k on 5, 10, 20; a budget sweep by quantization, exploratory.
+Search. Enumeration of a declared 27-feature family in one- and two-term linear models, fitted
+on training rows, ranked by held-out error, frozen at the pilot (theory-radar's engine is a
+classifier search; this is its regression form; the G5 recovery of the evaluation metric is
+deferred).
+Bars. L1 fresh seeds within 1.5 REF; L2 unseen families within 2 REF each and 1.5 REF pooled;
+L3 real corpora within 3 REF; L4 scale within 2 REF; L5 the law at most 0.8 of the competitor's
+error on the transfer groups; X1 effective-rank ratio at most FRAC_X in every world; P1 hub-set
+overlap across orientations above the overlap across spectra.
+What falsifies. A frozen law that fails on unseen distributions, real embeddings or a larger
+N; a nominal-dimension formula that predicts as well; a cross-observer matrix no lower in rank
+than its null; spectra that change the hub sets no more than orientations.
+Record. Registered 2026-09-09. The probe found direct polarity reversals too rare to grade
+(one to three in ten thousand) and the polarity bar was restated on hub-set overlap; the pilot
+froze the law skew = -0.026 + 0.421 / cv_d + 0.817 sqrt(d_eff) / k (held-out error 0.37,
+pooled 0.80, REF) against a nominal-dimension competitor at 1.86, found effective-rank ratios
+0.11 to 0.31 (FRAC_X = 0.48), hub-set overlap 0.29 to 0.41 across orientations against 0.12 to
+0.23 across spectra, and, in the exploratory budget sweep, a resolution of a tenth of the
+nearest-neighbour distance already changing the polarity of 12 percent of points. SEALED
+2026-09-09 as `experiments/OD/D2/PREREG-D2.md`, blob 319f6c6e107757c96e0328dd0cb34b4f782e1c4e. Run: pending.
 
 ### D3. The observational predictability horizon
 

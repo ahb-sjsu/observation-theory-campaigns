@@ -1,0 +1,17 @@
+== start Wed Sep  9 03:34:30 PM UTC 2026 HEAD 8947800 role pilot seal 
+{"world": "g_a0_d32", "rows": 72, "rank_eff": 2.66, "null": 23.85, "jac_same": 0.412, "jac_diff": 0.232, "seconds": 4.5}
+{"world": "g_a0_d64", "rows": 72, "rank_eff": 3.68, "null": 23.86, "jac_same": 0.347, "jac_diff": 0.167, "seconds": 4.5}
+{"world": "g_a0_d128", "rows": 72, "rank_eff": 4.99, "null": 23.86, "jac_same": 0.286, "jac_diff": 0.116, "seconds": 4.4}
+{"world": "g_a05_d32", "rows": 72, "rank_eff": 2.73, "null": 23.86, "jac_same": 0.391, "jac_diff": 0.212, "seconds": 4.3}
+{"world": "g_a05_d64", "rows": 82, "rank_eff": 3.57, "null": 23.87, "jac_same": 0.334, "jac_diff": 0.163, "seconds": 6.8}
+{"world": "g_a05_d128", "rows": 72, "rank_eff": 4.69, "null": 23.86, "jac_same": 0.294, "jac_diff": 0.122, "seconds": 4.6}
+{"world": "g_a1_d32", "rows": 72, "rank_eff": 2.78, "null": 23.85, "jac_same": 0.36, "jac_diff": 0.197, "seconds": 4.4}
+{"world": "g_a1_d64", "rows": 72, "rank_eff": 3.35, "null": 23.86, "jac_same": 0.341, "jac_diff": 0.165, "seconds": 4.4}
+{"world": "g_a1_d128", "rows": 72, "rank_eff": 3.96, "null": 23.88, "jac_same": 0.305, "jac_diff": 0.136, "seconds": 4.5}
+{"world": "g_a05_d64_N2000", "rows": 72, "rank_eff": 3.76, "null": 23.72, "jac_same": 0.311, "jac_diff": 0.139, "seconds": 1.2}
+{"world": "h_a025_d48", "rows": 36, "rank_eff": 2.65, "null": 11.97, "jac_same": 0.351, "jac_diff": 0.19, "seconds": 2.2}
+{"world": "h_a075_d48", "rows": 36, "rank_eff": 2.62, "null": 11.97, "jac_same": 0.36, "jac_diff": 0.199, "seconds": 2.1}
+{"world": "h_a025_d96", "rows": 36, "rank_eff": 3.75, "null": 11.96, "jac_same": 0.311, "jac_diff": 0.121, "seconds": 2.2}
+{"world": "h_a075_d96", "rows": 36, "rank_eff": 3.24, "null": 11.96, "jac_same": 0.305, "jac_diff": 0.142, "seconds": 2.3}
+{"law": {"target": "skew", "features": ["inv_cv_d", "sqrt_d_eff_over_k"], "coef": [-0.026165647256707177, 0.4206954447231824, 0.8172228220333909], "train_rmse": 0.8564708260180722, "heldout_rmse": 0.37163271540806536, "n_terms": 2}, "competitor": {"target": "skew", "features": ["d_nom", "sqrt_d_nom"], "coef": [-4.00309230047201, -0.07976224850321473, 1.4604236369895924], "train_rmse": 1.8789053642987152, "heldout_rmse": 1.7840247079405673, "n_terms": 2}}
+== PILOT_DONE rc=0
