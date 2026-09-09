@@ -1,0 +1,253 @@
+{
+ "tolerances": {
+  "E2": 0.024,
+  "K1c": 0.02,
+  "K2": 0.231,
+  "K2_frac": 0.72,
+  "K3": 0.06,
+  "rule": "PREREG-D3 Section 5: 1.5 x pilot value rounded up to 3 decimals (K1c floor 0.02); FRAC_K2 = 0.8 x pilot minimum fraction rounded down to 2 decimals, floor 0.5",
+  "pilot_statistics": {
+   "E2": 0.015660348283800307,
+   "K1c": 0.007192051809610467,
+   "K2": 0.15396997327437445,
+   "K2_frac_min": 0.90625,
+   "K3": 0.039938447388436604,
+   "K2_fractions": {
+    "lorenz63_kernel_x": 0.953125,
+    "lorenz63_kernel_z": 0.90625,
+    "lorenz96_kernel_sub": 1.0
+   }
+  }
+ },
+ "exact": {
+  "E1_pd_bound": {
+   "checked": 3200,
+   "violations": 0,
+   "holds": true
+  },
+  "KX_core_reader_equals_core_part": {
+   "violations": 0,
+   "holds": true
+  },
+  "H1_horizons": {
+   "checked": 8960,
+   "violations": 0,
+   "holds": true
+  }
+ },
+ "bars": {
+  "E2_lorenz63": {
+   "median_abs_diff_by_T": [
+    0.33830617453518386,
+    0.17041355635535715,
+    0.07387363255316015,
+    0.03646615980168538,
+    0.019733836162285023
+   ],
+   "nonincreasing": true,
+   "final_within": true,
+   "holds": true
+  },
+  "E2_lorenz96": {
+   "median_abs_diff_by_T": [
+    0.10242885730115026,
+    0.05563515610821057,
+    0.019909612447796543,
+    0.010493871092590035,
+    0.0049511597687554865
+   ],
+   "nonincreasing": true,
+   "final_within": true,
+   "holds": true
+  },
+  "K1_mu2_smaller": {
+   "gap_min": 0.8237935881923046,
+   "gap_median": 1.0516009448071713,
+   "classical_median": 1.9653426409677508,
+   "observational_median": 0.9137416961605794,
+   "all_gaps_ge_0.5": true,
+   "classical_within_0.15_of_mu": true,
+   "holds": true
+  },
+  "K1c_mu05_equal": {
+   "abs_diff_max": 0.0071920518108230524,
+   "abs_diff_median": 0.00719205067411921,
+   "holds": true
+  },
+  "K2_lorenz63_kernel_x": {
+   "fraction_larger_at_T1": 0.828125,
+   "median_excess_by_T": [
+    1.5306153254166692,
+    0.8673419327223171,
+    0.3428034023188442,
+    0.16531835978755755,
+    0.08476822633400394
+   ],
+   "median_abs_diff_by_T": [
+    1.5456259008264035,
+    0.8782274885171796,
+    0.3428034023188442,
+    0.16531835978755755,
+    0.08476822633400394
+   ],
+   "holds": true
+  },
+  "K2_lorenz63_kernel_z": {
+   "fraction_larger_at_T1": 0.984375,
+   "median_excess_by_T": [
+    2.797559336000101,
+    1.3585540680996786,
+    0.5065331386619614,
+    0.24911606355215887,
+    0.13458132171195647
+   ],
+   "median_abs_diff_by_T": [
+    2.797559336000101,
+    1.3585540680996786,
+    0.5065331386619614,
+    0.24911606355215887,
+    0.13458132171195647
+   ],
+   "holds": true
+  },
+  "K2_lorenz96_kernel_sub": {
+   "fraction_larger_at_T1": 0.96875,
+   "median_excess_by_T": [
+    3.460805237284311,
+    1.6917869816539577,
+    0.6484559729696234,
+    0.32659378910349046,
+    0.17388261756852874
+   ],
+   "median_abs_diff_by_T": [
+    3.460805237284311,
+    1.6917869816539577,
+    0.6484559729696234,
+    0.32659378910349046,
+    0.17388261756852874
+   ],
+   "holds": true
+  },
+  "K3_lorenz63_x_only": {
+   "median_abs_diff_by_T": [
+    0.8851107113117808,
+    0.3028371499324956,
+    0.15144431607002123,
+    0.06164689140712615,
+    0.028851658211379527
+   ],
+   "nonincreasing": true,
+   "holds": true
+  },
+  "K3_lorenz63_z_only": {
+   "median_abs_diff_by_T": [
+    0.473026075064486,
+    0.3443067974106363,
+    0.16152200134990854,
+    0.06337281854907661,
+    0.0348767275774613
+   ],
+   "nonincreasing": true,
+   "holds": true
+  },
+  "K3_lorenz96_sub": {
+   "median_abs_diff_by_T": [
+    0.3072297957252941,
+    0.28775277084027207,
+    0.12175877090195364,
+    0.059986660409040105,
+    0.02727602953052599
+   ],
+   "nonincreasing": true,
+   "holds": true
+  },
+  "K3_lorenz96_sub2": {
+   "median_abs_diff_by_T": [
+    0.5947297478593162,
+    0.2346865328236366,
+    0.13210979713581816,
+    0.06244187240675547,
+    0.027802442872551736
+   ],
+   "nonincreasing": true,
+   "holds": true
+  },
+  "H2_lorenz63_x_only_vs_z_only": {
+   "expect_different": true,
+   "by_B": {
+    "10.0": {
+     "median_1": 2.585,
+     "median_2": 1.875,
+     "sign_test_p": 1.7428522601631996e-05,
+     "pairs": 62,
+     "fraction_first_later": 0.7741935483870968,
+     "holds": true
+    },
+    "100.0": {
+     "median_1": 5.07,
+     "median_2": 3.96,
+     "sign_test_p": 1.112302300044902e-05,
+     "pairs": 63,
+     "fraction_first_later": 0.7777777777777778,
+     "holds": true
+    },
+    "1000.0": {
+     "median_1": 7.59,
+     "median_2": 6.86,
+     "sign_test_p": 0.0022275315109880345,
+     "pairs": 63,
+     "fraction_first_later": 0.6984126984126984,
+     "holds": true
+    },
+    "10000.0": {
+     "median_1": 10.100000000000001,
+     "median_2": 9.2,
+     "sign_test_p": 0.0327657590988232,
+     "pairs": 64,
+     "fraction_first_later": 0.640625,
+     "holds": false
+    }
+   },
+   "holds": false
+  },
+  "H2_lorenz96_sub_vs_sub2": {
+   "expect_different": false,
+   "by_B": {
+    "10.0": {
+     "median_1": 1.8850000000000002,
+     "median_2": 1.905,
+     "sign_test_p": 0.860050065908581,
+     "pairs": 32,
+     "fraction_first_later": 0.46875,
+     "holds": true
+    },
+    "100.0": {
+     "median_1": 3.0500000000000003,
+     "median_2": 2.975,
+     "sign_test_p": 0.5966148958541453,
+     "pairs": 32,
+     "fraction_first_later": 0.4375,
+     "holds": true
+    },
+    "1000.0": {
+     "median_1": 4.205,
+     "median_2": 4.265000000000001,
+     "sign_test_p": 0.37708558747544885,
+     "pairs": 32,
+     "fraction_first_later": 0.40625,
+     "holds": true
+    },
+    "10000.0": {
+     "median_1": 5.555,
+     "median_2": 5.57,
+     "sign_test_p": 0.11018416518345475,
+     "pairs": 32,
+     "fraction_first_later": 0.34375,
+     "holds": true
+    }
+   },
+   "holds": true
+  }
+ },
+ "gate": "INDETERMINATE"
+}

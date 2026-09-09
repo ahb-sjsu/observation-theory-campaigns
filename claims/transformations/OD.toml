@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1 recorded 2026-09-09"
+commit = "D1 and D3 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -82,3 +82,44 @@ record = "experiments/OD/D1/grade.json, B2 entries"
 witness = "constant in all 20 evaluators at n = 5, B = 2 (no crossing, B^2 = lambda_max rho^2) and at n = 8 positive definite, B = 0.25 (a crossing by theory so thin that 960 random directions in each of 20 evaluators all answered distinguishable)"
 absorbed_by = ""
 revision = "none"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "for a positive definite read operator with spectrum in [a, b] the observational and classical window exponents differ by at most log(b / a) / (2 (T - t0)) (article Proposition 1, lean/GET/Horizon.lean)"
+entries = ["read-operator", "budget", "observer"]
+outcome = "survived"
+record = "experiments/DISCOVERY-TRACK.md, D3 record; experiments/OD/D3/grade.json exact E1"
+witness = "3,200 of 3,200 windows on Lorenz-63 and Lorenz-96 under an anisotropic observer with b / a = 16 and 4; the worst ratio to the bound 0.96 in the pilot, so the bound is nearly attained"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "an observer with a kernel reads a smaller exponent than the classical one when an unread direction grows faster (World K, mu = 2), the same when it grows slower (mu = 1/2), and a kernel-started perturbation reads a transiently larger exponent that converges"
+entries = ["read-operator", "observer", "nuisance"]
+outcome = "survived"
+record = "experiments/OD/D3/grade.json K1, K1c, K2, K3"
+witness = "gap 0.82 to 1.25 in 64 of 64 starts at mu = 2 with the classical exponent at its predicted 1.965; control equal within 0.0072; kernel starts larger on the first window in 83 to 98 percent of starts with median excess +1.5 to +3.5 falling to 0.09 to 0.17 by T = 20; generic starts under every projection within 0.035 of the classical exponent at T = 20"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:budget"
+claim = "the horizon T_O(B) is non-decreasing in B, lies between the Euclidean horizons at B / sqrt(b) and B / sqrt(a) for a positive definite observer, and is never earlier than the Euclidean horizon for a projection"
+entries = ["budget", "read-operator"]
+outcome = "survived"
+record = "experiments/OD/D3/grade.json exact H1"
+witness = "8,960 of 8,960 checks"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "at fixed budget the horizon depends on the observer where no symmetry of the flow relates the observers (Lorenz-63, x against z) and not where one does (Lorenz-96, one block of ten sites against the next)"
+entries = ["observer", "budget"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D3 record; experiments/OD/D3/grade.json H2"
+boundary = "x later than z for the same perturbation in 77, 78, 70 and 64 percent of pairs at B = 10, 100, 1000, 10000 with sign-test p 0.0000, 0.0000, 0.0022 and 0.033 against the registered 0.01 at every budget; the Lorenz-96 control at p 0.11 to 0.86"
+witness = "the paired effect weakens as the budget grows and the perturbation aligns with the leading direction for longer, so a fixed per-budget level over the ladder was the wrong registration, not the wrong claim; the pilot at the same budget had 77 percent and p below 0.0001"
+absorbed_by = "declaration"
+revision = "none for the claim; for later gates, declare the level per budget or grade the ladder as a whole"

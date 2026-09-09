@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 sealed (blob cde83217d6901d92003d25192092eb61eebd6169) and running; D2, D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2, D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -202,7 +202,33 @@ permutation test on medians underpowered where the paired sign test is not, so t
 uses the paired design. The article's Proposition 1 was corrected before the seal ("undefined"
 for an invariant kernel, the smaller case with its condition, the window bound made explicit)
 and its bound checked in Lean. SEALED 2026-09-09 as `experiments/OD/D3/PREREG-D3.md`, blob
-cde83217d6901d92003d25192092eb61eebd6169. Run: pending.
+cde83217d6901d92003d25192092eb61eebd6169.
+Run, 2026-09-09 (Atlas, screen `od-d3`, 14:56 to 15:00 UTC, `run.log`, code at b48dc2c, seed
+20260917, fresh starts, directions and frames, 384 rows). `results.json` and `grade.json`
+committed as executed; `d3_grade.py results.json --tols tolerances.json` run on Atlas and
+reproduced locally. Verdict by the sealed grader: INDETERMINATE. What held: the three exact bars
+with zero violations, E1 over 3,200 window comparisons (the window bound, machine-checked),
+KX, and H1 over 8,960 horizon checks; E2, the anisotropic observers converging to the classical
+exponent (medians 0.0197 and 0.0050 at T = 20 against 0.024); K1, in World K at mu = 2 the
+observational exponent below the classical in every start by 0.82 to 1.25 (medians 0.914 against
+1.965, the classical at its predicted 2 + log(1/2) / 20); K1c, the mu = 1/2 control equal to
+0.0072; K2, kernel starts larger on the first window in 83, 98 and 97 percent of starts with
+median excesses of +1.53, +2.80 and +3.46 falling to 0.09, 0.14 and 0.17 by T = 20 against 0.231;
+K3, generic starts under every projection converging (0.027 to 0.035 against 0.06); H2 in
+Lorenz-96, the shift-symmetry control, p from 0.11 to 0.86. What missed: H2 in Lorenz-63 at the
+largest budget, B = 10000, where the x reader reached the budget later than the z reader in 64
+percent of pairs (median horizons 10.1 against 9.2) with sign-test p = 0.033 against the
+registered 0.01, while at B = 10, 100 and 1000 it was later in 77, 78 and 70 percent of pairs
+with p = 0.0000, 0.0000 and 0.0022; the pilot had 77 percent and p below 0.0001 at that budget.
+The bar is not moved. What the gate establishes: Proposition 1 as restated, in every clause the
+world can reach, exactly where it is a theorem and within the declared tolerances where it is a
+limit; that the horizon is a property of the observer, later for the x reader than the z reader
+of the same perturbation at every budget, with the paired effect weakening as the budget grows
+and the perturbation aligns with the leading direction for longer; and that a symmetry of the
+flow removes the dependence, as it must. What it does not establish: the registered level at the
+largest budget, where the effect is real in direction and short of the level. Registration lesson,
+alongside D1's: a per-budget bar at a fixed level over a ladder whose effect shrinks along it
+should have declared the level per budget, or graded the ladder as a whole.
 
 ### D4. The geometry of the program's own discovery
 
