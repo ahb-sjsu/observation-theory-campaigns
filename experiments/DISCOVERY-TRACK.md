@@ -92,6 +92,26 @@ unseen worlds; the law's envelope strictly containing that of the best classical
 (observer-free) hubness predictor at comparable complexity.
 What falsifies. A frozen law that fails on the unseen worlds, or a classical predictor with
 the same envelope at no more complexity.
+Paper. The draft *Hub Relativity: Observer-Dependent Geometry in High-Dimensional Spaces*
+(Bond, 2026, unpublished) is this gate's paper. Its objects map onto the gate as follows: the
+observer-relative k-occurrence H_k(x | O) and the polarity score with thresholds fixed before
+validation are the measured quantities; the cross-observer hubness matrix H[i, j] over N points
+and M observers, with its effective rank, is the gate's central new object and gets its own
+registered bar (effective rank far below min(N, M) against a spectrum-matched random-observer
+null); the observer-sensitivity R_H and the hubness distance between observers D_H define the
+observer equivalence classes, which are the registry's families read back from the data; and
+its Appendix A experiments are the gate's cells, A1 the dimensional baseline (calibration, no
+claim), A2 the observer swap on fixed data (the polarity-reversal rate against the
+random-orientation null), A3 the controlled spectrum sweep (polarity crossings located in the
+spectral exponent), A4 the budget sweep (the critical resolution B_c), A5 the cross-observer
+matrix, A6 the frozen law on unseen distributions, A7 the scale test. The paper's own
+falsifiers, whitening removing the effect, nominal dimension predicting as well as effective
+dimension, finite resolution adding nothing beyond dimensionality reduction, and laws that
+fail beyond one family, are the gate's. Before any seal the paper must cite the hubness
+literature it builds on (Radovanovic, Nanopoulos and Ivanovic 2010; hubness reduction by
+local scaling and mutual proximity, Schnitzer et al. 2012; Feldbauer and Flexer 2019), since
+"a change of representation changes hubness" is known there, and the gate's claim is the law
+and the latent rank, not the reversal.
 
 ### D3. The observational predictability horizon
 
@@ -139,6 +159,42 @@ not firing the signature above its registered false-positive rate.
 What falsifies. A signature that disappears with N, that the classical diagnostics reproduce,
 or that fires on regular 2-D flows.
 
+### D6. Sensor placement as the choice of an observer under a budget
+
+Prediction. For a linear system with candidate sensors, the observer C* that minimizes the
+number of sensors subject to d_obs(B, rho) reaching a required count is found by a greedy
+selection on the read operator's spectrum, and the observational predictability horizon
+T_O(B) of the chosen observer exceeds that of an energy-based or random placement at the
+same sensor count.
+World. Linear and linearized systems of declared size (a diffusion chain, a linearized
+Lorenz-96, a linearized shallow-water grid); candidate sensor sets; the window consumer of
+Theorem 1 with the Gramian computed exactly; budgets on a ladder.
+Bars. The selected placement's d_obs at least the required count in every declared world;
+its horizon longer than the two baselines by a registered margin; the greedy choice within a
+registered factor of exhaustive search where exhaustive search is feasible.
+What falsifies. A baseline placement that matches d_obs and horizon at the same count, or a
+greedy choice far from the exhaustive optimum.
+
+### D7. The minimal observational geometry that closes a turbulent flow
+
+Prediction. For a filtered flow (large-eddy filtering as the consumer C, filter scale as the
+budget), the read operator of the resolved dynamics with respect to the unresolved state has a
+spectrum whose leading part carries the information a closure needs, so that a closure built
+on the leading eigen-directions predicts the resolved flow within a declared tolerance and a
+closure built on the same number of energy-ranked directions does not.
+World. Two-dimensional turbulence at declared resolutions with declared filters; the read
+operator of the resolved tendency with respect to the subfilter state recovered by the blind
+probe on the solver; classical controls, energy-ranked and random subspaces of the same
+dimension.
+Bars. Resolved-flow prediction error under the read-operator closure below the controls' by a
+registered margin at matched dimension and matched budget, converging in resolution.
+What falsifies. Energy-ranked directions closing as well, or a margin that vanishes with
+resolution.
+
+The thread that motivated this track also proposed phase transitions and critical phenomena,
+quantum measurement, and computational complexity as observation problems; they are not gates
+here, since none has an instrument the program owns.
+
 ## 5. Records
 
 Each gate writes its registry families to `claims/transformations/OD.toml` before sealing,
@@ -150,7 +206,8 @@ registry tests, so that the encyclopedia prints each entry's envelope.
 
 D0 and D1 first, together, since D1's estimator is G5's; D3 beside them, since it is a day of
 compute. D2 needs the registry of observer families and the evaluator-metric recovery, which
-D1 supplies. D4 needs only logs that exist. D5 last. The track stops, with its record, if D1
+D1 supplies. D4 needs only logs that exist. D6 follows D1 and D3 directly. D5 and D7 last,
+with D7 after D5 since it needs the solver-side probe D5 builds. The track stops, with its record, if D1
 recovers sub-budget directions (the budget theorem is wrong as stated) or if D2's frozen law
 fails to transfer and no classical predictor is beaten (the observer-relative hubness idea
 adds nothing to the classical one).
