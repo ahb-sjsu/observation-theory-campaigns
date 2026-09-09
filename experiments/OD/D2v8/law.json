@@ -1,0 +1,72 @@
+{
+ "law": {
+  "target": "log_excess",
+  "features": [
+   "inv_hill_rk",
+   "log_d_eff",
+   "sqrt_id_twonn"
+  ],
+  "coef": [
+   -0.9502047232393575,
+   -0.0098786827986172,
+   0.21895785945133903,
+   0.3663809048848467
+  ],
+  "transform": "identity",
+  "train_rmse": 0.3745327665422879,
+  "heldout_rmse": 0.26643805811310023,
+  "n_terms": 3
+ },
+ "competitor_nominal": {
+  "target": "log_excess",
+  "features": [
+   "inv_d_nom",
+   "log_d_nom",
+   "sqrt_d_nom"
+  ],
+  "coef": [
+   -21.84760835849363,
+   200.78452083418816,
+   5.808485110163488,
+   -0.5929769582854192
+  ],
+  "transform": "identity",
+  "train_rmse": 1.1370591061455066,
+  "heldout_rmse": 0.8626375316266682,
+  "n_terms": 3
+ },
+ "competitor_unity": {
+  "target": "log_excess",
+  "features": [],
+  "coef": [
+   0.0
+  ],
+  "transform": "identity",
+  "note": "the chance level: hub excess 1, the busiest point explained by a random assignment of the retrieval slots"
+ },
+ "competitor_d2v7": {
+  "target": "log_excess",
+  "features": [
+   "inv_cv_knn",
+   "log_d_eff",
+   "sqrt_id_twonn"
+  ],
+  "coef": [
+   -1.1031826827055975,
+   -0.025315490538022678,
+   0.16656642745723538,
+   0.4337968152191875
+  ],
+  "transform": "identity",
+  "note": "the excess law gate D2v7 froze on D2v6's world (observation-theory-campaigns/experiments/OD/D2v7/law.json), carried as a fixed competitor"
+ },
+ "target": "log_excess",
+ "frozen_from": "pilot",
+ "seed": 20261014,
+ "n_train": 2952,
+ "n_heldout": 324,
+ "unity_heldout_rmse": 1.2873625552477603,
+ "unity_train_rmse": 1.6420119517217393,
+ "d2v7_law_heldout_rmse": 0.2500984080966725,
+ "d2v7_law_train_rmse": 0.3399396123050191
+}

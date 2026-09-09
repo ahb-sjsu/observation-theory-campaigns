@@ -1,0 +1,5 @@
+== start Wed Sep  9 10:40:41 PM UTC 2026 HEAD adb7429 role probe seal 
+{"world": "cube_d384", "rows": 72, "rank_eff": 8.98, "null": 23.86, "jac_same": 0.213, "jac_diff": 0.053, "seconds": 7.4}
+{"world": "g_a05_d512", "rows": 72, "rank_eff": 6.98, "null": 23.86, "jac_same": 0.245, "jac_diff": 0.076, "seconds": 8.3}
+{"world": "u_cube_d448", "rows": 72, "rank_eff": 9.18, "null": 23.87, "jac_same": 0.216, "jac_diff": 0.054, "seconds": 7.5}
+== PROBE_DONE rc=0

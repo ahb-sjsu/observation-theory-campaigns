@@ -1,0 +1,954 @@
+{
+ "world": "D2v7's world and target (the log Poisson hub excess) with full-dimensional clouds at d = 384 and 512 in the discovery set: the uniform cube and an isotropic Gaussian at d = 384, the cube and a Gaussian with covariance exponent 0.5 at d = 512 join the training worlds, bracketing an unseen cube at d = 448 and an unseen ball at d = 384 in dimension; the isotropic Gaussian at d = 512 stays unseen, and a cube at d = 640 sits one step beyond the set. Observers, k, budget cells, held-out worlds, heavy-tailed worlds, manifolds, real corpora (fresh slices: Wikipedia part 003 at 0 and 500,000, SIFT base at 8,000,000 and 9,000,000; the SIFT query file has 10,000 rows and its window overlaps earlier gates'; the scale Wikipedia cell on part 004 at 300,000) and scale cells as D2v7. Competitors: the nominal-only law on the same target, the chance level, and the frozen D2v7 law.",
+ "k_ladder": [
+  5,
+  10,
+  20
+ ],
+ "k_law": 10,
+ "law_target": "log_excess",
+ "law_max_terms": 3,
+ "observer_alphas": [
+  0.0,
+  0.25,
+  0.5,
+  1.0,
+  1.5,
+  2.0
+ ],
+ "rotations_per_alpha": 4,
+ "budget_alphas": [
+  0.0,
+  1.0
+ ],
+ "budget_ladder": [
+  0.1,
+  0.25,
+  0.5,
+  1.0,
+  2.0
+ ],
+ "seed_probe": 20261013,
+ "seed_pilot": 20261014,
+ "seed_run": 20261015,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "train",
+   "heldout"
+  ],
+  "run": [
+   "train",
+   "heldout",
+   "unseen",
+   "real",
+   "scale"
+  ]
+ },
+ "worlds": [
+  {
+   "name": "g_a0_d64",
+   "group": "train",
+   "family": "gauss",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.0
+   },
+   "seed_offset": 2
+  },
+  {
+   "name": "g_a0_d128",
+   "group": "train",
+   "family": "gauss",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.0
+   },
+   "seed_offset": 3
+  },
+  {
+   "name": "g_a05_d32",
+   "group": "train",
+   "family": "gauss",
+   "d": 32,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.5
+   },
+   "seed_offset": 4
+  },
+  {
+   "name": "g_a05_d64",
+   "group": "train",
+   "family": "gauss",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.5
+   },
+   "seed_offset": 5,
+   "budget_sweep": true
+  },
+  {
+   "name": "g_a1_d64",
+   "group": "train",
+   "family": "gauss",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "alpha_data": 1.0
+   },
+   "seed_offset": 8
+  },
+  {
+   "name": "g_a1_d128",
+   "group": "train",
+   "family": "gauss",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "alpha_data": 1.0
+   },
+   "seed_offset": 9
+  },
+  {
+   "name": "cube_d32",
+   "group": "train",
+   "family": "cube",
+   "d": 32,
+   "N": 4000,
+   "seed_offset": 11
+  },
+  {
+   "name": "cube_d128",
+   "group": "train",
+   "family": "cube",
+   "d": 128,
+   "N": 4000,
+   "seed_offset": 13
+  },
+  {
+   "name": "ball_d64",
+   "group": "train",
+   "family": "ball",
+   "d": 64,
+   "N": 4000,
+   "seed_offset": 15
+  },
+  {
+   "name": "ball_d128",
+   "group": "train",
+   "family": "ball",
+   "d": 128,
+   "N": 4000,
+   "seed_offset": 16
+  },
+  {
+   "name": "t5_d32",
+   "group": "train",
+   "family": "student",
+   "d": 32,
+   "N": 4000,
+   "params": {
+    "nu": 5.0
+   },
+   "seed_offset": 17
+  },
+  {
+   "name": "t5_d128",
+   "group": "train",
+   "family": "student",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "nu": 5.0
+   },
+   "seed_offset": 19
+  },
+  {
+   "name": "mix4_d64",
+   "group": "train",
+   "family": "mixture",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "centres": 4,
+    "spread": 2.0
+   },
+   "seed_offset": 21
+  },
+  {
+   "name": "sub_m4_d64",
+   "group": "train",
+   "family": "subspace",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 4,
+    "noise": 0.01
+   },
+   "seed_offset": 71
+  },
+  {
+   "name": "sub_m8_d64",
+   "group": "train",
+   "family": "subspace",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 8,
+    "noise": 0.01
+   },
+   "seed_offset": 72
+  },
+  {
+   "name": "sub_m16_d128",
+   "group": "train",
+   "family": "subspace",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "m": 16,
+    "noise": 0.01
+   },
+   "seed_offset": 73
+  },
+  {
+   "name": "fou_m4_d64",
+   "group": "train",
+   "family": "fourier",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 4,
+    "noise": 0.01,
+    "bandwidth": 0.5
+   },
+   "seed_offset": 74
+  },
+  {
+   "name": "fou_m8_d128",
+   "group": "train",
+   "family": "fourier",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "m": 8,
+    "noise": 0.01,
+    "bandwidth": 0.5
+   },
+   "seed_offset": 75
+  },
+  {
+   "name": "fou_m16_d64",
+   "group": "train",
+   "family": "fourier",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 16,
+    "noise": 0.01,
+    "bandwidth": 1.0
+   },
+   "seed_offset": 76
+  },
+  {
+   "name": "tor_m4_d64",
+   "group": "train",
+   "family": "torus",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 2,
+    "noise": 0.01,
+    "harmonics": 4
+   },
+   "seed_offset": 77
+  },
+  {
+   "name": "tor_m8_d128",
+   "group": "train",
+   "family": "torus",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "m": 4,
+    "noise": 0.01,
+    "harmonics": 4
+   },
+   "seed_offset": 78
+  },
+  {
+   "name": "tor_m16_d64",
+   "group": "train",
+   "family": "torus",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 8,
+    "noise": 0.01,
+    "harmonics": 4
+   },
+   "seed_offset": 79
+  },
+  {
+   "name": "roll_d64",
+   "group": "train",
+   "family": "swissroll",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "noise": 0.005
+   },
+   "seed_offset": 80
+  },
+  {
+   "name": "roll_d128",
+   "group": "train",
+   "family": "swissroll",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "noise": 0.005
+   },
+   "seed_offset": 81
+  },
+  {
+   "name": "g_a05_d64_N2000",
+   "group": "train",
+   "family": "gauss",
+   "d": 64,
+   "N": 2000,
+   "params": {
+    "alpha_data": 0.5
+   },
+   "seed_offset": 23
+  },
+  {
+   "name": "cube_d256",
+   "group": "train",
+   "family": "cube",
+   "d": 256,
+   "N": 4000,
+   "seed_offset": 46
+  },
+  {
+   "name": "g_a0_d256",
+   "group": "train",
+   "family": "gauss",
+   "d": 256,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.0
+   },
+   "seed_offset": 91
+  },
+  {
+   "name": "g_a1_d256",
+   "group": "train",
+   "family": "gauss",
+   "d": 256,
+   "N": 4000,
+   "params": {
+    "alpha_data": 1.0
+   },
+   "seed_offset": 92
+  },
+  {
+   "name": "t3_d64",
+   "group": "train",
+   "family": "student",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "nu": 3.0
+   },
+   "seed_offset": 93
+  },
+  {
+   "name": "t3_d128",
+   "group": "train",
+   "family": "student",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "nu": 3.0
+   },
+   "seed_offset": 94
+  },
+  {
+   "name": "lap_d64",
+   "group": "train",
+   "family": "laplace",
+   "d": 64,
+   "N": 4000,
+   "seed_offset": 95
+  },
+  {
+   "name": "t4_d192",
+   "group": "train",
+   "family": "student",
+   "d": 192,
+   "N": 4000,
+   "params": {
+    "nu": 4.0
+   },
+   "seed_offset": 102
+  },
+  {
+   "name": "lap_d128",
+   "group": "train",
+   "family": "laplace",
+   "d": 128,
+   "N": 4000,
+   "seed_offset": 103
+  },
+  {
+   "name": "t3_d256",
+   "group": "train",
+   "family": "student",
+   "d": 256,
+   "N": 4000,
+   "params": {
+    "nu": 3.0
+   },
+   "seed_offset": 107
+  },
+  {
+   "name": "t5_d256",
+   "group": "train",
+   "family": "student",
+   "d": 256,
+   "N": 4000,
+   "params": {
+    "nu": 5.0
+   },
+   "seed_offset": 108
+  },
+  {
+   "name": "lap_d192",
+   "group": "train",
+   "family": "laplace",
+   "d": 192,
+   "N": 4000,
+   "seed_offset": 109
+  },
+  {
+   "name": "lap_d256",
+   "group": "train",
+   "family": "laplace",
+   "d": 256,
+   "N": 4000,
+   "seed_offset": 110
+  },
+  {
+   "name": "cube_d384",
+   "group": "train",
+   "family": "cube",
+   "d": 384,
+   "N": 4000,
+   "seed_offset": 113,
+   "in_probe": true
+  },
+  {
+   "name": "g_a0_d384",
+   "group": "train",
+   "family": "gauss",
+   "d": 384,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.0
+   },
+   "seed_offset": 114
+  },
+  {
+   "name": "cube_d512",
+   "group": "train",
+   "family": "cube",
+   "d": 512,
+   "N": 4000,
+   "seed_offset": 115
+  },
+  {
+   "name": "g_a05_d512",
+   "group": "train",
+   "family": "gauss",
+   "d": 512,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.5
+   },
+   "seed_offset": 116,
+   "in_probe": true
+  },
+  {
+   "name": "h_g_a025_d48",
+   "group": "heldout",
+   "family": "gauss",
+   "d": 48,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.25
+   },
+   "seed_offset": 31,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_t3_d96",
+   "group": "heldout",
+   "family": "student",
+   "d": 96,
+   "N": 4000,
+   "params": {
+    "nu": 3.0
+   },
+   "seed_offset": 33,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_ball_d96",
+   "group": "heldout",
+   "family": "ball",
+   "d": 96,
+   "N": 4000,
+   "seed_offset": 34,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_mix8_d48",
+   "group": "heldout",
+   "family": "mixture",
+   "d": 48,
+   "N": 4000,
+   "params": {
+    "centres": 8,
+    "spread": 2.0
+   },
+   "seed_offset": 36,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_sub_m6_d96",
+   "group": "heldout",
+   "family": "subspace",
+   "d": 96,
+   "N": 4000,
+   "params": {
+    "m": 6,
+    "noise": 0.01
+   },
+   "seed_offset": 82,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_fou_m12_d96",
+   "group": "heldout",
+   "family": "fourier",
+   "d": 96,
+   "N": 4000,
+   "params": {
+    "m": 12,
+    "noise": 0.01,
+    "bandwidth": 0.75
+   },
+   "seed_offset": 83,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_tor_m6_d48",
+   "group": "heldout",
+   "family": "torus",
+   "d": 48,
+   "N": 4000,
+   "params": {
+    "m": 3,
+    "noise": 0.01,
+    "harmonics": 4
+   },
+   "seed_offset": 84,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_sub_m8_d64_noisy",
+   "group": "heldout",
+   "family": "subspace",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 8,
+    "noise": 0.05
+   },
+   "seed_offset": 85,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "h_g_a05_d192",
+   "group": "heldout",
+   "family": "gauss",
+   "d": 192,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.5
+   },
+   "seed_offset": 96,
+   "alphas": [
+    0.1,
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "name": "u_lognormal_d64",
+   "group": "unseen",
+   "family": "lognormal",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "sigma": 0.5
+   },
+   "seed_offset": 42
+  },
+  {
+   "name": "u_shell_d64",
+   "group": "unseen",
+   "family": "shell",
+   "d": 64,
+   "N": 4000,
+   "seed_offset": 43
+  },
+  {
+   "name": "u_twoscale_d64",
+   "group": "unseen",
+   "family": "two_scale",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "centres": 4,
+    "spread": 2.0,
+    "ratio": 3.0
+   },
+   "seed_offset": 44
+  },
+  {
+   "name": "u_t25_d32",
+   "group": "unseen",
+   "family": "student",
+   "d": 32,
+   "N": 4000,
+   "params": {
+    "nu": 2.5
+   },
+   "seed_offset": 45
+  },
+  {
+   "name": "u_sub_m12_d256",
+   "group": "unseen",
+   "family": "subspace",
+   "d": 256,
+   "N": 4000,
+   "params": {
+    "m": 12,
+    "noise": 0.01
+   },
+   "seed_offset": 86
+  },
+  {
+   "name": "u_fou_m6_d256",
+   "group": "unseen",
+   "family": "fourier",
+   "d": 256,
+   "N": 4000,
+   "params": {
+    "m": 6,
+    "noise": 0.02,
+    "bandwidth": 0.5
+   },
+   "seed_offset": 87
+  },
+  {
+   "name": "u_fou_m24_d128",
+   "group": "unseen",
+   "family": "fourier",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "m": 24,
+    "noise": 0.01,
+    "bandwidth": 1.0
+   },
+   "seed_offset": 88
+  },
+  {
+   "name": "u_tor_m10_d64_clean",
+   "group": "unseen",
+   "family": "torus",
+   "d": 64,
+   "N": 4000,
+   "params": {
+    "m": 5,
+    "noise": 0.002,
+    "harmonics": 3
+   },
+   "seed_offset": 89
+  },
+  {
+   "name": "u_cube_d448",
+   "group": "unseen",
+   "family": "cube",
+   "d": 448,
+   "N": 4000,
+   "seed_offset": 97,
+   "in_probe": true
+  },
+  {
+   "name": "u_g_a0_d512",
+   "group": "unseen",
+   "family": "gauss",
+   "d": 512,
+   "N": 4000,
+   "params": {
+    "alpha_data": 0.0
+   },
+   "seed_offset": 98
+  },
+  {
+   "name": "u_ball_d384",
+   "group": "unseen",
+   "family": "ball",
+   "d": 384,
+   "N": 4000,
+   "seed_offset": 117
+  },
+  {
+   "name": "u_cube_d640",
+   "group": "unseen",
+   "family": "cube",
+   "d": 640,
+   "N": 4000,
+   "seed_offset": 118
+  },
+  {
+   "name": "u_t4_d256",
+   "group": "unseen",
+   "family": "student",
+   "d": 256,
+   "N": 4000,
+   "params": {
+    "nu": 4.0
+   },
+   "seed_offset": 99
+  },
+  {
+   "name": "u_laplace_d224",
+   "group": "unseen",
+   "family": "laplace",
+   "d": 224,
+   "N": 4000,
+   "seed_offset": 100
+  },
+  {
+   "name": "u_t25_d128",
+   "group": "unseen",
+   "family": "student",
+   "d": 128,
+   "N": 4000,
+   "params": {
+    "nu": 2.5
+   },
+   "seed_offset": 104
+  },
+  {
+   "name": "u_lognormal_d192",
+   "group": "unseen",
+   "family": "lognormal",
+   "d": 192,
+   "N": 4000,
+   "params": {
+    "sigma": 0.5
+   },
+   "seed_offset": 105
+  },
+  {
+   "name": "u_t6_d192",
+   "group": "unseen",
+   "family": "student",
+   "d": 192,
+   "N": 4000,
+   "params": {
+    "nu": 6.0
+   },
+   "seed_offset": 111
+  },
+  {
+   "name": "r_wiki1024",
+   "group": "real",
+   "family": "real",
+   "kind": "npy",
+   "path": "/archive/tqp_real/wiki1024/part_003.npy",
+   "N": 4000,
+   "offset": 0,
+   "seed_offset": 51,
+   "budget_sweep": true
+  },
+  {
+   "name": "r_sift128",
+   "group": "real",
+   "family": "real",
+   "kind": "u8bin",
+   "path": "/archive/tqp_bigann/base.1B.u8bin",
+   "N": 4000,
+   "offset": 8000000,
+   "seed_offset": 52
+  },
+  {
+   "name": "r_wiki1024_b",
+   "group": "real",
+   "family": "real",
+   "kind": "npy",
+   "path": "/archive/tqp_real/wiki1024/part_003.npy",
+   "N": 4000,
+   "offset": 500000,
+   "seed_offset": 53
+  },
+  {
+   "name": "r_siftq128",
+   "group": "real",
+   "family": "real",
+   "kind": "u8bin",
+   "path": "/archive/tqp_bigann/query.10K.u8bin",
+   "N": 4000,
+   "offset": 6000,
+   "seed_offset": 54
+  },
+  {
+   "name": "s_g_a05_d64_N16000",
+   "group": "scale",
+   "family": "gauss",
+   "d": 64,
+   "N": 16000,
+   "params": {
+    "alpha_data": 0.5
+   },
+   "seed_offset": 61,
+   "rotations": 2
+  },
+  {
+   "name": "s_t5_d64_N16000",
+   "group": "scale",
+   "family": "student",
+   "d": 64,
+   "N": 16000,
+   "params": {
+    "nu": 5.0
+   },
+   "seed_offset": 62,
+   "rotations": 2
+  },
+  {
+   "name": "s_fou_m8_d64_N16000",
+   "group": "scale",
+   "family": "fourier",
+   "d": 64,
+   "N": 16000,
+   "params": {
+    "m": 8,
+    "noise": 0.01,
+    "bandwidth": 0.5
+   },
+   "seed_offset": 65,
+   "rotations": 2
+  },
+  {
+   "name": "s_wiki1024_N12000",
+   "group": "scale",
+   "family": "real",
+   "kind": "npy",
+   "path": "/archive/tqp_real/wiki1024/part_004.npy",
+   "N": 12000,
+   "offset": 300000,
+   "seed_offset": 63,
+   "rotations": 2
+  },
+  {
+   "name": "s_sift128_N16000",
+   "group": "scale",
+   "family": "real",
+   "kind": "u8bin",
+   "path": "/archive/tqp_bigann/base.1B.u8bin",
+   "N": 16000,
+   "offset": 9000000,
+   "seed_offset": 64,
+   "rotations": 2
+  },
+  {
+   "name": "s_t3_d64_N16000",
+   "group": "scale",
+   "family": "student",
+   "d": 64,
+   "N": 16000,
+   "params": {
+    "nu": 3.0
+   },
+   "seed_offset": 101,
+   "rotations": 2
+  },
+  {
+   "name": "s_lap_d64_N12000",
+   "group": "scale",
+   "family": "laplace",
+   "d": 64,
+   "N": 12000,
+   "seed_offset": 106,
+   "rotations": 2
+  },
+  {
+   "name": "s_t4_d128_N12000",
+   "group": "scale",
+   "family": "student",
+   "d": 128,
+   "N": 12000,
+   "params": {
+    "nu": 4.0
+   },
+   "seed_offset": 112,
+   "rotations": 2
+  }
+ ],
+ "bars": "PREREG-D2V8.md Section 5; the law, its nominal-dimension competitor, the chance level and the frozen D2v7 law in law.json; REF the frozen law's RMS log-ratio error pooled over every pilot row; tolerances declared multiples of REF"
+}
