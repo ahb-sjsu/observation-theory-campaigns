@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 sealed (blob 319f6c6e107757c96e0328dd0cb34b4f782e1c4e) and running; D3v2 in registration; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 in registration; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -158,7 +158,46 @@ pooled 0.80, REF) against a nominal-dimension competitor at 1.86, found effectiv
 0.11 to 0.31 (FRAC_X = 0.48), hub-set overlap 0.29 to 0.41 across orientations against 0.12 to
 0.23 across spectra, and, in the exploratory budget sweep, a resolution of a tenth of the
 nearest-neighbour distance already changing the polarity of 12 percent of points. SEALED
-2026-09-09 as `experiments/OD/D2/PREREG-D2.md`, blob 319f6c6e107757c96e0328dd0cb34b4f782e1c4e. Run: pending.
+2026-09-09 as `experiments/OD/D2/PREREG-D2.md`, blob 319f6c6e107757c96e0328dd0cb34b4f782e1c4e.
+Run, 2026-09-09 (Atlas, screen `od-d2`, 15:42 to 15:45 UTC, `run.log`, code at bee2177, seed
+20260920, 26 worlds, 1,656 law rows). `results.json` and `grade.json` committed as executed;
+`d2_grade.py results.json --tols tolerances.json` run on Atlas and reproduced locally. Verdict
+by the sealed grader: FAIL, by the Fail clause on the unseen group, where the frozen law's
+pooled error 2.45 exceeds 3 REF = 2.39. What held: L1, the law replicates on fresh seeds of the
+worlds it was discovered on (pooled error 0.93 against 1.19); P1, hub sets overlap more across
+orientations than across spectra in every one of the 26 worlds, real corpora included (Jaccard
+0.19 to 0.45 against 0.03 to 0.29); L5, the law beats the nominal-dimension competitor pooled
+over the transfer groups (2.90 against 14.8), though only because the competitor extrapolates
+wildly to 1024 dimensions (39.8 on Wikipedia) while on the unseen synthetic group alone the
+competitor is better (1.74 against 2.45); the scale cell of the discovery family (N = 16000,
+error 0.80). What failed: L2, the unseen families, error 1.08 to 4.52 per world against 1.59,
+with the law over-predicting hubness on uniform cubes and balls (bias +0.8 to +2.8, the
+128-dimensional ball measuring skewness at most 2.0 where the law says 10) and under-predicting
+it on heavy tails (Student t, bias -1.5 to -2.4, skewness up to 7.3 at a coefficient of
+variation the Gaussian family never reached); L3, the real corpora, Wikipedia embeddings at
+error 5.27 (measured skewness 0.17 to 1.14 across the whole observer ladder at effective
+dimension up to 156, where the law says up to 10) and SIFT at 1.66 (limit 2.39, so SIFT alone
+would have passed); L4 for the Wikipedia scale cell (5.19); X1 in three of 26 worlds, the
+64- and 128-dimensional balls (ratios 0.44, 0.59) and the Wikipedia scale cell (0.42) against
+0.48, the other 23 between 0.10 and 0.30. What the gate establishes: on Gaussian clouds of any
+declared covariance and any observer of the family, hubness is set by distance concentration
+and the observed effective dimension per neighbour, and the law replicates; the hub sets of a
+cloud are an orientation-stable, spectrum-sensitive object in every world tried; the
+cross-observer matrix is low-rank against its null everywhere, at a ratio that rises for the
+least concentrated clouds. What it refutes: that this law, or any law in the concentration and
+effective-dimension variables of the Gaussian family, governs hubness across shapes; the
+Wikipedia embeddings show almost no hubness at an effective dimension where Gaussians show a
+great deal, and heavy tails show a great deal where the Gaussian variables say little. The
+program's earlier finding that hubness belongs to the queries and the reader rather than the
+corpus stands beside this one: a corpus-side law fitted on one shape does not carry. The
+exploratory budget sweep found that a resolution of a quarter of the nearest-neighbour distance
+changes the polarity of 79 percent of the Wikipedia points under the isotropic observer (12
+percent at a tenth), against 7 percent under the anisotropic one, so the finite budget is
+a first-order effect on real embeddings, not a refinement of dimensionality reduction. The
+draft paper's hypothesis that observer-relative hubness is governed by general geometric laws
+is, for laws of this form, refuted as registered; a successor gate would need a variable that
+separates shape from spectrum (tail weight, or the concentration of the neighbour distances
+themselves) and would have to be discovered on more than one family.
 
 ### D3. The observational predictability horizon
 

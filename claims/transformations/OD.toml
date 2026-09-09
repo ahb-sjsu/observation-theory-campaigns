@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1 and D3 recorded 2026-09-09"
+commit = "D1, D2 and D3 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -123,3 +123,45 @@ boundary = "x later than z for the same perturbation in 77, 78, 70 and 64 percen
 witness = "the paired effect weakens as the budget grows and the perturbation aligns with the leading direction for longer, so a fixed per-budget level over the ladder was the wrong registration, not the wrong claim; the pilot at the same budget had 77 percent and p below 0.0001"
 absorbed_by = "declaration"
 revision = "none for the claim; for later gates, declare the level per budget or grade the ladder as a whole"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "the hubness law frozen on Gaussian clouds, skew = -0.026 + 0.421 / cv_d + 0.817 sqrt(d_eff) / k, predicts hubness on distributions it was not discovered on, on real embeddings and at larger N, within declared multiples of its pilot error"
+entries = ["hubness", "observer", "read-operator"]
+outcome = "failed"
+record = "experiments/DISCOVERY-TRACK.md, D2 record; experiments/OD/D2/grade.json"
+witness = "fresh seeds of the discovery family replicate (0.93 against 1.19) but uniform balls (error up to 4.5, the law over-predicting by up to 2.8), Student t (under-predicting by up to 2.4) and Wikipedia embeddings (5.3, measured skewness at most 1.1 at effective dimension 156 where the law says 10) fail; the nominal-dimension competitor is worse pooled (14.8 against 2.9) and better on the unseen synthetic group alone (1.74 against 2.45)"
+absorbed_by = "none"
+revision = "not proposed here: a successor would need a shape variable that separates tails and roundness from the spectrum and a discovery set of more than one family"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "a change of the observer's spectrum changes the hub sets more than a change of its orientation at a fixed spectrum (hub-set Jaccard overlap across orientations above that across spectra)"
+entries = ["hubness", "observer"]
+outcome = "survived"
+record = "experiments/OD/D2/grade.json P1"
+witness = "in all 26 worlds, Gaussian, uniform, heavy-tailed, mixture, Wikipedia and SIFT, at N from 2000 to 16000: overlap 0.19 to 0.45 across orientations against 0.03 to 0.29 across spectra"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "the cross-observer hubness matrix has effective rank at most 0.48 of its column-shuffled null"
+entries = ["hubness", "observer"]
+outcome = "boundary"
+record = "experiments/OD/D2/grade.json X1"
+boundary = "ratios 0.10 to 0.30 in 23 of 26 worlds; 0.44 and 0.59 for the 64- and 128-dimensional uniform balls and 0.42 for the Wikipedia scale cell, the least concentrated clouds"
+witness = "the limit was fixed from Gaussian pilots (largest ratio 0.31 times 1.5); the latent structure is present everywhere and weakest where the cloud is roundest"
+absorbed_by = "declaration"
+revision = "none"
+
+[[test]]
+transformation = "OD:budget"
+claim = "coarsening the observer's resolution changes hub polarity monotonically in the resolution, and a resolution of a tenth of the nearest-neighbour distance changes little (exploratory, reported)"
+entries = ["hubness", "budget"]
+outcome = "boundary"
+record = "experiments/OD/D2/grade.json B1"
+boundary = "monotone in all four sweeps; at a tenth of the neighbour distance 12 percent of Gaussian points and 6 percent of Wikipedia points change polarity under the isotropic observer, at a quarter 24 and 79 percent, against 4 to 7 percent under the anisotropic observer"
+witness = "the finite budget is a first-order effect on real embeddings under an isotropic reader; not graded, as declared"
+absorbed_by = "declaration"
+revision = "none"
