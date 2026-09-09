@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 sealed (blob 8608a57538edfeaa328b536e879a3200d07a6813) and running; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -221,7 +221,45 @@ the log transform and the top eigenvalue's share doing the work on the balls (er
 0.95 where D2's law erred by up to 4.5); held-out error 0.45, pooled 0.92 = REF, against 2.04
 for the nominal competitor and 2.13 for the D2 law. Effective-rank ratios 0.09 to 0.67 (the
 ball at d = 96), so FRAC_X = 0.90 by the cap. SEALED 2026-09-09 as
-`experiments/OD/D2v2/PREREG-D2V2.md`, blob 8608a57538edfeaa328b536e879a3200d07a6813. Run: pending.
+`experiments/OD/D2v2/PREREG-D2V2.md`, blob 8608a57538edfeaa328b536e879a3200d07a6813.
+Run, 2026-09-09 (Atlas, screen `od-d2v2`, 17:30 to 17:36 UTC, `run.log`, code at 269a512, seed
+20260926, 44 worlds, 2,844 law rows). `results.json` and `grade.json` committed as executed;
+`d2v2_grade.py results.json --tols tolerances.json` run on Atlas and reproduced locally to the
+last digit of every bar. Verdict by the sealed grader: INDETERMINATE. What held: L1, fresh
+seeds of the discovery families at 1.00 against 1.38; L2, every one of the eight unseen
+families within 2 REF (Laplace 0.98 and 0.59, log-normal 0.50, the sphere 1.41, the two-scale
+mixture 0.76, Student t with 2.5 degrees 1.39, the cube at 256 dimensions 1.35, the steep
+Gaussian 0.37, against 1.84) and 1.00 pooled against 1.38, where D2's law had failed at 1.08 to
+4.52; L3, the four real corpora within 3 REF (Wikipedia 2.54 and 2.37, SIFT base 1.27, SIFT
+queries 0.75, against 2.77); X1, effective-rank ratios 0.09 to 0.69 in all 44 worlds against
+0.90; P1, hub-set overlap across orientations above that across spectra in all 44 worlds. What
+missed: L4, two of the four scale cells, Student t at N = 16000 (2.26, skewness up to 14.5,
+the law under-predicting the heaviest tails by 1.6) and Wikipedia at N = 12000 (2.55) against
+1.84, while the Gaussian and SIFT scale cells held (1.26, 1.15); and the per-group clause of
+L5: pooled over the transfer groups the law beats both competitors (1.45 against 2.20 for the
+nominal formula and 2.85 for the D2 law), and it beats both in the unseen and scale groups, but
+in the real group the nominal competitor, which by the pilot's own ranking carries no dimension
+term at all and predicts a constant 2.15 at k = 10, is better on the Wikipedia slices (1.41 and
+1.29 against 2.54 and 2.37), because Wikipedia hubness is low and flat (skewness 0.2 to 1.5
+across the whole observer ladder) and the law predicts up to 5.3 there. What the gate
+establishes: a law in the entropy dimension, the pairwise-distance concentration and the top
+eigenvalue's share, under a log transform, discovered on seven synthetic families, transfers
+to eight further synthetic families and to SIFT descriptors, and beats the D2 law in every
+transfer world but two; the hub sets are orientation-stable and spectrum-sensitive and the
+cross-observer matrix low-rank in every one of 44 worlds. What it does not establish, and the
+witness that says why: the Wikipedia embeddings have TwoNN intrinsic dimension 8 to 20 at
+entropy dimension up to 320, the only worlds in the whole campaign whose intrinsic dimension
+sits far below their spectral dimension, and their hubness is low; the search had the
+intrinsic dimension among its variables and dropped it, because on the discovery families
+(full-dimensional clouds) it carries the same information as the spectral dimension and the
+held-out ranking could not tell them apart. The variable that separates real embeddings from
+synthetic clouds was declared, measured, and uninformative on the discovery set. A D2v3 would
+put low-intrinsic-dimension worlds (clouds on embedded manifolds) into the discovery families,
+which is the only way the search can learn that the intrinsic dimension, not the spectral one,
+sets the hubness. The exploratory budget sweep reproduced D2's finding on the fresh Wikipedia
+slice: a resolution of a quarter of the neighbour distance changed the polarity of 55 percent
+of points under the isotropic reader (6 percent at a tenth), 7 percent under the anisotropic
+one.
 
 ### D3. The observational predictability horizon
 

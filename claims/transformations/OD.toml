@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D3 and D3v2 recorded 2026-09-09"
+commit = "D1, D2, D2v2, D3 and D3v2 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -183,5 +183,26 @@ entries = ["observer", "budget"]
 outcome = "survived"
 record = "experiments/OD/D3v2/grade.json O1 by world"
 witness = "Lorenz-96 errors 0.001 to 0.138 over four observers and two budgets, Lorenz-63 0.014 to 0.149 over seven"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "the hubness law frozen on seven synthetic families, log(1 + skew) = 2.811 + 0.0047 d_ent - 0.0928 / cv_d - 2.461 sqrt(top_share), predicts hubness on families it was not discovered on, on real embeddings and at larger N within declared multiples of its pilot error, and beats the nominal-dimension formula and the frozen D2 law"
+entries = ["hubness", "observer", "read-operator"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D2v2 record; experiments/OD/D2v2/grade.json"
+boundary = "survives on all eight unseen synthetic families (0.37 to 1.41 against 1.84), on SIFT base and queries (1.27, 0.75) and within 3 REF on Wikipedia (2.54, 2.37 against 2.77); misses the heavy-tail and Wikipedia scale cells (2.26, 2.55 against 1.84) and loses to a constant in k and N on the Wikipedia slices (1.41, 1.29); beats the D2 law in 14 of 16 transfer worlds and both competitors pooled (1.45 against 2.20 and 2.85)"
+witness = "Wikipedia embeddings have TwoNN intrinsic dimension 8 to 20 at entropy dimension up to 320 and skewness at most 1.5; the intrinsic dimension was in the declared pool and the search dropped it, since on full-dimensional discovery families it duplicates the spectral dimension"
+absorbed_by = "declaration"
+revision = "D2v3 would put clouds on embedded manifolds into the discovery families so that the intrinsic dimension becomes informative; not registered here"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "hub sets overlap more across orientations than across spectra, and the cross-observer matrix is low-rank against its shuffled null, in every family, corpus and size"
+entries = ["hubness", "observer"]
+outcome = "survived"
+record = "experiments/OD/D2v2/grade.json P1, X1"
+witness = "44 of 44 worlds for both: overlap gap at least 0.08; rank ratios 0.09 to 0.69, the largest on the sphere and the balls"
 absorbed_by = ""
 revision = "none"
