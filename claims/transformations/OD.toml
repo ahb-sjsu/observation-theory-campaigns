@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "opened"
+commit = "D1 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -41,3 +41,44 @@ parameters = "a ladder declared per gate"
 closure = "none"
 rank = 4
 declared = "2026-09-09"
+
+[[test]]
+transformation = "OD:budget"
+claim = "a single-direction probe along coordinate e_i at size rho is reported identifiable at budget B exactly when P_ii > B^2 / rho^2, and a ladder of sizes brackets P_ii between B^2 / r_hi^2 and B^2 / r_lo^2 (article Theorem 2(b), Corollary 3)"
+entries = ["read-operator", "budget", "geometric-evaluation-theory"]
+outcome = "survived"
+record = "experiments/DISCOVERY-TRACK.md, D1 record; experiments/OD/D1/grade.json axis"
+witness = "exact in every evaluator of all fifteen World A cells (three worlds, five budgets, 20 evaluators each) on the run seed, as in every pilot"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "mixed probes at one radius, where the sphere crosses the ellipsoid substantially, recover the read operator up to the pencil s P + (1 - s)(B^2 / rho^2) I, below-threshold eigenvalues included, with Frobenius, above-threshold and below-threshold medians at most 0.30 of chance at 960 queries"
+entries = ["read-operator", "budget", "geometric-evaluation-theory"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D1 record; experiments/OD/D1/grade.json mixed"
+boundary = "held in five of six well-crossed cells (Frobenius 0.045 to 0.111 of chance, above 0.055 to 0.111, below 0.037 to 0.172); in the positive definite world at B = 1 the Frobenius ratio 0.198 and the below ratio 0.068 held and the above ratio was 0.303 against 0.30"
+witness = "the tolerance was fixed as the pilot's own maximum in that same cell (0.299) rounded up to two decimals, so it carried no margin for a fresh seed; the estimator, the crossing and the recovery are unchanged between pilot and run"
+absorbed_by = "declaration"
+revision = "none for the claim; for later gates, fix a tolerance as a declared multiple of the pilot's maximum"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "in a positive definite world the analytic centre returns the pencil's end P* = s* P + (1 - s*) c I, s* = c / (c - lambda_min), so the estimate is nearer P* than P (article Corollary 4)"
+entries = ["read-operator", "geometric-evaluation-theory"]
+outcome = "survived"
+record = "experiments/OD/D1/grade.json, B4; experiments/OD/D1/pencil_probe.json"
+witness = "nearer P* in 20 of 20 evaluators at B = 1 and at B = 1.5 on the run seed (Frobenius 0.223 against P, 0.181 against P*; 0.117 against 0.102), 20 of 20 in the third pilot, 6 of 6 cells in the pre-seal probe; in the kernel worlds the pencil's end is P itself and the two errors coincide"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:budget"
+claim = "where lambda_min rho^2 < B^2 < lambda_max rho^2 fails the oracle is constant in every direction; where it holds it need not be non-constant in finite samples"
+entries = ["read-operator", "budget"]
+outcome = "survived"
+record = "experiments/OD/D1/grade.json, B2 entries"
+witness = "constant in all 20 evaluators at n = 5, B = 2 (no crossing, B^2 = lambda_max rho^2) and at n = 8 positive definite, B = 0.25 (a crossing by theory so thin that 960 random directions in each of 20 evaluators all answered distinguishable)"
+absorbed_by = ""
+revision = "none"

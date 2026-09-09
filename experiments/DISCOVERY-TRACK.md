@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done, D1 sealed (blob 74c03eae77c20854f5bd4512d22187823b3d79b6) and running, D2 to D7 design drafts; non-claim-bearing until a gate's verdict is committed. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D2 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -96,7 +96,34 @@ condition necessary and not sufficient for a non-constant oracle in finite sampl
 probe (`pencil_probe.json`) found that answers at one radius identify P only up to a pencil and
 that the analytic centre returns the pencil's end, which became Proposition 2 and Corollary 4 of
 the article and bar B4. SEALED 2026-09-09 as `experiments/OD/D1/PREREG-D1.md`, blob 74c03eae77c20854f5bd4512d22187823b3d79b6.
-Run: pending.
+Run, 2026-09-09 (Atlas, screen `od-d1`, 08:48 to 09:12 UTC, `run.log`, code at 3a57462, seed
+20260914, fresh frames and queries, 90 cells). `results.json` and `grade.json` committed as
+executed; `d1_grade.py results.json --rec 0.30` run by hand on Atlas. Verdict by the sealed
+grader: INDETERMINATE. What held: A1, verdicts and brackets exact in every evaluator of all
+fifteen World A cells; B2, the oracle constant in the one cell the theory says cannot cross
+(n = 5, B = 2) and, as in the pilot, in the thin crossing at n = 8 positive definite, B = 0.25;
+B3, the Frobenius median falling along the whole query ladder in all six well-crossed cells; B4,
+the estimate nearer the pencil's end than the truth in 20 of 20 evaluators at both B = 1 and
+B = 1.5 in the positive definite world (Frobenius 0.223 against P, 0.181 against P*; 0.117
+against 0.102); B1 in five of the six well-crossed cells, Frobenius medians 0.045 to 0.111 of
+chance, above-threshold medians 0.055 to 0.111 of chance, below-threshold medians 0.037 to
+0.172 of chance. What missed: in the sixth cell, n = 8 positive definite at B = 1, the Frobenius
+ratio 0.198 and the below-threshold ratio 0.068 held and the above-threshold ratio was 0.303
+against REC = 0.30, the pilot having sat at 0.299 in that same cell and REC having been fixed as
+the pilot's maximum rounded up to two decimals, a rule that carries no margin for a fresh seed.
+The bar is not moved. What the gate establishes: Theorem 2 read along a coordinate is exact in
+finite samples (300 evaluators, 0 mismatches); mixed probes at one radius recover the operator,
+below-threshold eigenvalues included, to a tenth of chance in every kernel world and to a fifth
+in the positive definite one, and they recover the pencil's end and not the truth there, as
+Proposition 2 and Corollary 4 say; the crossing condition is necessary and not sufficient for a
+non-constant oracle in finite samples. What it does not establish: the registered factor 0.30
+for the above-threshold eigenvalues at 960 queries in the positive definite world, missed by
+0.003 of a ratio. Registration lesson, for later gates of this track: a tolerance fixed at a
+pilot's own maximum, rounded up, is a bar with no margin; fix it as a declared multiple of the
+pilot's maximum instead. The second pilot's uncommitted duplicates (`pilot_v2.json`,
+`pilot_v2.log`, named in the sealed text) were deleted from the Atlas clone by the sync script
+that pulled the sealed commit; the committed third pilot reproduces every field of the second
+exactly, as the sealed Section 7 records.
 
 ### D2. Observer-relative hubness, the law
 
