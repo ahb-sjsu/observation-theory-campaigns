@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 done, INDETERMINATE (the intrinsic-dimension law fits every real corpus within REF and beats all three competitors on every transfer group; misses the per-world limit on Laplace and a 256-dimensional cube and on heavy tails at N = 16000); D2v4 done, INDETERMINATE (extrapolates to d = 512 and to heavy tails at scale, fits real corpora within half the pilot error, beats every earlier law; misses heavier tails at higher dimension than it was shown); D2v5 done, INDETERMINATE (the search declined the neighbour-distance tail variables; D2v3's form refitted halves the D2v4 misses at d = 192 and 256, keeps the real corpora and d = 512, and loses heavy tails at N = 16000; the D2v3 law edges it on the real slices); D2v6 done, FAIL (the frozen D2v5 law beats it pooled on the transfer groups; the bracketed heavy tails at d = 128 to 256 all fit, the d = 512 clouds are lost; the family, not the set, is the limit, and any D2v7 changes the target or the shape); D2v7 sealed (blob 47fcad553fbbe3e07bef607d108e3a06e913cc06) and running, with the Poisson hub excess as the target; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 done, INDETERMINATE (the intrinsic-dimension law fits every real corpus within REF and beats all three competitors on every transfer group; misses the per-world limit on Laplace and a 256-dimensional cube and on heavy tails at N = 16000); D2v4 done, INDETERMINATE (extrapolates to d = 512 and to heavy tails at scale, fits real corpora within half the pilot error, beats every earlier law; misses heavier tails at higher dimension than it was shown); D2v5 done, INDETERMINATE (the search declined the neighbour-distance tail variables; D2v3's form refitted halves the D2v4 misses at d = 192 and 256, keeps the real corpora and d = 512, and loses heavy tails at N = 16000; the D2v3 law edges it on the real slices); D2v6 done, FAIL (the frozen D2v5 law beats it pooled on the transfer groups; the bracketed heavy tails at d = 128 to 256 all fit, the d = 512 clouds are lost; the family, not the set, is the limit, and any D2v7 changes the target or the shape); D2v7 done, INDETERMINATE by two per-world limits (the cube at d = 512 at 0.82 against 0.66; one scale cell at 0.656 against 0.655), every other bar holding and L5 holding pooled and within every group; with the log hub excess as the target the law holds the heavy tails at d = 256 and the Gaussian at d = 512 at once, which no skew law did: the target was the limit; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -479,7 +479,43 @@ for the nominal law and 1.598 for chance; in sample it fits the heavy tails at d
 0.46) and the clouds at d = 256 (0.31 to 0.61) at once, where D2v6's skew law read 5.41 on
 Student t with 3 degrees; it loses to chance only on the manifold worlds whose excess never
 leaves 1, recorded before the run. SEALED 2026-09-09 as `experiments/OD/D2v7/PREREG-D2V7.md`,
-blob 47fcad553fbbe3e07bef607d108e3a06e913cc06. Run: pending.
+blob 47fcad553fbbe3e07bef607d108e3a06e913cc06.
+Run, 2026-09-09 (Atlas, screen `od-d2v7`, 21:39 to 21:49 UTC, `run.log`, code at a08d083, seed
+20261012, 73 worlds, 4,644 law rows). `results.json` and `grade.json` committed as executed;
+`d2v7_grade.py results.json --tols tolerances.json` run on Atlas and reproduced locally.
+Verdict by the sealed grader: INDETERMINATE, by two per-world limits missed by small margins;
+every other bar holds, and L5 holds pooled and within every group for the first time in the
+track. What held: L1, fresh seeds at 0.29 against 0.49; L3, the four fresh real slices at 0.19
+to 0.45 against 0.98, pooled 0.30, a factor of 1.35 in the excess; L5, the law at 0.35 pooled
+over the transfer groups against 1.64 for the nominal law and 1.70 for chance, and inside every
+group (unseen 0.35 against 1.31 and 1.81; real 0.30 against 1.82 and 0.74; scale 0.41 against
+2.40 and 1.94); X1 in all 73 worlds (ratios at most 0.68 against 0.90); P1 in all 73 worlds;
+and the pooled half of L2, the unseen group at 0.35 against 0.49. What missed: the per-world
+half of L2, the cube at d = 512 at 0.82 against 0.66 (the Gaussian at d = 512 at 0.58 inside),
+fourteen of fifteen unseen worlds inside; and L4, Laplace at d = 64 and N = 12000 at 0.656
+against 0.655, seven of eight scale cells inside. What the change of target establishes: on
+the same 73 worlds and readers where every skew law of the track held the heavy tails at
+d = 256 or the clouds at d = 512 and never both, the law in log excess holds Student t with 4
+degrees at d = 256 at 0.18, Laplace at d = 224 at 0.19, Student t with 2.5 degrees at d = 128
+at 0.11, the log-normal at d = 192 at 0.14 and Student t with 6 degrees at d = 192 at 0.18,
+factors of 1.1 to 1.2 in an excess that reaches 96, and holds the Gaussian at d = 512 at 0.58
+with the cube at 0.82, factors of 1.8 and 2.3, where D2v6's law read 2.64 and 4.65 in
+skewness units; the real corpora, whose excess never exceeds 4, at 0.19 to 0.45; and the heavy
+tails at N = 12000 to 16000, which D2v5 and D2v6 lost, at 0.35 to 0.44, with the one miss at
+0.656 on the Laplace cell whose excess reaches 128. The family is the same, the pool is the
+same, the search is the same, the worlds are the same; the target was the limit. The skewness
+saturates where the excess keeps counting, and a law linear in the concentration and the
+dimensions can turn over in one and not in the other. What the gate does not establish: the
+cube at d = 512, the one full-dimensional world beyond the training set's dimensions, where
+the law over-predicts by a factor of 2.3; and the exactness of a bar met by 0.001. The
+manifold worlds near chance, which the pilot recorded as the law's weakest ground, are all
+inside their limits on the run (the subspace at d = 256 0.19, the torus 0.14, the sphere 0.43),
+and on the run the law beats the chance level even there (the sphere 0.43 against 0.46, the
+torus 0.14 against 0.22, the subspace 0.19 against 0.62), which the pilot did not predict. The
+budget sweep
+reproduced the polarity finding on a seventh Wikipedia slice: 80 percent of points change
+status at a quarter of the neighbour distance under the isotropic reader, 8 percent under the
+anisotropic one.
 
 ### D3. The observational predictability horizon
 
