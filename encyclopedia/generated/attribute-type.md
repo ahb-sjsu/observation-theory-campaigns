@@ -63,4 +63,4 @@ Book equations stated beside the entry's terms, not defining it: 2.1, 0.12a.
 
 ## status
 
-Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

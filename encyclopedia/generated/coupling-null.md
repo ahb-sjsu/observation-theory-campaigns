@@ -36,7 +36,7 @@ Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:108-116`, th
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | [`geometric-observation/chapters/ch08_value.md:108-116`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch08_value.md#L108-L116) |
+| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | [`geometric-observation/chapters/ch08_value.md:108-116`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/chapters/ch08_value.md#L108-L116) |
 
 ## failures and corrections
 
@@ -67,4 +67,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

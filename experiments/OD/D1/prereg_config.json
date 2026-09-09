@@ -57,12 +57,12 @@
     960
   ],
   "evaluators_per_cell": 20,
-  "recovery_tolerance": 0.25,
+  "recovery_tolerance": 0.3,
   "solver": "CLARABEL",
   "seed_pilot": 20260913,
   "seed_run": 20260914,
-  "prediction": "World A: parameter i is reported identifiable at (B, rho) iff P_ii > B^2 / rho^2, the reported count equals d_obs in the probe basis, every diagonal entry lies in its bracket, and off-diagonal entries are unrevealed. World B: when lambda_min rho^2 < B^2 < lambda_max rho^2 every eigenvalue, above and below the threshold, is recovered with error falling in the number of queries; outside that interval the oracle is constant and nothing is recovered. The first pilot (2026-09-09, pilot_v1.json) was designed on the wrong reading, that mixed probes reveal only above-threshold directions; it recovered below-threshold eigenvalues to 3 to 10 percent of chance at B from 1 to 2, and its max-margin estimator broke where the feasible set was wide; both corrected here before any seal.",
-  "bars": "PREREG-D1.md Section 5; factors fixed from the pilot before sealing and applied to the run seed only",
+  "prediction": "World A: parameter i is reported identifiable at (B, rho) iff P_ii > B^2 / rho^2, the reported count equals d_obs in the probe basis, every diagonal entry lies in its bracket, and off-diagonal entries are unrevealed. World B: when lambda_min rho^2 < B^2 < lambda_max rho^2 every eigenvalue, above and below the threshold, is recovered with error falling in the number of queries; outside that interval the oracle is constant and nothing is recovered. The first pilot (2026-09-09, pilot_v1.json) was designed on the wrong reading, that mixed probes reveal only above-threshold directions; it recovered below-threshold eigenvalues to 3 to 10 percent of chance at B from 1 to 2, and its max-margin estimator broke where the feasible set was wide; both corrected here before any seal. Pencil (Proposition 2, Corollary 4 of the article): answers at one radius identify P up to s P + (1 - s) c I; the analytic centre returns the pencil's end, P for the worlds with a kernel and P* with smallest eigenvalue zero for the positive definite world.",
+  "bars": "PREREG-D1.md Section 5; REC = 0.30 fixed from the second pilot (pilot_v2.json) and applied to the run seed only; B4 (the pencil's end) added after the pencil probe and the third pilot",
   "axis_size_ladder": [
     0.125,
     0.25,

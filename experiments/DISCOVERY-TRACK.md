@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** design draft, unsealed, non-claim-bearing. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done, D1 sealed (blob 74c03eae77c20854f5bd4512d22187823b3d79b6) and running, D2 to D7 design drafts; non-claim-bearing until a gate's verdict is committed. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -66,20 +66,37 @@ which needs the flow and is left for D3's registration. Ledger row GET-16 in the
 
 ### D1. Identifiability at a budget, finite-sample form
 
-Prediction. From outputs of a consumer at budget B, an estimator recovers the eigen-directions
-of P_C above B^2 / rho^2 and not those below, and at B = 0 recovers the range and not the
-kernel; recovery improves with the number of outputs and fails below a design bound.
-World. Synthetic consumers first: linear consumers with declared G and known P_C of chosen
-spectrum, including singular ones; then the window consumer of a linear system with a chosen
-Gramian; then a nonlinear consumer whose local P_C is recovered by the blind probe. Outputs
-observed at budget B as the indistinguishability oracle of Definition 1, that is, the
-experimenter sees only whether two outputs are within B.
-Estimator. The representation program of GET Theorem 3(a) run on the distinguishability
-relation, as in G5, or a spectral estimator from pairs; declared before the seal.
-Bars. On medians relative to chance as in G5: identified directions recovered, sub-budget
-directions unrevealed, kernel unrevealed, monotone in the battery, cliff below the bound.
-What falsifies. Recovery of a direction below the budget threshold, or failure above it at
-the largest battery.
+Prediction. Theorem 2 is a statement about one direction at a time; the gate measures its two
+finite-sample consequences (article Corollaries 3 and 4). Single-parameter probes, one coordinate
+of a basis that is not the eigenbasis perturbed at a time on a ladder of sizes, learn exactly
+which coordinates are identifiable at (B, rho), a bracket on each diagonal entry, and nothing
+off the diagonal. Mixed probes, random directions on the sphere of radius rho, learn the whole
+operator, below-threshold eigenvalues included, up to the pencil s P + (1 - s)(B^2 / rho^2) I,
+wherever the sphere crosses the ellipsoid delta^T P delta = B^2 substantially, and nothing where
+it does not, because the oracle is then constant; the analytic centre returns the pencil's end,
+P itself with a kernel and the member with smallest eigenvalue zero without one.
+World. Read operators of declared spectrum in a random frame: n = 5 with a kernel, n = 8 with
+two kernel directions, n = 8 positive definite; rho = 1; B on 0.25 to 2; 20 evaluators per cell;
+the oracle answers whether delta^T P delta exceeds B^2 and nothing else; queries 60 to 960.
+Estimator. World A none, verdicts and brackets read from the oracle. World B the analytic
+centre of the positive semidefinite operators consistent with the answers under a declared cap.
+Bars. A1 verdicts and brackets exact; B1 in well-crossed cells the medians of the Frobenius,
+above-threshold and below-threshold errors at most 0.30 of chance; B2 no crossing, constant
+oracle; B3 monotone in queries; B4 in the positive definite world the estimate nearer the
+pencil's end than P.
+What falsifies. A verdict that contradicts the inequality; an operator mixed probes cannot
+recover up to the pencil under a substantial crossing; below-threshold eigenvalues left at
+chance; a non-constant oracle where the crossing condition fails; an analytic centre nearer P
+than the pencil's end.
+Record. The first design read Theorem 2 as an operator statement and predicted that mixed
+probes recover only the above-threshold directions; its pilot (`pilot_v1.json`) refuted that
+before any seal, recovering the below-threshold eigenvalues to 3 to 10 percent of chance, and the
+geometry explains it. The second pilot fixed REC = 0.30 with no exclusions and found the crossing
+condition necessary and not sufficient for a non-constant oracle in finite samples. A pre-seal
+probe (`pencil_probe.json`) found that answers at one radius identify P only up to a pencil and
+that the analytic centre returns the pencil's end, which became Proposition 2 and Corollary 4 of
+the article and bar B4. SEALED 2026-09-09 as `experiments/OD/D1/PREREG-D1.md`, blob 74c03eae77c20854f5bd4512d22187823b3d79b6.
+Run: pending.
 
 ### D2. Observer-relative hubness, the law
 

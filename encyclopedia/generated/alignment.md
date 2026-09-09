@@ -36,7 +36,7 @@ Volume 14, chapter 12, `geometric-observation/chapters/ch12_failure_taxonomy_and
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | alignment law, retrospective fit exploratory, one prospective point | [`geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch12_failure_taxonomy_and_kappa.md#L56-L82) |
+| chapter 4 section 4.4 | alignment law, retrospective fit exploratory, one prospective point | [`geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/chapters/ch12_failure_taxonomy_and_kappa.md#L56-L82) |
 
 ## failures and corrections
 
@@ -67,4 +67,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

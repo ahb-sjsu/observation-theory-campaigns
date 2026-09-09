@@ -1,6 +1,6 @@
 # Transformation registry for the Geometric Evaluation Theory campaign (repository
 # ahb-sjsu/geometric-evaluation-theory). Filled 2026-09-08 from that repository's CAMPAIGN.md,
-# ledger, and result files at commit fa3ee1c (G5 outcome updated at b54d55f). Records are cited as repo/path:lines at that commit.
+# ledger, and result files at commit fa3ee1c (G5 outcome updated at b54d55f, G3 outcome entered at 91095c9). Records are cited as repo/path:lines at that commit.
 
 [registry]
 track = "GET"
@@ -51,6 +51,22 @@ closure = "none"
 rank = 5
 declared = "2026-09-08"
 
+[[transformation]]
+id = "GET:output-resolution-coarsening"
+family = "coarsening of the resolution at which a computational evaluator receives and reports consequences: values rendered at fewer decimals, or the report limited to fewer generated tokens"
+parameters = "decimals 3, 2, 1, 0 (steps 0.001 to 1); report tokens 12, 6, 5, 4, 3, 2, 1 (afforded resolutions 0.001 to 10 with two digits before the decimal point)"
+closure = "none, two one-parameter ladders"
+rank = 6
+declared = "2026-09-09"
+
+[[transformation]]
+id = "GET:weight-precision-reduction"
+family = "reduction of the evaluator's own weight precision at fixed rendering and report length, bfloat16 to 8-bit to 4-bit NF4"
+parameters = "three precisions"
+closure = "none"
+rank = 7
+declared = "2026-09-09"
+
 [[test]]
 transformation = "GET:change-of-basis"
 claim = "the evaluative distance (y - t)^T G (y - t) is unchanged"
@@ -100,5 +116,25 @@ entries = ["geometric-evaluation-theory"]
 outcome = "survived"
 record = "geometric-evaluation-theory/CAMPAIGN.md:108-125"
 witness = ""
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "GET:output-resolution-coarsening"
+claim = "the indifference threshold of the induced semiorder equals the resolution budget within a registered factor 1.5 wherever the budget exceeds the evaluator's floor, is monotone along each ladder, and the ordering of pairs separated by more than twice the largest threshold is unchanged"
+entries = ["geometric-evaluation-theory"]
+outcome = "survived"
+record = "geometric-evaluation-theory/CAMPAIGN.md:56-64"
+witness = "on fresh pairs every graded threshold sits at 0.87 to 0.88 of its step (rendering 0.869, 0.0868, 0.00856, 0.00087 against 1, 0.1, 0.01, 0.001; report 0.872, 0.872, 0.0873, 0.00877, 0.00087 at 2 to 6 tokens against 1, 1, 0.1, 0.01, 0.001), the constant a rounding scorer imposes; accuracy at the one well-separated gap, 20, at least 0.985 in every cell"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "GET:weight-precision-reduction"
+claim = "the threshold is non-decreasing as weight bits are removed, within the factor 1.5, and well-separated pairs stay ordered"
+entries = ["geometric-evaluation-theory"]
+outcome = "survived"
+record = "geometric-evaluation-theory/CAMPAIGN.md:56-64"
+witness = "held as an equality: 8-bit and 4-bit weights left every threshold where bfloat16 put it (4-bit at 3 decimals 0.00093 against 0.00087, accuracy at gap 20 0.985 against 1.00), so on this scorer and task weight precision at 8 or 4 bits is not a resolution budget; a ladder coarse enough to move the threshold was not registered"
 absorbed_by = ""
 revision = "none"

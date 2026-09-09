@@ -34,7 +34,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* NEG-13 → resolved `[missed]`. (GO-P-2026-026, prospective, real LLM) Appendix-E's omission floor is a rate-irreducible downstream wall on trained Llama read operators. [`geometric-observation/claims/LEDGER.md:106`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L106).
+- *refutes or corrects.* NEG-13 → resolved `[missed]`. (GO-P-2026-026, prospective, real LLM) Appendix-E's omission floor is a rate-irreducible downstream wall on trained Llama read operators. [`geometric-observation/claims/LEDGER.md:106`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/claims/LEDGER.md#L106).
 
 ## first stated
 
@@ -44,12 +44,12 @@ Chapter 0 section 0.9 and chapter 13 section 13.4 of *Data Mining as Observation
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.2 | commission tax of order half r log M over m, omission floor, unbounded corrected to floor, naive projector 30 percent over, VI-6 | [`geometric-observation/chapters/ch07_cost.md`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch07_cost.md) section on mismatch; [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md) VI-6 |
-| chapter 4 section 4.2 | floor measured on 16 of 16 heads, naive assumption off 20 to 60 percent, about 100000 times, 0.10 nats against about 6e-7, first gate missed 0 of 16, NEG-13 | [`geometric-observation/chapters/ch07_cost.md`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/chapters/ch07_cost.md); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md) GO-P-2026-027 and NEG-13 |
+| chapter 4 section 4.2 | commission tax of order half r log M over m, omission floor, unbounded corrected to floor, naive projector 30 percent over, VI-6 | [`geometric-observation/chapters/ch07_cost.md`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/chapters/ch07_cost.md) section on mismatch; [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/claims/LEDGER.md) VI-6 |
+| chapter 4 section 4.2 | floor measured on 16 of 16 heads, naive assumption off 20 to 60 percent, about 100000 times, 0.10 nats against about 6e-7, first gate missed 0 of 16, NEG-13 | [`geometric-observation/chapters/ch07_cost.md`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/chapters/ch07_cost.md); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/claims/LEDGER.md) GO-P-2026-027 and NEG-13 |
 
 ## failures and corrections
 
-- NEG-13 → resolved, `[missed]`. (GO-P-2026-026, prospective, real LLM) Appendix-E's omission floor is a rate-irreducible downstream wall on trained Llama read operators. [`geometric-observation/claims/LEDGER.md:106`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L106).
+- NEG-13 → resolved, `[missed]`. (GO-P-2026-026, prospective, real LLM) Appendix-E's omission floor is a rate-irreducible downstream wall on trained Llama read operators. [`geometric-observation/claims/LEDGER.md:106`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/claims/LEDGER.md#L106).
 
 ## invariance envelope
 
@@ -80,4 +80,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.

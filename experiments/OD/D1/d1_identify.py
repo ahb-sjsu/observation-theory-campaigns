@@ -25,6 +25,13 @@ and nothing is recovered. The estimator is the analytic centre of the set of pos
 semidefinite operators consistent with the answers, inside a declared cap on the operator norm,
 a canonical point of the feasible set.
 
+The pencil (pre-seal probe, `d1_pencil_probe.py`). Answers at a single radius rho identify P only
+up to the pencil P(s) = s P + (1 - s) c I, c = B^2 / rho^2, s > 0 with P(s) positive semidefinite:
+every member answers every query at that radius the same way. The analytic centre's objective is
+increasing in s along the pencil, so it returns the member with the largest admissible s, which is
+P itself when P has a kernel (s <= 1 is forced) and otherwise P* = s* P + (1 - s*) c I with
+s* = c / (c - lambda_min), whose smallest eigenvalue is zero. The record carries P*'s error beside P's.
+
     python d1_identify.py --selftest
     python d1_identify.py --config prereg_config.json --seed-role pilot --out pilot.json
     python d1_identify.py --config prereg_config.json --seed-role run --out results.json
@@ -50,6 +57,24 @@ def make_operator(n: int, spectrum: list[float], rng: np.random.Generator) -> tu
 
 def oracle(P: np.ndarray, B: float, deltas: np.ndarray) -> np.ndarray:
     return np.einsum("ij,jk,ik->i", deltas, P, deltas) > B ** 2
+
+
+def crossing_by_theory(lam: np.ndarray, B: float, rho: float) -> bool:
+    """The sphere of radius rho crosses the ellipsoid delta^T P delta = B^2 (a cylinder along the
+    kernel) exactly when the smallest eigenvalue, zero included, sits below B^2 / rho^2 and the
+    largest above it."""
+    return bool((lam.min() * rho ** 2 < B ** 2) and (B ** 2 < lam.max() * rho ** 2))
+
+
+def pencil_member(P: np.ndarray, lam: np.ndarray, B: float, rho: float) -> tuple[np.ndarray, float]:
+    """The member of the pencil s P + (1 - s) c I with the largest s that is positive semidefinite,
+    c = B^2 / rho^2: s = 1 when P has a kernel, s = c / (c - lambda_min) when 0 < lambda_min < c,
+    and P itself (s = 1) when lambda_min >= c, where the pencil is unbounded and the theory makes
+    no prediction about the centre beyond the cap."""
+    c = B ** 2 / rho ** 2
+    lmin = float(lam.min())
+    s = 1.0 if (lmin <= 0.0 or lmin >= c) else c / (c - lmin)
+    return s * P + (1.0 - s) * c * np.eye(len(lam)), s
 
 
 # ----------------------------------------------------------------------------- world A
@@ -139,7 +164,8 @@ def analyse_mixed(P: np.ndarray, lam: np.ndarray, V: np.ndarray, Ph: np.ndarray,
     above = lam > thr; below = ~above
     # the sphere of radius rho crosses the ellipsoid (a cylinder along the kernel) exactly when
     # the smallest eigenvalue, zero included, sits below the threshold and the largest above it
-    crossing = bool((lam.min() * rho ** 2 < B ** 2) and (B ** 2 < lam.max() * rho ** 2))
+    crossing = crossing_by_theory(lam, B, rho)
+    Pstar, s_star = pencil_member(P, lam, B, rho)
     d_obs = int(above.sum())
     angle = 0.0
     if d_obs > 0:
@@ -149,7 +175,10 @@ def analyse_mixed(P: np.ndarray, lam: np.ndarray, V: np.ndarray, Ph: np.ndarray,
     return {"threshold": thr, "d_obs": d_obs, "crossing": crossing,
             "above_rel_err": [float(x) for x in rel[above]], "below_rel_err": [float(x) for x in rel[below]],
             "all_rel_err_median": float(np.median(rel)), "top_subspace_angle_deg": angle,
-            "frobenius_rel_err": float(np.linalg.norm(Ph - P) / np.linalg.norm(P))}
+            "frobenius_rel_err": float(np.linalg.norm(Ph - P) / np.linalg.norm(P)),
+            "est_along_eigvecs": [float(x) for x in est_along],
+            "pencil_s_star": float(s_star),
+            "frobenius_rel_err_vs_pencil": float(np.linalg.norm(Ph - Pstar) / np.linalg.norm(P))}
 
 
 def chance_mixed(lam: np.ndarray, V: np.ndarray, B: float, rho: float, rng: np.random.Generator, n_draws: int = 64) -> dict:
@@ -199,7 +228,7 @@ def run_cells(cfg: dict, seed: int, out_path: str) -> dict:
                     P, lam, V = make_operator(n, spectrum, rng)
                     D = queries(n, rho, int(n_q), rng); ans = oracle(P, float(B), D)
                     if ans.all() or (~ans).all():
-                        rows.append({"skipped": True, "reason": "oracle constant", "crossing": False}); continue
+                        rows.append({"skipped": True, "reason": "oracle constant", "crossing": crossing_by_theory(lam, float(B), rho)}); continue
                     try:
                         Ph = estimate(D, ans, float(B), cfg.get("solver", "CLARABEL"), float(cfg.get("cap", 1000.0)), rho)
                     except RuntimeError as ex:
@@ -210,7 +239,8 @@ def run_cells(cfg: dict, seed: int, out_path: str) -> dict:
                     r["n_distinguishable"] = int(ans.sum())
                     rows.append(r)
                 good = [r for r in rows if not r.get("skipped")]
-                summ = {"n_graded": len(good), "n_skipped_constant": sum(1 for r in rows if r.get("reason") == "oracle constant")}
+                summ = {"n_graded": len(good), "n_skipped_constant": sum(1 for r in rows if r.get("reason") == "oracle constant"),
+                        "crossing_by_theory": crossing_by_theory(np.array(sorted(spectrum, reverse=True), dtype=float), float(B), rho)}
                 if good:
                     bal = float(np.median([r["answer_balance"] for r in good]))
                     summ.update({"crossing": bool(good[0]["crossing"]),
@@ -221,6 +251,8 @@ def run_cells(cfg: dict, seed: int, out_path: str) -> dict:
                                  "chance_above": float(np.median([r["chance"]["above_rel_err"] for r in good])),
                                  "chance_below": float(np.median([r["chance"]["below_rel_err"] for r in good])),
                                  "frobenius_median": float(np.median([r["frobenius_rel_err"] for r in good])),
+                                 "frobenius_vs_pencil_median": float(np.median([r["frobenius_rel_err_vs_pencil"] for r in good])),
+                                 "pencil_s_star": float(good[0]["pencil_s_star"]),
                                  "chance_frobenius": float(np.median([r["chance"]["frobenius_rel_err"] for r in good])),
                                  "angle_median": float(np.median([r["top_subspace_angle_deg"] for r in good])),
                                  "chance_angle": float(np.median([r["chance"]["top_subspace_angle_deg"] for r in good]))})

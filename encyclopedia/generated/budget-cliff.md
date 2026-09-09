@@ -27,8 +27,8 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* OT-3 `[demonstrated]`. Under subspace-confined second-order transcripts, fewer than d directions cannot identify a hidden leading eigenspace (theorem, adaptive to d−2 / oblivious to d−1); a known k₀-dim exclusion moves the cliff to exactly d−k₀ and never softens … [`geometric-observation/claims/LEDGER.md:31`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L31).
-- *measures.* OT-10 `[**`[refuted-as-sealed]`** ⚠]`. The noisy cliff: noise floors accuracy at a derived level; the cliff's location never moves. [`geometric-observation/claims/LEDGER.md:45`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/claims/LEDGER.md#L45).
+- *measures.* OT-3 `[demonstrated]`. Under subspace-confined second-order transcripts, fewer than d directions cannot identify a hidden leading eigenspace (theorem, adaptive to d−2 / oblivious to d−1); a known k₀-dim exclusion moves the cliff to exactly d−k₀ and never softens … [`geometric-observation/claims/LEDGER.md:31`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/claims/LEDGER.md#L31).
+- *measures.* OT-10 `[**`[refuted-as-sealed]`** ⚠]`. The noisy cliff: noise floors accuracy at a derived level; the cliff's location never moves. [`geometric-observation/claims/LEDGER.md:45`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/claims/LEDGER.md#L45).
 
 ## first stated
 
@@ -38,7 +38,7 @@ readscope, predicted then measured, and proved as the confinement theorem in Vol
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 11 section 11.7 | confinement theorem, side information moves the cliff to d minus k0, noisy cliff proved then measured | [`readscope/PRINCIPLES.md:112-142`](https://github.com/ahb-sjsu/readscope/blob/856e678/PRINCIPLES.md#L112-L142); [`geometric-observation/crucible/OT3-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/crucible/OT3-THEOREM.md); [`geometric-observation/crucible/OT3-NOISY-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/0792c84/crucible/OT3-NOISY-THEOREM.md) |
+| chapter 11 section 11.7 | confinement theorem, side information moves the cliff to d minus k0, noisy cliff proved then measured | [`readscope/PRINCIPLES.md:112-142`](https://github.com/ahb-sjsu/readscope/blob/856e678/PRINCIPLES.md#L112-L142); [`geometric-observation/crucible/OT3-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/crucible/OT3-THEOREM.md); [`geometric-observation/crucible/OT3-NOISY-THEOREM.md`](https://github.com/ahb-sjsu/geometric-observation/blob/aec4c97/crucible/OT3-NOISY-THEOREM.md) |
 
 ## failures and corrections
 
@@ -67,4 +67,4 @@ none
 
 ## status
 
-Generated 2026-09-08 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
