@@ -1,5 +1,5 @@
 {
-  "world": "Synthetic read operators of declared spectrum in a random orthonormal frame; queries are perturbations of size rho in uniformly random directions; the estimator sees only the distinguishability oracle at budget B (whether delta^T P delta exceeds B^2); the estimator is the max-margin semidefinite program on the oracle answers (cvxpy, Clarabel)",
+  "world": "Two worlds on synthetic read operators of declared spectrum in a random orthonormal frame. World A, single-parameter probes: one coordinate of a declared basis (not the eigenbasis) perturbed at a time, both signs, sizes on a ladder up to rho, read through the oracle; identifiability verdicts and diagonal brackets follow. World B, mixed probes: perturbations of size rho in uniformly random directions, read through the oracle; the estimator is the analytic centre of the set of ellipsoids consistent with the answers (maximiser of the summed log slacks).",
   "worlds": [
     {
       "name": "n5_straddle",
@@ -50,17 +50,23 @@
     2.0
   ],
   "query_ladder": [
-    30,
     60,
     120,
     240,
-    480
+    480,
+    960
   ],
   "evaluators_per_cell": 20,
   "recovery_tolerance": 0.25,
   "solver": "CLARABEL",
   "seed_pilot": 20260913,
   "seed_run": 20260914,
-  "prediction": "d_obs(B, rho) = #{lambda_i > B^2 / rho^2}: at rho = 1, thresholds 0.0625, 0.25, 1, 2.25, 4 give d_obs = 4, 3, 2, 1, 1 for n5_straddle; 6, 5, 4, 2, 1 for n8_two_kernel; 8, 6, 4, 2, 1 for n8_full_rank",
-  "bars": "PREREG-D1.md Section 5; factors fixed from the pilot before sealing and applied to the run seed only"
+  "prediction": "World A: parameter i is reported identifiable at (B, rho) iff P_ii > B^2 / rho^2, the reported count equals d_obs in the probe basis, every diagonal entry lies in its bracket, and off-diagonal entries are unrevealed. World B: when lambda_min rho^2 < B^2 < lambda_max rho^2 every eigenvalue, above and below the threshold, is recovered with error falling in the number of queries; outside that interval the oracle is constant and nothing is recovered. The first pilot (2026-09-09, pilot_v1.json) was designed on the wrong reading, that mixed probes reveal only above-threshold directions; it recovered below-threshold eigenvalues to 3 to 10 percent of chance at B from 1 to 2, and its max-margin estimator broke where the feasible set was wide; both corrected here before any seal.",
+  "bars": "PREREG-D1.md Section 5; factors fixed from the pilot before sealing and applied to the run seed only",
+  "axis_size_ladder": [
+    0.125,
+    0.25,
+    0.5,
+    1.0
+  ]
 }

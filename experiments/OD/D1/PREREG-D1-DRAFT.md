@@ -1,94 +1,124 @@
 # PREREG D1 (DRAFT, NOT SEALED): identifiability at a budget, finite-sample form
 
 Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D1 of the
-OD track (`experiments/DISCOVERY-TRACK.md`).
+OD track (`experiments/DISCOVERY-TRACK.md`). Second design; the first is recorded in Section 7.
 
 ## 1. Claim under test
 
 Theorem 2 of `geometric-evaluation-theory/articles/2026-09-09-identifiability-at-a-budget.md`,
-machine-checked in `geometric-evaluation-theory/lean/GET/Identifiability.lean` (gate D0): at
-budget B a direction v is identifiable for perturbations of size rho exactly when
-v^T P v > B^2 / rho^2, the kernel of P is identifiable at no budget, and the number of
-identifiable eigen-directions d_obs(B, rho) = #{i : lambda_i > B^2 / rho^2} is non-increasing
-in B. The finite-sample form measured here: an estimator that sees only the distinguishability
-oracle at budget B recovers exactly the directions the theorem calls identifiable, and nothing
-else, with error falling as the number of queries grows.
+machine-checked as gate D0 (`geometric-evaluation-theory/lean/GET/Identifiability.lean`, commit
+9604c44): a perturbation of size rho along a direction v is distinguishable at budget B exactly
+when v^T P v > B^2 / rho^2, so the number of identifiable eigen-directions is
+d_obs(B, rho) = #{i : lambda_i > B^2 / rho^2}, antitone in B. The theorem is a statement about
+one direction at a time, and the gate measures its two finite-sample consequences:
+
+(A) Single-parameter probes. An experimenter who perturbs one coordinate at a time, in a basis
+that is not the eigenbasis, learns exactly which coordinates are identifiable at (B, rho), a
+bracket on each diagonal entry from a ladder of sizes, and nothing about off-diagonal entries.
+This is the identifiability setting of inverse problems, one parameter at a time.
+
+(B) Mixed probes. An experimenter who perturbs in random directions on the sphere of radius rho
+learns the whole operator, every eigenvalue above and below the threshold, whenever the sphere
+crosses the ellipsoid {delta : delta^T P delta = B^2}, that is when
+lambda_min rho^2 < B^2 < lambda_max rho^2, and learns nothing when it does not, because the
+oracle is then constant. The budget hides small eigenvalues from single-direction probes and
+not from mixed ones.
 
 ## 2. World
 
-Synthetic read operators P of declared spectrum in a random orthonormal frame, three worlds:
-n = 5 with spectrum (4, 2, 0.5, 0.1, 0) straddling every threshold of the ladder with a
-kernel; n = 8 with spectrum (8, 4, 2, 1, 0.25, 0.05, 0, 0), two kernel directions; n = 8 at
-full rank (8, 4, 2, 1, 0.5, 0.25, 0.1, 0.05). Perturbation size rho = 1. Budget ladder
-B in 0.25, 0.5, 1, 1.5, 2, so thresholds B^2 / rho^2 of 0.0625, 0.25, 1, 2.25, 4 and predicted
-d_obs of (4, 3, 2, 1, 1), (6, 5, 4, 2, 1), (8, 6, 4, 2, 1) for the three worlds. Queries are
-perturbations of size rho in uniformly random directions, on a ladder of 30, 60, 120, 240,
-480 per evaluator; the oracle answers whether delta^T P delta exceeds B^2 and nothing else.
-20 evaluators per cell (world, B, query count), each with its own frame and queries. Pilot and
-run seeds in `prereg_config.json`. A cell whose oracle is constant over an evaluator's queries
-(every query distinguishable or none) skips that evaluator and records why.
+Read operators of declared spectrum in a random orthonormal frame, three worlds: n = 5 with
+spectrum (4, 2, 0.5, 0.1, 0) and a kernel; n = 8 with (8, 4, 2, 1, 0.25, 0.05, 0, 0), two kernel
+directions; n = 8 at full rank (8, 4, 2, 1, 0.5, 0.25, 0.1, 0.05). rho = 1. Budget ladder
+B in 0.25, 0.5, 1, 1.5, 2 (thresholds 0.0625, 0.25, 1, 2.25, 4). The oracle answers whether
+delta^T P delta exceeds B^2 and nothing else.
 
-## 3. Estimator
+World A: the probe basis is the coordinate basis of the random frame's ambient space, so the
+diagonal entries P_ii are generic mixtures of the eigenvalues; probes at sizes 0.125, 0.25, 0.5,
+1 along each coordinate and its negative. World B: perturbations of size rho in uniformly
+random directions, on a ladder of 60, 120, 240, 480, 960 queries per evaluator. 20 evaluators
+per cell, each with its own frame and queries. A World B evaluator whose oracle is constant is
+recorded as such and not graded; the crossing test says when that must happen.
 
-The max-margin semidefinite program on the oracle answers: maximise t over P_hat positive
-semidefinite subject to delta^T P_hat delta >= B^2 (1 + t) for distinguishable queries and
-<= B^2 (1 - t) for indistinguishable ones, t <= 1. The scale is fixed by B^2. cvxpy 1.9.2 with
-Clarabel, SCS as fallback. Nothing about the true operator enters the estimator.
+## 3. Estimators
+
+World A: no estimator. The verdict for coordinate i at (B, rho) is the oracle's answer to the
+probe of size rho along e_i; the bracket on P_ii is [B^2 / r_hi^2, B^2 / r_lo^2] with r_lo the
+largest size found indistinguishable and r_hi the smallest found distinguishable. Both follow
+from Theorem 2 read along e_i, and the gate checks them against the truth exactly.
+
+World B: the analytic centre of the set of positive semidefinite operators consistent with the
+answers, the maximiser of the summed log slacks (q_j / B^2 - 1 for a distinguishable query,
+1 - q_j / B^2 otherwise), a convex program solved by cvxpy 1.9.2 with Clarabel, SCS as fallback.
+It is a canonical point of the feasible set, which shrinks to the truth as queries accumulate
+near the boundary. Nothing about the true operator enters.
 
 ## 4. Errors and chance
 
-Along each true eigenvector v_i the estimated form v_i^T P_hat v_i is compared to lambda_i,
-relative to max(lambda_i, threshold). A direction is recovered when its relative error is at
-most the recovery tolerance 0.25. The estimated count d_est is the number of eigenvalues of
-P_hat above the threshold by more than the tolerance. The top-subspace angle is the largest
-principal angle between the true above-threshold eigenspace and P_hat's top d_obs
-eigenspace. Chance per evaluator: the same quantities for an operator with the true spectrum
-in a random frame, median over 64 draws.
+World A: the fraction of evaluators in which every coordinate's verdict matches the theorem's
+inequality, and in which every diagonal entry lies in its bracket. World B: along each true
+eigenvector the estimated form against the eigenvalue, relative to max(lambda_i, threshold),
+split above and below the threshold; the Frobenius relative error of the operator; the
+top-subspace angle. Chance per evaluator: the same quantities for the true spectrum in a random
+frame, median over 64 draws.
 
-## 5. Bars (factors FIXED FROM THE PILOT before sealing; Section 7)
+## 5. Bars (REC FIXED FROM THE PILOT before sealing; Section 7)
 
-Per cell, over its graded evaluators:
-- P1, the count. d_est = d_obs for at least FRAC of evaluators at the largest query count,
-  and the fraction is non-decreasing over the query ladder (one inversion of at most 5 points
-  allowed).
-- P2, the identifiable directions. Median relative error of above-threshold directions at
-  the largest query count at most REC times its chance median, and the median top-subspace
-  angle at most REC times its chance median.
-- P3, the unrevealed directions. Median relative error of below-threshold directions at
-  least UNREV times its chance median, and no evaluator estimates a below-threshold direction
-  above the threshold by more than the tolerance in more than 10 percent of evaluators.
-- P4, the kernel. No evaluator estimates a kernel direction above the threshold by more than
-  the tolerance in more than 10 percent of evaluators.
-- P5, monotone. The median above-threshold error is non-increasing over the query ladder.
+- A1, single-parameter probes. In every world and budget, every evaluator's verdicts and
+  brackets are exact (fraction 1.0). This is Theorem 2 read along a coordinate and is expected
+  to be exact; a single failure is a counterexample to the theorem or a defect in the oracle.
+- B1, full recovery under crossing. In every World B cell whose sphere crosses the ellipsoid,
+  at the largest query count, the median Frobenius relative error is at most REC times its
+  chance median, and the same for the medians of the above-threshold and the below-threshold
+  eigenvalue errors separately, so that the below-threshold eigenvalues are shown to be
+  recovered by mixed probes.
+- B2, no crossing, no recovery. In every World B cell whose interval excludes B^2, the oracle
+  is constant for every evaluator.
+- B3, monotone. The median Frobenius error is non-increasing over the query ladder (5 percent
+  for ties).
 
-Pass: P1 to P5 in every cell. Fail: a cell at the largest query count in which the count
-matches for fewer than half the evaluators (the count law is wrong), or in which more than 30
-percent of evaluators push a below-threshold or kernel direction above the threshold (the
-unrevealed claim is wrong). Otherwise INDETERMINATE.
+Pass: A1, B1, B2, B3 hold in every cell. Fail: any World A verdict mismatch in more than half
+the evaluators of a cell (the theorem's inequality is wrong), or a crossing cell whose median
+Frobenius error exceeds half its chance at the largest query count (mixed probes do not reveal
+the operator), or a non-crossing cell with a non-constant oracle. Otherwise INDETERMINATE.
 
 ## 6. What falsifies
 
-An estimator that recovers directions below the threshold from oracle answers alone, or a
-recovered count that departs from d_obs at large query counts, or failure to recover
-above-threshold directions at the largest battery.
+A coordinate reported identifiable whose diagonal entry is below the threshold, or the reverse;
+an operator that mixed probes at radius rho cannot recover although the sphere crosses its
+ellipsoid; below-threshold eigenvalues left at chance by mixed probes; a non-constant oracle
+where the crossing condition fails.
 
-## 7. Self-test and pilot
+## 7. Self-test, first pilot, second pilot
 
-Self-test, Atlas 2026-09-09: SELFTEST PASS on the n = 5 world at B = 0.5, 1, 1.5 with 600
-queries: d_est = d_obs = 3, 2, 1; above-threshold relative errors at most 0.13; below-threshold
-and kernel estimates at 0.03 to 0.89 of the threshold and never above it; top-subspace angles
-2.7, 1.9, 1.0 degrees.
+Self-test (Atlas 2026-09-09, `--selftest`): World A verdicts and brackets exact at B = 0.5 and
+1; World B under crossing at B = 1 and 1.5, Frobenius errors 0.050 and 0.072 with 800 queries,
+below-threshold eigenvalues at 0.00 to 0.10 relative error; at B = 0.5, where B^2 = 0.25 sits
+low against the typical form on the sphere so few queries land near the boundary, 0.287;
+at B = 2.5 the oracle is constant as the crossing test says.
 
-Pilot: every cell on the pilot seed. FRAC is fixed as the smallest count-match fraction at the
-largest query count over cells, rounded down to one decimal and at least 0.8; REC as the
-largest ratio of a recovered-direction median to its chance median at the largest query
-count, rounded up to two decimals and at most 0.5; UNREV = 0.5. Recorded here.
+First pilot (`pilot_v1.json`, 75 cells, 2026-09-09 06:51 to 06:56 UTC). The first design read
+Theorem 2 as an operator statement and predicted that mixed probes recover only the
+above-threshold directions. The pilot refuted that reading before any seal: at B from 1 to 2
+the max-margin estimator recovered the count exactly and the above-threshold eigenvalues to a
+few percent, and it recovered the below-threshold eigenvalues to 3 to 10 percent of chance as
+well. The geometry explains it, the sphere of radius rho traces the whole ellipsoid where it
+crosses it. The same pilot showed the max-margin estimator degenerate where the feasible set
+was wide (n = 8 at B = 0.25 and 0.5, errors at or beyond chance, kernel directions pushed above
+the threshold), and a minimal-trace estimator tried next biased every eigenvalue down; the
+analytic centre replaced both. The two-world design of this document followed. Nothing from
+the first pilot fixes a bar here.
+
+Second pilot (`pilot.json`): every cell of Section 2. REC is fixed as the largest ratio of a
+graded median (Frobenius, above, below) to its chance median over the crossing cells at the
+largest query count, rounded up to two decimals, and at most 0.5; if any crossing cell exceeds
+0.5, that cell's budget is recorded as too far from the sphere's typical form for the query
+ladder and the cell is excluded from B1 by name before sealing. Recorded here with the values.
 
 ## 8. Sealing procedure
 
-1. D0 checked with no `sorry` (the theorem the gate tests is machine-checked first).
-2. Pilot on Atlas; fix FRAC and REC; commit `pilot.json`.
+1. D0 checked with no `sorry`. Done.
+2. Second pilot on Atlas; fix REC and any named exclusions; commit `pilot.json`.
 3. Rename this file to `PREREG-D1.md`, commit, record its blob hash in the track document and
    the README status ledger.
-4. Run on the run seed, grade with `d1_grade.py`, commit `results.json` and `grade.json` as
-   executed, enter the registry test in `claims/transformations/OD.toml`.
+4. Run on the run seed, grade with `d1_grade.py --rec REC`, commit `results.json` and
+   `grade.json` as executed, enter the registry tests in `claims/transformations/OD.toml`.
