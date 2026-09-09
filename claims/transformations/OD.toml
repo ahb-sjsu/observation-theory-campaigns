@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D3 and D3v2 recorded 2026-09-09"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D3 and D3v2 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -238,3 +238,14 @@ boundary = "clouds at d = 512 within the limit (1.30, 1.79 against 2.13); real s
 witness = "what the discovery set holds, the law extrapolates from: d = 256 carried to d = 512, t with 3 degrees carried to N = 16000; what it lacks, heavier tails at higher dimension, no law of this feature family reaches, since the family's only tail variable is a coordinate kurtosis the observer rescales and the search never chose"
 absorbed_by = "declaration"
 revision = "a D2v5 would add a tail variable measured on the neighbour distances, or place heavy tails at the transfer dimensions in the discovery set; not registered here"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "with four scale-free tail variables measured on the neighbour distances in the feature pool and heavy tails at d = 128 and 192 in the discovery set, the search chooses a tail variable and the frozen law predicts hubness on heavier tails at d = 192 and 256, on fresh real slices and at larger N, beating the nominal formula and the frozen D2, D2v2, D2v3 and D2v4 laws"
+entries = ["hubness", "observer", "read-operator"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D2v5 record; experiments/OD/D2v5/grade.json; experiments/OD/D2v5/tail_check.json"
+boundary = "the search declined every tail variable (best model with one 0.75 held-out against 0.71, worse on five of eight heavy-tailed pilot worlds) and froze skew = -2.80 - 0.51 / cv_d + 1.19 log(id_twonn) + 1.07 sqrt(d_eff); on the run the law halves D2v4's misses (t with 4 degrees at d = 256 2.28, Laplace at d = 192 2.36 against 3.52, 4.75) but stays outside 1.76 there and on t with 2.5 degrees at d = 128 (2.30) and the log-normal at d = 192 (3.24); real slices 0.19 to 0.70 against 2.64; d = 512 clouds 1.75, 1.69; heavy tails at N = 12000 to 16000 outside (2.49 to 3.13); beats all five competitors pooled (1.55 against 12.01, 4.15, 2.17, 2.25, 1.99) and within the unseen and scale groups, the D2v3 law edging it on the real slices (0.47 against 0.50)"
+witness = "the tail of the neighbour distances, measured scale-free, rises with the observer's exponent in every world, so it carries the reader as much as the family and adds nothing to a linear law that already holds the concentration and dimension terms; the family's largest errors sit where the target skewness exceeds 12, where a linear law in either transform is the wrong shape"
+absorbed_by = "declaration"
+revision = "D2v6 registers the second repair named by D2v4's record, heavy tails placed at the transfer dimensions in the discovery set, bracketing the unseen heavy-tailed worlds"
