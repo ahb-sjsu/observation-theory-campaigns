@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D3 and D3v2 recorded 2026-09-09"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -271,3 +271,14 @@ boundary = "every heavy-tailed unseen world inside the limit (t with 4 degrees a
 witness = "the same family, pool, search and worlds that put the heavy tails at d = 256 and the clouds at d = 512 on opposite sides of a limit in skewness hold both in log excess, because the skewness saturates where the excess keeps counting; the target, not the family and not the set, was the limit the skew registrations met"
 absorbed_by = "declaration"
 revision = "the cube at d = 512 remains the one world beyond the training dimensions the law over-predicts (a factor of 2.3); a D2v8 would add full-dimensional worlds at d = 384 to 512 to the discovery set under this target, and is the coverage repair that D2v6 showed does not work for the skewness"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "with full-dimensional clouds at d = 384 and 512 in the discovery set under the log hub-excess target, the frozen law log(excess) = -0.950 - 0.010 / hill_rk + 0.219 log(d_eff) + 0.366 sqrt(id_twonn) predicts hubness on the bracketed clouds, on a cube one step beyond, on the heavy tails, on fresh real slices and at larger N, and beats the nominal law, the chance level and the frozen D2v7 law"
+entries = ["hubness", "observer", "read-operator", "poisson-ceiling"]
+outcome = "failed"
+record = "experiments/DISCOVERY-TRACK.md, D2v8 record; experiments/OD/D2v8/grade.json"
+boundary = "the clouds beyond d = 256 all inside the limit and better than D2v7 (cube at d = 448 0.53, Gaussian at d = 512 0.50, cube at d = 640 0.65 against 0.73); real slices 0.14 to 0.24, the best of the track; heavy tails inside the limit but worse than D2v7 on every world (t with 4 degrees at d = 256 0.25 against 0.14); Laplace at N = 12000 at 0.96 outside 0.73; the unseen ball at d = 384 at 1.44, outside and worse than chance; pooled over the transfer groups the frozen D2v7 law at 0.44 beats the law's 0.47, the fail clause"
+witness = "coverage of the clouds beyond d = 256 moves the excess family's error onto the heavy tails and the ball, the sign D2v6 found for the skewness family at about a third of the size; the first law to take a neighbour-distance tail variable misreads the lightest-tailed family, the uniform ball, where the reciprocal Hill term is largest; the D2v7 law, frozen without the clouds, stands as the track's law"
+absorbed_by = "declaration"
+revision = "not registered: a change of shape, a term carrying the dimension and the neighbour-distance tail together rather than either alone, is the one repair of D2v6's list not yet tried; D2v7's law is the standing law until a registration beats it on the transfer groups"
