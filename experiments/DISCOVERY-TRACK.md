@@ -53,6 +53,16 @@ hypothesis, recorded as G1 recorded Ky Fan).
 Bar. Zero `sorry`; standard axioms only; every hypothesis taken in place of a Mathlib gap
 named.
 What falsifies. A statement that cannot be closed as written; the article is corrected first.
+Record, 2026-09-09. DONE. `geometric-evaluation-theory/lean/GET/Identifiability.lean` at commit
+9604c44 checks eight statements against Mathlib v4.32.2: the read operator of a linear consumer is
+positive semidefinite for a positive semidefinite output metric; a kernel perturbation is
+distinguishable at no budget; for a positive definite output metric, distinguishability at budget
+zero is injectivity of the consumer; the scaled-direction criterion v^T P v > B^2 / rho^2;
+antitonicity in the budget; d_obs antitone in B, equal to the positive-eigenvalue count at B = 0,
+and zero once every lambda_i rho^2 <= B^2. Full project build 8,664 jobs, zero warnings, no
+`sorry`, every theorem on propext, Classical.choice and Quot.sound only. Not checked: the Gramian
+integral itself, which enters as the consumer's matrix; Proposition 1 on the Lyapunov exponent,
+which needs the flow and is left for D3's registration. Ledger row GET-16 in the GET repository.
 
 ### D1. Identifiability at a budget, finite-sample form
 
