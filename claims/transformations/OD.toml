@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D3 and D3v2 recorded 2026-09-09"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D3 and D3v2 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -249,3 +249,14 @@ boundary = "the search declined every tail variable (best model with one 0.75 he
 witness = "the tail of the neighbour distances, measured scale-free, rises with the observer's exponent in every world, so it carries the reader as much as the family and adds nothing to a linear law that already holds the concentration and dimension terms; the family's largest errors sit where the target skewness exceeds 12, where a linear law in either transform is the wrong shape"
 absorbed_by = "declaration"
 revision = "D2v6 registers the second repair named by D2v4's record, heavy tails placed at the transfer dimensions in the discovery set, bracketing the unseen heavy-tailed worlds"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "with heavy-tailed clouds placed in the discovery set at the transfer dimensions (Student t with 3 and 5 degrees at d = 256, Laplace at d = 192 and 256) bracketing the unseen worlds, the frozen law predicts hubness on the bracketed heavy tails, on D2v5's other unseen families, on fresh real slices and at larger N, and beats the nominal formula and the frozen D2 to D2v5 laws"
+entries = ["hubness", "observer", "read-operator"]
+outcome = "failed"
+record = "experiments/DISCOVERY-TRACK.md, D2v6 record; experiments/OD/D2v6/grade.json"
+boundary = "every bracketed heavy-tailed unseen world inside the limit and below every competitor (t with 4 degrees at d = 256 1.64, Laplace at d = 224 1.18, t with 6 degrees at d = 192 1.04, t with 2.5 degrees at d = 128 0.74, log-normal at d = 192 0.68); real slices 0.21 to 0.63; the d = 512 clouds lost (cube 4.65, Gaussian 2.64 against 2.91); t with 4 degrees at d = 128 and N = 12000 at 3.31; pooled over the transfer groups the frozen D2v5 law at 1.45 beats the law's 1.51, the fail clause"
+witness = "coverage moves the family's error between the heavy tails at d = 256 and the light-tailed clouds at d = 512 and does not remove it; the pilot recorded before the run that the family, not the set, is the limit, and the run confirmed it; the largest errors of every law of the track sit where the hubness skewness exceeds 12"
+absorbed_by = "declaration"
+revision = "not another discovery set: a D2v7 changes the target (Poisson hub excess or tail share instead of skewness) or the functional shape, and is a new family and a new registration"
