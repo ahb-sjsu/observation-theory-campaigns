@@ -1,0 +1,95 @@
+{
+ "law": {
+  "target": "skew",
+  "features": [
+   "cv_r_x_sqrt_d_eff",
+   "log_d_nom_x_log_k",
+   "log_id_twonn"
+  ],
+  "coef": [
+   -1.0937946857408793,
+   0.16852132160750913,
+   -0.03188415704240788,
+   0.7013760762316192
+  ],
+  "transform": "log1p",
+  "train_rmse": 1.0973967586866027,
+  "heldout_rmse": 0.8114558678489382,
+  "n_terms": 3
+ },
+ "competitor_nominal": {
+  "target": "skew",
+  "features": [
+   "log_d_nom",
+   "log_d_nom_x_log_k",
+   "log_k"
+  ],
+  "coef": [
+   -0.9876501394472241,
+   0.8221450733798437,
+   -0.1376633285458757,
+   0.2548004373129423
+  ],
+  "transform": "identity",
+  "train_rmse": 2.5863008238659666,
+  "heldout_rmse": 2.868729074833659,
+  "n_terms": 3
+ },
+ "competitor_d2": {
+  "target": "skew",
+  "features": [
+   "inv_cv_d",
+   "sqrt_d_eff_over_k"
+  ],
+  "coef": [
+   -0.026165647256707177,
+   0.4206954447231824,
+   0.8172228220333909
+  ],
+  "transform": "identity",
+  "note": "the law gate D2 froze on Gaussian clouds (observation-theory-campaigns/experiments/OD/D2/law.json), carried as a fixed competitor"
+ },
+ "competitor_d2v2": {
+  "target": "skew",
+  "features": [
+   "d_ent",
+   "inv_cv_d",
+   "sqrt_top_share"
+  ],
+  "coef": [
+   2.8109594094123245,
+   0.004706131843131253,
+   -0.09277311281123587,
+   -2.461264557894105
+  ],
+  "transform": "log1p",
+  "note": "the law gate D2v2 froze on seven full-dimensional families (observation-theory-campaigns/experiments/OD/D2v2/law.json), carried as a fixed competitor"
+ },
+ "competitor_d2v3": {
+  "target": "skew",
+  "features": [
+   "inv_cv_knn",
+   "log_id_twonn",
+   "sqrt_d_eff"
+  ],
+  "coef": [
+   -1.462907521326016,
+   -0.013182421393936017,
+   0.7474954718371633,
+   0.06855322431693046
+  ],
+  "transform": "log1p",
+  "note": "the law gate D2v3 froze with manifold worlds in the discovery set (observation-theory-campaigns/experiments/OD/D2v3/law.json), carried as a fixed competitor"
+ },
+ "target": "skew",
+ "frozen_from": "pilot",
+ "seed": 20261002,
+ "n_train": 2232,
+ "n_heldout": 324,
+ "d2_law_heldout_rmse": 3.1687003243739205,
+ "d2_law_train_rmse": 2.6469596651144607,
+ "d2v2_law_heldout_rmse": 1.5830616474290216,
+ "d2v2_law_train_rmse": 1.4054313623348635,
+ "d2v3_law_heldout_rmse": 1.3326482826991155,
+ "d2v3_law_train_rmse": 1.0944243106836484
+}

@@ -1,0 +1,5 @@
+== start Wed Sep  9 07:43:24 PM UTC 2026 HEAD 8741ab1 role probe seal 
+{"world": "cube_d256", "rows": 72, "rank_eff": 8.1, "null": 23.87, "jac_same": 0.228, "jac_diff": 0.059, "seconds": 6.0}
+{"world": "t3_d64", "rows": 72, "rank_eff": 2.54, "null": 23.84, "jac_same": 0.449, "jac_diff": 0.279, "seconds": 4.6}
+{"world": "h_g_a05_d192", "rows": 36, "rank_eff": 4.63, "null": 11.97, "jac_same": 0.272, "jac_diff": 0.078, "seconds": 2.7}
+== PROBE_DONE rc=0
