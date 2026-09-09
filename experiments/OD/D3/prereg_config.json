@@ -1,0 +1,248 @@
+{
+  "world": "Tangent perturbations carried by the linearised flow of Lorenz-63 (sigma 10, rho 28, beta 8/3), of Lorenz-63 extended by one decoupled linear direction u' = mu u that the observer does not read (World K, mu = 2 and the control mu = 0.5), and of Lorenz-96 (N = 40, F = 8); observers as constant diagonal read operators; starts on the attractor from one spun-up trajectory at a fixed spacing; one RK4 integration of state and tangent vectors per start.",
+  "T_max": 20.0,
+  "record_dt": 0.01,
+  "T_ladder": [
+    1,
+    2,
+    5,
+    10,
+    20
+  ],
+  "B_ladder": [
+    10,
+    100,
+    1000,
+    10000
+  ],
+  "kernel_start_t0": 0.01,
+  "seed_probe": 20260915,
+  "seed_pilot": 20260916,
+  "seed_run": 20260917,
+  "worlds": [
+    {
+      "name": "lorenz63",
+      "flow": "lorenz63",
+      "dt": 0.002,
+      "x0": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "spinup": 100.0,
+      "start_spacing": 5.0,
+      "n_starts": 64,
+      "observers": {
+        "full": {
+          "kind": "full"
+        },
+        "aniso": {
+          "kind": "diag",
+          "diag": [
+            1.0,
+            4.0,
+            0.25
+          ]
+        },
+        "x_only": {
+          "kind": "coords",
+          "coords": [
+            0
+          ]
+        },
+        "z_only": {
+          "kind": "coords",
+          "coords": [
+            2
+          ]
+        }
+      },
+      "directions": {
+        "random": {
+          "kind": "random"
+        },
+        "kernel_x": {
+          "kind": "kernel_of",
+          "observer": "x_only"
+        },
+        "kernel_z": {
+          "kind": "kernel_of",
+          "observer": "z_only"
+        }
+      }
+    },
+    {
+      "name": "K_mu2",
+      "flow": "lorenz63",
+      "mu": 2.0,
+      "dt": 0.002,
+      "x0": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "spinup": 100.0,
+      "start_spacing": 5.0,
+      "n_starts": 64,
+      "observers": {
+        "full": {
+          "kind": "full"
+        },
+        "core": {
+          "kind": "coords",
+          "coords": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "directions": {
+        "core_plus_u": {
+          "kind": "core_plus_extra",
+          "extra_weight": 0.5
+        }
+      }
+    },
+    {
+      "name": "K_mu05",
+      "flow": "lorenz63",
+      "mu": 0.5,
+      "dt": 0.002,
+      "x0": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "spinup": 100.0,
+      "start_spacing": 5.0,
+      "n_starts": 64,
+      "observers": {
+        "full": {
+          "kind": "full"
+        },
+        "core": {
+          "kind": "coords",
+          "coords": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "directions": {
+        "core_plus_u": {
+          "kind": "core_plus_extra",
+          "extra_weight": 0.5
+        }
+      }
+    },
+    {
+      "name": "lorenz96",
+      "flow": "lorenz96",
+      "n": 40,
+      "F": 8.0,
+      "dt": 0.005,
+      "x0": [
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "spinup": 50.0,
+      "start_spacing": 2.0,
+      "n_starts": 32,
+      "observers": {
+        "full": {
+          "kind": "full"
+        },
+        "aniso": {
+          "kind": "alternating",
+          "values": [
+            1.0,
+            4.0
+          ]
+        },
+        "sub": {
+          "kind": "coords",
+          "coords": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "sub2": {
+          "kind": "coords",
+          "coords": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        }
+      },
+      "directions": {
+        "random": {
+          "kind": "random"
+        },
+        "kernel_sub": {
+          "kind": "kernel_of",
+          "observer": "sub"
+        }
+      }
+    }
+  ],
+  "bars": "PREREG-D3.md Section 5; tolerances fixed from the pilot as declared multiples of the pilot's values, applied to the run seed only",
+  "kernel_start_note": "t0 = 0.01, the first recorded time after zero, for kernel starts; the probe at t0 = 0.1 found the transient already over by 0.1 in half the x_only starts"
+}
