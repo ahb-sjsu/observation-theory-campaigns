@@ -1,6 +1,6 @@
 # OD Track: Observational Discovery, from the read operator to laws that survive observers
 
-**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 sealed (blob 0073aea0857a3fa8b7d7c2e7989d8c7d4ea3da83) and running; D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
+**Status:** D0 done; D1 done, INDETERMINATE by its sealed grader (five of six well-crossed cells pass every bar, the sixth misses one ratio by 0.003; the single-direction theorem exact and the pencil confirmed); D3 done, INDETERMINATE by its sealed grader (every exact bar and every tolerance bar held except the horizon's observer dependence at the largest budget, real in direction and short of the registered level); D2 done, FAIL by its sealed grader (the Gaussian-world hubness law replicates on fresh seeds and does not transfer to other shapes or to Wikipedia embeddings; polarity and latent rank largely held); D3v2 done, PASS (the horizon offset law, a first passage of the read-fraction process, within tolerance in all 22 cells of two flows); D2v2 done, INDETERMINATE (the law transfers to every unseen synthetic family and to SIFT, misses two scale cells and loses to a constant on Wikipedia, whose intrinsic dimension is the variable the discovery set could not teach); D2v3 done, INDETERMINATE (the intrinsic-dimension law fits every real corpus within REF and beats all three competitors on every transfer group; misses the per-world limit on Laplace and a 256-dimensional cube and on heavy tails at N = 16000); D4 to D7 design drafts, non-claim-bearing until run. Chip 🔭 OD. Opened 2026-09-09.
 
 ## 1. Question
 
@@ -278,7 +278,38 @@ log(1 + skew) = -1.463 - 0.013 / cv_knn + 0.748 log(id_twonn) + 0.069 sqrt(d_eff
 manifolds in the discovery set the search took the intrinsic dimension as its main term;
 held-out error 0.48, pooled 0.75 = REF, against 1.40 for the D2v2 law, 2.26 for the D2 law and
 2.19 for the nominal competitor. FRAC_X = 0.90 by the cap. SEALED 2026-09-09 as
-`experiments/OD/D2v3/PREREG-D2V3.md`, blob 0073aea0857a3fa8b7d7c2e7989d8c7d4ea3da83. Run: pending.
+`experiments/OD/D2v3/PREREG-D2V3.md`, blob 0073aea0857a3fa8b7d7c2e7989d8c7d4ea3da83.
+Run, 2026-09-09 (Atlas, screen `od-d2v3`, 19:13 to 19:20 UTC, `run.log`, code at e79af28, seed
+20260929, 51 worlds, 3,276 law rows). `results.json` and `grade.json` committed as executed;
+`d2v3_grade.py results.json --tols tolerances.json` run on Atlas and reproduced locally.
+Verdict by the sealed grader: INDETERMINATE. What held: L1, fresh seeds at 0.74 against 1.12;
+L3, the four real corpora within 3 REF and, for the first time in the track, within REF itself
+(Wikipedia 1.00 and 0.21, SIFT base 0.44, SIFT queries 0.37, against 2.24), the law fitting
+the second Wikipedia slice with a bias of -0.12 where the D2v2 law had over-predicted by 1.7;
+L5, the law beats all three competitors pooled over the transfer groups (1.05 against 3.58 for
+the nominal formula, 2.77 for the D2 law and 1.69 for the D2v2 law) and within each group, the
+real group at 0.59 against 2.00 for the D2v2 law; X1, effective-rank ratios 0.09 to 0.68 in all
+51 worlds against 0.90; P1, hub-set overlap across orientations above that across spectra in all
+51 worlds. What missed: L2, the unseen group pooled at 1.18 against 1.12, with eight of ten
+unseen worlds inside the per-world limit (the three unseen manifolds at 0.12 to 0.37, the
+log-normal, two-scale, sphere, heavy-tail and 24-dimensional Fourier worlds at 0.55 to 0.97)
+and two outside it: Laplace at d = 64 (1.93, the law under-predicting skewness up to 8.8 by 1.3)
+and the cube at d = 256 (2.69, over-predicting by 1.8, where the TwoNN estimate reaches 125 for
+a full-dimensional cloud of 4,000 points and the intrinsic-dimension term extrapolates beyond
+anything the discovery set contained); and L4, one of five scale cells, Student t at N = 16000
+(1.91 against 1.49, under-predicting skewness up to 11.5), while the Gaussian, Fourier manifold,
+Wikipedia and SIFT scale cells held (0.74, 0.42, 1.10, 0.46). What the gate establishes: with
+manifold worlds in the discovery set the search takes the intrinsic dimension as the law's main
+term, and the law then predicts hubness on real embeddings, Wikipedia included, as well as on the
+synthetic families it was discovered on; across the three registrations the same declared
+family and the same search produced a Gaussian law, a shape-blind law and an intrinsic-dimension
+law, and only the discovery set changed, which is the track's thesis about discovery in one
+line. What it does not establish: the transfer factor on the heaviest tails at large N and on
+full-dimensional clouds far above the discovery set's dimensions, where the TwoNN estimator
+itself leaves the regime it was calibrated in. The exploratory budget sweep reproduced the
+finding of D2 and D2v2 on a third Wikipedia slice: a resolution of a quarter of the neighbour
+distance changes the polarity of 75 percent of points under the isotropic reader, 6 percent
+under the anisotropic one.
 
 ### D3. The observational predictability horizon
 

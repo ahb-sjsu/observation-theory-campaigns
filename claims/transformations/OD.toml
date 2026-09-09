@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D3 and D3v2 recorded 2026-09-09"
+commit = "D1, D2, D2v2, D2v3, D3 and D3v2 recorded 2026-09-09"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -204,5 +204,26 @@ entries = ["hubness", "observer"]
 outcome = "survived"
 record = "experiments/OD/D2v2/grade.json P1, X1"
 witness = "44 of 44 worlds for both: overlap gap at least 0.08; rank ratios 0.09 to 0.69, the largest on the sphere and the balls"
+absorbed_by = ""
+revision = "none"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "the hubness law frozen on eleven families including four manifold families, log(1 + skew) = -1.463 - 0.013 / cv_knn + 0.748 log(id_twonn) + 0.069 sqrt(d_eff), predicts hubness on unseen families and manifolds, on real embeddings and at larger N within declared multiples of its pilot error, and beats the nominal formula and the frozen D2 and D2v2 laws"
+entries = ["hubness", "observer", "read-operator"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D2v3 record; experiments/OD/D2v3/grade.json"
+boundary = "real corpora within REF for the first time (Wikipedia 1.00 and 0.21, SIFT 0.44 and 0.37 against 2.24); eight of ten unseen worlds within 1.49 and the group pooled at 1.18 against 1.12; Laplace (1.93) and the 256-dimensional cube (2.69) outside; heavy tails at N = 16000 at 1.91 against 1.49; beats all three competitors pooled (1.05 against 3.58, 2.77, 1.69) and within every group"
+witness = "the intrinsic dimension became the law's main term once the discovery set held clouds whose intrinsic dimension sits below their spectral one; the misses are where TwoNN leaves its calibrated regime (125 on a 4,000-point cube in 256 dimensions) or where tails outrun every training family"
+absorbed_by = "declaration"
+revision = "a D2v4 would bound the intrinsic-dimension term or add full-dimensional worlds at d = 256 and heavier tails to the discovery set; not registered here"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "across three registrations with one declared feature family and one search, the law discovered depends on the discovery set alone: Gaussian clouds give a concentration law, seven full-dimensional families give a shape-blind spectral law, manifold worlds give an intrinsic-dimension law that fits real embeddings"
+entries = ["hubness", "observer"]
+outcome = "survived"
+record = "experiments/OD/D2/law.json, experiments/OD/D2v2/law.json, experiments/OD/D2v3/law.json"
+witness = "the frozen laws of D2, D2v2 and D2v3 and their errors on the same real corpora: 5.3 and 4.1 (D2), 2.5 and 2.3 (D2v2), 1.0 and 0.2 (D2v3) on the two Wikipedia slices of each run"
 absorbed_by = ""
 revision = "none"
