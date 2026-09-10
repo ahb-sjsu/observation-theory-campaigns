@@ -1,0 +1,133 @@
+{
+ "world": "Linear systems x' = A x with candidate sensors: a diffusion chain with Dirichlet ends (stable), the Lorenz-96 Jacobian at its fixed point x_i = F (unstable, the growth world), a linearised one-dimensional shallow-water grid (neutral), and, on the run only, a periodic advection-diffusion chain (unseen family). Candidate sensors on chains and Lorenz-96 read a seeded weighted average of two adjacent coordinates; on the shallow-water grid they read h or u at one cell. The read operator of a placement is the exact window Gramian over [0, T]. The window is T = 0.5. Thresholds c = frac x lambda_max of the all-sensor Gramian, frac in {0.001, 0.01, 0.1}, set the budget B = sqrt(c) rho; required counts m in {4, 6, 8, 10}. Beside the greedy count each cell records the count the energy ranking needs to reach m and the median count a random ordering needs, so the cells where placement matters are visible. The pilot worlds are smaller (n = 16, 16, 20) with their own sensor draw; the run worlds are the declared sizes with fresh draws.",
+ "window_T": 0.5,
+ "rho": 1.0,
+ "kmax": 12,
+ "exhaustive_cap": 200000,
+ "threshold_fractions": [
+  0.001,
+  0.01,
+  0.1
+ ],
+ "required_counts": [
+  4,
+  6,
+  8,
+  10
+ ],
+ "random_draws": 200,
+ "random_horizon_sets": 20,
+ "growth_min": 0.05,
+ "horizon_tol_factor": 10.0,
+ "t_max": 20.0,
+ "dt": 0.01,
+ "horizon_draws": 100,
+ "horizon_draws_random": 40,
+ "seed_probe": 20261022,
+ "seed_pilot": 20261023,
+ "seed_run": 20261024,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot"
+  ],
+  "run": [
+   "run",
+   "unseen"
+  ]
+ },
+ "bars": "PREREG-D6.md Section 5; tolerances (FACTOR, MARGIN) declared multiples fixed from the pilot",
+ "worlds": [
+  {
+   "name": "p_diffusion_n16",
+   "group": "pilot",
+   "family": "diffusion",
+   "n": 16,
+   "params": {
+    "kappa": 1.0
+   },
+   "seed_offset": 1,
+   "in_probe": true
+  },
+  {
+   "name": "p_lorenz96_n16",
+   "group": "pilot",
+   "family": "lorenz96",
+   "n": 16,
+   "params": {
+    "F": 8.0
+   },
+   "seed_offset": 2,
+   "in_probe": true
+  },
+  {
+   "name": "p_shallow_n20",
+   "group": "pilot",
+   "family": "shallow",
+   "n": 20,
+   "params": {
+    "H": 1.0,
+    "g": 1.0,
+    "dx": 1.0
+   },
+   "seed_offset": 3,
+   "in_probe": true
+  },
+  {
+   "name": "diffusion_n20",
+   "group": "run",
+   "family": "diffusion",
+   "n": 20,
+   "params": {
+    "kappa": 1.0
+   },
+   "seed_offset": 11
+  },
+  {
+   "name": "lorenz96_n20",
+   "group": "run",
+   "family": "lorenz96",
+   "n": 20,
+   "params": {
+    "F": 8.0
+   },
+   "seed_offset": 12
+  },
+  {
+   "name": "shallow_n24",
+   "group": "run",
+   "family": "shallow",
+   "n": 24,
+   "params": {
+    "H": 1.0,
+    "g": 1.0,
+    "dx": 1.0
+   },
+   "seed_offset": 13
+  },
+  {
+   "name": "u_advdiff_n20",
+   "group": "unseen",
+   "family": "advdiff",
+   "n": 20,
+   "params": {
+    "kappa": 0.5,
+    "speed": 1.0
+   },
+   "seed_offset": 21
+  },
+  {
+   "name": "u_lorenz96_n24_F10",
+   "group": "unseen",
+   "family": "lorenz96",
+   "n": 24,
+   "params": {
+    "F": 10.0
+   },
+   "seed_offset": 22
+  }
+ ],
+ "random_orderings": 60
+}
