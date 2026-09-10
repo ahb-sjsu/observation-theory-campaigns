@@ -1,0 +1,58 @@
+{
+ "tolerances": {
+  "M1": 0.0,
+  "M2": 0.01,
+  "TOL2": 0.13,
+  "TOL_N": 0.03,
+  "pilot": {
+   "median_adv_eigen": -0.11930830362245379,
+   "pooled_adv_readenergy": 0.03649007485482321,
+   "min_adv_readenergy": -0.09601642099762013,
+   "pooled_by_n": {
+    "64": 0.0435062596247213,
+    "96": 0.029473890084925115
+   }
+  },
+  "rule": "PREREG-D7 Section 5: M1 = 0.5 x pilot median eigen advantage rounded down to 0.01 (at least 0); M2 = 0.5 x pilot pooled read-energy advantage rounded down to 0.01 (at least 0); TOL2 = 1.25 x pilot max read-energy shortfall rounded up to 0.01; TOL_N = 1.5 x the change of the pooled read-energy advantage between the pilot resolutions rounded up to 0.01"
+ },
+ "n_cells": 64,
+ "bars": {
+  "E1_structure_beats_random": {
+   "holds": true
+  },
+  "L1_eigen_vs_energy": {
+   "min_advantage": -0.37735056892882696,
+   "median_advantage": -0.11930830362245379,
+   "cells_behind": 53,
+   "margin": 0.0,
+   "holds": false
+  },
+  "L2_readenergy_vs_energy": {
+   "pooled_advantage_by_rank": {
+    "16": 0.006378842502338013,
+    "32": 0.007998173501016566,
+    "64": 0.03145655178085009,
+    "128": 0.10012673163508817
+   },
+   "worst_cell": -0.09601642099762013,
+   "margin": 0.01,
+   "tol": 0.13,
+   "holds": false
+  },
+  "N1_convergence": {
+   "pooled_advantage_by_n": {
+    "64": 0.0435062596247213,
+    "96": 0.029473890084925115
+   },
+   "diff_top_two": 0.014032369539796186,
+   "limit": 0.03,
+   "holds": true
+  },
+  "Q1_quadratic_remainder": {
+   "median": 0.02409434350507756,
+   "max": 0.08690864078267908,
+   "n": 16
+  }
+ },
+ "gate": "INDETERMINATE"
+}

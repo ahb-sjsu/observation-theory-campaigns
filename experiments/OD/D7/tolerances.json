@@ -1,0 +1,16 @@
+{
+ "M1": 0.0,
+ "M2": 0.01,
+ "TOL2": 0.13,
+ "TOL_N": 0.03,
+ "pilot": {
+  "median_adv_eigen": -0.11930830362245379,
+  "pooled_adv_readenergy": 0.03649007485482321,
+  "min_adv_readenergy": -0.09601642099762013,
+  "pooled_by_n": {
+   "64": 0.0435062596247213,
+   "96": 0.029473890084925115
+  }
+ },
+ "rule": "PREREG-D7 Section 5: M1 = 0.5 x pilot median eigen advantage rounded down to 0.01 (at least 0); M2 = 0.5 x pilot pooled read-energy advantage rounded down to 0.01 (at least 0); TOL2 = 1.25 x pilot max read-energy shortfall rounded up to 0.01; TOL_N = 1.5 x the change of the pooled read-energy advantage between the pilot resolutions rounded up to 0.01"
+}
