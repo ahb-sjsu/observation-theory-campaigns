@@ -1,0 +1,165 @@
+{
+ "tolerances": {
+  "TOL_N": 0.11,
+  "TOL_C": 0.11,
+  "RATIO": 0.75,
+  "pilot": {
+   "resolution_diffs_normalised_B8plus": {
+    "p_ic11_N128_nu0|p_ic11_N256_nu0": 0.024183485475851696,
+    "p_ic11_N128_nu0.005|p_ic11_N256_nu0.005": 0.04885966935762032,
+    "p_ic12_N128_nu0|p_ic12_N256_nu0": 0.04590095799563754,
+    "p_ic12_N128_nu0.005|p_ic12_N256_nu0.005": 0.06973728463636064,
+    "p_ic13_N128_nu0|p_ic13_N256_nu0": 0.02950169156381699,
+    "p_ic13_N128_nu0.005|p_ic13_N256_nu0.005": 0.01685275353351734,
+    "p_ic14_N128_nu0|p_ic14_N256_nu0": 0.035179125962390256,
+    "p_ic14_N128_nu0.005|p_ic14_N256_nu0.005": 0.054410511652520976
+   },
+   "resolution_diffs_raw_all_budgets": {
+    "p_ic11_N128_nu0|p_ic11_N256_nu0": 0.044503438274414164,
+    "p_ic11_N128_nu0.005|p_ic11_N256_nu0.005": 0.059589914000873545,
+    "p_ic12_N128_nu0|p_ic12_N256_nu0": 0.04609452866224606,
+    "p_ic12_N128_nu0.005|p_ic12_N256_nu0.005": 0.06584597415453597,
+    "p_ic13_N128_nu0|p_ic13_N256_nu0": 0.04732714370376623,
+    "p_ic13_N128_nu0.005|p_ic13_N256_nu0.005": 0.06266927252520871,
+    "p_ic14_N128_nu0|p_ic14_N256_nu0": 0.031552579691988436,
+    "p_ic14_N128_nu0.005|p_ic14_N256_nu0.005": 0.0388139859156178
+   },
+   "collapse": {
+    "0.0": {
+     "scaled": {
+      "n_bins": 15,
+      "median_iqr": 0.07259785377153827,
+      "max_iqr": 0.17643864633232664,
+      "n_points": 1034
+     },
+     "unscaled": {
+      "n_bins": 4,
+      "median_iqr": 0.12583549422382445,
+      "max_iqr": 0.17855792165010498,
+      "n_points": 1034
+     }
+    },
+    "0.005": {
+     "scaled": {
+      "n_bins": 14,
+      "median_iqr": 0.03944421422309108,
+      "max_iqr": 0.13040427978411473,
+      "n_points": 1034
+     },
+     "unscaled": {
+      "n_bins": 4,
+      "median_iqr": 0.0792589084865134,
+      "max_iqr": 0.13270529387533492,
+      "n_points": 1034
+     }
+    }
+   }
+  },
+  "rule": "PREREG-D5V4 Section 5: TOL_N = 1.5 x pilot max in-scope N1 difference on f_B(t)/f_B(0) at budgets 8 and above rounded up to 0.01; TOL_C = 1.5 x pilot max in-scope per-viscosity median bin IQR of the scaled collapse rounded up to 0.01; RATIO = 1.25 x the pilot's largest in-scope scaled-over-unscaled ratio rounded up to 0.05, at most 0.9"
+ },
+ "scope_nu_max": 0.005,
+ "convergence_budget_min": 8,
+ "bars": {
+  "E1_nested": {
+   "holds": true
+  },
+  "N1_convergence_in_scope": {
+   "pairs": {
+    "r_ic21_N256_nu0|r_ic21_N512_nu0": 0.029112639106558813,
+    "r_ic21_N256_nu0.005|r_ic21_N512_nu0.005": 0.012192462239707047,
+    "r_ic22_N256_nu0|r_ic22_N512_nu0": 0.05531313870325183,
+    "r_ic22_N256_nu0.005|r_ic22_N512_nu0.005": 0.03163081767828335,
+    "r_ic23_N256_nu0|r_ic23_N512_nu0": 0.044253978741228495,
+    "r_ic23_N256_nu0.005|r_ic23_N512_nu0.005": 0.035159548668117435,
+    "r_ic24_N256_nu0|r_ic24_N512_nu0": 0.07679126607466069,
+    "r_ic24_N256_nu0.005|r_ic24_N512_nu0.005": 0.09487534472611336
+   },
+   "max_diff": 0.09487534472611336,
+   "limit": 0.11,
+   "holds": true
+  },
+  "C1_collapse_in_scope": {
+   "by_nu": {
+    "0.0": {
+     "scaled": {
+      "n_bins": 15,
+      "median_iqr": 0.057088531456684466,
+      "max_iqr": 0.12196077263276184,
+      "n_points": 1236
+     },
+     "unscaled": {
+      "n_bins": 4,
+      "median_iqr": 0.12849744615793218,
+      "max_iqr": 0.17830263825195125,
+      "n_points": 1236
+     }
+    },
+    "0.005": {
+     "scaled": {
+      "n_bins": 14,
+      "median_iqr": 0.03593858440331554,
+      "max_iqr": 0.09181456482405959,
+      "n_points": 1236
+     },
+     "unscaled": {
+      "n_bins": 4,
+      "median_iqr": 0.07854061678380697,
+      "max_iqr": 0.1362505239756866,
+      "n_points": 1236
+     }
+    }
+   },
+   "limit_median": 0.11,
+   "limit_max": 0.22,
+   "holds": true
+  },
+  "C2_scaled_beats_null_in_scope": {
+   "ratio": 0.75,
+   "holds": true
+  },
+  "R1_outside_scope": {
+   "0.02": {
+    "scaled_median_iqr": 0.03615953984439446,
+    "unscaled_median_iqr": 0.04449094064661974
+   }
+  },
+  "C3_control_does_not_collapse": {
+   "per_control": {
+    "c_ns2d_64_ic51": {
+     "scaled": {
+      "n_bins": 8,
+      "median_iqr": 0.1367613340313345,
+      "max_iqr": 0.6423444181095899,
+      "n_points": 324
+     },
+     "unscaled": {
+      "n_bins": 4,
+      "median_iqr": 0.24550562815811508,
+      "max_iqr": 0.5223574706754373,
+      "n_points": 324
+     },
+     "ratio": 0.5570598729543379,
+     "holds": false
+    },
+    "c_ns2d_64_ic52": {
+     "scaled": {
+      "n_bins": 8,
+      "median_iqr": 0.1069597213195797,
+      "max_iqr": 0.566606009790388,
+      "n_points": 324
+     },
+     "unscaled": {
+      "n_bins": 4,
+      "median_iqr": 0.4792969038915681,
+      "max_iqr": 0.6252616799183854,
+      "n_points": 324
+     },
+     "ratio": 0.22315963331108296,
+     "holds": false
+    }
+   },
+   "holds": false
+  }
+ },
+ "gate": "FAIL"
+}

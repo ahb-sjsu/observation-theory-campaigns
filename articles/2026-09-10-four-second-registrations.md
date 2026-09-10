@@ -23,7 +23,8 @@ D1v2, passed every bar in every cell on a second fresh seed. Section 6 records t
 registrations that followed the same day, the definitions the second ones named: D7v3 passed on
 a finer resolution ladder, D6v3 passed with feasibility decided at the cap and a tie-break for
 the exact search, and D5v3 held the bar it changed and exposed one more definition in its
-control.
+control. A fourth registration, D5v4, fixed that definition and failed on it, which withdrew a
+reading three records had carried: the D5 collapse measure is not specific to a forming front.
 
 ## 1. What a second registration may and may not do
 
@@ -157,6 +158,24 @@ since their read fractions differ, the separation between the controls reads as 
 against a bar of 0.70. D5v2's controls had escaped this because their trajectories were alike.
 The bar as declared pools the controls; the quantity the claim needs is the within-control
 comparison, which is exactly one on both. That is a definition, and it is on record as one.
+
+D5v4 registered that definition and failed. Its two controls, whose gradient scales drifted by a
+fifth and a third over the run, collapsed on B over their own front wavenumber at 0.22 and 0.56
+of their unscaled scatter, under the fail line of 0.5 and inside the 0.44 to 0.48 the Burgers
+worlds show on every draw. The grader's numbers say why. The unscaled null takes one value per
+budget, so each of its bins holds a budget's whole time series; dividing by any scale that
+moves in time spreads that series across two bins and lowers the within-bin scatter by
+construction. The earlier controls had passed because their scale did not move. So the
+collapse measure the D5 line had used since its first registration, the interquartile range in
+half-octave bins against the same in bins of the raw budget, is not specific to a forming
+front, and the readings of D5v2 and D5v3 that the collapse belongs to the front are withdrawn
+by the D5v4 record. What stands is what those registrations established without that reading:
+the read fraction converges in resolution, and the front wavenumber orders the Burgers worlds'
+read fractions onto one curve across initial conditions and resolutions. A fifth registration
+would need a null that is not degenerate, a wrong scale with the same time dependence, and
+that is a change of the claim, so it is named and not registered. This is the case the
+discipline exists for: a definition fixed, and the fixed definition refuting a reading three
+records had carried.
 
 D7v3 kept D7v2's claim, scope and bars and moved the ladder one step finer, n = 128 against 192.
 It passed. The read-distortion closure was ahead of the energy closure by 2.8 percent at rank 64

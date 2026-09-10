@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2, D6v2 and D1v2 recorded 2026-09-10; third registrations D5v3, D7v3 and D6v3 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2, D6v2 and D1v2 recorded 2026-09-10; third registrations D5v3, D7v3 and D6v3 recorded 2026-09-10; fourth registration D5v4 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -400,3 +400,14 @@ record = "experiments/DISCOVERY-TRACK.md, D6v3 record; experiments/OD/D6v3/grade
 witness = "54 feasible cells on five worlds with fresh seeds (one count proved unreachable under the cap of 12 and recorded): the selector equal to the exhaustive minimum in all 50 checkable cells; strictly fewer sensors than the energy ranking in 10 of 28 discriminating cells (bar 0.25) and never more; never more than a random ordering; never more than D6's greedy and fewer in six cells; the horizon 12.3 percent longer than the energy placement's pooled on 14 discriminating growth cells (bar 10) and 19.5 longer than random, never shorter by more than 1.0 percent (tolerance 5)"
 absorbed_by = ""
 revision = "none; D6's two misses were greedy's, D6v2's two were definitions, D6v3 has none"
+
+[[test]]
+transformation = "OD:singular-transition"
+claim = "fourth version: D5v3's claim with the control bar taken per control, each two-dimensional control's read fractions collapsing no more tightly on B over its own front wavenumber than on B alone"
+entries = ["observer", "budget", "read-fraction", "singularity"]
+outcome = "failed"
+record = "experiments/DISCOVERY-TRACK.md, D5v4 record; experiments/OD/D5v4/grade.json"
+boundary = "both controls under the fail line: scaled over unscaled median bin IQR 0.56 (gradient up a third, front wavenumber 3.2 to 4.1) and 0.22 (gradient up two percent, 1.8 to 2.2), against a bar of 0.75 and a fail clause of 0.5; the Burgers worlds at 0.44 and 0.46 on the same draw; convergence 0.012 to 0.095 against 0.11 and the collapse bars held"
+witness = "the unscaled null takes one value per budget, so each of its bins holds a budget's whole time series; dividing by any scale that drifts in time spreads that series across bins and lowers the within-bin scatter by construction; the collapse measure is not specific to the forming front, and the readings of D5v2 and D5v3 that it is are withdrawn"
+absorbed_by = "declaration"
+revision = "a null that is not degenerate, a wrong scale with the same time dependence; a change of the null and so of the claim; not registered"
