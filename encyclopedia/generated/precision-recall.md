@@ -36,7 +36,7 @@ Chapter 0 section 0.14 of *Data Mining as Observation*, with the program's preci
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 14 section 14.7 | 51 percent moderated at 80 and 95 percent precision on the balanced set | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:84-88`](https://github.com/ahb-sjsu/gtc-prototype/blob/c4ca1ef/docs/SPECTRUM_FINDINGS.md#L84-L88) |
+| chapter 14 section 14.7 | 51 percent moderated at 80 and 95 percent precision on the balanced set | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:84-88`](https://github.com/ahb-sjsu/gtc-prototype/blob/c754bc5/docs/SPECTRUM_FINDINGS.md#L84-L88) |
 
 ## failures and corrections
 
@@ -49,7 +49,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/PrecisionRecall.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/PrecisionRecall.lean), theorems `precision_mem_unit`, `recall_mem_unit`, `f1_le_mean`, `min_le_f1`, `f1_self`, `f1_zero`, `f1_counts`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/PrecisionRecall.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/lean/DataMiningAsObservation/PrecisionRecall.lean), theorems `precision_mem_unit`, `recall_mem_unit`, `f1_le_mean`, `min_le_f1`, `f1_self`, `f1_zero`, `f1_counts`, at observation-data-mining c149a10; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/chapters/machine_checked.md).
 
 ## used in
 
@@ -65,4 +65,4 @@ Book equations stated beside the entry's terms, not defining it: 6.2.
 
 ## status
 
-Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining c149a10; the commit of every record is listed in the encyclopedia's provenance.

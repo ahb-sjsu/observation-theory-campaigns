@@ -34,8 +34,8 @@ Chapter 14 section 14.5 of *Data Mining as Observation*, with the formula in `gt
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 14 section 14.3 | contraction 0.779 to 0.863, 77 of 1600, 4.8 percent, 0.872 to 0.863, weight 2.69 | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:66-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/c4ca1ef/docs/SPECTRUM_FINDINGS.md#L66-L99) |
-| chapter 14 section 14.5 | the contraction formula fairness minus the general component | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:90-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/c4ca1ef/docs/SPECTRUM_FINDINGS.md#L90-L99) |
+| chapter 14 section 14.3 | contraction 0.779 to 0.863, 77 of 1600, 4.8 percent, 0.872 to 0.863, weight 2.69 | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:66-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/c754bc5/docs/SPECTRUM_FINDINGS.md#L66-L99) |
+| chapter 14 section 14.5 | the contraction formula fairness minus the general component | [`gtc-prototype/docs/SPECTRUM_FINDINGS.md:90-99`](https://github.com/ahb-sjsu/gtc-prototype/blob/c754bc5/docs/SPECTRUM_FINDINGS.md#L90-L99) |
 
 ## failures and corrections
 
@@ -48,9 +48,9 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/ReadOperator.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/ReadOperator.lean), theorems `rank_one_reads_one_direction`, `readOp_mulVec`, `quad_readOp`, `quad_readOp_nonneg`, `readOp_mulVec_eq_zero_iff`, `readOp_diag`, `readOp_offdiag`, `readOp_symm`, `readOp_neg`, `affine_const_along_nuisance`, `readOp_affine`, `readOp_sqLength_basis`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/ReadOperator.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/lean/DataMiningAsObservation/ReadOperator.lean), theorems `rank_one_reads_one_direction`, `readOp_mulVec`, `quad_readOp`, `quad_readOp_nonneg`, `readOp_mulVec_eq_zero_iff`, `readOp_diag`, `readOp_offdiag`, `readOp_symm`, `readOp_neg`, `affine_const_along_nuisance`, `readOp_affine`, `readOp_sqLength_basis`, at observation-data-mining c149a10; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/chapters/machine_checked.md).
 
-[`lean/DataMiningAsObservation/Attribution.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/Attribution.lean), theorems `attr_sum_affine`, `attr_unread`, `sq_sensitivity_eq_readOp_diag`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Attribution.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/lean/DataMiningAsObservation/Attribution.lean), theorems `attr_sum_affine`, `attr_unread`, `sq_sensitivity_eq_readOp_diag`, at observation-data-mining c149a10; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/chapters/machine_checked.md).
 
 ## used in
 
@@ -68,4 +68,4 @@ Ledger rows that cite the entry's records without naming it: GO-EC-3.
 
 ## status
 
-Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining c149a10; the commit of every record is listed in the encyclopedia's provenance.

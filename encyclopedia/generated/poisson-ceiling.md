@@ -44,12 +44,18 @@ none
 
 ## invariance envelope
 
-none declared
+**Boundary measured.**
+
+- OD:world-transfer, transfer of a law frozen on synthetic worlds to embedding corpora, ANN corpora, and dynamical state spaces without retuning. Claim: With the log Poisson hub excess as the target on D2v6's world, the frozen law log(excess) = -1.103 - 0.025 / cv_knn + 0.167 log(d_eff) + 0.434 sqrt(id_twonn) predicts hubness on the bracketed heavy tails, on the d = 512 clouds, on fresh real slices and at larger N, and beats the nominal-only law and the chance level. `experiments/DISCOVERY-TRACK.md, D2v7 record; experiments/OD/D2v7/grade.json`. Boundary: every heavy-tailed unseen world inside the limit (t with 4 degrees at d = 256 0.18, Laplace at d = 224 0.19, t with 2.5 degrees at d = 128 0.11, log-normal at d = 192 0.14, t with 6 degrees at d = 192 0.18, RMS log ratios against 0.66); the Gaussian at d = 512 0.58 inside, the cube at d = 512 0.82 outside; real slices 0.19 to 0.45 against 0.98; seven of eight scale cells inside, Laplace at N = 12000 at 0.656 against 0.655; fresh seeds 0.29 against 0.49; the law at 0.35 pooled on the transfer groups against 1.64 (nominal) and 1.70 (chance) and inside every group. Witness: the same family, pool, search and worlds that put the heavy tails at d = 256 and the clouds at d = 512 on opposite sides of a limit in skewness hold both in log excess, because the skewness saturates where the excess keeps counting; the target, not the family and not the set, was the limit the skew registrations met. Absorbed by: declaration. Revision: the cube at d = 512 remains the one world beyond the training dimensions the law over-predicts (a factor of 2.3); a D2v8 would add full-dimensional worlds at d = 384 to 512 to the discovery set under this target, and is the coverage repair that D2v6 showed does not work for the skewness.
+
+**Failed, with witness.**
+
+- OD:world-transfer, transfer of a law frozen on synthetic worlds to embedding corpora, ANN corpora, and dynamical state spaces without retuning. Claim: With full-dimensional clouds at d = 384 and 512 in the discovery set under the log hub-excess target, the frozen law log(excess) = -0.950 - 0.010 / hill_rk + 0.219 log(d_eff) + 0.366 sqrt(id_twonn) predicts hubness on the bracketed clouds, on a cube one step beyond, on the heavy tails, on fresh real slices and at larger N, and beats the nominal law, the chance level and the frozen D2v7 law. `experiments/DISCOVERY-TRACK.md, D2v8 record; experiments/OD/D2v8/grade.json`. Boundary: the clouds beyond d = 256 all inside the limit and better than D2v7 (cube at d = 448 0.53, Gaussian at d = 512 0.50, cube at d = 640 0.65 against 0.73); real slices 0.14 to 0.24, the best of the track; heavy tails inside the limit but worse than D2v7 on every world (t with 4 degrees at d = 256 0.25 against 0.14); Laplace at N = 12000 at 0.96 outside 0.73; the unseen ball at d = 384 at 1.44, outside and worse than chance; pooled over the transfer groups the frozen D2v7 law at 0.44 beats the law's 0.47, the fail clause. Witness: coverage of the clouds beyond d = 256 moves the excess family's error onto the heavy tails and the ball, the sign D2v6 found for the skewness family at about a third of the size; the first law to take a neighbour-distance tail variable misreads the lightest-tailed family, the uniform ball, where the reciprocal Hill term is largest; the D2v7 law, frozen without the clouds, stands as the track's law. Absorbed by: declaration. Revision: not registered: a change of shape, a term carrying the dimension and the neighbour-distance tail together rather than either alone, is the one repair of D2v6's list not yet tried; D2v7's law is the standing law until a registration beats it on the transfer groups.
 
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/PoissonCeiling.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/lean/DataMiningAsObservation/PoissonCeiling.lean), theorems `mass_nonneg`, `tail_antitone`, `tail_zero`, `tail_le_one`, `expectedAtLeast_antitone`, `example_mean`, at observation-data-mining 95af30c; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/95af30c/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/PoissonCeiling.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/lean/DataMiningAsObservation/PoissonCeiling.lean), theorems `mass_nonneg`, `tail_antitone`, `tail_zero`, `tail_le_one`, `expectedAtLeast_antitone`, `example_mean`, at observation-data-mining c149a10; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/chapters/machine_checked.md).
 
 ## used in
 
@@ -69,4 +75,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 95af30c; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining c149a10; the commit of every record is listed in the encyclopedia's provenance.
