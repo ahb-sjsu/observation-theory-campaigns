@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6 and D5 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -315,3 +315,14 @@ boundary = "converges: twelve resolution pairs at N = 256 against 512 differ by 
 witness = "the reader's share of a perturbation falls when the flow's scale crosses the reader's budget, after the gradient has grown and on regular flows too; shock formation is one way for the flow's scale to cross it, not the only one, and a budgeted reader sees it later than the gradient does; the classical extrapolation of the inverse gradient is exact for inviscid Burgers and nothing leads it"
 absorbed_by = "declaration"
 revision = "none registered: the signature is observer-relative and lawful (the collapse) but not early and not specific; two boundaries recorded, the highest viscosity and the low-budget alarm on regular flows"
+
+[[test]]
+transformation = "OD:closure-geometry"
+claim = "for a filtered two-dimensional flow with the spectral cutoff as consumer and budget, the read operator of the resolved tendency with respect to the subfilter state, probed blind on the solver, has leading eigen-directions on which a closure predicts the resolved tendency better than the same number of energy-ranked modes; and the modes of largest read distortion (sensitivity times energy) close better than the energy ranking by a pooled margin at every rank"
+entries = ["observer", "read-operator", "budget", "read-distortion"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D7 record; experiments/OD/D7/grade.json"
+boundary = "96 rank cells on three fields at n = 96 and 128, cutoffs 8 and 16, ranks 16 to 128: the eigen-direction closure behind the energy closure in 87 cells, median 15 percent, up to 53; the read-distortion ranking ahead of energy pooled by 0.4, 0.7, 1.4 and 6.1 percent at ranks 16, 32, 64 and 128 against a margin of 1, never behind by more than 7.1 against a tolerance of 13; the margin 0.016 at n = 96 and 0.026 at n = 128; every structured closure below random; the full-rank linear read leaving 3.2 percent (median) to 9.2 percent of the subgrid term at cutoff 8 and nothing at 16"
+witness = "the leading eigen-directions of the read operator rank subfilter modes by the resolved dynamics' response alone, and the flow's energy is elsewhere; the read distortion, response times energy, is the quantity that ranks, and it beats energy by an amount that grows with rank and cutoff, which is where a closure keeps enough modes for sensitivity to separate them"
+absorbed_by = "declaration"
+revision = "none registered; the track's declared order ends with this gate"
