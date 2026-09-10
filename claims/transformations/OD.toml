@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2, D6v2 and D1v2 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2, D6v2 and D1v2 recorded 2026-09-10; third registration D5v3 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -369,3 +369,14 @@ record = "experiments/DISCOVERY-TRACK.md, D1v2 record; experiments/OD/D1v2/grade
 witness = "all six well-crossed cells on a second fresh seed: Frobenius 0.045 to 0.212 of chance, above-threshold 0.049 to 0.303, below-threshold 0.022 to 0.146; single-direction verdicts and brackets exact in all fifteen World A cells; the pencil's end nearer than the truth in both positive definite cells; the cell that decided D1 at 0.303 again, 0.087 under the bar"
 absorbed_by = ""
 revision = "none; the 0.30 of chance for the above-threshold eigenvalues at 960 queries in the positive definite world is a measured property of the analytic-centre estimator, stable across seeds"
+
+[[test]]
+transformation = "OD:singular-transition"
+claim = "third version: D5v2's claim with convergence in resolution measured on f_B(t) / f_B(0) at budgets 8 and above, the quantity the collapse uses at the budgets the coarser grid resolves"
+entries = ["observer", "budget", "read-fraction", "singularity"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D5v3 record; experiments/OD/D5v3/grade.json"
+boundary = "24 trajectories on four fresh initial conditions at N = 256 and 512 and two controls: convergence 0.014 to 0.062 against 0.10 on every initial condition; the scaled collapse at 0.41 and 0.34 of the unscaled null inside the scope (bar 0.70) and 0.65 outside it; the two controls pooled at 0.57 against a bar of 0.70 and a fail clause of 0.50, each control alone at 1.00"
+witness = "the transition converges on the quantity the collapse uses; the pooled control bar measured the separation between the two controls' front wavenumbers, not the organisation within them, and the within-control comparison the claim needs is exactly one on both"
+absorbed_by = "declaration"
+revision = "the control bar taken per control: a definition, not a claim; not registered"
