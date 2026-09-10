@@ -1,0 +1,5 @@
+{"world": "pr_inviscid_N256", "N": 256, "nu": 0.0, "t_star": 0.5139, "samples": 25, "classical_alarm": 0.36000000000000004, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 2.1}
+{"world": "pr_inviscid_N512", "N": 512, "nu": 0.0, "t_star": 0.5139, "samples": 25, "classical_alarm": 0.36000000000000004, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 5.1}
+{"world": "pr_viscous_N256", "N": 256, "nu": 0.01, "t_star": 0.5139, "samples": 25, "classical_alarm": 0.38000000000000006, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 2.0}
+{"world": "pr_ns2d_64", "N": 64, "nu": 0.001, "samples": 41, "max_grad_ratio": 1.012, "obs_alarms": {"2": null, "4": null, "8": null, "16": null}, "seconds": 74.2}
+== PROBE_DONE
