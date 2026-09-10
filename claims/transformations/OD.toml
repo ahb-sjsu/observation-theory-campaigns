@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2 and D7v2 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2 and D6v2 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -348,3 +348,14 @@ boundary = "48 in-scope rank cells on three fresh fields at n = 96 and 128, cuto
 witness = "sensitivity separates subfilter modes only where the closure has a choice among modes of comparable energy, at rank 64 and above, and there it is worth 2 to 8 percent of the closure error; below that rank both rankings keep the same modes; the margin's size fell with resolution on this draw where it rose on D7's, and at this ladder it is not a number"
 absorbed_by = "declaration"
 revision = "a finer resolution ladder (n = 128 against 192) or the cutoff scaled with the resolution would say whether the margin settles; not registered"
+
+[[test]]
+transformation = "OD:observer-choice"
+claim = "second version, the rehabilitation of D6: for a linear system with candidate sensors, the placement reaching a required count of directions identifiable at budget B on the exact window Gramian with the fewest sensors, found exactly where the exhaustive search is checkable and by a pruned greedy beyond, never needs more sensors than the energy ranking, a random ordering or D6's greedy, needs strictly fewer than the energy ranking in a registered fraction of the cells where placement matters, and leaves a longer forecast horizon than the energy placement at the same count"
+entries = ["observer", "read-operator", "budget"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D6v2 record; experiments/OD/D6v2/grade.json"
+boundary = "55 feasible cells on five worlds with fresh seeds: the selector equal to the exhaustive minimum in all 50 checkable cells; strictly fewer sensors than the energy ranking in 18 of 30 discriminating cells (bar 0.30) and never more, never more than a random ordering, never more than D6's greedy and fewer in four cells; the horizon 16.3 percent longer than the energy placement's pooled on 16 discriminating growth cells and shorter in one cell by 10.3 percent against a tolerance of 10.0; one count unreachable under the cap of 12 sensors by exhaustive proof while all 20 sensors reach it"
+witness = "the spectrum places sensors: once the search's slack is removed the energy ranking wins nowhere; the two misses are definitions, a feasibility test that ignores the cap and a smallest set that is not unique, whose first member in index order gives up the horizon a tie-break on the m-th eigenvalue would keep"
+absorbed_by = "declaration"
+revision = "feasibility defined at the cap and the exact search breaking ties by the m-th eigenvalue: two definitions, not a claim; not registered"
