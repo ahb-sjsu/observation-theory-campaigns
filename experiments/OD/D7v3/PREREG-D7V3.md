@@ -1,6 +1,7 @@
-# PREREG D7v3 (DRAFT, NOT SEALED): the read-distortion closure of a filtered flow inside its rank scope, on a finer resolution ladder
+# PREREG D7v3: the read-distortion closure of a filtered flow inside its rank scope, on a finer resolution ladder
 
-Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D7v3 of the OD
+Status: SEALED 2026-09-10 by the rename to `PREREG-D7V3.md`; blob hash recorded in
+`experiments/DISCOVERY-TRACK.md` and the README status ledger. Gate D7v3 of the OD
 track (`experiments/DISCOVERY-TRACK.md`), the third registration of D7, registered after D7v2.
 Its bars and its tolerance rules were fixed in code (`d7v3_grade.py`, `d7v3_fix_tols.py`) before
 its pilot ran; this text was written after the pilot and before the seal, and Section 7 records
@@ -39,7 +40,7 @@ snapshot cells, 96 rank cells of which 48 in scope. Time step 0.002 at n = 64 sc
 
 D7's, unchanged.
 
-## 5. Bars (M2, TOL2, TOL_N FIXED FROM THE PILOT before sealing; R_MIN = 64 declared; Section 7)
+## 5. Bars (M2 = 0.02, TOL2 = 0.05 and TOL_N = 0.02 fixed from the pilot; R_MIN = 64 declared; `tolerances.json`; Section 7)
 
 D7v2's bars verbatim: E1, L2 (pooled advantage at least M2 at every in-scope rank, no in-scope
 cell behind by more than TOL2), S1 (the pooled advantage below the scope smaller than inside it),
@@ -80,9 +81,9 @@ at n = 128 and 192.
 ## 8. Sealing procedure
 
 1. Pilot on Atlas; fix the tolerances; record them in Sections 5 and 7; commit `pilot.json`,
-   `tolerances.json`.
+   `tolerances.json`. Done.
 2. Rename this file to `PREREG-D7V3.md`, commit, record its blob hash in the track document and
-   the README status ledger.
+   the README status ledger. Done by this commit.
 3. Run on the run seed, grade with `d7v3_grade.py results.json --tols tolerances.json`, commit
    `results.json` and `grade.json` as executed, enter the registry test in
    `claims/transformations/OD.toml` as the third version of `OD:closure-geometry`.
