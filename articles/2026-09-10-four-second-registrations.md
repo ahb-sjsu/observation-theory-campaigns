@@ -19,7 +19,11 @@ four second registrations found is that the misses of D5, D6 and D7 were the ins
 definition's, and that removing them moves the record rather than the verdict, and that
 the miss of D1 was its tolerance rule's. Three of the four returned INDETERMINATE again, each
 by a different single bar, and each of those bars is now a boundary with a name. The fourth,
-D1v2, passed every bar in every cell on a second fresh seed.
+D1v2, passed every bar in every cell on a second fresh seed. Section 6 records the third
+registrations that followed the same day, the definitions the second ones named: D7v3 passed on
+a finer resolution ladder, D6v3 passed with feasibility decided at the cap and a tie-break for
+the exact search, and D5v3 held the bar it changed and exposed one more definition in its
+control.
 
 ## 1. What a second registration may and may not do
 
@@ -136,7 +140,51 @@ decided D1 returned 0.303 of chance again on the second fresh seed, 0.003 over D
 0.087 under this one, so that number is a property of the analytic-centre estimator at 960
 queries and not a fluctuation, and D1's miss was its tolerance rule's.
 
-## 6. What the four say together
+## 6. Third registrations: the definitions the second ones named
+
+Each second registration's record named one more revision and said whether it was a claim or a
+definition. Three were registered the same day, under the same rule.
+
+D5v3 kept D5v2's claim, scope, collapse bars and control and measured convergence on the
+normalised read fraction at budgets 8 and above, the quantity the collapse uses at the budgets
+the coarser grid resolves. That bar held on every initial condition, 0.014 to 0.062 against 0.10,
+and the collapse held at 0.41 and 0.34 of the null, the tightest of the three registrations. The
+verdict is INDETERMINATE by the control bar, and the grader's own numbers say why. Taken one
+control at a time, each control's scaled and unscaled scatters coincide exactly, because a
+control's front wavenumber barely moves and the scaling is then a constant shift of its points.
+Pooled, the two controls' different front wavenumbers put their points in different bins, and
+since their read fractions differ, the separation between the controls reads as a collapse, 0.57
+against a bar of 0.70. D5v2's controls had escaped this because their trajectories were alike.
+The bar as declared pools the controls; the quantity the claim needs is the within-control
+comparison, which is exactly one on both. That is a definition, and it is on record as one.
+
+D7v3 kept D7v2's claim, scope and bars and moved the ladder one step finer, n = 128 against 192.
+It passed. The read-distortion closure was ahead of the energy closure by 2.8 percent at rank 64
+and 10.0 percent at rank 128, behind in 6 of 48 cells by at most 3.6 percent, ahead by nothing
+below the scope, and the in-scope margin was 6.3 percent at n = 128 and 6.6 percent at n = 192.
+D7v2's fall from n = 96 to 128 was the coarse end of the ladder; the margin has settled. The read
+operator's effective rank is the same at both resolutions, about 130 at the coarse cutoff and
+360 at the fine one, so what the closure reads is the same operator and what grows with n is the
+subfilter space it is read against. Across the three registrations the declared arm of D7, the
+operator's leading eigen-directions, is refuted each time, and the theory's own quantity, the
+read distortion, is what ranks, inside a scope that is itself a bar.
+
+D6v3 kept D6v2's claim and selector and added the two definitions: feasibility decided at the cap
+by the exact search, and ties among smallest sets broken by the m-th eigenvalue. Its pilot found
+every cell reachable at the cap, the selector exact everywhere, strictly fewer sensors than the
+energy ranking in 7 of 14 discriminating cells and never more, and the horizon 28 percent longer
+than the energy placement's pooled. Its run passed. On five worlds with fresh seeds the exact
+search proved one count unreachable under the cap, which was recorded and not graded, as the
+registration defines; in the 54 feasible cells the selector was exact in all 50 that could be
+checked, needed strictly fewer sensors than the energy ranking in 10 of 28 discriminating cells and
+never more, never more than D6's greedy and fewer in six, and its placements left 12 percent more
+forecast time than the energy placement's pooled on the growth worlds and were never materially
+shorter. The cell that had decided D6v2's horizon miss is no longer short once the tie-break
+picks, among equally small sets, the one with the most margin on the eigenvalue that has to
+clear the threshold. Three registrations: D6's misses were greedy's, D6v2's were definitions,
+D6v3 has none.
+
+## 7. What the registrations say together
 
 The declared order's INDETERMINATE verdicts were of three kinds, and the second
 registrations separate them. Where the miss was the instrument's, as in D6, removing the
