@@ -1,0 +1,7 @@
+== start Thu Sep 10 04:10:10 AM UTC 2026 HEAD 7dc2b77 role run seal 56b1c4918a4c6940b1a1f5e03d68e12e7318c083
+{"world": "diffusion_n20", "growth": -0.022, "cells": 12, "feasible": 12, "seconds": 174.5}
+{"world": "lorenz96_n20", "growth": 7.944, "cells": 12, "feasible": 10, "seconds": 442.9}
+{"world": "shallow_n24", "growth": 0.0, "cells": 12, "feasible": 12, "seconds": 135.4}
+{"world": "u_advdiff_n20", "growth": -0.0, "cells": 12, "feasible": 12, "seconds": 223.8}
+{"world": "u_lorenz96_n24_F10", "growth": 10.248, "cells": 12, "feasible": 9, "seconds": 149.8}
+== RUN_DONE rc=0

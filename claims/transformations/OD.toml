@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9 and D6 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -293,3 +293,14 @@ boundary = "in scope: all eighteen unseen worlds inside 0.64 (balls at d = 256 a
 witness = "the D2v7 law's failures on this world are where the registration said they are: a regime of unreliability of the reciprocal concentration term on over-concentrated rows under near-isotropic readers, declared before the run at 0.015 and confirmed by the out-of-scope error; inside it the law holds on every world no earlier registration held together; the one in-scope miss is the Laplace family at N = 12000, where the law has no term in N, at 0.656, 0.917 and 0.67 on three seeds against limits of 0.655, 0.73 and 0.64"
 absorbed_by = "declaration"
 revision = "the standing law of the track is the D2v7 law with this scope; its second boundary, in N for the Laplace family, is on record and not declared; a registration that declared it would need a term in N, a change of family, and is not registered"
+
+[[test]]
+transformation = "OD:observer-choice"
+claim = "for a linear system with candidate sensors, the placement that reaches a required count of directions identifiable at budget B (Theorem 2's count on the exact window Gramian) with the fewest sensors is found by a greedy selection on the Gramian's spectrum, never needs more sensors than the energy ranking or a random ordering, is within a factor of the exhaustive optimum, and leaves a longer forecast horizon than the energy and random placements at the same count"
+entries = ["observer", "read-operator", "budget"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D6 record; experiments/OD/D6/grade.json"
+boundary = "55 feasible cells on five worlds (a diffusion chain, the Lorenz-96 Jacobian, a shallow-water grid, an unseen advection-diffusion chain, an unseen Lorenz-96 at F = 10): greedy within 1.33 of the exhaustive optimum in all 50 checkable cells and equal in 45; strictly fewer sensors than the energy ranking in 16 of 27 discriminating cells, never more than a random ordering, and one sensor more than the energy ranking in one unseen cell where greedy missed the optimum; the forecast horizon 10.7 percent longer than the energy placement's and 17.8 percent longer than random pooled on 14 discriminating growth cells, never shorter; greedy at the sensor cap of 12 without the count in one Lorenz-96 cell"
+witness = "the count of identifiable directions at a budget is the placement quantity: where any placement works, every selector ties; where placement matters, the Gramian's spectrum finds fewer sensors than the energy of the readings does, and the sensors it picks leave the forecast error in the slower directions; the one cell the energy ranking won is a cell greedy lost to the exhaustive optimum"
+absorbed_by = "declaration"
+revision = "the selector, not the claim: a one-step lookahead or the exhaustive optimum where feasible would test the spectrum without greedy's slack; not registered"
