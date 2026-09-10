@@ -1,0 +1,58 @@
+{
+ "TOL_N": 0.11,
+ "TOL_C": 0.11,
+ "RATIO": 0.75,
+ "pilot": {
+  "resolution_diffs_normalised_B8plus": {
+   "p_ic11_N128_nu0|p_ic11_N256_nu0": 0.024183485475851696,
+   "p_ic11_N128_nu0.005|p_ic11_N256_nu0.005": 0.04885966935762032,
+   "p_ic12_N128_nu0|p_ic12_N256_nu0": 0.04590095799563754,
+   "p_ic12_N128_nu0.005|p_ic12_N256_nu0.005": 0.06973728463636064,
+   "p_ic13_N128_nu0|p_ic13_N256_nu0": 0.02950169156381699,
+   "p_ic13_N128_nu0.005|p_ic13_N256_nu0.005": 0.01685275353351734,
+   "p_ic14_N128_nu0|p_ic14_N256_nu0": 0.035179125962390256,
+   "p_ic14_N128_nu0.005|p_ic14_N256_nu0.005": 0.054410511652520976
+  },
+  "resolution_diffs_raw_all_budgets": {
+   "p_ic11_N128_nu0|p_ic11_N256_nu0": 0.044503438274414164,
+   "p_ic11_N128_nu0.005|p_ic11_N256_nu0.005": 0.059589914000873545,
+   "p_ic12_N128_nu0|p_ic12_N256_nu0": 0.04609452866224606,
+   "p_ic12_N128_nu0.005|p_ic12_N256_nu0.005": 0.06584597415453597,
+   "p_ic13_N128_nu0|p_ic13_N256_nu0": 0.04732714370376623,
+   "p_ic13_N128_nu0.005|p_ic13_N256_nu0.005": 0.06266927252520871,
+   "p_ic14_N128_nu0|p_ic14_N256_nu0": 0.031552579691988436,
+   "p_ic14_N128_nu0.005|p_ic14_N256_nu0.005": 0.0388139859156178
+  },
+  "collapse": {
+   "0.0": {
+    "scaled": {
+     "n_bins": 15,
+     "median_iqr": 0.07259785377153827,
+     "max_iqr": 0.17643864633232664,
+     "n_points": 1034
+    },
+    "unscaled": {
+     "n_bins": 4,
+     "median_iqr": 0.12583549422382445,
+     "max_iqr": 0.17855792165010498,
+     "n_points": 1034
+    }
+   },
+   "0.005": {
+    "scaled": {
+     "n_bins": 14,
+     "median_iqr": 0.03944421422309108,
+     "max_iqr": 0.13040427978411473,
+     "n_points": 1034
+    },
+    "unscaled": {
+     "n_bins": 4,
+     "median_iqr": 0.0792589084865134,
+     "max_iqr": 0.13270529387533492,
+     "n_points": 1034
+    }
+   }
+  }
+ },
+ "rule": "PREREG-D5V4 Section 5: TOL_N = 1.5 x pilot max in-scope N1 difference on f_B(t)/f_B(0) at budgets 8 and above rounded up to 0.01; TOL_C = 1.5 x pilot max in-scope per-viscosity median bin IQR of the scaled collapse rounded up to 0.01; RATIO = 1.25 x the pilot's largest in-scope scaled-over-unscaled ratio rounded up to 0.05, at most 0.9"
+}
