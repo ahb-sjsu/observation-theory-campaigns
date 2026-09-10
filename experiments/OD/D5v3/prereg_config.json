@@ -1,0 +1,424 @@
+{
+ "world": "D5v3: D5v2's world with fresh seeds; the convergence bar on f_B(t) / f_B(0) at budgets 8 and above. D5's world with fresh seeds. Periodic Burgers u_t + u u_x = nu u_xx at resolutions N on a ladder, from seeded initial conditions of three Fourier modes at unit amplitude, viscosities nu on a ladder including 0; spectral observers with budget B (modes 1..B); the observational geometry of perturbations by a fixed seeded set of r smooth perturbation directions (spectrum 1/k) carried along the trajectory by the tangent solver and read through each observer, the read fraction (the share of a perturbation's energy in modes 1..B) being the observational quantity and the Gram matrix of the read images its geometry; the classical diagnostics beside every sample; decaying two-dimensional Navier-Stokes as the negative control with the same observers and estimator. Pilot: four seeded initial conditions at N = 128 and 256 and nu in {0, 0.005}, and a 48-squared control; run: four fresh initial conditions at N = 256 and 512 and nu in {0, 0.005, 0.02}, and two 64-squared controls with a stronger field over four time units.",
+ "ic_modes": 3,
+ "ic_amp": 1.0,
+ "dt_base": 0.002,
+ "N_ref": 256,
+ "t_end_factor": 0.95,
+ "sample_dt": 0.02,
+ "sketch_r": 16,
+ "budgets": [
+  2,
+  4,
+  8,
+  16,
+  32,
+  64
+ ],
+ "classical_multiple": 3.0,
+ "ns_modes": 4,
+ "ns_amp": 4.0,
+ "ns_dt": 0.002,
+ "ns_t_end": 4.0,
+ "seed_probe": 20261045,
+ "seed_pilot": 20261046,
+ "seed_run": 20261047,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot"
+  ],
+  "run": [
+   "run",
+   "control"
+  ]
+ },
+ "bars": "PREREG-D5V3.md Section 5; tolerances fixed from the pilot; N1 on f_B(t)/f_B(0) at budgets 8 and above",
+ "worlds": [
+  {
+   "name": "pr_inviscid_N256",
+   "group": "probe",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 1,
+   "in_probe": true
+  },
+  {
+   "name": "pr_inviscid_N512",
+   "group": "probe",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.0,
+   "seed_offset": 1,
+   "in_probe": true
+  },
+  {
+   "name": "pr_viscous_N256",
+   "group": "probe",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.01,
+   "seed_offset": 1,
+   "in_probe": true
+  },
+  {
+   "name": "pr_ns2d_64",
+   "group": "probe",
+   "family": "ns2d",
+   "N": 64,
+   "nu": 0.001,
+   "seed_offset": 5,
+   "in_probe": true
+  },
+  {
+   "name": "p_ic11_N128_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.0,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_ic11_N128_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.005,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_ic11_N256_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_ic11_N256_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_ic12_N128_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.0,
+   "seed_offset": 12
+  },
+  {
+   "name": "p_ic12_N128_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.005,
+   "seed_offset": 12
+  },
+  {
+   "name": "p_ic12_N256_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 12
+  },
+  {
+   "name": "p_ic12_N256_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 12
+  },
+  {
+   "name": "p_ic13_N128_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.0,
+   "seed_offset": 13
+  },
+  {
+   "name": "p_ic13_N128_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.005,
+   "seed_offset": 13
+  },
+  {
+   "name": "p_ic13_N256_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 13
+  },
+  {
+   "name": "p_ic13_N256_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 13
+  },
+  {
+   "name": "p_ic14_N128_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.0,
+   "seed_offset": 14
+  },
+  {
+   "name": "p_ic14_N128_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 128,
+   "nu": 0.005,
+   "seed_offset": 14
+  },
+  {
+   "name": "p_ic14_N256_nu0",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 14
+  },
+  {
+   "name": "p_ic14_N256_nu0.005",
+   "group": "pilot",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 14
+  },
+  {
+   "name": "p_ns2d_48",
+   "group": "pilot",
+   "family": "ns2d",
+   "N": 48,
+   "nu": 0.001,
+   "seed_offset": 41
+  },
+  {
+   "name": "r_ic21_N256_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic21_N256_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic21_N256_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.02,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic21_N512_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.0,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic21_N512_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.005,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic21_N512_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.02,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic22_N256_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic22_N256_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic22_N256_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.02,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic22_N512_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.0,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic22_N512_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.005,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic22_N512_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.02,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic23_N256_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 23
+  },
+  {
+   "name": "r_ic23_N256_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 23
+  },
+  {
+   "name": "r_ic23_N256_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.02,
+   "seed_offset": 23
+  },
+  {
+   "name": "r_ic23_N512_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.0,
+   "seed_offset": 23
+  },
+  {
+   "name": "r_ic23_N512_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.005,
+   "seed_offset": 23
+  },
+  {
+   "name": "r_ic23_N512_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.02,
+   "seed_offset": 23
+  },
+  {
+   "name": "r_ic24_N256_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.0,
+   "seed_offset": 24
+  },
+  {
+   "name": "r_ic24_N256_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.005,
+   "seed_offset": 24
+  },
+  {
+   "name": "r_ic24_N256_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 256,
+   "nu": 0.02,
+   "seed_offset": 24
+  },
+  {
+   "name": "r_ic24_N512_nu0",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.0,
+   "seed_offset": 24
+  },
+  {
+   "name": "r_ic24_N512_nu0.005",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.005,
+   "seed_offset": 24
+  },
+  {
+   "name": "r_ic24_N512_nu0.02",
+   "group": "run",
+   "family": "burgers",
+   "N": 512,
+   "nu": 0.02,
+   "seed_offset": 24
+  },
+  {
+   "name": "c_ns2d_64_ic51",
+   "group": "control",
+   "family": "ns2d",
+   "N": 64,
+   "nu": 0.001,
+   "seed_offset": 51
+  },
+  {
+   "name": "c_ns2d_64_ic52",
+   "group": "control",
+   "family": "ns2d",
+   "N": 64,
+   "nu": 0.001,
+   "seed_offset": 52
+  }
+ ],
+ "ns_sketch_r": 8,
+ "ns_sample_dt": 0.05,
+ "read_fraction_alarm": 0.5
+}

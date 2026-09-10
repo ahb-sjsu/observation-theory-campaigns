@@ -1,0 +1,19 @@
+== start Thu Sep 10 01:17:57 PM UTC 2026 HEAD a180744 role pilot seal 
+{"world": "p_ic11_N128_nu0", "N": 128, "nu": 0.0, "t_star": 0.6676, "samples": 32, "classical_alarm": 0.46000000000000013, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.3}
+{"world": "p_ic11_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 0.6676, "samples": 32, "classical_alarm": 0.48000000000000015, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.3}
+{"world": "p_ic11_N256_nu0", "N": 256, "nu": 0.0, "t_star": 0.6676, "samples": 32, "classical_alarm": 0.46000000000000013, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 2.7}
+{"world": "p_ic11_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 0.6676, "samples": 32, "classical_alarm": 0.48000000000000015, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 2.7}
+{"world": "p_ic12_N128_nu0", "N": 128, "nu": 0.0, "t_star": 0.8663, "samples": 42, "classical_alarm": 0.6000000000000002, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.6}
+{"world": "p_ic12_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 0.8663, "samples": 42, "classical_alarm": 0.6000000000000002, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.6}
+{"world": "p_ic12_N256_nu0", "N": 256, "nu": 0.0, "t_star": 0.8663, "samples": 42, "classical_alarm": 0.5800000000000002, "obs_alarms": {"2": 0.8000000000000004, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.6}
+{"world": "p_ic12_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 0.8663, "samples": 42, "classical_alarm": 0.6000000000000002, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.6}
+{"world": "p_ic13_N128_nu0", "N": 128, "nu": 0.0, "t_star": 0.7459, "samples": 36, "classical_alarm": 0.5200000000000001, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.4}
+{"world": "p_ic13_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 0.7459, "samples": 36, "classical_alarm": 0.5400000000000001, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.4}
+{"world": "p_ic13_N256_nu0", "N": 256, "nu": 0.0, "t_star": 0.7459, "samples": 36, "classical_alarm": 0.5000000000000001, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.1}
+{"world": "p_ic13_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 0.7459, "samples": 36, "classical_alarm": 0.5400000000000001, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.1}
+{"world": "p_ic14_N128_nu0", "N": 128, "nu": 0.0, "t_star": 0.561, "samples": 27, "classical_alarm": 0.38000000000000006, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.1}
+{"world": "p_ic14_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 0.561, "samples": 27, "classical_alarm": 0.4000000000000001, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.1}
+{"world": "p_ic14_N256_nu0", "N": 256, "nu": 0.0, "t_star": 0.561, "samples": 27, "classical_alarm": 0.38000000000000006, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 2.3}
+{"world": "p_ic14_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 0.561, "samples": 27, "classical_alarm": 0.4000000000000001, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 2.3}
+{"world": "p_ns2d_48", "N": 48, "nu": 0.001, "samples": 81, "max_grad_ratio": 1.0, "obs_alarms": {"2": 0.7500000000000001, "4": null, "8": null, "16": null}, "seconds": 111.8}
+/home/claude/d5v3_launch.sh: line 9: ho: command not found
