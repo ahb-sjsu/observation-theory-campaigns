@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2, D6v2 and D1v2 recorded 2026-09-10; third registration D5v3 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2, D6v2 and D1v2 recorded 2026-09-10; third registrations D5v3 and D7v3 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -380,3 +380,13 @@ boundary = "24 trajectories on four fresh initial conditions at N = 256 and 512 
 witness = "the transition converges on the quantity the collapse uses; the pooled control bar measured the separation between the two controls' front wavenumbers, not the organisation within them, and the within-control comparison the claim needs is exactly one on both"
 absorbed_by = "declaration"
 revision = "the control bar taken per control: a definition, not a claim; not registered"
+
+[[test]]
+transformation = "OD:closure-geometry"
+claim = "third version: for a filtered two-dimensional flow with the spectral cutoff as consumer and budget, at closure rank 64 and above, the subfilter modes of largest read distortion (sensitivity times energy, the read operator probed blind on the solver) close the resolved tendency better than the same number of energy-ranked modes, pooled at every in-scope rank by a declared margin, behind in no cell by more than a declared tolerance, with a smaller margin below the scope and a margin stable between n = 128 and 192"
+entries = ["observer", "read-operator", "budget", "read-distortion"]
+outcome = "survived"
+record = "experiments/DISCOVERY-TRACK.md, D7v3 record; experiments/OD/D7v3/grade.json"
+witness = "48 in-scope rank cells on three fresh fields at n = 128 and 192: the read-distortion closure ahead of the energy closure pooled by 2.8 percent at rank 64 and 10.0 at rank 128 (bar 2), behind in 6 cells by at most 3.6 (bar 5), ahead by -0.2 and 0.4 percent below the scope; the in-scope margin 6.3 percent at n = 128 and 6.6 at n = 192 (bar 2.0 on the change); every structured closure below random; the eigen-direction closure behind energy in 40 of 48 cells; the read operator's effective rank the same at both resolutions"
+absorbed_by = ""
+revision = "none; the declared arm of D7 (the leading eigen-directions) is refuted in all three registrations and the read distortion is the ranking quantity inside the rank scope"
