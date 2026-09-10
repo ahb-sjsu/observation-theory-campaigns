@@ -1,6 +1,7 @@
-# PREREG D6v3 (DRAFT, NOT SEALED): sensor placement as the choice of an observer under a budget, with feasibility at the cap and a tie-break for the exact search
+# PREREG D6v3: sensor placement as the choice of an observer under a budget, with feasibility at the cap and a tie-break for the exact search
 
-Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D6v3 of the OD
+Status: SEALED 2026-09-10 by the rename to `PREREG-D6V3.md`; blob hash recorded in
+`experiments/DISCOVERY-TRACK.md` and the README status ledger. Gate D6v3 of the OD
 track (`experiments/DISCOVERY-TRACK.md`), the third registration of D6, registered after D6v2. Its
 bars, its tolerance rules and its two definitions were fixed in code (`d6v3_placement.py`,
 `d6v3_grade.py`, `d6v3_fix_tols.py`) before its pilot ran; this text was written after the pilot
@@ -54,7 +55,7 @@ reporting the count reachable at the cap on the chain at m = 4 with the selector
 D6's: exact given the seeds; randomness in the sensor draw and the random placements;
 tolerances fixed from the pilot by the rules of Section 5.
 
-## 5. Bars (FACTOR, PHI, TOL_H, MARGIN_H FIXED FROM THE PILOT before sealing; Section 7)
+## 5. Bars (FACTOR = 1.3, PHI = 0.25, TOL_H = 0.05, MARGIN_H = 0.1 fixed from the pilot; `tolerances.json`; Section 7)
 
 D6v2's seven bars on the feasible cells as defined in Section 1, with D6's rules: E1 (antitone
 count); P1 (the selector reaches m in every feasible cell); G1 (the selector's count within FACTOR
@@ -113,9 +114,9 @@ limit from subset size 7 and the question of feasibility at the cap is open ther
 ## 8. Sealing procedure
 
 1. Self-test, probe and pilot on Atlas; fix the tolerances; record them in Sections 5 and 7;
-   commit `probe.json`, `pilot.json`, `tolerances.json`.
+   commit `probe.json`, `pilot.json`, `tolerances.json`. Done.
 2. Rename this file to `PREREG-D6V3.md`, commit, record its blob hash in the track document and
-   the README status ledger.
+   the README status ledger. Done by this commit.
 3. Run on the run seed, grade with `d6v3_grade.py results.json --tols tolerances.json`, commit
    `results.json` and `grade.json` as executed, enter the registry test in
    `claims/transformations/OD.toml` as the third version of `OD:observer-choice`.
