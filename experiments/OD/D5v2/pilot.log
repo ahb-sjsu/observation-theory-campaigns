@@ -1,0 +1,19 @@
+== start Thu Sep 10 06:21:38 AM UTC 2026 HEAD c8cd60b role pilot seal 
+{"world": "p_ic11_N128_nu0", "N": 128, "nu": 0.0, "t_star": 1.1441, "samples": 55, "classical_alarm": 1.0400000000000005, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 2.1}
+{"world": "p_ic11_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 1.1441, "samples": 55, "classical_alarm": null, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 2.1}
+{"world": "p_ic11_N256_nu0", "N": 256, "nu": 0.0, "t_star": 1.1441, "samples": 55, "classical_alarm": 1.0000000000000004, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 4.5}
+{"world": "p_ic11_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 1.1441, "samples": 55, "classical_alarm": null, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 4.5}
+{"world": "p_ic12_N128_nu0", "N": 128, "nu": 0.0, "t_star": 0.44, "samples": 21, "classical_alarm": 0.3, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 0.8}
+{"world": "p_ic12_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 0.44, "samples": 21, "classical_alarm": 0.32, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 0.8}
+{"world": "p_ic12_N256_nu0", "N": 256, "nu": 0.0, "t_star": 0.44, "samples": 21, "classical_alarm": 0.3, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 1.8}
+{"world": "p_ic12_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 0.44, "samples": 21, "classical_alarm": 0.32, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 1.8}
+{"world": "p_ic13_N128_nu0", "N": 128, "nu": 0.0, "t_star": 0.8088, "samples": 39, "classical_alarm": 0.6400000000000002, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.5}
+{"world": "p_ic13_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 0.8088, "samples": 39, "classical_alarm": 0.7200000000000003, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.5}
+{"world": "p_ic13_N256_nu0", "N": 256, "nu": 0.0, "t_star": 0.8088, "samples": 39, "classical_alarm": 0.6400000000000002, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.2}
+{"world": "p_ic13_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 0.8088, "samples": 39, "classical_alarm": 0.7000000000000003, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.3}
+{"world": "p_ic14_N128_nu0", "N": 128, "nu": 0.0, "t_star": 0.8898, "samples": 43, "classical_alarm": 0.6400000000000002, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.7}
+{"world": "p_ic14_N128_nu0.005", "N": 128, "nu": 0.005, "t_star": 0.8898, "samples": 43, "classical_alarm": 0.6600000000000003, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null}, "seconds": 1.7}
+{"world": "p_ic14_N256_nu0", "N": 256, "nu": 0.0, "t_star": 0.8898, "samples": 43, "classical_alarm": 0.6400000000000002, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.6}
+{"world": "p_ic14_N256_nu0.005", "N": 256, "nu": 0.005, "t_star": 0.8898, "samples": 43, "classical_alarm": 0.6600000000000003, "obs_alarms": {"2": null, "4": null, "8": null, "16": null, "32": null, "64": null}, "seconds": 3.7}
+{"world": "p_ns2d_48", "N": 48, "nu": 0.001, "samples": 81, "max_grad_ratio": 1.193, "obs_alarms": {"2": 0.9000000000000002, "4": 1.7500000000000009, "8": 3.2499999999999964, "16": null}, "seconds": 109.5}
+== PILOT_DONE rc=0
