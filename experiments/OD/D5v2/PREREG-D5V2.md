@@ -1,6 +1,7 @@
-# PREREG D5v2 (DRAFT, NOT SEALED): the observer-relative transition in Burgers shock formation as a law with its viscosity scope
+# PREREG D5v2: the observer-relative transition in Burgers shock formation as a law with its viscosity scope
 
-Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D5v2 of the OD
+Status: SEALED 2026-09-10 by the rename to `PREREG-D5V2.md`; blob hash recorded in
+`experiments/DISCOVERY-TRACK.md` and the README status ledger. Gate D5v2 of the OD
 track (`experiments/DISCOVERY-TRACK.md`), the rehabilitation of D5, registered after the track's
 declared order was complete. Its bars and its tolerance rules were fixed in code (`d5v2_grade.py`,
 `d5v2_fix_tols.py`) before its pilot ran; this text was written after the pilot and before the
@@ -72,7 +73,7 @@ The quantities are deterministic given the seeds. The null for the collapse is t
 variable x = B, on the Burgers worlds and on the control alike. Tolerances are fixed from the pilot
 by the rules of Section 5.
 
-## 5. Bars (TOL_N, TOL_C, RATIO FIXED FROM THE PILOT before sealing; NU_MAX = 0.005 declared; Section 7)
+## 5. Bars (TOL_N = 0.16, TOL_C = 0.13 and RATIO = 0.75 fixed from the pilot; NU_MAX = 0.005 declared; `tolerances.json`; Section 7)
 
 - E1, exact: read fractions nested in B and at most one at every sample of every world.
 - N1: for every in-scope pair (N, 2N) at the same initial condition and viscosity, the largest
@@ -128,9 +129,9 @@ two controls.
 ## 8. Sealing procedure
 
 1. Self-test and pilot on Atlas; fix the tolerances; record them in Sections 5 and 7; commit
-   `pilot.json`, `tolerances.json`.
+   `pilot.json`, `tolerances.json`. Done.
 2. Rename this file to `PREREG-D5V2.md`, commit, record its blob hash in the track document and
-   the README status ledger.
+   the README status ledger. Done by this commit.
 3. Run on the run seed, grade with `d5v2_grade.py results.json --tols tolerances.json`, commit
    `results.json` and `grade.json` as executed, enter the registry test in
    `claims/transformations/OD.toml` as the second version of `OD:singular-transition`.
