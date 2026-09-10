@@ -1,0 +1,16 @@
+{
+ "M2": 0.02,
+ "TOL2": 0.05,
+ "TOL_N": 0.02,
+ "R_MIN": 64,
+ "pilot": {
+  "pooled_adv_readenergy_in_scope": 0.05488768516720243,
+  "min_adv_readenergy_in_scope": -0.033514241239104424,
+  "pooled_by_n": {
+   "96": 0.04995605339063715,
+   "128": 0.059819316943767714
+  },
+  "pooled_adv_below_scope": 0.007041727680597162
+ },
+ "rule": "PREREG-D7V3 Section 5: scope ranks >= 64; M2 = 0.5 x pilot in-scope pooled read-energy advantage rounded down to 0.01 (at least 0); TOL2 = 1.25 x pilot max in-scope read-energy shortfall rounded up to 0.01; TOL_N = 1.5 x the change of the in-scope pooled advantage between the pilot resolutions rounded up to 0.01"
+}

@@ -1,0 +1,58 @@
+{
+ "tolerances": {
+  "M2": 0.02,
+  "TOL2": 0.05,
+  "TOL_N": 0.02,
+  "R_MIN": 64,
+  "pilot": {
+   "pooled_adv_readenergy_in_scope": 0.05488768516720243,
+   "min_adv_readenergy_in_scope": -0.033514241239104424,
+   "pooled_by_n": {
+    "96": 0.04995605339063715,
+    "128": 0.059819316943767714
+   },
+   "pooled_adv_below_scope": 0.007041727680597162
+  },
+  "rule": "PREREG-D7V3 Section 5: scope ranks >= 64; M2 = 0.5 x pilot in-scope pooled read-energy advantage rounded down to 0.01 (at least 0); TOL2 = 1.25 x pilot max in-scope read-energy shortfall rounded up to 0.01; TOL_N = 1.5 x the change of the in-scope pooled advantage between the pilot resolutions rounded up to 0.01"
+ },
+ "scope_rank_min": 64,
+ "n_cells_in_scope": 32,
+ "n_cells_below_scope": 32,
+ "bars": {
+  "E1_structure_beats_random": {
+   "holds": true
+  },
+  "L2_readenergy_vs_energy_in_scope": {
+   "pooled_advantage_by_rank": {
+    "64": 0.032606915232224164,
+    "128": 0.0771684551021807
+   },
+   "worst_cell": -0.033514241239104424,
+   "cells_behind": 4,
+   "margin": 0.02,
+   "tol": 0.05,
+   "holds": true
+  },
+  "S1_scope_is_where_separation_is": {
+   "pooled_below_scope": 0.007041727680597162,
+   "pooled_in_scope": 0.05488768516720243,
+   "holds": true
+  },
+  "N1_convergence": {
+   "pooled_advantage_by_n": {
+    "96": 0.04995605339063715,
+    "128": 0.059819316943767714
+   },
+   "diff_top_two": 0.009863263553130566,
+   "limit": 0.02,
+   "holds": true
+  },
+  "R1_records": {
+   "eigen_vs_energy_median_in_scope": -0.16601951952841482,
+   "eigen_cells_behind": 27,
+   "quadratic_remainder_median": 0.022731441451291124,
+   "quadratic_remainder_max": 0.07373663676741167
+  }
+ },
+ "gate": "PASS"
+}

@@ -1,0 +1,138 @@
+{
+ "world": "D7v3: D7v2's claim on a finer resolution ladder, the pilot at n = 96 and 128 and the run at n = 128 and 192, the revision D7v2's record named. D7's world with fresh seeds; the claim of D7v2 is the read-distortion closure (subfilter modes ranked by sensitivity times energy) against the energy closure inside the declared scope rank >= 64, the eigen-direction closure recorded and not claimed. Decaying two-dimensional turbulence (vorticity form, pseudo-spectral, 2/3 dealiasing, RK4) at resolution n from a seeded random field with spectrum k^3 exp(-(k/k_peak)^2), snapshots at declared times; the consumer is the spectral cutoff at k_c (the large-eddy filter, the budget); the read operator of the resolved tendency with respect to the subfilter state is probed blind on the solver by central finite differences on every subfilter coefficient; closures at matched rank r: the leading eigen-directions of the read operator (the declared arm), the subfilter modes of largest read energy (sensitivity-weighted energy, the read distortion), the modes of largest energy (the classical control), and random modes; error = resolved-tendency error over the full subgrid contribution. Pilot: two seeded fields at n = 64 and 96; run: three fresh fields at n = 96 and 128; snapshots at t = 1 and 2, cutoffs 8 and 16, ranks 16 to 128 and the read operator's full rank.",
+ "k_peak": 6.0,
+ "amp": 5.0,
+ "dt_base": 0.002,
+ "n_ref": 64,
+ "snapshot_times": [
+  1.0,
+  2.0
+ ],
+ "cutoffs": [
+  8,
+  16
+ ],
+ "ranks": [
+  16,
+  32,
+  64,
+  128
+ ],
+ "eps": 1e-06,
+ "random_draws": 8,
+ "seed_probe": 20261048,
+ "seed_pilot": 20261049,
+ "seed_run": 20261050,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot"
+  ],
+  "run": [
+   "run"
+  ]
+ },
+ "bars": "PREREG-D7V3.md Section 5; tolerances fixed from the pilot; scope rank >= 64; the resolution ladder n = 128 against 192 on the run",
+ "worlds": [
+  {
+   "name": "pr_n96",
+   "group": "probe",
+   "family": "ns2d",
+   "n": 96,
+   "nu": 0.0005,
+   "seed_offset": 1,
+   "in_probe": true
+  },
+  {
+   "name": "pr_n128",
+   "group": "probe",
+   "family": "ns2d",
+   "n": 128,
+   "nu": 0.0005,
+   "seed_offset": 1,
+   "in_probe": true
+  },
+  {
+   "name": "p_ic11_n96",
+   "group": "pilot",
+   "family": "ns2d",
+   "n": 96,
+   "nu": 0.0005,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_ic11_n128",
+   "group": "pilot",
+   "family": "ns2d",
+   "n": 128,
+   "nu": 0.0005,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_ic12_n96",
+   "group": "pilot",
+   "family": "ns2d",
+   "n": 96,
+   "nu": 0.0005,
+   "seed_offset": 12
+  },
+  {
+   "name": "p_ic12_n128",
+   "group": "pilot",
+   "family": "ns2d",
+   "n": 128,
+   "nu": 0.0005,
+   "seed_offset": 12
+  },
+  {
+   "name": "r_ic21_n128",
+   "group": "run",
+   "family": "ns2d",
+   "n": 128,
+   "nu": 0.0005,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic21_n192",
+   "group": "run",
+   "family": "ns2d",
+   "n": 192,
+   "nu": 0.0005,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_ic22_n128",
+   "group": "run",
+   "family": "ns2d",
+   "n": 128,
+   "nu": 0.0005,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic22_n192",
+   "group": "run",
+   "family": "ns2d",
+   "n": 192,
+   "nu": 0.0005,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_ic23_n128",
+   "group": "run",
+   "family": "ns2d",
+   "n": 128,
+   "nu": 0.0005,
+   "seed_offset": 23
+  },
+  {
+   "name": "r_ic23_n192",
+   "group": "run",
+   "family": "ns2d",
+   "n": 192,
+   "nu": 0.0005,
+   "seed_offset": 23
+  }
+ ]
+}
