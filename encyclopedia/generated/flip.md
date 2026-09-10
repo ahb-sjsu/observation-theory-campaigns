@@ -82,7 +82,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Flip.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/lean/DataMiningAsObservation/Flip.lean), theorems `trace_eq`, `reading_difference`, `reader_swap_reverses`, `flip`, `cos_sq_pi_div_twelve`, `sin_sq_pi_div_twelve`, `reading_15_first`, `reading_15_second`, `sqrt_three_bounds`, `readings_15_to_three_decimals`, `reader_75_is_swap`, `four_to_one_flip`, at observation-data-mining c149a10; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/c149a10/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Flip.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/6aebdf3/lean/DataMiningAsObservation/Flip.lean), theorems `trace_eq`, `reading_difference`, `reader_swap_reverses`, `flip`, `cos_sq_pi_div_twelve`, `sin_sq_pi_div_twelve`, `reading_15_first`, `reading_15_second`, `sqrt_three_bounds`, `readings_15_to_three_decimals`, `reader_75_is_swap`, `four_to_one_flip`, at observation-data-mining 6aebdf3; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/6aebdf3/chapters/machine_checked.md).
 
 ## used in
 
@@ -98,4 +98,4 @@ none
 
 ## status
 
-Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining c149a10; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 6aebdf3; the commit of every record is listed in the encyclopedia's provenance.
