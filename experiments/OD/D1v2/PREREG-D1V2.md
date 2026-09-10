@@ -1,6 +1,7 @@
-# PREREG D1v2 (DRAFT, NOT SEALED): identifiability at a budget, finite-sample form, with a tolerance that carries a margin
+# PREREG D1v2: identifiability at a budget, finite-sample form, with a tolerance that carries a margin
 
-Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D1v2 of the OD
+Status: SEALED 2026-09-10 by the rename to `PREREG-D1V2.md`; blob hash recorded in
+`experiments/DISCOVERY-TRACK.md` and the README status ledger. Gate D1v2 of the OD
 track (`experiments/DISCOVERY-TRACK.md`), the rehabilitation of D1, registered after the track's
 declared order was complete. Its bars are D1's, in D1's grader unchanged; its one change is the
 rule that fixes the recovery tolerance, and that rule was fixed in code (`d1v2_fix_tols.py`)
@@ -42,7 +43,7 @@ the REC of Section 5. Tolerance fixer `d1v2_fix_tols.py`.
 D1's, unchanged: per-evaluator errors against the true spectrum and against the pencil's end,
 chance from the true spectrum in a random frame, median over 64 draws.
 
-## 5. Bars (REC FIXED FROM THE PILOT before sealing; Section 7)
+## 5. Bars (REC = 0.39 fixed from the pilot; `tolerances.json`; Section 7)
 
 D1's five bars, verbatim in `d1_grade.py`: A1, verdicts and brackets exact in every evaluator of
 every World A cell; B1, in every well-crossed World B cell at the largest query count, the median
@@ -90,9 +91,9 @@ on fresh frames and queries.
 ## 8. Sealing procedure
 
 1. Pilot on Atlas; fix REC by the rule of Section 5; record it in Sections 5 and 7; commit
-   `pilot.json`, `tolerances.json`.
+   `pilot.json`, `tolerances.json`. Done.
 2. Rename this file to `PREREG-D1V2.md`, commit, record its blob hash in the track document and
-   the README status ledger.
-3. Run on the run seed, grade with `d1_grade.py results.json --rec REC`, commit `results.json`
+   the README status ledger. Done by this commit.
+3. Run on the run seed, grade with `d1_grade.py results.json --rec 0.39`, commit `results.json`
    and `grade.json` as executed, enter the registry test in `claims/transformations/OD.toml`
    as the second version of D1's test.
