@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -282,3 +282,14 @@ boundary = "the clouds beyond d = 256 all inside the limit and better than D2v7 
 witness = "coverage of the clouds beyond d = 256 moves the excess family's error onto the heavy tails and the ball, the sign D2v6 found for the skewness family at about a third of the size; the first law to take a neighbour-distance tail variable misreads the lightest-tailed family, the uniform ball, where the reciprocal Hill term is largest; the D2v7 law, frozen without the clouds, stands as the track's law"
 absorbed_by = "declaration"
 revision = "not registered: a change of shape, a term carrying the dimension and the neighbour-distance tail together rather than either alone, is the one repair of D2v6's list not yet tried; D2v7's law is the standing law until a registration beats it on the transfer groups"
+
+[[test]]
+transformation = "OD:world-transfer"
+claim = "inside a declared scope, rows whose k-th neighbour-distance concentration cv_knn on the observed data is at least 0.015, the frozen D2v7 law log(excess) = -1.103 - 0.025 / cv_knn + 0.167 log(d_eff) + 0.434 sqrt(id_twonn) predicts the log Poisson hub excess on fresh worlds, fresh real slices and larger N within D2v7's bars and beats the nominal-only law and the chance level; outside the scope it is not claimed and its pooled error exceeds the in-scope limit"
+entries = ["hubness", "observer", "read-operator", "poisson-ceiling"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D2v9 record; experiments/OD/D2v9/grade.json; experiments/OD/D2v9_explore/README.md"
+boundary = "in scope: all eighteen unseen worlds inside 0.64 (balls at d = 256 and 384 at 0.43 and 0.44, cube at d = 640 at 0.37, heavy tails 0.12 to 0.27), pooled 0.31 against 0.48; real slices 0.12 to 0.41 against 0.96; seven of eight scale cells inside, Laplace at d = 64 and N = 12000 at 0.67 against 0.64, the cell the registration named in advance; the law at 0.34 pooled on in-scope transfer rows against 1.63 (nominal) and 1.64 (chance) and inside every group; out of scope: 180 rows in twelve worlds at 1.19 against 0.64, the balls under-predicted (to -0.84 median residual), the cubes over-predicted (to +1.37), the torus and the sphere fitted anyway (0.14, 0.08)"
+witness = "the D2v7 law's failures on this world are where the registration said they are: a regime of unreliability of the reciprocal concentration term on over-concentrated rows under near-isotropic readers, declared before the run at 0.015 and confirmed by the out-of-scope error; inside it the law holds on every world no earlier registration held together; the one in-scope miss is the Laplace family at N = 12000, where the law has no term in N, at 0.656, 0.917 and 0.67 on three seeds against limits of 0.655, 0.73 and 0.64"
+absorbed_by = "declaration"
+revision = "the standing law of the track is the D2v7 law with this scope; its second boundary, in N for the Laplace family, is on record and not declared; a registration that declared it would need a term in N, a change of family, and is not registered"
