@@ -1,6 +1,7 @@
-# PREREG D5v4 (DRAFT, NOT SEALED): the observer-relative transition in Burgers shock formation as a law, with the control bar taken per control
+# PREREG D5v4: the observer-relative transition in Burgers shock formation as a law, with the control bar taken per control
 
-Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D5v4 of the OD
+Status: SEALED 2026-09-10 by the rename to `PREREG-D5V4.md`; blob hash recorded in
+`experiments/DISCOVERY-TRACK.md` and the README status ledger. Gate D5v4 of the OD
 track (`experiments/DISCOVERY-TRACK.md`), the fourth registration of D5, registered after D5v3.
 Its bars and its tolerance rules were fixed in code (`d5v4_grade.py`, `d5v4_fix_tols.py`) before
 its pilot ran; this text was written after the pilot and before the seal, and Section 7 records
@@ -43,7 +44,7 @@ Tolerance fixer `d5v4_fix_tols.py`.
 
 D5v3's, unchanged.
 
-## 5. Bars (TOL_N, TOL_C, RATIO FIXED FROM THE PILOT before sealing; NU_MAX = 0.005 and B_MIN_N = 8 declared; Section 7)
+## 5. Bars (TOL_N = 0.11, TOL_C = 0.11 and RATIO = 0.75 fixed from the pilot; NU_MAX = 0.005 and B_MIN_N = 8 declared; `tolerances.json`; Section 7)
 
 - E1, N1, C1, C2, R1: D5v3's, verbatim, with TOL_N, TOL_C and RATIO by D5v3's rules.
 - C3: for every control, its scaled median bin IQR is at least RATIO times its own unscaled median
@@ -84,9 +85,9 @@ rows give PASS under the fixed tolerances (`pilot_grade.json`).
 ## 8. Sealing procedure
 
 1. Self-test and pilot on Atlas; fix the tolerances; record them in Sections 5 and 7; commit
-   `pilot.json`, `tolerances.json`.
+   `pilot.json`, `tolerances.json`. Done.
 2. Rename this file to `PREREG-D5V4.md`, commit, record its blob hash in the track document and
-   the README status ledger.
+   the README status ledger. Done by this commit.
 3. Run on the run seed, grade with `d5v4_grade.py results.json --tols tolerances.json`, commit
    `results.json` and `grade.json` as executed, enter the registry test in
    `claims/transformations/OD.toml` as the fourth version of `OD:singular-transition`.
