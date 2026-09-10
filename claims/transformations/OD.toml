@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitation D5v2 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -326,3 +326,14 @@ boundary = "96 rank cells on three fields at n = 96 and 128, cutoffs 8 and 16, r
 witness = "the leading eigen-directions of the read operator rank subfilter modes by the resolved dynamics' response alone, and the flow's energy is elsewhere; the read distortion, response times energy, is the quantity that ranks, and it beats energy by an amount that grows with rank and cutoff, which is where a closure keeps enough modes for sensitivity to separate them"
 absorbed_by = "declaration"
 revision = "none registered; the track's declared order ends with this gate"
+
+[[test]]
+transformation = "OD:singular-transition"
+claim = "second version, the rehabilitation of D5: in periodic Burgers at viscosity at most 0.005 the read fraction of carried perturbations under a spectral reader of budget B converges in resolution and collapses on B over the front wavenumber max|u_x| / max|u| tighter than on the unscaled null by a declared ratio, and the same scaling does not organise the read fractions of a regular two-dimensional flow"
+entries = ["observer", "budget", "read-fraction", "singularity"]
+outcome = "boundary"
+record = "experiments/DISCOVERY-TRACK.md, D5v2 record; experiments/OD/D5v2/grade.json"
+boundary = "24 trajectories on four fresh initial conditions at N = 256 and 512 and two controls at 64 squared: the scaled collapse at 0.48 and 0.39 of the unscaled null inside the scope (bar 0.75), median bin IQR 0.063 and 0.033 (bar 0.13); the controls at 1.02 (bar at least 0.75); the resolution pairs within 0.04 to 0.08 on three initial conditions and at 0.18 on the fourth against 0.16, at budgets 2 and 4 near 0.9 t* where the front is sharpest; outside the scope nu = 0.02 at 0.64"
+witness = "the collapse on B over the front wavenumber is the forming front's: the same construction on a regular two-dimensional flow organises nothing; the instrument's convergence in resolution is not uniform across initial conditions at the smallest budgets near the shock"
+absorbed_by = "declaration"
+revision = "the convergence bar on f_B(t) / f_B(0) at budgets 8 and above, or up to 0.8 t*, would test the claim on the part of the instrument that converges; not registered"
