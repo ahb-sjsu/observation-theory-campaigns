@@ -1,0 +1,5 @@
+== start Thu Sep 10 02:38:52 AM UTC 2026 HEAD c4e15f0 role probe seal 
+{"world": "lap_d128", "rows": 72, "rank_eff": 4.08, "null": 23.88, "jac_same": 0.342, "jac_diff": 0.15, "seconds": 5.4}
+{"world": "cube_d512", "rows": 72, "rank_eff": 9.46, "null": 23.87, "jac_same": 0.218, "jac_diff": 0.051, "seconds": 8.6}
+{"world": "u_ball_d384", "rows": 72, "rank_eff": 15.52, "null": 23.87, "jac_same": 0.186, "jac_diff": 0.023, "seconds": 7.3}
+== PROBE_DONE rc=0
