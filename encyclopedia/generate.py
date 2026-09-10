@@ -57,7 +57,7 @@ def read(repo, rel):
 
 
 # ---------------------------------------------------------------- the book
-CHAPTERS = sorted(glob.glob(os.path.join(BOOK, "chapters", "ch*.md"))) + sorted(glob.glob(os.path.join(BOOK, "chapters", "appendix_*.md")))
+CHAPTERS = sorted(glob.glob(os.path.join(BOOK, "chapters", "primer_*.md"))) + sorted(glob.glob(os.path.join(BOOK, "chapters", "ch*.md"))) + sorted(glob.glob(os.path.join(BOOK, "chapters", "appendix_*.md")))
 CHTEXT = {os.path.basename(p): open(p, encoding="utf-8").read() for p in CHAPTERS}
 GLOSSARY = open(os.path.join(BOOK, "chapters", "glossary.md"), encoding="utf-8").read()
 
@@ -98,13 +98,18 @@ def sources_rows(substrings):
 
 
 def chapters_mentioning(patterns):
+    """The primers (as their letters) and the chapters (as their numbers) whose prose names the entry."""
     rx = re.compile("|".join(patterns), re.I)
-    out = []
+    primers, chapters = [], []
     for name, text in CHTEXT.items():
         body = "\n".join(l for l in text.split("\n") if not l.startswith("|"))
-        if rx.search(body) and name.startswith("ch"):
-            out.append(int(name[2:4]))
-    return out
+        if not rx.search(body):
+            continue
+        if name.startswith("primer_"):
+            primers.append(name[7].upper())
+        elif name.startswith("ch"):
+            chapters.append(int(name[2:4]))
+    return primers, chapters
 
 
 # ---------------------------------------------------------------- the ledger
@@ -417,8 +422,13 @@ def build(e):
     lean = e.get("lean")
     lean = [lean] if isinstance(lean, str) else (lean or [])
     out += ["", "## machine checked", "", "\n\n".join(lean_theorems(s) for s in lean) if lean else "none", ""]
-    chs = chapters_mentioning(e.get("book_terms", [])) if e.get("book_terms") else []
-    out += ["## used in", "", ("*Data Mining as Observation* chapters " + ", ".join(str(c) for c in chs) + ".") if chs else "none", ""]
+    prim, chs = chapters_mentioning(e.get("book_terms", [])) if e.get("book_terms") else ([], [])
+    used = []
+    if prim:
+        used.append(("primers " if len(prim) > 1 else "primer ") + " and ".join(prim))
+    if chs:
+        used.append("chapters " + ", ".join(str(c) for c in chs))
+    out += ["## used in", "", ("*Data Mining as Observation* " + ", ".join(used) + ".") if used else "none", ""]
     out += ["## related", "", ", ".join(e.get("related", [])) or "none", ""]
     # what was cited beside the entry but is not about it, kept out of the body
     see = []

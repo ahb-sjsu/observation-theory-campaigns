@@ -47,11 +47,11 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Orthogonal.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/6aebdf3/lean/DataMiningAsObservation/Orthogonal.lean), theorems `orth_symm`, `pythagoras`, `orth_smul`, `orth_zero`, `residual_orth`, at observation-data-mining 6aebdf3; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/6aebdf3/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Orthogonal.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/a0db6a8/lean/DataMiningAsObservation/Orthogonal.lean), theorems `orth_symm`, `pythagoras`, `orth_smul`, `orth_zero`, `residual_orth`, at observation-data-mining a0db6a8; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/a0db6a8/chapters/machine_checked.md).
 
 ## used in
 
-*Data Mining as Observation* chapters 0, 3, 4, 6, 9, 11, 12.
+*Data Mining as Observation* primer L, chapters 0, 3, 4, 6, 9, 11, 12.
 
 ## related
 
@@ -67,4 +67,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining 6aebdf3; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-09-09 by `encyclopedia/generate.py`; book at observation-data-mining a0db6a8; the commit of every record is listed in the encyclopedia's provenance.

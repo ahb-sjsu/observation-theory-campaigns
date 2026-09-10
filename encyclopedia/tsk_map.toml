@@ -277,31 +277,31 @@ chapter = 8
 [[row]]
 tsk = "confidence interval, standard error"
 where = "appendix C, 10.2"
-entries = ["confidence-interval", "standard-error", "paired"]
+entries = ["confidence-interval", "standard-error", "paired", "sampling-distribution", "normal-distribution", "central-limit-theorem"]
 chapter = 8
 
 [[row]]
 tsk = "eigenvalues and eigenvectors, matrix rank"
 where = "appendix A"
-entries = ["eigenvalue-eigenvector", "spectrum", "rank", "positive-semidefinite"]
+entries = ["eigenvalue-eigenvector", "spectrum", "rank", "positive-semidefinite", "spectral-decomposition", "linear-independence", "power-iteration"]
 chapter = 0
 
 [[row]]
 tsk = "singular value decomposition, PCA"
 where = "appendix B"
-entries = ["principal-component-analysis", "latent-semantic-analysis", "effective-rank"]
+entries = ["principal-component-analysis", "latent-semantic-analysis", "effective-rank", "singular-value-decomposition", "singular-value", "low-rank-approximation"]
 chapter = 4
 
 [[row]]
 tsk = "covariance matrix, variance"
 where = "appendix A, C"
-entries = ["covariance-matrix", "variance", "trace", "anisotropic"]
+entries = ["covariance-matrix", "variance", "trace", "anisotropic", "covariance", "quadratic-form"]
 chapter = 0
 
 [[row]]
 tsk = "gradient, derivative"
 where = "appendix E"
-entries = ["sensitivity", "finite-difference", "curvature", "jacobian"]
+entries = ["sensitivity", "finite-difference", "curvature", "jacobian", "gradient", "partial-derivative"]
 chapter = 0
 
 [[row]]
@@ -321,3 +321,83 @@ tsk = "scalability, indexing, nearest-neighbour search"
 where = "4.3, 8.4"
 entries = ["inverted-file", "recall-at-k", "shard", "rerank", "rank-certificate"]
 chapter = 11
+
+# ---- rows for the primers, added 2026-09-09
+
+[[row]]
+tsk = "vectors, dot product, norms"
+where = "appendix A"
+entries = ["vector", "dot-product", "length-norm", "unit-vector", "orthogonal"]
+chapter = 0
+
+[[row]]
+tsk = "matrix multiplication, inverse, determinant"
+where = "appendix A"
+entries = ["matrix", "transpose", "inverse", "determinant"]
+chapter = 0
+
+[[row]]
+tsk = "linear independence, span, basis, null space"
+where = "appendix A"
+entries = ["linear-independence", "span", "basis", "null-space", "column-space"]
+chapter = 0
+
+[[row]]
+tsk = "orthogonal projection, orthonormal basis, Gram and Schmidt"
+where = "appendix A"
+entries = ["projection", "orthonormal-basis", "gram-schmidt", "orthogonal-matrix"]
+chapter = 0
+
+[[row]]
+tsk = "probability, conditional probability, Bayes theorem"
+where = "appendix C"
+entries = ["probability", "event", "conditional-probability", "independence", "bayes-rule", "base-rate"]
+chapter = 6
+
+[[row]]
+tsk = "random variables, expectation, variance"
+where = "appendix C"
+entries = ["random-variable", "expectation", "variance", "standard-deviation", "z-score"]
+chapter = 3
+
+[[row]]
+tsk = "binomial, Poisson, normal distributions"
+where = "appendix C"
+entries = ["bernoulli-binomial", "poisson-distribution", "normal-distribution", "uniform-distribution"]
+chapter = 3
+
+[[row]]
+tsk = "sample mean, median, sample variance, skewness"
+where = "appendix C"
+entries = ["mean-median", "sample-variance", "skewness", "percentile"]
+chapter = 3
+
+[[row]]
+tsk = "hypothesis testing, p-values, significance"
+where = "10.1"
+entries = ["null-hypothesis", "test-statistic", "p-value", "permutation-test", "type-i-type-ii-error"]
+chapter = 8
+
+[[row]]
+tsk = "multiple comparisons, Bonferroni"
+where = "10.3"
+entries = ["multiple-comparisons", "family-wise-error-rate", "bonferroni-correction"]
+chapter = 8
+
+[[row]]
+tsk = "confusion matrix, accuracy"
+where = "3"
+entries = ["confusion-matrix", "accuracy", "false-positive-rate", "precision-recall"]
+chapter = 6
+
+[[row]]
+tsk = "entropy, information gain"
+where = "3.3"
+entries = ["entropy", "surprise", "cross-entropy", "bit"]
+chapter = 6
+
+[[row]]
+tsk = "random sampling, seeds, simulation"
+where = "2.3"
+entries = ["replacement", "pseudo-random-generator", "monte-carlo", "seed"]
+chapter = 3

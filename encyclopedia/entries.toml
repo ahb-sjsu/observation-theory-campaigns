@@ -4351,3 +4351,822 @@ conditions = [
   "The threshold prediction was measured once, under a registration sealed before any pair of the run seed was scored, on a language model, Qwen2.5-7B-Instruct, used as a scorer that reports how far a value is from a target, with the induced order comparing reported distances and equal reports counted as indifference, `geometric-evaluation-theory/CAMPAIGN.md:56-64` at 91095c9. Three budgets were set independently, the decimals at which values are rendered, the number of tokens the report may use, and the weight precision. On fresh pairs the threshold, the gap at which 90 percent of pairs are ordered correctly, was 0.869, 0.0868, 0.00856 and 0.00087 at 0 to 3 decimals against rendering steps of 1, 0.1, 0.01 and 0.001, and 0.872, 0.872, 0.0873, 0.00877 and 0.00087 at 2 to 6 report tokens against the resolutions 1, 1, 0.1, 0.01 and 0.001 those tokens afford, every graded threshold at 0.87 to 0.88 of its step, which is where the 90 percent level of a rounding scorer falls, `geometric-evaluation-theory/experiments/G3/grade.json:1-120`. Pairs separated by 20 were ordered alike in every cell at accuracy at least 0.985. Reducing the weights to 8 or 4 bits left every threshold where bfloat16 put it, so on this evaluator the two output budgets are the resolution budget of the semiorder and the weight precision at 8 or 4 bits is not one. Sealed verdict PASS on all four bars at the registered tolerance 1.5. Two instruments tried before the scorer are kept in the record, a pairwise chooser that was vacuous with options on both sides of the target and had a floor of 7.5 from position bias with options on one side. Not established: anything about a human evaluator, which is gate G7, or a weight ladder coarse enough to move the threshold.",
   "The three branches under the theory are descriptive choice, normative judgment, and multi-agent interaction, each with what is measured and what is posited stated, `geometric-evaluation-theory/paper/geometric-evaluation-theory.tex:503-526`. The correspondence of the ethics stack's deontic gate to the admissible set and of the invariance principle to factoring through the quotient is posited.",
 ]
+
+
+# ---- the primer terms, added 2026-09-09 with draft 0.3 of the book
+
+[[entry]]
+id = "vector"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "vector"
+glossary = "vector"
+equations = ["L.1"]
+ledger = []
+first_stated = "Primer L section L.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["\\bvectors?\\b"]
+related = ["dot-product", "unit-vector", "linear-combination", "matrix"]
+
+[[entry]]
+id = "linear-combination"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "linear combination"
+glossary = "linear combination"
+equations = ["L.1", "L.5"]
+ledger = []
+first_stated = "Primer L section L.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["linear combination"]
+related = ["span", "basis", "matrix", "vector"]
+
+[[entry]]
+id = "span"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "span"
+glossary = "span"
+equations = []
+ledger = []
+first_stated = "Primer L section L.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["\\bspan(?:s|ned)?\\b"]
+related = ["linear-combination", "column-space", "rank", "basis"]
+
+[[entry]]
+id = "basis"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "basis"
+glossary = "basis"
+equations = []
+ledger = []
+first_stated = "Primer L section L.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["\\bbasis\\b"]
+related = ["span", "linear-independence", "orthonormal-basis", "vector"]
+
+[[entry]]
+id = "unit-vector"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "unit vector"
+glossary = "unit vector"
+equations = ["L.2"]
+ledger = []
+first_stated = "Primer L section L.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["unit vector"]
+related = ["vector", "length-norm", "projection", "cosine"]
+
+[[entry]]
+id = "length-norm"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "length, norm"
+glossary = "length, norm"
+equations = ["L.2", "L.3"]
+ledger = []
+first_stated = "Primer L section L.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["\\blength\\b", "\\bnorm\\b"]
+related = ["unit-vector", "dot-product", "euclidean-distance", "frobenius-norm"]
+
+[[entry]]
+id = "matrix"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "matrix"
+glossary = "matrix"
+equations = ["L.5"]
+ledger = []
+first_stated = "Primer L section L.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["\\bmatri(?:x|ces)\\b"]
+related = ["vector", "transpose", "inverse", "rank", "linear-combination"]
+
+[[entry]]
+id = "transpose"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "transpose"
+glossary = "transpose"
+equations = []
+ledger = []
+first_stated = "Primer L section L.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["transpose"]
+related = ["symmetric-matrix", "outer-product", "dot-product", "matrix"]
+
+[[entry]]
+id = "symmetric-matrix"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "symmetric matrix"
+glossary = "symmetric matrix"
+equations = ["L.14"]
+ledger = []
+first_stated = "Primer L section L.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["symmetric"]
+related = ["transpose", "eigenvalue-eigenvector", "spectral-decomposition", "covariance-matrix"]
+
+[[entry]]
+id = "identity-matrix"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "identity matrix"
+glossary = "identity matrix"
+equations = []
+ledger = []
+first_stated = "Primer L section L.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["identity matrix"]
+related = ["identity-reader", "inverse", "matrix"]
+
+[[entry]]
+id = "inverse"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "inverse"
+glossary = "inverse"
+equations = ["L.6", "L.15"]
+ledger = []
+first_stated = "Primer L section L.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["\\binverse\\b", "invert(?:ed|ible|s)?\\b"]
+related = ["determinant", "rank", "eigenvalue-eigenvector", "matrix"]
+
+[[entry]]
+id = "determinant"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "determinant"
+glossary = "determinant"
+equations = ["L.6"]
+ledger = []
+first_stated = "Primer L section L.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["determinant"]
+related = ["inverse", "rank", "eigenvalue-eigenvector", "linear-independence"]
+
+[[entry]]
+id = "linear-independence"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "linear independence"
+glossary = "linear independence"
+equations = []
+ledger = []
+first_stated = "Primer L section L.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["linearly independent", "linear independence", "independent columns"]
+related = ["rank", "span", "basis", "kernel", "determinant"]
+
+[[entry]]
+id = "column-space"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "column space"
+glossary = "column space"
+equations = []
+ledger = []
+first_stated = "Primer L section L.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["column space"]
+related = ["span", "rank", "null-space", "matrix"]
+
+[[entry]]
+id = "null-space"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "null space"
+glossary = "null space"
+equations = ["L.7"]
+ledger = []
+first_stated = "Primer L section L.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["null space", "null vector"]
+related = ["kernel", "rank", "quotient", "column-space"]
+
+[[entry]]
+id = "residual"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "residual"
+glossary = "residual"
+equations = ["L.9"]
+ledger = []
+first_stated = "Primer L section L.5 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["\\bresiduals?\\b"]
+related = ["projection", "orthogonal", "least-squares-line"]
+
+[[entry]]
+id = "orthonormal-basis"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "orthonormal basis"
+glossary = "orthonormal basis"
+equations = []
+ledger = []
+first_stated = "Primer L section L.5 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["orthonormal"]
+related = ["basis", "orthogonal", "gram-schmidt", "orthogonal-matrix", "projection"]
+
+[[entry]]
+id = "gram-schmidt"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "Gram and Schmidt"
+glossary = "Gram and Schmidt"
+equations = []
+ledger = []
+first_stated = "Primer L section L.5 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["Gram and Schmidt", "Gram-Schmidt"]
+related = ["orthonormal-basis", "projection", "residual"]
+
+[[entry]]
+id = "orthogonal-matrix"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "orthogonal matrix"
+glossary = "orthogonal matrix"
+equations = ["L.10"]
+ledger = []
+first_stated = "Primer L section L.5 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["orthogonal matri(?:x|ces)", "\\brotations?\\b"]
+related = ["orthonormal-basis", "spectral-decomposition", "whitening", "transpose"]
+
+[[entry]]
+id = "quadratic-form"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "quadratic form"
+glossary = "quadratic form"
+equations = ["L.11"]
+ledger = []
+first_stated = "Primer L section L.6 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["quadratic form"]
+related = ["positive-semidefinite", "covariance-matrix", "read-distortion", "variance", "positive-definite"]
+
+[[entry]]
+id = "positive-definite"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "positive definite"
+glossary = "positive definite"
+equations = []
+ledger = []
+first_stated = "Primer L section L.6 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["positive definite"]
+related = ["positive-semidefinite", "quadratic-form", "eigenvalue-eigenvector"]
+
+[[entry]]
+id = "spectral-decomposition"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "spectral decomposition"
+glossary = "spectral decomposition"
+equations = ["L.14", "L.15"]
+ledger = []
+first_stated = "Primer L section L.7 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["spectral decomposition"]
+related = ["eigenvalue-eigenvector", "outer-product", "whitening", "spectrum", "symmetric-matrix"]
+
+[[entry]]
+id = "power-iteration"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "power iteration"
+glossary = "power iteration"
+equations = []
+ledger = []
+first_stated = "Primer L section L.7 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["power iteration"]
+related = ["eigenvalue-eigenvector", "spectral-decomposition"]
+
+[[entry]]
+id = "singular-value-decomposition"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "singular value decomposition"
+glossary = "singular value decomposition"
+equations = ["L.16", "L.17"]
+ledger = []
+first_stated = "Primer L section L.8 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["singular value decomposition", "\\bSVD\\b"]
+related = ["singular-value", "principal-component-analysis", "low-rank-approximation", "latent-semantic-analysis", "eigenvalue-eigenvector"]
+
+[[entry]]
+id = "singular-value"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "singular value"
+glossary = "singular value"
+equations = ["L.17", "L.18"]
+ledger = []
+first_stated = "Primer L section L.8 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["singular values?\\b"]
+related = ["singular-value-decomposition", "rank", "frobenius-norm", "spectrum"]
+
+[[entry]]
+id = "frobenius-norm"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "Frobenius norm"
+glossary = "Frobenius norm"
+equations = ["L.18"]
+ledger = []
+first_stated = "Primer L section L.8 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["Frobenius"]
+related = ["singular-value", "low-rank-approximation", "length-norm"]
+
+[[entry]]
+id = "low-rank-approximation"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "low-rank approximation"
+glossary = "low-rank approximation"
+equations = ["L.18"]
+ledger = []
+first_stated = "Primer L section L.8 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["low-rank", "rank-\\w+ approximation", "Eckart"]
+related = ["singular-value-decomposition", "truncation", "explained-variance", "flip", "identity-reader"]
+
+[[entry]]
+id = "gradient"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "gradient"
+glossary = "gradient"
+equations = ["L.19", "L.20"]
+ledger = []
+first_stated = "Primer L section L.9 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["gradient"]
+related = ["sensitivity", "partial-derivative", "finite-difference", "jacobian", "read-operator"]
+
+[[entry]]
+id = "partial-derivative"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "partial derivative"
+glossary = "partial derivative"
+equations = ["L.19"]
+ledger = []
+first_stated = "Primer L section L.9 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix A covers it at length."
+book_terms = ["partial derivative"]
+related = ["gradient", "finite-difference"]
+
+[[entry]]
+id = "probability"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "probability"
+glossary = "probability"
+equations = ["S.1"]
+ledger = []
+first_stated = "Primer S section S.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["probabilit(?:y|ies)"]
+related = ["event", "conditional-probability", "random-variable", "independence"]
+
+[[entry]]
+id = "event"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "event"
+glossary = "event"
+equations = []
+ledger = []
+first_stated = "Primer S section S.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["\\bevents?\\b"]
+related = ["probability", "conditional-probability"]
+
+[[entry]]
+id = "conditional-probability"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "conditional probability"
+glossary = "conditional probability"
+equations = ["S.2"]
+ledger = []
+first_stated = "Primer S section S.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["conditional probabilit"]
+related = ["probability", "independence", "bayes-rule", "precision-recall", "calibration"]
+
+[[entry]]
+id = "independence"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "independence"
+glossary = "independence"
+equations = ["S.2"]
+ledger = []
+first_stated = "Primer S section S.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["\\bindependent\\b", "\\bindependence\\b"]
+related = ["conditional-probability", "variance", "multiple-comparisons"]
+
+[[entry]]
+id = "bayes-rule"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "Bayes' rule"
+glossary = "Bayes' rule"
+equations = ["S.3"]
+ledger = []
+first_stated = "Primer S section S.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["Bayes"]
+related = ["conditional-probability", "base-rate", "precision-recall", "naive-bayes"]
+
+[[entry]]
+id = "base-rate"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "base rate"
+glossary = "base rate"
+equations = ["S.3", "S.17"]
+ledger = []
+first_stated = "Primer S section S.1 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["base rate"]
+related = ["bayes-rule", "precision-recall", "accuracy", "calibration"]
+
+[[entry]]
+id = "random-variable"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "random variable"
+glossary = "random variable"
+equations = ["S.4"]
+ledger = []
+first_stated = "Primer S section S.2 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["random variable"]
+related = ["probability", "expectation", "variance"]
+
+[[entry]]
+id = "expectation"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "expectation"
+glossary = "expectation"
+equations = ["S.4", "S.5"]
+ledger = []
+first_stated = "Primer S section S.2 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["expectation", "expected value"]
+related = ["random-variable", "variance", "mean-median", "law-of-large-numbers"]
+
+[[entry]]
+id = "standard-deviation"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "standard deviation"
+glossary = "standard deviation"
+equations = ["S.4"]
+ledger = []
+first_stated = "Primer S section S.2 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["standard deviation"]
+related = ["variance", "z-score", "standard-error", "standardization"]
+
+[[entry]]
+id = "z-score"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "z-score"
+glossary = "z-score"
+equations = []
+ledger = []
+first_stated = "Primer S section S.2 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["z-score"]
+related = ["standard-deviation", "standardization"]
+
+[[entry]]
+id = "bernoulli-binomial"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "Bernoulli, binomial"
+glossary = "Bernoulli, binomial"
+equations = ["S.6"]
+ledger = []
+first_stated = "Primer S section S.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["Bernoulli", "binomial"]
+related = ["poisson-distribution", "expectation", "monte-carlo"]
+
+[[entry]]
+id = "poisson-distribution"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "Poisson distribution"
+glossary = "Poisson distribution"
+equations = ["S.7"]
+ledger = []
+first_stated = "Primer S section S.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["Poisson"]
+related = ["poisson-ceiling", "bernoulli-binomial", "null-model", "hub"]
+
+[[entry]]
+id = "uniform-distribution"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "uniform distribution"
+glossary = "uniform distribution"
+equations = []
+ledger = []
+first_stated = "Primer S section S.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["uniform distribution", "uniformly distributed", "is uniform\\b"]
+related = ["p-value", "monte-carlo", "null-hypothesis"]
+
+[[entry]]
+id = "normal-distribution"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "normal distribution"
+glossary = "normal distribution"
+equations = ["S.8"]
+ledger = []
+first_stated = "Primer S section S.3 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["normal distribution", "normal approximation", "normally distributed", "\\bnormal with mean"]
+related = ["gaussian", "central-limit-theorem", "confidence-interval", "standard-error"]
+
+[[entry]]
+id = "central-limit-theorem"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "central limit theorem"
+glossary = "central limit theorem"
+equations = ["S.11"]
+ledger = []
+first_stated = "Primer S section S.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["central limit"]
+related = ["normal-distribution", "standard-error", "sampling-distribution", "law-of-large-numbers"]
+
+[[entry]]
+id = "law-of-large-numbers"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "law of large numbers"
+glossary = "law of large numbers"
+equations = ["S.11"]
+ledger = []
+first_stated = "Primer S section S.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["law of large numbers"]
+related = ["expectation", "standard-error", "central-limit-theorem", "monte-carlo"]
+
+[[entry]]
+id = "mean-median"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "mean, median"
+glossary = "mean, median"
+equations = ["S.9"]
+ledger = []
+first_stated = "Primer S section S.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["\\bmedian\\b", "sample mean"]
+related = ["expectation", "percentile", "standard-deviation", "skewness"]
+
+[[entry]]
+id = "sample-variance"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "sample variance"
+glossary = "sample variance"
+equations = ["S.9"]
+ledger = []
+first_stated = "Primer S section S.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["sample variance", "n minus 1", "n - 1\\b"]
+related = ["variance", "standard-deviation", "estimator"]
+
+[[entry]]
+id = "sampling-distribution"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "sampling distribution"
+glossary = "sampling distribution"
+equations = ["S.11"]
+ledger = []
+first_stated = "Primer S section S.4 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["sampling distribution"]
+related = ["standard-error", "bootstrap", "central-limit-theorem", "confidence-interval"]
+
+[[entry]]
+id = "covariance"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "covariance"
+glossary = "covariance"
+equations = ["S.12"]
+ledger = []
+first_stated = "Primer S section S.5 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["\\bcovariance\\b(?! matri)"]
+related = ["covariance-matrix", "correlation", "variance", "least-squares-line"]
+
+[[entry]]
+id = "least-squares-line"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "least-squares line"
+glossary = "least-squares line"
+equations = ["S.13"]
+ledger = []
+first_stated = "Primer S section S.5 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["least[- ]squares", "regression line"]
+related = ["correlation", "covariance", "residual", "explained-variance"]
+
+[[entry]]
+id = "estimator"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "estimator, unbiased"
+glossary = "estimator, unbiased"
+equations = []
+ledger = []
+first_stated = "Primer S section S.6 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["estimator", "unbiased"]
+related = ["sample-variance", "confidence-interval", "standard-error", "bootstrap"]
+
+[[entry]]
+id = "percentile-interval"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "percentile interval"
+glossary = "percentile interval"
+equations = []
+ledger = []
+first_stated = "Primer S section S.6 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["percentile interval"]
+related = ["bootstrap", "confidence-interval", "percentile", "paired"]
+
+[[entry]]
+id = "null-hypothesis"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "null hypothesis"
+glossary = "null hypothesis"
+equations = ["S.15"]
+ledger = []
+first_stated = "Primer S section S.7 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["null hypothesis"]
+related = ["null-model", "p-value", "test-statistic", "permutation-test"]
+
+[[entry]]
+id = "test-statistic"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "test statistic"
+glossary = "test statistic"
+equations = ["S.15"]
+ledger = []
+first_stated = "Primer S section S.7 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["test statistic"]
+related = ["null-hypothesis", "p-value", "permutation-test"]
+
+[[entry]]
+id = "permutation-test"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "permutation test"
+glossary = "permutation test"
+equations = ["S.15"]
+ledger = []
+first_stated = "Primer S section S.7 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["permutation test", "permut"]
+related = ["null-hypothesis", "p-value", "null-model", "seed", "type-i-type-ii-error"]
+
+[[entry]]
+id = "type-i-type-ii-error"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "type I and type II error, power"
+glossary = "type I and type II error, power"
+equations = []
+ledger = []
+first_stated = "Primer S section S.7 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["type I error", "type II error", "power of (?:a|the) test", "statistical power"]
+related = ["null-hypothesis", "p-value", "multiple-comparisons", "permutation-test"]
+
+[[entry]]
+id = "family-wise-error-rate"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "family-wise error rate"
+glossary = "family-wise error rate"
+equations = ["S.16"]
+ledger = []
+first_stated = "Primer S section S.8 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["family-wise", "familywise"]
+related = ["bonferroni-correction", "multiple-comparisons", "p-value"]
+
+[[entry]]
+id = "bonferroni-correction"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "Bonferroni correction"
+glossary = "Bonferroni correction"
+equations = ["S.16"]
+ledger = []
+first_stated = "Primer S section S.8 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["Bonferroni"]
+related = ["family-wise-error-rate", "multiple-comparisons"]
+
+[[entry]]
+id = "confusion-matrix"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "confusion matrix"
+glossary = "confusion matrix"
+equations = ["S.17"]
+ledger = []
+first_stated = "Primer S section S.9 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["confusion matrix", "true positives?\\b", "false negatives?\\b"]
+related = ["precision-recall", "accuracy", "false-positive-rate", "threshold"]
+
+[[entry]]
+id = "accuracy"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "accuracy"
+glossary = "accuracy"
+equations = []
+ledger = []
+first_stated = "Primer S section S.9 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["\\baccuracy\\b"]
+related = ["confusion-matrix", "base-rate", "balanced-accuracy"]
+
+[[entry]]
+id = "false-positive-rate"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "false positive rate"
+glossary = "false positive rate"
+equations = []
+ledger = []
+first_stated = "Primer S section S.9 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["false positive rate", "\\bFPR\\b"]
+related = ["confusion-matrix", "precision-recall", "auroc", "roc-curve"]
+
+[[entry]]
+id = "surprise"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "surprise"
+glossary = "surprise"
+equations = ["S.19"]
+ledger = []
+first_stated = "Primer S section S.10 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["\\bsurprise\\b"]
+related = ["entropy", "bit"]
+
+[[entry]]
+id = "entropy"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "entropy"
+glossary = "entropy"
+equations = ["S.19"]
+ledger = []
+first_stated = "Primer S section S.10 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["entropy"]
+related = ["surprise", "cross-entropy", "kl-divergence", "perplexity", "bit"]
+
+[[entry]]
+id = "cross-entropy"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "cross-entropy"
+glossary = "cross-entropy"
+equations = ["S.20"]
+ledger = []
+first_stated = "Primer S section S.10 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["cross-entropy", "cross entropy"]
+related = ["entropy", "kl-divergence", "perplexity", "likelihood"]
+
+[[entry]]
+id = "likelihood"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "likelihood, maximum likelihood"
+glossary = "likelihood, maximum likelihood"
+equations = []
+ledger = []
+first_stated = "Primer S section S.10 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["likelihood"]
+related = ["cross-entropy", "entropy", "estimator"]
+
+[[entry]]
+id = "pseudo-random-generator"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "pseudo-random generator"
+glossary = "pseudo-random generator"
+equations = []
+ledger = []
+first_stated = "Primer S section S.11 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["pseudo-random", "random number generator", "\\brng\\b"]
+related = ["seed", "monte-carlo", "null-model"]
+
+[[entry]]
+id = "monte-carlo"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "Monte Carlo"
+glossary = "Monte Carlo"
+equations = ["S.21"]
+ledger = []
+first_stated = "Primer S section S.11 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["Monte Carlo"]
+related = ["pseudo-random-generator", "null-model", "standard-error", "permutation-test"]
+
+[[entry]]
+id = "replacement"
+kind = "concept"
+reviewed = "2026-09-09"
+title = "with replacement, without replacement"
+glossary = "with replacement, without replacement"
+equations = []
+ledger = []
+first_stated = "Primer S section S.11 of *Data Mining as Observation*, added in draft 0.3 (2026-09-09) for the ECE 514 readers whose first courses are far behind. The idea is standard and TSK Appendix C covers it at length."
+book_terms = ["with replacement", "without replacement"]
+related = ["bootstrap", "sampling", "percentile-interval"]

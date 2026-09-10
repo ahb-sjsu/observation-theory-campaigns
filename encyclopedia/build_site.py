@@ -269,6 +269,10 @@ for e in entries:
     if m:
         for c in re.findall(r"\d+", m.group(1)):
             used_in[int(c)].append(e["id"])
+    m = re.search(r"primers? ([LS](?: and [LS])?)", pages[e["id"]][0].get("used in", ""))
+    if m:
+        for c in re.findall(r"[LS]", m.group(1)):
+            used_in[c].append(e["id"])
     lean = e.get("lean", [])
     for l in ([lean] if isinstance(lean, str) else lean):
         by_lean[l.split("/")[-1]].append(e["id"])
@@ -296,7 +300,7 @@ def lists_html(single):
     parts = []
     kinds = collections.OrderedDict((k, [e for e in entries if e["kind"] == k]) for k in ("concept", "instrument", "result", "correction", "reference"))
     parts.append(('kinds', "Entries by kind", "".join(f"<h2>{k}, {len(v)}</h2><p>" + "; ".join(elink(e["id"], single) for e in v) + ".</p>" for k, v in kinds.items())))
-    parts.append(('chapters', "Entries by chapter of the book", "".join(f"<h2>Chapter {c}, {len(set(v))}</h2><p>" + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for c, v in sorted(used_in.items()))))
+    parts.append(('chapters', "Entries by chapter of the book", "<p>The two primers, L for linear algebra and S for probability and statistics, come before chapter 0 in the book.</p>" + "".join(f"<h2>{'Primer' if isinstance(c, str) else 'Chapter'} {c}, {len(set(v))}</h2><p>" + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for c, v in sorted(used_in.items(), key=lambda kv: (0, kv[0]) if isinstance(kv[0], str) else (1, f"{kv[0]:02d}")))))
     parts.append(('lean', "Entries by Lean file", "<p>The file in the book's repository that machine-checks the entry's core.</p>" + "".join(f'<h2><a href="{GITHUB}/observation-data-mining/blob/{book_commit}/lean/DataMiningAsObservation/{f}"><code>{f}</code></a></h2><p>' + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for f, v in sorted(by_lean.items(), key=lambda kv: kv[0].lower()))))
     led = ["<p>Every ledger row an entry cites, printed once in full from geometric-observation's claims ledger, with the entries it bears on.</p>"]
     for key, claim, cls, ln in LEDGER:
