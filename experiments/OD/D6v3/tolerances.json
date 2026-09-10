@@ -1,0 +1,18 @@
+{
+ "FACTOR": 1.3,
+ "PHI": 0.25,
+ "TOL_H": 0.05,
+ "MARGIN_H": 0.1,
+ "pilot": {
+  "n_feasible": 31,
+  "n_discriminating": 14,
+  "frac_strict": 0.5,
+  "max_ratio": 1.0,
+  "shortfalls": [
+   0.014487079091620947
+  ],
+  "pooled_horizon_advantage": 0.27710794952174234,
+  "n_growth_cells": 7
+ },
+ "rule": "PREREG-D6V3 Section 5: FACTOR = 1.25 x pilot max greedy/exhaustive ratio rounded up to 0.1 (at least 1.0); PHI = 0.5 x pilot strict fraction rounded down to 0.05; TOL_H = 1.25 x pilot max relative horizon shortfall rounded up to 0.05; MARGIN_H = 0.5 x pilot pooled horizon advantage rounded down to 0.05 (at least 0)"
+}
