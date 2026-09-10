@@ -4,7 +4,7 @@
 [registry]
 track = "OD"
 title = "Observational discovery, from the read operator to laws that survive observers"
-commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2 and D6v2 recorded 2026-09-10"
+commit = "D1, D2, D2v2, D2v3, D2v4, D2v5, D2v6, D2v7, D2v8, D3 and D3v2 recorded 2026-09-09; D2v9, D6, D5 and D7 recorded 2026-09-10; rehabilitations D5v2, D7v2, D6v2 and D1v2 recorded 2026-09-10"
 x = "state spaces of declared consumers: synthetic linear and nonlinear consumers, linear systems observed through a window, embedding corpora, Lorenz systems, discretized Burgers fields, candidate clouds of the program's own searches"
 y = "what the observer reads: outputs at a budget (whether two outputs are within B), k-occurrence counts, observational lengths of perturbations, diagnostics of a field"
 equivalence = "declared per gate before its seal: medians relative to chance (D1), a registered tolerance on a frozen law (D2), tolerance on exponents and horizons (D3), a registered separation (D4), convergence in N and collapse in B (D5)"
@@ -359,3 +359,13 @@ boundary = "55 feasible cells on five worlds with fresh seeds: the selector equa
 witness = "the spectrum places sensors: once the search's slack is removed the energy ranking wins nowhere; the two misses are definitions, a feasibility test that ignores the cap and a smallest set that is not unique, whose first member in index order gives up the horizon a tie-break on the m-th eigenvalue would keep"
 absorbed_by = "declaration"
 revision = "feasibility defined at the cap and the exact search breaking ties by the m-th eigenvalue: two definitions, not a claim; not registered"
+
+[[test]]
+transformation = "OD:observer-family"
+claim = "second version, the rehabilitation of D1: mixed probes at one radius, where the sphere crosses the ellipsoid substantially, recover the read operator up to the pencil s P + (1 - s)(B^2 / rho^2) I, below-threshold eigenvalues included, with Frobenius, above-threshold and below-threshold medians at most REC = 0.39 of chance at 960 queries, REC fixed before the pilot as 1.5 times the pilot's largest graded ratio"
+entries = ["read-operator", "budget", "geometric-evaluation-theory"]
+outcome = "survived"
+record = "experiments/DISCOVERY-TRACK.md, D1v2 record; experiments/OD/D1v2/grade.json"
+witness = "all six well-crossed cells on a second fresh seed: Frobenius 0.045 to 0.212 of chance, above-threshold 0.049 to 0.303, below-threshold 0.022 to 0.146; single-direction verdicts and brackets exact in all fifteen World A cells; the pencil's end nearer than the truth in both positive definite cells; the cell that decided D1 at 0.303 again, 0.087 under the bar"
+absorbed_by = ""
+revision = "none; the 0.30 of chance for the above-threshold eigenvalues at 960 queries in the positive definite world is a measured property of the analytic-centre estimator, stable across seeds"
