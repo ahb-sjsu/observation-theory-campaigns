@@ -1,0 +1,9 @@
+#!/bin/bash
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 MKL_NUM_THREADS=8
+cd /archive/ahb-sjsu/observation-theory-campaigns/experiments/OD/D6v2 || exit 1
+ROLE=${1:-pilot}; OUT=$ROLE.json
+[ "$ROLE" = selftest ] && { /home/claude/env/bin/python3 -u d6v2_placement.py --selftest 2>&1; echo "== SELFTEST_DONE rc=$?"; exit 0; }
+[ "$ROLE" = run ] && OUT=results.json
+echo "== start $(date) HEAD $(git rev-parse --short HEAD) role $ROLE seal $(git hash-object PREREG-D6V2.md 2>/dev/null)"
+/home/claude/env/bin/python3 -u d6v2_placement.py --config prereg_config.json --seed-role $ROLE --out $OUT 2>&1
+echo "== ${ROLE^^}_DONE rc=$?"

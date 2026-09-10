@@ -1,0 +1,3 @@
+{"world": "p_diffusion_n16", "growth": -0.034, "cells": 12, "feasible": 12, "seconds": 29.9}
+{"world": "p_lorenz96_n16", "growth": 7.718, "cells": 12, "feasible": 7, "seconds": 4.3}
+{"world": "p_shallow_n20", "growth": 0.0, "cells": 12, "feasible": 12, "seconds": 151.9}

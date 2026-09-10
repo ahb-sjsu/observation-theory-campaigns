@@ -1,0 +1,133 @@
+{
+ "world": "D6's world and cells unchanged (three families at the pilot sizes, the declared sizes and two unseen worlds on the run, T = 0.5, frac in {0.001, 0.01, 0.1}, m in {4, 6, 8, 10}, cap 12), fresh sensor draws; the registered selector is the one-step lookahead on the Gramian's spectrum, with D6's greedy run beside it as a frozen competitor, and the energy ranking, random orderings and the exhaustive optimum as before.",
+ "window_T": 0.5,
+ "rho": 1.0,
+ "kmax": 12,
+ "exhaustive_cap": 200000,
+ "threshold_fractions": [
+  0.001,
+  0.01,
+  0.1
+ ],
+ "required_counts": [
+  4,
+  6,
+  8,
+  10
+ ],
+ "random_draws": 200,
+ "random_horizon_sets": 20,
+ "growth_min": 0.05,
+ "horizon_tol_factor": 10.0,
+ "t_max": 20.0,
+ "dt": 0.01,
+ "horizon_draws": 100,
+ "horizon_draws_random": 40,
+ "seed_probe": 20261031,
+ "seed_pilot": 20261032,
+ "seed_run": 20261033,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot"
+  ],
+  "run": [
+   "run",
+   "unseen"
+  ]
+ },
+ "bars": "PREREG-D6V2.md Section 5; tolerances fixed from the pilot",
+ "worlds": [
+  {
+   "name": "p_diffusion_n16",
+   "group": "pilot",
+   "family": "diffusion",
+   "n": 16,
+   "params": {
+    "kappa": 1.0
+   },
+   "seed_offset": 1,
+   "in_probe": true
+  },
+  {
+   "name": "p_lorenz96_n16",
+   "group": "pilot",
+   "family": "lorenz96",
+   "n": 16,
+   "params": {
+    "F": 8.0
+   },
+   "seed_offset": 2,
+   "in_probe": true
+  },
+  {
+   "name": "p_shallow_n20",
+   "group": "pilot",
+   "family": "shallow",
+   "n": 20,
+   "params": {
+    "H": 1.0,
+    "g": 1.0,
+    "dx": 1.0
+   },
+   "seed_offset": 3,
+   "in_probe": true
+  },
+  {
+   "name": "diffusion_n20",
+   "group": "run",
+   "family": "diffusion",
+   "n": 20,
+   "params": {
+    "kappa": 1.0
+   },
+   "seed_offset": 11
+  },
+  {
+   "name": "lorenz96_n20",
+   "group": "run",
+   "family": "lorenz96",
+   "n": 20,
+   "params": {
+    "F": 8.0
+   },
+   "seed_offset": 12
+  },
+  {
+   "name": "shallow_n24",
+   "group": "run",
+   "family": "shallow",
+   "n": 24,
+   "params": {
+    "H": 1.0,
+    "g": 1.0,
+    "dx": 1.0
+   },
+   "seed_offset": 13
+  },
+  {
+   "name": "u_advdiff_n20",
+   "group": "unseen",
+   "family": "advdiff",
+   "n": 20,
+   "params": {
+    "kappa": 0.5,
+    "speed": 1.0
+   },
+   "seed_offset": 21
+  },
+  {
+   "name": "u_lorenz96_n24_F10",
+   "group": "unseen",
+   "family": "lorenz96",
+   "n": 24,
+   "params": {
+    "F": 10.0
+   },
+   "seed_offset": 22
+  }
+ ],
+ "random_orderings": 60
+}
