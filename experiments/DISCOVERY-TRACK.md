@@ -826,8 +826,10 @@ horizon never shorter than the energy placement's and, pooled over the 14 discri
 cells, 10.7 percent longer than the energy placement's and 17.8 percent longer than the random
 placements', against a margin of 5 percent; and the strict half of C1, greedy needing strictly
 fewer sensors than the energy ranking in 16 of the 27 cells where placement matters (0.59 against
-0.20), including all four counts of the unseen advection-diffusion chain at the lowest threshold
-and 4 of nine feasible cells of the unseen Lorenz-96 at F = 10 and n = 24. What missed: P1 in
+0.20), including two of the four counts of the unseen advection-diffusion chain at the lowest threshold
+(greedy is ahead of the energy ranking in all four, and a random ordering matches greedy in two,
+which do not count as cells where placement matters) and four of nine feasible cells of the
+unseen Lorenz-96 at F = 10 and n = 24. What missed: P1 in
 one cell, Lorenz-96 at n = 20, frac 0.01 and m = 10, where greedy reached the sensor cap of 12
 without reaching the count (the all-sensor placement reaches it, the energy ranking does not within
 the cap either, and exhaustive search was beyond the cap); and the never-worse half of C1 in one
