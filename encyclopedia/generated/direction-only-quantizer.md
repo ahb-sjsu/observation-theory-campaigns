@@ -26,7 +26,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* GO-B-LOCATA `[predicted]`. Real microphone-array recordings (LOCATA), DOA consumer — held-out confirmation with the PolarQuant compressor [`geometric-observation/claims/LEDGER.md:117`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L117).
+- *measures.* GO-B-LOCATA `[predicted]`. Real microphone-array recordings (LOCATA), DOA consumer — held-out confirmation with the PolarQuant compressor [`geometric-observation/claims/LEDGER.md:117`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L117).
 
 ## first stated
 

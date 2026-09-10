@@ -26,8 +26,8 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* GO-B-legal (035→036) `[predicted]`. Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer [`geometric-observation/claims/LEDGER.md:119`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L119).
-- *refutes or corrects.* NEG-2 `[refuted]`. Reconstruction cosine as a proxy for key quality. [`geometric-observation/claims/LEDGER.md:95`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L95).
+- *measures.* GO-B-legal (035→036) `[predicted]`. Legal-citation retrieval (CourtListener), cosine-ranking consumer, LaBSE embeddings — real large corpus, non-physical consumer [`geometric-observation/claims/LEDGER.md:119`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L119).
+- *refutes or corrects.* NEG-2 `[refuted]`. Reconstruction cosine as a proxy for key quality. [`geometric-observation/claims/LEDGER.md:95`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L95).
 
 ## first stated
 
@@ -37,13 +37,13 @@ Chapter 0 section 0.1 of *Data Mining as Observation*, equation 0.1, with the pr
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 1 section 1.4 | cosine 0.995 and perplexity of order ten thousand, the recalibration negative | [`geometric-observation/chapters/ch02_failure_of_observer_free_measurement.md:40-60`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch02_failure_of_observer_free_measurement.md#L40-L60); [`geometric-observation/chapters/ch16_honest_negatives.md`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch16_honest_negatives.md) NEG-2 and NEG-4; [`turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/KV_KEYS_FINDING.md#L1-L49) |
+| chapter 1 section 1.4 | cosine 0.995 and perplexity of order ten thousand, the recalibration negative | [`geometric-observation/chapters/ch02_failure_of_observer_free_measurement.md:40-60`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch02_failure_of_observer_free_measurement.md#L40-L60); [`geometric-observation/chapters/ch16_honest_negatives.md`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch16_honest_negatives.md) NEG-2 and NEG-4; [`turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/KV_KEYS_FINDING.md#L1-L49) |
 | chapter 2 section 2.5 | cosine 0.995 and the softmax reader | [`turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/KV_KEYS_FINDING.md#L1-L49) |
-| chapter 8 section 8.2 | cosine 0.995, perplexity near 1e4 | [`turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/KV_KEYS_FINDING.md#L1-L49); [`geometric-observation/chapters/ch16_honest_negatives.md`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch16_honest_negatives.md) NEG-2 |
+| chapter 8 section 8.2 | cosine 0.995, perplexity near 1e4 | [`turboquant-pro/docs/KV_KEYS_FINDING.md:1-49`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/docs/KV_KEYS_FINDING.md#L1-L49); [`geometric-observation/chapters/ch16_honest_negatives.md`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch16_honest_negatives.md) NEG-2 |
 
 ## failures and corrections
 
-- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality. [`geometric-observation/claims/LEDGER.md:95`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L95).
+- NEG-2, `[refuted]`. Reconstruction cosine as a proxy for key quality. [`geometric-observation/claims/LEDGER.md:95`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L95).
 
 ## invariance envelope
 

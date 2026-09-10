@@ -35,7 +35,7 @@ Chapter 8 section 8.8 of *Data Mining as Observation*, with the sealed declarati
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.8 | declaration drafted 2026-08-17, sealed 2026-08-18, one count corrected, G2 | [`geometric-observation/crucible/DECLARATION-V1.md:1-20`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/crucible/DECLARATION-V1.md#L1-L20); [`geometric-observation/crucible/OT-CRUCIBLE-4.md:31-35`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/crucible/OT-CRUCIBLE-4.md#L31-L35) |
+| chapter 8 section 8.8 | declaration drafted 2026-08-17, sealed 2026-08-18, one count corrected, G2 | [`geometric-observation/crucible/DECLARATION-V1.md:1-20`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/crucible/DECLARATION-V1.md#L1-L20); [`geometric-observation/crucible/OT-CRUCIBLE-4.md:31-35`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/crucible/OT-CRUCIBLE-4.md#L31-L35) |
 
 ## failures and corrections
 

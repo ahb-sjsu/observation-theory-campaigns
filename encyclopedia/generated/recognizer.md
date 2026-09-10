@@ -37,7 +37,7 @@ Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch11_the_recognizer.md#L1-L95) |
+| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch11_the_recognizer.md#L1-L95) |
 
 ## failures and corrections
 

@@ -36,8 +36,8 @@ The moral-embedding program's calibrated authority, `gtc-prototype/docs/CALIBRAT
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.5 | ECE 0.018 to 0.101 vs raw up to 0.223, reliability weight, audit binding | `xbse/README.md:175-195`; [`gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63`](https://github.com/ahb-sjsu/gtc-prototype/blob/c754bc5/docs/CALIBRATED_AUTHORITY.md#L19-L63) |
-| chapter 14 section 14.2 | reliability weights and calibration errors per axis, the collapsed family's mean weight 0.559 against the general valence channel's own 0.735, the three design rules, 0.048 to 0.049 and 0.089 to 0.101 at 696 pairs | [`gtc-prototype/docs/CALIBRATED_AUTHORITY.md:1-65`](https://github.com/ahb-sjsu/gtc-prototype/blob/c754bc5/docs/CALIBRATED_AUTHORITY.md#L1-L65) |
+| chapter 12 section 12.5 | ECE 0.018 to 0.101 vs raw up to 0.223, reliability weight, audit binding | `xbse/README.md:175-195`; [`gtc-prototype/docs/CALIBRATED_AUTHORITY.md:19-63`](https://github.com/ahb-sjsu/gtc-prototype/blob/c13fb96/docs/CALIBRATED_AUTHORITY.md#L19-L63) |
+| chapter 14 section 14.2 | reliability weights and calibration errors per axis, the collapsed family's mean weight 0.559 against the general valence channel's own 0.735, the three design rules, 0.048 to 0.049 and 0.089 to 0.101 at 696 pairs | [`gtc-prototype/docs/CALIBRATED_AUTHORITY.md:1-65`](https://github.com/ahb-sjsu/gtc-prototype/blob/c13fb96/docs/CALIBRATED_AUTHORITY.md#L1-L65) |
 
 ## failures and corrections
 

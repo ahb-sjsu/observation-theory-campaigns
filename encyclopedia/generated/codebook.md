@@ -34,7 +34,7 @@ Chapter 0 section 0.11 and chapter 4 section 4.2 of *Data Mining as Observation*
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 13 section 13.5 | GO-7, 0.67 bits per symbol, bin rate 0.26 equals 0.39, error 1.00 without side information, two families, six codebooks | [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md) row GO-7 |
+| chapter 13 section 13.5 | GO-7, 0.67 bits per symbol, bin rate 0.26 equals 0.39, error 1.00 without side information, two families, six codebooks | [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md) row GO-7 |
 
 ## failures and corrections
 

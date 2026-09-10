@@ -26,7 +26,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* GO-2/GO-12/GO-13 operational (KV serving, 077) `[demonstrated]`. Consumer-relative access width measured on a production serving stack (Qwen2.5-7B KV-cache eviction, matched budget): task quality tracks measured predictive uncertainty u about the consumer's future reads, not nominal scorer width — the … [`geometric-observation/claims/LEDGER.md:81`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L81).
+- *measures.* GO-2/GO-12/GO-13 operational (KV serving, 077) `[demonstrated]`. Consumer-relative access width measured on a production serving stack (Qwen2.5-7B KV-cache eviction, matched budget): task quality tracks measured predictive uncertainty u about the consumer's future reads, not nominal scorer width — the … [`geometric-observation/claims/LEDGER.md:81`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L81).
 
 ## first stated
 

@@ -40,7 +40,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *measures.* GO-3 `[demonstrated]`. The certificate's vacuity threshold predicts where single-stage retrieval dies. [`geometric-observation/claims/LEDGER.md:65`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L65).
+- *measures.* GO-3 `[demonstrated]`. The certificate's vacuity threshold predicts where single-stage retrieval dies. [`geometric-observation/claims/LEDGER.md:65`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L65).
 
 ## first stated
 
@@ -50,12 +50,12 @@ Volume 14, chapter 19 for the certificate that ages and chapter 9 of *Data Minin
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 9 section 9.3 | the margin certificate, mu crit as the expected maximum of N minus 1 standard normals, rho, death at 0.948 within 6 percent, Spearman 0.991 vs 0.873, fourteen corpora, six gates, the v1 to v3 path, the standing correction | [`geometric-observation/experiments/GO3-certificate-vacuity-v3-NOTES.md:1-60`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/experiments/GO3-certificate-vacuity-v3-NOTES.md#L1-L60); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md) row GO-3 |
-| chapter 13 section 13.2 | the grammar, certificate, witness, refresh floor, false-clear rate, vacuity, the witness table | [`geometric-observation/chapters/ch19_the_certificate_that_ages.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch19_the_certificate_that_ages.md#L1-L95); [`observation-theory-campaigns/experiments/FRESHNESS-PROGRAM.md:1-40`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/a180744/experiments/FRESHNESS-PROGRAM.md#L1-L40) |
+| chapter 9 section 9.3 | the margin certificate, mu crit as the expected maximum of N minus 1 standard normals, rho, death at 0.948 within 6 percent, Spearman 0.991 vs 0.873, fourteen corpora, six gates, the v1 to v3 path, the standing correction | [`geometric-observation/experiments/GO3-certificate-vacuity-v3-NOTES.md:1-60`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/experiments/GO3-certificate-vacuity-v3-NOTES.md#L1-L60); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md) row GO-3 |
+| chapter 13 section 13.2 | the grammar, certificate, witness, refresh floor, false-clear rate, vacuity, the witness table | [`geometric-observation/chapters/ch19_the_certificate_that_ages.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch19_the_certificate_that_ages.md#L1-L95); [`observation-theory-campaigns/experiments/FRESHNESS-PROGRAM.md:1-40`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/339895d/experiments/FRESHNESS-PROGRAM.md#L1-L40) |
 
 ## failures and corrections
 
-- [`observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:33-39`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/a180744/experiments/RADIO-FRESHNESS-TRACK.md#L33-L39) at a180744. ⚠️ **XPROTO-AICSI scope correction (2026-08-25).** The v1 seal stands for what it tested, but the reconstruction-vs-consumer dissociation does **not** survive the community-standard substrate. On real 3GPP CDL-C with a CsiNet-class codec the NMSE-optimal codec reconstructs near-perfectly (NMSE ≈ 0.03) and false-clears 0.0 on all seeds; the pre-registered kill fired. See `analysis/aicsi/PREREG-XPROTO-AICSI-V2.md` (REFUTED AT SHAKEDOWN, NOT SEALED, kept negative). This is a scope correction, not a retraction. Do not headline the AICSI row; WCNC §III-C is dropped.
+- [`observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md:33-39`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/339895d/experiments/RADIO-FRESHNESS-TRACK.md#L33-L39) at 339895d. ⚠️ **XPROTO-AICSI scope correction (2026-08-25).** The v1 seal stands for what it tested, but the reconstruction-vs-consumer dissociation does **not** survive the community-standard substrate. On real 3GPP CDL-C with a CsiNet-class codec the NMSE-optimal codec reconstructs near-perfectly (NMSE ≈ 0.03) and false-clears 0.0 on all seeds; the pre-registered kill fired. See `analysis/aicsi/PREREG-XPROTO-AICSI-V2.md` (REFUTED AT SHAKEDOWN, NOT SEALED, kept negative). This is a scope correction, not a retraction. Do not headline the AICSI row; WCNC §III-C is dropped.
 
 ## invariance envelope
 

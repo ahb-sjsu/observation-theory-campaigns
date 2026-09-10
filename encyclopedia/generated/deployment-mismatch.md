@@ -34,7 +34,7 @@ Chapter 1 section 1.7 and chapter 13 of *Data Mining as Observation*, with the p
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.6 | XPROTO-LLM, benchmark 0.909, 0.920, 0.909, thirty slices, target 0.8, naive 0.333, aware 0.033, spread 0.380, deployment mean 0.736, six bars on three seeds, sealed 2026-08-25 at b61f7f1 | [`observation-theory-campaigns/experiments/LLM-EVAL-TRACK.md:1-50`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/a180744/experiments/LLM-EVAL-TRACK.md#L1-L50); [`observation-theory-campaigns/analysis/llm/XPROTO-LLM-graded.json`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/a180744/analysis/llm/XPROTO-LLM-graded.json); [`observation-theory-campaigns/experiments/SEALS.md:85`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/a180744/experiments/SEALS.md#L85) |
+| chapter 12 section 12.6 | XPROTO-LLM, benchmark 0.909, 0.920, 0.909, thirty slices, target 0.8, naive 0.333, aware 0.033, spread 0.380, deployment mean 0.736, six bars on three seeds, sealed 2026-08-25 at b61f7f1 | [`observation-theory-campaigns/experiments/LLM-EVAL-TRACK.md:1-50`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/339895d/experiments/LLM-EVAL-TRACK.md#L1-L50); [`observation-theory-campaigns/analysis/llm/XPROTO-LLM-graded.json`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/339895d/analysis/llm/XPROTO-LLM-graded.json); [`observation-theory-campaigns/experiments/SEALS.md:85`](https://github.com/ahb-sjsu/observation-theory-campaigns/blob/339895d/experiments/SEALS.md#L85) |
 
 ## failures and corrections
 

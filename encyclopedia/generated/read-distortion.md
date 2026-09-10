@@ -37,13 +37,17 @@ Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_t
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 2 section 2.2 | read distortion controls but is not a complete rank statistic, twelve of twelve, one middle pair misordered, NEG-9 | [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:49-75`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch05_the_read_metric_and_the_quotient.md#L49-L75) |
+| chapter 2 section 2.2 | read distortion controls but is not a complete rank statistic, twelve of twelve, one middle pair misordered, NEG-9 | [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:49-75`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch05_the_read_metric_and_the_quotient.md#L49-L75) |
 
 ## failures and corrections
 
 none
 
 ## invariance envelope
+
+**Survived.**
+
+- OD:closure-geometry, . Claim: Third version: for a filtered two-dimensional flow with the spectral cutoff as consumer and budget, at closure rank 64 and above, the subfilter modes of largest read distortion (sensitivity times energy, the read operator probed blind on the solver) close the resolved tendency better than the same number of energy-ranked modes, pooled at every in-scope rank by a declared margin, behind in no cell by more than a declared tolerance, with a smaller margin below the scope and a margin stable between n = 128 and 192. `experiments/DISCOVERY-TRACK.md, D7v3 record; experiments/OD/D7v3/grade.json`. Witness: 48 in-scope rank cells on three fresh fields at n = 128 and 192: the read-distortion closure ahead of the energy closure pooled by 2.8 percent at rank 64 and 10.0 at rank 128 (bar 2), behind in 6 cells by at most 3.6 (bar 5), ahead by -0.2 and 0.4 percent below the scope; the in-scope margin 6.3 percent at n = 128 and 6.6 at n = 192 (bar 2.0 on the change); every structured closure below random; the eigen-direction closure behind energy in 40 of 48 cells; the read operator's effective rank the same at both resolutions. Absorbed by: . Revision: none; the declared arm of D7 (the leading eigen-directions) is refuted in all three registrations and the read distortion is the ranking quantity inside the rank scope.
 
 **Boundary measured.**
 

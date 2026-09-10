@@ -47,7 +47,7 @@ Volume 14, chapter 5, `geometric-observation/chapters/ch05_the_read_metric_and_t
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 2 section 2.2 | read subspace small, operator local, pullback composition, rank cannot increase | [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch05_the_read_metric_and_the_quotient.md#L7-L48); [`geometric-observation/chapters/ch06_mathematical_preliminaries.md:10-27`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/chapters/ch06_mathematical_preliminaries.md#L10-L27) |
+| chapter 2 section 2.2 | read subspace small, operator local, pullback composition, rank cannot increase | [`geometric-observation/chapters/ch05_the_read_metric_and_the_quotient.md:7-48`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch05_the_read_metric_and_the_quotient.md#L7-L48); [`geometric-observation/chapters/ch06_mathematical_preliminaries.md:10-27`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch06_mathematical_preliminaries.md#L10-L27) |
 
 ## failures and corrections
 

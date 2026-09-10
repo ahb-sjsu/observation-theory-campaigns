@@ -26,7 +26,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* NEG-8 `[refuted]`. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer. [`geometric-observation/claims/LEDGER.md:101`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L101).
+- *refutes or corrects.* NEG-8 `[refuted]`. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer. [`geometric-observation/claims/LEDGER.md:101`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L101).
 
 ## first stated
 
@@ -38,7 +38,7 @@ none
 
 ## failures and corrections
 
-- NEG-8, `[refuted]`. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer. [`geometric-observation/claims/LEDGER.md:101`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L101).
+- NEG-8, `[refuted]`. The Var-ratio tang_qproj is a ≥0.9-Spearman rank proxy for softmax-KL under every consumer. [`geometric-observation/claims/LEDGER.md:101`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L101).
 
 ## invariance envelope
 

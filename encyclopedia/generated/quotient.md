@@ -29,8 +29,8 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* GO-5 `[refuted]`. An α=1 density/hubness quotient restores invariant fidelity in ≥1 non-spectral domain. [`geometric-observation/claims/LEDGER.md:67`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L67).
-- *refutes or corrects.* NEG-6 `[refuted]`. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. [`geometric-observation/claims/LEDGER.md:99`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L99).
+- *refutes or corrects.* GO-5 `[refuted]`. An α=1 density/hubness quotient restores invariant fidelity in ≥1 non-spectral domain. [`geometric-observation/claims/LEDGER.md:67`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L67).
+- *refutes or corrects.* NEG-6 `[refuted]`. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. [`geometric-observation/claims/LEDGER.md:99`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L99).
 
 ## first stated
 
@@ -42,8 +42,8 @@ none
 
 ## failures and corrections
 
-- GO-5, `[refuted]`. An α=1 density/hubness quotient restores invariant fidelity in ≥1 non-spectral domain. [`geometric-observation/claims/LEDGER.md:67`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L67).
-- NEG-6, `[refuted]`. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. [`geometric-observation/claims/LEDGER.md:99`](https://github.com/ahb-sjsu/geometric-observation/blob/fc6b378/claims/LEDGER.md#L99).
+- GO-5, `[refuted]`. An α=1 density/hubness quotient restores invariant fidelity in ≥1 non-spectral domain. [`geometric-observation/claims/LEDGER.md:67`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L67).
+- NEG-6, `[refuted]`. Relative per-channel-demeaned error norm is the quotient-tangential quantity that controls softmax-KL. [`geometric-observation/claims/LEDGER.md:99`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L99).
 
 ## invariance envelope
 
