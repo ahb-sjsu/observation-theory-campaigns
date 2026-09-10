@@ -1,0 +1,75 @@
+{
+ "world": "D1's world with fresh seeds, registered 2026-09-10 as the rehabilitation of D1 (whose one miss was 0.303 against a REC of 0.30 fixed at the pilot's own maximum). Two worlds on synthetic read operators of declared spectrum in a random orthonormal frame. World A, single-parameter probes: one coordinate of a declared basis (not the eigenbasis) perturbed at a time, both signs, sizes on a ladder up to rho, read through the oracle; identifiability verdicts and diagonal brackets follow. World B, mixed probes: perturbations of size rho in uniformly random directions, read through the oracle; the estimator is the analytic centre of the set of ellipsoids consistent with the answers (maximiser of the summed log slacks).",
+ "worlds": [
+  {
+   "name": "n5_straddle",
+   "n": 5,
+   "spectrum": [
+    4.0,
+    2.0,
+    0.5,
+    0.1,
+    0.0
+   ]
+  },
+  {
+   "name": "n8_two_kernel",
+   "n": 8,
+   "spectrum": [
+    8.0,
+    4.0,
+    2.0,
+    1.0,
+    0.25,
+    0.05,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "n8_full_rank",
+   "n": 8,
+   "spectrum": [
+    8.0,
+    4.0,
+    2.0,
+    1.0,
+    0.5,
+    0.25,
+    0.1,
+    0.05
+   ]
+  }
+ ],
+ "rho": 1.0,
+ "budget_ladder": [
+  0.25,
+  0.5,
+  1.0,
+  1.5,
+  2.0
+ ],
+ "query_ladder": [
+  60,
+  120,
+  240,
+  480,
+  960
+ ],
+ "evaluators_per_cell": 20,
+ "recovery_tolerance": 0.3,
+ "solver": "CLARABEL",
+ "seed_pilot": 20261040,
+ "seed_run": 20261041,
+ "prediction": "World A: parameter i is reported identifiable at (B, rho) iff P_ii > B^2 / rho^2, the reported count equals d_obs in the probe basis, every diagonal entry lies in its bracket, and off-diagonal entries are unrevealed. World B: when lambda_min rho^2 < B^2 < lambda_max rho^2 every eigenvalue, above and below the threshold, is recovered with error falling in the number of queries; outside that interval the oracle is constant and nothing is recovered. The first pilot (2026-09-09, pilot_v1.json) was designed on the wrong reading, that mixed probes reveal only above-threshold directions; it recovered below-threshold eigenvalues to 3 to 10 percent of chance at B from 1 to 2, and its max-margin estimator broke where the feasible set was wide; both corrected here before any seal. Pencil (Proposition 2, Corollary 4 of the article): answers at one radius identify P up to s P + (1 - s) c I; the analytic centre returns the pencil's end, P for the worlds with a kernel and P* with smallest eigenvalue zero for the positive definite world.",
+ "bars": "PREREG-D1V2.md Section 5; the bars of D1 unchanged; REC fixed from the D1v2 pilot as 1.5 x the pilot's largest graded ratio rounded up to 0.01 (the declared-multiple rule D1's record recommended), applied to the run seed only",
+ "axis_size_ladder": [
+  0.125,
+  0.25,
+  0.5,
+  1.0
+ ],
+ "cap": 1000.0,
+ "well_crossed_min_balance": 0.1,
+ "estimator_note": "analytic centre inside the declared cap P <= cap * (B^2/rho^2) I; a cell is well-crossed when the median evaluator has both oracle answers in at least well_crossed_min_balance of its queries and at least 90 percent of evaluators are graded; the crossing test counts the kernel"
+}

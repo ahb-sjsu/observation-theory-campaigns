@@ -1,0 +1,38 @@
+{
+ "REC": 0.39,
+ "pilot_max_ratio": 0.2552,
+ "pilot_ratios": {
+  "n5_straddle_B1.0": {
+   "frobenius": 0.0497,
+   "above": 0.071,
+   "below": 0.0368
+  },
+  "n5_straddle_B1.5": {
+   "frobenius": 0.0832,
+   "above": 0.0463,
+   "below": 0.0999
+  },
+  "n8_full_rank_B1.0": {
+   "frobenius": 0.2087,
+   "above": 0.2552,
+   "below": 0.0645
+  },
+  "n8_full_rank_B1.5": {
+   "frobenius": 0.1211,
+   "above": 0.1061,
+   "below": 0.1781
+  },
+  "n8_two_kernel_B1.0": {
+   "frobenius": 0.126,
+   "above": 0.1433,
+   "below": 0.0285
+  },
+  "n8_two_kernel_B1.5": {
+   "frobenius": 0.0634,
+   "above": 0.0549,
+   "below": 0.0354
+  }
+ },
+ "sealable": true,
+ "rule": "PREREG-D1V2 Section 5: REC = 1.5 x the pilot's largest graded ratio over its well-crossed cells at the largest query count, rounded up to 0.01; not sealed above 0.45"
+}

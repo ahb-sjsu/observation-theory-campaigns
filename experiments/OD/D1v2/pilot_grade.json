@@ -1,0 +1,313 @@
+{
+ "rec": 0.39,
+ "axis": {
+  "n5_straddle_B0.25": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n5_straddle_B0.5": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n5_straddle_B1.0": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n5_straddle_B1.5": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n5_straddle_B2.0": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_two_kernel_B0.25": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_two_kernel_B0.5": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_two_kernel_B1.0": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_two_kernel_B1.5": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_two_kernel_B2.0": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_full_rank_B0.25": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_full_rank_B0.5": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_full_rank_B1.0": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_full_rank_B1.5": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  },
+  "n8_full_rank_B2.0": {
+   "A1_verdicts_and_brackets_exact": true,
+   "verdicts_match_fraction": 1.0,
+   "bracket_holds_fraction": 1.0
+  }
+ },
+ "mixed": {
+  "n5_straddle_B0.25": {
+   "crossing_by_theory": true,
+   "well_crossed": false,
+   "graded": 18,
+   "constant_fraction": 0.1,
+   "answer_balance_median": 0.002083333333333326,
+   "frobenius_median": 23.2477539742303,
+   "chance_frobenius": 1.0790685134411064,
+   "note": "poorly crossed: reported, not graded under B1, B3 or B4"
+  },
+  "n5_straddle_B0.5": {
+   "crossing_by_theory": true,
+   "well_crossed": false,
+   "graded": 20,
+   "constant_fraction": 0.0,
+   "answer_balance_median": 0.046875,
+   "frobenius_median": 0.3439734253621834,
+   "chance_frobenius": 1.0884018009852645,
+   "note": "poorly crossed: reported, not graded under B1, B3 or B4"
+  },
+  "n5_straddle_B1.0": {
+   "crossing_by_theory": true,
+   "well_crossed": true,
+   "graded": 20,
+   "B1_full_recovery": true,
+   "frobenius_median": 0.054138271828782156,
+   "chance_frobenius": 1.0901819012885454,
+   "B1a_above": true,
+   "above_median": 0.043700422445137055,
+   "chance_above": 0.6158107298796032,
+   "B1b_below_recovered_too": true,
+   "below_median": 0.037006647145594235,
+   "chance_below": 1.004737078406277,
+   "B3_monotone": true,
+   "frobenius_by_queries": [
+    0.46081807512455725,
+    0.1975483097116595,
+    0.16968063486938317,
+    0.09398519095833517,
+    0.054138271828782156
+   ],
+   "verdict": "PASS"
+  },
+  "n5_straddle_B1.5": {
+   "crossing_by_theory": true,
+   "well_crossed": true,
+   "graded": 20,
+   "B1_full_recovery": true,
+   "frobenius_median": 0.09014976478153855,
+   "chance_frobenius": 1.0840339035168078,
+   "B1a_above": true,
+   "above_median": 0.032752504152562256,
+   "chance_above": 0.7079486107835615,
+   "B1b_below_recovered_too": true,
+   "below_median": 0.043397745393301504,
+   "chance_below": 0.4346260150522489,
+   "B3_monotone": true,
+   "frobenius_by_queries": [
+    0.5038554600184079,
+    0.30324838648916846,
+    0.1991321632484057,
+    0.14849633054446795,
+    0.09014976478153855
+   ],
+   "verdict": "PASS"
+  },
+  "n5_straddle_B2.0": {
+   "oracle_constant_in_all": true,
+   "crossing_by_theory": false,
+   "constant_fraction": 1.0,
+   "graded": 0,
+   "B2_no_crossing_oracle_constant": true,
+   "note": "no crossing by theory: a constant oracle is what B2 predicts"
+  },
+  "n8_full_rank_B0.25": {
+   "oracle_constant_in_all": true,
+   "crossing_by_theory": true,
+   "constant_fraction": 1.0,
+   "graded": 0,
+   "B2_no_crossing_oracle_constant": true,
+   "note": "crossing by theory but thin: the oracle was constant in every evaluator's queries, consistent with B2, which binds only where there is no crossing"
+  },
+  "n8_full_rank_B0.5": {
+   "crossing_by_theory": true,
+   "well_crossed": false,
+   "graded": 18,
+   "constant_fraction": 0.1,
+   "answer_balance_median": 0.0031250000000000444,
+   "frobenius_median": 59.79942704259271,
+   "chance_frobenius": 1.1323010248553345,
+   "note": "poorly crossed: reported, not graded under B1, B3 or B4"
+  },
+  "n8_full_rank_B1.0": {
+   "crossing_by_theory": true,
+   "well_crossed": true,
+   "graded": 20,
+   "B1_full_recovery": true,
+   "frobenius_median": 0.23737105386214385,
+   "chance_frobenius": 1.1372566506206896,
+   "B1a_above": true,
+   "above_median": 0.16060362923876004,
+   "chance_above": 0.6294228536356139,
+   "B1b_below_recovered_too": true,
+   "below_median": 0.09045244959100687,
+   "chance_below": 1.4016537329633558,
+   "B3_monotone": true,
+   "frobenius_by_queries": [
+    5.412200381687456,
+    1.480011121998739,
+    0.7694315325406001,
+    0.46061329122558503,
+    0.23737105386214385
+   ],
+   "B4_nearer_pencil_member": true,
+   "frobenius_vs_pencil_median": 0.19521999828869555,
+   "pencil_s_star": 1.0526315789473684,
+   "verdict": "PASS"
+  },
+  "n8_full_rank_B1.5": {
+   "crossing_by_theory": true,
+   "well_crossed": true,
+   "graded": 20,
+   "B1_full_recovery": true,
+   "frobenius_median": 0.13711722311451163,
+   "chance_frobenius": 1.1318486819996325,
+   "B1a_above": true,
+   "above_median": 0.07260022219054862,
+   "chance_above": 0.6843295442878754,
+   "B1b_below_recovered_too": true,
+   "below_median": 0.09881413650416573,
+   "chance_below": 0.5548730896953995,
+   "B3_monotone": true,
+   "frobenius_by_queries": [
+    0.6349700320679041,
+    0.3562381768951034,
+    0.27201926516731784,
+    0.19097518631094684,
+    0.13711722311451163
+   ],
+   "B4_nearer_pencil_member": true,
+   "frobenius_vs_pencil_median": 0.12208765966327195,
+   "pencil_s_star": 1.0227272727272727,
+   "verdict": "PASS"
+  },
+  "n8_full_rank_B2.0": {
+   "crossing_by_theory": true,
+   "well_crossed": false,
+   "graded": 20,
+   "constant_fraction": 0.0,
+   "answer_balance_median": 0.06822916666666667,
+   "frobenius_median": 0.2306523647660755,
+   "chance_frobenius": 1.1304411223472268,
+   "note": "poorly crossed: reported, not graded under B1, B3 or B4"
+  },
+  "n8_two_kernel_B0.25": {
+   "crossing_by_theory": true,
+   "well_crossed": false,
+   "graded": 4,
+   "constant_fraction": 0.8,
+   "answer_balance_median": 0.0010416666666667185,
+   "frobenius_median": 17.321876885783304,
+   "chance_frobenius": 1.146490526424215,
+   "note": "poorly crossed: reported, not graded under B1, B3 or B4"
+  },
+  "n8_two_kernel_B0.5": {
+   "crossing_by_theory": true,
+   "well_crossed": false,
+   "graded": 20,
+   "constant_fraction": 0.0,
+   "answer_balance_median": 0.012499999999999956,
+   "frobenius_median": 5.59051758358517,
+   "chance_frobenius": 1.1671192228088336,
+   "note": "poorly crossed: reported, not graded under B1, B3 or B4"
+  },
+  "n8_two_kernel_B1.0": {
+   "crossing_by_theory": true,
+   "well_crossed": true,
+   "graded": 20,
+   "B1_full_recovery": true,
+   "frobenius_median": 0.1467726483415307,
+   "chance_frobenius": 1.1644505221120098,
+   "B1a_above": true,
+   "above_median": 0.08920778273611307,
+   "chance_above": 0.6225158908250488,
+   "B1b_below_recovered_too": true,
+   "below_median": 0.04066463192410094,
+   "chance_below": 1.427997089931059,
+   "B3_monotone": true,
+   "frobenius_by_queries": [
+    4.84591951450286,
+    1.0699042730506987,
+    0.47766350496827115,
+    0.22658294976086613,
+    0.1467726483415307
+   ],
+   "verdict": "PASS"
+  },
+  "n8_two_kernel_B1.5": {
+   "crossing_by_theory": true,
+   "well_crossed": true,
+   "graded": 20,
+   "B1_full_recovery": true,
+   "frobenius_median": 0.07397364232847761,
+   "chance_frobenius": 1.1660011570958717,
+   "B1a_above": true,
+   "above_median": 0.038839874959255005,
+   "chance_above": 0.7073877270538687,
+   "B1b_below_recovered_too": true,
+   "below_median": 0.02042459610821508,
+   "chance_below": 0.5763318053314643,
+   "B3_monotone": true,
+   "frobenius_by_queries": [
+    0.7450790709552275,
+    0.3238967769325783,
+    0.23144506604390946,
+    0.13236708631421132,
+    0.07397364232847761
+   ],
+   "verdict": "PASS"
+  },
+  "n8_two_kernel_B2.0": {
+   "crossing_by_theory": true,
+   "well_crossed": false,
+   "graded": 20,
+   "constant_fraction": 0.0,
+   "answer_balance_median": 0.06197916666666667,
+   "frobenius_median": 0.25983786360887473,
+   "chance_frobenius": 1.152755530041627,
+   "note": "poorly crossed: reported, not graded under B1, B3 or B4"
+  }
+ },
+ "gate": "PASS"
+}
