@@ -1,6 +1,7 @@
-# PREREG D7v2 (DRAFT, NOT SEALED): the read-distortion closure of a filtered flow inside its rank scope
+# PREREG D7v2: the read-distortion closure of a filtered flow inside its rank scope
 
-Status: draft. Nothing here is a registered claim until Section 8 is executed. Gate D7v2 of the OD
+Status: SEALED 2026-09-10 by the rename to `PREREG-D7V2.md`; blob hash recorded in
+`experiments/DISCOVERY-TRACK.md` and the README status ledger. Gate D7v2 of the OD
 track (`experiments/DISCOVERY-TRACK.md`), the rehabilitation of D7, registered after the track's
 declared order was complete. Its bars and its tolerance rules were fixed in code (`d7v2_grade.py`,
 `d7v2_fix_tols.py`) before its pilot ran; this text was written after the pilot and before the
@@ -61,7 +62,7 @@ blind probe against the tangent solver at 1.3e-7). Grader `d7v2_grade.py`; toler
 Deterministic given the seeds. The null is the random closure; the classical control is the
 energy closure. Tolerances are fixed from the pilot by the rules of Section 5.
 
-## 5. Bars (M2, TOL2, TOL_N FIXED FROM THE PILOT before sealing; R_MIN = 64 declared; Section 7)
+## 5. Bars (M2 = 0.02, TOL2 = 0.15 and TOL_N = 0.02 fixed from the pilot; R_MIN = 64 declared; `tolerances.json`; Section 7)
 
 - E1: every closure's error at most the random median's, every in-scope cell.
 - L2: the read-distortion closure's relative advantage over the energy closure, pooled over
@@ -110,9 +111,9 @@ three fresh fields at n = 96 and 128.
 ## 8. Sealing procedure
 
 1. Pilot on Atlas; fix the tolerances; record them in Sections 5 and 7; commit `pilot.json`,
-   `tolerances.json`.
+   `tolerances.json`. Done.
 2. Rename this file to `PREREG-D7V2.md`, commit, record its blob hash in the track document and
-   the README status ledger.
+   the README status ledger. Done by this commit.
 3. Run on the run seed, grade with `d7v2_grade.py results.json --tols tolerances.json`, commit
    `results.json` and `grade.json` as executed, enter the registry test in
    `claims/transformations/OD.toml` as the second version of `OD:closure-geometry`.
