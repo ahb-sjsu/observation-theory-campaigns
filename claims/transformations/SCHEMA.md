@@ -26,7 +26,19 @@ Nothing in a registry is evidence by itself; every line points at the file that 
 | `parameters` | the parameter set or ladder, or `none` |
 | `closure` | what the family is closed under (composition, inversion, or `none`) |
 | `rank` | position in the complexity ordering, 1 the simplest |
-| `declared` | the date the family entered the registry, before the seal that tested it |
+| `declared` | the date the family was declared, which must precede the seal that tested it |
+| `declared_in` | where the declaration is, when it is not this file: the sealed registration's path, blob hash and seal commit. Required on a backfilled row |
+| `entered` | the date this row was written, when that is later than `declared`. Its presence marks the row as a backfill |
+
+A row carrying `entered` is a **backfill**. It says that the family was declared
+on `declared`, in the file `declared_in` names, and that this registry was late to
+carry it. The distinction matters because the declaration date is what D1 of
+PE-DSC-1.0 tests and the entry date is what a reader would otherwise assume it was.
+A backfill is honest only when the declaration it points at is intact and precedes
+the run, which means the seal commit is a git ancestor of the commit adding that
+gate's results and the sealed blob still hashes to the recorded value. A row whose
+declaration cannot be shown to precede its result is not a backfill, it is a family
+chosen to fit a result, and it must not be entered.
 
 ## `[[test]]`
 

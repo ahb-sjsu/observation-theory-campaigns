@@ -1,5 +1,14 @@
 # Transformation registry for the OD track, observational discovery. Opened 2026-09-09 with the
 # families the gates declare; tests are entered when a gate's verdict is committed.
+#
+# BACKFILL, 2026-09-12. The last three families below were declared in the sealed registrations
+# of D6, D5 and D7 on 2026-09-10 and were never mirrored here, so ten tests entered on 2026-09-10
+# cited families this file did not carry. Found by the PE-DSC-1.0 D1 check, not by reading. The
+# declarations are intact and precede their runs: each seal commit is a git ancestor of the commit
+# adding that gate's results.json, and each sealed blob still hashes to the value the track
+# document records. What was late is this file, which is what `entered` states on each row. The
+# ranks were assigned at entry, from the ordering the header already declared; no rank was read
+# off a result.
 
 [registry]
 track = "OD"
@@ -41,6 +50,36 @@ parameters = "a ladder declared per gate"
 closure = "none"
 rank = 4
 declared = "2026-09-09"
+
+[[transformation]]
+id = "OD:observer-choice"
+family = "choice of which candidate sensors form the observer of a linear system, a placement S giving the observer C_S whose read operator is the exact window Gramian over [0, T]"
+parameters = "placements chosen by greedy selection on the Gramian spectrum, by the energy ranking under white forcing, by seeded random k-subsets (200 per cell) and orderings (60 per cell), and by the exhaustive minimum where the subset count permits; required direction count m, budget B, cap of 12 sensors"
+closure = "none, a choice among subsets of the candidate rows"
+rank = 1
+declared = "2026-09-10"
+declared_in = "experiments/OD/D6/PREREG-D6.md, blob 56b1c4918a4c6940b1a1f5e03d68e12e7318c083, seal commit b9701a0"
+entered = "2026-09-12"
+
+[[transformation]]
+id = "OD:singular-transition"
+family = "approach to a singularity of the observed dynamics, the periodic Burgers equation carried to shock formation, against a regular two-dimensional flow as the control"
+parameters = "viscosity on a ladder including 0, spectral reader budgets B, resolutions N, sample times up to the shock time t* = -1 / min u0'"
+closure = "none"
+rank = 5
+declared = "2026-09-10"
+declared_in = "experiments/OD/D5/PREREG-D5.md, blob 04821d283c616edf7239ced284dcc34b37e738b1, seal commit 06707ec"
+entered = "2026-09-12"
+
+[[transformation]]
+id = "OD:closure-geometry"
+family = "choice of which subfilter directions a closure keeps at a declared spectral cutoff, the cutoff being both the consumer and the budget"
+parameters = "closures at matched rank 16, 32, 64, 128 and the read operator's full rank; the eigen-direction closure (the declared arm), the read-energy closure, the energy closure and random modes; cutoffs k_c in {8, 16}; resolutions n"
+closure = "none, a choice among rank-r projections of the subfilter state"
+rank = 1
+declared = "2026-09-10"
+declared_in = "experiments/OD/D7/PREREG-D7.md, blob 5d601fb8f7795b4c335bcdd35af2c7ac50fc777b, seal commit f6ec331"
+entered = "2026-09-12"
 
 [[test]]
 transformation = "OD:budget"
