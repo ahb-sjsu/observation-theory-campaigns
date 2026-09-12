@@ -170,7 +170,7 @@ entries = ["hubness", "observer", "read-operator"]
 outcome = "failed"
 record = "experiments/DISCOVERY-TRACK.md, D2 record; experiments/OD/D2/grade.json"
 witness = "fresh seeds of the discovery family replicate (0.93 against 1.19) but uniform balls (error up to 4.5, the law over-predicting by up to 2.8), Student t (under-predicting by up to 2.4) and Wikipedia embeddings (5.3, measured skewness at most 1.1 at effective dimension 156 where the law says 10) fail; the nominal-dimension competitor is worse pooled (14.8 against 2.9) and better on the unseen synthetic group alone (1.74 against 2.45)"
-absorbed_by = "none"
+absorbed_by = "representation"
 revision = "not proposed here: a successor would need a shape variable that separates tails and roundness from the spectrum and a discovery set of more than one family"
 
 [[test]]
