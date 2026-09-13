@@ -56,10 +56,12 @@ database physical design under consumer geometry. The eight
 freshness-program tracks share a 🕒 and add a domain glyph: 🕒⚡ GRID
 power systems, 🕒📈 MKT market microstructure, 🕒🔦 OPT optical
 networks, 🕒📡 RF radio access, 🕒💾 DBF replication and coordination,
-🕒🤖 LLM evaluation against deployment, alongside 🌐 RT and ⚛️ QC
-quantum devices. Two caveats about the glyphs, since the rule above says
-one icon per track: **QC repeats QO's ⚛️**, which is the chip its own
-track document assigns, and 🎚️ SM is assigned here because
+🕒🤖 LLM evaluation against deployment and 🕒🧊 QC quantum devices in
+their cryostat, alongside 🌐 RT, the one member that predates the
+program's chip. Two glyphs are assigned here rather than taken from a
+track document, since the rule above says one icon per track: QC's own
+document carries ⚛️, which is QO's, so it takes the freshness chip
+instead; and 🎚️ SM is assigned because
 `SENSOR-MANAGEMENT-TRACK.md` declares no chip. The letter codes
 always accompany the icons, so nothing depends on the icon alone.
 
@@ -119,7 +121,7 @@ Observation limits designed into a system rather than imposed by physics. Groupi
 | 🕒📡 RF | Radio freshness | A 5G adaptation certificate ages over the channel coherence time; when is the same CQI fine for eMBB and vacuous for URLLC? | Re-homed 2026-08-24 from `network-governor`. Substrate NVIDIA Sionna 1.2.2, real 5G NR LDPC, on Atlas GPU 1; `experiments/RADIO-FRESHNESS-TRACK.md` |
 | 🕒💾 DBF | Database freshness | A replica read certifies that the replica is fresh enough; when does it serve a lagging version as current under write load? | Re-homed 2026-08-24 from `network-governor`. Distinct from DB, which is precision and encoding allocation; this track is consumer-relative staleness; `experiments/DATABASE-FRESHNESS-TRACK.md` |
 | 🕒🤖 LLM | LLM eval | A benchmark score certifies a model as deployable; on which deployment slices does it false-clear silently? | Constructed 2026-08-24. Substrate a real pretrained MNLI model on MNLI and HANS. Cell XPROTO-LLM shakedown in progress; `experiments/LLM-EVAL-TRACK.md` |
-| ⚛️ QC | Quantum computing | An aggregate device certificate is blind to a circuit's footprint; when does a circuit fail on a device its own certificate passed? | Re-homed 2026-08-24 from `network-governor`. Cell XPROTO-QUANTUM UNSEALED; the sealed rung is gated on real IBM hardware, the aer rung refused as a seal; `experiments/QUANTUM-COMPUTING-TRACK.md` |
+| 🕒🧊 QC | Quantum computing | An aggregate device certificate is blind to a circuit's footprint; when does a circuit fail on a device its own certificate passed? | Re-homed 2026-08-24 from `network-governor`. Cell XPROTO-QUANTUM UNSEALED; the sealed rung is gated on real IBM hardware, the aer rung refused as a seal; `experiments/QUANTUM-COMPUTING-TRACK.md` |
 
 
 ## The applications wave (September 2026, branch `campaign/consumer-relative-ann`)

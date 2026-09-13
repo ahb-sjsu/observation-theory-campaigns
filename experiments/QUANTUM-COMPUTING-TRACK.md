@@ -1,6 +1,7 @@
 # Quantum-Computing Track: consumer-relative device reliability certification
 
-**Status:** re-homed 2026-08-24 from `network-governor`. Chip ⚛️ QC. Freshness
+**Status:** re-homed 2026-08-24 from `network-governor`. Chip 🕒🧊 QC (was ⚛️, which is QO's; changed 2026-09-13 to the
+freshness program's shared clock plus a cryostat glyph). Freshness
 program ([FRESHNESS-PROGRAM.md](FRESHNESS-PROGRAM.md)). Cell **XPROTO-QUANTUM**
 UNSEALED — sealed rung gated on real IBM hardware (SJSU outreach in flight); the
 aer model rung is code/model validation, refused as a seal in the checker.
