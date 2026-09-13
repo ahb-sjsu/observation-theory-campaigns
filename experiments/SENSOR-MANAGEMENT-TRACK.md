@@ -1,6 +1,8 @@
 # Sensor-Management Track (SM)
 
-**Status:** opened 2026-08-30, exploratory. First seal SM-1 in draft
+**Status:** opened 2026-08-30, exploratory. Chip 🎚️ SM (a level slider, for
+the allocation of one budget across channels; assigned 2026-09-13, this track
+having opened without one). First seal SM-1 in draft
 (`PREREG-SM1-001.md`). Sibling of the DR and EC tracks: the OT question here
 is not *what to estimate* but *where to spend a shared sensor's scarce
 budget*, when the downstream consumer cares about a low-dimensional function

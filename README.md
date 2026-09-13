@@ -51,18 +51,18 @@ observation limits, ⚖️ UN the floor that survives every
 admissible consumer, 📜 FS the limits of a formal
 consumer, 🌐 RT routing telemetry under projection,
 🎯 EC estimation and control, 🕒 DR the age of operationally
-relevant uncertainty, 🤖 LM language-model consumers, and 💾 DB
-database physical design under consumer geometry. The eight
+relevant uncertainty, 🎚️ SM one budget allocated across channels,
+🔭 OD the search for laws about observation, 🤖 LM language-model
+consumers, and 💾 DB database physical design under consumer geometry. The eight
 freshness-program tracks share a 🕒 and add a domain glyph: 🕒⚡ GRID
 power systems, 🕒📈 MKT market microstructure, 🕒🔦 OPT optical
 networks, 🕒📡 RF radio access, 🕒💾 DBF replication and coordination,
 🕒🤖 LLM evaluation against deployment and 🕒🧊 QC quantum devices in
 their cryostat, alongside 🌐 RT, the one member that predates the
-program's chip. Two glyphs are assigned here rather than taken from a
-track document, since the rule above says one icon per track: QC's own
-document carries ⚛️, which is QO's, so it takes the freshness chip
-instead; and 🎚️ SM is assigned because
-`SENSOR-MANAGEMENT-TRACK.md` declares no chip. The letter codes
+program's chip. Every icon here is the one its own track document
+declares. One was changed to get there: QC's document carried ⚛️,
+which is QO's, so QC took the freshness chip instead and its document
+records the change. The letter codes
 always accompany the icons, so nothing depends on the icon alone.
 
 
