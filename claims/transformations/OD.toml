@@ -192,7 +192,7 @@ record = "experiments/OD/D2/grade.json X1"
 boundary = "ratios 0.10 to 0.30 in 23 of 26 worlds; 0.44 and 0.59 for the 64- and 128-dimensional uniform balls and 0.42 for the Wikipedia scale cell, the least concentrated clouds"
 witness = "the limit was fixed from Gaussian pilots (largest ratio 0.31 times 1.5); the latent structure is present everywhere and weakest where the cloud is roundest"
 absorbed_by = "declaration"
-revision = "none"
+revision = "not registered, and what a successor changes is the bar rather than the claim: the 0.48 limit was declared from Gaussian pilots and all three exceedances are the least concentrated clouds, so a successor sets the limit from a pilot that includes balls and a sphere, or declares it per family. The low-rank claim itself is not at issue, the latent structure being present in all 26 worlds"
 
 [[test]]
 transformation = "OD:budget"
@@ -203,7 +203,7 @@ record = "experiments/OD/D2/grade.json B1"
 boundary = "monotone in all four sweeps; at a tenth of the neighbour distance 12 percent of Gaussian points and 6 percent of Wikipedia points change polarity under the isotropic observer, at a quarter 24 and 79 percent, against 4 to 7 percent under the anisotropic observer"
 witness = "the finite budget is a first-order effect on real embeddings under an isotropic reader; not graded, as declared"
 absorbed_by = "declaration"
-revision = "none"
+revision = "not registered, and nothing here was refuted: the clause that a tenth of the neighbour distance changes little carried no bar, the test having been declared exploratory and reported ungraded, so there is no commitment to revise. A successor would register a threshold on the fraction of points changing polarity, and this sweep says that threshold has to be declared per reader, the isotropic reader moving 12 percent of Gaussian points where the anisotropic moves 4 to 7"
 
 [[test]]
 transformation = "OD:observer-family"

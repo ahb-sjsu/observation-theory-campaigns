@@ -38,14 +38,14 @@ Volume 14, chapter 19, `geometric-observation/chapters/ch19_the_certificate_that
 
 ## measurements
 
-From `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md` at d43edb7.
+From `observation-theory-campaigns/experiments/DATABASE-FRESHNESS-TRACK.md` at 6576e06.
 
 - line 23. XPROTO-PG (analysis/pgrep); Postgres, recovery_min_apply_delay; WAL LSN; ~0.50 → ~0.06
 - line 24. XPROTO-MG (analysis/mongo); MongoDB delayed secondary; oplog ts; ~0.47 → ~0.03
 - line 25. XPROTO-PGX (analysis/pgx); production PG, netem lag; WAL LSN, pg_stat_statements footprint; ~0.47 → ~0.02
 - line 27. XPROTO-ZK (analysis/zk); ZooKeeper 3.9 ensemble; zxid, sync(); hot 0.99 / cold 0.01, witnessed 0.0
 
-From `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md` at d43edb7.
+From `observation-theory-campaigns/experiments/RADIO-FRESHNESS-TRACK.md` at 6576e06.
 
 - line 25. XPROTO-CSI (analysis/csi); CQI → MCS; HARQ; 0.34–0.37 → 0.10 (OLLA); ✅ 08-23
 - line 26. XPROTO-BEAM (analysis/beam); mmWave beam index; HARQ; 0.31 → 0.02 (BFR); ✅ 08-23
