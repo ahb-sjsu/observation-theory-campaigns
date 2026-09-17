@@ -1,0 +1,72 @@
+[v2] kept 2178 non-identical pairs
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3495.97it/s]
+[v2] base forwards (x)...
+    fwd 320/2178
+    fwd 640/2178
+    fwd 960/2178
+    fwd 1280/2178
+    fwd 1600/2178
+    fwd 1920/2178
+[v2] base forwards (g.x)...
+    fwd 320/2178
+    fwd 640/2178
+    fwd 960/2178
+    fwd 1280/2178
+    fwd 1600/2178
+    fwd 1920/2178
+[v2] n=2178 cal=1306 eval=872; KL median=0.324
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 290/290 [00:00<00:00, 3388.60it/s]
+[v2] patched forwards, layer 6...
+    patch L6 320/872
+    patch L6 640/872
+[v2] patched forwards, layer 12...
+    patch L12 320/872
+    patch L12 640/872
+[v2] patched forwards, layer 18...
+    patch L18 320/872
+    patch L18 640/872
+[v2] patched forwards, layer 24...
+    patch L24 320/872
+    patch L24 640/872
+
+[v2] behavior-changed cases in eval: 212/872
+
+layer  rhoR2c  rhoR2e |  sp_raw  sp_prox  sp_true |  fcRaw  fcProx  fcTrue
+    6   0.891   0.604 |   0.555    0.480    0.362 |  0.340   0.387   0.566
+   12   0.862   0.559 |   0.558    0.510    0.475 |  0.335   0.340   0.425
+   18   0.878   0.426 |   0.603    0.528    0.579 |  0.325   0.358   0.344
+   24   0.916  -0.114 |   0.535    0.541    0.563 |  0.368   0.373   0.406
+
+--- READ (layers 6-18 informative; 24 near-circular anchor) ---
+  L6: true-consumer beats raw -- Spearman: False  false-clear: False
+  L12: true-consumer beats raw -- Spearman: False  false-clear: False
+  L18: true-consumer beats raw -- Spearman: False  false-clear: False
+wrote /home/claude/cr-ieip/cr_ieip_cellL_result.json
+	Command being timed: "python3 /home/claude/cr_ieip_v3.py"
+	User time (seconds): 17058.39
+	System time (seconds): 65.56
+	Percent of CPU this job got: 784%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 36:23.96
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 12393908
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 26069467
+	Voluntary context switches: 260191
+	Involuntary context switches: 160582
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 139944
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

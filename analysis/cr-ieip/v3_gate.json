@@ -1,0 +1,102 @@
+{
+  "cellH": {
+    "n": 1028,
+    "n_cal": 616,
+    "n_fit": 492,
+    "12": {
+      "lambda": 0.8724,
+      "rho_gate_R2": 0.7411,
+      "arm": "local"
+    },
+    "18": {
+      "lambda": 0.854,
+      "rho_gate_R2": 0.7077,
+      "arm": "local"
+    },
+    "final_layer": {
+      "layer": 24,
+      "rho_R2_eval": 0.5601,
+      "delta": -0.0232
+    }
+  },
+  "cellI": {
+    "n": 3685,
+    "n_cal": 2211,
+    "n_fit": 1768,
+    "14": {
+      "lambda": 0.1441,
+      "rho_gate_R2": 0.1702,
+      "arm": "transition"
+    },
+    "21": {
+      "lambda": -0.0056,
+      "rho_gate_R2": -0.0965,
+      "arm": "transition"
+    },
+    "final_layer": {
+      "layer": 28,
+      "rho_R2_eval": 0.2167,
+      "delta": -0.0724
+    }
+  },
+  "cellJ": {
+    "n": 2593,
+    "n_cal": 1555,
+    "n_fit": 1244,
+    "12": {
+      "lambda": -0.8018,
+      "rho_gate_R2": -0.1258,
+      "arm": "non-local"
+    },
+    "18": {
+      "lambda": -0.7227,
+      "rho_gate_R2": -0.3458,
+      "arm": "non-local"
+    },
+    "final_layer": {
+      "layer": 24,
+      "rho_R2_eval": -1.5049,
+      "delta": 0.2559
+    }
+  },
+  "cellK": {
+    "n": 1696,
+    "n_cal": 1017,
+    "n_fit": 813,
+    "14": {
+      "lambda": 0.8019,
+      "rho_gate_R2": 0.5892,
+      "arm": "local"
+    },
+    "21": {
+      "lambda": 0.7675,
+      "rho_gate_R2": 0.4317,
+      "arm": "local"
+    },
+    "final_layer": {
+      "layer": 28,
+      "rho_R2_eval": 0.6418,
+      "delta": -0.05
+    }
+  },
+  "cellL": {
+    "n": 2178,
+    "n_cal": 1306,
+    "n_fit": 1044,
+    "12": {
+      "lambda": 0.3852,
+      "rho_gate_R2": 0.5252,
+      "arm": "local"
+    },
+    "18": {
+      "lambda": 0.2974,
+      "rho_gate_R2": 0.3759,
+      "arm": "local"
+    },
+    "final_layer": {
+      "layer": 24,
+      "rho_R2_eval": -0.1139,
+      "delta": -0.0378
+    }
+  }
+}

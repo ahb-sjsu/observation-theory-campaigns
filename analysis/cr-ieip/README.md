@@ -1,5 +1,12 @@
 # Consumer-relative I-EIP — smallest cell (UNSEALED, exploratory)
 
+> **Status 2026-09-17.** Three sealed families, three graded FAILs, all as
+> executed: V1 (`RESULTS-CR-IEIP.md`), V2 (`RESULTS-CR-IEIP-V2.md`), V3
+> (`RESULTS-CR-IEIP-V3.md`, the locality law, graded 2026-09-17 from cells that
+> ran on Atlas 2026-09-05/06). The construction-stage phenomenon below is a
+> phenomenon on the transforms where it was found; no ordering variable has
+> survived a seal. The paper draft in `paper/` describes a law V3 refutes.
+
 OT applied to erisml-lib's **I-EIP Monitor** (Internal Epistemic Invariance:
 `h_ℓ(g·x) ≈ ρ_ℓ(g)·h_ℓ(x)`, graded in raw L2, gating the forward pass). The OT
 critique: layer ℓ's activations have a consumer — the downstream network — and
