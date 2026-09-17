@@ -84,6 +84,33 @@ between on both. That is a ceiling-and-floor reading, not a law, and it is
 recorded here so the next family, if there is one, starts from it rather than
 rediscovers it.
 
+**The same reading across all three sealed families (2026-09-17, after the
+grade; descriptive, unregistered, 24 units).** Taking every graded unit from
+V1, V2 and V3 at the V2 unit rule (layers 12/18 on 0.5B, 14/21 on 1.5B) and
+sorting by the raw false-clear rate:
+
+| fc_raw band | units | transform families | Δ > 0 |
+|---|---|---|---|
+| 0.11 to 0.34 | 10 | paraphrase (V1, V2), shuffle (V3) | 0 of 10 |
+| 0.41 to 0.85 | 14 | synonym, back-translation, 1.5B paraphrase, truncate | 14 of 14 |
+
+Spearman(fc_raw, Δ) = +0.87 over the 24 units, with perfect sign separation
+at about 0.40. Two caveats travel with that number. Δ = fc_raw − fc_true, so
+Δ contains fc_raw as a term and a positive correlation is partly mechanical;
+the sign separation is the part that is not. And the 0.40 boundary was read off
+these 24 units after the fact. It is a hypothesis for a new family, with the
+boundary and the disjoint-slice measurement of fc_raw stated before the seal,
+and it is not a claim of this record.
+
+Read with both metrics visible rather than their difference, the families
+sort by which instrument fails: on paraphrase the raw L2 read is good
+(0.11 to 0.29) and the consumer read is poor (0.48 to 0.80); on shuffle both
+are middling and the consumer read is slightly worse; on synonym and
+back-translation both are middling and the consumer read is better; on
+truncate the raw read is nearly blind (0.79 to 0.85) and the consumer read is
+merely poor (0.60 to 0.66). The consumer read is not a better instrument. It
+is a different one, and the two fail in different places.
+
 ## Secondaries
 
 - **S2, final-layer collapse:** rho_R2_eval at the final layer is 0.56 (H),
