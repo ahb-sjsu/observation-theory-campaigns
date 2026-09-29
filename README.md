@@ -1314,3 +1314,16 @@ python paper/make_figdata.py      # regenerate all figure data
 MATLAB (Atlas): `addpath(genpath('matlab'))` then
 `run_p0_instrument_net`, `run_pe0_entropy_controls`,
 `run_p1_structural_stability`, `run_p2_toy_hamiltonian`.
+
+## License
+
+Two licenses, split by what the file is.
+
+| What | License | File |
+|---|---|---|
+| Prose and figures: documentation, articles, papers, notes, figures, data, README | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | `LICENSE-TEXT` |
+| Source code: the package, scripts, tools, experiment harnesses, the code in notebooks | [MIT](https://opensource.org/licenses/MIT) | `LICENSE` |
+
+Manuscripts under `paper/` or `papers/` that are submitted, accepted or
+published elsewhere are outside both files. They carry the rights their
+publisher agreement assigns.
