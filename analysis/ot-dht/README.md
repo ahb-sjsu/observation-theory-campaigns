@@ -4,9 +4,10 @@ Owner idea 2026-09-29: make the BitTorrent DHT a showcase for Observation
 Theory v1.0 (readscope `PRINCIPLES.md`, sealed 2026-08-18), one live
 measurement per principle.
 
-**Status: PRE-STATED PREDICTIONS COMMITTED, NOT YET RUN.** The predictions and
-bars below are the ones in the header of `ot_dht_shakedown.py` (which the grading
-code implements), committed before any measurement on the live node set. The verdicts will be
+**Status: RUN 2026-09-29, FOUR OF FIVE PASS, P5 FAILS AS REGISTERED.** The
+predictions and bars below were committed in `82e2bc7` before any measurement on
+the live node set; the verdicts follow them, graded by the script as executed.
+Results in `ot_dht_result.json`. The verdicts will be
 added below as executed, misses at equal prominence.
 
 ## The object
@@ -57,6 +58,45 @@ The kernel is the set of bits with measured `diag P_C == 0` under `D_uniform`.
 | P3 | observation complexity | Blind identification spends d = 160 flips per target to find a read subspace of effective rank r (bits read ≥ 50%). | d / r ≥ 5 (the k/d recovery table for blind probe subsets is an identity for random subsets, printed, not graded) |
 | P4 | temporal nonstationarity | P_C is a process: over six successive node sets 10 minutes apart, with the same `D_uniform` targets, the read spectrum moves by more than sampling noise. | staleness price L1(first, last) ≥ 3 × the noise floor (L1 between two independent `D_uniform` draws on the last node set), and read depth moves ≥ 0.5 bit. Non-claim: no mechanism is named; P4 names drift as mechanism only where the staleness channel is shown to dominate, which this shakedown does not attempt |
 | P5 | metric consequence | For random 1 to 5 bit perturbations δ, `δᵀPδ` predicts the damage to a graded consumer (the change in shared prefix between the target and its nearest node). The selection consumer (did the nearest node change) is printed beside it at equal prominence; P5 excludes selection consumers, so it is predicted to correlate less. Perturbations confined to the kernel meet silence. | Spearman(δᵀPδ, graded damage) ≥ 0.5; Spearman for selection < graded; kernel perturbations change the decision in ≤ 0.2% of trials |
+
+## Verdicts, as executed (2026-09-29, 04:51 to 05:41 UTC)
+
+The first frozen node set held 2,465 distinct node ids (log₂N = 11.27), seen by the
+daemon in its first ten minutes on the public DHT; the five that followed, ten
+minutes apart, held 3,455 to 5,223. Probing all three distributions took 1.4 s.
+
+| | measured | bar | verdict |
+|---|---|---|---|
+| P1 | knee K = bit 8; bits 0 to 3 read 1.00; bits from 16 on read at most 0.008. The flip: the router agrees with the top-32 code 1.000 and with the bottom-32 code 0.004; the sharder agrees 0.000 and 1.000 | K in [5.27, 13.27], ≥ 0.9, ≤ 0.05, ≥ 0.95, ≤ 0.05 | **PASS** |
+| P2 | read depth 9.22 bits uniform, 17.96 near our id (+8.74), 11.37 on our own targets (+2.15) | +3, +1 | **PASS** |
+| P3 | effective rank r = 8 of d = 160: d / r = 20 | ≥ 5 | **PASS** |
+| P4 | staleness price 1.375 bits against a noise floor of 0.115 (12 ×); read depth moved 1.37 bits (9.22, 9.90, 10.05, 10.38, 10.49, 10.59) | ≥ 3 ×, ≥ 0.5 | **PASS** |
+| P5 | Spearman(δᵀPδ, graded damage) 0.529; kernel perturbations changed the decision 0 times in 2,048; **Spearman for the selection consumer 0.534, not below the graded one** | ≥ 0.5; selection < graded; ≤ 0.2 % | **FAIL** |
+
+**The P5 miss.** Two of its three parts held: the quadratic form predicts the
+graded consumer's damage (0.53), and the kernel met silence in every one of 2,048
+trials, which is P5's floor ("silence, never confident error"). The part that
+failed is mine, not the principle's statement: I predicted the selection consumer
+would track δᵀPδ less well, because P5 excludes selection consumers from the
+quadratic form. On this router the two came out equal (0.534 against 0.529). A
+reading after the fact, labelled as such and not graded: the graded consumer as
+registered, the change in the shared prefix of the nearest node, moves almost only
+when the nearest node itself changes, so the two consumers carry nearly the same
+signal here. A graded consumer that separates from the selection would need a
+distance that moves without a change of node (the full XOR distance, say); that
+is a successor registration, not a rescue of this one.
+
+**P4 in detail.** The price of an old reading grows with its age: 0.10 bits at
+10 minutes (inside the noise floor of 0.115), then 0.22, 0.54, 0.70 and 1.38
+bits at 20 to 50 minutes. No mechanism is named, as registered. Descriptive,
+not registered: the read depth rose 1.37 bits while the node set grew 2.12 times
+(log₂ 2.12 = 1.08), close to the synthetic validation's one bit per doubling.
+
+**Provenance.** Instrument `observe.py` sha256 `dd5c0caf…90b45ba` (turboquant-pro
+`adeb052`), confirmed in the result; script sha256 `ad80060b…87ff27`, identical to
+the committed file; first node set sha256 `b96bff9e…c55d0dc17`, every set frozen
+under `/archive/tqp-dht/frozen/<t>` on Atlas with its hash in the result; seed
+20260929; result file sha256 `9e670be8…b5fc1cc`.
 
 ## What would count against the program here
 
