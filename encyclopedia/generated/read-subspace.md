@@ -11,7 +11,7 @@ The directions of the data a consumer can distinguish, spanned by the eigenvecto
 
 **Example.** The consumer 3x1 + 4x2 has a one-dimensional read subspace spanned by (3, 4).
 
-**Known as, or related to prior art.** The active subspace of Constantine and Gleich when the output is scalar and Euclidean.
+**Known as, or related to prior art.** The active subspace of Constantine, Dow, and Wang (SIAM Journal on Scientific Computing, 2014) when the output is scalar and Euclidean. It is the range of the expected gradient outer product.
 
 ## equation
 

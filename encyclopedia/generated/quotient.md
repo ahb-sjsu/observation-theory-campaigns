@@ -11,7 +11,7 @@ The space of data with a set of transformations declared not to matter, so that 
 
 **Example.** The cosine reader cannot tell (1, 1) from (2, 2), so the two are one row on its quotient.
 
-**Known as, or related to prior art.** The information bottleneck's view of relevant information, what the consumer does not read may be discarded, stated for a fixed consumer without a variational objective.
+**Known as, or related to prior art.** On the read operator's side it is the quotient by the kernel of the gradient outer-product matrix. The directions it removes are those orthogonal to the active subspace of Constantine, Dow, and Wang (SIAM Journal on Scientific Computing, 2014). Sufficient dimension reduction removes the same kind of directions (Li, Journal of the American Statistical Association, 1991, and Cook, Regression Graphics, 1998). For a declared group of transformations it is the orbit space. It also matches the information bottleneck's view of relevant information, what the consumer does not read may be discarded, stated for a fixed consumer without a variational objective.
 
 ## equation
 

@@ -11,6 +11,8 @@ Erasing one bit costs at least Boltzmann's constant times the absolute temperatu
 
 **Example.** Erasing one bit at 300 kelvin costs at least 2.87 times 10 to the minus 21 joules.
 
+**Known as, or related to prior art.** Landauer (IBM Journal of Research and Development, 1961), with Bennett on logical reversibility (International Journal of Theoretical Physics, 1982). The program's conditional Landauer work is erasure work with side information, due to del Rio, Åberg, Renner, Dahlsten, and Vedral (Nature, 2011), with Sagawa and Ueda (Physical Review Letters, 2009). In coding terms the matching quantity is the conditional leakage I(X^n;M|S^n)/n of secure source coding. Its rate-distortion-equivocation region is Theorem 3 of Villard and Piantanida (IEEE Transactions on Information Theory, 2013). The vector Gaussian case is Ekrem and Ulukus (IEEE Transactions on Information Theory, 2013).
+
 ## equation
 
 Book equation 0.27.

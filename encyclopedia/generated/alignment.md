@@ -11,6 +11,8 @@ The normalized overlap between a consumer's average read operator and the covari
 
 **Example.** A read operator that lies wholly in one direction and a covariance with half its variance in that direction have alignment one half.
 
+**Known as, or related to prior art.** The form is that of kernel alignment, the normalized trace inner product of two positive semidefinite matrices (Cristianini, Shawe-Taylor, Elisseeff, and Kandola, Advances in Neural Information Processing Systems 14, 2002). It is also called a matrix cosine. Here the two matrices are the averaged read operator and the source covariance.
+
 ## equation
 
 Book equation 4.6.

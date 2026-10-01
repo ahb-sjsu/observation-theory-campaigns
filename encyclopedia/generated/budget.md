@@ -11,6 +11,8 @@ The third element of an observer. The bits, rows, calls, seconds, or dollars a c
 
 **Example.** A probe with 2d calls at d equal to 16 spends 32 evaluations for one operating point.
 
+**Known as, or related to prior art.** In coding and approximation the budget is a rate or rank constraint. The program's word covers bits, rows, calls, seconds, and dollars under one name.
+
 ## equation
 
 Book equation 11.4.

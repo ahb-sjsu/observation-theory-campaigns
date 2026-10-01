@@ -11,6 +11,8 @@ The finding that recovery of a read operator by a probe is a cliff at the full d
 
 **Example.** At half the dimension the probe recovered 0.366 and at the full dimension 1.000, with nothing in between reaching 0.90.
 
+**Known as, or related to prior art.** The classical name is the identifiability limit of confined probes. A probe whose directions span a subspace learns nothing about the operator outside that span. So a design confined to fewer directions than the full dimension cannot identify a general operator. Query lower bounds make the same point for zeroth-order optimization (Duchi, Jordan, Wainwright, and Wibisono, IEEE Transactions on Information Theory, 2015), for matrix-vector queries in PCA (Simchowitz, El Alaoui, and Recht, STOC 2018), and for vector-matrix-vector queries (Rashtchian, Woodruff, and Zhu, APPROX/RANDOM 2020). Arias-Castro, Candès, and Davenport give the matching limits of adaptive sensing (IEEE Transactions on Information Theory, 2013). The cliff is a theorem only for confined designs. A design that is not confined to a fixed span is outside it.
+
 ## equation
 
 Book equation 11.4.
