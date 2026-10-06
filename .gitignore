@@ -13,3 +13,6 @@ paper/*.synctex.gz
 paper/*Notes.bib
 *.aux
 *.log~
+
+# OFC 2027 paper moved to the private repo ahb-sjsu/ofc-qot (2026-10-06)
+paper/ofc-qot/
