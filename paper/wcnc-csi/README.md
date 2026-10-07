@@ -190,8 +190,13 @@ Build as in `ofc-qot`: symlink `.lake/packages` to `~/dmo-lean`, then `lake buil
 - [ ] Read the abstract and §V aloud (articles and missing "the" are the most
       flagged grammar error).
 - [x] Links now `hidelinks` (black) for the review PDF (2026-10-06).
-- [ ] **AI-use disclosure is REQUIRED by IEEE, not optional.** A draft Acknowledgment
-      was added 2026-10-06. The author must confirm it matches how AI was actually used.
+- [x] **AI-use disclosure is REQUIRED by IEEE, not optional.** Acknowledgment
+      confirmed by the author 2026-10-07, with the Lean proofs and the claim-checking
+      script added.
+- [x] EDAS-style PDF check (2026-10-07): 5 pp, US Letter, no page numbers, all fonts
+      embedded. Figures now use TrueType (`pdf.fonttype: 42`); the matplotlib default
+      Type 3 fonts would be flagged by IEEE PDF eXpress at camera-ready.
+- [ ] Confirm in EDAS that the Track 1 upload offers the 6-page limit.
 - [x] §V added from sealed BEAM + PHY records; Fig. 4 and Table III built.
 - [x] Prose scan clean (0 semicolons, 0 em-dashes, 0 banned words, 0 colored
       text, corruption guards clean).

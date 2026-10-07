@@ -21,7 +21,8 @@ ANA = os.path.join(HERE, "..", "..", "..", "analysis")
 DEF_BEAM = os.path.join(ANA, "beam", "XPROTO-BEAM-graded.json")
 DEF_PHY = os.path.join(ANA, "phy", "XPROTO-PHY-graded.json")
 plt.rcParams.update({"font.size": 8.5, "font.family": "serif", "axes.grid": True,
-                     "grid.alpha": 0.3, "savefig.dpi": 300, "savefig.bbox": "tight"})
+                     "grid.alpha": 0.3, "savefig.dpi": 300, "savefig.bbox": "tight",
+                     "pdf.fonttype": 42})
 
 
 def _mm(vals):
