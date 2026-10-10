@@ -290,13 +290,16 @@ def nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap: tuple[bool, bool
     return rec
 
 
-PARTS = ("instrument", "graded", "others", "dthalf")
+PARTS = ("instrument", "graded", "others", "dthalf", "murecord")
 
 
-def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print, parts=None) -> dict:
+def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print, parts=None, tests=None) -> dict:
     """parts: which of PARTS this call runs (all by default). Training and the test trajectory's spin-up are deterministic
     from the seeds, so separate Jobs that each run some parts see the same rankings and the same u0. A world may carry
-    "overrides", which replace config keys for that world only (round 3: T_sync, block_lyap_roles)."""
+    "overrides", which replace config keys for that world only (round 3: T_sync, block_lyap_roles). tests: which test
+    trajectory indices to run (all K by default); each index's seed is fixed, so a trajectory is the same in any Job.
+    The observer and block tangents are carried for the graded observers only, since the records use only theirs
+    (changed 2026-10-10 for the pilot; the probe rounds carried them for every observer)."""
     cfg = {**cfg, **world.get("overrides", {})}; parts = set(PARTS if parts is None else parts)
     if not parts <= set(PARTS): raise SystemExit(f"unknown parts {sorted(parts - set(PARTS))}")
     n = int(world["n"]); model = ForcedNS2D(n, float(world["nu"]), float(cfg["alpha"]), float(cfg["F0"]), int(cfg["kf"]))
@@ -341,6 +344,7 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
     mu_rec = [float(m) for m in cfg.get("mu_record", [])] if seed_role in cfg.get("mu_record_roles", []) else []
     refine = seed_role in cfg.get("dt_refine_roles", [])
     for j in range(K):
+        if tests is not None and j not in tests: continue
         t1 = time.time(); rng = np.random.default_rng(seed_test + 100 * off + j)
         u0 = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
         a0 = amplitudes(model, u0, cand); s0 = sensitivities(model, u0, cand, chunk); d0 = a0 * s0
@@ -353,9 +357,9 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
             test["all_hold_max"] = float(g["delta"][g["times"] >= g["times"][-1] - float(cfg["T_hold"]) - 1e-9, 1].max())
         for name, o in orders.items():
             if ("graded" if name in GRADED else "others") not in parts: continue
-            rec = nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap, np.random.default_rng(seed_test + 7 * j + 3), d0); test["observers"][name] = rec
+            rec = nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap if name in GRADED else (False, False), np.random.default_rng(seed_test + 7 * j + 3), d0); test["observers"][name] = rec
             log(json.dumps({"world": world["name"], "test": j, "observer": name, "m_star": rec["m_star"], "nonmonotone": rec["nonmonotone"], "seconds": round(time.time() - t1, 1)}))
-        for m_ in (mu_rec if "graded" in parts else []):
+        for m_ in (mu_rec if "murecord" in parts else []):
             for name in GRADED:
                 test["mu_record"].setdefault(str(m_), {})[name] = nudge_record(model, u0, cand, orders[name], ladder, m_, dt, cfg, (False, False), rng, d0)
         if refine and "dthalf" in parts:  # time-step refinement on the graded observers
@@ -374,7 +378,7 @@ def footprint(t_wall0: float) -> dict:
     return {"peak_rss_mib": ru.ru_maxrss / 1024.0, "cpu_seconds": ru.ru_utime + ru.ru_stime, "wall_seconds": wall, "mean_cores": (ru.ru_utime + ru.ru_stime) / wall if wall > 0 else None}
 
 
-def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, parts=None) -> dict:
+def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, parts=None, tests=None) -> dict:
     t_wall0 = time.time()
     if seed_role == "probe":
         seed_train = seed_test = int(cfg["seed_probe"]); seed_test += 5000
@@ -384,7 +388,7 @@ def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None,
     result = {"config": cfg, "seed_role": seed_role, "seed_train": seed_train, "seed_test": seed_test, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     for world in cfg["worlds"]:
         if world["group"] not in groups or (only_world and world["name"] != only_world): continue
-        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role, parts=parts)); result["footprint"] = footprint(t_wall0)
+        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role, parts=parts, tests=tests)); result["footprint"] = footprint(t_wall0)
         print(json.dumps({"footprint": result["footprint"]}), flush=True); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     if only_world and not result["worlds"]:
         raise SystemExit(f"no world named {only_world} in role {seed_role}")
@@ -471,10 +475,12 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--config"); ap.add_argument("--seed-role", default="probe"); ap.add_argument("--out", default="out.json")
     ap.add_argument("--world", default=None, help="run only this world (one NRP Job per world)")
-    ap.add_argument("--parts", default=None, help="comma-separated subset of instrument,graded,others,dthalf (all by default)")
+    ap.add_argument("--parts", default=None, help="comma-separated subset of instrument,graded,others,dthalf,murecord (all by default)")
+    ap.add_argument("--tests", default=None, help="comma-separated test trajectory indices (all K by default)")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
-    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world, a.parts.split(",") if a.parts else None); return 0
+    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world, a.parts.split(",") if a.parts else None,
+        [int(x) for x in a.tests.split(",")] if a.tests else None); return 0
 
 
 if __name__ == "__main__":
