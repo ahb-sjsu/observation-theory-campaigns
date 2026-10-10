@@ -238,8 +238,9 @@ Cost, from the Jobs' start and completion times: B at $A = 10$, 100, 1000 took 7
 shell), probably an initial transient. Whether it settles as $J$ grows decides whether
 $A = 1000$ separates the worlds.
 
-Open for the owner before the pilot: the amplitude. Both 10 and 100 separate the worlds cleanly
-in C0 and give the same classes.
+Amplitude: $A = 100$ for the pilot and the run, decided by the owner on 2026-10-10. It is set on
+the pilot and run worlds in `prereg_config.json`. Both 10 and 100 separated the worlds cleanly in
+C0 and gave the same classes. The $A = 1000$ result, when it lands, is recorded and changes nothing.
 
 Probe (seed 20261091). It fixes the $J$ ladder's top, the amplitude $A$, the horizon $T$, $c_0$,
 the tolerances, $D$ and the shrink factor. It records the blow-up time of world B as the time at

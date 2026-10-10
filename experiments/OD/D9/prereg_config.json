@@ -91,18 +91,22 @@
   {
    "name": "B",
    "alpha": 0.25,
-   "group": "pilot_run"
+   "group": "pilot_run",
+   "amplitude": 100.0
   },
   {
    "name": "R",
    "alpha": 0.6,
-   "group": "pilot_run"
+   "group": "pilot_run",
+   "amplitude": 100.0
   },
   {
    "name": "G_recorded_only",
    "alpha": 0.4,
    "group": "pilot_run",
-   "graded": false
+   "graded": false,
+   "amplitude": 100.0
   }
- ]
+ ],
+ "amplitude_decision": "A = 100 for the pilot and the run, chosen by the owner 2026-10-10 from the probe: A = 10 and 100 both separated the worlds in C0 with the same candidate classes"
 }
