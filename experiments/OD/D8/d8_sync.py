@@ -290,11 +290,20 @@ def nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap: tuple[bool, bool
     return rec
 
 
-def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print) -> dict:
+PARTS = ("instrument", "graded", "others", "dthalf")
+
+
+def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print, parts=None) -> dict:
+    """parts: which of PARTS this call runs (all by default). Training and the test trajectory's spin-up are deterministic
+    from the seeds, so separate Jobs that each run some parts see the same rankings and the same u0. A world may carry
+    "overrides", which replace config keys for that world only (round 3: T_sync, block_lyap_roles)."""
+    cfg = {**cfg, **world.get("overrides", {})}; parts = set(PARTS if parts is None else parts)
+    if not parts <= set(PARTS): raise SystemExit(f"unknown parts {sorted(parts - set(PARTS))}")
     n = int(world["n"]); model = ForcedNS2D(n, float(world["nu"]), float(cfg["alpha"]), float(cfg["F0"]), int(cfg["kf"]))
     dt = float(cfg["dt_base"]) * int(cfg["n_ref"]) / n; ds = float(cfg["dt_sample"]); chunk = int(cfg["chunk"]); cand = Candidates(model); mu = float(cfg["mu"])
     ladder = [m for m in cfg["ladder"] if m <= cand.size]; off = int(world["seed_offset"]); t0 = time.time()
-    out = {"name": world["name"], "group": world["group"], "n": n, "nu": model.nu, "dt": dt, "n_candidates": cand.size, "ladder": ladder}
+    out = {"name": world["name"], "group": world["group"], "n": n, "nu": model.nu, "dt": dt, "n_candidates": cand.size, "ladder": ladder,
+           "parts": sorted(parts), "overrides": world.get("overrides", {})}
 
     # training trajectory: rankings and theorem checks
     rng = np.random.default_rng(seed_train + off); uh = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
@@ -336,21 +345,23 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
         u0 = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
         a0 = amplitudes(model, u0, cand); s0 = sensitivities(model, u0, cand, chunk); d0 = a0 * s0
         test = {"index": j, "spectrum_tail": spectrum_tail(model, u0), "observers": {}, "mu_record": {}, "dt_half": {}}
-        test["lyapunov"] = lyapunov(model, u0, dt, float(cfg["T_lyap"]), ds, np.random.default_rng(seed_test + 100 * off + j + 55)) if cfg.get("lyapunov", True) else None
-        # instrument group (E1): nothing observed and everything observed
-        g = nudge_group(model, u0, np.stack([np.zeros((n, n)), cand.mask(np.arange(cand.size), n)]), mu, dt, float(cfg["T_sync"]), ds, False, False, rng)
-        test["none_final"] = float(g["delta"][-1, 0]); test["all_final"] = float(g["delta"][-1, 1])
-        test["all_hold_max"] = float(g["delta"][g["times"] >= g["times"][-1] - float(cfg["T_hold"]) - 1e-9, 1].max())
+        if "instrument" in parts:
+            test["lyapunov"] = lyapunov(model, u0, dt, float(cfg["T_lyap"]), ds, np.random.default_rng(seed_test + 100 * off + j + 55)) if cfg.get("lyapunov", True) else None
+            # instrument group (E1): nothing observed and everything observed
+            g = nudge_group(model, u0, np.stack([np.zeros((n, n)), cand.mask(np.arange(cand.size), n)]), mu, dt, float(cfg["T_sync"]), ds, False, False, rng)
+            test["none_final"] = float(g["delta"][-1, 0]); test["all_final"] = float(g["delta"][-1, 1])
+            test["all_hold_max"] = float(g["delta"][g["times"] >= g["times"][-1] - float(cfg["T_hold"]) - 1e-9, 1].max())
         for name, o in orders.items():
+            if ("graded" if name in GRADED else "others") not in parts: continue
             rec = nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap, np.random.default_rng(seed_test + 7 * j + 3), d0); test["observers"][name] = rec
             log(json.dumps({"world": world["name"], "test": j, "observer": name, "m_star": rec["m_star"], "nonmonotone": rec["nonmonotone"], "seconds": round(time.time() - t1, 1)}))
-        for m_ in mu_rec:
+        for m_ in (mu_rec if "graded" in parts else []):
             for name in GRADED:
                 test["mu_record"].setdefault(str(m_), {})[name] = nudge_record(model, u0, cand, orders[name], ladder, m_, dt, cfg, (False, False), rng, d0)
-        if refine:  # time-step refinement on the graded observers
+        if refine and "dthalf" in parts:  # time-step refinement on the graded observers
             for name in GRADED:
                 test["dt_half"][name] = nudge_record(model, u0, cand, orders[name], ladder, mu, dt / 2, cfg, (False, False), rng, d0)
-                log(json.dumps({"world": world["name"], "test": j, "observer": name, "dt_half_m_star": test["dt_half"][name]["m_star"], "m_star": test["observers"][name]["m_star"]}))
+                log(json.dumps({"world": world["name"], "test": j, "observer": name, "dt_half_m_star": test["dt_half"][name]["m_star"], "m_star": test["observers"].get(name, {}).get("m_star")}))
         test["seconds"] = time.time() - t1; out["tests"].append(test)
     out["seconds"] = time.time() - t0
     return out
@@ -363,7 +374,7 @@ def footprint(t_wall0: float) -> dict:
     return {"peak_rss_mib": ru.ru_maxrss / 1024.0, "cpu_seconds": ru.ru_utime + ru.ru_stime, "wall_seconds": wall, "mean_cores": (ru.ru_utime + ru.ru_stime) / wall if wall > 0 else None}
 
 
-def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None) -> dict:
+def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, parts=None) -> dict:
     t_wall0 = time.time()
     if seed_role == "probe":
         seed_train = seed_test = int(cfg["seed_probe"]); seed_test += 5000
@@ -373,7 +384,7 @@ def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None)
     result = {"config": cfg, "seed_role": seed_role, "seed_train": seed_train, "seed_test": seed_test, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     for world in cfg["worlds"]:
         if world["group"] not in groups or (only_world and world["name"] != only_world): continue
-        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role)); result["footprint"] = footprint(t_wall0)
+        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role, parts=parts)); result["footprint"] = footprint(t_wall0)
         print(json.dumps({"footprint": result["footprint"]}), flush=True); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     if only_world and not result["worlds"]:
         raise SystemExit(f"no world named {only_world} in role {seed_role}")
@@ -460,9 +471,10 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--config"); ap.add_argument("--seed-role", default="probe"); ap.add_argument("--out", default="out.json")
     ap.add_argument("--world", default=None, help="run only this world (one NRP Job per world)")
+    ap.add_argument("--parts", default=None, help="comma-separated subset of instrument,graded,others,dthalf (all by default)")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
-    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world); return 0
+    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world, a.parts.split(",") if a.parts else None); return 0
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@
  "F0": 1.0,
  "kf": 4,
  "alpha": 0.1,
- "nu_note": "PROBE round 2 (2026-10-09): round 1 at nu = 0.004 and 0.002, n = 64 failed the resolution bar (enstrophy tail at the dealiasing wavenumber 6.3e-3 and 1.4e-2 of the peak against 1e-6); round 2 scans nu = 0.01, 0.02, 0.03, 0.05 at n = 64 for two viscosities that are both chaotic (largest Lyapunov exponent > 0) and resolved; pilot and run nu values are placeholders until then",
+ "nu_note": "PROBE round 3 (2026-10-10): rounds 1-2 at n = 64 found no world both chaotic and resolved (Lyapunov +0.54/+0.44/+0.06/-0.05 at nu 0.002/0.004/0.03/0.05; only 0.05 resolved). Round 3 runs nu = 0.01, 0.02, 0.03 at n = 96, T_sync = 100 (T_hold 10; delta for t <= 50 is the same as a 50 window), block exponent off, each world split into three Jobs (instrument+graded, others, dthalf); pilot and run nu values are placeholders until then",
  "omega_rms": 3.0,
  "ic_kmax": 8,
  "dt_base": 0.005,
@@ -66,32 +66,37 @@
  "bars": "PREREG-D8-DRAFT.md Section 5; tolerances fixed from the pilot",
  "worlds": [
   {
-   "name": "pr_nu010_n64",
+   "name": "pr3_nu010_n96",
    "group": "probe",
-   "n": 64,
+   "n": 96,
    "nu": 0.01,
-   "seed_offset": 1
+   "seed_offset": 1,
+   "overrides": {
+    "T_sync": 100.0,
+    "block_lyap_roles": []
+   }
   },
   {
-   "name": "pr_nu020_n64",
+   "name": "pr3_nu020_n96",
    "group": "probe",
-   "n": 64,
+   "n": 96,
    "nu": 0.02,
-   "seed_offset": 1
+   "seed_offset": 1,
+   "overrides": {
+    "T_sync": 100.0,
+    "block_lyap_roles": []
+   }
   },
   {
-   "name": "pr_nu030_n64",
+   "name": "pr3_nu030_n96",
    "group": "probe",
-   "n": 64,
+   "n": 96,
    "nu": 0.03,
-   "seed_offset": 1
-  },
-  {
-   "name": "pr_nu050_n64",
-   "group": "probe",
-   "n": 64,
-   "nu": 0.05,
-   "seed_offset": 1
+   "seed_offset": 1,
+   "overrides": {
+    "T_sync": 100.0,
+    "block_lyap_roles": []
+   }
   },
   {
    "name": "p_nu1_n64",

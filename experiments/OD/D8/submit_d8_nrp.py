@@ -45,7 +45,9 @@ IMAGE = "python:3.12-slim"
 NUMPY = "2.2.6"  # the version the self-test passed on at Atlas
 HERE = Path(__file__).resolve().parent
 FILES = {"OD/D5/d5_burgers.py": HERE.parent / "D5" / "d5_burgers.py", "OD/D8/d8_sync.py": HERE / "d8_sync.py", "OD/D8/prereg_config.json": HERE / "prereg_config.json"}
-TIMEOUT = "4h"
+TIMEOUT = "16h"  # round 3 at n = 96, T_sync = 100: the longest part is estimated at about 8 h from the n = 64 measurements
+# --split runs each world as three Jobs (d8_sync.py --parts), so one lost node costs one part, not the world
+JOB_PARTS = {"core": "instrument,graded", "others": "others", "dthalf": "dthalf"}
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN d8 result gz-b64----", "----END d8 result----"
 
@@ -59,11 +61,12 @@ def probe_worlds() -> list[str]:
     return [w["name"] for w in cfg["worlds"] if w["group"] in cfg["groups_by_role"]["probe"]]
 
 
-def job_name(world: str) -> str:
-    return "d8-probe-" + world.replace("_", "-").lower()
+def job_name(world: str, part: str | None = None) -> str:
+    return "d8-probe-" + world.replace("_", "-").lower() + (f"-{part}" if part else "")
 
 
-def command(world: str, blobs: dict[str, tuple[str, str]]) -> str:
+def command(world: str, blobs: dict[str, tuple[str, str]], part: str | None = None) -> str:
+    tag = f"{world}_{part}" if part else world; parts_arg = f" --parts {JOB_PARTS[part]}" if part else ""
     lines = ["set -euo pipefail", "export PYTHONUNBUFFERED=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PIP_ROOT_USER_ACTION=ignore HOME=/work",
              "mkdir -p /work/OD/D5 /work/OD/D8"]
     for rel, (b64, sha) in blobs.items():
@@ -71,14 +74,14 @@ def command(world: str, blobs: dict[str, tuple[str, str]]) -> str:
     lines += [f"pip install -q --no-cache-dir numpy=={NUMPY} 2>&1 | tail -1 || true",
               "python -c \"import numpy, sys; print('numpy', numpy.__version__, 'python', sys.version.split()[0])\"",
               "cd /work/OD/D8", "python -u d8_sync.py --selftest",
-              f"timeout {TIMEOUT} python -u d8_sync.py --config prereg_config.json --seed-role probe --world {world} --out probe_{world}.json",
-              f"echo '{BEGIN}'", f"gzip -c probe_{world}.json | base64 -w0", "echo", f"echo '{END}'"]
+              f"timeout {TIMEOUT} python -u d8_sync.py --config prereg_config.json --seed-role probe --world {world}{parts_arg} --out probe_{tag}.json",
+              f"echo '{BEGIN}'", f"gzip -c probe_{tag}.json | base64 -w0", "echo", f"echo '{END}'"]
     return "\n".join(lines) + "\n"
 
 
-def descriptor(world: str, blobs, head: str) -> JobDescriptor:
-    return JobDescriptor(name=job_name(world), image=IMAGE, command=["/bin/bash", "-c", command(world, blobs)],
-                         env={"D8_WORLD": world, "D8_HEAD": head}, resources=Resources(cpu=CPU, memory=MEM, gpu=0, ephemeral_storage=EPH),
+def descriptor(world: str, blobs, head: str, part: str | None = None) -> JobDescriptor:
+    return JobDescriptor(name=job_name(world, part), image=IMAGE, command=["/bin/bash", "-c", command(world, blobs, part)],
+                         env={"D8_WORLD": world, "D8_HEAD": head, "D8_PART": part or "all"}, resources=Resources(cpu=CPU, memory=MEM, gpu=0, ephemeral_storage=EPH),
                          labels={"atlas.io/batch": BATCH, "atlas.io/role": "probe", "app": "od-d8"}, backoff_limit=0)
 
 
@@ -126,19 +129,19 @@ def created(name: str) -> dt.datetime | None:
     return dt.datetime.fromisoformat(got.stdout.strip().replace("Z", "+00:00"))
 
 
-def submit(dry: bool) -> int:
+def submit(dry: bool, split: bool = False) -> int:
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in FILES.values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
     blobs = {}
     for rel, p in FILES.items():
         raw = p.read_bytes(); blobs[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest())
-    worlds = probe_worlds(); descs = [descriptor(w, blobs, head) for w in worlds]
+    worlds = probe_worlds(); descs = [descriptor(w, blobs, head, part) for w in worlds for part in (JOB_PARTS if split else [None])]
     for d in descs: preflight(d)
     print(json.dumps({"head": head, "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in blobs.items()},
                       "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": TIMEOUT}, indent=1))
     if dry:
-        print(command(worlds[0], {k: ("<b64>", v[1]) for k, v in blobs.items()})); return 0
+        print(command(worlds[0], {k: ("<b64>", v[1]) for k, v in blobs.items()}, next(iter(JOB_PARTS)) if split else None)); return 0
     for i, d in enumerate(descs):
         if i: time.sleep(20)  # space submissions apart on Atlas (no churn); this is the submitter, not a Job
         t_sub = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
@@ -154,16 +157,50 @@ def submit(dry: bool) -> int:
     return 0
 
 
-def collect(worlds: list[str] | None = None, tag: str = "") -> int:
+def fetch(name: str):
+    st = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}").stdout.strip()
+    if not st.startswith("1/"):  # never read logs of a Job that has not succeeded: a dead node makes kubectl logs hang
+        print(f"{name}: status {st or 'absent'}, not collected"); return None, st
+    log = kubectl("logs", f"job/{name}").stdout
+    if BEGIN not in log:
+        print(f"{name}: status {st}, no result block; last lines:\n" + "\n".join(log.splitlines()[-8:])); return None, st
+    blob = log.split(BEGIN, 1)[1].split(END, 1)[0].strip()
+    return (json.loads(gzip.decompress(base64.b64decode(blob))), log.split(BEGIN, 1)[0]), st
+
+
+def merge_parts(pieces: dict) -> dict:
+    """Merge one world's part results. Training and u0 are seed-deterministic, so the parts share rankings and test
+    trajectories; observers, dt_half and the instrument fields are unioned per test trajectory."""
+    base = json.loads(json.dumps(next(iter(pieces.values()))))
+    w0 = base["worlds"][0]; w0["parts"] = sorted({p for r in pieces.values() for p in r["worlds"][0]["parts"]}); base["footprints_by_part"] = {}
+    for part, r in pieces.items():
+        base["footprints_by_part"][part] = r.get("footprint")
+        w = r["worlds"][0]
+        if w["rankings"] != w0["rankings"]: raise SystemExit(f"part {part} has different rankings: the parts are not the same world")
+        for t0, t in zip(w0["tests"], w["tests"]):
+            t0["observers"].update(t["observers"]); t0["dt_half"].update(t["dt_half"]); t0["mu_record"].update(t["mu_record"])
+            for k in ("lyapunov", "none_final", "all_final", "all_hold_max"):
+                if k in t: t0[k] = t[k]
+    return base
+
+
+def collect(worlds: list[str] | None = None, tag: str = "", split: bool = False) -> int:
     merged = None
     for w in worlds or probe_worlds():
-        name = job_name(w); st = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}").stdout.strip()
-        log = kubectl("logs", f"job/{name}").stdout
-        if BEGIN not in log:
-            print(f"{name}: status {st}, no result block yet; last lines:\n" + "\n".join(log.splitlines()[-8:])); continue
-        blob = log.split(BEGIN, 1)[1].split(END, 1)[0].strip(); res = json.loads(gzip.decompress(base64.b64decode(blob)))
+        name = job_name(w)
+        if split:
+            pieces = {}; logs = []
+            for part in JOB_PARTS:
+                got, st = fetch(job_name(w, part))
+                if got: pieces[part] = got[0]; logs.append(f"===== part {part}\n" + got[1])
+            if not pieces: continue
+            res = merge_parts(pieces); log = "\n".join(logs) + "\n"; st = "parts " + ",".join(sorted(pieces))
+        else:
+            got, st = fetch(name)
+            if not got: continue
+            res, log = got
         out = HERE / f"probe_{w}.json"; out.write_text(json.dumps(res, indent=1), encoding="utf-8")
-        (HERE / f"probe_{w}.log").write_text(log.split(BEGIN, 1)[0], encoding="utf-8")
+        (HERE / f"probe_{w}.log").write_text(log, encoding="utf-8")
         print(f"{name}: status {st}, wrote {out.name} and {out.stem}.log; footprint {res.get('footprint')}")
         if merged is None: merged = {k: v for k, v in res.items() if k != "worlds"} | {"worlds": [], "footprints": {}}
         merged["worlds"] += res["worlds"]; merged["footprints"][w] = res.get("footprint")
@@ -172,9 +209,9 @@ def collect(worlds: list[str] | None = None, tag: str = "") -> int:
     return 0
 
 
-def cleanup(worlds: list[str] | None = None) -> int:
-    for w in worlds or probe_worlds():
-        name = job_name(w); got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
+def cleanup(worlds: list[str] | None = None, split: bool = False) -> int:
+    for name in [job_name(w, part) for w in (worlds or probe_worlds()) for part in (JOB_PARTS if split else [None])]:
+        got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
         if got.returncode != 0: print(f"{name}: absent"); continue
         s, f, a = (got.stdout.strip().split("/") + ["", "", ""])[:3]
         if a not in ("", "0") or (s in ("", "0") and f in ("", "0")):
@@ -189,12 +226,13 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--collect", action="store_true"); ap.add_argument("--cleanup", action="store_true")
     ap.add_argument("--worlds", default=None, help="comma-separated world names for --collect/--cleanup (e.g. an earlier probe round)")
     ap.add_argument("--tag", default="", help="suffix for the merged file, probe<tag>.json")
+    ap.add_argument("--split", action="store_true", help="three Jobs per world (core, others, dthalf); collect merges them")
     a = ap.parse_args(); ws = a.worlds.split(",") if a.worlds else None
-    if a.collect: return collect(ws, a.tag)
-    if a.cleanup: return cleanup(ws)
+    if a.collect: return collect(ws, a.tag, a.split)
+    if a.cleanup: return cleanup(ws, a.split)
     if not a.ack and not a.dry_run:
         sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")
-    return submit(a.dry_run)
+    return submit(a.dry_run, a.split)
 
 
 if __name__ == "__main__":
