@@ -187,6 +187,60 @@ worlds, graded end to end. Not claim-bearing.
   is far below it, so the candidate is no longer degenerate. Its higher $q$ are dominated by the
   initial transient at this horizon and are for the probe to judge.
 
+Probe record (PARTIAL, 2026-10-10). Amplitudes 10 and 100 are complete. The R world at
+amplitude 1000 is still running, and nothing is fixed until it finishes and the amplitude is
+chosen. There were six NRP Jobs, one per world (`submit_d9_nrp.py`, code at 23d0992, exempt class
+1 CPU / 2Gi, `timeout 12h`), submitted 13:02 to 13:04 UTC. The config was `prereg_config.json`'s
+probe candidates: $J \in \{16, 24, 32, 40\}$, $T = 1$, $\varepsilon = 0.05$, $N = 6$, $c_0 = 1$,
+$\mu = 50$, $T_{\rm sync} = 1$, $T_{\rm hold} = 0.2$. Collected as `probe_pr_{B,R}_A{10,100}.json`
+and `probe.json` on Atlas. Each amplitude pair was graded with `d9_barrier.py`'s own `grade`, with
+the probe worlds renamed to R and B. That is a probe grade and not a verdict.
+
+Instrument, the same at both amplitudes. The probe grade is PASS at both.
+- I1. C0 PASSES THE BARRIER. In R it is the same at every $J$ (257 at $A = 10$; $1.26\times10^5$
+  at $A = 100$). In B it grows about eight to ten times per 8 shells: $4.56\times10^4$ to
+  $2.48\times10^7$ at $A = 10$, and $2.35\times10^8$ to $2.20\times10^{11}$ at $A = 100$.
+- I2. Halving both tolerances changes the graded functionals by at most $1.7\times10^{-11}$. The
+  energy balance closes to $1.0\times10^{-10}$.
+- N1. C1 is TRANSPARENT: constant in $J$ in both worlds (R 0.0046 and 0.0386, B 0.0365 and 0.043,
+  at $A = 10$ and 100), under its bound of 1/2. This is the theory note's Section 7 claim measured
+  on a model that provably blows up: the program's own Proposition 3 does not tell the two worlds
+  apart.
+
+Candidates, the same classes at both amplitudes. These are recorded; the probe grades nothing.
+
+| candidate | R along $J$ | B along $J$ | class |
+|---|---|---|---|
+| C3, every $q \in \{1, 2, 5/2, 3\}$ | constant | grows by many decades | PASSES THE BARRIER |
+| C2 BALL | 1 shell | 1 shell | TRANSPARENT |
+| C2 KE | 1 shell | 1 shell | TRANSPARENT |
+| C2 READ | 1 ($A = 10$), 12 ($A = 100$) | 16, 24, 32, 40 (every shell) | UNSETTLED |
+| C2 ENSTROPHY | 7, 14 | every shell | UNSETTLED |
+| C2 SENS | 8, 15 | every shell | UNSETTLED |
+
+What the classes say.
+- BALL and KE synchronize the whole system from the lowest shell alone, in both worlds. This fits
+  the model's one-way cascade: Cheskidov notes the lack of backward energy transfer for
+  nonnegative data. So a D8-type synchronization budget is blind to the singularity.
+- READ, ENSTROPHY and SENS need every shell in B. Their budget therefore tracks the truncation,
+  growing linearly from 16 to 40. That is 2.5 times over the ladder, below the declared factor
+  $D = 4$, so the rule leaves them UNSETTLED and not DIVERGING. A longer ladder would decide them,
+  but linear growth with $J$ means only that every shell has to be read. It does not detect blow-up
+  in any useful sense.
+- C3 passes. It is the dyadic analogue of Cheskidov and Shvydkoy's dissipation wavenumber, a
+  classical regularity criterion. Its passing shows that the barrier recognises a real criterion.
+  It is not an Observation Theory result: by the track's anti-circularity contract, a classical
+  quantity reproducing a result does not count for the theory.
+
+Cost, from the Jobs' start and completion times: B at $A = 10$, 100, 1000 took 70.6, 36.2 and
+119.9 min. R at $A = 10$ and 100 took 25.9 and 63.3 min. R at $A = 1000$ is still running after
+2 h. At $J = 16$, R at $A = 1000$ looked blow-up-like (harmless shell at the top, READ needing every
+shell), probably an initial transient. Whether it settles as $J$ grows decides whether
+$A = 1000$ separates the worlds.
+
+Open for the owner before the pilot: the amplitude. Both 10 and 100 separate the worlds cleanly
+in C0 and give the same classes.
+
 Probe (seed 20261091). It fixes the $J$ ladder's top, the amplitude $A$, the horizon $T$, $c_0$,
 the tolerances, $D$ and the shrink factor. It records the blow-up time of world B as the time at
 which $\|u^J\|_{1/3+\varepsilon}$ peaks at the top truncation, and the cost.
