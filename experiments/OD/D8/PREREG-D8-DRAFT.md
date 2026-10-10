@@ -172,7 +172,8 @@ Every case has one outcome.
 - E1 (instrument). On every test trajectory, observing every pair holds
   $\delta \le 10^{-10}$ over the final window, and observing none leaves $\delta(T_{\rm sync}) \ge 0.3$.
 - E2 (scope). In each world at least three quarters of the test trajectories are graded cells.
-  The best graded control's pooled mean index (the mean of $i_{m best}$ over cells) is below
+  The best graded control's pooled mean index (the mean of $i_{
+m best}$ over cells) is below
   RANDOM's pooled mean index. Scope depends on the classical observers alone, so neither READ nor
   SENS can move it. (Changed 2026-10-09 while writing the grader. The earlier form required every
   graded observer, READ included, to beat RANDOM. A READ no better than chance would then have
@@ -289,34 +290,72 @@ the stability guard. Only $\nu = 0.05$ passes the resolution bar at $n = 64$. Th
 steadily with $\nu$, so whether the resolved flows are still chaotic is open until the Lyapunov
 exponents are collected.
 
-Nudging phase, test trajectory 0. These are the $m^*$ values the Jobs have logged so far (ladder
-index in parentheses, censored = 13). "-" means not yet logged. RANDOM, SENS, the Lyapunov
-exponents, the $\delta(t)$ curves and the $\Delta t/2$ reruns are not yet in.
+Nudging phase, test trajectory 0. These are the $m^*$ values logged so far (ladder index in
+parentheses, censored = 13). "-" means not yet logged. Updated 2026-10-10 after the $\nu = 0.05$
+Job completed and was collected.
 
-| $\nu$ | resolved | READ | BALL | ENSTROPHY | KE | READ's advantage over the best logged control |
-|---|---|---|---|---|---|---|
-| 0.002 | no | 32 (6) | - | 64 (8) | - | - |
-| 0.004 | no | 24 (5) | - | 48 (7) | - | - |
-| 0.01 | no | 24 (5) | 16 (4) | 64 (8) | 24 (5) | -1 (BALL) |
-| 0.02 | no | 24 (5) | 12 (3) | 96 (9) | 32 (6) | -2 (BALL) |
-| 0.03 | no (narrowly) | 48 (7) | - | - | - | - |
-| 0.05 | yes | 256 (12) | 6 (1) | 128 (10) | 96 (9) | -11 (BALL) |
+| $\nu$ | resolved | READ | BALL | ENSTROPHY | KE | READ's advantage over the best control | Job |
+|---|---|---|---|---|---|---|---|
+| 0.002 | no | 32 (6) | 32 (6) | 64 (8) | 32 (6) | 0 | running |
+| 0.004 | no | 24 (5) | - | 48 (7) | 24 (5) | 0 so far (BALL pending) | running |
+| 0.01 | no | 24 (5) | 16 (4) | 64 (8) | 24 (5) | -1 | failed, node lost |
+| 0.02 | no | 24 (5) | 12 (3) | 96 (9) | 32 (6) | -2 | failed, node lost |
+| 0.03 | no (narrowly) | 48 (7) | 12 (3) | 96 (9) | 32 (6) | -4 | running |
+| 0.05 | yes | 256 (12) | 6 (1) | 128 (10) | 96 (9) | -11 | complete, collected |
 
-What the partial record shows, with one trajectory per world and three worlds complete across the
-graded controls. READ leads ENSTROPHY on every unresolved world, by two to four steps. That is the
-contrast D7v3 passed on, READ against its own amplitude factor. On the unresolved worlds where KE
-has reported, it ties READ ($\nu = 0.01$) or is one step behind it ($\nu = 0.02$). At $\nu = 0.05$
-KE leads READ by three steps. BALL, the classical lowest-wavenumber observer, beats READ in all three worlds where it
-has reported. At the one resolved world, BALL synchronizes at 6 observed pairs and READ only at
-256, the top of the ladder.
+Lost Jobs. The $\nu = 0.01$ and $0.02$ Jobs ran on one NRP node, nautilus-ext-gpu01.fullerton.edu.
+It went NotReady at about 06:21 UTC on 2026-10-10 and then carried a taint the pods do not
+tolerate. Both Jobs ended Failed (BackoffLimitExceeded, backoff_limit 0). This was a node failure,
+not a utilization stop: the events show NodeNotReady, and the pods were in the exempt class. Their
+$m^*$ values above were logged during the run and survive. Their result blocks did not, so their
+Lyapunov exponents, $\delta(t)$ curves, RANDOM, SENS, the $\Delta t/2$ reruns and their footprints
+are lost. They have not been resubmitted.
 
-Not yet explained. READ's $m^* = 256$ at $\nu = 0.05$ is the opposite of what fewer active modes
-would suggest. Two candidate explanations are recorded, to be checked against the collected data
-and not assumed. (a) The flow is steady or multistable at this viscosity, so a copy started from
-$v = 0$ settles elsewhere unless nearly every mode is read. That is checked against the Lyapunov
-exponent and the reference trajectory. (b) Synchronization is slow enough that $\delta$ has not
-held below $10^{-4}$ through the final window by $T_{\rm sync}$. That is checked against the
-$\delta(t)$ curves.
+What the record shows, with one trajectory per world. Five worlds have all four graded observers.
+In none of them is READ ahead of the best control: its advantage is 0, -1, -2, -4 and -11 steps.
+BALL is the best control, or tied for it, in all five. READ leads ENSTROPHY, its own amplitude
+factor and the contrast D7v3 passed on, by two to four steps on every unresolved world. KE ties
+READ or beats it on every world where it has reported.
+
+The $\nu = 0.05$ world, collected (`probe_pr_nu050_n64.json`). The earlier note recorded two
+candidate explanations for READ's $m^* = 256$. The data decide between them as follows.
+
+- The flow is not chaotic. The reference trajectory's largest Lyapunov exponent is -0.053, which
+  fails Section 2's world criterion (positive on every probe trajectory). So $\nu = 0.05$ at
+  $n = 64$ is resolved but outside D8's scope. It is not a world the claim can be graded on.
+- READ's 256 is slow synchronization read through a finite window, explanation (b). For every
+  $m$ from 6 to 96, READ's error at $T_{\rm sync} = 50$ is $2.8\times10^{-4}$. It is still falling
+  steadily, at about 0.026 decades per unit time over the hold window, and every one of these
+  cells has a negative finite-gain observer exponent (about -0.09). The copy is synchronizing,
+  slowly, and has not stayed below $10^{-4}$ through the final window. KE and ENSTROPHY show the
+  same plateau.
+- The plateau and its rate match an observer that leaves the largest scales unread. READ's first
+  picks are forcing-scale modes, (2,0), (0,4), (2,±4), (2,±1), (4,±4) and so on, and KE's are
+  similar. Neither reads the $|k| = 1$ modes (1,0), (0,1) and (1,±1) early, because their
+  amplitude is small. BALL reads those first. Its observer exponent is about -0.22, against READ's
+  -0.09, and its error at $m = 8$ is $2.8\times10^{-10}$. With the large scales unread, the error
+  decays at about the flow's own rate (reference exponent -0.053). On this one non-chaotic world,
+  the modes whose observation makes the error contract fast are the slow, weakly damped large
+  scales, and neither amplitude nor sensitivity ranks them first. That is an observation and not
+  a result.
+- Explanation (a) is half supported. With nothing observed, the error ends at 0.98, so a copy
+  started from $v = 0$ does not reach the reference on its own. The Lyapunov exponent is negative,
+  so that copy has settled somewhere else. Whether that is another attractor or a very slow
+  approach is not determined from this run.
+
+Probe questions answered by this world:
+- Step refinement passes: every graded observer's $m^*$ is the same at $\Delta t/2$.
+- The instrument extremes behave: with nothing observed the error ends at 0.98, and with everything
+  observed it stays at most $1.4\times10^{-17}$ over the final window.
+- RANDOM (all five draws) and SENS never synchronize.
+- Footprint: peak RSS 119 MiB, 0.998 mean cores, 5,960 s wall time on one CPU.
+- The $10^{-4}$ threshold does NOT separate cleanly here. Errors cluster at $2.8\times10^{-4}$, and
+  a slow decay reads as no synchronization.
+
+A longer $T_{\rm sync}$, or a rule on the decay rate, is a legitimate change before the pilot,
+since this is what the probe was registered to find. It must be decided on the instrument
+criterion across every observer and world: does $\delta$ at $T_{\rm sync}$ come out bimodal? It
+must not be decided on which choice favours READ. It is not decided here.
 
 What this does not do. It does not grade the claim. The probe exists to fix parameters, and its
 worlds are mostly outside the resolution bar. The claim, the bars and the tolerance rules of
