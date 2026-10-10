@@ -356,7 +356,15 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
     return out
 
 
-def run(cfg: dict, seed_role: str, out_path: str) -> dict:
+def footprint(t_wall0: float) -> dict:
+    """The job's own measured footprint (peak RSS, CPU seconds, mean cores), for sizing later NRP Jobs from measurement."""
+    import resource
+    ru = resource.getrusage(resource.RUSAGE_SELF); wall = time.time() - t_wall0
+    return {"peak_rss_mib": ru.ru_maxrss / 1024.0, "cpu_seconds": ru.ru_utime + ru.ru_stime, "wall_seconds": wall, "mean_cores": (ru.ru_utime + ru.ru_stime) / wall if wall > 0 else None}
+
+
+def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None) -> dict:
+    t_wall0 = time.time()
     if seed_role == "probe":
         seed_train = seed_test = int(cfg["seed_probe"]); seed_test += 5000
     else:
@@ -364,9 +372,13 @@ def run(cfg: dict, seed_role: str, out_path: str) -> dict:
     K = int(cfg["K_by_role"][seed_role]); groups = cfg["groups_by_role"][seed_role]
     result = {"config": cfg, "seed_role": seed_role, "seed_train": seed_train, "seed_test": seed_test, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     for world in cfg["worlds"]:
-        if world["group"] not in groups: continue
-        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role)); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
-    result["finished"] = time.strftime("%Y-%m-%d %H:%M:%S"); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
+        if world["group"] not in groups or (only_world and world["name"] != only_world): continue
+        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role)); result["footprint"] = footprint(t_wall0)
+        print(json.dumps({"footprint": result["footprint"]}), flush=True); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
+    if only_world and not result["worlds"]:
+        raise SystemExit(f"no world named {only_world} in role {seed_role}")
+    result["finished"] = time.strftime("%Y-%m-%d %H:%M:%S"); result["footprint"] = footprint(t_wall0)
+    json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     return result
 
 
@@ -447,9 +459,10 @@ def selftest() -> int:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--config"); ap.add_argument("--seed-role", default="probe"); ap.add_argument("--out", default="out.json")
+    ap.add_argument("--world", default=None, help="run only this world (one NRP Job per world)")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
-    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out); return 0
+    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world); return 0
 
 
 if __name__ == "__main__":
