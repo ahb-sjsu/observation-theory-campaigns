@@ -388,8 +388,8 @@ an observation and not a result. With nothing observed the error ends at 0.98, s
 from $v = 0$ settles away from the reference. Whether that is another attractor or a very slow
 approach is not determined.
 
-Probe round 3 (set up 2026-10-10; not yet submitted). The aim is chaotic and resolved worlds at a
-coarser resolution of $n = 96$.
+Probe round 3 (submitted 2026-10-10 12:36 to 12:39 UTC, at 5a87626; results below). The aim is
+chaotic and resolved worlds at a coarser resolution of $n = 96$.
 
 - Worlds: $\nu \in \{0.01, 0.02, 0.03\}$ at $n = 96$, one test trajectory each, same seeds
   (probe 20261071). These are the viscosities rounds 1 and 2 found chaotic, at a resolution where
@@ -407,6 +407,50 @@ coarser resolution of $n = 96$.
   `merge_parts`. It found the same observers, bit-identical $m^*$ and $\delta(T_{\rm sync})$ for every
   observer, the same $\Delta t/2$ and instrument results, and identical rankings across parts.
 
+Round 3 results (recorded 2026-10-10; collected per world as `probe_pr3_nu{010,020,030}_n96.json`
+on Atlas, merged by the submitter from the parts that succeeded).
+
+| $\nu$ ($n = 96$) | enstrophy tail, train / test (bar $10^{-6}$) | Lyapunov | world criteria | READ | BALL | ENSTROPHY | KE | READ's advantage over the best control |
+|---|---|---|---|---|---|---|---|---|
+| 0.01 | 2.8e-5 / 6.4e-6 | +0.41 | fails (unresolved) | 16 (4) | 12 (3) | 64 (8) | 16 (4) | -1 |
+| 0.02 | 1.3e-7 / 3.2e-8 | +0.26 | PASSES both | 32 (6) | 12 (3) | 48 (7) | 24 (5) | -3 |
+| 0.03 | 4.5e-10 / 7.9e-10 | +0.06 | PASSES both | 16 (4) | 6 (1) | 48 (7) | 32 (6) | -3 |
+
+$m^*$ is at $T_{\rm sync} = 100$, ladder index in parentheses.
+
+- Two worlds meet Section 2's criteria: $\nu = 0.02$ and $0.03$ at $n = 96$. The probe can now
+  propose $\nu_2 = 0.02$ and $\nu_1 = 0.03$ with $n = 96$ as the coarser resolution. That is for the
+  owner to confirm, and it is not fixed here.
+- Theorem checks and stability hold on all three worlds: T1 at $8\times10^{-16}$ to
+  $1.0\times10^{-15}$, T2 at most 0.030, linear stiffness at most 0.37, training CFL at most 0.19.
+- The instrument extremes behave on all three. With nothing observed, $\delta(T_{\rm sync})$ is
+  1.74 to 2.58. With everything observed, $\delta \le 4.6\times10^{-17}$ over the final window.
+- Step refinement passes on both valid worlds: every graded observer's $m^*$ at $\Delta t/2$ equals
+  its $m^*$ at $\Delta t$. The $\nu = 0.01$ $\Delta t/2$ part is still running.
+- The longer window separates the outcomes, the criterion this round was set up to test. At
+  $T_{\rm sync} = 100$, only 3 of the 52 graded cells on each valid world lie between $10^{-6}$ and
+  $10^{-2}$. The rest are below $10^{-12}$ or clearly above $10^{-2}$. At $T_{\rm sync} = 50$
+  (rounds 1 and 2, all worlds) the count was 45 of 260. The same runs read at $T_{\rm sync} = 50$
+  give larger budgets for most observers: on $\nu = 0.03$, READ 48, BALL 12, ENSTROPHY 96, KE 32.
+  So the probe supports $T_{\rm sync} = 100$, $T_{\rm hold} = 10$, chosen on separation. Every
+  observer except KE gets a smaller budget under it, READ included. That is for the owner to
+  confirm, and it is not fixed here.
+- The finite-gain observer exponent is negative at every graded observer's $m^*$ on both valid
+  worlds (-0.12 to -0.18).
+- Footprint: about 220 MiB and one core per part. The core and $\Delta t/2$ parts took 2.4 to 3.0 h
+  each.
+- Lost to a node failure: the $\nu = 0.02$ SENS and RANDOM part (NodeNotReady, then a failed mount
+  and pod kill on the dying node; Failed, BackoffLimitExceeded). Nothing graded depends on it. It
+  has not been resubmitted. The $\nu = 0.03$ SENS and RANDOM part and the $\nu = 0.01$ $\Delta t/2$
+  and SENS/RANDOM parts are still running.
+
+What the valid worlds show about the claim, recorded and not graded: one trajectory each. READ is
+three ladder steps behind BALL on both. It is ahead of ENSTROPHY, its own amplitude factor, by one
+to three steps. BALL synchronizes at $|k| \le 3$ ($\nu = 0.02$) and $|k| \le 2$ ($\nu = 0.03$),
+inside the forcing scale, consistent with Inubushi and Caulfield (background, Section 1). On every
+world the probe has measured (nine worlds over three rounds), READ has never been ahead of the best
+classical control.
+
 Consequence to decide before the pilot. If the coarser resolution of the ladder becomes 96,
 Section 2's ladders move up: the pilot to $n = 96$ and 128, and the run to 128 and 192. From the
 measured cost at $n = 64$ (about 3.5 h per chaotic trajectory) and a per-step cost scaling of
@@ -415,8 +459,8 @@ of 100 h on one CPU. That is an estimate, not a measurement. It is the case for 
 resolution bar, or for splitting each trajectory's observers across Jobs. That is the owner's
 decision, and it is not taken here.
 
-What this does not do. It does not grade the claim. The probe exists to fix parameters, and every
-world in it fails a world criterion. The claim, the bars and the tolerance rules of Sections 1 to 5
+What this does not do. It does not grade the claim. The probe exists to fix parameters. Its worlds
+carry one trajectory each, and only two of its nine worlds meet the world criteria. The claim, the bars and the tolerance rules of Sections 1 to 5
 are unchanged. The instrument may change before the pilot, through the world choice, the
 resolution bar or the synchronization window, but only on the probe's own criteria (chaos,
 resolution, separation of $\delta$, step refinement) and with every change recorded here. Changing
