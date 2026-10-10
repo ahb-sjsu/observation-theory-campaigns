@@ -219,7 +219,7 @@ claim is graded against the best of the three in each cell. The observer family 
 Written 2026-10-09: `d8_sync.py`, `prereg_config.json` (probe candidates), `d8_launch.sh`. Still to
 write: `d8_grade.py`, `d8_fix_tols.py`.
 
-Self-test (`d8_sync.py --selftest`, 16 checks at $n = 32$).
+Self-test (`d8_sync.py --selftest`, 17 checks at $n = 32$; PASS on Atlas 2026-10-09 at 775d7ed).
 - The laminar Kolmogorov flow is a fixed point of the forced solver.
 - Batched evaluation equals evaluation one field at a time.
 - The central-difference read equals the nonlinear tangent.
