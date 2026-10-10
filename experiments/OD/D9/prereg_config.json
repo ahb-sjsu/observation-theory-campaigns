@@ -1,0 +1,108 @@
+{
+ "world": "D9 DRAFT config, PROBE candidates (PREREG-D9-DRAFT.md Section 6). Cheskidov's dyadic NS model eq. 1.1 (arXiv:math/0601074v2), Galerkin truncation eq. 4.2, unforced, lam = 2, nu = 1; B alpha = 1/4 (blow-up, Thm 5.3), R alpha = 3/5 (regular), G alpha = 2/5 recorded only; initial data u_1 = A; the probe scans A in {10, 100, 1000} and fixes the J ladder top, T, c0 and the tolerances",
+ "lam": 2.0,
+ "nu": 1.0,
+ "amplitude": 100.0,
+ "J_ladder": [
+  16,
+  24,
+  32,
+  40
+ ],
+ "T": 1.0,
+ "n_samples": 2001,
+ "rtol": 1e-09,
+ "atol": 1e-14,
+ "eps": 0.05,
+ "N_observer": 6,
+ "c0": 1.0,
+ "qs": [
+  1,
+  2,
+  2.5,
+  3
+ ],
+ "c2": true,
+ "mu": 50.0,
+ "T_sync": 1.0,
+ "T_hold": 0.2,
+ "n_samples_sync": 201,
+ "sync_threshold": 0.0001,
+ "atol_sync": 1e-14,
+ "random_draws": 5,
+ "shrink": 0.8,
+ "tol": 0.02,
+ "D": 4.0,
+ "tol_numerics": 0.001,
+ "tol_energy": 1e-06,
+ "world_R": "R",
+ "world_B": "B",
+ "seed_probe": 20261091,
+ "seed_pilot": 20261092,
+ "seed_run": 20261093,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot_run"
+  ],
+  "run": [
+   "pilot_run"
+  ]
+ },
+ "worlds": [
+  {
+   "name": "pr_B_A10",
+   "alpha": 0.25,
+   "amplitude": 10.0,
+   "group": "probe"
+  },
+  {
+   "name": "pr_R_A10",
+   "alpha": 0.6,
+   "amplitude": 10.0,
+   "group": "probe"
+  },
+  {
+   "name": "pr_B_A100",
+   "alpha": 0.25,
+   "amplitude": 100.0,
+   "group": "probe"
+  },
+  {
+   "name": "pr_R_A100",
+   "alpha": 0.6,
+   "amplitude": 100.0,
+   "group": "probe"
+  },
+  {
+   "name": "pr_B_A1000",
+   "alpha": 0.25,
+   "amplitude": 1000.0,
+   "group": "probe"
+  },
+  {
+   "name": "pr_R_A1000",
+   "alpha": 0.6,
+   "amplitude": 1000.0,
+   "group": "probe"
+  },
+  {
+   "name": "B",
+   "alpha": 0.25,
+   "group": "pilot_run"
+  },
+  {
+   "name": "R",
+   "alpha": 0.6,
+   "group": "pilot_run"
+  },
+  {
+   "name": "G_recorded_only",
+   "alpha": 0.4,
+   "group": "pilot_run",
+   "graded": false
+  }
+ ]
+}
