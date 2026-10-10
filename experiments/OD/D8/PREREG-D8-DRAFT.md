@@ -25,8 +25,41 @@ lowest Fourier pairs is determining, with Grashof number $G = |f|/\nu^2$ on the 
 $c_3$ an Agmon-type constant the paper leaves unstated. At the probe's viscosities that ball
 exceeds the 924-pair grid at $n = 64$ almost everywhere. Where BALL's budget has been measured,
 the guarantee sits 80 to 7,500 times above it (theory note Section 6, table and caveats). The
-theorem therefore constrains none of the observers D8 compares, and it speaks only to BALL. Which
-modes to observe for a given count is not settled by that theory. D7v3 (PASS) found that, for a filtered flow at a
+theorem therefore constrains none of the observers D8 compares, and it speaks only to BALL.
+
+What the synchronization literature already settles (web search 2026-10-10, not a systematic
+database review). Every study found nudges a low-pass ball of Fourier modes, $|k| \le k_a$, and
+asks how large $k_a$ must be.
+- In 3-D homogeneous turbulence the ball synchronizes the flow once $k_a\eta \approx 0.15$ to $0.2$.
+  This is from Yoshida, Yamaguchi and Kaneda (2005), Lalescu, Meneveau and Eyink (Phys. Rev. Lett.
+  110, 084102, 2013), and Clark Di Leoni, Mazzino and Biferale (Phys. Rev. X 10, 011023, 2020). The
+  Phys. Rev. X paper allows an arbitrary nudged set in principle but tests only low-pass sets.
+- In 2-D damped-driven turbulence the threshold sits near the forcing scale and far above the
+  dissipation scale: $3 < k_a^* < 4$ for Kolmogorov flow at $k_f = 4$, $\alpha = 0.1$,
+  $\nu = 10^{-3}$, with $k_a^*$ tracking $k_f$ for $k_f = 2$ to 6. The sign change of the conditional
+  Lyapunov exponent identifies it (Inubushi and Caulfield, arXiv:2508.16920, 2025). That is D8's
+  forcing and drag, so D8's BALL observer is the case they studied, at lower Reynolds number. The
+  probe's BALL budgets (6 and 12 pairs on the two valid worlds, $|k| \le 2$ and 3) are consistent
+  with them.
+- The threshold coincides with the spectral peak of the leading conditional or Lyapunov vector (Li
+  et al., J. Fluid Mech. 983, A1, 2024, and 1008, A27, 2025). Transverse Lyapunov exponents give the
+  same picture (Inubushi, Saiki, Kobayashi and Goto, Phys. Rev. Lett. 131, 254001, 2023).
+- Olson and Titi (J. Stat. Phys. 2003) showed that the number of determining modes and the rate of
+  assimilation depend strongly on the length scales of the forcing.
+- In a shell model, measuring two adjacent mesoscales synchronizes the larger scales under an
+  ensemble Kalman filter (Fossella et al., arXiv:2507.15626, 2025). That is a different method and
+  model.
+
+Not found: any comparison of mode sets other than the low-pass ball for nudging. That includes
+sets ranked by energy, enstrophy or sensitivity, and sets that leave out the large, low-amplitude
+scales. Observability-Gramian sensor placement exists (for example Kang and Xu 2012), but for
+variational estimation, not for choosing Fourier modes to nudge in turbulence. D8's comparison of
+READ, ENSTROPHY and KE against BALL is therefore, as far as this search shows, not done before. Its
+BALL arm is not new: it replicates Inubushi and Caulfield's observer on their flow family. A claim of
+novelty in any write-up needs a database search (Scholar, Web of Science) first. Which modes to
+observe for a given count is not settled by the classical theory or by this literature.
+
+D7v3 (PASS) found that, for a filtered flow at a
 single time, the discarded modes of largest read distortion (the resolved dynamics' sensitivity to
 a mode times the mode's squared vorticity amplitude) close the resolved tendency better than the
 same number of modes ranked by amplitude alone. The theory note's Proposition 4 shows that ranking
