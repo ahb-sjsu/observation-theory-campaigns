@@ -367,6 +367,12 @@ coarser resolution of $n = 96$.
 - Each world is split into three NRP Jobs: the instrument and the four graded observers; SENS and
   RANDOM; and the $\Delta t/2$ reruns. That keeps every Job to a few hours and limits what one node
   failure can take.
+- Set up at bc2f1de: `d8_sync.py --parts` with per-world overrides, and `submit_d8_nrp.py --split`
+  (nine Jobs, exempt class, `timeout 16h`). Logs are read only from Jobs that succeeded, since a dead
+  node makes `kubectl logs` hang. The submitter's dry run passed every preflight guard. A smoke test on
+  Atlas (n = 32, short times) ran one world whole and then as three parts merged by the submitter's
+  `merge_parts`. It found the same observers, bit-identical $m^*$ and $\delta(T_{m sync})$ for every
+  observer, the same $\Delta t/2$ and instrument results, and identical rankings across parts.
 
 Consequence to decide before the pilot. If the coarser resolution of the ladder becomes 96,
 Section 2's ladders move up: the pilot to $n = 96$ and 128, and the run to 128 and 192. From the
