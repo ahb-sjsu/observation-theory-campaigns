@@ -56,7 +56,7 @@ def selftest() -> int:
     cases = [("one-step advantage, no change: M1 at the floor, TOL_N at its minimum", pilot(good, good), 0.5, 0.2),
              ("three-step advantage: M1 = 1.5", pilot({**good, "READ": None, "BALL": None, "ENSTROPHY": None, "KE": None} | {"READ": 4, "BALL": 32, "ENSTROPHY": 32, "KE": 32}, {"READ": 4, "BALL": 32, "ENSTROPHY": 32, "KE": 32, "SENS": 16, "RANDOM": None}), 1.5, 0.2),
              ("no advantage: M1 stays at the floor", pilot({**good, "READ": 16}, {**good, "READ": 16}), 0.5, 0.2),
-             ("a two-step change between resolutions: TOL_N capped at 0.5", pilot(good, {**good, "READ": 4, "BALL": 64, "ENSTROPHY": 64, "KE": 64}), None, 0.5)]
+             ("a three-step change between resolutions: TOL_N capped at 0.5", pilot(good, {**good, "READ": 4, "BALL": 64, "ENSTROPHY": 64, "KE": 64}), None, 0.5)]
     for label, res, m1, tn in cases:
         t = fix(res); ok = (m1 is None or abs(t["M1"] - m1) < 1e-12) and abs(t["TOL_N"] - tn) < 1e-12 and t["TOL1"] == 1.0
         print(f"{label}: M1 {t['M1']} TOL_N {t['TOL_N']}", "PASS" if ok else "FAIL"); fails += 0 if ok else 1
