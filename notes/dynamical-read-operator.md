@@ -242,7 +242,7 @@ planning thread's step 3, a bound on $\int_0^T\!\!\int |u|^5\,dx\,dt$. Tao's own
 says the same, that a positive resolution must use finer structure of $B(u, u)$ than the energy
 identity and the harmonic-analysis estimates provide. The test that follows is concrete. Any
 dynamical bound the program proposes is run on a dyadic model known to blow up (Katz and Pavlović
-2005; Cheskidov 2008, Trans. Amer. Math. Soc.), and it must fail there. That gate is D9, not drafted.
+2005; Cheskidov 2008, Trans. Amer. Math. Soc.), and it must fail there. That gate is D9, drafted 2026-10-10 at `experiments/OD/D9/PREREG-D9-DRAFT.md`.
 
 The classical criterion closest to "the discarded directions are harmless above a budget" is the
 dissipation wavenumber $\Lambda(t)$ of Cheskidov and Shvydkoy (2014, J. Math. Fluid Mech. 16). They
