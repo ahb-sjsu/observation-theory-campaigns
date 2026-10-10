@@ -102,9 +102,9 @@ Entered at draft 0.1:
   $\varepsilon = 0.05$. It must PASS by the two theorems. If it does not, the instrument cannot see
   a separation known to exist, and nothing else is graded.
 - C1, the negative control: the note's Proposition 3 in dyadic form. For the observer that keeps
-  shells $n \le N$, the feedback from the discarded shells is $r_N = \lambda^{N+1}u_N u_{N+1}e_N$,
+  shells $n \le N$, the feedback from the discarded shells is $r_N = -\lambda^{N+1}u_N u_{N+1}e_N$,
   since the coupling is nearest-neighbour, which is the exact dyadic counterpart of Proposition 2's
-  octave. So $|r_N| \le \lambda^{N+1}|u|^2 \le \lambda^{N+1}|u(0)|^2$ by the energy inequality, in
+  octave. So $|r_N| \le \lambda^{N+1}(u_N^2 + u_{N+1}^2)/2 \le \lambda^{N+1}|u|^2 \le \lambda^{N+1}|u(0)|^2$ by the energy inequality, in
   both worlds and at every $J$. $\Phi_1(J) = \sup_{t \le T}|r_N(t)|/(\lambda^{N+1}|u(0)|^2)$ at
   $N = 6$ is bounded by 1, by theorem, in both worlds. So C1 is TRANSPARENT by construction, and a
   different class is a numerical error. It is entered to show on a model that provably blows up
@@ -163,7 +163,7 @@ other shell models, is a later registration.
 
 Self-test, to write. The energy cancellation $\sum u_n B_n = 0$ exactly on random vectors. The
 truncation (4.2) conserves energy at $\nu = 0$. Nonnegativity is preserved from nonnegative data
-(Theorem 4.2). C1's identity $r_N = \lambda^{N+1}u_N u_{N+1}e_N$ is checked against a finite
+(Theorem 4.2). C1's identity $r_N = -\lambda^{N+1}u_N u_{N+1}e_N$ is checked against a finite
 difference. The classification rule is checked on constructed sequences.
 
 Probe (seed 20261091). It fixes the $J$ ladder's top, the amplitude $A$, the horizon $T$, $c_0$,
