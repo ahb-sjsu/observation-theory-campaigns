@@ -184,11 +184,11 @@ since it is built from frequency-localised pieces, but this is to verify against
 every statement in this note holds for an equation that blows up, and no argument assembled from
 them alone can give the planning thread's step 3, a bound on
 $\int_0^T\!\!\int |u|^5\,dx\,dt$. The test that follows is concrete. Any dynamical bound the program
-proposes is run on a dyadic model known to blow up (Katz and Pavlović 2005; Cheskidov 2008), and it
+proposes is run on a dyadic model known to blow up (Katz and Pavlović 2005; Cheskidov 2008, Trans. Amer. Math. Soc.), and it
 must fail there. That gate is D9, not drafted.
 
 The classical criterion closest to "the discarded directions are harmless above a budget" is the
-dissipation wavenumber of Cheskidov and Shvydkoy (2014, J. Math. Fluid Mech.), regularity following
+dissipation wavenumber of Cheskidov and Shvydkoy (2014, J. Math. Fluid Mech. 16), regularity following
 from its integrability in time, with Leray–Hopf solutions known to satisfy a weaker integrability
 (exponents to verify before citing). A dynamical observer theory would earn its place on the
 regularity question only by improving that integrability. Nothing here does.
@@ -205,14 +205,45 @@ theorem here and is not a Lean target.
 D8's instrument checks Propositions 2 and 3 numerically on the solver before anything is claimed
 (bars T1 and T2 of the draft).
 
-## References (to verify against Crossref before any seal)
+## References
 
-- C. Foias and G. Prodi (1967), Rend. Sem. Mat. Univ. Padova 39, 1–34.
-- D. A. Jones and E. S. Titi (1993), Indiana Univ. Math. J. 42, 875–887.
-- L. M. Pecora and T. L. Carroll (1990), Phys. Rev. Lett. 64, 821–824.
-- A. Azouani, E. Olson and E. S. Titi (2014), J. Nonlinear Sci. 24, 277–304.
-- N. H. Katz and N. Pavlović (2005), Trans. Amer. Math. Soc. 357, 695–708.
-- A. Cheskidov (2008), Adv. Math. 218, 1–45 (dyadic model blow-up; to verify).
-- A. Cheskidov and R. Shvydkoy (2014), J. Math. Fluid Mech. 16, 263–273 (to verify).
-- T. Tao (2016), J. Amer. Math. Soc. 29, 601–674.
-- G. Prodi (1959), J. Serrin (1962), O. A. Ladyzhenskaya (1967): the $L^p_t L^q_x$ criterion, $2/p + 3/q = 1$, of which $p = q = 5$ is the planning thread's case.
+Checked against the Crossref API on 2026-10-09 (title, authors, journal, volume, pages). Eight
+records matched with a DOI. Three are not in Crossref; they are marked below and still need to be
+checked against the journal or MathSciNet before any seal. Crossref confirms only the bibliographic
+record. The content claims attributed to Cheskidov and Shvydkoy (the integrability exponents, in
+Section 7) and to Tao (the triad localisation of the averaged operator) still need checking against
+the papers themselves.
+
+- C. Foias and G. Prodi (1967), Sur le comportement global des solutions non-stationnaires des
+  équations de Navier-Stokes en dimension 2, Rend. Sem. Mat. Univ. Padova 39, 1–34. NOT IN
+  CROSSREF; to check against the journal (Numdam) or MathSciNet.
+- D. A. Jones and E. S. Titi (1993), Upper bounds on the number of determining modes, nodes, and
+  volume elements for the Navier-Stokes equations, Indiana Univ. Math. J. 42, 875–887. NOT IN
+  CROSSREF; to check against the journal or MathSciNet. (Crossref holds the same authors' 1992
+  papers, Physica D 60, 165–174, doi:10.1016/0167-2789(92)90233-D, and J. Math. Anal. Appl. 168,
+  72–88, doi:10.1016/0022-247X(92)90190-O.)
+- L. M. Pecora and T. L. Carroll (1990), Synchronization in chaotic systems, Phys. Rev. Lett. 64,
+  821–824, doi:10.1103/PhysRevLett.64.821.
+- A. Azouani, E. Olson and E. S. Titi (2014), Continuous data assimilation using general
+  interpolant observables, J. Nonlinear Sci. 24, 277–304, doi:10.1007/s00332-013-9189-y (online
+  2013).
+- N. H. Katz and N. Pavlović (2005), Finite time blow-up for a dyadic model of the Euler equations,
+  Trans. Amer. Math. Soc. 357, 695–708, doi:10.1090/S0002-9947-04-03532-9 (online 2004).
+- A. Cheskidov (2008), Blow-up in finite time for the dyadic model of the Navier-Stokes equations,
+  Trans. Amer. Math. Soc. 360, 5101–5120, doi:10.1090/S0002-9947-08-04494-2. (Corrected
+  2026-10-09. Draft 0.1 gave "Adv. Math. 218, 1–45", which was wrong.)
+- A. Cheskidov and R. Shvydkoy (2014), A unified approach to regularity problems for the 3D
+  Navier-Stokes and Euler equations: the use of Kolmogorov's dissipation range, J. Math. Fluid
+  Mech. 16, 263–273, doi:10.1007/s00021-014-0167-4.
+- T. Tao (2016), Finite time blowup for an averaged three-dimensional Navier-Stokes equation,
+  J. Amer. Math. Soc. 29, 601–674, doi:10.1090/jams/838 (online 2015).
+- G. Prodi (1959), Un teorema di unicità per le equazioni di Navier-Stokes, Ann. Mat. Pura Appl.
+  48, 173–182, doi:10.1007/BF02410664.
+- J. Serrin (1962), On the interior regularity of weak solutions of the Navier-Stokes equations,
+  Arch. Rational Mech. Anal. 9, 187–195, doi:10.1007/BF00253344.
+- O. A. Ladyzhenskaya (1967), Uniqueness and smoothness of generalized solutions of Navier-Stokes
+  equations, Zap. Nauchn. Sem. LOMI 5, 169–185. NOT IN CROSSREF; to check against MathSciNet.
+  The volume and pages are from memory and unverified.
+
+The last three are the sources of the $L^p_t L^q_x$ criterion, $2/p + 3/q = 1$, of which
+$p = q = 5$ is the planning thread's case.
