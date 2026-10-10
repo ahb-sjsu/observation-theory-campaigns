@@ -262,18 +262,26 @@ nudged run, and whether $\delta$ separates cleanly at the $10^{-4}$ threshold. I
 check: every graded observer's $m^*$ at $\Delta t/2$ must equal its $m^*$ at $\Delta t$ on every probe
 trajectory. Otherwise $\Delta t_0$ is halved and the probe is repeated.
 
-Probe record so far (INCOMPLETE, written 2026-10-10 while the Jobs run; nothing here fixes a
-parameter or changes a bar). Each probe world is one NRP Job (namespace ssu-atlas-ai, CPU only,
-exempt class 1 CPU / 2Gi, `submit_d8_nrp.py`), $n = 64$, one test trajectory ($K = 1$), every other
-parameter as in `prereg_config.json` ($\alpha = 0.1$, $\Delta t_0 = 0.005$, $T_{\rm spin} = 100$,
-$T_{\rm train} = 20$, $\Delta_s = 1$, $\mu_0 = 50$, $T_{\rm sync} = 50$, $T_{\rm hold} = 10$). The
-code is identical in both rounds (d8_sync.py sha256 e274c0db...). In-pod self-test PASS on every Job.
+Probe rounds 1 and 2 (COMPLETE 2026-10-10; collected as `probe_round1.json`, `probe_round2.json`
+and one `probe_<world>.json` and `.log` per world, in `experiments/OD/D8/` on Atlas). Nothing here
+grades the claim, and no bar or rule of Sections 1 to 5 has been changed. Each probe world was one
+NRP Job (namespace ssu-atlas-ai, CPU only, exempt class 1 CPU / 2Gi, `submit_d8_nrp.py`), at
+$n = 64$ with one test trajectory ($K = 1$). Every other parameter was as in `prereg_config.json`
+($\alpha = 0.1$, $\Delta t_0 = 0.005$, $T_{\rm spin} = 100$, $T_{\rm train} = 20$, $\Delta_s = 1$,
+$\mu_0 = 50$, $T_{\rm sync} = 50$, $T_{\rm hold} = 10$, block exponent on). The code was identical in
+both rounds (d8_sync.py sha256 e274c0db...), and the in-pod self-test passed on every Job.
 
 - Round 1 (code at a76cf15, submitted 2026-10-10 05:04 UTC): $\nu = 0.004$ and $0.002$.
 - Round 2 (config at ece9ab1, submitted 05:10 UTC): $\nu = 0.01, 0.02, 0.03, 0.05$. It was added
   after round 1 failed the resolution bar.
+- Lost to a node failure: the $\nu = 0.01$ and $0.02$ Jobs ran on nautilus-ext-gpu01.fullerton.edu.
+  The node went NotReady at about 06:21 UTC and then carried a taint the pods do not tolerate, and
+  both Jobs ended Failed (BackoffLimitExceeded, backoff_limit 0). This was not a utilization stop:
+  the events show NodeNotReady, and the pods were in the exempt class. Their training numbers and
+  the $m^*$ values logged during the run survive. Their result blocks do not. They have not been
+  resubmitted.
 
-Training phase, all six worlds complete.
+Training phase, all six worlds.
 
 | $\nu$ | enstrophy tail at $k_{\rm dealias}$ (bar $10^{-6}$) | resolved | linear stiffness | CFL max (train) | T1 max | T2 max |
 |---|---|---|---|---|---|---|
@@ -286,81 +294,95 @@ Training phase, all six worlds complete.
 
 Proposition 2 (T1) holds at rounding level on every checked snapshot. Proposition 3's ratio (T2)
 stays at most 0.034, so the classical bound is loose by a factor of about 30. Every world passes
-the stability guard. Only $\nu = 0.05$ passes the resolution bar at $n = 64$. The CFL number falls
-steadily with $\nu$, so whether the resolved flows are still chaotic is open until the Lyapunov
-exponents are collected.
+the stability guard.
 
-Nudging phase, test trajectory 0. These are the $m^*$ values logged so far (ladder index in
-parentheses, censored = 13). "-" means not yet logged. Updated 2026-10-10 after the $\nu = 0.05$
-Job completed and was collected.
+Nudging phase, test trajectory 0 (ladder index in parentheses, censored = 13). The last column is
+the largest Lyapunov exponent of the reference trajectory, so a positive value means chaotic.
 
-| $\nu$ | resolved | READ | BALL | ENSTROPHY | KE | READ's advantage over the best control | Job |
-|---|---|---|---|---|---|---|---|
-| 0.002 | no | 32 (6) | 32 (6) | 64 (8) | 32 (6) | 0 | running |
-| 0.004 | no | 24 (5) | - | 48 (7) | 24 (5) | 0 so far (BALL pending) | running |
-| 0.01 | no | 24 (5) | 16 (4) | 64 (8) | 24 (5) | -1 | failed, node lost |
-| 0.02 | no | 24 (5) | 12 (3) | 96 (9) | 32 (6) | -2 | failed, node lost |
-| 0.03 | no (narrowly) | 48 (7) | 12 (3) | 96 (9) | 32 (6) | -4 | running |
-| 0.05 | yes | 256 (12) | 6 (1) | 128 (10) | 96 (9) | -11 | complete, collected |
+| $\nu$ | resolved | READ | BALL | ENSTROPHY | KE | READ's advantage over the best control | Lyapunov | Job |
+|---|---|---|---|---|---|---|---|---|
+| 0.002 | no | 32 (6) | 32 (6) | 64 (8) | 32 (6) | 0 | +0.54 | complete |
+| 0.004 | no | 24 (5) | 24 (5) | 48 (7) | 24 (5) | 0 | +0.44 | complete |
+| 0.01 | no | 24 (5) | 16 (4) | 64 (8) | 24 (5) | -1 | lost | failed, node |
+| 0.02 | no | 24 (5) | 12 (3) | 96 (9) | 32 (6) | -2 | lost | failed, node |
+| 0.03 | no (narrowly) | 48 (7) | 12 (3) | 96 (9) | 32 (6) | -4 | +0.06 | complete |
+| 0.05 | yes | 256 (12) | 6 (1) | 128 (10) | 96 (9) | -11 | -0.05 | complete |
 
-Lost Jobs. The $\nu = 0.01$ and $0.02$ Jobs ran on one NRP node, nautilus-ext-gpu01.fullerton.edu.
-It went NotReady at about 06:21 UTC on 2026-10-10 and then carried a taint the pods do not
-tolerate. Both Jobs ended Failed (BackoffLimitExceeded, backoff_limit 0). This was a node failure,
-not a utilization stop: the events show NodeNotReady, and the pods were in the exempt class. Their
-$m^*$ values above were logged during the run and survive. Their result blocks did not, so their
-Lyapunov exponents, $\delta(t)$ curves, RANDOM, SENS, the $\Delta t/2$ reruns and their footprints
-are lost. They have not been resubmitted.
+What the probe settles, on the four collected worlds:
 
-What the record shows, with one trajectory per world. Five worlds have all four graded observers.
-In none of them is READ ahead of the best control: its advantage is 0, -1, -2, -4 and -11 steps.
-BALL is the best control, or tied for it, in all five. READ leads ENSTROPHY, its own amplitude
-factor and the contrast D7v3 passed on, by two to four steps on every unresolved world. KE ties
-READ or beats it on every world where it has reported.
+- No world at $n = 64$ satisfies Section 2's criteria. The flows are chaotic up to $\nu = 0.03$ but
+  unresolved. They are resolved only at $\nu = 0.05$, where the reference Lyapunov exponent is
+  negative. The exponent falls from +0.54 at 0.002 to +0.06 at 0.03 and -0.05 at 0.05. So $\nu_1$
+  and $\nu_2$ cannot be fixed at $n = 64$.
+- Step refinement passes on all four worlds: every graded observer's $m^*$ at $\Delta t/2$ equals
+  its $m^*$ at $\Delta t$.
+- The instrument extremes behave on all four. With nothing observed, $\delta(T_{\rm sync}) \ge 0.98$.
+  With everything observed, $\delta \le 3.7\times10^{-17}$ over the final window.
+- RANDOM (all five draws on every world) and SENS never synchronize within the ladder.
+- Footprint: peak RSS 118.7 to 119.7 MiB, mean cores 0.998 to 1.000. Wall time per world for one
+  test trajectory is 3.2 to 3.8 h on the chaotic worlds and 1.7 h at $\nu = 0.05$.
 
-The $\nu = 0.05$ world, collected (`probe_pr_nu050_n64.json`). The earlier note recorded two
-candidate explanations for READ's $m^* = 256$. The data decide between them as follows.
+What the probe finds against the instrument:
 
-- The flow is not chaotic. The reference trajectory's largest Lyapunov exponent is -0.053, which
-  fails Section 2's world criterion (positive on every probe trajectory). So $\nu = 0.05$ at
-  $n = 64$ is resolved but outside D8's scope. It is not a world the claim can be graded on.
-- READ's 256 is slow synchronization read through a finite window, explanation (b). For every
-  $m$ from 6 to 96, READ's error at $T_{\rm sync} = 50$ is $2.8\times10^{-4}$. It is still falling
-  steadily, at about 0.026 decades per unit time over the hold window, and every one of these
-  cells has a negative finite-gain observer exponent (about -0.09). The copy is synchronizing,
-  slowly, and has not stayed below $10^{-4}$ through the final window. KE and ENSTROPHY show the
-  same plateau.
-- The plateau and its rate match an observer that leaves the largest scales unread. READ's first
-  picks are forcing-scale modes, (2,0), (0,4), (2,±4), (2,±1), (4,±4) and so on, and KE's are
-  similar. Neither reads the $|k| = 1$ modes (1,0), (0,1) and (1,±1) early, because their
-  amplitude is small. BALL reads those first. Its observer exponent is about -0.22, against READ's
-  -0.09, and its error at $m = 8$ is $2.8\times10^{-10}$. With the large scales unread, the error
-  decays at about the flow's own rate (reference exponent -0.053). On this one non-chaotic world,
-  the modes whose observation makes the error contract fast are the slow, weakly damped large
-  scales, and neither amplitude nor sensitivity ranks them first. That is an observation and not
-  a result.
-- Explanation (a) is half supported. With nothing observed, the error ends at 0.98, so a copy
-  started from $v = 0$ does not reach the reference on its own. The Lyapunov exponent is negative,
-  so that copy has settled somewhere else. Whether that is another attractor or a very slow
-  approach is not determined from this run.
+- The $10^{-4}$ threshold does not separate cleanly. Across the 260 graded and SENS cells,
+  $\delta(T_{\rm sync})$ is not bimodal. 45 cells lie between $10^{-6}$ and $10^{-2}$, and 29 lie
+  in $[10^{-4}, 10^{-3})$, right above the threshold. Most of the cluster is the slowly decaying
+  observers of $\nu = 0.05$ ($\delta = 2.8\times10^{-4}$ and still falling) and of $\nu = 0.03$. A
+  slow decay is therefore read as no synchronization. Changing the window or the rule is a
+  legitimate change before the pilot. It must be decided on that separation criterion across every
+  observer and world, not on its effect on READ. It is not decided here. Round 3 runs a longer
+  window (below) so that the rule can be evaluated at both lengths from the same runs.
+- The finite-gain observer exponent's sign agrees with sustained synchronization in 192 of 260
+  cells (74 percent).
 
-Probe questions answered by this world:
-- Step refinement passes: every graded observer's $m^*$ is the same at $\Delta t/2$.
-- The instrument extremes behave: with nothing observed the error ends at 0.98, and with everything
-  observed it stays at most $1.4\times10^{-17}$ over the final window.
-- RANDOM (all five draws) and SENS never synchronize.
-- Footprint: peak RSS 119 MiB, 0.998 mean cores, 5,960 s wall time on one CPU.
-- The $10^{-4}$ threshold does NOT separate cleanly here. Errors cluster at $2.8\times10^{-4}$, and
-  a slow decay reads as no synchronization.
+What the probe shows about the claim. These are recorded and not graded: one trajectory per world,
+on worlds that fail the world criteria. READ is never ahead of the best classical control. On the
+two strongly chaotic worlds it ties BALL and KE, and READ's and BALL's $\delta(T_{\rm sync})$
+profiles over the ladder are nearly the same. On the weakly chaotic and non-chaotic worlds BALL
+leads by 4 and 11 steps. READ leads ENSTROPHY, its own amplitude factor and the contrast D7v3
+passed on, by two to four steps on every unresolved world.
 
-A longer $T_{\rm sync}$, or a rule on the decay rate, is a legitimate change before the pilot,
-since this is what the probe was registered to find. It must be decided on the instrument
-criterion across every observer and world: does $\delta$ at $T_{\rm sync}$ come out bimodal? It
-must not be decided on which choice favours READ. It is not decided here.
+The $\nu = 0.05$ world in detail (`probe_pr_nu050_n64.json`). READ's $m^* = 256$ is slow
+synchronization read through a finite window. For every $m$ from 6 to 96, READ's error at
+$T_{\rm sync}$ is $2.8\times10^{-4}$, still falling at about 0.026 decades per unit time, with
+observer exponents near -0.09. KE and ENSTROPHY show the same plateau. READ's first picks are
+forcing-scale modes: (2,0), (0,4), (2,±4), (2,±1), (4,±4). It does not read the $|k| = 1$ modes
+(1,0), (0,1) and (1,±1) early, because their amplitude is small. BALL reads those first and
+contracts about 2.5 times faster (exponent about -0.22; error $2.8\times10^{-10}$ at $m = 8$). On
+this one non-chaotic world, the modes whose observation makes the error contract fast are the
+slow, weakly damped large scales, and neither amplitude nor sensitivity ranks them first. That is
+an observation and not a result. With nothing observed the error ends at 0.98, so a copy started
+from $v = 0$ settles away from the reference. Whether that is another attractor or a very slow
+approach is not determined.
 
-What this does not do. It does not grade the claim. The probe exists to fix parameters, and its
-worlds are mostly outside the resolution bar. The claim, the bars and the tolerance rules of
-Sections 1 to 5 are unchanged. Revising them in response to these numbers before the probe is
-complete and recorded would be fitting the registration to its own probe, and is not done here.
+Probe round 3 (set up 2026-10-10; not yet submitted). The aim is chaotic and resolved worlds at a
+coarser resolution of $n = 96$.
+
+- Worlds: $\nu \in \{0.01, 0.02, 0.03\}$ at $n = 96$, one test trajectory each, same seeds
+  (probe 20261071). These are the viscosities rounds 1 and 2 found chaotic, at a resolution where
+  the tail should clear the bar.
+- $T_{\rm sync} = 100$ with $T_{\rm hold} = 10$. $\delta(t)$ for $t \le 50$ does not depend on the
+  window length, so the same runs give the rule's answer at $T_{\rm sync} = 50$ and 100.
+- The block exponent is off, since rounds 1 and 2 recorded it on four worlds.
+- Each world is split into three NRP Jobs: the instrument and the four graded observers; SENS and
+  RANDOM; and the $\Delta t/2$ reruns. That keeps every Job to a few hours and limits what one node
+  failure can take.
+
+Consequence to decide before the pilot. If the coarser resolution of the ladder becomes 96,
+Section 2's ladders move up: the pilot to $n = 96$ and 128, and the run to 128 and 192. From the
+measured cost at $n = 64$ (about 3.5 h per chaotic trajectory) and a per-step cost scaling of
+roughly $n^2\log n$, with steps scaling as $n$, one trajectory at $n = 192$ would take on the order
+of 100 h on one CPU. That is an estimate, not a measurement. It is the case for a lower
+resolution bar, or for splitting each trajectory's observers across Jobs. That is the owner's
+decision, and it is not taken here.
+
+What this does not do. It does not grade the claim. The probe exists to fix parameters, and every
+world in it fails a world criterion. The claim, the bars and the tolerance rules of Sections 1 to 5
+are unchanged. The instrument may change before the pilot, through the world choice, the
+resolution bar or the synchronization window, but only on the probe's own criteria (chaos,
+resolution, separation of $\delta$, step refinement) and with every change recorded here. Changing
+the claim or the bars in response to how READ fared would be fitting the registration to its own
+probe, and is not done.
 
 Pilot (training 20261072, test 20261073, $n = 64$ and $96$, $K = 2$). It fixes M1 and TOL_N by the
 rules of Section 5, within their limits, and records the pilot's own grade.
