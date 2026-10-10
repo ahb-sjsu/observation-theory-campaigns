@@ -151,7 +151,8 @@ Every case has one outcome.
   $a = i_{\rm best} - 13 \le -1$, a shortfall.
 - READ and all three graded controls are censored: uninformative, excluded from L1 and N1, and
   counted against scope (E2).
-- RANDOM: the median index of its five draws, censored draws at 13. RANDOM is used only in E2.
+- RANDOM: the median index of its five draws, censored draws at 13. RANDOM is used only in E2,
+  against the best graded control.
 - SENS: recorded and never graded. Its censoring has no effect on any bar.
 - A world refused by the stability guard: not graded, and the gate's verdict is INDETERMINATE unless
   the probe is repeated and the run re-registered before the seal.
@@ -165,8 +166,11 @@ Every case has one outcome.
 - E1 (instrument). On every test trajectory, observing every pair holds
   $\delta \le 10^{-10}$ over the final window, and observing none leaves $\delta(T_{\rm sync}) \ge 0.3$.
 - E2 (scope). In each world at least three quarters of the test trajectories are graded cells.
-  Each graded observer (READ, BALL, ENSTROPHY, KE) has a pooled mean index below RANDOM's pooled
-  mean index.
+  The best graded control's pooled mean index (the mean of $i_{m best}$ over cells) is below
+  RANDOM's pooled mean index. Scope depends on the classical observers alone, so neither READ nor
+  SENS can move it. (Changed 2026-10-09 while writing the grader. The earlier form required every
+  graded observer, READ included, to beat RANDOM. A READ no better than chance would then have
+  read as out of scope, INDETERMINATE, where it should read as a failure of the claim.)
 - L1 (the claim). The pooled advantage is at least M1, and no graded cell has $a < -1$.
 - N1 (resolution). For each viscosity, the pooled advantages at the run's two resolutions differ by
   at most TOL_N.
@@ -216,8 +220,10 @@ claim is graded against the best of the three in each cell. The observer family 
 
 ## 7. Self-test, probe, pilot (before sealing)
 
-Written 2026-10-09: `d8_sync.py`, `prereg_config.json` (probe candidates), `d8_launch.sh`. Still to
-write: `d8_grade.py`, `d8_fix_tols.py`.
+Written 2026-10-09: `d8_sync.py`, `prereg_config.json` (probe candidates), `d8_launch.sh`,
+`d8_grade.py` and `d8_fix_tols.py`. Each of the last two has its own `--selftest` on synthetic
+results. The grader's self-test exercises every outcome of Section 4 and every verdict branch of
+Section 5. The fixer's self-test exercises M1's floor, TOL_N's floor and TOL_N's cap.
 
 Self-test (`d8_sync.py --selftest`, 17 checks at $n = 32$; PASS on Atlas 2026-10-09 at 775d7ed).
 - The laminar Kolmogorov flow is a fixed point of the forced solver.
