@@ -19,8 +19,14 @@ minimum number of determining modes, and nothing here estimates that number.
 Background. Nudging a second solution toward the observed Fourier modes of a two-dimensional flow
 (Azouani, Olson and Titi 2014) makes the two flows synchronize once enough modes are observed.
 For the ball of lowest wavenumbers this is the determining-modes theorem (Foias and Prodi 1967),
-and the counts the theory guarantees are far above what simulations need. Which modes to observe
-for a given count is not settled by that theory. D7v3 (PASS) found that, for a filtered flow at a
+and the counts the theory guarantees are far above what simulations need. For D8's own flows the
+gap is measured. Jones and Titi (1993, Theorem 3.2) guarantee that the ball of about $2.7\,c_3\,G$
+lowest Fourier pairs is determining, with Grashof number $G = |f|/\nu^2$ on the $2\pi$ box and
+$c_3$ an Agmon-type constant the paper leaves unstated. At the probe's viscosities that ball
+exceeds the 924-pair grid at $n = 64$ almost everywhere. Where BALL's budget has been measured,
+the guarantee sits 80 to 7,500 times above it (theory note Section 6, table and caveats). The
+theorem therefore constrains none of the observers D8 compares, and it speaks only to BALL. Which
+modes to observe for a given count is not settled by that theory. D7v3 (PASS) found that, for a filtered flow at a
 single time, the discarded modes of largest read distortion (the resolved dynamics' sensitivity to
 a mode times the mode's squared vorticity amplitude) close the resolved tendency better than the
 same number of modes ranked by amplitude alone. The theory note's Proposition 4 shows that ranking
