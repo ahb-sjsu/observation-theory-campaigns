@@ -155,6 +155,44 @@ asymptotic statement is the determining-modes theorem of Foias and Prodi (1967),
 counts in terms of the Grashof number (Jones and Titi 1993). In two dimensions all of this is known,
 and the known sufficient counts are far above what simulations need.
 
+How far above, for D8's flows (checked 2026-10-09 against the scanned paper, pages 875–881).
+Jones and Titi treat the 2-D periodic system without drag on $(0, L)^2$, with Grashof number
+$G = L^2|f|/(4\pi^2\nu^2)$, where $|f|$ is the $L^2$ norm of the velocity forcing. Their Theorem 3.2
+says that if $\lambda_{m+1}/\lambda_1 \ge \sqrt{3}\,c_3\,G$, the first $m$ Stokes eigenfunctions are
+determining. Here $c_3$ is the constant of their inequality (2.4), which comes from Agmon's
+inequality. The paper calls it an adequate dimensionless positive constant and gives no value, so
+the count below is exact only up to that factor.
+
+On the $2\pi$-periodic box, $\lambda_1 = 1$ and $G = |f|/\nu^2$. D8's vorticity forcing
+$F_0 k_f\cos(k_f y)$ is the curl of the velocity forcing $(-F_0\sin(k_f y), 0)$, so with $F_0 = 1$,
+$|f| = \pi\sqrt{2} \approx 4.44$. The determining set is the ball $|k|^2 \le \sqrt{3}\,c_3\,G$, about
+$2.7\,c_3\,G$ Fourier pairs. The table compares that count with the BALL budgets the D8 probe
+measured at $n = 64$ (one test trajectory per viscosity, probe record of
+`experiments/OD/D8/PREREG-D8-DRAFT.md` Section 7). The probe grid holds 924 candidate pairs.
+
+| $\nu$ | $G$ | pairs guaranteed, $c_3 = 1$ | pairs guaranteed, $c_3 = 0.1$ | BALL $m^*$ measured |
+|---|---|---|---|---|
+| 0.002 | 1.1e6 | 3.0e6 | 3.0e5 | not yet logged |
+| 0.004 | 2.8e5 | 7.6e5 | 7.6e4 | not yet logged |
+| 0.01 | 4.4e4 | 1.2e5 | 1.2e4 | 16 |
+| 0.02 | 1.1e4 | 3.0e4 | 3.0e3 | 12 |
+| 0.03 | 4.9e3 | 1.3e4 | 1.4e3 | not yet logged |
+| 0.05 | 1.8e3 | 4.8e3 | 486 | 6 |
+
+The guaranteed ball exceeds the whole probe grid at every viscosity for $c_3 = 1$, and at every
+viscosity except 0.05 for $c_3 = 0.1$. Where BALL's budget has been measured, the guarantee is
+larger by a factor between about 80 (0.05, at $c_3 = 0.1$) and 7,500 (0.01, at $c_3 = 1$). This is
+no contradiction, since the theorem gives a sufficient count and not the smallest one. It means the
+theorem does not constrain any observer D8 compares. The comparison is also not like for like on
+four points.
+- Drag: D8's flows carry linear drag $\alpha = 0.1$, which the theorem does not include. Drag adds
+  damping and should only lower the true count, but that is not proved here.
+- What is measured: "determining" means exact asymptotic convergence once the low modes agree,
+  while $m^*$ is sustained finite-time synchronization under nudging with a finite gain.
+- Which observers: the theorem covers only the ball of lowest modes, so it speaks to BALL alone.
+- The constant: $c_3$ is unknown, so the two columns illustrate two choices rather than give the
+  bound.
+
 What is not known, and what an observer theory can contribute, is which $m$ modes to observe. At
 $t = 0$ with $v(0) = 0$ the discarded error is $-q_{S^c}$, and under the independent-phase model of
 Proposition 4 its nonlinear spreading rate is
