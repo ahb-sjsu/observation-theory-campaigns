@@ -207,19 +207,20 @@ D8's instrument checks Propositions 2 and 3 numerically on the solver before any
 
 ## References
 
-Checked against the Crossref API on 2026-10-09 (title, authors, journal, volume, pages). Eight
-records matched with a DOI. Three are not in Crossref; they are marked below and still need to be
-checked against the journal or MathSciNet before any seal. Crossref confirms only the bibliographic
-record. The content claims attributed to Cheskidov and Shvydkoy (the integrability exponents, in
+Checked on 2026-10-09 against the Crossref API (title, authors, journal, volume, pages). Eight
+records matched with a DOI. The three not in Crossref were then checked the same day against
+MathSciNet through the AMS's free MR Lookup, and all three match as cited. Both sources confirm only
+the bibliographic record. The content claims attributed to Cheskidov and Shvydkoy (the integrability exponents, in
 Section 7) and to Tao (the triad localisation of the averaged operator) still need checking against
 the papers themselves.
 
 - C. Foias and G. Prodi (1967), Sur le comportement global des solutions non-stationnaires des
-  équations de Navier-Stokes en dimension 2, Rend. Sem. Mat. Univ. Padova 39, 1–34. NOT IN
-  CROSSREF; to check against the journal (Numdam) or MathSciNet.
+  équations de Navier-Stokes en dimension 2, Rend. Sem. Mat. Univ. Padova 39, 1–34, MR0223716
+  (not in Crossref; confirmed on MathSciNet).
 - D. A. Jones and E. S. Titi (1993), Upper bounds on the number of determining modes, nodes, and
-  volume elements for the Navier-Stokes equations, Indiana Univ. Math. J. 42, 875–887. NOT IN
-  CROSSREF; to check against the journal or MathSciNet. (Crossref holds the same authors' 1992
+  volume elements for the Navier-Stokes equations, Indiana Univ. Math. J. 42 (3), 875–887,
+  MR1254122, doi:10.1512/iumj.1993.42.42039 (the DOI resolves to the journal's page but is not in
+  Crossref's index; confirmed on MathSciNet). (Crossref holds the same authors' 1992
   papers, Physica D 60, 165–174, doi:10.1016/0167-2789(92)90233-D, and J. Math. Anal. Appl. 168,
   72–88, doi:10.1016/0022-247X(92)90190-O.)
 - L. M. Pecora and T. L. Carroll (1990), Synchronization in chaotic systems, Phys. Rev. Lett. 64,
@@ -242,8 +243,8 @@ the papers themselves.
 - J. Serrin (1962), On the interior regularity of weak solutions of the Navier-Stokes equations,
   Arch. Rational Mech. Anal. 9, 187–195, doi:10.1007/BF00253344.
 - O. A. Ladyzhenskaya (1967), Uniqueness and smoothness of generalized solutions of Navier-Stokes
-  equations, Zap. Nauchn. Sem. LOMI 5, 169–185. NOT IN CROSSREF; to check against MathSciNet.
-  The volume and pages are from memory and unverified.
+  equations, Zap. Nauchn. Sem. LOMI 5, 169–185, MR0236541 (not in Crossref; confirmed on
+  MathSciNet).
 
 The last three are the sources of the $L^p_t L^q_x$ criterion, $2/p + 3/q = 1$, of which
 $p = q = 5$ is the planning thread's case.
