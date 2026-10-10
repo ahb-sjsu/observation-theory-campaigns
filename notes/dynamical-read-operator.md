@@ -177,21 +177,49 @@ claim of novelty.
 
 What it cannot do. The statements use three properties of the nonlinearity: the antisymmetry
 $(B(u, v), v) = 0$, the triad support in Fourier space, and the resulting energy inequality. Tao
-(2016, J. Amer. Math. Soc. 29, 601–674) constructs an averaged Navier–Stokes operator that keeps the
-energy identity and the harmonic-analysis bounds of $B$ and whose solutions blow up in finite time.
-If the averaged operator also keeps the triad localisation used in Proposition 2 (I believe it does,
-since it is built from frequency-localised pieces, but this is to verify against the paper), then
-every statement in this note holds for an equation that blows up, and no argument assembled from
-them alone can give the planning thread's step 3, a bound on
-$\int_0^T\!\!\int |u|^5\,dx\,dt$. The test that follows is concrete. Any dynamical bound the program
-proposes is run on a dyadic model known to blow up (Katz and Pavlović 2005; Cheskidov 2008, Trans. Amer. Math. Soc.), and it
-must fail there. That gate is D9, not drafted.
+(2016, J. Amer. Math. Soc. 29, 601–674) constructs an averaged Navier–Stokes operator $	ilde B$ on
+$\mathbb{R}^3$ that keeps the cancellation $\langle 	ilde B(u, u), uangle = 0$, and so the energy
+identity, and whose solutions blow up in finite time. Its definition (arXiv:1402.0290v3, eq. 1.12)
+is
+$\langle 	ilde B(u, v), wangle = \mathbb{E}\,\langle B(m_1(D)\mathrm{Rot}_{R_1}\mathrm{Dil}_{\lambda_1}u,\ m_2(D)\mathrm{Rot}_{R_2}\mathrm{Dil}_{\lambda_2}v),\ m_3(D)\mathrm{Rot}_{R_3}\mathrm{Dil}_{\lambda_3}wangle$.
+Here $m_i(D)$ are random real Fourier multipliers of order 0, $R_i$ are random rotations, and
+$\lambda_i$ are random dilations, independent for the two inputs and the output, with
+$C^{-1} \le \lambda_i \le C$ almost surely. Tao notes that every Sobolev estimate on $B$ implies
+one on $	ilde B$ with a larger constant (his remark after eq. 1.13 and eq. 1.14).
+
+Checked against the paper on 2026-10-09. Draft 0.1 had guessed here that $	ilde B$ keeps
+Proposition 2's triad localisation exactly. It does not. Rotating and dilating the two inputs
+independently breaks the exact relation $k = j + l$. A weaker locality survives. Under (1.12) a
+discarded mode $l$ reaches an observed output $|k| \le N$ from an observed input $|j| \le N$ only
+if $|l| \le 2C^2 N$. (This is my derivation from the definition. Tao does not state it.) The exact
+cutoff $2N$ becomes $2C^2N$. Proposition 3's argument goes through with constants that depend on
+$C$ and on the multipliers' seminorms, because it uses only the cancellation and a Bernstein bound
+on band-limited test functions, and both survive. Propositions 2 to 4 therefore hold for $	ilde B$
+in this weakened form, with bounded-factor locality in place of the exact octave and larger
+constants, and $	ilde B$'s solutions blow up. Tao's construction is on $\mathbb{R}^3$ and this
+note is on the torus, so the transfer is by analogy and not a theorem.
+
+The conclusion stands. No argument assembled only from statements of this kind can give the
+planning thread's step 3, a bound on $\int_0^T\!\!\int |u|^5\,dx\,dt$. Tao's own abstract
+says the same, that a positive resolution must use finer structure of $B(u, u)$ than the energy
+identity and the harmonic-analysis estimates provide. The test that follows is concrete. Any
+dynamical bound the program proposes is run on a dyadic model known to blow up (Katz and Pavlović
+2005; Cheskidov 2008, Trans. Amer. Math. Soc.), and it must fail there. That gate is D9, not drafted.
 
 The classical criterion closest to "the discarded directions are harmless above a budget" is the
-dissipation wavenumber of Cheskidov and Shvydkoy (2014, J. Math. Fluid Mech. 16), regularity following
-from its integrability in time, with Leray–Hopf solutions known to satisfy a weaker integrability
-(exponents to verify before citing). A dynamical observer theory would earn its place on the
-regularity question only by improving that integrability. Nothing here does.
+dissipation wavenumber $\Lambda(t)$ of Cheskidov and Shvydkoy (2014, J. Math. Fluid Mech. 16). They
+define $\Lambda(t) = 2^{Q(t)}$, with $Q(t)$ the first dyadic shell beyond which every
+Littlewood–Paley piece satisfies $2^{-p}\|u_p(t)\|_\infty < c_0
+u$. Viscosity dominates the
+nonlinear term above that shell. A Leray–Hopf solution is regular on $(0, T]$ if
+$\Lambda \in L^{5/2}(0, T)$. Their earlier condition was $\Lambda \in L^\infty$. Every Leray–Hopf
+solution satisfies $\Lambda \in L^1(0, T)$. They also show their vorticity condition is weaker
+than every Ladyzhenskaya–Prodi–Serrin condition. (Checked 2026-10-09 against the abstract and
+Section 1 of arXiv:1102.1944v2. Draft 0.1 left the exponents unstated, and the journal version
+has not been compared line by line.) The open gap is integrability $L^1$ against $L^{5/2}$ for a
+budget above which the discarded scales are dynamically harmless, which is the scaling gap in
+another form. A dynamical observer theory would earn its place on the regularity question only by
+closing part of that gap. Nothing here does.
 
 ## 8. Machine checking
 
@@ -210,9 +238,11 @@ D8's instrument checks Propositions 2 and 3 numerically on the solver before any
 Checked on 2026-10-09 against the Crossref API (title, authors, journal, volume, pages). Eight
 records matched with a DOI. The three not in Crossref were then checked the same day against
 MathSciNet through the AMS's free MR Lookup, and all three match as cited. Both sources confirm only
-the bibliographic record. The content claims attributed to Cheskidov and Shvydkoy (the integrability exponents, in
-Section 7) and to Tao (the triad localisation of the averaged operator) still need checking against
-the papers themselves.
+the bibliographic record. The two content claims of Section 7 were checked the same day against
+the arXiv texts, Tao arXiv:1402.0290v3 eq. 1.12 and Cheskidov and Shvydkoy arXiv:1102.1944v2
+Section 1. One draft guess was corrected (Tao's operator does not keep Proposition 2's exact
+octave), and the exponents ($L^{5/2}$ sufficient, $L^1$ for every Leray–Hopf solution) were
+filled in.
 
 - C. Foias and G. Prodi (1967), Sur le comportement global des solutions non-stationnaires des
   équations de Navier-Stokes en dimension 2, Rend. Sem. Mat. Univ. Padova 39, 1–34, MR0223716
