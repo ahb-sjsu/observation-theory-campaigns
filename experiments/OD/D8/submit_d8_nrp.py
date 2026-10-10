@@ -154,9 +154,9 @@ def submit(dry: bool) -> int:
     return 0
 
 
-def collect() -> int:
+def collect(worlds: list[str] | None = None, tag: str = "") -> int:
     merged = None
-    for w in probe_worlds():
+    for w in worlds or probe_worlds():
         name = job_name(w); st = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}").stdout.strip()
         log = kubectl("logs", f"job/{name}").stdout
         if BEGIN not in log:
@@ -168,12 +168,12 @@ def collect() -> int:
         if merged is None: merged = {k: v for k, v in res.items() if k != "worlds"} | {"worlds": [], "footprints": {}}
         merged["worlds"] += res["worlds"]; merged["footprints"][w] = res.get("footprint")
     if merged:
-        (HERE / "probe.json").write_text(json.dumps(merged, indent=1), encoding="utf-8"); print("merged probe.json:", len(merged["worlds"]), "worlds")
+        (HERE / f"probe{tag}.json").write_text(json.dumps(merged, indent=1), encoding="utf-8"); print(f"merged probe{tag}.json:", len(merged["worlds"]), "worlds")
     return 0
 
 
-def cleanup() -> int:
-    for w in probe_worlds():
+def cleanup(worlds: list[str] | None = None) -> int:
+    for w in worlds or probe_worlds():
         name = job_name(w); got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
         if got.returncode != 0: print(f"{name}: absent"); continue
         s, f, a = (got.stdout.strip().split("/") + ["", "", ""])[:3]
@@ -187,9 +187,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--i-have-checked-nrp-policy", action="store_true", dest="ack")
     ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--collect", action="store_true"); ap.add_argument("--cleanup", action="store_true")
-    a = ap.parse_args()
-    if a.collect: return collect()
-    if a.cleanup: return cleanup()
+    ap.add_argument("--worlds", default=None, help="comma-separated world names for --collect/--cleanup (e.g. an earlier probe round)")
+    ap.add_argument("--tag", default="", help="suffix for the merged file, probe<tag>.json")
+    a = ap.parse_args(); ws = a.worlds.split(",") if a.worlds else None
+    if a.collect: return collect(ws, a.tag)
+    if a.cleanup: return cleanup(ws)
     if not a.ack and not a.dry_run:
         sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")
     return submit(a.dry_run)
