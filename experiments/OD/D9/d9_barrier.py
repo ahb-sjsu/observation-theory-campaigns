@@ -214,11 +214,11 @@ def run_world(world: dict, cfg: dict, seed: int, log=print) -> dict:
     return out
 
 
-def run(cfg: dict, seed_role: str, out_path: str) -> dict:
+def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None) -> dict:
     seed = int(cfg[f"seed_{seed_role}"]); res = {"config": cfg, "seed_role": seed_role, "seed": seed, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     groups = cfg["groups_by_role"][seed_role]
     for w in cfg["worlds"]:
-        if w.get("group") not in groups: continue
+        if w.get("group") not in groups or (only_world and w["name"] != only_world): continue
         res["worlds"].append(run_world(w, cfg, seed)); json.dump(res, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     res["finished"] = time.strftime("%Y-%m-%d %H:%M:%S"); json.dump(res, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     return res
@@ -323,12 +323,15 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--config"); ap.add_argument("--seed-role", default="probe")
     ap.add_argument("--out", default="out.json"); ap.add_argument("--grade", default=None)
+    ap.add_argument("--world", default=None, help="run only this world (one NRP Job per world)")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
     if a.grade:
         g = grade(json.load(open(a.grade, encoding="utf-8"))); text = json.dumps(g, indent=1, default=float)
         open(a.out, "w", encoding="utf-8").write(text + "\n"); print(text); return 0
-    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out); return 0
+    res = run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world)
+    if a.world and not res["worlds"]: raise SystemExit(f"no world named {a.world} in role {a.seed_role}")
+    return 0
 
 
 if __name__ == "__main__":
