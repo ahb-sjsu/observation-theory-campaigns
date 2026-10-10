@@ -81,14 +81,22 @@ step, with the margin the same at two resolutions within a declared and capped t
 
 Solver. D5's `NS2D` (vorticity form, pseudo-spectral, 2/3 dealiasing, RK4), subclassed in
 `d8_sync.py` with Kolmogorov forcing $f_\omega = F_0 k_f \cos(k_f y)$ at $k_f = 4$ and linear drag
-$-\alpha\omega$ to stop condensation at the box scale. $F_0 = 1$; $\alpha$ (probe).
+$-\alpha\omega$ to stop condensation at the box scale. $F_0 = 1$, $\alpha = 0.1$ (fixed by the
+probe).
 
-Worlds. Two viscosities $\nu_1 > \nu_2$ (probe), each chosen so that the reference flow is chaotic
-(largest Lyapunov exponent positive on every probe trajectory) and resolved at the coarser
-resolution of its ladder (enstrophy spectrum at the dealiasing wavenumber below $10^{-6}$ of its
-peak). Resolutions: pilot $n = 64$ and $96$; run $n = 96$ and $128$.
+Worlds. Two viscosities, $\nu_1 = 0.03$ and $\nu_2 = 0.02$, fixed by the owner on 2026-10-10 from
+probe round 3 (Section 7). Each meets the criteria at $n = 96$. Each is chaotic: the largest
+Lyapunov exponent was positive on the probe trajectory, +0.06 and +0.26. Each is resolved at the
+coarser resolution of its ladder: the enstrophy spectrum at the dealiasing wavenumber is below
+$10^{-6}$ of its peak, at $5\times10^{-10}$ and $1\times10^{-7}$. At $n = 64$ neither viscosity was
+resolved, which is why the coarser resolution is 96. Resolutions: pilot $n = 96$ and $128$. The run
+is at $n = 128$ and $192$ by the rule that its ladder is one step finer than the pilot's. That
+ladder is PENDING the owner's decision on its cost: one $n = 192$ trajectory is estimated at the
+order of 100 CPU-hours, and this is not measured. ($\nu_1 > \nu_2$ as before. $\nu_1 = 0.03$ is
+the weakly chaotic world.)
 
-Time step. $\Delta t = \Delta t_0 \cdot 64 / n$ (probe). Scaling with $1/n$ does not by itself keep
+Time step. $\Delta t = \Delta t_0 \cdot 64 / n$, with $\Delta t_0 = 0.005$, fixed by the probe
+(step refinement passed on every collected probe world). Scaling with $1/n$ does not by itself keep
 explicit RK4 stable, since the linear stiffness grows as $\nu k_{\max}^2$, so the code checks each
 world before any nudging run. It requires $(\nu k_{\max}^2 + \alpha + \mu)\Delta t \le 1$, inside
 RK4's real-axis interval of about 2.78 with margin, and an advective CFL number
@@ -97,9 +105,9 @@ fails is refused, recorded, and not graded, and the probe is repeated with a sma
 also re-runs every graded observer at $\Delta t / 2$ (Section 7).
 
 Trajectories. Each trajectory starts from a seeded random vorticity field on $|k| \le 8$, scaled to
-a declared rms vorticity, and is spun up for $T_{\rm spin}$ (probe) to a statistically stationary
+a declared rms vorticity, and is spun up for $T_{\rm spin} = 100$ to a statistically stationary
 state. Per world: one training trajectory, on which the rankings are computed over a window
-$T_{\rm train}$ sampled every $\Delta_s$ (probe); and $K$ test trajectories (pilot $K = 2$, run
+$T_{\rm train} = 20$ sampled every $\Delta_s = 1$ (all fixed by the probe); and $K$ test trajectories (pilot $K = 2$, run
 $K = 4$) on disjoint seeds, on which synchronization is measured. The same seeded low-mode field is
 used at both resolutions of a ladder, so the two resolutions see the same physical initial
 condition.
@@ -137,14 +145,19 @@ candidates, so its observed sets are nested in $m$.
 - RANDOM (null). Five seeded permutations.
 
 Nudging. $v_t = F(v) - \mu P_S(v - u)$ with $v(0) = 0$, $S$ the observer's top $m$ pairs, and
-$\mu = \mu_0$ (probe, inside the stability condition of Section 2). On the pilot, $\mu_0/4$ is run on
+$\mu = \mu_0 = 50$ (fixed by the probe, inside the stability condition of Section 2). On the pilot, $\mu_0/4$ is run on
 the graded observers and recorded, not graded.
 
 Sustained synchronization. $\delta(t) = \|\omega_v - \omega_u\| / \|\omega_u\|$. A cell (test
 trajectory, observer, $m$) is synchronized when $\delta(t) \le 10^{-4}$ at every sample of the final
-window $[T_{\rm sync} - T_{\rm hold}, T_{\rm sync}]$. Both $T_{\rm sync}$ and $T_{\rm hold}$ come
-from the probe, with $T_{\rm hold}$ at least five times the inverse of the largest probe Lyapunov
-exponent. An endpoint crossing therefore does not count, and an error that has reached rounding
+window $[T_{\rm sync} - T_{\rm hold}, T_{\rm sync}]$, with $T_{\rm sync} = 100$ and
+$T_{\rm hold} = 10$. Both were fixed by the owner on 2026-10-10 from probe round 3, on the separation
+of $\delta$: at $T_{\rm sync} = 100$, 3 of 52 graded cells per valid world fell between $10^{-6}$
+and $10^{-2}$, against 45 of 260 at $T_{\rm sync} = 50$. $T_{\rm hold} = 10$ satisfies the rule
+that it be at least five times the inverse of the largest probe Lyapunov exponent
+($5/0.54 \approx 9.3$). Recorded: it is shorter than five inverse exponents of the weakly chaotic
+world $\nu_1$ ($5/0.06 \approx 83$). The rule was written against the largest exponent and is
+applied as written. An endpoint crossing therefore does not count, and an error that has reached rounding
 level counts because it stays below threshold. The slope of $\log\delta$ over the window is
 recorded and is not part of the rule. The ladder is
 $m \in \{4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256\}$, with index $i(m) = 0, \dots, 12$.
@@ -467,7 +480,8 @@ resolution, separation of $\delta$, step refinement) and with every change recor
 the claim or the bars in response to how READ fared would be fitting the registration to its own
 probe, and is not done.
 
-Pilot (training 20261072, test 20261073, $n = 64$ and $96$, $K = 2$). It fixes M1 and TOL_N by the
+Pilot (training 20261072, test 20261073, $\nu \in \{0.03, 0.02\}$ at $n = 96$ and $128$, $K = 2$;
+changed 2026-10-10 from $n = 64$ and 96 when the probe moved the coarser resolution to 96). It fixes M1 and TOL_N by the
 rules of Section 5, within their limits, and records the pilot's own grade.
 
 ## 8. Sealing procedure

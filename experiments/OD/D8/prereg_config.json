@@ -3,7 +3,7 @@
  "F0": 1.0,
  "kf": 4,
  "alpha": 0.1,
- "nu_note": "PROBE round 3 (2026-10-10): rounds 1-2 at n = 64 found no world both chaotic and resolved (Lyapunov +0.54/+0.44/+0.06/-0.05 at nu 0.002/0.004/0.03/0.05; only 0.05 resolved). Round 3 runs nu = 0.01, 0.02, 0.03 at n = 96, T_sync = 100 (T_hold 10; delta for t <= 50 is the same as a 50 window), block exponent off, each world split into three Jobs (instrument+graded, others, dthalf); pilot and run nu values are placeholders until then",
+ "nu_note": "FIXED 2026-10-10 by the owner from probe rounds 1-3: nu_1 = 0.03 and nu_2 = 0.02 with n = 96 as the coarser resolution (both chaotic and resolved at n = 96: Lyapunov +0.06 / +0.26, enstrophy tails 5e-10 / 1e-7); T_sync = 100, T_hold = 10 (chosen on the separation of delta: 3 of 52 graded cells ambiguous per valid world against 45 of 260 at T_sync = 50). Pilot ladder n = 96 and 128. Run ladder n = 128 and 192 by Section 2's rule (one step finer than the pilot) is PENDING the owner's decision on its cost (one n = 192 trajectory estimated at order 100 CPU-hours, not measured)",
  "omega_rms": 3.0,
  "ic_kmax": 8,
  "dt_base": 0.005,
@@ -11,7 +11,7 @@
  "T_spin": 100.0,
  "T_train": 20.0,
  "dt_sample": 1.0,
- "T_sync": 50.0,
+ "T_sync": 100.0,
  "T_lyap": 40.0,
  "lyapunov": true,
  "mu": 50.0,
@@ -99,59 +99,59 @@
    }
   },
   {
-   "name": "p_nu1_n64",
-   "group": "pilot",
-   "n": 64,
-   "nu": 0.004,
-   "seed_offset": 11
-  },
-  {
-   "name": "p_nu1_n96",
+   "name": "p_nu030_n96",
    "group": "pilot",
    "n": 96,
-   "nu": 0.004,
+   "nu": 0.03,
    "seed_offset": 11
   },
   {
-   "name": "p_nu2_n64",
+   "name": "p_nu030_n128",
    "group": "pilot",
-   "n": 64,
-   "nu": 0.002,
+   "n": 128,
+   "nu": 0.03,
    "seed_offset": 11
   },
   {
-   "name": "p_nu2_n96",
+   "name": "p_nu020_n96",
    "group": "pilot",
    "n": 96,
-   "nu": 0.002,
+   "nu": 0.02,
    "seed_offset": 11
   },
   {
-   "name": "r_nu1_n96",
-   "group": "run",
-   "n": 96,
-   "nu": 0.004,
-   "seed_offset": 21
+   "name": "p_nu020_n128",
+   "group": "pilot",
+   "n": 128,
+   "nu": 0.02,
+   "seed_offset": 11
   },
   {
-   "name": "r_nu1_n128",
+   "name": "r_nu030_n128",
    "group": "run",
    "n": 128,
-   "nu": 0.004,
+   "nu": 0.03,
    "seed_offset": 21
   },
   {
-   "name": "r_nu2_n96",
+   "name": "r_nu030_n192",
    "group": "run",
-   "n": 96,
-   "nu": 0.002,
+   "n": 192,
+   "nu": 0.03,
    "seed_offset": 21
   },
   {
-   "name": "r_nu2_n128",
+   "name": "r_nu020_n128",
    "group": "run",
    "n": 128,
-   "nu": 0.002,
+   "nu": 0.02,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu020_n192",
+   "group": "run",
+   "n": 192,
+   "nu": 0.02,
    "seed_offset": 21
   }
  ],
@@ -166,5 +166,17 @@
  ],
  "dt_refine_roles": [
   "probe"
- ]
+ ],
+ "probe_fixed": {
+  "alpha": 0.1,
+  "dt_base": 0.005,
+  "n_ref": 64,
+  "T_spin": 100.0,
+  "T_train": 20.0,
+  "dt_sample": 1.0,
+  "mu": 50.0,
+  "T_sync": 100.0,
+  "T_hold": 10.0,
+  "source": "PREREG-D8-DRAFT.md Section 7, probe rounds 1-3; dt validated by dt/2 agreement on every collected probe world"
+ }
 }
