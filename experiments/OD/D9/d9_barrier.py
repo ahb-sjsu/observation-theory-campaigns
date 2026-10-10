@@ -18,8 +18,9 @@ diverging) / TRANSPARENT (bounded in both) / FALSE (diverging in R) / UNSETTLED:
   C2  D8's observers carried to the model: the sustained-synchronization budget (in shells) of a nudged copy for BALL,
       READ (training mean of u_n^2 times the sensitivity |N_u e_n|^2 of the nonlinear tendency), ENSTROPHY (lam^(2n) u_n^2),
       KE (u_n^2), SENS (sensitivity alone) and RANDOM. Recorded, no prediction.
-  C3  a harmless-budget candidate: Q(t) the smallest shell above which every shell's nonlinear exchange is below c0 times
-      its dissipation, Lambda = lam^Q, Phi = int_0^T Lambda^q dt for each declared q. Recorded, no exponent claimed.
+  C3  a harmless-budget candidate: Q(t) the smallest shell above which every shell's local Reynolds number
+      lam^n |u_n| / (nu lam^(2 alpha n)) is below c0, Lambda = lam^Q, Phi = int_0^T Lambda^q dt for each declared q.
+      Recorded, no exponent claimed.
 
     python d9_barrier.py --selftest
     python d9_barrier.py --config prereg_config.json --seed-role probe --out probe.json
@@ -109,12 +110,15 @@ def c1_value(model: Dyadic, run: dict, N: int, E0: float) -> float:
 
 
 def harmless_shell(model: Dyadic, u, c0: float) -> int:
-    """Q: the smallest q >= 0 such that every shell p > q satisfies lam^p u_(p-1)^2 + lam^(p+1) |u_p u_(p+1)|
-    <= c0 nu lam^(2 alpha p) |u_p| (for the last shell the outgoing term is absent, as in the truncation)."""
-    um1 = np.concatenate([[0.0], u[:-1]]); up1 = np.concatenate([u[1:], [0.0]])
-    exch = model.ln * um1 ** 2 + model.ln1 * np.abs(u * up1); ok = exch <= c0 * model.diss * np.abs(u)
-    bad = np.nonzero(~ok)[0]
-    return int(bad[-1] + 1) if len(bad) else 0  # shells are 1-based: the last failing shell index
+    """Q: the smallest q >= 0 such that every shell p > q has local Reynolds number
+    Re_p = lam^p |u_p| / (nu lam^(2 alpha p)) < c0, i.e. its nonlinear turnover rate below c0 times its viscous rate. This
+    is the dyadic analogue of Cheskidov and Shvydkoy's condition 2^(-p) |u_p|_inf < c0 nu (their Q(t)). Revised 2026-10-10:
+    the first definition compared a shell's nonlinear EXCHANGE with its dissipation, which in the dissipation range are
+    nearly equal by the shell's own energy balance, so Q came out as the top shell J in every world and C3 diverged by
+    construction (the n <= 10 smoke run on Atlas)."""
+    re = model.ln * np.abs(u) / model.diss
+    bad = np.nonzero(~(re < c0))[0]
+    return int(bad[-1] + 1) if len(bad) else 0  # shells are 1-based: the last shell whose Reynolds number reaches c0
 
 
 def c3_values(model: Dyadic, run: dict, c0: float, qs: list[float]) -> dict:

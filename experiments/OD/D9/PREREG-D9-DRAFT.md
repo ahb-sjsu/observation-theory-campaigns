@@ -118,13 +118,18 @@ Entered at draft 0.1:
   solution that has left every finite-$J$ approximation. No prediction is registered. The class of
   each observer's budget is the record.
 - C3, a harmless-budget candidate in the spirit of Cheskidov and Shvydkoy's dissipation wavenumber
-  (2014). $Q(t)$ is the smallest shell above which every shell's nonlinear exchange is below
-  $c_0$ times its dissipation:
-  $\lambda^{p}|u_{p-1}|^2 + \lambda^{p+1}|u_p u_{p+1}| \le c_0\,\nu\lambda^{2\alpha p}|u_p|$ for all
-  $p > Q(t)$. Then $\Lambda(t) = \lambda^{Q(t)}$ and $\Phi_3^{(q)}(J) = \int_0^T\Lambda^q\,dt$ for
-  $q \in \{1, 2, 5/2, 3\}$. Cheskidov and Shvydkoy's exponents ($L^{5/2}$ sufficient, $L^1$ for every
-  Leray–Hopf solution) are for the Navier–Stokes equations, not this model. So no exponent is
-  claimed, and the class of each $q$ is recorded. $c_0$ is declared (probe) and not tuned per world.
+  (2014). $Q(t)$ is the smallest shell above which every shell's local Reynolds number
+  $\mathrm{Re}_p = \lambda^p|u_p|/(\nu\lambda^{2\alpha p})$ is below $c_0$. That is, the shell's
+  nonlinear turnover rate is below $c_0$ times its viscous rate. This is the dyadic analogue of their
+  condition $2^{-p}\|u_p\|_\infty < c_0\nu$. Then $\Lambda(t) = \lambda^{Q(t)}$ and
+  $\Phi_3^{(q)}(J) = \int_0^T\Lambda^q\,dt$ for $q \in \{1, 2, 5/2, 3\}$. Cheskidov and Shvydkoy's
+  exponents ($L^{5/2}$ sufficient, $L^1$ for every Leray–Hopf solution) are for the Navier–Stokes
+  equations, not this model. So no exponent is claimed, and the class of each $q$ is recorded. $c_0$
+  is declared (probe) and not tuned per world. (Revised 2026-10-10, before any probe. The first
+  definition compared a shell's nonlinear exchange with its dissipation. In the dissipation range
+  those are nearly equal by the shell's own energy balance. A smoke run at $J \le 10$ on Atlas then
+  gave $Q = J$, the top shell, in both worlds at every $J$, so C3 diverged by construction and its
+  class said nothing about the flow.)
 
 ## 4. Bars
 
