@@ -255,6 +255,68 @@ nudged run, and whether $\delta$ separates cleanly at the $10^{-4}$ threshold. I
 check: every graded observer's $m^*$ at $\Delta t/2$ must equal its $m^*$ at $\Delta t$ on every probe
 trajectory. Otherwise $\Delta t_0$ is halved and the probe is repeated.
 
+Probe record so far (INCOMPLETE, written 2026-10-10 while the Jobs run; nothing here fixes a
+parameter or changes a bar). Each probe world is one NRP Job (namespace ssu-atlas-ai, CPU only,
+exempt class 1 CPU / 2Gi, `submit_d8_nrp.py`), $n = 64$, one test trajectory ($K = 1$), every other
+parameter as in `prereg_config.json` ($\alpha = 0.1$, $\Delta t_0 = 0.005$, $T_{\rm spin} = 100$,
+$T_{\rm train} = 20$, $\Delta_s = 1$, $\mu_0 = 50$, $T_{\rm sync} = 50$, $T_{\rm hold} = 10$). The
+code is identical in both rounds (d8_sync.py sha256 e274c0db...). In-pod self-test PASS on every Job.
+
+- Round 1 (code at a76cf15, submitted 2026-10-10 05:04 UTC): $\nu = 0.004$ and $0.002$.
+- Round 2 (config at ece9ab1, submitted 05:10 UTC): $\nu = 0.01, 0.02, 0.03, 0.05$. It was added
+  after round 1 failed the resolution bar.
+
+Training phase, all six worlds complete.
+
+| $\nu$ | enstrophy tail at $k_{\rm dealias}$ (bar $10^{-6}$) | resolved | linear stiffness | CFL max (train) | T1 max | T2 max |
+|---|---|---|---|---|---|---|
+| 0.002 | 1.40e-2 | no | 0.26 | 0.21 | 6.1e-16 | 0.024 |
+| 0.004 | 6.30e-3 | no | 0.27 | 0.24 | 5.5e-16 | 0.022 |
+| 0.01 | 6.83e-4 | no | 0.29 | 0.18 | 6.6e-16 | 0.024 |
+| 0.02 | 3.12e-5 | no | 0.34 | 0.13 | 5.3e-16 | 0.026 |
+| 0.03 | 1.47e-6 | no (by a factor of 1.5) | 0.38 | 0.09 | 5.6e-16 | 0.031 |
+| 0.05 | 3.00e-9 | yes | 0.47 | 0.05 | 4.7e-16 | 0.034 |
+
+Proposition 2 (T1) holds at rounding level on every checked snapshot. Proposition 3's ratio (T2)
+stays at most 0.034, so the classical bound is loose by a factor of about 30. Every world passes
+the stability guard. Only $\nu = 0.05$ passes the resolution bar at $n = 64$. The CFL number falls
+steadily with $\nu$, so whether the resolved flows are still chaotic is open until the Lyapunov
+exponents are collected.
+
+Nudging phase, test trajectory 0. These are the $m^*$ values the Jobs have logged so far (ladder
+index in parentheses, censored = 13). "-" means not yet logged. RANDOM, SENS, the Lyapunov
+exponents, the $\delta(t)$ curves and the $\Delta t/2$ reruns are not yet in.
+
+| $\nu$ | resolved | READ | BALL | ENSTROPHY | KE | READ's advantage over the best logged control |
+|---|---|---|---|---|---|---|
+| 0.002 | no | 32 (6) | - | 64 (8) | - | - |
+| 0.004 | no | 24 (5) | - | 48 (7) | - | - |
+| 0.01 | no | 24 (5) | 16 (4) | 64 (8) | 24 (5) | -1 (BALL) |
+| 0.02 | no | 24 (5) | 12 (3) | 96 (9) | 32 (6) | -2 (BALL) |
+| 0.03 | no (narrowly) | 48 (7) | - | - | - | - |
+| 0.05 | yes | 256 (12) | 6 (1) | 128 (10) | 96 (9) | -11 (BALL) |
+
+What the partial record shows, with one trajectory per world and three worlds complete across the
+graded controls. READ leads ENSTROPHY on every unresolved world, by two to four steps. That is the
+contrast D7v3 passed on, READ against its own amplitude factor. On the unresolved worlds where KE
+has reported, it ties READ ($\nu = 0.01$) or is one step behind it ($\nu = 0.02$). At $\nu = 0.05$
+KE leads READ by three steps. BALL, the classical lowest-wavenumber observer, beats READ in all three worlds where it
+has reported. At the one resolved world, BALL synchronizes at 6 observed pairs and READ only at
+256, the top of the ladder.
+
+Not yet explained. READ's $m^* = 256$ at $\nu = 0.05$ is the opposite of what fewer active modes
+would suggest. Two candidate explanations are recorded, to be checked against the collected data
+and not assumed. (a) The flow is steady or multistable at this viscosity, so a copy started from
+$v = 0$ settles elsewhere unless nearly every mode is read. That is checked against the Lyapunov
+exponent and the reference trajectory. (b) Synchronization is slow enough that $\delta$ has not
+held below $10^{-4}$ through the final window by $T_{\rm sync}$. That is checked against the
+$\delta(t)$ curves.
+
+What this does not do. It does not grade the claim. The probe exists to fix parameters, and its
+worlds are mostly outside the resolution bar. The claim, the bars and the tolerance rules of
+Sections 1 to 5 are unchanged. Revising them in response to these numbers before the probe is
+complete and recorded would be fitting the registration to its own probe, and is not done here.
+
 Pilot (training 20261072, test 20261073, $n = 64$ and $96$, $K = 2$). It fixes M1 and TOL_N by the
 rules of Section 5, within their limits, and records the pilot's own grade.
 
