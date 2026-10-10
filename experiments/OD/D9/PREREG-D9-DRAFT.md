@@ -171,6 +171,22 @@ truncation (4.2) conserves energy at $\nu = 0$. Nonnegativity is preserved from 
 (Theorem 4.2). C1's identity $r_N = -\lambda^{N+1}u_N u_{N+1}e_N$ is checked against a finite
 difference. The classification rule is checked on constructed sequences.
 
+The self-test now has 16 checks and passes on Atlas at 31a77a3. Two checks were added for the C3
+redefinition.
+
+Smoke runs, before any probe, on Atlas, with $J \in \{6, 8, 10\}$, $T = 0.2$ and $A = 100$, B and R
+worlds, graded end to end. Not claim-bearing.
+- First run (ca25c38). The pipeline works from integration through the grader. Halving the
+  tolerances changes the graded functionals by at most $7\times10^{-11}$, and the energy balance
+  closes to $6\times10^{-11}$. C1 is about 0.16 in both worlds and classes TRANSPARENT. C0 diverges
+  in B, and in R it is UNSETTLED at this ladder, so the smoke grade is I1 INDETERMINATE, as expected
+  at $J \le 10$. C3 as first defined gave $Q = J$ at every $J$ in both worlds, a defect of the
+  definition, which was then revised (Section 3). It cost 9 min, almost all of it C2.
+- Second run (a02bf21, C2 off). With the revised C3 at $q = 1$, R is 4.0, 7.7, 12.0 and B is 12.7,
+  50, 201. B sits at the ceiling $\lambda^J T$ that energy piled at the top shell would give, and R
+  is far below it, so the candidate is no longer degenerate. Its higher $q$ are dominated by the
+  initial transient at this horizon and are for the probe to judge.
+
 Probe (seed 20261091). It fixes the $J$ ladder's top, the amplitude $A$, the horizon $T$, $c_0$,
 the tolerances, $D$ and the shrink factor. It records the blow-up time of world B as the time at
 which $\|u^J\|_{1/3+\varepsilon}$ peaks at the top truncation, and the cost.
