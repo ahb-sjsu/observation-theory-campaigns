@@ -142,11 +142,15 @@ modes of the first (Azouani, Olson and Titi 2014),
 
 $$v_t = F(v) - \mu P_S (v - u).$$
 
-The error $e = v - u$ obeys $e_t = (DF(u) - \mu P_S)e + O(\|e\|^2)$. As $\mu \to \infty$ the observed
-error is slaved to zero and the discarded error follows $Q_S\,DF(u(t))\,Q_S$. Discarded directions
-are harmless, in the sense that the observation determines the rest of the flow, when the top
-Lyapunov exponent of this block along the trajectory is negative. That is the conditional Lyapunov
-exponent criterion of synchronization (Pecora and Carroll 1990). For the ball observer the
+The error $e = v - u$ obeys $e_t = (DF(u) - \mu P_S)e + O(\|e\|^2)$. At a finite gain $\mu$ the
+local synchronization diagnostic is the top Lyapunov exponent of this full time-dependent linear
+system along the trajectory. It is the exponent of the observer that is actually run, coupling
+between observed and discarded error included. As $\mu \to \infty$ the observed error is slaved to
+zero and the discarded error follows $Q_S\,DF(u(t))\,Q_S$, and the criterion becomes the
+conditional Lyapunov exponent of synchronization (Pecora and Carroll 1990), with discarded
+directions harmless when that block's exponent is negative. The block exponent misses the
+finite-gain coupling, so D8 records it only as the limit, beside the full observer's exponent
+(revised 2026-10-09 after an outside review). For the ball observer the
 asymptotic statement is the determining-modes theorem of Foias and Prodi (1967), with rigorous
 counts in terms of the Grashof number (Jones and Titi 1993). In two dimensions all of this is known,
 and the known sufficient counts are far above what simulations need.

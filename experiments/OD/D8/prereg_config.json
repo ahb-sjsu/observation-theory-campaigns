@@ -1,5 +1,5 @@
 {
- "world": "D8 DRAFT config, values marked PROBE are candidates the probe confirms or replaces before the pilot (PREREG-D8-DRAFT.md Section 7). Forced two-dimensional turbulence, Kolmogorov forcing F0 k_f cos(k_f y) at k_f = 4 with linear drag; rankings READ (training mean |w_k|^2 s_k), ENERGY (|w_k|^2), BALL (|k|), SENS and KE recorded, RANDOM null; AOT nudging from v = 0 on fresh test trajectories over the m ladder; m* per observer.",
+ "world": "D8 DRAFT config, values marked PROBE are candidates the probe confirms or replaces before the pilot (PREREG-D8-DRAFT.md Section 7). Forced two-dimensional turbulence, Kolmogorov forcing F0 k_f cos(k_f y) at k_f = 4 with linear drag; rankings READ (training mean |w_k|^2 s_k) against the graded controls BALL (|k|), ENSTROPHY (|w_k|^2) and KE (|w_k|^2/|k|^2), SENS recorded, RANDOM null; AOT nudging from v = 0 on fresh test trajectories over the m ladder; m* per observer, the finite-time synchronization budget (sustained below threshold over the final T_hold).",
  "F0": 1.0,
  "kf": 4,
  "alpha": 0.1,
@@ -11,15 +11,12 @@
  "T_spin": 100.0,
  "T_train": 20.0,
  "dt_sample": 1.0,
- "T_sync": 40.0,
+ "T_sync": 50.0,
  "T_lyap": 40.0,
  "lyapunov": true,
  "mu": 50.0,
  "mu_record": [
   12.5
- ],
- "mu_record_groups": [
-  "pilot"
  ],
  "ladder": [
   4,
@@ -43,8 +40,6 @@
  ],
  "theorem_snapshots": 3,
  "sync_threshold": 0.0001,
- "sync_floor": 1e-10,
- "cle": true,
  "chunk": 128,
  "series_stride": 1,
  "seed_probe": 20261071,
@@ -140,5 +135,17 @@
    "nu": 0.002,
    "seed_offset": 21
   }
+ ],
+ "T_hold": 10.0,
+ "obs_lyap": true,
+ "block_lyap_roles": [
+  "probe",
+  "pilot"
+ ],
+ "mu_record_roles": [
+  "pilot"
+ ],
+ "dt_refine_roles": [
+  "probe"
  ]
 }

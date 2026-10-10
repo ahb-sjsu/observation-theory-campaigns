@@ -1,15 +1,18 @@
-# PREREG D8 (DRAFT): which modes an observer must read for a two-dimensional flow to be determined by its observation
+# PREREG D8 (DRAFT): which modes an observer must read to synchronize a nudged copy of a two-dimensional flow
 
-Status: DRAFT 2026-10-09, not claim-bearing, not sealed. Gate D8 of the OD track
-(`experiments/DISCOVERY-TRACK.md`), a new claim registered after the track's declared order was
-complete, and not a version of D7. Its theory is `notes/dynamical-read-operator.md` (draft 0.1),
-Sections 5 and 6. Its bars and tolerance rules are to be fixed in code (`d8_grade.py`,
-`d8_fix_tols.py`) before its pilot runs. Nothing below has been run. Every number marked
-"probe" is set by the probe in Section 7 and recorded there before the seal.
+Status: DRAFT 2026-10-09, revision 2 (after an outside review the same day), not claim-bearing,
+not sealed. Gate D8 of the OD track (`experiments/DISCOVERY-TRACK.md`), a new claim registered
+after the track's declared order was complete, and not a version of D7. Its theory is
+`notes/dynamical-read-operator.md` (draft 0.1), Sections 5 and 6. Its bars and tolerance rules are
+to be fixed in code (`d8_grade.py`, `d8_fix_tols.py`) before its pilot runs. Nothing below has been
+run except the self-test. Every number marked "probe" is set by the probe in Section 7 and recorded
+there before the seal.
 
-D8 makes no claim about Navier–Stokes regularity. It is a two-dimensional problem in which the
-answer to "are the discarded directions harmless" is known to be yes for enough observed modes, and
-it asks only whether the observer theory chooses those modes better than the classical choices.
+D8 makes no claim about Navier–Stokes regularity. It is a two-dimensional problem in which enough
+observed modes are known to make the discarded directions harmless. It asks only whether the
+observer theory chooses those modes better than the classical choices do. Its $m^*$ is a
+finite-time synchronization budget measured on finite trajectories. It is not the mathematical
+minimum number of determining modes, and nothing here estimates that number.
 
 ## 1. Claim under test
 
@@ -19,18 +22,21 @@ For the ball of lowest wavenumbers this is the determining-modes theorem (Foias 
 and the counts the theory guarantees are far above what simulations need. Which modes to observe
 for a given count is not settled by that theory. D7v3 (PASS) found that, for a filtered flow at a
 single time, the discarded modes of largest read distortion (the resolved dynamics' sensitivity to
-a mode times the mode's energy) close the resolved tendency better than the same number of
-energy-ranked modes. The theory note's Proposition 4 shows that ranking is optimal for the linear
-feedback under independent phases, and its Section 6 shows the dynamical read distortion
-$\sigma_k^2\|N_u e_k\|^2$ minimizes the discarded error's nonlinear spreading rate at the first
-instant of nudging. Neither statement says anything about synchronization at long times.
+a mode times the mode's squared vorticity amplitude) close the resolved tendency better than the
+same number of modes ranked by amplitude alone. The theory note's Proposition 4 shows that ranking
+is optimal for the linear feedback under independent phases, and its Section 6 shows the dynamical
+read distortion $|\hat\omega_k|^2\|N_u e_k\|^2$ minimizes the discarded error's nonlinear spreading
+rate at the first instant of nudging. Neither statement says anything about synchronization at
+long times. Sensitivity measures the size of a response. Whether a ranking by response size yields
+a stable observer is the empirical question.
 
-Claim. In forced two-dimensional turbulence, an observer that reads the $m$ Fourier modes of
-largest dynamical read distortion, ranked on a training trajectory, synchronizes a nudged solution
-with the reference on fresh trajectories at a smaller number of observed modes $m^*$ than both
-classical observers, the $m$ lowest wavenumbers (BALL) and the $m$ modes of largest energy (ENERGY),
-by a declared pooled margin, behind neither in any cell by more than a declared tolerance, with the
-advantage the same at two resolutions within a declared tolerance.
+Claim. In forced two-dimensional turbulence, an observer that reads the $m$ Fourier pairs of
+largest dynamical read distortion, ranked on a training trajectory, reaches sustained
+synchronization of a nudged solution with the reference on fresh trajectories at a smaller
+finite-time budget $m^*$ than each of the three graded classical observers (the lowest
+wavenumbers, BALL; the largest enstrophy contributions, ENSTROPHY; the largest kinetic energies,
+KE), by a declared pooled margin, behind the best of them in no graded cell by more than one ladder
+step, with the margin the same at two resolutions within a declared and capped tolerance.
 
 ## 2. World
 
@@ -39,13 +45,20 @@ Solver. D5's `NS2D` (vorticity form, pseudo-spectral, 2/3 dealiasing, RK4), subc
 $-\alpha\omega$ to stop condensation at the box scale. $F_0 = 1$; $\alpha$ (probe).
 
 Worlds. Two viscosities $\nu_1 > \nu_2$ (probe), each chosen so that the reference flow is chaotic
-(largest Lyapunov exponent from `tangent_step` positive on every probe trajectory) and resolved at
-the coarser resolution of its ladder (enstrophy spectrum at the dealiasing wavenumber below
-$10^{-6}$ of its peak). Resolutions: pilot $n = 64$ and $96$; run $n = 96$ and $128$. Time step
-(probe), scaled as $1/n$.
+(largest Lyapunov exponent positive on every probe trajectory) and resolved at the coarser
+resolution of its ladder (enstrophy spectrum at the dealiasing wavenumber below $10^{-6}$ of its
+peak). Resolutions: pilot $n = 64$ and $96$; run $n = 96$ and $128$.
+
+Time step. $\Delta t = \Delta t_0 \cdot 64 / n$ (probe). Scaling with $1/n$ does not by itself keep
+explicit RK4 stable, since the linear stiffness grows as $\nu k_{\max}^2$, so the code checks each
+world before any nudging run. It requires $(\nu k_{\max}^2 + \alpha + \mu)\Delta t \le 1$, inside
+RK4's real-axis interval of about 2.78 with margin, and an advective CFL number
+$\max|u|\,\Delta t / \Delta x \le 0.5$, taken as the maximum over the training window. A world that
+fails is refused, recorded, and not graded, and the probe is repeated with a smaller step. The probe
+also re-runs every graded observer at $\Delta t / 2$ (Section 7).
 
 Trajectories. Each trajectory starts from a seeded random vorticity field on $|k| \le 8$, scaled to
-a declared enstrophy, and is spun up for $T_{\rm spin}$ (probe) to a statistically stationary
+a declared rms vorticity, and is spun up for $T_{\rm spin}$ (probe) to a statistically stationary
 state. Per world: one training trajectory, on which the rankings are computed over a window
 $T_{\rm train}$ sampled every $\Delta_s$ (probe); and $K$ test trajectories (pilot $K = 2$, run
 $K = 4$) on disjoint seeds, on which synchronization is measured. The same seeded low-mode field is
@@ -56,6 +69,11 @@ Seeds. Probe 20261071. Pilot training 20261072, pilot test 20261073. Run trainin
 test 20261075. Checked unused in this repository and in geometric-evaluation-theory on
 2026-10-09.
 
+Units. Spectral arrays are numpy `fft2` output, and math coefficients are `fft2` / $n^2$. The
+$L^2$ norm is $\|f\|^2 = (2\pi)^2\sum_k|\hat f_k|^2$, and the velocity norm of a vorticity field is
+$(2\pi)(\sum_k |\hat\omega_k|^2/|k|^2)^{1/2}$, which the self-test checks against physical space.
+Both theorem checks use these definitions.
+
 ## 3. Observers and estimators
 
 Candidates. Every dealiased Fourier mode with $k \neq 0$, one representative per $\pm k$ pair
@@ -64,124 +82,175 @@ candidates, so its observed sets are nested in $m$.
 
 - READ (the declared arm). Rank by the training-window mean of
   $d_k(t) = |\hat\omega_k(t)|^2 \cdot \tfrac12(\|N_{u(t)} e_k^{\rm re}\|^2 + \|N_{u(t)} e_k^{\rm im}\|^2)$,
-  where $N_u$ is the nonlinear part of `tangent_rhs` (the viscous, drag and forcing terms excluded)
+  where $N_u$ is the nonlinear part of the tangent (the viscous, drag and forcing terms excluded)
   and $e_k^{\rm re}, e_k^{\rm im}$ are the unit real and imaginary perturbations of the pair.
-- ENERGY (classical control). Rank by the training-window mean of $|\hat\omega_k(t)|^2$, the
-  amplitude factor READ uses and the quantity D7's energy closure ranked by
-  (`experiments/OD/D7v3/d7_closure.py:116`), so READ and ENERGY differ by the sensitivity factor
-  alone. The kinetic-energy ranking $|\hat\omega_k|^2 / |k|^2$ is computed and recorded (R1), not
-  graded.
-- BALL (classical control, the Foias–Prodi observer). Rank by $|k|$, ties broken by the angle of
-  $k$ and then by index.
-- SENS (recorded, not claimed, the analogue of D7's refuted arm). Rank by the training-window mean
-  of the sensitivity factor alone.
-- RANDOM (null). Five seeded permutations; $m^*$ reported as their median.
+- ENSTROPHY (graded control). Rank by the training-window mean of $|\hat\omega_k(t)|^2$. This is
+  the pair's contribution to the enstrophy, not to the energy. It is READ's amplitude factor and the
+  quantity D7's "energy" closure ranked by (`experiments/OD/D7v3/d7_closure.py:116`), so READ and
+  ENSTROPHY differ by the sensitivity factor alone. (D7's records call this ranking "energy". That
+  name is inexact and is not carried forward.)
+- KE (graded control). Rank by the training-window mean of $|\hat\omega_k|^2 / |k|^2$, the pair's
+  kinetic energy.
+- BALL (graded control, the Foias–Prodi observer). Rank by $|k|$, ties broken by the angle of $k$
+  and then by index.
+- SENS (recorded only). Rank by the training-window mean of the sensitivity factor alone. It enters
+  no bar.
+- RANDOM (null). Five seeded permutations.
 
-Nudging. $v_t = F(v) - \mu P_S(v - u)$ with $v(0) = 0$, $S$ the observer's top $m$ pairs,
-$\mu = \mu_0$ (probe, with $\mu_0\,\Delta t \le 1$ for RK4 stability). $\mu_0 / 4$ is run on the pilot
-and recorded, not graded.
+Nudging. $v_t = F(v) - \mu P_S(v - u)$ with $v(0) = 0$, $S$ the observer's top $m$ pairs, and
+$\mu = \mu_0$ (probe, inside the stability condition of Section 2). On the pilot, $\mu_0/4$ is run on
+the graded observers and recorded, not graded.
 
-Synchronization. $\delta(t) = \|\omega_v - \omega_u\| / \|\omega_u\|$. A cell (trajectory,
-observer, $m$) is synchronized when $\delta(T_{\rm sync}) \le 10^{-4}$ and either the least-squares
-slope of $\log\delta$ over the last quarter of $[0, T_{\rm sync}]$ is negative or
-$\delta(T_{\rm sync}) \le 10^{-10}$ (an error at rounding level can no longer fall, so its slope is
-flat; added when the code was written, 2026-10-09). $T_{\rm sync}$ (probe).
-The ladder is $m \in \{4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256\}$. $m^*$ is the smallest
-ladder value at which this and every larger ladder value synchronize. A synchronized value below a
-non-synchronized one is recorded as a non-monotone cell.
+Sustained synchronization. $\delta(t) = \|\omega_v - \omega_u\| / \|\omega_u\|$. A cell (test
+trajectory, observer, $m$) is synchronized when $\delta(t) \le 10^{-4}$ at every sample of the final
+window $[T_{\rm sync} - T_{\rm hold}, T_{\rm sync}]$. Both $T_{\rm sync}$ and $T_{\rm hold}$ come
+from the probe, with $T_{\rm hold}$ at least five times the inverse of the largest probe Lyapunov
+exponent. An endpoint crossing therefore does not count, and an error that has reached rounding
+level counts because it stays below threshold. The slope of $\log\delta$ over the window is
+recorded and is not part of the rule. The ladder is
+$m \in \{4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256\}$, with index $i(m) = 0, \dots, 12$.
+$m^*$ is the smallest ladder value at which this and every larger ladder value synchronize. If the
+largest value does not synchronize, the cell is censored and its index is set to 13, one step past
+256. A synchronized value below a non-synchronized one is recorded as a non-monotone cell.
+
+Stability diagnostics. Beside every cell, the code integrates a tangent vector under the
+finite-gain observer's own linearized error equation, $\dot e = [DF(u(t)) - \mu P_S]\,e$, and
+records its Lyapunov exponent. This is the local synchronization diagnostic for the observer
+actually run. The exponent of the discarded block $Q_S\,DF(u)\,Q_S$, the $\mu \to \infty$ limit, is
+recorded on the probe and the pilot only, since it misses the coupling between observed and
+discarded error at finite $\mu$.
 
 Theorem checks on the solver. At cutoffs $N \in \{4, 8\}$ on three training snapshots (the first,
-the middle and the last of the window, `theorem_snapshots` in the config, since the central
-difference on every discarded pair costs minutes per snapshot at $n = 128$),
-(a) the central-difference read of the resolved tendency at $q = 0$, which is exact for a quadratic
-map up to rounding, on every discarded pair with $|k| > 2N$; (b) the ratio
-$\|r_N(p, q)\| / (c_N(2\|p\|\,\|\Pi_{(N,2N]}q\| + \|q\|^2))$ in the velocity norm with the note's
-$c_N$.
+the middle and the last of the window). (a) T1: the base state is set explicitly to $p = P_N u$, and
+the central-difference read of the resolved tendency at $p$ is taken on every discarded pair with
+$|k| > 2N$. This read is exact for the quadratic map up to rounding, and Proposition 2's band-limited
+argument holds at $p$, not around the full snapshot. (b) T2: the ratio
+$\|r_N(p, q)\| / (c_N(2\|p\|\,\|\Pi_{(N,2N]}q\| + \|q\|^2))$ in the velocity norm, with
+$c_N = N\sqrt{K_N}/(2\pi)$ and $q = Q_N u$.
 
-Estimated cost (to be measured on the probe). Nine rankings (four observers and five random draws)
-times 13 ladder values times $K$ test trajectories nudged runs per world, each the length of
-$T_{\rm sync}$, batched over $m$ in one array. The platform is decided at launch under the NRP
-PREFLIGHT checklist (`C:\Users\abptl\.claude\projects\C--source-agi-hpc\memory\reference_nrp_job_policies.md`)
+Estimated cost (to be measured on the probe). Ten rankings (READ, the three graded controls, SENS
+and five random draws) times 13 ladder values times $K$ test trajectories, each the length of
+$T_{\rm sync}$, batched over $m$, with one observer tangent per cell. The probe adds the block
+tangent and the $\Delta t / 2$ reruns. The platform is decided at launch under the NRP PREFLIGHT
+checklist (`C:\Users\abptl\.claude\projects\C--source-agi-hpc\memory\reference_nrp_job_policies.md`)
 or on Atlas within its thermal cap. Nothing runs on the laptop.
 
-## 4. Errors and nulls
+## 4. Errors, nulls and the outcome of every case
 
-The quantity graded is $m^*$ per (world, test trajectory, observer). The advantage of READ in a
-cell is $a = \log_2(m^*_{\rm best} / m^*_{\rm READ})$, with $m^*_{\rm best} = \min(m^*_{\rm BALL}, m^*_{\rm ENERGY})$,
-and the pooled advantage is the mean of $a$ over cells. One ladder step is about 0.5 to 0.6 in
-these units. RANDOM is the null: a structured observer that does not beat it is not an observer.
-A cell where BALL does not synchronize within the ladder has no $m^*_{\rm best}$ and is out of
-scope (bar E2).
+Advantage. In a cell (world, test trajectory) let $i_{\rm best} = \min(i_{\rm BALL}, i_{\rm ENSTROPHY}, i_{\rm KE})$
+over the three graded controls, censored values at 13. READ's advantage is
+$a = i_{\rm best} - i_{\rm READ}$, in ladder steps. The pooled advantage is the mean of $a$ over
+graded cells.
 
-## 5. Bars (M1, TOL1 and TOL_N fixed from the pilot by the rules below; `tolerances.json`; Section 7)
+Every case has one outcome.
 
-- T1 (Proposition 2, exact). On every checked training snapshot and both cutoffs, the read of every pair
-  with $|k| > 2N$ is at most $10^{-10}$ times the largest first-octave read. A miss is an error in
-  the note or in the code and stops the gate before any claim is graded.
-- T2 (Proposition 3). The ratio at most 1 on every checked snapshot. The ratio's distribution recorded,
-  since it measures how loose the classical bound is.
-- E1 (instrument). On every test trajectory, observing every pair synchronizes to
-  $\delta(T_{\rm sync}) \le 10^{-10}$, and observing none leaves $\delta(T_{\rm sync}) \ge 0.3$.
-- E2 (scope). BALL synchronizes within the ladder on every test trajectory, and every structured
-  observer's $m^*$ is below RANDOM's in every cell.
-- L1 (the claim). The pooled advantage at least M1, and no cell with $a < -$TOL1.
+- READ synchronizes, and at least one graded control synchronizes: graded, with $a$ as defined.
+- READ synchronizes, and all three graded controls are censored: graded, $a = 13 - i_{\rm READ}$.
+  This is a lower bound on the true advantage and is recorded as such.
+- READ is censored, and at least one graded control synchronizes: graded,
+  $a = i_{\rm best} - 13 \le -1$, a shortfall.
+- READ and all three graded controls are censored: uninformative, excluded from L1 and N1, and
+  counted against scope (E2).
+- RANDOM: the median index of its five draws, censored draws at 13. RANDOM is used only in E2.
+- SENS: recorded and never graded. Its censoring has no effect on any bar.
+- A world refused by the stability guard: not graded, and the gate's verdict is INDETERMINATE unless
+  the probe is repeated and the run re-registered before the seal.
+
+## 5. Bars (M1 and TOL_N fixed from the pilot by the rules below, within fixed limits; `tolerances.json`; Section 7)
+
+- T1 (Proposition 2, exact). On every checked training snapshot and both cutoffs, the read of every
+  pair with $|k| > 2N$ is at most $10^{-10}$ times the largest first-octave read.
+- T2 (Proposition 3). The ratio is at most 1 on every checked snapshot. Its distribution is
+  recorded, since it measures how loose the classical bound is.
+- E1 (instrument). On every test trajectory, observing every pair holds
+  $\delta \le 10^{-10}$ over the final window, and observing none leaves $\delta(T_{\rm sync}) \ge 0.3$.
+- E2 (scope). In each world at least three quarters of the test trajectories are graded cells.
+  Each graded observer (READ, BALL, ENSTROPHY, KE) has a pooled mean index below RANDOM's pooled
+  mean index.
+- L1 (the claim). The pooled advantage is at least M1, and no graded cell has $a < -1$.
 - N1 (resolution). For each viscosity, the pooled advantages at the run's two resolutions differ by
   at most TOL_N.
 
-Rules. M1 = half the pilot's pooled advantage rounded down to 0.05, and at least 0.25 (half a ladder
-step), so a pilot showing no advantage makes L1 a real bar and not an empty one. TOL1 = the pilot's
-largest per-cell shortfall rounded up to the next ladder step, and at least one step. TOL_N = 1.5
-times the pilot's change between its two resolutions rounded up to 0.05.
+Rules, with limits fixed now so a weak or variable pilot cannot loosen the claim. M1 is half the
+pilot's pooled advantage, rounded down to 0.1 step, and never below 0.5 step. A pilot that shows no
+advantage therefore leaves L1 a real bar. The per-cell tolerance is fixed at one ladder step and is
+not taken from the pilot. TOL_N is 1.5 times the pilot's change in pooled advantage between its two
+resolutions, rounded up to 0.1 step, then clamped to the interval [0.2, 0.5] step.
 
-Records R1, not graded. SENS's $m^*$ and its advantage. The conditional Lyapunov exponent of the
-discarded block $Q_S\,DF(u)\,Q_S$ at $m^*$ and at the ladder value below it, for every structured
-observer, and the fraction of cells in which its sign agrees with synchronization (the classical
-criterion of the note's Section 6). The overlap of READ's and ENERGY's top-$m$ sets at $m^*$, and the
-shell histogram of READ's modes. Non-monotone cells. The $\mu_0/4$ pilot run. The initial spreading
-rate of the note's Section 6 for each observer at each $m$, to see whether the instant the
-proposition covers predicts the long-time result.
+Verdict, total. Each case below names the outcome.
 
-Pass: T1, T2, E1, E2, L1, N1. Fail: T1 (the gate stops and the note is corrected first), or the
-pooled advantage below $-0.25$ (READ behind the better classical observer by half a ladder step),
-or more than a quarter of in-scope cells with $a < -$TOL1. Otherwise INDETERMINATE.
+- T1 or T2 misses: FAIL of the note's proposition. The gate stops before any claim is graded, and
+  the note is corrected first.
+- E1 misses: INDETERMINATE (the instrument does not separate the extremes on this world). Recorded.
+- E2 misses: INDETERMINATE (outside the scope the ladder can measure). Recorded.
+- With T1, T2, E1 and E2 holding, three cases remain.
+  - FAIL if the pooled advantage is at most $-0.5$ step, or if more than a quarter of graded cells
+    have $a \le -2$.
+  - PASS if L1 and N1 hold.
+  - INDETERMINATE otherwise.
+
+Records R1, not graded. SENS's $m^*$ and its advantage computed as for READ. The observer Lyapunov
+exponent at $m^*$ and at the ladder value below it for every graded observer, and the fraction of
+cells in which its sign agrees with sustained synchronization, a direct test of whether READ's
+response-size ranking produces a stable observer. The block exponent on the probe and the pilot,
+and how often its sign disagrees with the observer exponent's. The overlap of READ's top-$m$ set with
+each control's at $m^*$, and the shell histogram of READ's modes. Non-monotone cells. The $\mu_0/4$
+pilot run. The initial spreading rate of the note's Section 6 for each observer at each $m$, to see
+whether the instant the proposition covers predicts the long-time result.
 
 ## 6. What falsifies
 
-An ENERGY or BALL observer that synchronizes at the same count as READ says the read distortion
-adds nothing to the classical choices once the problem is dynamical, and D7v3's result is a
-property of the single-time closure only. A READ advantage that SENS reproduces equally says the
-energy factor is not needed in the dynamical problem (recorded, and a revision would change the
-claim). An advantage that changes with resolution beyond TOL_N says it belongs to the grid and not
-the flow. A T1 miss says Proposition 2 is false as stated or the solver is not the system the
-note describes.
+A graded control that reaches the same budget as READ says the read distortion adds nothing to the
+classical choices once the problem is dynamical, and that D7v3's result belongs to the single-time
+closure only. A READ advantage that SENS reproduces equally says the amplitude factor is not needed
+in the dynamical problem. That is recorded, and a revision would change the claim. An advantage that
+changes with resolution beyond TOL_N says it belongs to the grid and not the flow. A T1 miss says
+Proposition 2 is false as stated, or the solver is not the system the note describes. A READ
+advantage whose observer exponents do not track synchronization says the budget was reached for
+reasons the stability diagnostic does not see. That is recorded, and it does not change the verdict.
 
 Anti-circularity (track Section 3). The rankings are computed on training trajectories with seeds
-disjoint from the test trajectories. Both classical controls are computed beside READ, and the claim
-is graded against the better of the two in each cell. The observer family is declared in
+disjoint from the test trajectories. Three classical controls are computed beside READ, and the
+claim is graded against the best of the three in each cell. The observer family is declared in
 `claims/transformations/OD.toml` as `OD:sync-observer` before the seal.
 
 ## 7. Self-test, probe, pilot (before sealing)
 
-Not yet run. Written 2026-10-09: `d8_sync.py`, `prereg_config.json` (probe candidates),
-`d8_launch.sh`. Still to write: `d8_grade.py`, `d8_fix_tols.py`.
+Written 2026-10-09: `d8_sync.py`, `prereg_config.json` (probe candidates), `d8_launch.sh`. Still to
+write: `d8_grade.py`, `d8_fix_tols.py`.
 
-Self-test (`d8_sync.py --selftest`), to pass before the probe, eleven checks at $n = 32$. The
-laminar Kolmogorov flow is a fixed point of the forced solver. Batched evaluation equals evaluation
-one field at a time. The central-difference read equals the nonlinear tangent. The spectral velocity
-norm equals the physical one. Proposition 1's triad feeds the mode $(1, 0)$. T1 and T2 hold at two
-cutoffs on a broadband random field. Nudging with nothing observed reproduces the free solver from
-zero. Nudging with everything observed contracts at least at rate $\mu / 2$. The rankings are
-permutations, BALL starts on $|k| = 1$, and the masks are Hermitian-symmetric. The initial field is
-the same physical field at two resolutions. The synchronization rule and $m^*$ behave as defined on
-constructed series.
+Self-test (`d8_sync.py --selftest`, 16 checks at $n = 32$).
+- The laminar Kolmogorov flow is a fixed point of the forced solver.
+- Batched evaluation equals evaluation one field at a time.
+- The central-difference read equals the nonlinear tangent.
+- The spectral velocity norm equals the physical one.
+- Proposition 1's triad feeds the mode $(1, 0)$.
+- T1 and T2 hold at two cutoffs on a broadband random field.
+- The nudging contribution to the error tendency is exactly $-\mu P_S e$, and the reference is
+  untouched.
+- The observer tangent equals the derivative of the nudged tendency, and the block tangent is
+  $Q_S\,DF\,Q_S$.
+- Nudging with nothing observed reproduces the free solver from zero, which is an identity of the
+  code and not a property of the dynamics.
+- The stability guard reports the declared quantities and refuses a step outside RK4's interval.
+- The rankings are permutations, BALL starts on $|k| = 1$, and the masks are Hermitian-symmetric.
+- The initial field is the same physical field at two resolutions.
+- The sustained rule rejects an endpoint crossing and an oscillation, and $m^*$ is as defined.
 
-Probe (seed 20261071). Fixes $\alpha$, $\nu_1$, $\nu_2$, $\Delta t$, $T_{\rm spin}$, $T_{\rm train}$,
-$\Delta_s$, $\mu_0$ and $T_{\rm sync}$, records the Lyapunov exponents, the spectra at the
-dealiasing wavenumber, whether $\delta$ is bimodal at $T_{\rm sync}$ (so that the $10^{-4}$ threshold
-separates synchronized from unsynchronized cells), and the measured cost per nudged run.
+Synchronization of the complete system is not a self-test item. It is bar E1 on the real worlds.
+The first version of the self-test (passed on Atlas 2026-10-09 at 91788eb) also asserted that
+observing every mode contracts the error at least at rate $\mu/2$. That is not an identity of the
+dynamics, and it was removed in this revision.
 
-Pilot (training 20261072, test 20261073, $n = 64$ and $96$, $K = 2$). Fixes M1, TOL1 and TOL_N by the
-rules of Section 5 and records the pilot's own grade.
+Probe (seed 20261071). It fixes $\alpha$, $\nu_1$, $\nu_2$, $\Delta t_0$, $T_{\rm spin}$,
+$T_{\rm train}$, $\Delta_s$, $\mu_0$, $T_{\rm sync}$ and $T_{\rm hold}$. It records the Lyapunov
+exponents, the spectra at the dealiasing wavenumber, the stability numbers, the measured cost per
+nudged run, and whether $\delta$ separates cleanly at the $10^{-4}$ threshold. Its step-refinement
+check: every graded observer's $m^*$ at $\Delta t/2$ must equal its $m^*$ at $\Delta t$ on every probe
+trajectory. Otherwise $\Delta t_0$ is halved and the probe is repeated.
+
+Pilot (training 20261072, test 20261073, $n = 64$ and $96$, $K = 2$). It fixes M1 and TOL_N by the
+rules of Section 5, within their limits, and records the pilot's own grade.
 
 ## 8. Sealing procedure
 
