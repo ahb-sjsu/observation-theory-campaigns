@@ -1,6 +1,6 @@
 # PREREG D9 (DRAFT): the barrier, where any observer-theory estimate meant for regularity must fail
 
-Status: DRAFT 2026-10-10, not claim-bearing, not sealed, no code written. Gate D9 of the OD track
+Status: DRAFT 2026-10-10, not claim-bearing, not sealed. Code `d9_barrier.py` written, self-test PASS on Atlas at 2d004ec. Gate D9 of the OD track
 (`experiments/DISCOVERY-TRACK.md`), registered after the track's declared order was complete. It
 answers the test named in `notes/dynamical-read-operator.md` Section 7: any dynamical bound the
 program proposes is run on a dyadic model known to blow up, and it must fail there.
@@ -161,7 +161,7 @@ other shell models, is a later registration.
 
 ## 6. Self-test, probe, pilot (before sealing)
 
-Self-test, to write. The energy cancellation $\sum u_n B_n = 0$ exactly on random vectors. The
+Self-test (`d9_barrier.py --selftest`, 15 checks, PASS on Atlas 2026-10-10 at 2d004ec). Beyond the list below it also checks the analytic Jacobian against a finite difference, the energy balance with dissipation, C1 <= 1/2 on a dissipative run, both nudging extremes, and the harmless-shell function on two constructed fields. The list: the energy cancellation $\sum u_n B_n = 0$ exactly on random vectors. The
 truncation (4.2) conserves energy at $\nu = 0$. Nonnegativity is preserved from nonnegative data
 (Theorem 4.2). C1's identity $r_N = -\lambda^{N+1}u_N u_{N+1}e_N$ is checked against a finite
 difference. The classification rule is checked on constructed sequences.
