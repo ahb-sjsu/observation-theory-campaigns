@@ -187,9 +187,8 @@ worlds, graded end to end. Not claim-bearing.
   is far below it, so the candidate is no longer degenerate. Its higher $q$ are dominated by the
   initial transient at this horizon and are for the probe to judge.
 
-Probe record (PARTIAL, 2026-10-10). Amplitudes 10 and 100 are complete. The R world at
-amplitude 1000 is still running, and nothing is fixed until it finishes and the amplitude is
-chosen. There were six NRP Jobs, one per world (`submit_d9_nrp.py`, code at 23d0992, exempt class
+Probe record (COMPLETE, 2026-10-10; all six Jobs succeeded; merged `probe.json` on Atlas). The
+pair at $A = 1000$ also probe-grades PASS (see the end of this record). There were six NRP Jobs, one per world (`submit_d9_nrp.py`, code at 23d0992, exempt class
 1 CPU / 2Gi, `timeout 12h`), submitted 13:02 to 13:04 UTC. The config was `prereg_config.json`'s
 probe candidates: $J \in \{16, 24, 32, 40\}$, $T = 1$, $\varepsilon = 0.05$, $N = 6$, $c_0 = 1$,
 $\mu = 50$, $T_{\rm sync} = 1$, $T_{\rm hold} = 0.2$. Collected as `probe_pr_{B,R}_A{10,100}.json`
@@ -240,7 +239,17 @@ $A = 1000$ separates the worlds.
 
 Amplitude: $A = 100$ for the pilot and the run, decided by the owner on 2026-10-10. It is set on
 the pilot and run worlds in `prereg_config.json`. Both 10 and 100 separated the worlds cleanly in
-C0 and gave the same classes. The $A = 1000$ result, when it lands, is recorded and changes nothing.
+C0 and gave the same classes.
+
+$A = 1000$, recorded; it changes nothing.
+- The probe grade is PASS: I1, I2 (worst $5.2\times10^{-11}$) and N1 hold.
+- C0 in R reads $4.29\times10^7$ at $J = 16$, then $4.04\times10^7$ at every larger $J$. C0 in B
+  grows from $3.99\times10^{11}$ to $7.66\times10^{14}$.
+- R's blow-up-like look at $J = 16$ (harmless shell at the top, READ needing every shell) was an
+  initial transient. From $J = 24$ on, READ, ENSTROPHY and SENS settle at 20 to 22 shells.
+- The classes are the same as at 10 and 100: C3 passes, BALL and KE are transparent, and READ,
+  ENSTROPHY and SENS are unsettled. KE in B is 2 shells at $J = 16$ and 1 after.
+- R took 4.6 h (13:03:54 to 17:38:53 UTC), the longest of the six Jobs.
 
 Probe (seed 20261091). It fixes the $J$ ladder's top, the amplitude $A$, the horizon $T$, $c_0$,
 the tolerances, $D$ and the shrink factor. It records the blow-up time of world B as the time at
