@@ -313,7 +313,11 @@ def selftest() -> int:
     g = nudge(m2, u0, np.ones(10), 50.0, 2.0, 21, 1e-10, 1e-14); check("everything observed synchronizes", sustained(g["t"], g["delta"], 1e-4, 0.5), f"delta end {g['delta'][-1]:.1e}")
     # 8. the harmless shell: zero field has Q = 0; a field with energy only at the top shell and large amplitude has Q = J
     m3 = Dyadic(8, 0.25); check("harmless shell of the zero field", harmless_shell(m3, np.zeros(8), 1.0) == 0)
-    u = np.zeros(8); u[6] = 1e6; check("harmless shell of a strong top-shell field", harmless_shell(m3, u, 1.0) == 8)
+    # a strong field in shell 7 alone: shell 7's Reynolds number is huge and shell 8's is zero, so Q = 7 (under the first,
+    # exchange-based definition the inflow into the empty shell 8 failed instead and Q was 8)
+    u = np.zeros(8); u[6] = 1e6; check("harmless shell of a strong field in shell 7", harmless_shell(m3, u, 1.0) == 7)
+    # a field whose top shells are all viscous: Re_n < 1 above shell 3, so Q = 3
+    u = np.zeros(8); u[:3] = 50.0; u[3:] = 1e-12; check("harmless shell where the top is viscous", harmless_shell(m3, u, 1.0) == 3, f"Q = {harmless_shell(m3, u, 1.0)}")
     # 9. the classification rule on constructed sequences
     conv = [1.0 - 0.5 ** k for k in range(1, 6)]; growth = [2.0 ** k for k in range(1, 6)]; slow = [1.0, 1.1, 1.2, 1.3, 1.4]
     ok = classify_world(conv, 0.8, 0.1, 4.0) == "BOUNDED" and classify_world(growth, 0.8, 0.01, 4.0) == "DIVERGING" and classify_world(slow, 0.8, 0.01, 4.0) == "UNSETTLED"
