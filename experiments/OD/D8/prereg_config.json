@@ -1,0 +1,144 @@
+{
+ "world": "D8 DRAFT config, values marked PROBE are candidates the probe confirms or replaces before the pilot (PREREG-D8-DRAFT.md Section 7). Forced two-dimensional turbulence, Kolmogorov forcing F0 k_f cos(k_f y) at k_f = 4 with linear drag; rankings READ (training mean |w_k|^2 s_k), ENERGY (|w_k|^2), BALL (|k|), SENS and KE recorded, RANDOM null; AOT nudging from v = 0 on fresh test trajectories over the m ladder; m* per observer.",
+ "F0": 1.0,
+ "kf": 4,
+ "alpha": 0.1,
+ "nu_note": "PROBE: nu1 and nu2 per world; chaotic and resolved at the coarser n",
+ "omega_rms": 3.0,
+ "ic_kmax": 8,
+ "dt_base": 0.005,
+ "n_ref": 64,
+ "T_spin": 100.0,
+ "T_train": 20.0,
+ "dt_sample": 1.0,
+ "T_sync": 40.0,
+ "T_lyap": 40.0,
+ "lyapunov": true,
+ "mu": 50.0,
+ "mu_record": [
+  12.5
+ ],
+ "mu_record_groups": [
+  "pilot"
+ ],
+ "ladder": [
+  4,
+  6,
+  8,
+  12,
+  16,
+  24,
+  32,
+  48,
+  64,
+  96,
+  128,
+  192,
+  256
+ ],
+ "random_draws": 5,
+ "cutoffs": [
+  4,
+  8
+ ],
+ "theorem_snapshots": 3,
+ "sync_threshold": 0.0001,
+ "sync_floor": 1e-10,
+ "cle": true,
+ "chunk": 128,
+ "series_stride": 1,
+ "seed_probe": 20261071,
+ "seed_pilot_train": 20261072,
+ "seed_pilot_test": 20261073,
+ "seed_run_train": 20261074,
+ "seed_run_test": 20261075,
+ "K_by_role": {
+  "probe": 1,
+  "pilot": 2,
+  "run": 4
+ },
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot"
+  ],
+  "run": [
+   "run"
+  ]
+ },
+ "bars": "PREREG-D8-DRAFT.md Section 5; tolerances fixed from the pilot",
+ "worlds": [
+  {
+   "name": "pr_nu1_n64",
+   "group": "probe",
+   "n": 64,
+   "nu": 0.004,
+   "seed_offset": 1
+  },
+  {
+   "name": "pr_nu2_n64",
+   "group": "probe",
+   "n": 64,
+   "nu": 0.002,
+   "seed_offset": 1
+  },
+  {
+   "name": "p_nu1_n64",
+   "group": "pilot",
+   "n": 64,
+   "nu": 0.004,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_nu1_n96",
+   "group": "pilot",
+   "n": 96,
+   "nu": 0.004,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_nu2_n64",
+   "group": "pilot",
+   "n": 64,
+   "nu": 0.002,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_nu2_n96",
+   "group": "pilot",
+   "n": 96,
+   "nu": 0.002,
+   "seed_offset": 11
+  },
+  {
+   "name": "r_nu1_n96",
+   "group": "run",
+   "n": 96,
+   "nu": 0.004,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu1_n128",
+   "group": "run",
+   "n": 128,
+   "nu": 0.004,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu2_n96",
+   "group": "run",
+   "n": 96,
+   "nu": 0.002,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu2_n128",
+   "group": "run",
+   "n": 128,
+   "nu": 0.002,
+   "seed_offset": 21
+  }
+ ]
+}

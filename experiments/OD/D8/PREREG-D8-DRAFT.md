@@ -82,13 +82,17 @@ $\mu = \mu_0$ (probe, with $\mu_0\,\Delta t \le 1$ for RK4 stability). $\mu_0 / 
 and recorded, not graded.
 
 Synchronization. $\delta(t) = \|\omega_v - \omega_u\| / \|\omega_u\|$. A cell (trajectory,
-observer, $m$) is synchronized when $\delta(T_{\rm sync}) \le 10^{-4}$ and the least-squares slope
-of $\log\delta$ over the last quarter of $[0, T_{\rm sync}]$ is negative. $T_{\rm sync}$ (probe).
+observer, $m$) is synchronized when $\delta(T_{\rm sync}) \le 10^{-4}$ and either the least-squares
+slope of $\log\delta$ over the last quarter of $[0, T_{\rm sync}]$ is negative or
+$\delta(T_{\rm sync}) \le 10^{-10}$ (an error at rounding level can no longer fall, so its slope is
+flat; added when the code was written, 2026-10-09). $T_{\rm sync}$ (probe).
 The ladder is $m \in \{4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256\}$. $m^*$ is the smallest
 ladder value at which this and every larger ladder value synchronize. A synchronized value below a
 non-synchronized one is recorded as a non-monotone cell.
 
-Theorem checks on the solver. At cutoffs $N \in \{4, 8\}$ on every training snapshot,
+Theorem checks on the solver. At cutoffs $N \in \{4, 8\}$ on three training snapshots (the first,
+the middle and the last of the window, `theorem_snapshots` in the config, since the central
+difference on every discarded pair costs minutes per snapshot at $n = 128$),
 (a) the central-difference read of the resolved tendency at $q = 0$, which is exact for a quadratic
 map up to rounding, on every discarded pair with $|k| > 2N$; (b) the ratio
 $\|r_N(p, q)\| / (c_N(2\|p\|\,\|\Pi_{(N,2N]}q\| + \|q\|^2))$ in the velocity norm with the note's
@@ -111,10 +115,10 @@ scope (bar E2).
 
 ## 5. Bars (M1, TOL1 and TOL_N fixed from the pilot by the rules below; `tolerances.json`; Section 7)
 
-- T1 (Proposition 2, exact). On every training snapshot and both cutoffs, the read of every pair
+- T1 (Proposition 2, exact). On every checked training snapshot and both cutoffs, the read of every pair
   with $|k| > 2N$ is at most $10^{-10}$ times the largest first-octave read. A miss is an error in
   the note or in the code and stops the gate before any claim is graded.
-- T2 (Proposition 3). The ratio at most 1 on every snapshot. The ratio's distribution recorded,
+- T2 (Proposition 3). The ratio at most 1 on every checked snapshot. The ratio's distribution recorded,
   since it measures how loose the classical bound is.
 - E1 (instrument). On every test trajectory, observing every pair synchronizes to
   $\delta(T_{\rm sync}) \le 10^{-10}$, and observing none leaves $\delta(T_{\rm sync}) \ge 0.3$.
@@ -158,14 +162,18 @@ is graded against the better of the two in each cell. The observer family is dec
 
 ## 7. Self-test, probe, pilot (before sealing)
 
-Not yet run. Files to write: `d8_sync.py` (forced solver subclass, the four rankings, batched
-nudging, theorem checks, `--selftest`), `d8_grade.py`, `d8_fix_tols.py`, `prereg_config.json`,
-`d8_launch.sh`.
+Not yet run. Written 2026-10-09: `d8_sync.py`, `prereg_config.json` (probe candidates),
+`d8_launch.sh`. Still to write: `d8_grade.py`, `d8_fix_tols.py`.
 
-Self-test, to pass before the probe. The forcing balance at a fixed point of the laminar
-Kolmogorov flow; the central-difference read equal to `tangent_rhs`'s nonlinear part on random
-fields; T1 on random fields at $n = 32$; nudging with every mode observed contracting at rate
-$\mu$; nudging with nothing observed leaving $\delta$ unchanged at $t = 0$.
+Self-test (`d8_sync.py --selftest`), to pass before the probe, eleven checks at $n = 32$. The
+laminar Kolmogorov flow is a fixed point of the forced solver. Batched evaluation equals evaluation
+one field at a time. The central-difference read equals the nonlinear tangent. The spectral velocity
+norm equals the physical one. Proposition 1's triad feeds the mode $(1, 0)$. T1 and T2 hold at two
+cutoffs on a broadband random field. Nudging with nothing observed reproduces the free solver from
+zero. Nudging with everything observed contracts at least at rate $\mu / 2$. The rankings are
+permutations, BALL starts on $|k| = 1$, and the masks are Hermitian-symmetric. The initial field is
+the same physical field at two resolutions. The synchronization rule and $m^*$ behave as defined on
+constructed series.
 
 Probe (seed 20261071). Fixes $\alpha$, $\nu_1$, $\nu_2$, $\Delta t$, $T_{\rm spin}$, $T_{\rm train}$,
 $\Delta_s$, $\mu_0$ and $T_{\rm sync}$, records the Lyapunov exponents, the spectra at the
