@@ -481,7 +481,16 @@ the claim or the bars in response to how READ fared would be fitting the registr
 probe, and is not done.
 
 Pilot (training 20261072, test 20261073, $\nu \in \{0.03, 0.02\}$ at $n = 96$ and $128$, $K = 2$;
-changed 2026-10-10 from $n = 64$ and 96 when the probe moved the coarser resolution to 96). It fixes M1 and TOL_N by the
+changed 2026-10-10 from $n = 64$ and 96 when the probe moved the coarser resolution to 96).
+Submission path set up at b140c2e, not yet submitted. There are 24 NRP Jobs, one per (world, test
+trajectory, part): the instrument and graded observers, SENS and RANDOM, and the $\mu_0/4$ reruns.
+All are in the exempt class with `timeout 20h`. The core part at $n = 128$ is estimated at about
+12 h, and the whole pilot at about 100 CPU-hours, scaled from round 3 and not measured. From this
+change on, the observer and block tangents are carried for the graded observers only, since the
+records use only theirs. A smoke test on Atlas ($n = 32$, $K = 2$) ran a world whole and then as six
+per-trajectory, per-part pieces merged by the submitter. It gave bit-identical $\delta$ for every
+observer, identical $\mu_0/4$ records and instrument fields, and tangents on the graded observers
+only. The submitter's dry run passed every preflight guard. It fixes M1 and TOL_N by the
 rules of Section 5, within their limits, and records the pilot's own grade.
 
 ## 8. Sealing procedure
