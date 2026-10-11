@@ -78,16 +78,23 @@ algebra.
 Literature status (searched 2026-10-11, abstracts and summaries only). Data-driven Mori–Zwanzig is
 active after 2020. Lin and coauthors extract the Markov term, memory kernel and orthogonal dynamics
 from data with Mori's projection (arXiv:2101.05873, 2021) and then with regression as the
-projection (arXiv:2205.05135, 2022), and call Zwanzig's projection optimal but infeasible. Hader
-and coauthors learn the operators for isotropic turbulence (Phys. Fluids 33, 125118, 2021) and by
-the search summary study how the kernel depends on the chosen observables; the paper itself
-returned HTTP 403 and was not read, and it is the first thing to read before registration. Later
+projection (arXiv:2205.05135, 2022), and call Zwanzig's projection optimal but infeasible. Tian,
+Lin, Anghel and Livescu learn the operators for isotropic turbulence (arXiv:2108.13288, 2021; the
+journal version is Phys. Fluids 33, 125118) and compare four hand-chosen sets of observables; read
+in full on 2026-10-11 and summarized in the OP2 design draft. (Corrected 2026-10-11: an earlier
+version of this paragraph named the authors as Hader and coauthors, from a search summary. Christoph
+Hader is a coauthor of the boundary-layer paper arXiv:2309.15864, not of this one.) Later
 work applies the method to sparse sensors in boundary-layer transition (arXiv:2309.15864) and to
 Lagrangian particles (de Wit et al., PNAS 123, 2026, arXiv:2507.16058). The memory length is
 treated as a problem-dependent choice, fitted or set dynamically (arXiv:1906.01411). The search found no
 work that chooses which modes stay explicit so as to shorten the memory, which is OP2's question.
 Why the t-model works is still described through renormalization (Stinis; Price and Stinis,
 arXiv:1707.01955), and no newer explanation turned up.
+
+Design draft: `experiments/OP/OP2/OP2-DESIGN-DRAFT.md` (2026-10-11). It uses Mori's linear
+projection and the correlation recursion of Lin and coauthors on OP1's world, trajectories,
+rankings and TEND observable, and asks whether the modes READ makes explicit leave a shorter memory
+than ENERGY's or BALL's.
 
 ### OP3. Sensor selection as observer choice, the joint record
 

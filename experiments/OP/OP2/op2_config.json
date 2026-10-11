@@ -1,0 +1,124 @@
+{
+ "world": "OP2: OP1's world and cached trajectories; observables are the consumer's coordinates, the r pool pairs a ranking puts first, and OP1's TEND observable on them; Mori's linear projection, kernels by the correlation recursion of Lin and coauthors; forecasts with memory truncated at L and W = 0; memory statistics of the consumer block. Design: OP2-DESIGN-DRAFT.md.",
+ "F0": 1.0,
+ "kf": 4,
+ "alpha": 0.1,
+ "dt_sample": 0.5,
+ "k_pool": 12.0,
+ "cutoffs": [
+  3,
+  5
+ ],
+ "ladder": [
+  2,
+  4,
+  8,
+  16,
+  32
+ ],
+ "random_draws": 6,
+ "horizons": [
+  1,
+  2,
+  4
+ ],
+ "error_cap": 2.0,
+ "test_start_stride": 2,
+ "seed_probe": 20261111,
+ "seed_pilot": 20261112,
+ "seed_run": 20261113,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot"
+  ],
+  "run": [
+   "run"
+  ]
+ },
+ "worlds": [
+  {
+   "name": "pr_nu020_n96",
+   "group": "probe",
+   "nu": 0.02,
+   "n": 96,
+   "seed_offset": 1
+  },
+  {
+   "name": "pr_nu030_n96",
+   "group": "probe",
+   "nu": 0.03,
+   "n": 96,
+   "seed_offset": 2
+  },
+  {
+   "name": "p_nu030_n96",
+   "group": "pilot",
+   "nu": 0.03,
+   "n": 96,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_nu030_n128",
+   "group": "pilot",
+   "nu": 0.03,
+   "n": 128,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_nu020_n96",
+   "group": "pilot",
+   "nu": 0.02,
+   "n": 96,
+   "seed_offset": 12
+  },
+  {
+   "name": "p_nu020_n128",
+   "group": "pilot",
+   "nu": 0.02,
+   "n": 128,
+   "seed_offset": 12
+  },
+  {
+   "name": "r_nu030_n128",
+   "group": "run",
+   "nu": 0.03,
+   "n": 128,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu030_n192",
+   "group": "run",
+   "nu": 0.03,
+   "n": 192,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu020_n128",
+   "group": "run",
+   "nu": 0.02,
+   "n": 128,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_nu020_n192",
+   "group": "run",
+   "nu": 0.02,
+   "n": 192,
+   "seed_offset": 22
+  }
+ ],
+ "ridge": 1e-08,
+ "memory_ladder": [
+  0,
+  1,
+  2,
+  4,
+  8,
+  16
+ ],
+ "lstar_fraction": 0.01,
+ "bars": "PENDING: OP2-DESIGN-DRAFT.md Section 3, statistic chosen on the probe by split-half reliability, blind to READ"
+}
