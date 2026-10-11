@@ -1,6 +1,6 @@
 # Open problems where Observation Theory might help, and where it cannot
 
-Draft 0.1, 2026-10-11. Not claim-bearing. A literature survey written after the Navier–Stokes
+Draft 0.2, 2026-10-11 (0.2 adds D6v3, which 0.1 omitted). Not claim-bearing. A literature survey written after the Navier–Stokes
 work of `notes/dynamical-read-operator.md` and the OD gates D7 to D9. It asks one question of
 each problem. Is the open question, or a sharp part of it, a question about what an observer must
 or should read? Where it is, Observation Theory (OT) has an instrument to offer. Where it is not,
@@ -19,6 +19,7 @@ dynamical and learned systems, in this repository and in `readscope`:
 | Setting | Result | Status |
 |---|---|---|
 | Closure of a filtered 2-D flow (D7v3) | The read-distortion closure beats the energy closure inside the rank scope, pooled 2.8 percent at rank 64 and 10.0 percent at rank 128, converged between n = 128 and 192 | sealed, PASS |
+| Sensor placement on linear systems (D6v3) | The read operator's spectrum places sensors exactly in all 50 checkable cells, with strictly fewer sensors than the energy ranking in 10 of 28 discriminating cells and never more, and a forecast horizon 12.3 percent longer pooled | sealed, PASS |
 | Theory note, Galerkin Navier–Stokes | Octave locality of the linear read, a resolution-uniform feedback bound, read distortion as the optimal ranking under random phases | proved, finite-dimensional |
 | Barrier check of the theory note | Tao's averaged Navier–Stokes keeps every property the note uses and still blows up, so the note cannot reach regularity | recorded in Section 7 of the note |
 | Nudging synchronization (D8 probe and pilot) | READ has not been ahead of the best simple control (BALL, ENSTROPHY or KE) on any probe world or any pilot cell graded so far | pilot incomplete, points to FAIL |
@@ -134,14 +135,19 @@ cardinality or matroid constraint and solved greedily with submodular guarantees
 mixed-integer nonlinear program (Serpas et al. 2013). Sensor placement for turbulent flow
 reconstruction by data assimilation is active (Mons and Marquet, J. Fluid Mech. 2021).
 
-OT test. D8 is this question for nudging on 2-D turbulence. Its pilot so far says READ does not
-beat the best simple mode ranking.
+OT test. Two gates of the OD track already ask it. D6v3 (sealed, PASS) chose sensors for linear
+systems from the spectrum of the read operator, the exact window Gramian, and needed strictly fewer
+sensors than the energy ranking in 10 of 28 discriminating cells and never more. D8 asks it for
+nudging on 2-D turbulence, and its pilot so far says READ does not beat the best simple mode
+ranking.
 
-Assessment. The question fits OT, but OT's own evidence here is negative so far. If D8 fails, that
-failure is itself a result worth reporting beside Inubushi and Caulfield (arXiv:2508.16920), whose
-setup D8's BALL arm reproduces. A positive OT contribution would need a different instrument, for
-example the finite-gain observer exponent of the theory note's Section 6 as the selection
-criterion.
+Assessment. The question fits OT, and the evidence is split by setting. On linear systems, where the
+read operator is the exact Gramian, it places sensors better than energy. On nonlinear turbulence
+with nudging, read distortion per mode has not beaten the ball. That split is itself the result
+worth reporting, beside Inubushi and Caulfield (arXiv:2508.16920), whose setup D8's BALL arm
+reproduces. A positive OT contribution on the nonlinear side would need a different instrument,
+for example the finite-gain observer exponent of the theory note's Section 6 as the selection
+criterion. (Corrected 2026-10-11: the first version of this entry omitted D6v3.)
 
 ### 3.4 The gap between determining-mode bounds and observed synchronization
 
@@ -180,9 +186,12 @@ so they sidestep choosing them in advance. A survey of learning complexity is ar
 Assessment. Weak fit. The leading protocol removes the selection question that OT would address.
 Not pursued unless a setting appears where the observables must be chosen.
 
-## 4. Suggested order, not decided
+## 4. Order
 
-1. 3.1, observable selection for EDMD, as a preregistered gate reusing D7's world and instrument.
+The owner made this list a campaign on 2026-10-11, the OP track (`experiments/OPEN-PROBLEMS-TRACK.md`),
+in the order below.
+
+1. 3.1, observable selection for EDMD, as a preregistered gate (OP1) on D8's world with D7's read-distortion ranking.
 2. 3.2, Mori–Zwanzig memory length, after a status check of the post-2020 literature.
 3. Finish D8 and report it whatever its grade, with 3.3 as its framing.
 

@@ -1,0 +1,135 @@
+{
+ "world": "OP1: on which coordinates should a Koopman dictionary be built. D8's forced two-dimensional turbulence (Kolmogorov forcing k_f = 4, drag alpha, pseudo-spectral RK4), one training and one independent test trajectory per world. The consumer reads the pairs |k| <= k_c; the pool is k_c < |k| <= k_pool. Rankings READ (read distortion for the consumer), ENERGY, BALL (graded controls), SENS (recorded), RANDOM (null); records POD, GREEDY (linear lift), NONE, PERSIST. Lifts LIN, RFF and TEND (the linear dictionary plus the consumer tendency on the chosen pairs); ridge EDMD; Koopman forecasts of the consumer at the declared horizons; graded value the mean over horizons of min(e_h, cap).",
+ "F0": 1.0,
+ "kf": 4,
+ "alpha": 0.1,
+ "omega_rms": 3.0,
+ "ic_kmax": 8,
+ "dt_base": 0.005,
+ "n_ref": 64,
+ "T_spin": 100.0,
+ "T_train": 1000.0,
+ "T_test": 400.0,
+ "dt_sample": 0.5,
+ "sens_every": 10.0,
+ "k_pool": 12.0,
+ "cutoffs": [
+  3,
+  5
+ ],
+ "ladder": [
+  2,
+  4,
+  8,
+  16,
+  32
+ ],
+ "lifts": [
+  "lin",
+  "rff",
+  "tend"
+ ],
+ "rff_features": 256,
+ "ridge": 1e-06,
+ "horizons": [
+  1,
+  2,
+  4
+ ],
+ "error_cap": 2.0,
+ "test_start_stride": 2,
+ "random_draws": 6,
+ "greedy_fit_fraction": 0.75,
+ "chunk": 128,
+ "seed_probe": 20261111,
+ "seed_pilot": 20261112,
+ "seed_run": 20261113,
+ "groups_by_role": {
+  "probe": [
+   "probe"
+  ],
+  "pilot": [
+   "pilot"
+  ],
+  "run": [
+   "run"
+  ]
+ },
+ "bars": "PREREG-OP1-DRAFT.md Section 5; tolerances fixed from the pilot",
+ "worlds": [
+  {
+   "name": "pr_nu020_n96",
+   "group": "probe",
+   "nu": 0.02,
+   "n": 96,
+   "seed_offset": 1
+  },
+  {
+   "name": "pr_nu030_n96",
+   "group": "probe",
+   "nu": 0.03,
+   "n": 96,
+   "seed_offset": 2
+  },
+  {
+   "name": "p_nu030_n96",
+   "group": "pilot",
+   "nu": 0.03,
+   "n": 96,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_nu030_n128",
+   "group": "pilot",
+   "nu": 0.03,
+   "n": 128,
+   "seed_offset": 11
+  },
+  {
+   "name": "p_nu020_n96",
+   "group": "pilot",
+   "nu": 0.02,
+   "n": 96,
+   "seed_offset": 12
+  },
+  {
+   "name": "p_nu020_n128",
+   "group": "pilot",
+   "nu": 0.02,
+   "n": 128,
+   "seed_offset": 12
+  },
+  {
+   "name": "r_nu030_n128",
+   "group": "run",
+   "nu": 0.03,
+   "n": 128,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu030_n192",
+   "group": "run",
+   "nu": 0.03,
+   "n": 192,
+   "seed_offset": 21
+  },
+  {
+   "name": "r_nu020_n128",
+   "group": "run",
+   "nu": 0.02,
+   "n": 128,
+   "seed_offset": 22
+  },
+  {
+   "name": "r_nu020_n192",
+   "group": "run",
+   "nu": 0.02,
+   "n": 192,
+   "seed_offset": 22
+  }
+ ],
+ "greedy_lifts": [
+  "lin",
+  "tend"
+ ]
+}
