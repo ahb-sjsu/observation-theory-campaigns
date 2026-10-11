@@ -153,7 +153,7 @@ def created(name: str) -> dt.datetime | None:
     return dt.datetime.fromisoformat(got.stdout.strip().replace("Z", "+00:00"))
 
 
-def submit(dry: bool, split: bool = False, role: str = "probe") -> int:
+def submit(dry: bool, split: bool = False, role: str = "probe", only: list[str] | None = None) -> int:
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in FILES.values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
@@ -161,7 +161,12 @@ def submit(dry: bool, split: bool = False, role: str = "probe") -> int:
     blobs = {}
     for rel, p in FILES.items():
         raw = p.read_bytes(); blobs[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest())
-    us = units(role, split); descs = [descriptor(w, blobs, head, p, role, t) for w, t, p in us]
+    us = units(role, split)
+    if only:  # resubmit named Jobs only (e.g. a part whose result block was lost); every other Job is left alone
+        us = [u for u in us if job_name(u[0], u[2], role, u[1]) in only]
+        missing = set(only) - {job_name(w, p, role, t) for w, t, p in us}
+        if missing: raise SystemExit(f"--only names not in role {role}: {sorted(missing)}")
+    descs = [descriptor(w, blobs, head, p, role, t) for w, t, p in us]
     for d in descs: preflight(d, role)
     print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in blobs.items()},
                       "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": ROLES[role]["timeout"]}, indent=1))
@@ -281,13 +286,14 @@ def main() -> int:
     ap.add_argument("--worlds", default=None, help="comma-separated world names for --collect/--cleanup (e.g. an earlier probe round)")
     ap.add_argument("--tag", default="", help="suffix for the merged file, <role><tag>.json")
     ap.add_argument("--split", action="store_true", help="probe only: three Jobs per world (core, others, dthalf); the pilot is always split per trajectory and part")
+    ap.add_argument("--only", default=None, help="comma-separated Job names: submit only these")
     a = ap.parse_args(); ws = a.worlds.split(",") if a.worlds else None
     if a.selftest: return selftest()
     if a.collect: return collect(ws, a.tag, a.split, a.role)
     if a.cleanup: return cleanup(ws, a.split, a.role)
     if not a.ack and not a.dry_run:
         sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")
-    return submit(a.dry_run, a.split, a.role)
+    return submit(a.dry_run, a.split, a.role, a.only.split(",") if a.only else None)
 
 
 if __name__ == "__main__":
