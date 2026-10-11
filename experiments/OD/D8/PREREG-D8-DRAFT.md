@@ -499,8 +499,39 @@ retrieved on two attempts ("unable to retrieve container logs"). The result bloc
 the log, so it was lost. On the owner's instruction (2026-10-11) the finished Job was deleted and
 the part resubmitted alone with `--only`. It used the same `d8_sync.py` (sha256 1bac5458...) and
 config (e1c98524...) as the other 23, at 01:51 UTC. Its seeds are fixed, so it reproduces the lost
-result. Lesson for the run: results should not travel only through Job logs. It fixes M1 and TOL_N by the
-rules of Section 5, within their limits, and records the pilot's own grade.
+result. Lesson for the run: results should not travel only through Job logs.
+
+Two more parts lost their logs the same way: `d8-pilot-p-nu020-n96-t1-others` and
+`d8-pilot-p-nu020-n96-t1-mu4` ($\nu = 0.02$, $n = 96$, trajectory 1) succeeded, but their logs were
+gone before they were read. From then on, a saver on Atlas wrote each succeeded Job's result block to
+its own file at every watcher poll (two minutes apart), never overwriting. It saved every later
+part.
+
+One part ran out of time. `d8-pilot-p-nu020-n128-t0-core` (instrument group and the four graded
+observers, $\nu = 0.02$, $n = 128$, trajectory 0) ran on gpn-cisco2-nautilus.greatplains.net from
+2026-10-10 18:01 UTC and was stopped by its 20 h bound at 2026-10-11 14:01 UTC (exit code 124, the
+code `timeout` returns). Only READ had finished: its log line gave $m^* = 48$ at 42,643 s, after
+training and the instrument group. A part stopped by `timeout` writes no result block, so nothing of
+it was kept. At $n = 128$ a graded observer with its tangents takes about 4 h, so this core needed
+about 24 h, not the 12 h estimated above. The estimate was wrong, not the bound. The other three
+$n = 128$ cores finished inside 20 h.
+
+The timed-out core and the two lost $n = 96$ parts were rerun on the owner's instruction
+(2026-10-11). The core was split into five Jobs: the instrument group alone, then one Job per graded
+observer (READ, ENSTROPHY, KE, BALL). This uses a new option of `d8_sync.py`, `--observers`, which runs a chosen
+subset of observers and records which ones ran (commit e7d8927, `d8_sync.py` sha256 0601e0f7...,
+config unchanged at e1c98524...). The option only filters. Each observer's nudging draws from its own
+generator, seeded from the test seed and the trajectory index. Training and $u_0$ are
+seed-deterministic in every Job. So an observer run alone reproduces its record in a full core part,
+and the pieces merge by trajectory index as before. The five pieces and the two $n = 96$ parts were
+submitted from Atlas at 17:25 to 17:28 UTC: all seven passed preflight, and all were accepted and
+fresh. Before their names were reused, the two finished $n = 96$ Jobs were deleted, each after a check
+that it had succeeded and was not running. The failed core Job was left in place, since the pieces
+have different names. A suggestion for the run, not decided: at the run's larger grid, submit one
+Job per graded observer from the start.
+
+The pilot fixes M1 and TOL_N by the rules of Section 5, within their limits, and records the pilot's
+own grade.
 
 ## 8. Sealing procedure
 
