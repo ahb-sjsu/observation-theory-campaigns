@@ -490,7 +490,16 @@ change on, the observer and block tangents are carried for the graded observers 
 records use only theirs. A smoke test on Atlas ($n = 32$, $K = 2$) ran a world whole and then as six
 per-trajectory, per-part pieces merged by the submitter. It gave bit-identical $\delta$ for every
 observer, identical $\mu_0/4$ records and instrument fields, and tangents on the graded observers
-only. The submitter's dry run passed every preflight guard. It fixes M1 and TOL_N by the
+only. The submitter's dry run passed every preflight guard. Submitted 2026-10-10, 17:54 to
+18:03 UTC: all 24 accepted and fresh.
+
+One part was lost and rerun. The Job `d8-pilot-p-nu020-n96-t0-others` (SENS and RANDOM, $\nu = 0.02$,
+$n = 96$, trajectory 0) succeeded on cph-blade15.humboldt.edu, but its container log could not be
+retrieved on two attempts ("unable to retrieve container logs"). The result block travels only in
+the log, so it was lost. On the owner's instruction (2026-10-11) the finished Job was deleted and
+the part resubmitted alone with `--only`. It used the same `d8_sync.py` (sha256 1bac5458...) and
+config (e1c98524...) as the other 23, at 01:51 UTC. Its seeds are fixed, so it reproduces the lost
+result. Lesson for the run: results should not travel only through Job logs. It fixes M1 and TOL_N by the
 rules of Section 5, within their limits, and records the pilot's own grade.
 
 ## 8. Sealing procedure
