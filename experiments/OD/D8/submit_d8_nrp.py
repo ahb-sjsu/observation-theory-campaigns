@@ -50,8 +50,12 @@ FILES = {"OD/D5/d5_burgers.py": HERE.parent / "D5" / "d5_burgers.py", "OD/D8/d8_
 # pilot Job is one (world, test trajectory, part) and the bound is 20 h.
 ROLES = {
     "probe": {"parts": {"core": "instrument,graded", "others": "others", "dthalf": "dthalf"}, "per_test": False, "timeout": "16h", "batch": "od-d8-probe"},
-    "pilot": {"parts": {"core": "instrument,graded", "others": "others", "mu4": "murecord"}, "per_test": True, "timeout": "20h", "batch": "od-d8-pilot"},
+    "pilot": {"parts": {"core": "instrument,graded", "others": "others", "mu4": "murecord"}, "per_test": True, "timeout": "20h", "batch": "od-d8-pilot",
+              "split_parts": {"inst": ("instrument", None), "read": ("graded", "READ"), "enstrophy": ("graded", "ENSTROPHY"), "ke": ("graded", "KE"), "ball": ("graded", "BALL")}},
 }
+# split_parts: a core part cut into five Jobs (the instrument group, then one graded observer each), submitted only when named
+# with --only. Added 2026-10-11 after d8-pilot-p-nu020-n128-t0-core timed out at 20 h with READ alone finished; each
+# graded observer at n = 128 takes about 4 h. Every Job repeats the deterministic training, so the pieces merge by index.
 JOB_PARTS = ROLES["probe"]["parts"]  # kept for the probe rounds' collections and for importers
 TIMEOUT = ROLES["probe"]["timeout"]
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
@@ -78,18 +82,23 @@ def job_name(world: str, part: str | None = None, role: str = "probe", test: int
     return f"d8-{role}-" + world.replace("_", "-").lower() + (f"-t{test}" if test is not None else "") + (f"-{part}" if part else "")
 
 
-def units(role: str, split: bool) -> list[tuple[str, int | None, str | None]]:
-    """(world, test trajectory or None, part or None) for every Job of the role."""
+def units(role: str, split: bool, with_split_parts: bool = False) -> list[tuple[str, int | None, str | None]]:
+    """(world, test trajectory or None, part or None) for every Job of the role; the split parts only on request."""
     R = ROLES[role]; K = int(config()["K_by_role"][role])
     tests = list(range(K)) if R["per_test"] else [None]
     parts = list(R["parts"]) if (split or role != "probe") else [None]
+    if with_split_parts: parts += list(R.get("split_parts", {}))
     return [(w, t, p) for w in role_worlds(role) for t in tests for p in parts]
 
 
 def command(world: str, blobs: dict[str, tuple[str, str]], part: str | None = None, role: str = "probe", test: int | None = None) -> str:
     R = ROLES[role]
     tag = "_".join(x for x in (world, f"t{test}" if test is not None else "", part or "") if x)
-    extra = (f" --parts {R['parts'][part]}" if part else "") + (f" --tests {test}" if test is not None else "")
+    if part in R.get("split_parts", {}):
+        p, obs = R["split_parts"][part]; extra = f" --parts {p}" + (f" --observers {obs}" if obs else "")
+    else:
+        extra = f" --parts {R['parts'][part]}" if part else ""
+    extra += f" --tests {test}" if test is not None else ""
     lines = ["set -euo pipefail", "export PYTHONUNBUFFERED=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PIP_ROOT_USER_ACTION=ignore HOME=/work",
              "mkdir -p /work/OD/D5 /work/OD/D8"]
     for rel, (b64, sha) in blobs.items():
@@ -161,7 +170,7 @@ def submit(dry: bool, split: bool = False, role: str = "probe", only: list[str] 
     blobs = {}
     for rel, p in FILES.items():
         raw = p.read_bytes(); blobs[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest())
-    us = units(role, split)
+    us = units(role, split, with_split_parts=bool(only))
     if only:  # resubmit named Jobs only (e.g. a part whose result block was lost); every other Job is left alone
         us = [u for u in us if job_name(u[0], u[2], role, u[1]) in only]
         missing = set(only) - {job_name(w, p, role, t) for w, t, p in us}
@@ -228,8 +237,9 @@ def collect(worlds: list[str] | None = None, tag: str = "", split: bool = False,
         if split or role != "probe":
             pieces = {}; logs = []
             for t in (range(K) if R["per_test"] else [None]):
-                for part in R["parts"]:
+                for part in [*R["parts"], *R.get("split_parts", {})]:
                     key = "_".join(x for x in (f"t{t}" if t is not None else "", part) if x)
+                    if part in R.get("split_parts", {}) and kubectl("get", "job", job_name(w, part, role, t), "-o", "name").returncode != 0: continue
                     got, st = fetch(job_name(w, part, role, t))
                     if got: pieces[key] = got[0]; logs.append(f"===== {key}\n" + got[1])
             if not pieces: continue
@@ -273,7 +283,10 @@ def selftest() -> int:
     ok = [x["index"] for x in t] == [0, 1] and sorted(t[1]["observers"]) == ["READ", "SENS"] and t[0]["mu_record"]["12.5"]["READ"]["m_star"] == 24 and t[1]["lyapunov"] == 0.2
     names = [job_name("p_nu030_n128", "core", "pilot", 1), job_name("pr3_nu020_n96", "others")]
     ok = ok and names == ["d8-pilot-p-nu030-n128-t1-core", "d8-probe-pr3-nu020-n96-others"] and all(len(n) <= 63 for n in names)
-    print("merge by trajectory index and job names:", "PASS" if ok else "FAIL", names)
+    cmd = command("p_nu020_n128", {}, "ball", "pilot", 0)
+    ok = ok and "--parts graded --observers BALL --tests 0" in cmd and "--parts instrument --tests 0 " in command("p_nu020_n128", {}, "inst", "pilot", 0)
+    ok = ok and "--observers" not in command("p_nu020_n128", {}, "core", "pilot", 0) and all(p not in ROLES["pilot"]["parts"] for p in ROLES["pilot"]["split_parts"])
+    print("merge by trajectory index, job names, split-part commands:", "PASS" if ok else "FAIL", names)
     return 0 if ok else 1
 
 

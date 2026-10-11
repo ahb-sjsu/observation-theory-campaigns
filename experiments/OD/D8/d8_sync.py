@@ -293,20 +293,22 @@ def nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap: tuple[bool, bool
 PARTS = ("instrument", "graded", "others", "dthalf", "murecord")
 
 
-def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print, parts=None, tests=None) -> dict:
+def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print, parts=None, tests=None, observers=None) -> dict:
     """parts: which of PARTS this call runs (all by default). Training and the test trajectory's spin-up are deterministic
     from the seeds, so separate Jobs that each run some parts see the same rankings and the same u0. A world may carry
     "overrides", which replace config keys for that world only (round 3: T_sync, block_lyap_roles). tests: which test
     trajectory indices to run (all K by default); each index's seed is fixed, so a trajectory is the same in any Job.
     The observer and block tangents are carried for the graded observers only, since the records use only theirs
-    (changed 2026-10-10 for the pilot; the probe rounds carried them for every observer)."""
+    (changed 2026-10-10 for the pilot; the probe rounds carried them for every observer). observers: which observers the
+    graded and others parts run (all by default); each observer's nudging draws from its own fresh generator, so one
+    observer run alone gives the same record as in a full part (added 2026-10-11, when an n = 128 core part timed out)."""
     cfg = {**cfg, **world.get("overrides", {})}; parts = set(PARTS if parts is None else parts)
     if not parts <= set(PARTS): raise SystemExit(f"unknown parts {sorted(parts - set(PARTS))}")
     n = int(world["n"]); model = ForcedNS2D(n, float(world["nu"]), float(cfg["alpha"]), float(cfg["F0"]), int(cfg["kf"]))
     dt = float(cfg["dt_base"]) * int(cfg["n_ref"]) / n; ds = float(cfg["dt_sample"]); chunk = int(cfg["chunk"]); cand = Candidates(model); mu = float(cfg["mu"])
     ladder = [m for m in cfg["ladder"] if m <= cand.size]; off = int(world["seed_offset"]); t0 = time.time()
     out = {"name": world["name"], "group": world["group"], "n": n, "nu": model.nu, "dt": dt, "n_candidates": cand.size, "ladder": ladder,
-           "parts": sorted(parts), "overrides": world.get("overrides", {})}
+           "parts": sorted(parts), "observers_run": "all" if observers is None else sorted(observers), "overrides": world.get("overrides", {})}
 
     # training trajectory: rankings and theorem checks
     rng = np.random.default_rng(seed_train + off); uh = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
@@ -330,6 +332,7 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
     rr = np.random.default_rng(seed_train + off + 977)
     for j in range(int(cfg["random_draws"])):
         orders[f"RANDOM{j}"] = rr.permutation(cand.size)
+    if observers is not None and set(observers) - set(orders): raise SystemExit(f"unknown observers {sorted(set(observers) - set(orders))}")
     top = max(ladder)
     out["rankings"] = {k: [[int(cand.kx[i]), int(cand.ky[i])] for i in o[:top]] for k, o in orders.items()}
     out["theorem_checks"] = checks; out["train_seconds"] = time.time() - t0
@@ -356,7 +359,7 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
             test["none_final"] = float(g["delta"][-1, 0]); test["all_final"] = float(g["delta"][-1, 1])
             test["all_hold_max"] = float(g["delta"][g["times"] >= g["times"][-1] - float(cfg["T_hold"]) - 1e-9, 1].max())
         for name, o in orders.items():
-            if ("graded" if name in GRADED else "others") not in parts: continue
+            if ("graded" if name in GRADED else "others") not in parts or (observers is not None and name not in observers): continue
             rec = nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap if name in GRADED else (False, False), np.random.default_rng(seed_test + 7 * j + 3), d0); test["observers"][name] = rec
             log(json.dumps({"world": world["name"], "test": j, "observer": name, "m_star": rec["m_star"], "nonmonotone": rec["nonmonotone"], "seconds": round(time.time() - t1, 1)}))
         for m_ in (mu_rec if "murecord" in parts else []):
@@ -378,7 +381,7 @@ def footprint(t_wall0: float) -> dict:
     return {"peak_rss_mib": ru.ru_maxrss / 1024.0, "cpu_seconds": ru.ru_utime + ru.ru_stime, "wall_seconds": wall, "mean_cores": (ru.ru_utime + ru.ru_stime) / wall if wall > 0 else None}
 
 
-def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, parts=None, tests=None) -> dict:
+def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, parts=None, tests=None, observers=None) -> dict:
     t_wall0 = time.time()
     if seed_role == "probe":
         seed_train = seed_test = int(cfg["seed_probe"]); seed_test += 5000
@@ -388,7 +391,7 @@ def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None,
     result = {"config": cfg, "seed_role": seed_role, "seed_train": seed_train, "seed_test": seed_test, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     for world in cfg["worlds"]:
         if world["group"] not in groups or (only_world and world["name"] != only_world): continue
-        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role, parts=parts, tests=tests)); result["footprint"] = footprint(t_wall0)
+        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role, parts=parts, tests=tests, observers=observers)); result["footprint"] = footprint(t_wall0)
         print(json.dumps({"footprint": result["footprint"]}), flush=True); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     if only_world and not result["worlds"]:
         raise SystemExit(f"no world named {only_world} in role {seed_role}")
@@ -477,10 +480,11 @@ def main(argv=None) -> int:
     ap.add_argument("--world", default=None, help="run only this world (one NRP Job per world)")
     ap.add_argument("--parts", default=None, help="comma-separated subset of instrument,graded,others,dthalf,murecord (all by default)")
     ap.add_argument("--tests", default=None, help="comma-separated test trajectory indices (all K by default)")
+    ap.add_argument("--observers", default=None, help="comma-separated observer names for the graded/others parts (all by default)")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
     run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world, a.parts.split(",") if a.parts else None,
-        [int(x) for x in a.tests.split(",")] if a.tests else None); return 0
+        [int(x) for x in a.tests.split(",")] if a.tests else None, a.observers.split(",") if a.observers else None); return 0
 
 
 if __name__ == "__main__":
