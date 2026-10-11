@@ -1,0 +1,21 @@
+{"world": "pr_nu030_n96", "phase": "trajectories", "samples": [2001, 801], "tail": [1e-09, 0.0], "seconds": 3687.6}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "lin", "r": 2, "READ": 0.5863, "ENERGY": 0.5774, "BALL": 0.5856, "SENS": 0.5863, "POD": 0.5772, "RANDOM": 0.5829, "seconds": 3688.4}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "lin", "r": 4, "READ": 0.5908, "ENERGY": 0.5761, "BALL": 0.5877, "SENS": 0.5891, "POD": 0.5829, "RANDOM": 0.5827, "seconds": 3688.7}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "lin", "r": 8, "READ": 0.5891, "ENERGY": 0.5868, "BALL": 0.5909, "SENS": 0.594, "POD": 0.5838, "RANDOM": 0.5848, "seconds": 3688.9}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "lin", "r": 16, "READ": 0.5886, "ENERGY": 0.5838, "BALL": 0.5896, "SENS": 0.5964, "POD": 0.5895, "RANDOM": 0.5897, "seconds": 3689.3}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "lin", "r": 32, "READ": 0.593, "ENERGY": 0.5936, "BALL": 0.5931, "SENS": 0.5877, "POD": 0.5897, "RANDOM": 0.6019, "seconds": 3689.6}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "rff", "r": 2, "READ": 0.7556, "ENERGY": 0.7375, "BALL": 0.7337, "SENS": 0.7556, "POD": 0.7327, "RANDOM": 0.731, "seconds": 3721.3}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "rff", "r": 4, "READ": 0.7446, "ENERGY": 0.7458, "BALL": 0.7244, "SENS": 0.7631, "POD": 0.7318, "RANDOM": 0.7084, "seconds": 3723.0}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "rff", "r": 8, "READ": 0.754, "ENERGY": 0.7541, "BALL": 0.7543, "SENS": 0.7348, "POD": 0.7418, "RANDOM": 0.6997, "seconds": 3724.8}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "rff", "r": 16, "READ": 0.7522, "ENERGY": 0.7431, "BALL": 0.741, "SENS": 0.7701, "POD": 0.7444, "RANDOM": 0.6847, "seconds": 3726.8}
+{"world": "pr_nu030_n96", "kc": "3", "lift": "rff", "r": 32, "READ": 0.7547, "ENERGY": 0.7449, "BALL": 0.74, "SENS": 0.7479, "POD": 0.7227, "RANDOM": 0.6681, "seconds": 3729.3}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "lin", "r": 2, "READ": 0.5981, "ENERGY": 0.5968, "BALL": 0.5968, "SENS": 0.6006, "POD": 0.5999, "RANDOM": 0.6013, "seconds": 3729.6}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "lin", "r": 4, "READ": 0.5986, "ENERGY": 0.5956, "BALL": 0.6007, "SENS": 0.6009, "POD": 0.5983, "RANDOM": 0.6031, "seconds": 3729.9}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "lin", "r": 8, "READ": 0.5967, "ENERGY": 0.596, "BALL": 0.6019, "SENS": 0.6022, "POD": 0.5963, "RANDOM": 0.6046, "seconds": 3730.3}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "lin", "r": 16, "READ": 0.6005, "ENERGY": 0.6008, "BALL": 0.6038, "SENS": 0.6045, "POD": 0.5987, "RANDOM": 0.6107, "seconds": 3730.7}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "lin", "r": 32, "READ": 0.6099, "ENERGY": 0.6088, "BALL": 0.6119, "SENS": 0.6157, "POD": 0.6084, "RANDOM": 0.621, "seconds": 3731.2}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "rff", "r": 2, "READ": 0.7559, "ENERGY": 0.7531, "BALL": 0.7531, "SENS": 0.7767, "POD": 0.761, "RANDOM": 0.7512, "seconds": 3792.7}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "rff", "r": 4, "READ": 0.7505, "ENERGY": 0.7442, "BALL": 0.7486, "SENS": 0.7551, "POD": 0.7587, "RANDOM": 0.724, "seconds": 3794.5}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "rff", "r": 8, "READ": 0.7488, "ENERGY": 0.7594, "BALL": 0.7548, "SENS": 0.7672, "POD": 0.7594, "RANDOM": 0.7293, "seconds": 3796.2}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "rff", "r": 16, "READ": 0.7611, "ENERGY": 0.7667, "BALL": 0.7533, "SENS": 0.7512, "POD": 0.7597, "RANDOM": 0.7154, "seconds": 3798.1}
+{"world": "pr_nu030_n96", "kc": "5", "lift": "rff", "r": 32, "READ": 0.7794, "ENERGY": 0.7857, "BALL": 0.7742, "SENS": 0.7754, "POD": 0.7705, "RANDOM": 0.7191, "seconds": 3800.4}

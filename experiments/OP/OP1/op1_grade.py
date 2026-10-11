@@ -21,12 +21,15 @@ import numpy as np
 
 
 def cells(res: dict) -> list[dict]:
-    out = []
+    """Every graded cell. The graded lifts are the config's `graded_lifts` (fixed by the lift rule of PREREG-OP1 Section 7
+    before the pilot); a results file without them (the synthetic self-test) grades every lift it holds."""
+    graded = res.get("config", {}).get("graded_lifts"); out = []
     for w in res["worlds"]:
         if "refused" in w: continue
         for kc, c in w["cutoffs"].items():
             top = str(max(c["ladder"]))
             for lift, L in c["lifts"].items():
+                if graded is not None and lift not in graded: continue
                 for r in c["ladder"]:
                     x = L[str(r)]; e = {k: (x[k]["E"] if x.get(k) else None) for k in ("READ", "ENERGY", "BALL", "SENS", "POD")}
                     ctrl = min(e["ENERGY"], e["BALL"])
@@ -95,6 +98,10 @@ def selftest() -> int:
         print(f"{label}: gate {g['gate']} (want {want}), pooled {g['bars']['L1']['pooled_advantage']:.4f}", "PASS" if ok else "FAIL")
     a = cells({"worlds": [world("a", 0.02, 96, 0.54, 0.55)]})[0]["a"]; ok = abs(a - (0.6 - 0.54) / 0.6) < 1e-12; fails += 0 if ok else 1
     print(f"advantage against the better control: {a:.4f}", "PASS" if ok else "FAIL")
+    # only the configured lifts are graded: a READ that loses only in an ungraded lift passes
+    ws = [world("a", 0.02, 96, 0.54, 0.62), world("b", 0.02, 128, 0.54, 0.62)]; g = grade({"config": {"graded_lifts": ["lin"]}, "worlds": ws}, tols)
+    ok = g["gate"] == "PASS" and set(g["bars"]["L2"]["pooled_by_lift"]) == {"lin"}; fails += 0 if ok else 1
+    print(f"ungraded lift ignored: gate {g['gate']}, lifts {sorted(g['bars']['L2']['pooled_by_lift'])}", "PASS" if ok else "FAIL")
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 

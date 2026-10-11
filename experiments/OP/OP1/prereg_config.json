@@ -131,5 +131,10 @@
  "greedy_lifts": [
   "lin",
   "tend"
- ]
+ ],
+ "graded_lifts": [
+  "rff",
+  "tend"
+ ],
+ "ridge_note": "FIXED 2026-10-11 by the owner at 1e-6 (the value of probe rounds 1 and 2), after the probe: go to the pilot as designed. Graded lifts rff and tend by the lift rule of PREREG-OP1-DRAFT.md Section 7 (lin computed and recorded, not graded)."
 }

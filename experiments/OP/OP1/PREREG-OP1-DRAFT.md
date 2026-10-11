@@ -11,8 +11,8 @@ A consumer reads the large scales of a forced two-dimensional flow, the Fourier 
 $|k| \le k_c$, and forecasts them with extended dynamic mode decomposition (EDMD). Its dictionary
 holds its own coordinates and the coordinates of $r$ further pairs drawn from a pool. The claim is
 that ranking the pool by read distortion for the consumer (READ) gives a lower multi-step forecast
-error than ranking it by energy (ENERGY) or by scale (BALL), at matched $r$, under a linear and
-under a nonlinear lift, and that the advantage is stable in resolution.
+error than ranking it by energy (ENERGY) or by scale (BALL), at matched $r$, under each graded lift
+(RFF and TEND, Section 7), and that the advantage is stable in resolution.
 
 Why READ. The consumer's increment over one sample is, to first order, the sample time times its
 tendency $T_C(w)$. Around the training mean, pair $k$ contributes $J_k (x_k - \bar x_k)$ to it, with
@@ -68,23 +68,26 @@ Rankings of the pool, all computed on the training trajectory.
 
 References, recorded and not graded: POD (the leading $2r$ principal components of the pool's
 training coordinates, the same real dimension in another basis); GREEDY (forward selection of pairs
-on a validation split of the training record, 75 percent fit and 25 percent scored, linear lift
-only, the data-fitted selector); NONE (the consumer's coordinates alone); PERSIST (the forecast
+on a validation split of the training record, 75 percent fit and 25 percent scored, under the LIN
+and TEND lifts, the data-fitted selector); NONE (the consumer's coordinates alone); PERSIST (the forecast
 $\hat p(t+h) = p(t)$).
 
 Dictionary. $z$ is the standardized vector of the consumer's coordinates and the selected
 coordinates (real and imaginary parts, training mean and deviation). Lift LIN is $[1, z]$, DMD with
 augmentation. Lift RFF is $[1, z, \sqrt{2/D}\cos(zW + b)]$ with $D = 256$ random Fourier features of
 a Gaussian kernel of length scale $\sqrt{\dim z}$, $W$ and $b$ seeded by $\dim z$, so every ranking
-at the same $r$ sees the same draw. $K$ is fitted by ridge regression of $\psi(t+1)$ on $\psi(t)$,
-with the ridge $10^{-6}\,\mathrm{tr}(G)/\dim\psi$ (PENDING the probe).
+at the same $r$ sees the same draw. Lift TEND (added before probe round 2, Section 7) is the linear
+lift of $[z, T_C(P_{C \cup S} w)]$, the consumer's tendency on the consumer's and the selected pairs
+appended. $K$ is fitted by ridge regression of $\psi(t+1)$ on $\psi(t)$, with the ridge
+$10^{-6}\,\mathrm{tr}(G)/\dim\psi$ (fixed by the owner on 2026-10-11, Section 7). Graded lifts: RFF and
+TEND. LIN is computed and recorded and is not graded.
 
 Forecast and error. From $\psi$ at each test start (every second sample), $K$ is iterated without
 re-lifting, and the consumer's coordinates are read off the iterate. At horizon $h$ the error is
 $e_h = (\sum |\hat p - p|^2 / \sum |p - \bar p|^2)^{1/2}$ over the starts, in math units, with
 $\bar p$ the training mean. Zero is exact and one is the climatology. A cell's value is
-$E = \mathrm{mean}_h \min(e_h, 2)$ over the declared horizons, $h \in \{1, 4, 16\}$ samples
-(PENDING the probe). The ladder of $r$ is $\{2, 4, 8, 16, 32\}$.
+$E = \mathrm{mean}_h \min(e_h, 2)$ over the declared horizons, $h \in \{1, 2, 4\}$ samples (0.5, 1
+and 2 time units; changed from $\{1, 4, 16\}$ before probe round 2, Section 7). The ladder of $r$ is $\{2, 4, 8, 16, 32\}$.
 
 A graded cell is one (world, $k_c$, lift, $r$). Per cell, the advantage of READ is
 $a = (E_{ctrl} - E_{READ}) / E_{ctrl}$ with $E_{ctrl} = \min(E_{ENERGY}, E_{BALL})$, the better
@@ -98,26 +101,30 @@ pairs at some $r$, the cell's advantage is zero by construction. The overlap of 
 each control's is recorded for every cell, so a tie can be read as agreement rather than as a
 measured equality.
 
-## 5. Bars (numbers PENDING the pilot)
+## 5. Bars (numbers fixed from the pilot)
 
 - E1, the instrument. Pooled over cells, each of READ, ENERGY and BALL below the RANDOM median; and
   the best of them at the top of the ladder below NONE, so that adding coordinates helps at all.
 - L1, the claim. The pooled advantage of READ at least M1, and no cell's advantage below $-$TOL1.
-- L2, the observer family. L1's pooled condition holds in each lift separately.
+- L2, the observer family. L1's pooled condition holds in each graded lift separately.
 - N1, convergence. The pooled advantage changes by at most TOL_N between the two resolutions.
 - Records. GREEDY, POD, SENS, PERSIST and NONE errors; overlaps; spectral radii of $K$; divergence
   counts; per-horizon errors.
 
-M1, TOL1 and TOL_N are fixed from the pilot by rules written into `op1_fix_tols.py` before the
-pilot runs, within limits fixed in this draft before the probe ends (to be written).
+M1, TOL1 and TOL_N are fixed from the pilot by the rules in `op1_fix_tols.py`, written before the
+pilot runs. M1 is half the pilot's pooled advantage, rounded down to 0.005, within $[0.01, 0.10]$.
+TOL1 is 1.25 times the pilot's worst cell shortfall, rounded up to 0.01, within $[0.05, 0.25]$. TOL_N
+is 1.5 times the pilot's largest change of the pooled advantage between its two resolutions,
+rounded up to 0.005, within $[0.01, 0.05]$. A limit that binds is named in `tolerances.json`.
 
-PASS when every bar holds. FAIL when the pooled advantage of READ is at most zero in either lift.
+PASS when every bar holds. FAIL when the pooled advantage of READ is at most zero in either graded
+lift.
 INDETERMINATE otherwise, with the missed bar named.
 
 ## 6. What falsifies
 
-READ no better than the better of ENERGY and BALL, pooled, in either lift. A margin that holds at
-$n = 128$ and not at $n = 192$. A result that only the linear lift shows is not the claim.
+READ no better than the better of ENERGY and BALL, pooled, in either graded lift. A margin that
+holds at $n = 128$ and not at $n = 192$. A result that only one graded lift shows is not the claim.
 
 ## 7. Self-test, smoke run and probe
 
@@ -176,6 +183,45 @@ ladder, pooled over the probe's worlds and cutoffs, is at least 5 percent below 
 (NONE). A lift that fails the rule is reported and not graded, because a choice of coordinates
 cannot be tested where no coordinates help. READ's standing against the controls plays no part in
 the rule. If no lift passes it, OP1 is reported as unable to test its claim in this world.
+
+Probe round 2 (Atlas, 2026-10-11, the cached probe trajectories, code at 2009a0e; finished 20:45
+and 22:05). Both worlds ran clean.
+
+The lift rule, applied by `op1_lift_rule.py`, which prints nothing about READ. Best of all arms at
+the top of the ladder against NONE, pooled over the two worlds and two cutoffs. LIN 0.464 against
+0.457, a gain of $-1.6$ percent, not graded. RFF 0.546 against 0.585, a gain of 6.8 percent, graded.
+TEND 0.315 against 0.395, a gain of 20.2 percent, graded.
+
+READ's standing in the graded lifts, read after the rule was applied (probe, not a verdict; the
+advantage is against the better of ENERGY and BALL in each cell).
+- RFF. Pooled advantage $-1.25$ percent, READ behind in 16 of 20 cells, worst $-6.2$ percent. RFF is
+  a poor forecaster here. In every (world, cutoff) its errors are above the persistence forecast
+  (for example 0.67 against 0.61 at $\nu = 0.02$, $k_c = 3$), and RANDOM is its best ranking. The rule
+  as registered grades it all the same, because RANDOM's dictionaries beat RFF's own NONE by 6.8
+  percent. The rule does not ask whether a lift beats persistence, and it is not changed here,
+  since READ's standing is now known.
+- TEND. Pooled advantage $+0.3$ percent, READ behind in 9 of 20 cells, worst $-5.3$ percent. It splits
+  by cell. At $\nu = 0.03$, $k_c = 3$ READ is ahead at every $r$ (by 0.3 to 5.3 percent; mean error
+  0.241 against ENERGY 0.260 and BALL 0.249). At $\nu = 0.03$, $k_c = 5$ it is behind at four of five
+  $r$ (by up to 5.3 percent). At $\nu = 0.02$ it is level within about 1.5 percent at both cutoffs.
+  TEND forecasts beat persistence in every cell (for example 0.241 against 0.380). GREEDY, fitted
+  on the training data, is no better than READ in any (world, cutoff) (0.247 against 0.241 at
+  $\nu = 0.03$, $k_c = 3$).
+
+What the probe says about the claim, before any pilot. Under the draft's verdict rule (FAIL when
+the pooled advantage is at most zero in either graded lift), the probe would be a FAIL through RFF.
+Under TEND alone it would be at best INDETERMINATE, since the pooled margin is near zero. The ridge
+is unchanged at $10^{-6}$ and is still marked PENDING. Whether to fix it by a READ-blind rule (for
+example, the ridge that minimizes NONE's validation error per lift), which could change RFF's
+standing as a forecaster, is a decision for the owner, recorded here before any further run.
+
+Owner decision (2026-10-11, after the probe and before the pilot): go to the pilot as designed.
+The ridge is fixed at $10^{-6}$, the value both probe rounds used. The graded lifts are RFF and TEND,
+as the lift rule decided, with RFF graded although it forecasts worse than persistence on the probe.
+The horizons are $\{1, 2, 4\}$. The grader reads the graded lifts from the config
+(`graded_lifts`), so they travel with every results file. The alternatives offered were a third
+probe round with the ridge chosen per lift by a READ-blind validation rule, and closing OP1 at the
+probe.
 
 ## 8. Sealing procedure
 
