@@ -114,6 +114,11 @@ def memory_stats(Om: list[np.ndarray], ccols: np.ndarray, dt: float) -> dict:
     return {"tau90": tau90, "tau_int": float(mem.sum() / mem[0] * dt), "share": float(mem.sum() / norms[0]), "norms": norms.tolist()}
 
 
+def lag_ladder(ladder: list[int], d: int, n: int, ratio: float) -> list[int]:
+    """The lags the sample budget allows: L = 0 always, any other L only if d (L + 1) <= n / ratio."""
+    return [int(L) for L in ladder if int(L) == 0 or d * (int(L) + 1) <= n / ratio]
+
+
 def l_star(E: dict, frac: float) -> int:
     best = min(E.values()); return min(int(L) for L, v in E.items() if v <= (1 + frac) * best)
 
@@ -131,13 +136,16 @@ def cell(Xtr, Xte, split, tend, sel_cols, cfg, dt) -> dict:
     Lmax = max(cfg["memory_ladder"]); ridge = float(cfg["ridge"]); H = [int(h) for h in cfg["horizons"]]; nc2 = 2 * split.nc; ccols = np.arange(nc2)
     C = correlations(Gtr, Lmax + 1); Om = kernels(C, Lmax, ridge)
     starts = np.arange(Lmax, len(Gte) - max(H), int(cfg["test_start_stride"])); Xc = Xte[:, split.cols(np.arange(split.nc), 0)]
-    E = {str(L): lag_errors(Gtr, Gte, L, ridge, H, starts, ccols, mu, sd, Xc, float(cfg["error_cap"])) for L in cfg["memory_ladder"]}
+    # the lag ladder is capped by the sample budget: the lag predictor's d (L + 1) features may not exceed N / budget_ratio
+    # (owner, 2026-10-11, after the probe showed the predictor overfitting where they did); L = 0 is always fitted
+    Ls = lag_ladder(cfg["memory_ladder"], Gtr.shape[1], len(Gtr), float(cfg["lag_budget_ratio"]))
+    E = {str(L): lag_errors(Gtr, Gte, L, ridge, H, starts, ccols, mu, sd, Xc, float(cfg["error_cap"])) for L in Ls}
     E_gle = {str(L): gle_errors(Om, Gte, L, H, starts, ccols, mu, sd, Xc, float(cfg["error_cap"]))["E"] for L in cfg["memory_ladder"]}
     Ev = {L: v["E"] for L, v in E.items()}; ms = memory_stats(Om, ccols, dt)
     half = len(Gtr) // 2; halves = []
     for part in (Gtr[:half], Gtr[half:]):
         Oh = kernels(correlations(part, Lmax + 1), Lmax, ridge); halves.append({k: v for k, v in memory_stats(Oh, ccols, dt).items() if k != "norms"})
-    return {"E": E, "E_gle": E_gle, "E_min": min(Ev.values()), "L_star": l_star(Ev, float(cfg["lstar_fraction"])), **{k: ms[k] for k in ("tau90", "tau_int", "share")},
+    return {"E": E, "E_gle": E_gle, "lags_fitted": Ls, "E_min": min(Ev.values()), "L_star": l_star(Ev, float(cfg["lstar_fraction"])), **{k: ms[k] for k in ("tau90", "tau_int", "share")},
             "consumer_kernel_norms": ms["norms"], "halves": halves, "gfd": gfd_check(Gtr, Om, C[1], [1, 2, 3]), "dim": int(Gtr.shape[1])}
 
 
@@ -221,6 +229,9 @@ def selftest() -> int:
     Om_c = [np.eye(2)] + [np.eye(2) * 0.5 ** l for l in range(1, 9)]; ms = memory_stats(Om_c, np.arange(2), 0.5)
     ok = abs(ms["tau90"] - 0.5 * 5) < 1e-12 and abs(ms["share"] - sum(0.5 ** l for l in range(1, 9))) < 1e-12 and l_star({"0": 1.0, "1": 0.8, "2": 0.795, "4": 0.79}, 0.01) == 2
     check("memory statistics and L*", ok, f"tau90 {ms['tau90']}, share {ms['share']:.4f}")
+    # The lag cap: with 2000 samples and ratio 4, 56 observables allow L up to 7, 160 allow 2, 224 allow 1, 600 allow only 0
+    caps = [lag_ladder([0, 1, 2, 4, 8, 16], d, 2000, 4.0) for d in (56, 160, 224, 600)]
+    check("the lag ladder is capped by the sample budget", caps == [[0, 1, 2, 4], [0, 1, 2], [0, 1], [0]], str(caps))
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 

@@ -1,8 +1,11 @@
 # OP Track: open problems of other fields where the read operator might help
 
 **Status:** opened 2026-10-11 by the owner, from the survey `notes/ot-open-problems-survey.md`. OP1
-(Koopman dictionaries) drafted, self-test passing, probe running on Atlas. OP2 and OP3 design
-drafts, non-claim-bearing until registered. Chip 🧭 OP.
+(Koopman dictionaries): probe done in two rounds; on the probe READ is level with the controls
+under TEND and behind under RFF; pilot running on Atlas as designed (owner). OP2 (memory in
+Mori–Zwanzig models): probe done; READ leaves less memory than ENERGY and slightly more than BALL;
+pilot set up on the owner's decision. OP3 a design draft. Nothing here is claim-bearing until
+registered. Chip 🧭 OP.
 
 ## 1. Question
 
@@ -81,7 +84,7 @@ from data with Mori's projection (arXiv:2101.05873, 2021) and then with regressi
 projection (arXiv:2205.05135, 2022), and call Zwanzig's projection optimal but infeasible. Tian,
 Lin, Anghel and Livescu learn the operators for isotropic turbulence (arXiv:2108.13288, 2021; the
 journal version is Phys. Fluids 33, 125118) and compare four hand-chosen sets of observables; read
-in full on 2026-10-11 and summarized in the OP2 design draft. (Corrected 2026-10-11: an earlier
+in full on 2026-10-11 and summarized in the OP2 registration draft. (Corrected 2026-10-11: an earlier
 version of this paragraph named the authors as Hader and coauthors, from a search summary. Christoph
 Hader is a coauthor of the boundary-layer paper arXiv:2309.15864, not of this one.) Later
 work applies the method to sparse sensors in boundary-layer transition (arXiv:2309.15864) and to
@@ -91,7 +94,7 @@ work that chooses which modes stay explicit so as to shorten the memory, which i
 Why the t-model works is still described through renormalization (Stinis; Price and Stinis,
 arXiv:1707.01955), and no newer explanation turned up.
 
-Design draft: `experiments/OP/OP2/OP2-DESIGN-DRAFT.md` (2026-10-11). It uses Mori's linear
+Registration draft: `experiments/OP/OP2/PREREG-OP2-DRAFT.md` (written 2026-10-11 as a design draft; probe done; pilot set up on the owner's decision). It uses Mori's linear
 projection and the correlation recursion of Lin and coauthors on OP1's world, trajectories,
 rankings and TEND observable, and asks whether the modes READ makes explicit leave a shorter memory
 than ENERGY's or BALL's.

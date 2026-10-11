@@ -120,5 +120,7 @@
   16
  ],
  "lstar_fraction": 0.01,
- "bars": "PENDING: OP2-DESIGN-DRAFT.md Section 3, statistic chosen on the probe by split-half reliability, blind to READ"
+ "bars": "PREREG-OP2-DRAFT.md Section 5 (op2_grade.py): memory share by the split-half rule; L1E fixed at -0.01; tolerances from the pilot",
+ "lag_budget_ratio": 4.0,
+ "gfd_note": "the fluctuation-dissipation check is recorded, not graded: no tolerance set (owner did not set one, 2026-10-11)"
 }
