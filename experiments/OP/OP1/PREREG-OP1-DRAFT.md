@@ -1,6 +1,7 @@
 # PREREG OP1 (DRAFT): on which coordinates a consumer's Koopman dictionary should be built
 
-Status: DRAFT, not sealed, not claim-bearing. Gate OP1 of the OP track
+Status: RECORDED AT THE PILOT, 2026-10-12, on the owner's decision. Not sealed and not run, so
+not a registered verdict. The pilot grades FAIL (Section 7), in agreement with the probe. Gate OP1 of the OP track
 (`experiments/OPEN-PROBLEMS-TRACK.md`). Bars are fixed in code (`op1_grade.py`, `op1_fix_tols.py`,
 to be written before the pilot) and their tolerances from the pilot by the rules of Section 5.
 Section 7 records the self-test, the smoke run and the probe.
@@ -222,6 +223,48 @@ The horizons are $\{1, 2, 4\}$. The grader reads the graded lifts from the confi
 (`graded_lifts`), so they travel with every results file. The alternatives offered were a third
 probe round with the ridge chosen per lift by a READ-blind validation rule, and closing OP1 at the
 probe.
+
+Pilot record (Atlas, 2026-10-11 and 12, code at 8019ef5, seed 20261112; four worlds at
+$\nu \in \{0.03, 0.02\}$ and $n \in \{96, 128\}$, all clean, about 4.5 to 5.5 hours each, the $n = 128$
+worlds longest). The four results were merged into `pilot.json`. `op1_fix_tols.py` wrote `tolerances.json`,
+and every tolerance sits at a limit. M1 = 0.01 is at its floor, since the pooled advantage is
+$-0.0175$. TOL1 = 0.25 is at its ceiling, since the worst cell is $-0.345$. TOL_N = 0.05 is at its ceiling,
+since the largest change between resolutions is 0.072.
+
+Pilot grade by the committed grader (`pilot_grade.json`, 80 graded cells in RFF and TEND; a pilot
+grade, not a verdict): FAIL.
+- E1 fails. Pooled, RANDOM's median (0.506) is below every structured ranking (READ 0.513, ENERGY
+  0.517, BALL 0.513). The best arm at the top of the ladder (0.495) is below NONE (0.520). RFF drives
+  the first part, since there RANDOM was already the best ranking on the probe.
+- L1 fails. The pooled advantage is $-1.75$ percent, with READ behind in 45 of 80 cells.
+- L2 fails in both graded lifts: RFF $-1.7$ percent, TEND $-1.8$ percent.
+- N1 fails at $\nu = 0.03$. The pooled advantage moves from $-0.02$ percent at $n = 96$ to $-7.2$ percent at
+  $n = 128$. At $\nu = 0.02$ the two resolutions agree within 0.3 percent.
+- Records. GREEDY 0.383 (under TEND, the only graded lift in which it runs; the grader's field
+  is named `GREEDY_lin` from before TEND existed); PERSIST 0.449; POD 0.650. No forecast diverged.
+
+The worst cell was checked before being accepted, and it shows that the $\nu = 0.03$, $n = 128$ world is
+in another regime ($k_c = 3$, TEND, $r = 16$: READ 0.369, ENERGY 0.274, BALL 0.304). In that world the
+persistence forecast's error is 0.177, against 0.351 for the same viscosity at $n = 96$. Its
+enstrophy tails are $2 \times 10^{-12}$ against $10^{-9}$. Every TEND dictionary at $k_c = 3$ forecasts
+worse than persistence there, and some worse than the consumer alone (0.295). The large scales of
+that trajectory barely move. EDMD's errors there separate the rankings by fitting noise, not by the
+choice of modes, and that world alone carries N1's failure. $\nu = 0.03$ is the weakly chaotic world of
+D8's probe (Lyapunov exponent $+0.06$), and this trajectory appears to have settled into a slower
+state. OP1 inherited D8's worlds and did not check each pilot world's regime. A check that every
+world's persistence error is within a declared range of its pair's at the other resolution would
+have flagged it, and OP1 has no such criterion. The grade is reported as the grader printed it.
+
+What the pilot says, beside the probe. READ is not ahead of the better of ENERGY and BALL in either
+graded lift, at either resolution, at either viscosity, apart from level cells. At $\nu = 0.03$,
+$n = 96$, $k_c = 3$, where the probe found READ ahead under TEND, the pilot finds it ahead again (0.173
+against 0.177 and 0.180 at $r = 32$), but that is one cell family of eight.
+
+Owner decision (2026-10-12): OP1 is recorded at the pilot. It is not sealed and not run. The
+alternatives offered were a sealed run as designed and a re-pilot with a READ-blind regime check on
+the worlds. Section 8 is therefore not carried out, and no family enters
+`claims/transformations/OP.toml` for OP1. A later gate on these worlds should declare a regime check
+before its pilot.
 
 ## 8. Sealing procedure
 

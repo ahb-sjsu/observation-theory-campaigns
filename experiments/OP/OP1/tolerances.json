@@ -1,0 +1,17 @@
+{
+ "M1": 0.01,
+ "TOL1": 0.25,
+ "TOL_N": 0.05,
+ "limits_binding": {
+  "M1": "lower limit",
+  "TOL1": "upper limit",
+  "TOL_N": "upper limit"
+ },
+ "pilot": {
+  "pooled_advantage": -0.017537806454120473,
+  "worst_shortfall": 0.34496356607501166,
+  "max_change_between_resolutions": 0.07155663202013275,
+  "n_cells": 80
+ },
+ "rule": "PREREG-OP1 Section 5: M1 0.5x pooled (down to 0.005) in [0.01, 0.10]; TOL1 1.25x worst shortfall (up to 0.01) in [0.05, 0.25]; TOL_N 1.5x resolution change (up to 0.005) in [0.01, 0.05]"
+}

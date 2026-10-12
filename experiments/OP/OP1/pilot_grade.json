@@ -1,0 +1,112 @@
+{
+ "tolerances": {
+  "M1": 0.01,
+  "TOL1": 0.25,
+  "TOL_N": 0.05,
+  "limits_binding": {
+   "M1": "lower limit",
+   "TOL1": "upper limit",
+   "TOL_N": "upper limit"
+  },
+  "pilot": {
+   "pooled_advantage": -0.017537806454120473,
+   "worst_shortfall": 0.34496356607501166,
+   "max_change_between_resolutions": 0.07155663202013275,
+   "n_cells": 80
+  },
+  "rule": "PREREG-OP1 Section 5: M1 0.5x pooled (down to 0.005) in [0.01, 0.10]; TOL1 1.25x worst shortfall (up to 0.01) in [0.05, 0.25]; TOL_N 1.5x resolution change (up to 0.005) in [0.01, 0.05]"
+ },
+ "n_cells": 80,
+ "bars": {
+  "E1": {
+   "structured_below_random": {
+    "READ": {
+     "pooled": 0.5134600351658895,
+     "random": 0.5057104167389304,
+     "holds": false
+    },
+    "ENERGY": {
+     "pooled": 0.5165203047709387,
+     "random": 0.5057104167389304,
+     "holds": false
+    },
+    "BALL": {
+     "pooled": 0.5134979868032837,
+     "random": 0.5057104167389304,
+     "holds": false
+    }
+   },
+   "best_at_top_r": 0.49543476777018686,
+   "none": 0.5199059706376729,
+   "holds": false
+  },
+  "L1": {
+   "pooled_advantage": -0.017537806454120473,
+   "margin": 0.01,
+   "worst_cell": {
+    "world": "p_nu030_n128",
+    "kc": "3",
+    "lift": "tend",
+    "r": 16,
+    "a": -0.34496356607501166
+   },
+   "tol": 0.25,
+   "cells_behind": 45,
+   "n_cells": 80,
+   "holds": false
+  },
+  "L2": {
+   "pooled_by_lift": {
+    "rff": -0.017180306114502518,
+    "tend": -0.01789530679373842
+   },
+   "margin": 0.01,
+   "holds": false
+  },
+  "N1": {
+   "by_nu": {
+    "0.02": {
+     "pooled_by_n": {
+      "96": -0.0007743328535090931,
+      "128": 0.002546772607530683
+     },
+     "diff": 0.003321105461039776
+    },
+    "0.03": {
+     "pooled_by_n": {
+      "96": -0.00018351677518536075,
+      "128": -0.0717401487953181
+     },
+     "diff": 0.07155663202013275
+    }
+   },
+   "limit": 0.05,
+   "holds": false,
+   "note": null
+  }
+ },
+ "records": {
+  "READ": 0.5134600351658895,
+  "ENERGY": 0.5165203047709387,
+  "BALL": 0.5134979868032837,
+  "SENS": 0.5141024069697666,
+  "RANDOM": 0.5057104167389304,
+  "NONE": 0.5199059706376729,
+  "POD": 0.6503649731385194,
+  "GREEDY_lin": 0.3827185347171337,
+  "PERSIST": 0.4487895469119934,
+  "diverged_arm_cells": 0,
+  "pooled_advantage_by_kc": {
+   "3": -0.024076767522561066,
+   "5": -0.010998845385679875
+  },
+  "pooled_advantage_by_r": {
+   "2": -0.014939266783865226,
+   "4": -0.02569762681636176,
+   "8": -0.01993745338893928,
+   "16": -0.022673379053039157,
+   "32": -0.004441306228396929
+  }
+ },
+ "gate": "FAIL"
+}
