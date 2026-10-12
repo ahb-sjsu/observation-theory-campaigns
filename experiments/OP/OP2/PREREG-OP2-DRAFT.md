@@ -1,6 +1,7 @@
 # PREREG OP2 (DRAFT): which modes a reduced model should carry explicitly, so that the rest needs the least memory
 
-Status: DRAFT, not sealed, not claim-bearing. Gate OP2 of the OP track
+Status: RECORDED AT THE PILOT, 2026-10-12, on the owner's decision. Not sealed and not run, so
+not a registered verdict. The pilot grades FAIL (Section 6), in agreement with the probe. Gate OP2 of the OP track
 (`experiments/OPEN-PROBLEMS-TRACK.md`). Written 2026-10-11 as `OP2-DESIGN-DRAFT.md` and renamed after
 its probe, when the owner sent OP2 to a pilot. Sections 1 to 3 are the design as it stood before
 the probe, with the probe's record at the end of Section 3. Section 4 holds the bars, Section 6 the
@@ -211,6 +212,38 @@ read from the trajectories OP1's pilot caches in `experiments/OP/OP1/traj/`, so 
 simulation. Each OP2 pilot world starts when OP1's pilot has written that world's trajectory file.
 Self-tests at the pilot's code: `op2_mz.py` eight checks (the eighth being the lag cap), and
 `op2_grade.py` five, all PASS on Atlas, 2026-10-11.
+
+Pilot record (Atlas, 2026-10-11 and 12, code at d5854f3, OP1's pilot trajectories, seed 20261112;
+four worlds, all clean, about 10 minutes each once its trajectory file landed). The four results
+were merged into `pilot.json`. `op2_grade.py --fix-tols` wrote `tolerances.json`, and every
+tolerance sits at a limit. M1 = 0.01 is at its floor, since the pilot's pooled advantage is
+$-0.030$. TOL1 = 0.25 is at its ceiling, since the worst cell is $-0.586$. TOL_N = 0.05 is at its
+ceiling, since the largest change between resolutions is 0.036.
+
+Pilot grade by the committed grader (`pilot_grade.json`; a pilot grade, not a verdict): FAIL.
+- E1 holds. Pooled shares are READ 0.538, ENERGY 0.574, BALL 0.531, RANDOM's median 0.647.
+- L1 fails. The pooled advantage is $-3.0$ percent, with READ behind the better control in 23 of 40
+  cells.
+- L1E fails narrowly. READ's best forecast with memory is 1.06 percent worse pooled, against a
+  limit of 1.00.
+- L2 fails at both cutoffs: $-4.8$ percent at $k_c = 3$ and $-1.2$ percent at $k_c = 5$.
+- N1 holds. Per viscosity the pooled advantage changes by 0.036 ($\nu = 0.02$) and 0.007
+  ($\nu = 0.03$) between $n = 96$ and 128.
+
+The worst cell was checked before being accepted ($\nu = 0.02$, $n = 128$, $k_c = 3$, $r = 8$). BALL's
+eight pairs leave a share of 0.212 and READ's 0.336, which is $-58.6$ percent relative to a small
+denominator. The extraction there is sound: the fluctuation–dissipation mismatch is 3 to 9 percent,
+and the two halves of the training record agree (BALL 0.311 and 0.324, READ 0.496 and 0.520). SENS
+chose BALL's eight pairs in that cell exactly. The cell stands as measured.
+
+What the pilot says, as the probe did. The modes READ makes explicit leave less memory than
+ENERGY's and slightly more than BALL's, at both resolutions, and READ's forecast with memory is not
+better for it.
+
+Owner decision (2026-10-12): OP2 is recorded at the pilot. It is not sealed and not run. The probe
+and the pilot agree at two viscosities and two resolutions, and a run would have needed OP1's run
+trajectories at $n = 192$ for a projected FAIL. The sealing step below is therefore not taken, and
+no family enters `claims/transformations/OP.toml` for OP2.
 
 Sealing. After the pilot, `op2_grade.py --fix-tols` writes `tolerances.json`, this draft takes the
 pilot's record and is renamed `PREREG-OP2.md` in one commit, and the observer families go into

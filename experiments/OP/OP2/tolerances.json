@@ -1,0 +1,16 @@
+{
+ "M1": 0.01,
+ "TOL1": 0.25,
+ "TOL_N": 0.05,
+ "limits_binding": {
+  "M1": "lower limit",
+  "TOL1": "upper limit",
+  "TOL_N": "upper limit"
+ },
+ "pilot": {
+  "pooled_advantage": -0.02992942708421249,
+  "worst_shortfall": 0.5857748426631016,
+  "max_change_between_resolutions": 0.03642832556914158,
+  "n_cells": 40
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "tolerances": {
+  "M1": 0.01,
+  "TOL1": 0.25,
+  "TOL_N": 0.05,
+  "limits_binding": {
+   "M1": "lower limit",
+   "TOL1": "upper limit",
+   "TOL_N": "upper limit"
+  },
+  "pilot": {
+   "pooled_advantage": -0.02992942708421249,
+   "worst_shortfall": 0.5857748426631016,
+   "max_change_between_resolutions": 0.03642832556914158,
+   "n_cells": 40
+  }
+ },
+ "n_cells": 40,
+ "bars": {
+  "E1": {
+   "by_ranking": {
+    "READ": {
+     "pooled_share": 0.5380090950034416,
+     "random": 0.6474975376772762
+    },
+    "ENERGY": {
+     "pooled_share": 0.5737670759728143,
+     "random": 0.6474975376772762
+    },
+    "BALL": {
+     "pooled_share": 0.5305867944796063,
+     "random": 0.6474975376772762
+    }
+   },
+   "holds": true
+  },
+  "L1": {
+   "pooled_advantage": -0.02992942708421249,
+   "margin": 0.01,
+   "worst_cell": {
+    "world": "p_nu020_n128",
+    "kc": "3",
+    "r": 8,
+    "a": -0.5857748426631016
+   },
+   "tol": 0.25,
+   "cells_behind": 23,
+   "n_cells": 40,
+   "holds": false
+  },
+  "L1E": {
+   "pooled_E_advantage": -0.010608576769229782,
+   "limit": -0.01,
+   "holds": false
+  },
+  "L2": {
+   "pooled_by_cutoff": {
+    "3": -0.04770720016464231,
+    "5": -0.012151654003782677
+   },
+   "margin": 0.01,
+   "holds": false
+  },
+  "N1": {
+   "by_nu": {
+    "0.02": {
+     "pooled_by_n": {
+      "96": -0.023661131065182542,
+      "128": -0.06008945663432412
+     },
+     "diff": 0.03642832556914158
+    },
+    "0.03": {
+     "pooled_by_n": {
+      "96": -0.021391265559161578,
+      "128": -0.014575855078181746
+     },
+     "diff": 0.0068154104809798315
+    }
+   },
+   "limit": 0.05,
+   "holds": true
+  }
+ },
+ "records": {
+  "pooled_share_SENS": 0.534940105299644
+ },
+ "gate": "FAIL"
+}

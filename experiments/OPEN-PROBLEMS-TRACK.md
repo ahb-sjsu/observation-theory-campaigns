@@ -3,8 +3,9 @@
 **Status:** opened 2026-10-11 by the owner, from the survey `notes/ot-open-problems-survey.md`. OP1
 (Koopman dictionaries): probe done in two rounds; on the probe READ is level with the controls
 under TEND and behind under RFF; pilot running on Atlas as designed (owner). OP2 (memory in
-Mori–Zwanzig models): probe done; READ leaves less memory than ENERGY and slightly more than BALL;
-pilot set up on the owner's decision. OP3 a design draft. Nothing here is claim-bearing until
+Mori–Zwanzig models): RECORDED AT THE PILOT (owner, 2026-10-12), pilot grade FAIL; the modes READ
+makes explicit leave less memory than ENERGY's (0.538 against 0.574) and slightly more than BALL's
+(0.531), at both resolutions. OP3 a design draft. Nothing here is claim-bearing until
 registered. Chip 🧭 OP.
 
 ## 1. Question
@@ -94,7 +95,10 @@ work that chooses which modes stay explicit so as to shorten the memory, which i
 Why the t-model works is still described through renormalization (Stinis; Price and Stinis,
 arXiv:1707.01955), and no newer explanation turned up.
 
-Registration draft: `experiments/OP/OP2/PREREG-OP2-DRAFT.md` (written 2026-10-11 as a design draft; probe done; pilot set up on the owner's decision). It uses Mori's linear
+Registration draft: `experiments/OP/OP2/PREREG-OP2-DRAFT.md` (written 2026-10-11 as a design draft). Probe and pilot
+done. Recorded at the pilot on the owner's decision (2026-10-12): pilot grade FAIL, with READ
+leaving less memory than ENERGY and slightly more than BALL, and its forecast with memory 1.06
+percent worse pooled. Not sealed. It uses Mori's linear
 projection and the correlation recursion of Lin and coauthors on OP1's world, trajectories,
 rankings and TEND observable, and asks whether the modes READ makes explicit leave a shorter memory
 than ENERGY's or BALL's.
