@@ -1338,6 +1338,26 @@ The thread that motivated this track also proposed phase transitions and critica
 quantum measurement, and computational complexity as observation problems; they are not gates
 here, since none has an instrument the program owns.
 
+### D8. Which modes an observer must read to synchronize a nudged copy of a two-dimensional flow
+
+Added 2026-10-12. Registered after the declared order was complete, as a new claim and not a
+version of D7. Draft `experiments/OD/D8/PREREG-D8-DRAFT.md`, code `d8_sync.py`, theory
+`notes/dynamical-read-operator.md` Sections 5 and 6. Prediction: ranking the Fourier pairs by their
+read distortion (READ) synchronizes a nudged copy of forced two-dimensional turbulence with fewer
+pairs than BALL ($|k|$ ascending), ENSTROPHY or KE.
+
+Record (2026-10-12). RECORDED AT THE PILOT on the owner's decision; not sealed and not run. Three
+probe rounds (nine worlds) and the pilot ($\nu \in \{0.03, 0.02\}$ at $n = 96$ and 128, two test trajectories
+each, 24 NRP Jobs, with eight reruns after one part timed out and three parts' logs were lost)
+all agree. Pilot grade by the
+committed grader: FAIL. READ is behind the best control, which is BALL in every cell, in all 8
+cells, by 3.1 ladder steps pooled. BALL synchronizes at 8 pairs ($\nu = 0.03$) and 12 ($\nu = 0.02$), and
+READ needs 16 to 48. The theory note's Propositions 2 and 3 hold on every check (T1 at $10^{-15}$, T2 at
+most 0.028 of the bound), and the instrument bars hold. N1 fails at $\nu = 0.02$. What the record
+establishes: for synchronizing this flow, scale, not the per-mode read, is what a nudged copy must
+read first, consistent with Inubushi and Caulfield (arXiv:2508.16920). Whether that belongs to the
+per-mode instrument or to the flow is gate OP4 of the OP track.
+
 ## 5. Records
 
 Each gate writes its registry families to `claims/transformations/OD.toml` before sealing,

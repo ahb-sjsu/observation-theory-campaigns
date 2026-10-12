@@ -1,7 +1,9 @@
 # PREREG D8 (DRAFT): which modes an observer must read to synchronize a nudged copy of a two-dimensional flow
 
-Status: DRAFT 2026-10-09, revision 2 (after an outside review the same day), not claim-bearing,
-not sealed. Gate D8 of the OD track (`experiments/DISCOVERY-TRACK.md`), a new claim registered
+Status: RECORDED AT THE PILOT, 2026-10-12, on the owner's decision. Not sealed and not run, so not a
+registered verdict. The pilot grades FAIL: READ is behind BALL in all 8 cells (Section 7). The text
+below was written as DRAFT 2026-10-09, revision 2 (after an outside review the same day), not
+claim-bearing, not sealed. Gate D8 of the OD track (`experiments/DISCOVERY-TRACK.md`), a new claim registered
 after the track's declared order was complete, and not a version of D7. Its theory is
 `notes/dynamical-read-operator.md` (draft 0.1), Sections 5 and 6. Its bars and tolerance rules are
 to be fixed in code (`d8_grade.py`, `d8_fix_tols.py`) before its pilot runs. Nothing below has been
@@ -532,6 +534,56 @@ Job per graded observer from the start.
 
 The pilot fixes M1 and TOL_N by the rules of Section 5, within their limits, and records the pilot's
 own grade.
+
+Pilot complete (2026-10-12). All seven reruns succeeded. Every part's result block was saved on
+Atlas as it landed (`experiments/OD/D8/pilot_pieces/`, 28 files: the 23 parts that ran whole and the
+5 pieces of the split core). The pieces were merged per world by the submitter's `merge_parts`, which
+refuses pieces whose rankings differ, so the split core's five pieces are confirmed to be one world.
+Every world has both test trajectories with every observer and the $\mu_0/4$ record. The merged
+`pilot.json` (5.4 MB, sha256 569b38f1...) stays on Atlas beside the pieces. `tolerances.json` and
+`pilot_grade.json` are committed. The split core's READ budget is 48, the value the timed-out Job had
+logged before it was stopped, so the split reproduced the unsplit part.
+
+Tolerances by `d8_fix_tols.py`. M1 = 0.5 step, at its floor, since the pilot's pooled advantage is
+$-3.125$ steps. TOL1 = 1 step, fixed. TOL_N = 0.5, clamped from 3.75.
+
+| $\nu$ | $n$ | trajectory | READ | BALL | ENSTROPHY | KE | READ's advantage (steps) |
+|---|---|---|---|---|---|---|---|
+| 0.03 | 96 | 0 | 24 | 8 | 48 | 24 | $-3$ |
+| 0.03 | 96 | 1 | 48 | 8 | 48 | 32 | $-5$ |
+| 0.03 | 128 | 0 | 24 | 8 | 48 | 24 | $-3$ |
+| 0.03 | 128 | 1 | 48 | 8 | 48 | 32 | $-5$ |
+| 0.02 | 96 | 0 | 16 | 12 | 64 | 24 | $-1$ |
+| 0.02 | 96 | 1 | 16 | 12 | 48 | 24 | $-1$ |
+| 0.02 | 128 | 0 | 48 | 12 | 48 | 32 | $-4$ |
+| 0.02 | 128 | 1 | 32 | 12 | 48 | 32 | $-3$ |
+
+Pilot grade by the committed grader (`pilot_grade.json`; a pilot grade, not a verdict): FAIL.
+- T1 and T2 hold on all 24 checks. The beyond-$2N$ read is at most $1.2 \times 10^{-15}$ of the first
+  octave's, and the feedback is at most 0.028 of Proposition 3's bound.
+- E1 and E2 hold. With nothing observed $\delta \ge 1.32$, with everything observed $\delta \le
+  3 \times 10^{-17}$, and every world is fully graded. The pooled mean ladder index is BALL 2.5, KE 5.5,
+  READ 5.6, ENSTROPHY 7.1 and RANDOM 13.
+- L1 fails. READ is behind the best control in all 8 cells, by 3.1 steps pooled, worst $-5$. The best
+  control is BALL in every cell.
+- N1 fails at $\nu = 0.02$, where the pooled advantage moves from $-1$ step at $n = 96$ to $-3.5$ at
+  $n = 128$; at $\nu = 0.03$ it is $-4$ at both.
+- Records. SENS and all five RANDOM draws never synchronize within the ladder. The $\mu_0/4$ budgets
+  equal the $\mu_0$ budgets for every graded observer in every cell. The observer exponent's sign
+  agrees with synchronization in 87 to 95 percent of cells, by observer.
+
+What the pilot says, as every probe round did. To synchronize this flow, a nudged copy needs the
+large scales first. BALL synchronizes at 8 pairs at $\nu = 0.03$ (out to $|k| = \sqrt 5 \approx 2.24$) and 12 at
+$\nu = 0.02$ (out to $|k| = \sqrt 8 \approx 2.83$), in every cell and at both resolutions. READ, the read
+distortion of each mode, needs 1.3 to 6 times as many. It is never ahead of BALL. It is ahead of
+ENSTROPHY, its own amplitude factor, in 5 of 8 cells and level in 3.
+
+Owner decision (2026-10-12): D8 is recorded at the pilot. It is not sealed and not run. Every
+probe round and every pilot cell agree, and the run ladder ($n = 128$ and 192) was estimated at about
+100 CPU-hours per $n = 192$ trajectory for a projected FAIL. Section 8 is therefore not carried out, and
+`OD:sync-observer` is not entered in `claims/transformations/OD.toml`. The open question this leaves,
+whether the loss to BALL belongs to the per-mode instrument or to the flow, is gate OP4 of the OP
+track (`experiments/OP/OP4/OP4-DESIGN-DRAFT.md`).
 
 ## 8. Sealing procedure
 
