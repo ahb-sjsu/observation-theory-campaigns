@@ -5,7 +5,7 @@
 under TEND and behind under RFF; pilot running on Atlas as designed (owner). OP2 (memory in
 Mori–Zwanzig models): RECORDED AT THE PILOT (owner, 2026-10-12), pilot grade FAIL; the modes READ
 makes explicit leave less memory than ENERGY's (0.538 against 0.574) and slightly more than BALL's
-(0.531), at both resolutions. OP3 a design draft. Nothing here is claim-bearing until
+(0.531), at both resolutions. OP3 a record draft; OP4 a design draft. Nothing here is claim-bearing until
 registered. Chip 🧭 OP.
 
 ## 1. Question
@@ -110,6 +110,15 @@ linear system with fewer sensors than the energy ranking and never more) and D8 
 nudged copy must read, graded when its run completes), set against the sensor-selection literature
 (Kazma et al. 2023 and 2024, Mons and Marquet 2021, Inubushi and Caulfield arXiv:2508.16920). The
 two results may point in opposite directions, and the record says so if they do.
+
+### OP4. D6v3's spectral selector on D8's flow
+
+The test OP3's record suggests. D6v3's window-Gramian selector, restricted to the flow's leading
+tangent subspace, chooses the Fourier pairs a nudged copy of D8's turbulence must read, and its
+synchronization budget is compared cell by cell with D8's pilot budgets for BALL and READ on the same
+seeds. The outcome says whether D8's loss to BALL belongs to the per-mode instrument or to the
+system. Design draft: `experiments/OP/OP4/OP4-DESIGN-DRAFT.md` (2026-10-12). It waits for D8's
+eighth pilot cell.
 
 ### Deferred
 
