@@ -134,6 +134,35 @@ after 2 pairs, and GRAM's first twelve pairs lay at $|k|$ from 3.0 to 5.1, near 
 world is unresolved and too short to mean anything about synchronization; it shows only that the
 pipeline runs.
 
+Probe (owner's decision of 2026-10-12: one world, $\nu = 0.03$, $n = 96$, D8's pilot seeds, both test
+trajectories and a BALL recheck on trajectory 0). Atlas, screen `op4-probe`, code at a547af8, started
+15:30 UTC. The Gramian phase finished after 6362 s, cached as `gram/p_nu030_n96_pilot.json` (sha256
+dfc74612...). Its parameters came from the registered rule, before any nudging ran.
+- Lyapunov spectrum from the QR iteration (24 vectors, 20 time units to align, 40 to measure). Six
+  exponents are positive (0.083, 0.080, 0.070, 0.057, 0.050, 0.041). The next four are near zero
+  ($-0.001$, $-0.004$, $-0.006$, $-0.018$), and the rest are clearly negative, down to $-0.35$. D8's probe
+  measured a leading exponent of $+0.06$ for this viscosity with one vector, and the finite-time
+  values differ by window.
+- The rule's parameters: $\lambda_1 = 0.083$, so $T_w = 12.0$; $d_u = 6$, so $m' = 16$. frac = 0.001, the
+  smallest of the three, and the all-pairs Gramian identifies all 16 directions in every window
+  only at that fraction. The thresholds by window are 0.129 to 0.262. The leading finite-time exponents
+  by window are 0.08 to 0.14.
+- The count $d_u = 6$ is reached in every window after 2 pairs, so from the third pair on GRAM's order is
+  set by the tie-break, the smallest eigenvalue of the 16-direction Gramian.
+- GRAM's first twelve pairs lie at $|k| = 2.83$ to $4.47$, around the forcing shell ($k_f = 4$): (2, 3), (4, 0),
+  (3, 0), (3, 2), (3, $-2$), (3, $-1$), (3, $-3$), (1, $-3$), (1, $-4$), (2, $-3$), (4, 2), (2, 2). No $|k| = 1$ pair is
+  among its first 32. Only 2 of its first 24 lie within BALL's 8-pair synchronizing set ($|k| \le \sqrt 5$),
+  at positions 20 and 21.
+
+What the Gramian phase shows before any nudging result, recorded and not acted on. The instrument
+ranks pairs near the forcing scale first, as READ did. The large scales that BALL takes first come
+late. A hypothesis for why, which this probe does not test: the rule counts only the positive
+exponents ($d_u = 6$) as the directions to identify, while four more are near zero. Over $T_{sync} = 100$ an
+error along a near-neutral direction barely decays, so synchronization may need those directions
+observed as well. If they sit at the large scales, a rule that counts them would move those scales
+forward. Changing the rule now would be fitting it to this probe. Any such rule is a new
+registration, declared before a fresh probe.
+
 ## 5. Cost and platform
 
 The Gramian needs $m'$ tangent propagations per window, over a few windows of the training
