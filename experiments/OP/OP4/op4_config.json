@@ -1,0 +1,13 @@
+{
+ "note": "OP4's instrument settings (OP4-DESIGN-DRAFT.md Sections 2 and 3). m0 tangent vectors for the QR iteration; T_w, d_u, m' and frac follow from the training trajectory's Lyapunov spectrum by the draft's rule, blind to every nudging result.",
+ "m0": 24,
+ "dt_qr": 1.0,
+ "T_qr_spin": 20.0,
+ "T_qr_meas": 40.0,
+ "T_w_clip": [
+  1.0,
+  20.0
+ ],
+ "n_windows": 4,
+ "samples_per_window": 20
+}

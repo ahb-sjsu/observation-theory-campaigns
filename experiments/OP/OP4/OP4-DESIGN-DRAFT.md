@@ -101,6 +101,39 @@ Reading the outcomes, fixed now.
   $d_{obs} = d_u$, and one that misses it gives less.
 - GRAM with every pair observed reaches $d_{obs} = m'$.
 
+Code and self-test (2026-10-12). `op4_gram.py` imports D8's solver, tangent, rankings and
+`nudge_record` and D6v3's Gramian and greedy, and copies neither. It runs in two parts, so that the
+eight cells can run in parallel. The `gram` part computes the instrument once per world and caches
+the ordering, and the `nudge` part runs per test trajectory. `op4_config.json` holds the
+instrument's settings ($m_0 = 24$ tangent vectors, QR every 1.0 time unit, 20 time units to align and 40 to
+measure, 4 windows of 20 samples, $T_w$ clipped to $[1, 20]$). Self-test on Atlas, eleven checks, all PASS.
+- OP4's greedy reproduces D6's on Lorenz-96 at $n = 10$, at four thresholds and counts, through full
+  ten-sensor orderings. Where D6's set never reaches the count, OP4 reports it as not reached.
+- The sampled Gramian of the propagated directions equals D6's Van Loan Gramian within
+  $3.6 \times 10^{-5}$.
+- On a system with a known unstable subspace, the pairs that observe it identify $d_u$ directions and
+  the pairs that miss it identify none, and the greedy takes the first pairs first.
+- The parameter rule is right on unordered exponents.
+- The QR exponents of a diagonal system are exact.
+- The propagated tangent equals the central difference of D8's solver over 0.5 time units within
+  $3.2 \times 10^{-10}$.
+- The pair readings sum to half the full Gram matrix of the propagated vectors, since each pair
+  stands for $\pm k$, within $10^{-16}$.
+- Every direction is identified with every pair observed.
+
+Two first versions of checks failed and were mine. The D6-equivalence check first compared only a
+two-sensor selection, and was strengthened. Its reached-count condition then demanded a count
+where D6's own set never reaches one, and was corrected to compare with D6's outcome.
+
+Smoke run (Atlas, an unresolved world at $n = 48$ with short times, both parts and a BALL recheck,
+about 3.5 minutes in all). It found one bug in the code. Over a short measuring time the QR exponents
+do not come out ordered, and the code took the first as $\lambda_1$. The draft defines $\lambda_1$ as the
+leading exponent, so the code now sorts, and a self-test check covers it. After the fix the rule gave
+$\lambda_1 = 0.109$, $T_w = 9.2$, $d_u = 3$, $m' = 8$ and frac 0.01, met in every window. The count was reached
+after 2 pairs, and GRAM's first twelve pairs lay at $|k|$ from 3.0 to 5.1, near the forcing shell. The
+world is unresolved and too short to mean anything about synchronization; it shows only that the
+pipeline runs.
+
 ## 5. Cost and platform
 
 The Gramian needs $m'$ tangent propagations per window, over a few windows of the training
