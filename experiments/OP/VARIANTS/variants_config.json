@@ -1,0 +1,15 @@
+{
+ "note": "The variants' settings (SEALED-RUN-PLAN.md Sections 2 to 4). m0 = 32 with the cap stated; neutral_factor 0.1 for d_un; the window and QR settings are OP4's; esa_samples is the probe's declared maximum, the PROBE item fixed by split-half stability (Spearman >= 0.9).",
+ "m0": 32,
+ "dt_qr": 1.0,
+ "T_qr_spin": 20.0,
+ "T_qr_meas": 40.0,
+ "T_w_clip": [
+  1.0,
+  20.0
+ ],
+ "n_windows": 4,
+ "samples_per_window": 20,
+ "neutral_factor": 0.1,
+ "esa_samples": 80
+}

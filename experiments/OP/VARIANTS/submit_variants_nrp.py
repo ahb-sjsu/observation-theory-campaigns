@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+"""Submit the variants' nudging Jobs to NRP via nats-bursting, save each result as it lands, and collect them. Runs ON
+ATLAS from the repository checkout (it needs the NATS hub and kubectl). SEALED-RUN-PLAN.md Sections 4 and 6.
+
+Two stages. The ranking and Gramian parts (`op_variants.py --part rank|gram`) run first and cache each world's orderings
+in `cache/`. Every nudging Job then carries its world's cached orderings inside it (base64, sha256 asserted), so no Job
+depends on another and none reads a shared volume. One Job per (variant, world, test trajectory).
+
+The transport is D8's, imported and not copied: `publish` (status subscription opened before publishing), `created`
+(fresh creationTimestamp after submit) and `kubectl`. The preflight is scored against the PREFLIGHT of
+reference_nrp_job_policies line by line:
+  * CPU-only (gpu = 0). Exempt class: cpu = 1, memory = 2Gi, ephemeral-storage 2Gi declared; D8's footprint at n = 96
+    is about 220 MiB on one core. OMP_NUM_THREADS = 1.
+  * Self-terminating: bounded by `timeout`; no sleep anywhere in the Job; backoff_limit = 0.
+  * Self-contained: the code, configs and cache ride in as base64 with sha256 asserted; numpy is pinned to the version
+    the self-tests passed on; the variants' self-test runs in the pod first.
+  * Names checked absent before submit, creationTimestamp checked fresh after; logs read only from Jobs that
+    succeeded; `--save` keeps each result block the moment its Job succeeds (three D8 pilot logs were lost when it
+    did not), and never overwrites a saved piece.
+  * No deletes here except `--cleanup`, which refuses any Job that has not finished.
+
+Usage (on Atlas, from experiments/OP/VARIANTS):
+  /home/claude/env/bin/python submit_variants_nrp.py --role probe --dry-run
+  /home/claude/env/bin/python submit_variants_nrp.py --role probe --i-have-checked-nrp-policy
+  /home/claude/env/bin/python submit_variants_nrp.py --role probe --save      # run on every watcher poll
+  /home/claude/env/bin/python submit_variants_nrp.py --role probe --cleanup   # finished Jobs only
+"""
+from __future__ import annotations
+
+import argparse
+import asyncio
+import base64
+import datetime as dt
+import gzip
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+from nats_bursting.descriptor import JobDescriptor, Resources
+
+HERE = Path(__file__).resolve().parent
+EXP = HERE.parents[1]
+sys.path.insert(0, str(EXP / "OD" / "D8"))
+from submit_d8_nrp import created, kubectl, publish  # noqa: E402
+
+IMAGE = "python:3.12-slim"
+PINS = "numpy==2.2.6"  # the version D8's and the variants' self-tests passed on at Atlas
+FILES = {"OD/D5/d5_burgers.py": EXP / "OD" / "D5" / "d5_burgers.py", "OD/D8/d8_sync.py": EXP / "OD" / "D8" / "d8_sync.py",
+         "OD/D8/prereg_config.json": EXP / "OD" / "D8" / "prereg_config.json", "OP/OP4/op4_gram.py": EXP / "OP" / "OP4" / "op4_gram.py",
+         "OP/VARIANTS/op_variants.py": HERE / "op_variants.py", "OP/VARIANTS/variants_config.json": HERE / "variants_config.json"}
+ROLES = {"probe": {"worlds": ["p_nu030_n96", "p_nu020_n96"], "seed_role": "pilot", "tests": [0, 1], "timeout": "16h", "batch": "op-var-probe"}}
+VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")
+CPU, MEM, EPH = "1", "2Gi", "2Gi"
+BEGIN, END = "----BEGIN opv result gz-b64----", "----END opv result----"
+
+
+def job_name(variant: str, world: str, role: str, test: int) -> str:
+    return f"opv-{role}-{variant.replace('_', '-').lower()}-{world.replace('_', '-').lower()}-t{test}"
+
+
+def units(role: str) -> list[tuple[str, str, int]]:
+    R = ROLES[role]; return [(v, w, t) for w in R["worlds"] for v in VARIANTS for t in R["tests"]]
+
+
+def cache_files(world: str, seed_role: str) -> dict[str, Path]:
+    return {f"OP/VARIANTS/cache/{p}_{world}_{seed_role}.json": HERE / "cache" / f"{p}_{world}_{seed_role}.json" for p in ("rank", "gram")}
+
+
+def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tuple[str, str]]) -> str:
+    R = ROLES[role]; out = f"{role}_{variant}_{world}_t{test}.json"
+    lines = ["set -euo pipefail", "export PYTHONUNBUFFERED=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PIP_ROOT_USER_ACTION=ignore HOME=/work",
+             "mkdir -p /work/OD/D5 /work/OD/D8 /work/OP/OP4 /work/OP/VARIANTS/cache"]
+    for rel, (b64, sha) in blobs.items():
+        lines += [f"echo '{b64}' | base64 -d > /work/{rel}", f"echo '{sha}  /work/{rel}' | sha256sum -c - || exit 3"]
+    lines += [f"pip install -q --no-cache-dir {PINS} 2>&1 | tail -1 || true",
+              "python -c \"import numpy, sys; print('numpy', numpy.__version__, 'python', sys.version.split()[0])\"",
+              "cd /work/OP/VARIANTS", "python -u op_variants.py --selftest",
+              f"timeout {R['timeout']} python -u op_variants.py --config ../../OD/D8/prereg_config.json --vcfg variants_config.json --seed-role {R['seed_role']} "
+              f"--world {world} --part nudge --variant {variant} --tests {test} --cache cache --out {out}",
+              f"echo '{BEGIN}'", f"gzip -c {out} | base64 -w0", "echo", f"echo '{END}'"]
+    return "\n".join(lines) + "\n"
+
+
+def descriptor(variant, world, role, test, blobs, head) -> JobDescriptor:
+    return JobDescriptor(name=job_name(variant, world, role, test), image=IMAGE, command=["/bin/bash", "-c", command(variant, world, role, test, blobs)],
+                         env={"OPV_VARIANT": variant, "OPV_WORLD": world, "OPV_ROLE": role, "OPV_TEST": str(test), "OPV_HEAD": head},
+                         resources=Resources(cpu=CPU, memory=MEM, gpu=0, ephemeral_storage=EPH),
+                         labels={"atlas.io/batch": ROLES[role]["batch"], "atlas.io/role": role, "app": "op-variants"}, backoff_limit=0)
+
+
+def preflight(d: JobDescriptor, role: str) -> None:
+    """The PREFLIGHT as code; the exempt class is the only class this submitter may use."""
+    r = d.resources; problems = []
+    if r.gpu != 0: problems.append("GPU requested for a CPU workload")
+    if float(r.cpu) > 1: problems.append(f"cpu {r.cpu} outside the exempt class (<= 1)")
+    if not r.memory.endswith("Gi") or float(r.memory[:-2]) > 2: problems.append(f"memory {r.memory} outside the exempt class (<= 2Gi)")
+    if not r.ephemeral_storage: problems.append("ephemeral-storage not declared")
+    body = " ".join(d.command)
+    if "sleep" in body: problems.append("command contains sleep")
+    if f"timeout {ROLES[role]['timeout']}" not in body: problems.append("run not bounded by timeout")
+    if d.backoff_limit != 0: problems.append("backoff_limit must be 0")
+    if len(d.name) > 63: problems.append(f"name longer than 63 characters ({len(d.name)})")
+    got = kubectl("get", "job", d.name, "-o", "name")
+    if got.returncode == 0 and got.stdout.strip(): problems.append(f"Job {d.name} already exists (delete the finished one first)")
+    if problems:
+        raise SystemExit(f"PREFLIGHT VETO {d.name}: " + "; ".join(problems))
+
+
+def submit(role: str, dry: bool) -> int:
+    head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in FILES.values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
+    if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
+    R = ROLES[role]; base = {}
+    for rel, p in FILES.items():
+        raw = p.read_bytes(); base[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest())
+    descs = []; cache_sha = {}
+    for v, w, t in units(role):
+        blobs = dict(base)
+        for rel, p in cache_files(w, R["seed_role"]).items():
+            if not p.exists(): raise SystemExit(f"PREFLIGHT VETO: {p} missing; run op_variants.py --part rank and --part gram for {w} first")
+            raw = p.read_bytes(); blobs[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest()); cache_sha[rel] = blobs[rel][1]
+        descs.append(descriptor(v, w, role, t, blobs, head))
+    for d in descs: preflight(d, role)
+    print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in base.items()} | cache_sha,
+                      "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": R["timeout"], "pins": PINS}, indent=1))
+    if dry:
+        v, w, t = units(role)[0]; print(command(v, w, role, t, {k: ("<b64>", s) for k, (_, s) in base.items()})); return 0
+    for i, d in enumerate(descs):
+        if i: time.sleep(20)  # space submissions apart on Atlas (no churn); this is the submitter, not a Job
+        t_sub = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
+        ev = asyncio.run(publish(d)); c = None
+        for _ in range(12):
+            c = created(d.name)
+            if c: break
+            time.sleep(5)
+        fresh = c is not None and c >= t_sub
+        print(json.dumps({"job": d.name, "status_events": ev, "creationTimestamp": c.isoformat() if c else None, "fresh": fresh}), flush=True)
+        if not fresh:
+            raise SystemExit(f"{d.name}: no fresh Job after submit; read the status events above before anything else")
+    return 0
+
+
+def save(role: str) -> int:
+    """Save every succeeded Job's result block to pieces/<job>.json, once, atomically; never overwrite."""
+    out = HERE / "pieces"; out.mkdir(exist_ok=True)
+    for v, w, t in units(role):
+        name = job_name(v, w, role, t); path = out / f"{name}.json"
+        if path.exists(): continue
+        st = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}").stdout.strip()
+        if not st.startswith("1/"): continue  # never read logs of a Job that has not succeeded
+        log = kubectl("logs", f"job/{name}").stdout
+        if BEGIN not in log: print(f"SAVE-UNAVAILABLE {name}"); continue
+        raw = gzip.decompress(base64.b64decode(log.split(BEGIN, 1)[1].split(END, 1)[0].strip()))
+        tmp = path.with_suffix(".tmp"); tmp.write_bytes(raw); os.replace(tmp, path)
+        (out / f"{name}.log").write_text(log.split(BEGIN, 1)[0], encoding="utf-8"); print(f"SAVED {name} {len(raw)} bytes")
+    return 0
+
+
+def cleanup(role: str) -> int:
+    for v, w, t in units(role):
+        name = job_name(v, w, role, t); got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
+        if got.returncode != 0: print(f"{name}: absent"); continue
+        s, f, a = (got.stdout.strip().split("/") + ["", "", ""])[:3]
+        if a not in ("", "0") or (s in ("", "0") and f in ("", "0")):
+            print(f"{name}: NOT finished (succeeded={s} failed={f} active={a}); refusing to delete a running Job"); continue
+        print(name, kubectl("delete", "job", name).stdout.strip())
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--i-have-checked-nrp-policy", action="store_true", dest="ack"); ap.add_argument("--role", default="probe", choices=list(ROLES))
+    ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--save", action="store_true"); ap.add_argument("--cleanup", action="store_true")
+    a = ap.parse_args()
+    if a.save: return save(a.role)
+    if a.cleanup: return cleanup(a.role)
+    if not a.ack and not a.dry_run:
+        sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")
+    return submit(a.role, a.dry_run)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
