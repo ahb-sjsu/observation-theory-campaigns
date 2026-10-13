@@ -1,9 +1,10 @@
 # OP4 (DESIGN DRAFT): D6v3's spectral selector on D8's flow, the instrument or the system
 
-Status: DESIGN DRAFT, 2026-10-12. Not a registration and not claim-bearing. Gate OP4 of the OP track
-(`experiments/OPEN-PROBLEMS-TRACK.md`), the test that OP3's record suggests in its Section 5
-(`experiments/OP/OP3/OP3-RECORD-DRAFT.md`). Nothing here is fixed until a probe has settled the items
-marked PENDING by rules this draft states before the probe runs.
+Status: RECORDED AT THE CONFIRMATION, 2026-10-13, on the owner's decision. Not sealed, so not a
+registered verdict. It reads "system" in all 8 cells (Section 4, Confirmation runs). Gate OP4 of the OP
+track (`experiments/OPEN-PROBLEMS-TRACK.md`), the test that OP3's record suggests in its Section 5
+(`experiments/OP/OP3/OP3-RECORD.md`). Written 2026-10-12 as a design draft. Its PENDING items were
+settled by the probe under the rules stated here before the probe ran.
 
 ## 1. The question
 
@@ -199,12 +200,39 @@ The reading of each cell uses D8's pilot budgets for the same seeds.
 | World | $\lambda_1$, $d_u$, $m'$, $T_w$, frac | GRAM's first pairs ($|k|$) | GRAM t0 | GRAM t1 | BALL (D8) | READ (D8) | KE (D8) | ENSTROPHY (D8) |
 |---|---|---|---|---|---|---|---|---|
 | $\nu = 0.03$, $n = 96$ (probe) | 0.083, 6, 16, 12.0, 0.001 | 2.83 to 4.47 | 48 | 48 | 8, 8 | 24, 48 | 24, 32 | 48, 48 |
-| $\nu = 0.03$, $n = 128$ | PENDING | PENDING | PENDING | PENDING | 8, 8 | 24, 48 | 24, 32 | 48, 48 |
-| $\nu = 0.02$, $n = 96$ | 0.248, 12, 24, 4.0, 0.001 | 3.00 to 4.24 | PENDING | PENDING | 12, 12 | 16, 16 | 24, 24 | 64, 48 |
-| $\nu = 0.02$, $n = 128$ | 0.276, 14, 24 (capped, see below), 3.6, 0.001 | 2.83 to 4.24 | PENDING | PENDING | 12, 12 | 48, 32 | 32, 32 | 48, 48 |
+| $\nu = 0.03$, $n = 128$ | 0.079, 8, 16, 12.7, 0.001 | 3.00 to 5.00 | 64 | 48 | 8, 8 | 24, 48 | 24, 32 | 48, 48 |
+| $\nu = 0.02$, $n = 96$ | 0.248, 12, 24, 4.0, 0.001 | 3.00 to 4.24 | 96 | 96 | 12, 12 | 16, 16 | 24, 24 | 64, 48 |
+| $\nu = 0.02$, $n = 128$ | 0.276, 14, 24 (capped, see below), 3.6, 0.001 | 2.83 to 4.24 | 64 | 96 | 12, 12 | 48, 32 | 32, 32 | 48, 48 |
 
-Entries are filled from the runs' logs and cached Gramian records as they land. The reading of
-Section 3 is applied to the eight cells pooled, as the probe's was applied to its two.
+Entries are filled from the runs' result files and cached Gramian records. The reading of Section 3
+is applied to the eight cells pooled, as the probe's was applied to its two.
+
+Result (2026-10-13; all six confirmation runs clean, the last finishing after 22,033 s of nudging; every
+GRAM record monotone). In ladder steps, GRAM against BALL is $-5$, $-5$, $-6$, $-5$, $-6$, $-6$, $-5$ and $-6$
+over the eight cells. That is behind in all 8 and $-5.5$ pooled, a budget four to eight times BALL's.
+Against READ it is $-2$, 0, $-3$, 0, $-5$, $-5$, $-1$ and $-3$: behind in 6, level in 2, ahead in none, and
+$-2.4$ pooled. GRAM is also behind KE in every cell, and behind ENSTROPHY in 5 and level with it in 3. At $\nu = 0.02$, $n = 96$
+it is behind every graded ranking, at 96 pairs against ENSTROPHY's 64 and 48. The reading fixed in
+Section 3 before the probe is "system" in every cell and pooled. On D8's flow, scale is what a nudged
+copy must read, and the window-Gramian instrument that won on linear systems (D6v3) chooses worse than
+both scale and the per-mode ranking. On all four worlds the instrument's first picks lie at the
+forcing shell, and BALL's large-scale pairs come late in its order. The probe found that those
+pairs are not necessary for synchronization (48 pairs holding 4 of BALL's 8 synchronize). They are
+what makes BALL's budget small.
+
+The cap departure recorded below does not change the reading. The world where the cap binds
+($\nu = 0.02$, $n = 128$) reads "system" like the three where it does not, and by the same margin
+against BALL.
+
+This is the confirmation's record, run on D8's pilot seeds with D8's budgets as the controls. It is
+not a sealed run.
+
+Owner decision (2026-10-13): OP4 is recorded at the confirmation. It is not sealed and not rerun on
+fresh seeds, and Section 6 of the write-up outline is written as "system". The alternatives offered
+were a sealed run on D8's run seeds, which would also need fresh control budgets since D8's run was
+never done, and a new registration counting near-neutral exponents. The margin is large and the same
+in every cell, and a sealed rerun would have cost one to two days of Atlas for a reading that all eight
+cells already agree on. No family enters `claims/transformations/OP.toml` for OP4.
 
 A departure from the stated rule, recorded 2026-10-13. Section 3 states that $m'$ is "the smallest
 multiple of 8 that is at least twice $d_u$" (also in Section 2's list), with no upper limit. The

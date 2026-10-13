@@ -1,9 +1,9 @@
 # Where the Read Helps: Choosing What to Observe by Read Distortion, from Linear Sensors to Turbulence
 
-**Status: OUTLINE v1, 2026-10-12.** Not a draft. The write-up of the OP track and the selection gates
-of the OD track (D6v3, D7v3, D8). One section has two versions, and the OP4 probe, now running,
-decides which one is written. Nothing below goes into prose until the open items at the end are
-settled.
+**Status: OUTLINE v1.1, 2026-10-13.** Not a draft. The write-up of the OP track and the selection gates
+of the OD track (D6v3, D7v3, D8). Section 6 had two versions. OP4 read "system" in all 8 cells, so
+the "system" version is the one to write (v1.1). Nothing below goes into prose until the open items
+at the end are settled.
 
 ## The claim, as wide as the evidence and no wider
 
@@ -22,8 +22,8 @@ read distortion
 
 The paper's contribution is the map, not a new selector. It also gives the mechanism behind
 statement 3: the per-mode ranking spends its picks at the forcing shell, while synchronization
-needs the large scales first. And it carries the OP4 result, which says whether a better OT
-instrument closes that gap.
+needs the large scales first. And it carries the OP4 result: OT's window-Gramian instrument,
+which won on linear systems, does not close that gap and does worse than the per-mode ranking.
 
 ## Evidence base and its status (state it in the paper exactly like this)
 
@@ -34,7 +34,7 @@ instrument closes that gap.
 | D8 | Nudging forced 2-D turbulence | recorded at the pilot | pilot FAIL | read distortion behind scale in 8 of 8 cells, by 3.1 ladder steps |
 | OP1 | Koopman (EDMD) dictionaries | recorded at the pilot | pilot FAIL | ahead of energy in 48 of 80 cells, level with scale; one world in a slow regime |
 | OP2 | Mori–Zwanzig memory | recorded at the pilot | pilot FAIL | less memory than energy (34 of 40 cells), level with scale |
-| OP4 | D6v3's Gramian on D8's flow | probe running | none yet | instrument or system |
+| OP4 | D6v3's Gramian on D8's flow | recorded at the confirmation | reads "system", 8 of 8 cells | the Gramian behind scale in every cell (5.5 ladder steps pooled), never ahead of READ |
 | Theory note | Galerkin Navier–Stokes | proved, finite-dimensional | n/a | Propositions 1 to 4; Propositions 2 and 3 checked numerically in every D8 pilot cell (T1, T2) |
 
 The weak point a referee will find first. Three of the five comparisons are pilots with committed
@@ -62,17 +62,18 @@ before submission.
 5. **Where it loses: synchronizing forced turbulence.** D8: the budgets, the mechanism, the
    replication of Inubushi and Caulfield's observer. The theory note's propositions hold in every
    cell, so the loss is not a failure of the operator's computation.
-6. **Instrument or system** (two versions, chosen by OP4).
-   - If OP4 reads "instrument": the Gramian spectrum chooses as well as scale, so the per-mode
-     ranking was the weak link. This becomes the positive result, and OP4 needs a full pilot and a
-     sealed run first.
-   - If OP4 reads "system" or "both": scale is what this flow asks an observer to read, even of the
-     instrument that won on linear systems. OT's selection results are bounded by D6v3's and D7v3's
-     settings. OP4's instrument is presented as a member of the singular-vector, variational-Gramian
-     and assimilation-in-the-unstable-subspace family (Palmer et al. 1998; Kazma and Taha 2026;
-     Trevisan, D'Isidoro and Talagrand 2010), tested on D8's task. The near-neutral point is
-     attributed to Trevisan, D'Isidoro and Talagrand, who found the best subspace dimension near
-     that of the unstable and neutral manifold, not claimed as OP4's.
+6. **The loss belongs to the flow, not to the instrument.** OP4 read "system" in all 8 cells. Scale
+   is what this flow asks an observer to read, even of the window-Gramian instrument that won on
+   linear systems, which needs 4 to 8 times BALL's budget and does worse than the per-mode ranking.
+   Both OT instruments put their first picks at the forcing shell. OT's selection results with a
+   sealed PASS are bounded by D6v3's and D7v3's settings. OP4's instrument is presented as a member
+   of the singular-vector, variational-Gramian and assimilation-in-the-unstable-subspace family
+   (Palmer et al. 1998; Kazma and Taha 2026; Trevisan, D'Isidoro and Talagrand 2010), tested on
+   D8's task. Its m' rule as committed capped the subspace at 24 on one world. That is reported, and
+   it did not change the reading. The near-neutral variant is stated as the one untested variant,
+   attributed to Trevisan, D'Isidoro and Talagrand, who found the best subspace dimension near that
+   of the unstable and neutral manifold, and not claimed as OP4's. (The "instrument" version of this
+   section, which would have required a full OP4 pilot and sealed run, is dropped.)
 7. **What the theory does not reach.** Short: the propositions are preserved by Tao's averaged
    equation, so they cannot carry a regularity proof, and the paper makes no claim about
    regularity.
@@ -112,8 +113,8 @@ regime). The theory-note checks.
 
 ## Open items before any prose
 
-1. OP4's probe result, which chooses Section 6. If it reads "instrument", OP4 gets a full pilot and
-   a sealed run before the paper.
+1. Done, 2026-10-13. OP4 read "system" in 8 of 8 cells, and Section 6 is written in that version. OP4 is
+   recorded at the confirmation, not sealed, as are D8, OP1 and OP2 at their pilots.
 2. The owner's choice between options (a) and (b) above.
 3. Done in part, 2026-10-13 (`NOVELTY-SEARCH.md`). The search used OpenAlex, since Scholar and Web of
    Science were not reachable from the session. Read distortion's form and OP4's instrument both

@@ -7,7 +7,8 @@ one pilot world ($\nu = 0.03$, $n = 128$) in a slow regime where every EDMD fore
 persistence. OP2 (memory in
 Mori–Zwanzig models): RECORDED AT THE PILOT (owner, 2026-10-12), pilot grade FAIL; the modes READ
 makes explicit leave less memory than ENERGY's (0.538 against 0.574) and slightly more than BALL's
-(0.531), at both resolutions. OP3 a record draft; OP4 a design draft. Nothing here is claim-bearing until
+(0.531), at both resolutions. OP3 a record. OP4 (D6v3's Gramian selector on D8's flow): RECORDED AT THE CONFIRMATION (owner,
+2026-10-13), reads "system" in 8 of 8 cells. Nothing here is claim-bearing until
 registered. Chip 🧭 OP.
 
 ## 1. Question
@@ -120,8 +121,9 @@ The test OP3's record suggests. D6v3's window-Gramian selector, restricted to th
 tangent subspace, chooses the Fourier pairs a nudged copy of D8's turbulence must read, and its
 synchronization budget is compared cell by cell with D8's pilot budgets for BALL and READ on the same
 seeds. The outcome says whether D8's loss to BALL belongs to the per-mode instrument or to the
-system. Design draft: `experiments/OP/OP4/OP4-DESIGN-DRAFT.md` (2026-10-12). It waits for D8's
-eighth pilot cell.
+system. Draft: `experiments/OP/OP4/OP4-DESIGN-DRAFT.md` (2026-10-12). Recorded at the confirmation on
+the owner's decision (2026-10-13), not sealed. The result reads "system" in all 8 cells: GRAM is
+behind BALL in every cell, by 5.5 ladder steps pooled, and never ahead of READ.
 
 ### Deferred
 

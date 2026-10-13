@@ -94,15 +94,24 @@ through D8's nudging protocol on D8's pilot seeds, paired cell by cell with D8's
 parameters are fixed by a rule blind to every nudging result. Its readings were fixed before any
 run. Matching or beating BALL means the per-mode instrument was the weak link ("instrument"). Beating
 READ but not BALL means "both". Beating neither means that in this flow scale is what an observer
-must read, even with the instrument that won on linear systems ("system"). Its probe, on one world
-($\nu = 0.03$, $n = 96$, both trajectories), is running on Atlas.
+must read, even with the instrument that won on linear systems ("system").
 
-## 6. What waits
+Result (2026-10-13, recorded at the confirmation on the owner's decision; all four D8 pilot worlds,
+both trajectories, 8 cells). GRAM is behind BALL in all 8 cells, by 5.5 ladder steps pooled, a budget
+4 to 8 times BALL's. It is behind READ in 6 cells and level in 2, and behind KE in every cell. Every
+cell reads "system". On all four worlds the instrument's first picks lie at the forcing shell, as
+READ's do.
 
-OP4's probe. If it reads "system", this record's Section 3 stands as the campaign's finding on
-selection, and the OT selection results are bounded by D6v3's linear and low-dimensional worlds and
-by D7v3's closure. If it reads "instrument" or "both", the per-mode ranking of D8, OP1 and OP2 is the
-part to replace, and the campaign's next registrations should use the Gramian spectrum.
+## 6. What the gates establish
+
+The split of Section 3 belongs to the system, not to the per-mode instrument. On D8's flow, scale is
+what a nudged copy must read first. Neither OT's per-mode read distortion nor its window-Gramian
+spectrum closes the gap, and the Gramian chooses worse than the per-mode ranking. Section 3 therefore
+stands as the campaign's finding on selection. OT's selection quantities improve on energy wherever
+energy competes. The selection results with a sealed PASS are bounded by D6v3's linear and
+low-dimensional worlds and by D7v3's closure. For synchronizing forced turbulence, scale wins. The
+near-neutral-direction rule that the instrument's literature supports (Trevisan, D'Isidoro and
+Talagrand 2010) was not tested, and is the one open variant of the instrument.
 
 ## Sources
 
