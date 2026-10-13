@@ -200,11 +200,25 @@ The reading of each cell uses D8's pilot budgets for the same seeds.
 |---|---|---|---|---|---|---|---|---|
 | $\nu = 0.03$, $n = 96$ (probe) | 0.083, 6, 16, 12.0, 0.001 | 2.83 to 4.47 | 48 | 48 | 8, 8 | 24, 48 | 24, 32 | 48, 48 |
 | $\nu = 0.03$, $n = 128$ | PENDING | PENDING | PENDING | PENDING | 8, 8 | 24, 48 | 24, 32 | 48, 48 |
-| $\nu = 0.02$, $n = 96$ | PENDING | PENDING | PENDING | PENDING | 12, 12 | 16, 16 | 24, 24 | 64, 48 |
-| $\nu = 0.02$, $n = 128$ | PENDING | PENDING | PENDING | PENDING | 12, 12 | 48, 32 | 32, 32 | 48, 48 |
+| $\nu = 0.02$, $n = 96$ | 0.248, 12, 24, 4.0, 0.001 | 3.00 to 4.24 | PENDING | PENDING | 12, 12 | 16, 16 | 24, 24 | 64, 48 |
+| $\nu = 0.02$, $n = 128$ | 0.276, 14, 24 (capped, see below), 3.6, 0.001 | 2.83 to 4.24 | PENDING | PENDING | 12, 12 | 48, 32 | 32, 32 | 48, 48 |
 
 Entries are filled from the runs' logs and cached Gramian records as they land. The reading of
 Section 3 is applied to the eight cells pooled, as the probe's was applied to its two.
+
+A departure from the stated rule, recorded 2026-10-13. Section 3 states that $m'$ is "the smallest
+multiple of 8 that is at least twice $d_u$" (also in Section 2's list), with no upper limit. The
+code applies a cap. `choose_params` sets $m' = \min(m_0, 8 \lceil 2 d_u / 8 \rceil)$, and its docstring
+says "at most m0". $m_0 = 24$ was fixed in `op4_config.json` after the rule's text was written. The cap
+did not bind on the probe world ($d_u = 6$, $m' = 16$) or on $\nu = 0.02$, $n = 96$ ($d_u = 12$, $m' = 24$
+exactly). It binds on $\nu = 0.02$, $n = 128$. There $d_u = 14$, so the rule as written asks for $m' = 32$,
+while the code gives 24, less than $2 d_u = 28$. That world's subspace therefore holds the 14 unstable
+directions with 10 more beside them, not the 18 or more the text intended. The run was not changed. It
+uses the code as committed (a547af8), which is what ran on every world, and the departure is
+reported, not corrected after the fact. Whether a subspace of 24 changes GRAM's ordering on that
+world could be checked only by rerunning its Gramian phase with $m_0 = 32$, and that is a choice for the
+owner. The rule's text should have stated the cap. Any re-registration states both the cap and
+$m_0$ before its probe.
 
 ## 5. Cost and platform
 
