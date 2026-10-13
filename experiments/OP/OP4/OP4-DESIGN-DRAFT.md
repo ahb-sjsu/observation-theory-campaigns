@@ -163,6 +163,49 @@ observed as well. If they sit at the large scales, a rule that counts them would
 forward. Changing the rule now would be fitting it to this probe. Any such rule is a new
 registration, declared before a fresh probe.
 
+Probe result (2026-10-12; the session ended after 18,288 s on the BALL recheck). Both nudging runs ran
+clean, and the records are monotone.
+
+| Trajectory | GRAM | BALL | READ | KE | ENSTROPHY |
+|---|---|---|---|---|---|
+| 0 | 48 | 8 (D8; rechecked here: 8) | 24 | 24 | 48 |
+| 1 | 48 | 8 (D8) | 48 | 32 | 48 |
+
+- The recheck reproduces D8. BALL on trajectory 0, rerun here with D8's seeds and generator, gives
+  $m^* = 8$, the same synchronization flags at every ladder value and the same final errors to the
+  last digit. The comparison with D8's budgets is therefore exact, cell by cell.
+- GRAM synchronizes at nothing below 48 pairs. Its final error is 0.79 to 1.3 at every ladder value
+  up to 32, and $7.5 \times 10^{-6}$ and $6.7 \times 10^{-7}$ at 48. It is 5 ladder steps behind BALL on both
+  trajectories, 2 steps behind READ on trajectory 0, and level with READ on trajectory 1.
+- The reading fixed in Section 3 before the probe: GRAM behind BALL and not ahead of READ reads
+  "system". On this world, scale is what the flow asks an observer to read, both for the instrument
+  that won on linear systems and for the per-mode ranking. This is a probe on one world and two
+  trajectories, not a verdict.
+
+A mechanism checked and refuted. GRAM might synchronize only once its prefix contains BALL's eight
+pairs. It does not. Its first 48 pairs contain 4 of them, (2, 0), (0, 2), (1, $-2$) and (2, $-1$), and none of
+the four $|k| \le \sqrt 2$ pairs (1, 0), (0, 1), (1, $-1$) and (1, 1), which come at positions 51 to 109 (counting from 1). So the
+largest scales are not necessary for synchronization. 48 pairs that are mostly near the forcing shell,
+with 4 of the low ones, also synchronize, at six times BALL's budget. What scale buys is efficiency,
+not necessity. The near-neutral-direction hypothesis above is untested by this probe.
+
+Confirmation runs (owner's decision of 2026-10-12: confirm the probe's reading on the other three D8
+pilot worlds). Started 2026-10-13 02:20 UTC on Atlas, one screen session per world (`op4-p_*`), from
+the same code (a547af8), with the instrument's settings and the parameter rule unchanged. Each
+world runs the Gramian phase, then GRAM's nudging on both test trajectories in parallel, launched by
+`run_world.sh`. There is no BALL recheck, since the probe's recheck reproduced D8 to the last digit.
+The reading of each cell uses D8's pilot budgets for the same seeds.
+
+| World | $\lambda_1$, $d_u$, $m'$, $T_w$, frac | GRAM's first pairs ($|k|$) | GRAM t0 | GRAM t1 | BALL (D8) | READ (D8) | KE (D8) | ENSTROPHY (D8) |
+|---|---|---|---|---|---|---|---|---|
+| $\nu = 0.03$, $n = 96$ (probe) | 0.083, 6, 16, 12.0, 0.001 | 2.83 to 4.47 | 48 | 48 | 8, 8 | 24, 48 | 24, 32 | 48, 48 |
+| $\nu = 0.03$, $n = 128$ | PENDING | PENDING | PENDING | PENDING | 8, 8 | 24, 48 | 24, 32 | 48, 48 |
+| $\nu = 0.02$, $n = 96$ | PENDING | PENDING | PENDING | PENDING | 12, 12 | 16, 16 | 24, 24 | 64, 48 |
+| $\nu = 0.02$, $n = 128$ | PENDING | PENDING | PENDING | PENDING | 12, 12 | 48, 32 | 32, 32 | 48, 48 |
+
+Entries are filled from the runs' logs and cached Gramian records as they land. The reading of
+Section 3 is applied to the eight cells pooled, as the probe's was applied to its two.
+
 ## 5. Cost and platform
 
 The Gramian needs $m'$ tangent propagations per window, over a few windows of the training
