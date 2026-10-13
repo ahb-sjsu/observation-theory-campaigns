@@ -52,7 +52,10 @@ before submission.
 2. **The read operator and the read distortion of a mode.** The observer, the read operator, read
    distortion, and Proposition 4 (read distortion is the optimal ranking under random phases), from
    the theory note. The first-order argument shows why the ranking should help each task, and where
-   that argument ends (one step, linear in the mode, diagonal).
+   that argument ends (one step, linear in the mode, diagonal). Read distortion is presented as OT's
+   derivation of the observation-targeting criterion of meteorology, sensitivity times uncertainty
+   (Ancell and Hakim 2007; Baker and Daley 2000; Palmer et al. 1998), in diagonal form. It is not a
+   new selector (`NOVELTY-SEARCH.md`).
 3. **Where the read helps: linear sensors and closure.** D6v3 and D7v3, both sealed.
 4. **Where it ties: forecasts and memory.** OP1 (the lift rule, TEND, the regime caveat) and OP2
    (the memory share chosen by split-half reliability). Ahead of energy, level with scale.
@@ -65,7 +68,11 @@ before submission.
      sealed run first.
    - If OP4 reads "system" or "both": scale is what this flow asks an observer to read, even of the
      instrument that won on linear systems. OT's selection results are bounded by D6v3's and D7v3's
-     settings. Include the recorded hypothesis about near-neutral directions, labelled as untested.
+     settings. OP4's instrument is presented as a member of the singular-vector, variational-Gramian
+     and assimilation-in-the-unstable-subspace family (Palmer et al. 1998; Kazma and Taha 2026;
+     Trevisan, D'Isidoro and Talagrand 2010), tested on D8's task. The near-neutral point is
+     attributed to Trevisan, D'Isidoro and Talagrand, who found the best subspace dimension near
+     that of the unstable and neutral manifold, not claimed as OP4's.
 7. **What the theory does not reach.** Short: the propositions are preserved by Tao's averaged
    equation, so they cannot carry a regularity proof, and the paper makes no claim about
    regularity.
@@ -97,15 +104,22 @@ regime). The theory-note checks.
 - Not OP1's $\nu = 0.03$, $n = 128$ world as evidence about selection. That world is in a slow regime
   where every EDMD forecast is worse than persistence.
 - Not novelty for the Gramian instrument itself. Empirical Gramians are standard in sensor placement
-  (Krener and Ide 2009, Singh and Hahn 2004).
+  (Krener and Ide 2009, Singh and Hahn 2004). A variational Gramian from the tangent dynamics is
+  published (Kazma and Taha 2026), and singular-vector targeting predates both (Palmer et al. 1998).
+- Not novelty for read distortion as a criterion. It is the diagonal form of ensemble- and
+  adjoint-sensitivity observation targeting (Ancell and Hakim 2007).
+- Not the near-neutral-direction idea as OP4's. It is Trevisan, D'Isidoro and Talagrand's (2010).
 
 ## Open items before any prose
 
 1. OP4's probe result, which chooses Section 6. If it reads "instrument", OP4 gets a full pilot and
    a sealed run before the paper.
 2. The owner's choice between options (a) and (b) above.
-3. A database search (Scholar, Web of Science) on sensitivity-weighted observable selection and on
-   Gramian-based nudging, before any novelty sentence.
+3. Done in part, 2026-10-13 (`NOVELTY-SEARCH.md`). The search used OpenAlex, since Scholar and Web of
+   Science were not reachable from the session. Read distortion's form and OP4's instrument both
+   have close prior art, now cited. Two claims of novelty remain: the preregistered cross-task map
+   with the scale result for nudging, and D7v3's closure criterion. The owner should check both with
+   a Scholar or Web of Science pass before submission.
 4. Venue, chosen by the owner after reading each candidate's generative-AI policy. Candidates by fit,
    not ranked: Physica D, Chaos, SIAM Journal on Applied Dynamical Systems, Journal of Fluid
    Mechanics (Rapids).
