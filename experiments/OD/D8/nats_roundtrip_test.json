@@ -1,0 +1,18 @@
+{
+ "test": "nats_results.py round trip from an NRP Job, PREREG-D8-RUN-DRAFT.md Section 9 item 5",
+ "job": "d8-nats-roundtrip",
+ "job_status": "1/",
+ "subject": "od.results.test.roundtrip",
+ "payload_bytes": 2240000,
+ "expected_sha256": "95fbe6ae973807d88d6b9ce5f0ea6488efbe0a85d06ca24dd6357c6a255575a6",
+ "pod_sha256": "95fbe6ae973807d88d6b9ce5f0ea6488efbe0a85d06ca24dd6357c6a255575a6",
+ "pod_publish_line": "NATS-PUBLISHED od.results.test.roundtrip chunks=3 seqs=[4, 5, 6]",
+ "collect": {
+  "ok": true,
+  "sha256": "95fbe6ae973807d88d6b9ce5f0ea6488efbe0a85d06ca24dd6357c6a255575a6",
+  "bytes": 2240000,
+  "chunks": 3,
+  "sets_seen": 1
+ },
+ "result": "PASS"
+}

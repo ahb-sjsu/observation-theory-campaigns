@@ -149,7 +149,13 @@ a node's log (three of D8's pilot logs were lost).
    (`submit_d8_nrp.py --role timing`: the lower ladder half, 7 of 13 rungs, of READ with the observer
    tangent, on the timing world `t_nu020_n192` with its own seeds) runs on NRP, and its wall time and
    peak memory are recorded. The Job structure of item 3 is confirmed or revised from that measurement.
-5. `nats_results.py` is committed, its stream ensured, and a round trip tested from an NRP Job.
+5. `nats_results.py` is committed, its stream ensured, and a round trip tested from an NRP Job. Done
+   2026-10-14: committed in 338dfdc; the `OD_RESULTS` stream (subjects `od.results.>`) created on the
+   Atlas hub; `test_nats_roundtrip.py` PASS locally and from the NRP Job `d8-nats-roundtrip`, which sent
+   a 2.24 MB seeded payload through the in-cluster leaf in 3 acknowledged chunks; the copy collected on
+   Atlas matched both the pod's sha256 and the one computed from the seed (`nats_roundtrip_test.json`).
+   The run's Jobs do not publish over NATS yet: wiring `nats_results.py publish` into the D8 and
+   variants Job commands is part of the smoke run, item 7.
 6. `prereg_config.json` sets $K_{run} = 8$ and the run worlds. `OD:sync-observer` and the OP4 and
    variant families are entered in `claims/transformations/OD.toml` and `OP.toml`. Done 2026-10-14:
    $K_{run} = 8$ in `prereg_config.json` (commit 76808f8, the run worlds were already there);
