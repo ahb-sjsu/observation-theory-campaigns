@@ -157,9 +157,9 @@ a node's log (three of D8's pilot logs were lost).
    upper half (6 rungs) about 7.7 h, and a graded observer unsplit about 14 h. Both are inside the 20 h
    bound, and the unsplit estimate is under the 16 h at which Section 4 splits an arm. The Job ran on the
    node where the probe's cells ran two to three times slower than D8's pilot (`PROBE-RECORD.md` Section 5),
-   so the times may be high. Memory is 37% of the 2 GiB class. Whether the $n = 192$ arms run whole or in
-   halves is for the owner to decide from this measurement; the submitters split them (`halves_min_n` 192)
-   until then.
+   so the times may be high. Memory is 37% of the 2 GiB class. Decided by the owner from this measurement
+   (2026-10-14): the $n = 192$ graded and variant arms run in ladder halves, as in item 3 and Section 4
+   (`halves_min_n` 192 in both submitters).
 5. `nats_results.py` is committed, its stream ensured, and a round trip tested from an NRP Job. Done
    2026-10-14: committed in 338dfdc; the `OD_RESULTS` stream (subjects `od.results.>`) created on the
    Atlas hub; `test_nats_roundtrip.py` PASS locally and from the NRP Job `d8-nats-roundtrip`, which sent
@@ -177,6 +177,14 @@ a node's log (three of D8's pilot logs were lost).
    `OD:sync-observer` in `OD.toml`, and `OP:gram-observer` and `OP:sync-variants` in a new `OP.toml`,
    with no test rows until the run's verdict.
 7. A smoke run of one cell of every arm on a small world through the whole pipeline (submit, save,
-   collect, merge, grade).
+   collect, merge, grade). Built 2026-10-14: the smoke world `s_nu030_n64` ($\nu = 0.03$, $n = 64$, its own
+   seeds 20261092 and 20261093, $K = 1$) and a `smoke` role in both submitters that is the run role with
+   `halves_min_n` lowered to 64, so every graded observer and every variant arm goes through the ladder-half
+   split and merge (15 D8 Jobs and 8 variant Jobs). The run's grader for OP4's reading and the secondary arms,
+   `d8_run_grade.py`, is added beside `d8_grade.py` (which grades D8's gate and is imported unchanged), with a
+   self-test of the sign test and Holm thresholds of Section 5 and of OP4's three readings.
+   `smoke_check.py` then checks, for every Job, that the result in its log and the copy in `OD_RESULTS` are
+   byte-identical, that D8's collection from the stream alone equals the one from the logs, and that the
+   collected files grade, and writes `smoke_record.json`.
 8. This draft is renamed `PREREG-D8-RUN.md` in one commit, and its blob hash is recorded in the track
    documents and the README status ledger.

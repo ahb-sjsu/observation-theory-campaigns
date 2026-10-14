@@ -59,11 +59,14 @@ ROLES = {"probe": {"worlds": ["p_nu030_n96", "p_nu020_n96"], "seed_role": "pilot
          # the run (PREREG-D8-RUN-DRAFT.md Sections 3 and 4): OP4's GRAM and the three secondary arms on the run worlds, K from
          # the config; every arm carries the observer tangent like a graded D8 observer, so at n = 192 it is split into ladder
          # halves (the same sizing as submit_d8_nrp.py's run role, measured there 2026-10-14: 8.6 h and 760 MiB for READ's lower
-         # half at n = 192; halves kept until the owner decides); ESA was dropped
+         # half at n = 192; the owner kept the halves, 2026-10-14); ESA was dropped
          # before the seal when its sample-count rule failed (PREREG-D8-RUN-DRAFT.md Section 3, owner 2026-10-14)
          "run": {"worlds": [w["name"] for w in CFG8["worlds"] if w["group"] in CFG8["groups_by_role"]["run"]], "seed_role": "run",
                  "tests": list(range(int(CFG8["K_by_role"]["run"]))), "timeout": "20h", "batch": "op-var-run",
                  "variants": ("GRAM", "READ_KE", "GRAM_UN", "SV"), "halves_min_n": 192, "nats": True}}
+# the smoke run (PREREG-D8-RUN-DRAFT.md Section 9, item 7): the run's Jobs on the smoke world, split by halves at n = 64
+ROLES["smoke"] = {**ROLES["run"], "worlds": [w["name"] for w in CFG8["worlds"] if w["group"] in CFG8["groups_by_role"]["smoke"]], "seed_role": "smoke",
+                  "tests": list(range(int(CFG8["K_by_role"]["smoke"]))), "timeout": "6h", "batch": "op-var-smoke", "halves_min_n": 64}
 VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")  # the probe's arms; a role may name its own
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN opv result gz-b64----", "----END opv result----"
@@ -179,18 +182,50 @@ def submit(role: str, dry: bool, variants=None) -> int:
 
 
 def save(role: str) -> int:
-    """Save every succeeded Job's result block to pieces/<job>.json, once, atomically; never overwrite."""
+    """Save every succeeded Job's result block to pieces/<job>.json, once, atomically; never overwrite. For a role that
+    publishes, a Job that succeeded without a readable result block is saved from the stream instead."""
+    from submit_d8_nrp import fetch_nats
     out = HERE / "pieces"; out.mkdir(exist_ok=True)
     for v, w, t, h in units(role):
         name = job_name(v, w, role, t, h); path = out / f"{name}.json"
         if path.exists(): continue
         st = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}").stdout.strip()
-        if not st.startswith("1/"): continue  # never read logs of a Job that has not succeeded
-        log = kubectl("logs", f"job/{name}").stdout
-        if BEGIN not in log: print(f"SAVE-UNAVAILABLE {name}"); continue
-        raw = gzip.decompress(base64.b64decode(log.split(BEGIN, 1)[1].split(END, 1)[0].strip()))
+        raw, log = None, ""
+        if st.startswith("1/"):  # never read logs of a Job that has not succeeded
+            log = kubectl("logs", f"job/{name}").stdout
+            if BEGIN in log: raw = gzip.decompress(base64.b64decode(log.split(BEGIN, 1)[1].split(END, 1)[0].strip())); log = log.split(BEGIN, 1)[0]
+        if raw is None and ROLES[role].get("nats") and st.startswith("1/"):  # only finished Jobs: the saver runs on every poll
+            raw = fetch_nats(nats_subject("opv", role, name)); log = f"(log unavailable; result from NATS {nats_subject('opv', role, name)})\n"
+        if raw is None:
+            if st.startswith("1/"): print(f"SAVE-UNAVAILABLE {name}")
+            continue
         tmp = path.with_suffix(".tmp"); tmp.write_bytes(raw); os.replace(tmp, path)
-        (out / f"{name}.log").write_text(log.split(BEGIN, 1)[0], encoding="utf-8"); print(f"SAVED {name} {len(raw)} bytes")
+        (out / f"{name}.log").write_text(log, encoding="utf-8"); print(f"SAVED {name} {len(raw)} bytes")
+    return 0
+
+
+def collect(role: str) -> int:
+    """The saved pieces of the role -> <role>_variants.json: one record per (variant, world), test trajectories by index, the
+    ladder halves joined by op_variants.merge_variant_halves (m* on the merged flags). A half without its partner is left out
+    and reported; a half is never graded alone."""
+    sys.path.insert(0, str(HERE)); from op_variants import merge_variant_halves
+    pieces = HERE / "pieces"; res = {"role": role, "seed_role": ROLES[role]["seed_role"], "arms": {}, "missing": [], "footprints": {}}
+    for v in ROLES[role].get("variants", VARIANTS):
+        for w in ROLES[role]["worlds"]:
+            tests = {}
+            for t in ROLES[role]["tests"]:
+                hs = [h for (v2, w2, t2, h) in units(role) if (v2, w2, t2) == (v, w, t)]
+                got = {h: pieces / f"{job_name(v, w, role, t, h)}.json" for h in hs}
+                if not all(p.exists() for p in got.values()):
+                    res["missing"] += [p.stem for p in got.values() if not p.exists()]; continue
+                parts = {h: json.loads(p.read_text(encoding="utf-8")) for h, p in got.items()}
+                for h, p in got.items(): res["footprints"][p.stem] = parts[h].get("footprint")
+                r = merge_variant_halves(parts[0], parts[1]) if hs == [0, 1] else parts[None]
+                for x in r["tests"]: tests[x["index"]] = x
+                ladder = r["ladder"]
+            if tests: res["arms"].setdefault(v, {})[w] = {"ladder": ladder, "tests": [tests[i] for i in sorted(tests)]}
+    out = HERE / f"{role}_variants.json"; out.write_text(json.dumps(res, indent=1), encoding="utf-8")
+    print(json.dumps({"wrote": out.name, "arms": {v: {w: len(x["tests"]) for w, x in ws.items()} for v, ws in res["arms"].items()}, "missing": res["missing"]}))
     return 0
 
 
@@ -209,9 +244,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--i-have-checked-nrp-policy", action="store_true", dest="ack"); ap.add_argument("--role", default="probe", choices=list(ROLES))
     ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--save", action="store_true"); ap.add_argument("--cleanup", action="store_true")
+    ap.add_argument("--collect", action="store_true", help="merge the saved pieces into <role>_variants.json")
     ap.add_argument("--variants", default=None, help="comma-separated subset of the variants to submit (all by default)")
     a = ap.parse_args()
     if a.save: return save(a.role)
+    if a.collect: return collect(a.role)
     if a.cleanup: return cleanup(a.role)
     if not a.ack and not a.dry_run:
         sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")

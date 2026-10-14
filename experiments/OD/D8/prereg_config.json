@@ -49,11 +49,14 @@
  "seed_run_test": 20261075,
  "seed_timing_train": 20261090,
  "seed_timing_test": 20261091,
+ "seed_smoke_train": 20261092,
+ "seed_smoke_test": 20261093,
  "K_by_role": {
   "probe": 1,
   "pilot": 2,
   "run": 8,
-  "timing": 1
+  "timing": 1,
+  "smoke": 1
  },
  "groups_by_role": {
   "probe": [
@@ -67,6 +70,9 @@
   ],
   "timing": [
    "timing"
+  ],
+  "smoke": [
+   "smoke"
   ]
  },
  "bars": "PREREG-D8-DRAFT.md Section 5; tolerances fixed from the pilot",
@@ -167,6 +173,14 @@
    "nu": 0.02,
    "seed_offset": 31,
    "note": "timing world (PREREG-D8-RUN-DRAFT.md Section 9): measures one run Job at n = 192 on its own seeds; no gate reads it"
+  },
+  {
+   "name": "s_nu030_n64",
+   "group": "smoke",
+   "n": 64,
+   "nu": 0.03,
+   "seed_offset": 41,
+   "note": "smoke world (PREREG-D8-RUN-DRAFT.md Section 9, item 7): one cell of every arm through the run's whole pipeline on its own seeds, split by ladder halves like an n = 192 run world; no gate reads it"
   }
  ],
  "T_hold": 10.0,

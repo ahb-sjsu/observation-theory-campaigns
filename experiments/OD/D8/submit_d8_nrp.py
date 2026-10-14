@@ -66,8 +66,8 @@ ROLES = {
     # about 20 h or more whole and is split into ladder halves (halves_min_n); one other observer is about 4 to 10 h and runs
     # whole. Memory at n = 192 is estimated at about 0.8 GiB. MEASURED 2026-10-14 by the timing role (timing_n192_read_h0.json,
     # on k8s-haosu-11): the lower half of READ at n = 192 took 8.6 h (training 2.0 h, 7 rungs 6.6 h), peak RSS 760 MiB, so the
-    # estimate above was high; an unsplit observer is about 14 h by equal cost per rung. Halves are kept until the owner
-    # decides (PREREG-D8-RUN-DRAFT.md Section 9, item 4).
+    # estimate above was high; an unsplit observer is about 14 h by equal cost per rung. The owner kept the halves
+    # (2026-10-14, PREREG-D8-RUN-DRAFT.md Section 9, item 4).
     "run": {"parts": {}, "per_test": True, "per_arm": True, "timeout": "20h", "batch": "od-d8-run", "halves_min_n": 192, "nats": True,
             "split_parts": {"inst": ("instrument", None), "read": ("graded", "READ"), "enstrophy": ("graded", "ENSTROPHY"), "ke": ("graded", "KE"), "ball": ("graded", "BALL"),
                             "sens": ("others", "SENS"), **{f"random{j}": ("others", f"RANDOM{j}") for j in range(5)}}},
@@ -77,6 +77,10 @@ ROLES = {
     "timing": {"parts": {}, "per_test": True, "per_arm": True, "timeout": "20h", "batch": "od-d8-timing", "halves_min_n": 192,
                "split_parts": {"read": ("graded", "READ")}},
 }
+# The smoke run (PREREG-D8-RUN-DRAFT.md Section 9, item 7): the run's Jobs exactly, on the smoke world (n = 64, its own seeds,
+# K = 1), with halves_min_n lowered to 64 so that every graded observer goes through the ladder-half split and merge, and
+# the run's NATS publish; the bound is lower since an n = 64 half is minutes per rung (test_ladder_split.py on Atlas)
+ROLES["smoke"] = {**ROLES["run"], "timeout": "6h", "batch": "od-d8-smoke", "halves_min_n": 64}
 # split_parts: a core part cut into five Jobs (the instrument group, then one graded observer each), submitted only when named
 # with --only. Added 2026-10-11 after d8-pilot-p-nu020-n128-t0-core timed out at 20 h with READ alone finished; each
 # graded observer at n = 128 takes about 4 h. Every Job repeats the deterministic training, so the pieces merge by index.
@@ -256,15 +260,35 @@ def submit(dry: bool, split: bool = False, role: str = "probe", only: list[str] 
     return 0
 
 
-def fetch(name: str):
+def fetch_nats(subject: str) -> bytes | None:
+    """The result a Job published to OD_RESULTS (nats_results.collect verifies the sha256 and length), or None."""
+    import tempfile
+    from nats_results import collect as nr_collect
+    with tempfile.TemporaryDirectory() as d:
+        r = asyncio.run(nr_collect(subject, str(Path(d) / "r.json")))
+        return (Path(d) / "r.json").read_bytes() if r.get("ok") else None
+
+
+def fetch(name: str, subject: str | None = None):
+    """A Job's result from its log block; for a role that publishes (subject given), from the stream when the Job is gone,
+    has no log, or has no result block."""
     st = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}").stdout.strip()
-    if not st.startswith("1/"):  # never read logs of a Job that has not succeeded: a dead node makes kubectl logs hang
-        print(f"{name}: status {st or 'absent'}, not collected"); return None, st
-    log = kubectl("logs", f"job/{name}").stdout
-    if BEGIN not in log:
-        print(f"{name}: status {st}, no result block; last lines:\n" + "\n".join(log.splitlines()[-8:])); return None, st
-    blob = log.split(BEGIN, 1)[1].split(END, 1)[0].strip()
-    return (json.loads(gzip.decompress(base64.b64decode(blob))), log.split(BEGIN, 1)[0]), st
+    log = ""
+    if st.startswith("1/"):  # never read logs of a Job that has not succeeded: a dead node makes kubectl logs hang
+        log = kubectl("logs", f"job/{name}").stdout
+        if BEGIN in log:
+            blob = log.split(BEGIN, 1)[1].split(END, 1)[0].strip()
+            return (json.loads(gzip.decompress(base64.b64decode(blob))), log.split(BEGIN, 1)[0]), st
+    if subject:
+        raw = fetch_nats(subject)
+        if raw is not None:
+            print(f"{name}: status {st or 'absent'}, result taken from {subject}")
+            return (json.loads(raw), f"(log unavailable; result from NATS {subject})\n"), st or "absent"
+    if st.startswith("1/"):
+        print(f"{name}: status {st}, no result block; last lines:\n" + "\n".join(log.splitlines()[-8:]))
+    else:
+        print(f"{name}: status {st or 'absent'}, not collected")
+    return None, st
 
 
 def merge_parts(pieces: dict) -> dict:
@@ -314,7 +338,7 @@ def collect(worlds: list[str] | None = None, tag: str = "", split: bool = False,
                 for part in (role_parts(role, w) if R.get("per_arm") else [*R["parts"], *R.get("split_parts", {})]):
                     key = "_".join(x for x in (f"t{t}" if t is not None else "", part) if x)
                     if not R.get("per_arm") and part in R.get("split_parts", {}) and kubectl("get", "job", job_name(w, part, role, t), "-o", "name").returncode != 0: continue
-                    got, st = fetch(job_name(w, part, role, t))
+                    jn = job_name(w, part, role, t); got, st = fetch(jn, nats_subject("d8", role, jn) if R.get("nats") else None)
                     if got: pieces[key] = got[0]; logs.append(f"===== {key}\n" + got[1])
             pieces = join_halves(pieces)
             if not pieces: continue
@@ -373,9 +397,12 @@ def selftest() -> int:
     c192 = command("r_nu020_n192", {}, "read-h1", "run", 7); c128 = command("r_nu020_n128", {}, "read", "run", 7)
     ok2 = ok2 and "--seed-role run --world r_nu020_n192 --parts graded --observers READ --tests 7 --ladder-half 1 " in c192 and "--ladder-half" not in c128
     ok2 = ok2 and "--parts others --observers RANDOM4 --tests 0 " in command("r_nu030_n192", {}, "random4", "run", 0) and "sens-h0" not in role_parts("run", "r_nu030_n192")
+    su = units("smoke", False); sn = [job_name(w, p, "smoke", t) for w, t, p in su]
+    ok2 = ok2 and len(su) == 15 and sum(n.endswith(HALVES) for n in sn) == 8 and "--seed-role smoke --world s_nu030_n64 --parts graded --observers KE --tests 0 --ladder-half 0 " in command("s_nu030_n64", {}, "ke-h0", "smoke", 0)
+    ok2 = ok2 and "od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-ke-h0 " in command("s_nu030_n64", {}, "ke-h0", "smoke", 0) and "timeout 6h " in command("s_nu030_n64", {}, "inst", "smoke", 0)
     pub = "nats_results.py publish run_r_nu020_n192_t7_read-h1.json od.results.d8.run.d8-run-r-nu020-n192-t7-read-h1 || echo"
     ok2 = ok2 and pub in c192 and c192.index(pub) < c192.index(BEGIN) and NATS_PIN in c192 and "nats_results" not in command("p_nu020_n128", {}, "ball", "pilot", 0)
-    print(f"run role: K = {K}, {len(ru)} Jobs ({per[128]} at n = 128, {per[192]} at n = 192), longest name {max(map(len, rn))}:", "PASS" if ok2 else "FAIL")
+    print(f"run role: K = {K}, {len(ru)} Jobs ({per[128]} at n = 128, {per[192]} at n = 192), longest name {max(map(len, rn))}; smoke role {len(su)} Jobs; NATS publish:", "PASS" if ok2 else "FAIL")
 
     # join_halves: two constructed halves join into the whole ladder's record with m* taken on the merged flags; a lone half is left out
     def half(h, part, flags, rows):
