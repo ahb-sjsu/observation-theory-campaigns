@@ -56,6 +56,7 @@ ROLES = {"probe": {"worlds": ["p_nu030_n96", "p_nu020_n96"], "seed_role": "pilot
 VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN opv result gz-b64----", "----END opv result----"
+ARG_LIMIT = 120_000  # bytes per exec argument, under MAX_ARG_STRLEN (131072) with margin; files ship gzip + base64
 
 
 def job_name(variant: str, world: str, role: str, test: int) -> str:
@@ -76,7 +77,7 @@ def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tup
     lines = ["set -euo pipefail", "export PYTHONUNBUFFERED=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PIP_ROOT_USER_ACTION=ignore HOME=/work",
              "mkdir -p /work/OD/D5 /work/OD/D8 /work/OP/OP4 /work/OP/VARIANTS/cache"]
     for rel, (b64, sha) in blobs.items():
-        lines += [f"echo '{b64}' | base64 -d > /work/{rel}", f"echo '{sha}  /work/{rel}' | sha256sum -c - || exit 3"]
+        lines += [f"echo '{b64}' | base64 -d | gunzip > /work/{rel}", f"echo '{sha}  /work/{rel}' | sha256sum -c - || exit 3"]
     lines += [f"pip install -q --no-cache-dir {PINS} 2>&1 | tail -1 || true",
               "python -c \"import numpy, sys; print('numpy', numpy.__version__, 'python', sys.version.split()[0])\"",
               "cd /work/OP/VARIANTS", "python -u op_variants.py --selftest",
@@ -105,6 +106,10 @@ def preflight(d: JobDescriptor, role: str) -> None:
     if f"timeout {ROLES[role]['timeout']}" not in body: problems.append("run not bounded by timeout")
     if d.backoff_limit != 0: problems.append("backoff_limit must be 0")
     if len(d.name) > 63: problems.append(f"name longer than 63 characters ({len(d.name)})")
+    # Linux refuses any single exec argument over MAX_ARG_STRLEN (128 KiB): the first probe's 12 Jobs died at
+    # "exec /bin/bash: argument list too long" with ~200 KB of uncompressed base64 in the command
+    big = max(len(a.encode()) for a in d.command)
+    if big > ARG_LIMIT: problems.append(f"command argument {big} bytes exceeds {ARG_LIMIT} (MAX_ARG_STRLEN is 131072)")
     got = kubectl("get", "job", d.name, "-o", "name")
     if got.returncode == 0 and got.stdout.strip(): problems.append(f"Job {d.name} already exists (delete the finished one first)")
     if problems:
@@ -117,13 +122,13 @@ def submit(role: str, dry: bool, variants=None) -> int:
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
     R = ROLES[role]; base = {}
     for rel, p in FILES.items():
-        raw = p.read_bytes(); base[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest())
+        raw = p.read_bytes(); base[rel] = (base64.b64encode(gzip.compress(raw, mtime=0)).decode(), hashlib.sha256(raw).hexdigest())
     descs = []; cache_sha = {}
     for v, w, t in units(role, variants):
         blobs = dict(base)
         for rel, p in cache_files(w, R["seed_role"]).items():
             if not p.exists(): raise SystemExit(f"PREFLIGHT VETO: {p} missing; run op_variants.py --part rank and --part gram for {w} first")
-            raw = p.read_bytes(); blobs[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest()); cache_sha[rel] = blobs[rel][1]
+            raw = p.read_bytes(); blobs[rel] = (base64.b64encode(gzip.compress(raw, mtime=0)).decode(), hashlib.sha256(raw).hexdigest()); cache_sha[rel] = blobs[rel][1]
         descs.append(descriptor(v, w, role, t, blobs, head))
     for d in descs: preflight(d, role)
     print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in base.items()} | cache_sha,
