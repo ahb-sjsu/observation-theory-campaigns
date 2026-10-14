@@ -149,13 +149,28 @@ a node's log (three of D8's pilot logs were lost).
    (`submit_d8_nrp.py --role timing`: the lower ladder half, 7 of 13 rungs, of READ with the observer
    tangent, on the timing world `t_nu020_n192` with its own seeds) runs on NRP, and its wall time and
    peak memory are recorded. The Job structure of item 3 is confirmed or revised from that measurement.
+   Measured 2026-10-14 (`timing_n192_read_h0.json` and `.log`, Job `d8-timing-t-nu020-n192-t0-read-h0` on
+   `k8s-haosu-11`, submitted 02:09 UTC, seen succeeded at 10:49): wall 30958 s (8.6 h) on one core (mean 1.00 cores), peak RSS 760 MiB.
+   Of that, training (repeated in every Job) took 7263 s (2.0 h) and the 7 rungs of the lower half 23695 s
+   (6.6 h, about 0.94 h per rung). The self-test passed in the pod, and the stability guard passed (CFL 0.115,
+   at most 0.145 in training). Derived from this one Job, assuming equal cost per rung, not measured: the
+   upper half (6 rungs) about 7.7 h, and a graded observer unsplit about 14 h. Both are inside the 20 h
+   bound, and the unsplit estimate is under the 16 h at which Section 4 splits an arm. The Job ran on the
+   node where the probe's cells ran two to three times slower than D8's pilot (`PROBE-RECORD.md` Section 5),
+   so the times may be high. Memory is 37% of the 2 GiB class. Whether the $n = 192$ arms run whole or in
+   halves is for the owner to decide from this measurement; the submitters split them (`halves_min_n` 192)
+   until then.
 5. `nats_results.py` is committed, its stream ensured, and a round trip tested from an NRP Job. Done
    2026-10-14: committed in 338dfdc; the `OD_RESULTS` stream (subjects `od.results.>`) created on the
    Atlas hub; `test_nats_roundtrip.py` PASS locally and from the NRP Job `d8-nats-roundtrip`, which sent
    a 2.24 MB seeded payload through the in-cluster leaf in 3 acknowledged chunks; the copy collected on
    Atlas matched both the pod's sha256 and the one computed from the seed (`nats_roundtrip_test.json`).
-   The run's Jobs do not publish over NATS yet: wiring `nats_results.py publish` into the D8 and
-   variants Job commands is part of the smoke run, item 7.
+   Wired 2026-10-14: the run role of `submit_d8_nrp.py` and of `submit_variants_nrp.py` ships
+   `nats_results.py` (sha256 asserted) and nats-py 2.14.0, and publishes each result file, bounded by
+   `timeout 10m`, to `od.results.d8.run.<Job name>` or `od.results.opv.run.<Job name>` before the log
+   block; a failed publish is logged (`NATS-PUBLISH-EXIT`) and does not fail the Job. The preflight refuses a
+   run Job without the bounded publish or without `NATS_URL`. Collecting a result from the stream when its log
+   is lost is part of the smoke run, item 7.
 6. `prereg_config.json` sets $K_{run} = 8$ and the run worlds. `OD:sync-observer` and the OP4 and
    variant families are entered in `claims/transformations/OD.toml` and `OP.toml`. Done 2026-10-14:
    $K_{run} = 8$ in `prereg_config.json` (commit 76808f8, the run worlds were already there);

@@ -1,0 +1,27 @@
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.15
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "t_nu020_n192", "phase": "train", "candidates": 8320, "tail": 0.0, "stability": {"linear_stiffness": 0.3565666666666667, "cfl": 0.11534829676085133, "ok": true, "cfl_max_train": 0.14452982972817302}, "T1_max": 1.8795793188000236e-15, "T2_max": 0.023536365415520823, "seconds": 7263.0}
+{"world": "t_nu020_n192", "test": 0, "observer": "READ", "ladder_half": 0, "m_star": null, "nonmonotone": null, "synced": [false, false, false, false, false, false, true], "seconds": 23695.1}
+{"footprint": {"peak_rss_mib": 760.19921875, "cpu_seconds": 30955.767736, "wall_seconds": 30958.095955371857, "mean_cores": 0.9999247944907461}}

@@ -14,7 +14,9 @@ Scored against the PREFLIGHT of reference_nrp_job_policies, line by line, and en
     argument may exceed ARG_LIMIT (Linux refuses one over 128 KiB; the variant probe's first 12 Jobs died of it).
   * Submitted through burst.submit with a status subscription opened BEFORE publishing (submit errors are published to
     burst.status.<job_id> and never logged); names checked absent before submit; creationTimestamp checked fresh after.
-  * Results come back in the Job log between markers (gzip + base64), no PVC round trip.
+  * Results come back in the Job log between markers (gzip + base64), no PVC round trip. A role with "nats" also
+    publishes the result file into the hub's OD_RESULTS stream (nats_results.py, through the in-cluster leaf) before the
+    log block, so a lost log does not lose the result; a failed publish is logged and the log block still follows.
   * No deletes of any Job here; completed Jobs are cleaned by `--cleanup`, which refuses a Job that has not finished.
 
 Usage (on Atlas, from experiments/OD/D8):
@@ -45,6 +47,10 @@ IMAGE = "python:3.12-slim"
 NUMPY = "2.2.6"  # the version the self-test passed on at Atlas
 HERE = Path(__file__).resolve().parent
 FILES = {"OD/D5/d5_burgers.py": HERE.parent / "D5" / "d5_burgers.py", "OD/D8/d8_sync.py": HERE / "d8_sync.py", "OD/D8/prereg_config.json": HERE / "prereg_config.json"}
+# Shipped only to roles with "nats": the results transport of PREREG-D8-RUN-DRAFT.md Section 8, round trip tested from an
+# NRP Job (nats_roundtrip_test.json); nats-py pinned to Atlas's version, the leaf at its in-cluster service
+NATS_FILES = {"OD/D8/nats_results.py": HERE / "nats_results.py"}
+NATS_PIN, NATS_URL, NATS_TIMEOUT = "nats-py==2.14.0", "nats://atlas-nats:4222", "10m"
 # Per role: the Job parts (d8_sync.py --parts), whether each test trajectory is its own Job, the timeout, the batch label.
 # Probe round 3 at n = 96 measured 2.4 to 3.0 h per core or dt/2 part. The pilot at n = 128 is estimated at about 12 h for
 # its core part (four graded observers with the observer and block exponents, the instrument group and training), so each
@@ -58,8 +64,11 @@ ROLES = {
     # training 0.3 to 0.8 h, peak RSS 360 MiB. n = 192 is ESTIMATED at about 3.7 times n = 128 (n^2 log n per step, steps
     # proportional to n; not measured), and the run carries the observer tangent only, so a graded observer at n = 192 is
     # about 20 h or more whole and is split into ladder halves (halves_min_n); one other observer is about 4 to 10 h and runs
-    # whole. Memory at n = 192 is estimated at about 0.8 GiB. The n = 192 times must be measured before sealing.
-    "run": {"parts": {}, "per_test": True, "per_arm": True, "timeout": "20h", "batch": "od-d8-run", "halves_min_n": 192,
+    # whole. Memory at n = 192 is estimated at about 0.8 GiB. MEASURED 2026-10-14 by the timing role (timing_n192_read_h0.json,
+    # on k8s-haosu-11): the lower half of READ at n = 192 took 8.6 h (training 2.0 h, 7 rungs 6.6 h), peak RSS 760 MiB, so the
+    # estimate above was high; an unsplit observer is about 14 h by equal cost per rung. Halves are kept until the owner
+    # decides (PREREG-D8-RUN-DRAFT.md Section 9, item 4).
+    "run": {"parts": {}, "per_test": True, "per_arm": True, "timeout": "20h", "batch": "od-d8-run", "halves_min_n": 192, "nats": True,
             "split_parts": {"inst": ("instrument", None), "read": ("graded", "READ"), "enstrophy": ("graded", "ENSTROPHY"), "ke": ("graded", "KE"), "ball": ("graded", "BALL"),
                             "sens": ("others", "SENS"), **{f"random{j}": ("others", f"RANDOM{j}") for j in range(5)}}},
     # The timing measurement (PREREG-D8-RUN-DRAFT.md Section 9, owner 2026-10-14): one run-shaped Job at n = 192 on the timing
@@ -77,6 +86,16 @@ CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN d8 result gz-b64----", "----END d8 result----"
 ARG_LIMIT = 120_000  # bytes per exec argument, under MAX_ARG_STRLEN (131072) with margin
 HALVES = ("-h0", "-h1")  # a part name ending in one of these is that ladder half of the part
+
+
+def nats_subject(track: str, role: str, name: str) -> str:
+    """The OD_RESULTS subject of one Job's result: od.results.<track>.<role>.<Job name>."""
+    return f"od.results.{track}.{role}.{name}"
+
+
+def nats_lines(path: str, subject: str) -> list[str]:
+    """Publish the result file, bounded; a failure is logged and never fails the Job, whose log block follows."""
+    return [f"timeout {NATS_TIMEOUT} python -u /work/OD/D8/nats_results.py publish {path} {subject} || echo \"NATS-PUBLISH-EXIT $? {subject}\""]
 
 
 def kubectl(*args: str) -> subprocess.CompletedProcess:
@@ -134,17 +153,20 @@ def command(world: str, blobs: dict[str, tuple[str, str]], part: str | None = No
              "mkdir -p /work/OD/D5 /work/OD/D8"]
     for rel, (b64, sha) in blobs.items():
         lines += [f"echo '{b64}' | base64 -d | gunzip > /work/{rel}", f"echo '{sha}  /work/{rel}' | sha256sum -c - || exit 3"]
-    lines += [f"pip install -q --no-cache-dir numpy=={NUMPY} 2>&1 | tail -1 || true",
+    pins = f"numpy=={NUMPY}" + (f" {NATS_PIN}" if R.get("nats") else "")
+    lines += [f"pip install -q --no-cache-dir {pins} 2>&1 | tail -1 || true",
               "python -c \"import numpy, sys; print('numpy', numpy.__version__, 'python', sys.version.split()[0])\"",
               "cd /work/OD/D8", "python -u d8_sync.py --selftest",
-              f"timeout {R['timeout']} python -u d8_sync.py --config prereg_config.json --seed-role {role} --world {world}{extra} --out {role}_{tag}.json",
-              f"echo '{BEGIN}'", f"gzip -c {role}_{tag}.json | base64 -w0", "echo", f"echo '{END}'"]
+              f"timeout {R['timeout']} python -u d8_sync.py --config prereg_config.json --seed-role {role} --world {world}{extra} --out {role}_{tag}.json"]
+    if R.get("nats"): lines += nats_lines(f"{role}_{tag}.json", nats_subject("d8", role, job_name(world, part, role, test)))
+    lines += [f"echo '{BEGIN}'", f"gzip -c {role}_{tag}.json | base64 -w0", "echo", f"echo '{END}'"]
     return "\n".join(lines) + "\n"
 
 
 def descriptor(world: str, blobs, head: str, part: str | None = None, role: str = "probe", test: int | None = None) -> JobDescriptor:
     return JobDescriptor(name=job_name(world, part, role, test), image=IMAGE, command=["/bin/bash", "-c", command(world, blobs, part, role, test)],
-                         env={"D8_WORLD": world, "D8_HEAD": head, "D8_PART": part or "all", "D8_ROLE": role, "D8_TEST": "all" if test is None else str(test)},
+                         env={"D8_WORLD": world, "D8_HEAD": head, "D8_PART": part or "all", "D8_ROLE": role, "D8_TEST": "all" if test is None else str(test)}
+                         | ({"NATS_URL": NATS_URL} if ROLES[role].get("nats") else {}),
                          resources=Resources(cpu=CPU, memory=MEM, gpu=0, ephemeral_storage=EPH),
                          labels={"atlas.io/batch": ROLES[role]["batch"], "atlas.io/role": role, "app": "od-d8"}, backoff_limit=0)
 
@@ -162,6 +184,8 @@ def preflight(d: JobDescriptor, role: str = "probe") -> None:
     if f"timeout {ROLES[role]['timeout']}" not in body: problems.append("run not bounded by timeout")
     if d.backoff_limit != 0: problems.append("backoff_limit must be 0")
     if len(d.name) > 63: problems.append(f"name longer than 63 characters ({len(d.name)})")
+    if ROLES[role].get("nats") and (f"timeout {NATS_TIMEOUT} python -u /work/OD/D8/nats_results.py publish" not in body or d.env.get("NATS_URL") != NATS_URL):
+        problems.append("a nats role without a bounded publish or without NATS_URL")
     big = max(len(a.encode()) for a in d.command)
     if big > ARG_LIMIT: problems.append(f"command argument {big} bytes exceeds {ARG_LIMIT} (MAX_ARG_STRLEN is 131072)")
     got = kubectl("get", "job", d.name, "-o", "name")
@@ -198,13 +222,13 @@ def created(name: str) -> dt.datetime | None:
 
 def submit(dry: bool, split: bool = False, role: str = "probe", only: list[str] | None = None) -> int:
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
-    dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in FILES.values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in (FILES | NATS_FILES).values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
     if role not in ROLES: raise SystemExit(f"PREFLIGHT VETO: unknown role {role}")
     if role == "run" and not dry and subprocess.run(["git", "cat-file", "-e", "HEAD:experiments/OD/D8/PREREG-D8-RUN.md"], cwd=HERE, capture_output=True).returncode != 0:
         raise SystemExit("PREFLIGHT VETO: the run is submittable only once PREREG-D8-RUN.md is sealed in HEAD (a draft is not a registration); --dry-run works")
     blobs = {}
-    for rel, p in FILES.items():
+    for rel, p in (FILES | (NATS_FILES if ROLES[role].get("nats") else {})).items():
         raw = p.read_bytes(); blobs[rel] = (base64.b64encode(gzip.compress(raw, mtime=0)).decode(), hashlib.sha256(raw).hexdigest())
     us = units(role, split, with_split_parts=bool(only))
     if only:  # resubmit named Jobs only (e.g. a part whose result block was lost); every other Job is left alone
@@ -349,6 +373,8 @@ def selftest() -> int:
     c192 = command("r_nu020_n192", {}, "read-h1", "run", 7); c128 = command("r_nu020_n128", {}, "read", "run", 7)
     ok2 = ok2 and "--seed-role run --world r_nu020_n192 --parts graded --observers READ --tests 7 --ladder-half 1 " in c192 and "--ladder-half" not in c128
     ok2 = ok2 and "--parts others --observers RANDOM4 --tests 0 " in command("r_nu030_n192", {}, "random4", "run", 0) and "sens-h0" not in role_parts("run", "r_nu030_n192")
+    pub = "nats_results.py publish run_r_nu020_n192_t7_read-h1.json od.results.d8.run.d8-run-r-nu020-n192-t7-read-h1 || echo"
+    ok2 = ok2 and pub in c192 and c192.index(pub) < c192.index(BEGIN) and NATS_PIN in c192 and "nats_results" not in command("p_nu020_n128", {}, "ball", "pilot", 0)
     print(f"run role: K = {K}, {len(ru)} Jobs ({per[128]} at n = 128, {per[192]} at n = 192), longest name {max(map(len, rn))}:", "PASS" if ok2 else "FAIL")
 
     # join_halves: two constructed halves join into the whole ladder's record with m* taken on the merged flags; a lone half is left out

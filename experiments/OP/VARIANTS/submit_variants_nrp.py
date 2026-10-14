@@ -16,7 +16,8 @@ reference_nrp_job_policies line by line:
     the self-tests passed on; the variants' self-test runs in the pod first.
   * Names checked absent before submit, creationTimestamp checked fresh after; logs read only from Jobs that
     succeeded; `--save` keeps each result block the moment its Job succeeds (three D8 pilot logs were lost when it
-    did not), and never overwrites a saved piece.
+    did not), and never overwrites a saved piece. A role with "nats" also publishes its result file into the hub's
+    OD_RESULTS stream through D8's nats_results.py before the log block, so a lost log does not lose the result.
   * No deletes here except `--cleanup`, which refuses any Job that has not finished.
 
 Usage (on Atlas, from experiments/OP/VARIANTS):
@@ -45,7 +46,7 @@ from nats_bursting.descriptor import JobDescriptor, Resources
 HERE = Path(__file__).resolve().parent
 EXP = HERE.parents[1]
 sys.path.insert(0, str(EXP / "OD" / "D8"))
-from submit_d8_nrp import created, kubectl, publish  # noqa: E402
+from submit_d8_nrp import NATS_FILES, NATS_PIN, NATS_TIMEOUT, NATS_URL, created, kubectl, nats_lines, nats_subject, publish  # noqa: E402
 
 IMAGE = "python:3.12-slim"
 PINS = "numpy==2.2.6"  # the version D8's and the variants' self-tests passed on at Atlas
@@ -57,11 +58,12 @@ WORLD_N = {w["name"]: int(w["n"]) for w in CFG8["worlds"]}
 ROLES = {"probe": {"worlds": ["p_nu030_n96", "p_nu020_n96"], "seed_role": "pilot", "tests": [0, 1], "timeout": "16h", "batch": "op-var-probe"},
          # the run (PREREG-D8-RUN-DRAFT.md Sections 3 and 4): OP4's GRAM and the three secondary arms on the run worlds, K from
          # the config; every arm carries the observer tangent like a graded D8 observer, so at n = 192 it is split into ladder
-         # halves (the same estimate as submit_d8_nrp.py's run role, to be measured before sealing); ESA was dropped
+         # halves (the same sizing as submit_d8_nrp.py's run role, measured there 2026-10-14: 8.6 h and 760 MiB for READ's lower
+         # half at n = 192; halves kept until the owner decides); ESA was dropped
          # before the seal when its sample-count rule failed (PREREG-D8-RUN-DRAFT.md Section 3, owner 2026-10-14)
          "run": {"worlds": [w["name"] for w in CFG8["worlds"] if w["group"] in CFG8["groups_by_role"]["run"]], "seed_role": "run",
                  "tests": list(range(int(CFG8["K_by_role"]["run"]))), "timeout": "20h", "batch": "op-var-run",
-                 "variants": ("GRAM", "READ_KE", "GRAM_UN", "SV"), "halves_min_n": 192}}
+                 "variants": ("GRAM", "READ_KE", "GRAM_UN", "SV"), "halves_min_n": 192, "nats": True}}
 VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")  # the probe's arms; a role may name its own
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN opv result gz-b64----", "----END opv result----"
@@ -93,18 +95,21 @@ def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tup
              "mkdir -p /work/OD/D5 /work/OD/D8 /work/OP/OP4 /work/OP/VARIANTS/cache"]
     for rel, (b64, sha) in blobs.items():
         lines += [f"echo '{b64}' | base64 -d | gunzip > /work/{rel}", f"echo '{sha}  /work/{rel}' | sha256sum -c - || exit 3"]
-    lines += [f"pip install -q --no-cache-dir {PINS} 2>&1 | tail -1 || true",
+    pins = PINS + (f" {NATS_PIN}" if R.get("nats") else "")
+    lines += [f"pip install -q --no-cache-dir {pins} 2>&1 | tail -1 || true",
               "python -c \"import numpy, sys; print('numpy', numpy.__version__, 'python', sys.version.split()[0])\"",
               "cd /work/OP/VARIANTS", "python -u op_variants.py --selftest",
               f"timeout {R['timeout']} python -u op_variants.py --config ../../OD/D8/prereg_config.json --vcfg variants_config.json --seed-role {R['seed_role']} "
-              f"--world {world} --part nudge --variant {variant} --tests {test} --cache cache --out {out}" + (f" --ladder-half {half}" if half is not None else ""),
-              f"echo '{BEGIN}'", f"gzip -c {out} | base64 -w0", "echo", f"echo '{END}'"]
+              f"--world {world} --part nudge --variant {variant} --tests {test} --cache cache --out {out}" + (f" --ladder-half {half}" if half is not None else "")]
+    if R.get("nats"): lines += nats_lines(out, nats_subject("opv", role, job_name(variant, world, role, test, half)))
+    lines += [f"echo '{BEGIN}'", f"gzip -c {out} | base64 -w0", "echo", f"echo '{END}'"]
     return "\n".join(lines) + "\n"
 
 
 def descriptor(variant, world, role, test, blobs, head, half=None) -> JobDescriptor:
     return JobDescriptor(name=job_name(variant, world, role, test, half), image=IMAGE, command=["/bin/bash", "-c", command(variant, world, role, test, blobs, half)],
-                         env={"OPV_VARIANT": variant, "OPV_WORLD": world, "OPV_ROLE": role, "OPV_TEST": str(test), "OPV_HALF": "all" if half is None else str(half), "OPV_HEAD": head},
+                         env={"OPV_VARIANT": variant, "OPV_WORLD": world, "OPV_ROLE": role, "OPV_TEST": str(test), "OPV_HALF": "all" if half is None else str(half), "OPV_HEAD": head}
+                         | ({"NATS_URL": NATS_URL} if ROLES[role].get("nats") else {}),
                          resources=Resources(cpu=CPU, memory=MEM, gpu=0, ephemeral_storage=EPH),
                          labels={"atlas.io/batch": ROLES[role]["batch"], "atlas.io/role": role, "app": "op-variants"}, backoff_limit=0)
 
@@ -121,6 +126,8 @@ def preflight(d: JobDescriptor, role: str) -> None:
     if f"timeout {ROLES[role]['timeout']}" not in body: problems.append("run not bounded by timeout")
     if d.backoff_limit != 0: problems.append("backoff_limit must be 0")
     if len(d.name) > 63: problems.append(f"name longer than 63 characters ({len(d.name)})")
+    if ROLES[role].get("nats") and (f"timeout {NATS_TIMEOUT} python -u /work/OD/D8/nats_results.py publish" not in body or d.env.get("NATS_URL") != NATS_URL):
+        problems.append("a nats role without a bounded publish or without NATS_URL")
     # Linux refuses any single exec argument over MAX_ARG_STRLEN (128 KiB): the first probe's 12 Jobs died at
     # "exec /bin/bash: argument list too long" with ~200 KB of uncompressed base64 in the command
     big = max(len(a.encode()) for a in d.command)
@@ -133,12 +140,12 @@ def preflight(d: JobDescriptor, role: str) -> None:
 
 def submit(role: str, dry: bool, variants=None) -> int:
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
-    dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in FILES.values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in (FILES | NATS_FILES).values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
     if role == "run" and not dry and subprocess.run(["git", "cat-file", "-e", "HEAD:experiments/OD/D8/PREREG-D8-RUN.md"], cwd=HERE, capture_output=True).returncode != 0:
         raise SystemExit("PREFLIGHT VETO: the run is submittable only once PREREG-D8-RUN.md is sealed in HEAD (a draft is not a registration); --dry-run works")
     R = ROLES[role]; base = {}
-    for rel, p in FILES.items():
+    for rel, p in (FILES | (NATS_FILES if R.get("nats") else {})).items():
         raw = p.read_bytes(); base[rel] = (base64.b64encode(gzip.compress(raw, mtime=0)).decode(), hashlib.sha256(raw).hexdigest())
     descs = []; cache_sha = {}
     missing = set()
@@ -153,7 +160,7 @@ def submit(role: str, dry: bool, variants=None) -> int:
     if missing: print(f"DRY RUN WITHOUT CACHES (a submission would be vetoed): {sorted(missing)}")
     for d in descs: preflight(d, role)
     print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in base.items()} | cache_sha,
-                      "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": R["timeout"], "pins": PINS}, indent=1))
+                      "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": R["timeout"], "pins": PINS + (f" {NATS_PIN}" if R.get("nats") else "")}, indent=1))
     if dry:
         v, w, t, h = units(role, variants)[-1]; print(command(v, w, role, t, {k: ("<b64>", s) for k, (_, s) in base.items()}, h)); return 0
     for i, d in enumerate(descs):
