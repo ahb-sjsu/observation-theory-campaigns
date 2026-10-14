@@ -132,8 +132,9 @@ a node's log (three of D8's pilot logs were lost).
 1. The variant probe (`SEALED-RUN-PLAN.md` Section 4) completes, and ESA's number of training samples is
    fixed by the declared split-half rule, or the rule's failure is reported to the owner. ESA's part
    done 2026-10-14: the rule failed (0.890 at 5120 samples, Section 3), it was reported, and the owner
-   dropped ESA from the sealed arms. The probe's nudging cells for READ-KE, GRAM-UN and SV are
-   recorded in `experiments/OP/VARIANTS/pieces/` as they finish.
+   dropped ESA from the sealed arms. The probe's 12 nudging cells for READ-KE, GRAM-UN and SV are
+   complete and recorded in `experiments/OP/VARIANTS/PROBE-RECORD.md` (results in `pieces/`). They
+   set nothing.
 2. GRAM's leading-sub-block computation is added to `op_variants.py`, with a self-test check that it
    equals OP4's GRAM when $m'_{GRAM} = m'_{UN}$. Done 2026-10-14: self-test checks 9 and 10 (commit
    09d0d27), and on the probe world $\nu = 0.03$, $n = 96$ the sub-block GRAM reproduces OP4's recorded

@@ -94,6 +94,10 @@ The rule was not met at any count tried and was not changed. It was reported to 
 options (drop ESA, extend to 10240 and 20480 samples, or accept 5120 as a recorded revision), and the
 owner dropped ESA. ESA's ranking was never nudged.
 
+The probe's record, with the 12 nudging cells of READ-KE, GRAM-UN and SV beside D8's and OP4's budgets
+in the same cells, is `VARIANTS/PROBE-RECORD.md` (2026-10-14). No arm reaches BALL in any cell. It sets
+nothing.
+
 ## 5. Claims and the correction for several arms
 
 Each gate keeps one primary claim, as registered: D8's READ against the best control, OP4's GRAM
