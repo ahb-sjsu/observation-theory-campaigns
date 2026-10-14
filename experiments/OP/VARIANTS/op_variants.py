@@ -39,7 +39,7 @@ sys.path.insert(0, str(HERE.parents[1] / "OD" / "D8")); sys.path.insert(0, str(H
 from d8_sync import Candidates, ForcedNS2D, amplitudes, initial_field, nudge_record, sensitivities, spin_up, sq, vel_norm  # noqa: E402
 from op4_gram import choose_frac, gram_blocks, greedy_gram, lyapunov_spectrum, qr_basis, to_real, window_readings  # noqa: E402
 
-VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")
+VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV", "GRAM")
 
 
 # ---------------------------------------------------------------- norms and the two training rankings
@@ -90,6 +90,16 @@ def training_samples(model, uh, nsamp: int, per: int, dt: float):
 
 
 # ---------------------------------------------------------------- the tangent-subspace instruments
+
+def gram_from_blocks(blocks: list, mp: int, d: int, length: int):
+    """GRAM on the leading mp directions of a larger window run: the readings are linear in the basis, so the blocks of
+    the first mp basis vectors are the leading mp x mp sub-blocks, and Gram-Schmidt keeps the leading subspace across
+    windows. OP4's rules on that subspace: frac by choose_frac, thresholds frac x lambda_max, greedy on count d."""
+    sub = [B[:, :mp, :mp] for B in blocks]; Wall = [B.sum(axis=0) for B in sub]
+    frac, met = choose_frac(Wall, mp); thr = [frac * float(np.linalg.eigvalsh(W).max()) for W in Wall]
+    order, reached = greedy_gram(sub, thr, [min(d, mp)] * len(sub), length)
+    return order, reached, frac, met
+
 
 def un_count(lyap: np.ndarray, factor: float) -> tuple[int, int]:
     """(d_u, d_un): positive exponents (at least 1), and those above -factor * lambda_1 (at least d_u)."""
@@ -160,8 +170,11 @@ def gram_part(world, cfg8, vcfg, role, log=print) -> dict:
     ladder = [m for m in cfg["ladder"] if m <= cand.size]; L = max(ladder)
     o_un, r_un = greedy_gram(blocks, thr, [min(d_un, mp)] * len(blocks), L); o_g, r_g = greedy_gram(blocks, thr, [min(d_u, mp)] * len(blocks), L)
     o_sv = np.argsort(-sv, kind="stable").tolist()
+    # GRAM by OP4's rule with the cap stated: its own m' from d_u, on the leading sub-blocks of this run
+    mp_g = m_prime(d_u, m0); o_gram, r_gram, frac_g, met_g = gram_from_blocks(blocks, mp_g, d_u, L)
     out = {"world": world["name"], "lyapunov_spectrum": l.tolist(), "d_u": d_u, "d_un": d_un, "m_prime": mp, "m0": m0, "T_w": T_w, "frac": frac, "frac_rule_met": met,
-           "orders": {"GRAM_UN": o_un, "SV": o_sv, "GRAM_same_subspace": o_g}, "count_to_d_un": r_un, "count_to_d_u": r_g, "seconds": time.time() - t0}
+           "orders": {"GRAM_UN": o_un, "SV": o_sv, "GRAM": o_gram, "GRAM_same_subspace": o_g}, "count_to_d_un": r_un, "count_to_d_u": r_g,
+           "gram": {"m_prime": mp_g, "frac": frac_g, "frac_rule_met": met_g, "count_to_d_u": r_gram}, "seconds": time.time() - t0}
     for k in ("GRAM_UN", "SV"):
         out[f"{k}_first12_kmag"] = [float(cand.kmag[i]) for i in out["orders"][k][:12]]
     log(json.dumps({"world": world["name"], "part": "gram", "phase": "done", "frac": frac, "count_to_d_un": r_un, "GRAM_UN_first12": [round(x, 2) for x in out["GRAM_UN_first12_kmag"]], "SV_first12": [round(x, 2) for x in out["SV_first12_kmag"]], "seconds": round(out["seconds"], 1)}))
@@ -225,6 +238,16 @@ def selftest() -> int:
     _, S, Bt = np.linalg.svd(to_real(model, Dend).T, full_matrices=False); F = np.tensordot(Bt[:2], U, axes=(1, 0))
     ref = np.sum((S[:2, None] ** 2) * (np.abs(F[:, cand.ix, cand.iy]) ** 2 / 32 ** 4), axis=0)
     check("SV pair scores consistent; the stretched direction leads", np.allclose(ps, ref) and abs(S[0] - 3.0) < 1e-9, f"sigma_1 {S[0]:.3f}")
+    # 9. GRAM from sub-blocks: on the flow, the window run of the first 4 of 8 basis vectors gives exactly the leading 4 x 4
+    # sub-blocks of the 8-vector run, and the next window's leading basis is the same (Gram-Schmidt keeps the leading subspace)
+    D8i = np.fft.fft2(np.random.default_rng(11).normal(size=(8, 32, 32))) * model.dealias; D8i[:, 0, 0] = 0; U8, _ = qr_basis(model, D8i)
+    _, De8, Y8, dg = window_readings(model, cand, wh, U8, 0.01, 0.2, 4); _, De4, Y4, _ = window_readings(model, cand, wh, U8[:4], 0.01, 0.2, 4)
+    B8 = gram_blocks(Y8, dg); B4 = gram_blocks(Y4, dg); e_b = float(np.max(np.abs(B8[:, :4, :4] - B4)) / np.max(np.abs(B4)))
+    Q8, _ = qr_basis(model, De8); Q4, _ = qr_basis(model, De4); e_q = float(np.max(np.abs(Q8[:4] - Q4)) / np.max(np.abs(Q4)))
+    check("GRAM sub-blocks: blocks of the leading 4 of 8 vectors = leading sub-blocks; QR keeps the leading basis", e_b < 1e-12 and e_q < 1e-10, f"blocks {e_b:.1e}, basis {e_q:.1e}")
+    # 10. gram_from_blocks on the full subspace equals greedy_gram run directly with choose_frac's thresholds
+    o1, r1, f1, _ = gram_from_blocks([B8], 8, 3, 12); W = B8.sum(axis=0); f2, _ = choose_frac([W], 8); o2, r2 = greedy_gram([B8], [f2 * float(np.linalg.eigvalsh(W).max())], [3], 12)
+    check("gram_from_blocks with the full subspace = OP4's rule applied directly", o1 == o2 and r1 == r2 and f1 == f2, f"order[:6] {o1[:6]}")
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 
@@ -243,7 +266,7 @@ def main(argv=None) -> int:
         p = Path(a.cache) / f"{a.part}_{a.world}_{a.seed_role}.json"; tmp = p.with_suffix(".tmp"); tmp.write_text(json.dumps(res, default=float), encoding="utf-8"); tmp.replace(p)
         if a.out: Path(a.out).write_text(json.dumps(res, default=float), encoding="utf-8")
         return 0
-    src = "rank" if a.variant in ("READ_KE", "ESA") else "gram"; p = Path(a.cache) / f"{src}_{a.world}_{a.seed_role}.json"
+    src = "rank" if a.variant in ("READ_KE", "ESA") else "gram"; p = Path(a.cache) / f"{src}_{a.world}_{a.seed_role}.json"  # GRAM comes from the gram part
     if not p.exists(): raise SystemExit(f"{p} missing: run --part {src} first")
     order = json.loads(p.read_text(encoding="utf-8"))["orders"][a.variant]
     res = nudge_part(world, cfg8, order, a.variant, a.seed_role, [int(x) for x in a.tests.split(",")])

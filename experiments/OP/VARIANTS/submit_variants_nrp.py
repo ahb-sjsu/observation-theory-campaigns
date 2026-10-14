@@ -62,8 +62,9 @@ def job_name(variant: str, world: str, role: str, test: int) -> str:
     return f"opv-{role}-{variant.replace('_', '-').lower()}-{world.replace('_', '-').lower()}-t{test}"
 
 
-def units(role: str) -> list[tuple[str, str, int]]:
-    R = ROLES[role]; return [(v, w, t) for w in R["worlds"] for v in VARIANTS for t in R["tests"]]
+def units(role: str, variants=None) -> list[tuple[str, str, int]]:
+    R = ROLES[role]; vs = VARIANTS if variants is None else [v for v in VARIANTS if v in variants]
+    return [(v, w, t) for w in R["worlds"] for v in vs for t in R["tests"]]
 
 
 def cache_files(world: str, seed_role: str) -> dict[str, Path]:
@@ -110,7 +111,7 @@ def preflight(d: JobDescriptor, role: str) -> None:
         raise SystemExit(f"PREFLIGHT VETO {d.name}: " + "; ".join(problems))
 
 
-def submit(role: str, dry: bool) -> int:
+def submit(role: str, dry: bool, variants=None) -> int:
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in FILES.values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
@@ -118,7 +119,7 @@ def submit(role: str, dry: bool) -> int:
     for rel, p in FILES.items():
         raw = p.read_bytes(); base[rel] = (base64.b64encode(raw).decode(), hashlib.sha256(raw).hexdigest())
     descs = []; cache_sha = {}
-    for v, w, t in units(role):
+    for v, w, t in units(role, variants):
         blobs = dict(base)
         for rel, p in cache_files(w, R["seed_role"]).items():
             if not p.exists(): raise SystemExit(f"PREFLIGHT VETO: {p} missing; run op_variants.py --part rank and --part gram for {w} first")
@@ -128,7 +129,7 @@ def submit(role: str, dry: bool) -> int:
     print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in base.items()} | cache_sha,
                       "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": R["timeout"], "pins": PINS}, indent=1))
     if dry:
-        v, w, t = units(role)[0]; print(command(v, w, role, t, {k: ("<b64>", s) for k, (_, s) in base.items()})); return 0
+        v, w, t = units(role, variants)[0]; print(command(v, w, role, t, {k: ("<b64>", s) for k, (_, s) in base.items()})); return 0
     for i, d in enumerate(descs):
         if i: time.sleep(20)  # space submissions apart on Atlas (no churn); this is the submitter, not a Job
         t_sub = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
@@ -175,12 +176,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--i-have-checked-nrp-policy", action="store_true", dest="ack"); ap.add_argument("--role", default="probe", choices=list(ROLES))
     ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--save", action="store_true"); ap.add_argument("--cleanup", action="store_true")
+    ap.add_argument("--variants", default=None, help="comma-separated subset of the variants to submit (all by default)")
     a = ap.parse_args()
     if a.save: return save(a.role)
     if a.cleanup: return cleanup(a.role)
     if not a.ack and not a.dry_run:
         sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")
-    return submit(a.role, a.dry_run)
+    return submit(a.role, a.dry_run, a.variants.split(",") if a.variants else None)
 
 
 if __name__ == "__main__":
