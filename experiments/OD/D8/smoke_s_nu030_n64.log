@@ -1,0 +1,464 @@
+===== t0_inst
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.13
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 122.2}
+{"footprint": {"peak_rss_mib": 120.01953125, "cpu_seconds": 388.525478, "wall_seconds": 388.5372779369354, "mean_cores": 0.999969629846078}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-inst chunks=1 seqs=[7]
+
+===== t0_read-h0
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.14
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 96.2}
+{"world": "s_nu030_n64", "test": 0, "observer": "READ", "ladder_half": 0, "m_star": null, "nonmonotone": null, "synced": [false, false, false, false, true, true, true], "seconds": 512.9}
+{"footprint": {"peak_rss_mib": 120.1640625, "cpu_seconds": 609.081815, "wall_seconds": 609.110577583313, "mean_cores": 0.9999527793731195}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-read-h0 chunks=1 seqs=[11]
+
+===== t0_read-h1
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.14
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 94.9}
+{"world": "s_nu030_n64", "test": 0, "observer": "READ", "ladder_half": 1, "m_star": null, "nonmonotone": null, "synced": [true, true, true, true, true, true], "seconds": 450.2}
+{"footprint": {"peak_rss_mib": 119.91796875, "cpu_seconds": 545.0924660000001, "wall_seconds": 545.0716986656189, "mean_cores": 1.0000381001883458}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-read-h1 chunks=1 seqs=[9]
+
+===== t0_enstrophy-h0
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.14
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 93.5}
+{"world": "s_nu030_n64", "test": 0, "observer": "ENSTROPHY", "ladder_half": 0, "m_star": null, "nonmonotone": null, "synced": [false, false, false, false, false, false, false], "seconds": 492.5}
+{"footprint": {"peak_rss_mib": 120.0078125, "cpu_seconds": 586.015754, "wall_seconds": 585.9861166477203, "mean_cores": 1.0000505768847379}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-enstrophy-h0 chunks=1 seqs=[12]
+
+===== t0_enstrophy-h1
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.14
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 97.7}
+{"world": "s_nu030_n64", "test": 0, "observer": "ENSTROPHY", "ladder_half": 1, "m_star": null, "nonmonotone": null, "synced": [true, true, true, true, true, true], "seconds": 444.5}
+{"footprint": {"peak_rss_mib": 120.30859375, "cpu_seconds": 542.14845, "wall_seconds": 542.2272002696991, "mean_cores": 0.999854765180242}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-enstrophy-h1 chunks=1 seqs=[10]
+
+===== t0_ke-h0
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.15
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 59.6}
+{"world": "s_nu030_n64", "test": 0, "observer": "KE", "ladder_half": 0, "m_star": null, "nonmonotone": null, "synced": [false, false, false, true, true, true, true], "seconds": 398.7}
+{"footprint": {"peak_rss_mib": 120.59765625, "cpu_seconds": 458.28789700000004, "wall_seconds": 458.29459714889526, "mean_cores": 0.9999853802577274}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-ke-h0 chunks=1 seqs=[8]
+
+===== t0_ke-h1
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.13
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 123.3}
+{"world": "s_nu030_n64", "test": 0, "observer": "KE", "ladder_half": 1, "m_star": null, "nonmonotone": null, "synced": [true, true, true, true, true, true], "seconds": 709.2}
+{"footprint": {"peak_rss_mib": 120.70703125, "cpu_seconds": 832.552532, "wall_seconds": 832.5300328731537, "mean_cores": 1.0000270250032526}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-ke-h1 chunks=1 seqs=[15]
+
+===== t0_ball-h0
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.12
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 200.0}
+{"world": "s_nu030_n64", "test": 0, "observer": "BALL", "ladder_half": 0, "m_star": null, "nonmonotone": null, "synced": [false, true, true, true, true, true, true], "seconds": 1278.0}
+{"footprint": {"peak_rss_mib": 120.5546875, "cpu_seconds": 1477.6031979999998, "wall_seconds": 1478.0508370399475, "mean_cores": 0.9996971423250609}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-ball-h0 chunks=1 seqs=[21]
+
+===== t0_ball-h1
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.13
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 94.1}
+{"world": "s_nu030_n64", "test": 0, "observer": "BALL", "ladder_half": 1, "m_star": null, "nonmonotone": null, "synced": [true, true, true, true, true, true], "seconds": 460.5}
+{"footprint": {"peak_rss_mib": 118.9921875, "cpu_seconds": 554.486685, "wall_seconds": 554.5819270610809, "mean_cores": 0.9998282633161422}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-ball-h1 chunks=1 seqs=[13]
+
+===== t0_sens
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.13
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 128.9}
+{"world": "s_nu030_n64", "test": 0, "observer": "SENS", "ladder_half": null, "m_star": null, "nonmonotone": false, "synced": [false, false, false, false, false, false, false, false, false, false, false, false, false], "seconds": 664.1}
+{"footprint": {"peak_rss_mib": 119.28515625, "cpu_seconds": 792.971985, "wall_seconds": 792.9734733104706, "mean_cores": 0.9999981231270394}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-sens chunks=1 seqs=[16]
+
+===== t0_random0
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.13
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 131.7}
+{"world": "s_nu030_n64", "test": 0, "observer": "RANDOM0", "ladder_half": null, "m_star": null, "nonmonotone": false, "synced": [false, false, false, false, false, false, false, false, false, false, false, false, false], "seconds": 654.4}
+{"footprint": {"peak_rss_mib": 119.66796875, "cpu_seconds": 786.0934980000001, "wall_seconds": 786.0208888053894, "mean_cores": 1.000092375655208}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-random0 chunks=1 seqs=[17]
+
+===== t0_random1
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.12
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 189.5}
+{"world": "s_nu030_n64", "test": 0, "observer": "RANDOM1", "ladder_half": null, "m_star": null, "nonmonotone": false, "synced": [false, false, false, false, false, false, false, false, false, false, false, false, false], "seconds": 985.6}
+{"footprint": {"peak_rss_mib": 120.66015625, "cpu_seconds": 1175.214005, "wall_seconds": 1175.0796992778778, "mean_cores": 1.000114294989697}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-random1 chunks=1 seqs=[20]
+
+===== t0_random2
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.13
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 119.8}
+{"world": "s_nu030_n64", "test": 0, "observer": "RANDOM2", "ladder_half": null, "m_star": null, "nonmonotone": false, "synced": [false, false, false, false, false, false, false, false, false, false, false, false, false], "seconds": 637.1}
+{"footprint": {"peak_rss_mib": 120.8671875, "cpu_seconds": 756.978904, "wall_seconds": 756.875645160675, "mean_cores": 1.0001364277473919}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-random2 chunks=1 seqs=[19]
+
+===== t0_random3
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.15
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 102.3}
+{"world": "s_nu030_n64", "test": 0, "observer": "RANDOM3", "ladder_half": null, "m_star": null, "nonmonotone": false, "synced": [false, false, false, false, false, false, false, false, false, false, false, false, false], "seconds": 632.3}
+{"footprint": {"peak_rss_mib": 119.953125, "cpu_seconds": 734.636089, "wall_seconds": 734.6702318191528, "mean_cores": 0.9999535263337561}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-random3 chunks=1 seqs=[18]
+
+===== t0_random4
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.13
+laminar fixed point |F(w*)| / |f|: 3.7e-15 PASS
+batched rhs equals single rhs: 0.0e+00 PASS
+central difference = tangent_nl: 5.8e-16 PASS
+velocity norm Parseval: 0.0e+00 PASS
+Proposition 1 triad feeds (1, 0): |coef| 0.020 PASS
+T1 at N = 3 (beyond-2N read / first-octave read): 4.0e-16 over 164 pairs PASS
+T2 at N = 3 (feedback / Proposition 3 bound): 0.017 PASS
+T1 at N = 4 (beyond-2N read / first-octave read): 3.0e-16 over 122 pairs PASS
+T2 at N = 4 (feedback / Proposition 3 bound): 0.011 PASS
+nudging contribution = -mu P_S e: 6.2e-18, reference row untouched PASS
+observer tangent = derivative of the nudged tendency: 6.4e-16 PASS
+block tangent = Q DF Q: 0.0e+00 PASS
+nothing observed = free solver from zero: 0.0e+00 PASS
+stability guard: stiffness 0.521, cfl 0.095 PASS
+rankings and masks: 220 candidate pairs PASS
+initial field resolution-independent: 3.1e-17 PASS
+sustained synchronization rule and m*:  PASS
+ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents): m* 16, flags 0001111, delta 0.0e+00, lyap 0.0e+00, 3/3 bad merges refused PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.027e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08678813636095567, "ok": true, "cfl_max_train": 0.10300839245877186}, "T1_max": 5.925668595445889e-16, "T2_max": 0.03069094929521487, "seconds": 105.8}
+{"world": "s_nu030_n64", "test": 0, "observer": "RANDOM4", "ladder_half": null, "m_star": null, "nonmonotone": false, "synced": [false, false, false, false, false, false, false, false, false, false, false, false, false], "seconds": 537.9}
+{"footprint": {"peak_rss_mib": 119.69921875, "cpu_seconds": 643.6429890000001, "wall_seconds": 643.6597294807434, "mean_cores": 0.9999739917226811}}
+NATS-PUBLISHED od.results.d8.smoke.d8-smoke-s-nu030-n64-t0-random4 chunks=1 seqs=[14]
+

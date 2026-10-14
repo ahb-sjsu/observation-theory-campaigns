@@ -1,0 +1,244 @@
+{
+ "check": "PREREG-D8-RUN-DRAFT.md Section 9 item 7, the smoke run",
+ "transport": [
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-inst",
+   "log_sha256": "9c00ba45f3e94e788dd0138293315a516d578c7ab39c24aea2cef98e09406682",
+   "nats_sha256": "9c00ba45f3e94e788dd0138293315a516d578c7ab39c24aea2cef98e09406682",
+   "bytes": 94328,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-read-h0",
+   "log_sha256": "114641a8ea3ee90e84021bd044cba7e332e96aa4c36eb81d4c81e68d19f02669",
+   "nats_sha256": "114641a8ea3ee90e84021bd044cba7e332e96aa4c36eb81d4c81e68d19f02669",
+   "bytes": 120298,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-read-h1",
+   "log_sha256": "6055136d15da25fb9a67d787c390d128ccbb2eef5ca085ef20b9a5c00aac2657",
+   "nats_sha256": "6055136d15da25fb9a67d787c390d128ccbb2eef5ca085ef20b9a5c00aac2657",
+   "bytes": 118308,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-enstrophy-h0",
+   "log_sha256": "c30a222e81cbc111ab68b56255c50f2bb00d6e5c75177b6c76a314985d8fcc29",
+   "nats_sha256": "c30a222e81cbc111ab68b56255c50f2bb00d6e5c75177b6c76a314985d8fcc29",
+   "bytes": 119458,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-enstrophy-h1",
+   "log_sha256": "54f216bdc2458a119c9831046a6cc975518025b4aa59058fbcc7a3d63d7b3292",
+   "nats_sha256": "54f216bdc2458a119c9831046a6cc975518025b4aa59058fbcc7a3d63d7b3292",
+   "bytes": 118262,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-ke-h0",
+   "log_sha256": "e6b76387294b54d2d7270948f16f0c7f4e0c06a6d4eb25bb11b340de0d8bcbe8",
+   "nats_sha256": "e6b76387294b54d2d7270948f16f0c7f4e0c06a6d4eb25bb11b340de0d8bcbe8",
+   "bytes": 120498,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-ke-h1",
+   "log_sha256": "591ff5e2ec2cf71e7a7740f57012d2a8248c20bb8fbd50cbb3f9f697ee7e6102",
+   "nats_sha256": "591ff5e2ec2cf71e7a7740f57012d2a8248c20bb8fbd50cbb3f9f697ee7e6102",
+   "bytes": 118345,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-ball-h0",
+   "log_sha256": "caf510a06c19abc8d95c643b34a01b562c9b4115d86858371d1e7b7354206955",
+   "nats_sha256": "caf510a06c19abc8d95c643b34a01b562c9b4115d86858371d1e7b7354206955",
+   "bytes": 121095,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-ball-h1",
+   "log_sha256": "9fb68a71131ecad2aef48cc7c13a588bd5970211b965f1c567200ff5c7dc4142",
+   "nats_sha256": "9fb68a71131ecad2aef48cc7c13a588bd5970211b965f1c567200ff5c7dc4142",
+   "bytes": 118359,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-sens",
+   "log_sha256": "1474c3506a37a69f6af909360936d52e1ff549963317692c91b7559de1af0064",
+   "nats_sha256": "1474c3506a37a69f6af909360936d52e1ff549963317692c91b7559de1af0064",
+   "bytes": 136915,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-random0",
+   "log_sha256": "d0ab0bda812b87e76c11d6f4f1a3521b6e61fe62dec7fca0d12f4ecfd0486165",
+   "nats_sha256": "d0ab0bda812b87e76c11d6f4f1a3521b6e61fe62dec7fca0d12f4ecfd0486165",
+   "bytes": 136887,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-random1",
+   "log_sha256": "c14e8f3e6526ba81f744fe948d8efb28428082e8502ac704ae3c482edd772601",
+   "nats_sha256": "c14e8f3e6526ba81f744fe948d8efb28428082e8502ac704ae3c482edd772601",
+   "bytes": 136850,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-random2",
+   "log_sha256": "2ae19e210fa69ec255ae57f605658d3388b1d29b5f537306c25c3c3d8d5d61df",
+   "nats_sha256": "2ae19e210fa69ec255ae57f605658d3388b1d29b5f537306c25c3c3d8d5d61df",
+   "bytes": 136924,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-random3",
+   "log_sha256": "b76f7e7b80ef43a7010283d378bd86217c9b410bc6e5fe12c80a79087a09ed34",
+   "nats_sha256": "b76f7e7b80ef43a7010283d378bd86217c9b410bc6e5fe12c80a79087a09ed34",
+   "bytes": 136927,
+   "identical": true
+  },
+  {
+   "job": "d8-smoke-s-nu030-n64-t0-random4",
+   "log_sha256": "4ff7e46bd2d4c4ab795c8b581968e5e5bc707b70213f19a66a9f0fc8796736f0",
+   "nats_sha256": "4ff7e46bd2d4c4ab795c8b581968e5e5bc707b70213f19a66a9f0fc8796736f0",
+   "bytes": 136888,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-gram-s-nu030-n64-t0-h0",
+   "log_sha256": "ab21ec6ddfde90890131601e6a0ab37618640b9ea46353c20733efdfcc05a185",
+   "nats_sha256": "ab21ec6ddfde90890131601e6a0ab37618640b9ea46353c20733efdfcc05a185",
+   "bytes": 23107,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-gram-s-nu030-n64-t0-h1",
+   "log_sha256": "39d5c5a4b757b3f935845a1df8f0e5e21de68c8b62381fb41618086c1c425287",
+   "nats_sha256": "39d5c5a4b757b3f935845a1df8f0e5e21de68c8b62381fb41618086c1c425287",
+   "bytes": 21908,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-read-ke-s-nu030-n64-t0-h0",
+   "log_sha256": "5d813acfca397f25fc7c8ed473d31d99105c630d005b877eb75bc5d11de320bd",
+   "nats_sha256": "5d813acfca397f25fc7c8ed473d31d99105c630d005b877eb75bc5d11de320bd",
+   "bytes": 24358,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-read-ke-s-nu030-n64-t0-h1",
+   "log_sha256": "c6b638e61edc6e05896be6fdf1f28680a57407214ed8ebd3af3e1598bd26751b",
+   "nats_sha256": "c6b638e61edc6e05896be6fdf1f28680a57407214ed8ebd3af3e1598bd26751b",
+   "bytes": 22461,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-gram-un-s-nu030-n64-t0-h0",
+   "log_sha256": "7f3a85164a8f891e65a5f5141b2ecc39815b5369c29f2323e50fd8315614852a",
+   "nats_sha256": "7f3a85164a8f891e65a5f5141b2ecc39815b5369c29f2323e50fd8315614852a",
+   "bytes": 23113,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-gram-un-s-nu030-n64-t0-h1",
+   "log_sha256": "712cbf170a8316ae9603650622c367f12b044f644baa0322a703feaed1f7cd62",
+   "nats_sha256": "712cbf170a8316ae9603650622c367f12b044f644baa0322a703feaed1f7cd62",
+   "bytes": 21914,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-sv-s-nu030-n64-t0-h0",
+   "log_sha256": "2962e8b709b94dc808055b9c117652c770074f5e1dfb67a641f27aa4c2c4782a",
+   "nats_sha256": "2962e8b709b94dc808055b9c117652c770074f5e1dfb67a641f27aa4c2c4782a",
+   "bytes": 23281,
+   "identical": true
+  },
+  {
+   "job": "opv-smoke-sv-s-nu030-n64-t0-h1",
+   "log_sha256": "7edb7f22d99c004a41a7b7b6fd6d2ad47a46d921d00c878de64a5f0f0c68bccd",
+   "nats_sha256": "7edb7f22d99c004a41a7b7b6fd6d2ad47a46d921d00c878de64a5f0f0c68bccd",
+   "bytes": 22307,
+   "identical": true
+  }
+ ],
+ "steps": {
+  "transport_all_identical": true,
+  "d8_collect": {
+   "cmd": "submit_d8_nrp.py --collect --role smoke",
+   "exit": 0,
+   "tail": [
+    "d8-smoke-s-nu030-n64: status pieces t0_ball,t0_enstrophy,t0_inst,t0_ke,t0_random0,t0_random1,t0_random2,t0_random3,t0_random4,t0_read,t0_sens, wrote smoke_s_nu030_n64.json and smoke_s_nu030_n64.log",
+    "merged smoke.json: 1 worlds"
+   ]
+  },
+  "opv_save": {
+   "cmd": "submit_variants_nrp.py --save --role smoke",
+   "exit": 0,
+   "tail": [
+    "SAVED opv-smoke-gram-s-nu030-n64-t0-h0 23107 bytes",
+    "SAVED opv-smoke-gram-s-nu030-n64-t0-h1 21908 bytes",
+    "SAVED opv-smoke-read-ke-s-nu030-n64-t0-h0 24358 bytes",
+    "SAVED opv-smoke-read-ke-s-nu030-n64-t0-h1 22461 bytes",
+    "SAVED opv-smoke-gram-un-s-nu030-n64-t0-h0 23113 bytes",
+    "SAVED opv-smoke-gram-un-s-nu030-n64-t0-h1 21914 bytes",
+    "SAVED opv-smoke-sv-s-nu030-n64-t0-h0 23281 bytes",
+    "SAVED opv-smoke-sv-s-nu030-n64-t0-h1 22307 bytes"
+   ]
+  },
+  "opv_collect": {
+   "cmd": "submit_variants_nrp.py --collect --role smoke",
+   "exit": 0,
+   "tail": [
+    "{\"wrote\": \"smoke_variants.json\", \"arms\": {\"GRAM\": {\"s_nu030_n64\": 1}, \"READ_KE\": {\"s_nu030_n64\": 1}, \"GRAM_UN\": {\"s_nu030_n64\": 1}, \"SV\": {\"s_nu030_n64\": 1}}, \"missing\": []}"
+   ]
+  },
+  "d8_nats_only_same_worlds": true,
+  "grade": {
+   "cmd": "d8_run_grade.py /archive/ahb-sjsu/observation-theory-campaigns/experiments/OD/D8/smoke.json /archive/ahb-sjsu/observation-theory-campaigns/experiments/OP/VARIANTS/smoke_variants.json --tols tolerances.json --out smoke_grade.json",
+   "exit": 0,
+   "tail": [
+    "    \"ahead\": 0,",
+    "    \"level\": 0,",
+    "    \"behind\": 1,",
+    "    \"per_cell\": {",
+    "     \"s_nu030_n64/t0\": -6",
+    "    }",
+    "   },",
+    "   \"holm_threshold\": 0.05,",
+    "   \"beats_ball\": \"SMOKE GRADE, NOT A VERDICT: does not beat BALL\"",
+    "  }",
+    " }",
+    "}"
+   ]
+  }
+ },
+ "summary": {
+  "d8_gate": "SMOKE GRADE, NOT A VERDICT: FAIL",
+  "op4_reading": "SMOKE GRADE, NOT A VERDICT: system",
+  "secondary": {
+   "READ_KE": "SMOKE GRADE, NOT A VERDICT: does not beat BALL",
+   "GRAM_UN": "SMOKE GRADE, NOT A VERDICT: does not beat BALL",
+   "SV": "SMOKE GRADE, NOT A VERDICT: does not beat BALL"
+  }
+ },
+ "budgets": {
+  "SENS": null,
+  "RANDOM0": null,
+  "RANDOM1": null,
+  "RANDOM2": null,
+  "RANDOM3": null,
+  "RANDOM4": null,
+  "BALL": 6,
+  "ENSTROPHY": 48,
+  "KE": 12,
+  "READ": 16,
+  "GRAM": 64,
+  "READ_KE": 12,
+  "GRAM_UN": 64,
+  "SV": 48
+ },
+ "variants_missing": [],
+ "result": "PASS"
+}

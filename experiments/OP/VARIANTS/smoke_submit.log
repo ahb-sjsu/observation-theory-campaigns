@@ -1,0 +1,42 @@
+{
+ "head": "71e0e62b",
+ "role": "smoke",
+ "n_jobs": 8,
+ "jobs": [
+  "opv-smoke-gram-s-nu030-n64-t0-h0",
+  "opv-smoke-gram-s-nu030-n64-t0-h1",
+  "opv-smoke-read-ke-s-nu030-n64-t0-h0",
+  "opv-smoke-read-ke-s-nu030-n64-t0-h1",
+  "opv-smoke-gram-un-s-nu030-n64-t0-h0",
+  "opv-smoke-gram-un-s-nu030-n64-t0-h1",
+  "opv-smoke-sv-s-nu030-n64-t0-h0",
+  "opv-smoke-sv-s-nu030-n64-t0-h1"
+ ],
+ "sha256": {
+  "OD/D5/d5_burgers.py": "3e70d4cc4b90d82f42acc7ccd2ddf86990931fb0d269726923be97b49c05b6bf",
+  "OD/D8/d8_sync.py": "3e268cec99f0cf06e3c43f6e932f4b8e70037508c7ae668ba279d5545babcfc8",
+  "OD/D8/prereg_config.json": "8fa018824d090e64e20dd1bf601e73ca6f48e105318dfb50d0e368f4131d1a3d",
+  "OP/OP4/op4_gram.py": "b65747c2ca5b5c7fcd4bfee2a3c8958e27716b20eaef933d7e20b442f29e96a8",
+  "OP/VARIANTS/op_variants.py": "678889e2eb75d70205844d427533008e1be87cb0fccdc08d52ad61a38fb5792c",
+  "OP/VARIANTS/variants_config.json": "b1ab486856743a8adb008b98b2b1b551f451bf58bbc2f864a8bf57c609e5ea96",
+  "OD/D8/nats_results.py": "9c15a00b8a0012a7363a4646a6d6474bc3d44e35d9e9a38544f00546d055d5b4",
+  "OP/VARIANTS/cache/rank_s_nu030_n64_smoke.json": "96678695bcf0325dee501fd8895e116cf0102551a96e01431d8558806cfd6059",
+  "OP/VARIANTS/cache/gram_s_nu030_n64_smoke.json": "bc86b2ee88650b015ee847f7d1be82965b8eb30315a1da284eddc0461246436b"
+ },
+ "resources": {
+  "cpu": "1",
+  "memory": "2Gi",
+  "ephemeral_storage": "2Gi"
+ },
+ "timeout": "6h",
+ "pins": "numpy==2.2.6 nats-py==2.14.0"
+}
+{"job": "opv-smoke-gram-s-nu030-n64-t0-h0", "status_events": [{"job_id": "opv-smoke-gram-s-nu030-n64-t0-h0-527a14c4", "state": "submitted", "k8s_job": "opv-smoke-gram-s-nu030-n64-t0-h0", "ts": "2026-10-14T16:53:41.580697749Z"}], "creationTimestamp": "2026-10-14T16:53:41+00:00", "fresh": true}
+{"job": "opv-smoke-gram-s-nu030-n64-t0-h1", "status_events": [{"job_id": "opv-smoke-gram-s-nu030-n64-t0-h1-e3b4fe0a", "state": "submitted", "k8s_job": "opv-smoke-gram-s-nu030-n64-t0-h1", "ts": "2026-10-14T16:54:02.863322482Z"}], "creationTimestamp": "2026-10-14T16:54:02+00:00", "fresh": true}
+{"job": "opv-smoke-read-ke-s-nu030-n64-t0-h0", "status_events": [{"job_id": "opv-smoke-read-ke-s-nu030-n64-t0-h0-21e157a7", "state": "submitted", "k8s_job": "opv-smoke-read-ke-s-nu030-n64-t0-h0", "ts": "2026-10-14T16:54:24.886055453Z"}], "creationTimestamp": "2026-10-14T16:54:24+00:00", "fresh": true}
+{"job": "opv-smoke-read-ke-s-nu030-n64-t0-h1", "status_events": [{"job_id": "opv-smoke-read-ke-s-nu030-n64-t0-h1-b45baf65", "state": "submitted", "k8s_job": "opv-smoke-read-ke-s-nu030-n64-t0-h1", "ts": "2026-10-14T16:54:46.154001194Z"}], "creationTimestamp": "2026-10-14T16:54:45+00:00", "fresh": true}
+{"job": "opv-smoke-gram-un-s-nu030-n64-t0-h0", "status_events": [{"job_id": "opv-smoke-gram-un-s-nu030-n64-t0-h0-c048463a", "state": "submitted", "k8s_job": "opv-smoke-gram-un-s-nu030-n64-t0-h0", "ts": "2026-10-14T16:55:07.5964172Z"}], "creationTimestamp": "2026-10-14T16:55:07+00:00", "fresh": true}
+{"job": "opv-smoke-gram-un-s-nu030-n64-t0-h1", "status_events": [{"job_id": "opv-smoke-gram-un-s-nu030-n64-t0-h1-fb0278dc", "state": "submitted", "k8s_job": "opv-smoke-gram-un-s-nu030-n64-t0-h1", "ts": "2026-10-14T16:55:28.970314027Z"}], "creationTimestamp": "2026-10-14T16:55:28+00:00", "fresh": true}
+{"job": "opv-smoke-sv-s-nu030-n64-t0-h0", "status_events": [{"job_id": "opv-smoke-sv-s-nu030-n64-t0-h0-5dd8a311", "state": "submitted", "k8s_job": "opv-smoke-sv-s-nu030-n64-t0-h0", "ts": "2026-10-14T16:55:50.389684925Z"}], "creationTimestamp": "2026-10-14T16:55:50+00:00", "fresh": true}
+{"job": "opv-smoke-sv-s-nu030-n64-t0-h1", "status_events": [{"job_id": "opv-smoke-sv-s-nu030-n64-t0-h1-c217540b", "state": "submitted", "k8s_job": "opv-smoke-sv-s-nu030-n64-t0-h1", "ts": "2026-10-14T16:56:11.814114515Z"}], "creationTimestamp": "2026-10-14T16:56:11+00:00", "fresh": true}
+EXIT 0

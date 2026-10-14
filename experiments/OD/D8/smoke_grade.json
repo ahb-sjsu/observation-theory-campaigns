@@ -1,0 +1,280 @@
+{
+ "seed_role": "smoke",
+ "d8": {
+  "tolerances": {
+   "M1": 0.5,
+   "TOL1": 1.0,
+   "TOL_N": 0.5,
+   "pilot": {
+    "graded_cells": 8,
+    "uninformative_cells": 0,
+    "pooled_advantage_steps": -3.125,
+    "worst_cell": -5.0,
+    "by_viscosity": {
+     "0.02": {
+      "pooled_by_n": {
+       "96": -1.0,
+       "128": -3.5
+      },
+      "change": 2.5
+     },
+     "0.03": {
+      "pooled_by_n": {
+       "96": -4.0,
+       "128": -4.0
+      },
+      "change": 0.0
+     }
+    },
+    "largest_change": 2.5,
+    "M1_unclamped": -1.5625,
+    "TOL_N_unclamped": 3.75
+   },
+   "rule": "PREREG-D8 Section 5: M1 = 0.5 x pilot pooled advantage rounded down to 0.1 step, at least 0.5; TOL1 = 1 step fixed; TOL_N = 1.5 x the pilot's largest change between its two resolutions rounded up to 0.1, clamped to [0.2, 0.5]"
+  },
+  "seed_role": "smoke",
+  "bars": {
+   "T1_octave_locality": {
+    "checks": 6,
+    "max_ratio": 5.925668595445889e-16,
+    "limit": 1e-10,
+    "holds": true
+   },
+   "T2_feedback_bound": {
+    "checks": 6,
+    "max_ratio": 0.03069094929521487,
+    "median_ratio": 0.01989281604344629,
+    "holds": true
+   },
+   "E1_instrument": {
+    "tests": 1,
+    "misses": [],
+    "all_hold_max_worst": 2.6717659139642266e-17,
+    "none_final_least": 1.4623032182407294,
+    "holds": true
+   },
+   "E2_scope": {
+    "graded_fraction_by_world": {
+     "s_nu030_n64": 1.0
+    },
+    "best_control_pooled_mean_index": 1.0,
+    "random_pooled_mean_index": 13.0,
+    "pooled_mean_index_recorded": {
+     "READ": 4.0,
+     "BALL": 1.0,
+     "ENSTROPHY": 7.0,
+     "KE": 3.0
+    },
+    "holds": true
+   },
+   "L1_read_vs_best_control": {
+    "graded_cells": 1,
+    "uninformative_cells": 0,
+    "pooled_advantage_steps": -3.0,
+    "worst_cell": -3.0,
+    "cells_behind": 1,
+    "cells_ahead": 0,
+    "lower_bound_cells": 0,
+    "margin_M1": 0.5,
+    "tol1": 1.0,
+    "deep_shortfall_fraction": 1.0,
+    "holds": false
+   },
+   "N1_resolution": {
+    "by_viscosity": {
+     "0.03": {
+      "pooled_by_n": {
+       "64": -3.0
+      },
+      "diff_top_two": null
+     }
+    },
+    "limit": 0.5,
+    "holds": null
+   },
+   "R1_records": {
+    "sens_advantage_pooled": -12.0,
+    "lyap_obs_sign_agreement": {
+     "READ": 0.9230769230769231,
+     "BALL": 0.9230769230769231,
+     "ENSTROPHY": 0.8461538461538461,
+     "KE": 1.0
+    },
+    "lyap_obs_at_mstar_and_below": {
+     "READ": 0.5,
+     "BALL": 0.5,
+     "ENSTROPHY": 0.5,
+     "KE": 1.0
+    },
+    "block_vs_obs_sign_disagreement": null,
+    "overlap_at_read_mstar": {
+     "BALL": 0.5,
+     "ENSTROPHY": 0.75,
+     "KE": 0.8125,
+     "SENS": 0.0
+    },
+    "read_shells_at_mstar": {
+     "1": 4,
+     "2": 3,
+     "3": 2,
+     "4": 6,
+     "5": 1
+    },
+    "nonmonotone_cells": {},
+    "mu_record_mstar": {},
+    "dt_half_agreement": null,
+    "initial_rate_vs_index_rank_corr": -1.0,
+    "lower_bound_cells": 0
+   }
+  },
+  "gate": "SMOKE GRADE, NOT A VERDICT: FAIL",
+  "refused_worlds": []
+ },
+ "op4": {
+  "cells": 1,
+  "missing_cells": [],
+  "gram_vs_ball": {
+   "cells": 1,
+   "pooled_steps": -7.0,
+   "ahead": 0,
+   "level": 0,
+   "behind": 1,
+   "per_cell": {
+    "s_nu030_n64/t0": -7
+   }
+  },
+  "gram_vs_read": {
+   "cells": 1,
+   "pooled_steps": -4.0,
+   "ahead": 0,
+   "level": 0,
+   "behind": 1,
+   "per_cell": {
+    "s_nu030_n64/t0": -4
+   }
+  },
+  "reading": "SMOKE GRADE, NOT A VERDICT: system"
+ },
+ "secondary": {
+  "READ_KE": {
+   "cells": 1,
+   "missing_cells": [],
+   "untied": 1,
+   "ahead_of_ball": 0,
+   "behind_ball": 1,
+   "p_one_sided": 1.0,
+   "vs_ball": {
+    "cells": 1,
+    "pooled_steps": -2.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -2
+    }
+   },
+   "vs_read": {
+    "cells": 1,
+    "pooled_steps": 1.0,
+    "ahead": 1,
+    "level": 0,
+    "behind": 0,
+    "per_cell": {
+     "s_nu030_n64/t0": 1
+    }
+   },
+   "vs_best_control": {
+    "cells": 1,
+    "pooled_steps": -2.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -2
+    }
+   },
+   "holm_threshold": 0.025,
+   "beats_ball": "SMOKE GRADE, NOT A VERDICT: does not beat BALL"
+  },
+  "GRAM_UN": {
+   "cells": 1,
+   "missing_cells": [],
+   "untied": 1,
+   "ahead_of_ball": 0,
+   "behind_ball": 1,
+   "p_one_sided": 1.0,
+   "vs_ball": {
+    "cells": 1,
+    "pooled_steps": -7.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -7
+    }
+   },
+   "vs_read": {
+    "cells": 1,
+    "pooled_steps": -4.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -4
+    }
+   },
+   "vs_best_control": {
+    "cells": 1,
+    "pooled_steps": -7.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -7
+    }
+   },
+   "holm_threshold": 0.016666666666666666,
+   "beats_ball": "SMOKE GRADE, NOT A VERDICT: does not beat BALL"
+  },
+  "SV": {
+   "cells": 1,
+   "missing_cells": [],
+   "untied": 1,
+   "ahead_of_ball": 0,
+   "behind_ball": 1,
+   "p_one_sided": 1.0,
+   "vs_ball": {
+    "cells": 1,
+    "pooled_steps": -6.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -6
+    }
+   },
+   "vs_read": {
+    "cells": 1,
+    "pooled_steps": -3.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -3
+    }
+   },
+   "vs_best_control": {
+    "cells": 1,
+    "pooled_steps": -6.0,
+    "ahead": 0,
+    "level": 0,
+    "behind": 1,
+    "per_cell": {
+     "s_nu030_n64/t0": -6
+    }
+   },
+   "holm_threshold": 0.05,
+   "beats_ball": "SMOKE GRADE, NOT A VERDICT: does not beat BALL"
+  }
+ }
+}

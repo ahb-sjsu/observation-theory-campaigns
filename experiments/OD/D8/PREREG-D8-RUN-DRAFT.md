@@ -185,6 +185,15 @@ a node's log (three of D8's pilot logs were lost).
    self-test of the sign test and Holm thresholds of Section 5 and of OP4's three readings.
    `smoke_check.py` then checks, for every Job, that the result in its log and the copy in `OD_RESULTS` are
    byte-identical, that D8's collection from the stream alone equals the one from the logs, and that the
-   collected files grade, and writes `smoke_record.json`.
+   collected files grade, and writes `smoke_record.json`. Done 2026-10-14, PASS (commit 71e0e62): the 15
+   D8 Jobs and 8 variant Jobs all succeeded on NRP at the first submission, on 9 or more nodes, in 437 to
+   1025 s each (peak RSS of the D8 Jobs about 120 MiB, one core); every one published its result to
+   `OD_RESULTS`, and the stream copy equals the log copy byte for byte in all 23; the halves joined with
+   $m^*$ on the merged flags, D8's collection from the stream alone (logs disabled) equals the one from the
+   logs, and both graders ran. The smoke cell's budgets, which settle nothing (one cell at $n = 64$ on its
+   own seeds): BALL 6, KE 12, READ 16, ENSTROPHY 48, SENS and every RANDOM draw censored; GRAM 64,
+   READ-KE 12, GRAM-UN 64, SV 48. The graders' labels read "SMOKE GRADE, NOT A VERDICT" throughout. The
+   variant Jobs record no footprint (peak RSS), unlike D8's; their $n = 192$ memory rests on D8's
+   measurement of the same nudging code (item 4).
 8. This draft is renamed `PREREG-D8-RUN.md` in one commit, and its blob hash is recorded in the track
    documents and the README status ledger.

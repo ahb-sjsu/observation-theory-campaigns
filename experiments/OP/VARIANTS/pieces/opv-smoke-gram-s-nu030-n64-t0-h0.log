@@ -1,0 +1,26 @@
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OD/D8/prereg_config.json: OK
+/work/OP/OP4/op4_gram.py: OK
+/work/OP/VARIANTS/op_variants.py: OK
+/work/OP/VARIANTS/variants_config.json: OK
+/work/OD/D8/nats_results.py: OK
+/work/OP/VARIANTS/cache/rank_s_nu030_n64_smoke.json: OK
+/work/OP/VARIANTS/cache/gram_s_nu030_n64_smoke.json: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.15
+ke_sq = velocity norm^2 / (2 pi)^2: 1.9e-16 PASS
+READ-KE with the enstrophy norm = D8's READ sensitivity: max diff 0.0e+00 PASS
+the kinetic-energy sensitivity differs from the enstrophy one:  PASS
+ESA's Gram identity: 2.7e-15 PASS
+ESA -> READ for independent modes and a constant linear response: max rel diff 0.0067 (sampling) PASS
+ESA on the flow: finite and non-negative for every pair: 220 pairs PASS
+d_u and d_un on OP4's probe spectrum: d_u 6, d_un 9 PASS
+SV with one singular vector picks the fastest-growing coordinate: [6.0496 0.     0.     0.    ] PASS
+SV with two singular vectors scores the two growing coordinates by sigma^2: [6.0496 2.2255 0.     0.    ] PASS
+SV pair scores consistent; the stretched direction leads: sigma_1 3.000 PASS
+GRAM sub-blocks: blocks of the leading 4 of 8 vectors = leading sub-blocks; QR keeps the leading basis: blocks 0.0e+00, basis 3.0e-16 PASS
+gram_from_blocks with the full subspace = OP4's rule applied directly: order[:6] [182, 14, 88, 50, 3, 2] PASS
+SELFTEST PASS
+{"world": "s_nu030_n64", "test": 0, "observer": "GRAM", "ladder_half": 0, "m_star": null, "synced": [false, false, false, false, false, false, false], "seconds": 490.8}
+NATS-PUBLISHED od.results.opv.smoke.opv-smoke-gram-s-nu030-n64-t0-h0 chunks=1 seqs=[28]
