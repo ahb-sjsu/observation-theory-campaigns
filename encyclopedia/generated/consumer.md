@@ -11,6 +11,8 @@ The function that acts on a vector, the first element of an observer. A softmax,
 
 **Example.** A logistic classifier reading a 30-column table is a consumer; so is a cosine ranker, and so is a person reading a summary.
 
+**Known as, or related to prior art.** The classical name is the decoder, or the downstream task or estimator. Indirect source coding (Wolf and Ziv, IEEE Transactions on Information Theory, 1970) and task-based quantization (Shlezinger, Eldar, and Rodrigues (IEEE Transactions on Signal Processing, 2019)) give the consumer this role. The word consumer is used with its definition in the program's own papers.
+
 ## equation
 
 Book equation 1.1.

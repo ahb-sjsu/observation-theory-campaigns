@@ -11,6 +11,8 @@ A row that is never or almost never retrieved as anyone's nearest neighbour. Cha
 
 **Example.** With 1000 queries at k equal to 10 there are 10000 slots, so in a corpus of 100000 rows at least 90 percent are never retrieved.
 
+**Known as, or related to prior art.** The anti-hubs of Radovanović, Nanopoulos, and Ivanović (Journal of Machine Learning Research, 2010), the rows that rarely or never occur in other rows' nearest-neighbour lists.
+
 ## equation
 
 Book equation 10.3.

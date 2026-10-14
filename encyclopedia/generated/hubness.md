@@ -11,6 +11,8 @@ The excess of a few rows in the nearest-neighbour lists of many queries over wha
 
 **Example.** The busiest row's count fell from 287 to 213 and the skew from 3.970 to 3.177 when the query coupling was removed.
 
+**Known as, or related to prior art.** The classical name is hubness in high-dimensional nearest-neighbour lists, first studied systematically by Radovanović, Nanopoulos, and Ivanović (Journal of Machine Learning Research, 2010). They measured it by the skewness of the k-occurrence distribution. Here it is read against the Poisson ceiling and treated as a property of the queries.
+
 ## equation
 
 Book equation 0.17.

@@ -11,6 +11,8 @@ A row retrieved as a nearest neighbour far more often than chance allows. The bo
 
 **Example.** One row appeared in 287 of the queries' neighbour lists, far above what chance allows.
 
+**Known as, or related to prior art.** The hubs of Radovanović, Nanopoulos, and Ivanović (Journal of Machine Learning Research, 2010).
+
 ## equation
 
 Book equation 10.3.

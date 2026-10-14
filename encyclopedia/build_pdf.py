@@ -178,10 +178,13 @@ what each check does and does not cover. Book equation numbers, chapter numbers,
 numbers refer to *Data Mining as Observation*, draft 0.2.
 
 **Prior art.** Where an idea has a name outside the program, the entry says so under the
-heading known as. The read operator is, in the scalar Euclidean case, the active-subspace
-matrix of Constantine and Gleich, and consumer-relative compression sits beside the
-information bottleneck and task-based quantization. What the program adds is the output-metric
-pullback, the observer triple, the budget, and the audit discipline.
+heading known as. The read operator is the active-subspace matrix of Constantine, Dow, and
+Wang (2014), the expected gradient outer product. The read distortion is a sensitivity-weighted
+mean squared error. Consumer-relative rate-distortion is the weighted rate-distortion of
+Sakrison (1968), or indirect source coding (Wolf and Ziv, 1970). The flip is a ranking reversal
+between reconstruction error and task loss, the premise of task-based quantization (Shlezinger,
+Eldar, and Rodrigues, 2019). What the program adds is the observer triple, the budget, and the
+audit discipline.
 
 **How to cite.** Cite the repository ahb-sjsu/observation-theory-campaigns at commit
 {COMMIT}, the entry by its id, and, for a number, the source row the entry gives. The

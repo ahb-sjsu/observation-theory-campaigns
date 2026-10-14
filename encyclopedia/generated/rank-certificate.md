@@ -11,6 +11,8 @@ A bound, computed from a compressed representation, that certifies which neighbo
 
 **Example.** A ratio spread kappa of 1.0148 with mu of 0.0664 certifies Kendall tau at least 0.8671 across 19900 pairs.
 
+**Known as, or related to prior art.** The certificate is a neighbour-order preservation bound. It sits beside the relative-contrast analysis of nearest-neighbour search (Beyer, Goldstein, Ramakrishnan, and Shaft, ICDT 1999, and He, Kumar, and Chang, ICML 2012). It also sits beside distortion bounds for embeddings, where a map whose distortion stays below a query's relative contrast cannot reorder that query's neighbours (Johnson and Lindenstrauss, 1984). The certificate reads the concentration of distance ratios in a corpus and turns it into a floor on Kendall tau.
+
 ## equation
 
 none
