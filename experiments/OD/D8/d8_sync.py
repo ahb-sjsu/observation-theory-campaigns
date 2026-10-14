@@ -199,17 +199,27 @@ def block_tangent(model, u, D, Q):
     return Q * model.ftangent(u, D)
 
 
-def nudge_group(model, uh0, masks: np.ndarray, mu: float, dt: float, T: float, dt_sample: float, obs_lyap: bool, block_lyap: bool, rng: np.random.Generator) -> dict:
+def nudge_group(model, uh0, masks: np.ndarray, mu: float, dt: float, T: float, dt_sample: float, obs_lyap: bool, block_lyap: bool, rng: np.random.Generator,
+                keep=None) -> dict:
     """Integrate the reference and one nudged copy per mask in one batch; masks (B, n, n) in {0, 1}. With obs_lyap, carry one
     tangent vector per mask under the full finite-gain observer DF(u) - mu P_S; with block_lyap, one under Q_S DF(u) Q_S. Both
-    are renormalised at every sample and their exponents returned."""
-    B = masks.shape[0]; n = model.n
-    W = np.concatenate([uh0[None], np.zeros((B, n, n), complex)]); M = np.concatenate([np.zeros((1, n, n)), masks]); Mc = masks
-    Q = (1.0 - masks) * model.dealias; tang = {}
+    are renormalised at every sample and their exponents returned. keep: the mask rows this call integrates (a ladder half,
+    PREREG-D8-RUN Section 4). The tangent vectors are drawn for every row first and then kept, so a kept row starts from the
+    same vector as in the whole batch; the reference row evolves alone and each copy sees only itself and the reference, so
+    a kept row's record is the whole batch's (added 2026-10-14)."""
+    n = model.n; Q = (1.0 - masks) * model.dealias; D0 = {}
     if obs_lyap:
-        D = np.fft.fft2(rng.normal(size=(B, n, n))) * model.dealias; tang["obs"] = [D / np.sqrt(sq(model, D))[:, None, None], np.zeros(B), lambda u, X: observer_tangent(model, u, X, Mc, mu)]
+        D0["obs"] = np.fft.fft2(rng.normal(size=(masks.shape[0], n, n))) * model.dealias
     if block_lyap:
-        D = np.fft.fft2(rng.normal(size=(B, n, n))) * Q; tang["block"] = [D / np.sqrt(sq(model, D))[:, None, None], np.zeros(B), lambda u, X: block_tangent(model, u, X, Q)]
+        D0["block"] = np.fft.fft2(rng.normal(size=(masks.shape[0], n, n))) * Q
+    if keep is not None:
+        keep = np.asarray(keep, dtype=int); masks = masks[keep]; Q = Q[keep]; D0 = {k: v[keep] for k, v in D0.items()}
+    B = masks.shape[0]; Mc = masks; tang = {}
+    W = np.concatenate([uh0[None], np.zeros((B, n, n), complex)]); M = np.concatenate([np.zeros((1, n, n)), masks])
+    if "obs" in D0:
+        D = D0["obs"]; tang["obs"] = [D / np.sqrt(sq(model, D))[:, None, None], np.zeros(B), lambda u, X: observer_tangent(model, u, X, Mc, mu)]
+    if "block" in D0:
+        D = D0["block"]; tang["block"] = [D / np.sqrt(sq(model, D))[:, None, None], np.zeros(B), lambda u, X: block_tangent(model, u, X, Q)]
 
     per = int(round(dt_sample / dt)); steps = int(round(T / dt)); nrec = steps // per
     delta = np.empty((nrec + 1, B)); times = np.empty(nrec + 1)
@@ -277,23 +287,82 @@ def lyapunov(model, uh, dt: float, T: float, dt_sample: float, rng) -> float:
 GRADED = ("READ", "BALL", "ENSTROPHY", "KE")
 
 
-def nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap: tuple[bool, bool], rng, d0) -> dict:
-    n = model.n; masks = np.stack([cand.mask(o[:m], n) for m in ladder])
-    g = nudge_group(model, u0, masks, mu, dt, float(cfg["T_sync"]), float(cfg["dt_sample"]), lyap[0], lyap[1], rng)
-    flags, slopes = zip(*[synced(g["times"], g["delta"][:, b], float(cfg["sync_threshold"]), float(cfg["T_hold"])) for b in range(len(ladder))])
-    ms, nonmono = m_star(ladder, list(flags)); st = int(cfg["series_stride"])
-    rec = {"m_star": ms, "censored": ms is None, "nonmonotone": nonmono, "synced": list(flags), "slope_hold": list(slopes), "delta_final": g["delta"][-1].tolist(),
+def ladder_rows(L: int, half: int | None) -> list[int]:
+    """The ladder rows one Job integrates: all of them, the lower half (0, which takes the middle row when L is odd) or the
+    upper half (1)."""
+    if half is None:
+        return list(range(L))
+    if half not in (0, 1): raise ValueError(f"ladder half must be 0 or 1, not {half!r}")
+    c = (L + 1) // 2
+    return list(range(c)) if half == 0 else list(range(c, L))
+
+
+def nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap: tuple[bool, bool], rng, d0, half: int | None = None) -> dict:
+    """One observer's nudging over the ladder. With half = 0 or 1, only that half of the ladder is integrated and the record
+    carries no m*: m* is taken only from the merged flags, by merge_halves."""
+    n = model.n; masks = np.stack([cand.mask(o[:m], n) for m in ladder]); rows = ladder_rows(len(ladder), half); part = [ladder[i] for i in rows]
+    g = nudge_group(model, u0, masks, mu, dt, float(cfg["T_sync"]), float(cfg["dt_sample"]), lyap[0], lyap[1], rng, keep=None if half is None else rows)
+    flags, slopes = zip(*[synced(g["times"], g["delta"][:, b], float(cfg["sync_threshold"]), float(cfg["T_hold"])) for b in range(len(part))])
+    st = int(cfg["series_stride"])
+    rec = {"synced": list(flags), "slope_hold": list(slopes), "delta_final": g["delta"][-1].tolist(),
            "delta_series": g["delta"][::st].tolist(), "times": g["times"][::st].tolist(),
-           "initial_spreading_rate": [float(d0.sum() - d0[o[:m]].sum()) for m in ladder]}
+           "initial_spreading_rate": [float(d0.sum() - d0[o[:m]].sum()) for m in part]}
     for k in ("lyap_obs", "lyap_block"):
         if k in g: rec[k] = g[k].tolist()
-    return rec
+    if half is not None:
+        return {"ladder_half": half, "ladder_part": part, **rec}
+    ms, nonmono = m_star(ladder, list(flags))
+    return {"m_star": ms, "censored": ms is None, "nonmonotone": nonmono, **rec}
+
+
+PER_RUNG = ("synced", "slope_hold", "delta_final", "initial_spreading_rate", "lyap_obs", "lyap_block")
+
+
+def merge_halves(lo: dict, hi: dict, ladder: list[int]) -> dict:
+    """The two ladder halves of one record -> the record of the whole ladder, with m* taken on the merged flags. Refuses
+    halves that do not tile the ladder in order, that were sampled at different times, or that carry different fields."""
+    if (lo.get("ladder_half"), hi.get("ladder_half")) != (0, 1): raise ValueError("need the lower half (0) and the upper half (1)")
+    if lo["ladder_part"] + hi["ladder_part"] != list(ladder): raise ValueError(f"halves {lo['ladder_part']} + {hi['ladder_part']} do not tile the ladder {list(ladder)}")
+    if lo["times"] != hi["times"]: raise ValueError("halves sampled at different times")
+    if {k for k in PER_RUNG if k in lo} != {k for k in PER_RUNG if k in hi}: raise ValueError("halves carry different per-rung fields")
+    rec = {k: lo[k] + hi[k] for k in PER_RUNG[:3]}
+    rec["delta_series"] = [a + b for a, b in zip(lo["delta_series"], hi["delta_series"], strict=True)]; rec["times"] = lo["times"]
+    rec["initial_spreading_rate"] = lo["initial_spreading_rate"] + hi["initial_spreading_rate"]
+    for k in PER_RUNG[4:]:
+        if k in lo: rec[k] = lo[k] + hi[k]
+    ms, nonmono = m_star(list(ladder), rec["synced"])
+    return {"m_star": ms, "censored": ms is None, "nonmonotone": nonmono, **rec}
+
+
+def merge_world_halves(lo: dict, hi: dict) -> dict:
+    """Two run_world outputs of one world, run with ladder halves 0 and 1 on the same parts, tests and observers -> the output
+    of the whole ladder. Every field that is not per rung must agree between the halves (they share the seeds), and is refused
+    otherwise."""
+    if (lo.get("ladder_half"), hi.get("ladder_half")) != (0, 1): raise ValueError("need world outputs of ladder halves 0 and 1")
+    for k in ("name", "n", "ladder", "parts", "observers_run", "rankings"):
+        if lo.get(k) != hi.get(k): raise ValueError(f"halves differ in {k}")
+    ladder = lo["ladder"]; by_index = {t["index"]: t for t in hi["tests"]}
+    if sorted(by_index) != sorted(t["index"] for t in lo["tests"]): raise ValueError("halves ran different test trajectories")
+    tests = []
+    for t in lo["tests"]:
+        h = by_index[t["index"]]; m = {}
+        for k in sorted(set(t) | set(h)):
+            if k in ("observers", "mu_record", "dt_half", "seconds"): continue
+            if k in t and k in h and t[k] != h[k]: raise ValueError(f"test {t['index']}: {k} differs between halves")
+            m[k] = t[k] if k in t else h[k]
+        if set(t["observers"]) != set(h["observers"]): raise ValueError(f"test {t['index']}: halves ran different observers")
+        m["observers"] = {name: merge_halves(r, h["observers"][name], ladder) for name, r in t["observers"].items()}
+        m["mu_record"] = {mu_: {name: merge_halves(r, h["mu_record"][mu_][name], ladder) for name, r in d.items()} for mu_, d in t["mu_record"].items()}
+        m["dt_half"] = {name: merge_halves(r, h["dt_half"][name], ladder) for name, r in t["dt_half"].items()}
+        m["seconds"] = t["seconds"] + h["seconds"]; tests.append(m)
+    return {**lo, "ladder_half": None, "merged_from_halves": True, "tests": tests, "seconds": lo["seconds"] + hi["seconds"]}
 
 
 PARTS = ("instrument", "graded", "others", "dthalf", "murecord")
 
 
-def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print, parts=None, tests=None, observers=None) -> dict:
+def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, seed_role: str, log=print, parts=None, tests=None, observers=None,
+              ladder_half: int | None = None) -> dict:
     """parts: which of PARTS this call runs (all by default). Training and the test trajectory's spin-up are deterministic
     from the seeds, so separate Jobs that each run some parts see the same rankings and the same u0. A world may carry
     "overrides", which replace config keys for that world only (round 3: T_sync, block_lyap_roles). tests: which test
@@ -301,14 +370,16 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
     The observer and block tangents are carried for the graded observers only, since the records use only theirs
     (changed 2026-10-10 for the pilot; the probe rounds carried them for every observer). observers: which observers the
     graded and others parts run (all by default); each observer's nudging draws from its own fresh generator, so one
-    observer run alone gives the same record as in a full part (added 2026-10-11, when an n = 128 core part timed out)."""
+    observer run alone gives the same record as in a full part (added 2026-10-11, when an n = 128 core part timed out).
+    ladder_half: 0 or 1 integrates only that half of the ladder in every nudging record, which then carries no m*;
+    merge_world_halves joins the two halves' outputs and takes m* (added 2026-10-14 for the run's n = 192 Jobs)."""
     cfg = {**cfg, **world.get("overrides", {})}; parts = set(PARTS if parts is None else parts)
     if not parts <= set(PARTS): raise SystemExit(f"unknown parts {sorted(parts - set(PARTS))}")
     n = int(world["n"]); model = ForcedNS2D(n, float(world["nu"]), float(cfg["alpha"]), float(cfg["F0"]), int(cfg["kf"]))
     dt = float(cfg["dt_base"]) * int(cfg["n_ref"]) / n; ds = float(cfg["dt_sample"]); chunk = int(cfg["chunk"]); cand = Candidates(model); mu = float(cfg["mu"])
     ladder = [m for m in cfg["ladder"] if m <= cand.size]; off = int(world["seed_offset"]); t0 = time.time()
     out = {"name": world["name"], "group": world["group"], "n": n, "nu": model.nu, "dt": dt, "n_candidates": cand.size, "ladder": ladder,
-           "parts": sorted(parts), "observers_run": "all" if observers is None else sorted(observers), "overrides": world.get("overrides", {})}
+           "parts": sorted(parts), "observers_run": "all" if observers is None else sorted(observers), "overrides": world.get("overrides", {}), "ladder_half": ladder_half}
 
     # training trajectory: rankings and theorem checks
     rng = np.random.default_rng(seed_train + off); uh = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
@@ -360,15 +431,15 @@ def run_world(world: dict, cfg: dict, seed_train: int, seed_test: int, K: int, s
             test["all_hold_max"] = float(g["delta"][g["times"] >= g["times"][-1] - float(cfg["T_hold"]) - 1e-9, 1].max())
         for name, o in orders.items():
             if ("graded" if name in GRADED else "others") not in parts or (observers is not None and name not in observers): continue
-            rec = nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap if name in GRADED else (False, False), np.random.default_rng(seed_test + 7 * j + 3), d0); test["observers"][name] = rec
-            log(json.dumps({"world": world["name"], "test": j, "observer": name, "m_star": rec["m_star"], "nonmonotone": rec["nonmonotone"], "seconds": round(time.time() - t1, 1)}))
+            rec = nudge_record(model, u0, cand, o, ladder, mu, dt, cfg, lyap if name in GRADED else (False, False), np.random.default_rng(seed_test + 7 * j + 3), d0, half=ladder_half); test["observers"][name] = rec
+            log(json.dumps({"world": world["name"], "test": j, "observer": name, "ladder_half": ladder_half, "m_star": rec.get("m_star"), "nonmonotone": rec.get("nonmonotone"), "synced": rec["synced"], "seconds": round(time.time() - t1, 1)}))
         for m_ in (mu_rec if "murecord" in parts else []):
             for name in GRADED:
-                test["mu_record"].setdefault(str(m_), {})[name] = nudge_record(model, u0, cand, orders[name], ladder, m_, dt, cfg, (False, False), rng, d0)
+                test["mu_record"].setdefault(str(m_), {})[name] = nudge_record(model, u0, cand, orders[name], ladder, m_, dt, cfg, (False, False), rng, d0, half=ladder_half)
         if refine and "dthalf" in parts:  # time-step refinement on the graded observers
             for name in GRADED:
-                test["dt_half"][name] = nudge_record(model, u0, cand, orders[name], ladder, mu, dt / 2, cfg, (False, False), rng, d0)
-                log(json.dumps({"world": world["name"], "test": j, "observer": name, "dt_half_m_star": test["dt_half"][name]["m_star"], "m_star": test["observers"].get(name, {}).get("m_star")}))
+                test["dt_half"][name] = nudge_record(model, u0, cand, orders[name], ladder, mu, dt / 2, cfg, (False, False), rng, d0, half=ladder_half)
+                log(json.dumps({"world": world["name"], "test": j, "observer": name, "dt_half_m_star": test["dt_half"][name].get("m_star"), "m_star": test["observers"].get(name, {}).get("m_star")}))
         test["seconds"] = time.time() - t1; out["tests"].append(test)
     out["seconds"] = time.time() - t0
     return out
@@ -381,7 +452,7 @@ def footprint(t_wall0: float) -> dict:
     return {"peak_rss_mib": ru.ru_maxrss / 1024.0, "cpu_seconds": ru.ru_utime + ru.ru_stime, "wall_seconds": wall, "mean_cores": (ru.ru_utime + ru.ru_stime) / wall if wall > 0 else None}
 
 
-def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, parts=None, tests=None, observers=None) -> dict:
+def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, parts=None, tests=None, observers=None, ladder_half: int | None = None) -> dict:
     t_wall0 = time.time()
     if seed_role == "probe":
         seed_train = seed_test = int(cfg["seed_probe"]); seed_test += 5000
@@ -391,7 +462,7 @@ def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None,
     result = {"config": cfg, "seed_role": seed_role, "seed_train": seed_train, "seed_test": seed_test, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     for world in cfg["worlds"]:
         if world["group"] not in groups or (only_world and world["name"] != only_world): continue
-        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role, parts=parts, tests=tests, observers=observers)); result["footprint"] = footprint(t_wall0)
+        result["worlds"].append(run_world(world, cfg, seed_train, seed_test, K, seed_role, parts=parts, tests=tests, observers=observers, ladder_half=ladder_half)); result["footprint"] = footprint(t_wall0)
         print(json.dumps({"footprint": result["footprint"]}), flush=True); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     if only_world and not result["worlds"]:
         raise SystemExit(f"no world named {only_world} in role {seed_role}")
@@ -470,6 +541,26 @@ def selftest() -> int:
     ok = ok and not synced(t, cross, 1e-4, hold)[0] and not synced(t, osc, 1e-4, hold)[0]
     ok = ok and m_star([4, 8, 16, 32], [False, True, True, True]) == (8, False) and m_star([4, 8, 16, 32], [True, False, True, True]) == (16, True) and m_star([4, 8], [False, False]) == (None, False)
     check("sustained synchronization rule and m*", ok)
+    # 14. ladder halves (PREREG-D8-RUN Section 4): the two halves of a short nudging run with both tangents, merged, give the
+    # whole ladder's record; the threshold is the median rung's hold-window maximum, so the flags change inside the ladder
+    ladder = [2, 4, 8, 16, 32, 64, 128]; o = cand.ball_order(); d0 = np.ones(cand.size)
+    u0 = spin_up(model, initial_field(model, np.random.default_rng(7), 8, 3.0), 2.0, 0.01)
+    cfg = {"T_sync": 2.0, "dt_sample": 0.1, "T_hold": 0.5, "series_stride": 1, "sync_threshold": 1.0}
+    run_ = lambda half: nudge_record(model, u0, cand, o, ladder, 50.0, 0.01, cfg, (True, True), np.random.default_rng(9), d0, half=half)
+    r0 = run_(None); tt = np.array(r0["times"]); hw = np.array(r0["delta_series"])[tt >= tt[-1] - cfg["T_hold"] - 1e-9].max(axis=0)
+    cfg["sync_threshold"] = float(np.median(hw)); whole = run_(None); lo, hi = run_(0), run_(1); merged = merge_halves(lo, hi, ladder)
+    e_d = float(np.max(np.abs(np.array(merged["delta_series"]) - np.array(whole["delta_series"]))))
+    e_l = max(float(np.max(np.abs(np.array(merged[k]) - np.array(whole[k])))) for k in ("lyap_obs", "lyap_block"))
+    same = merged["synced"] == whole["synced"] and (merged["m_star"], merged["nonmonotone"]) == (whole["m_star"], whole["nonmonotone"]) and merged.keys() == whole.keys()
+    refused = 0
+    for bad in ((hi, lo, ladder), (lo, hi, ladder[:-1]), (lo, {**hi, "times": hi["times"][:-1]}, ladder)):
+        try:
+            merge_halves(*bad)
+        except ValueError:
+            refused += 1
+    ok = same and 0 < sum(whole["synced"]) < len(ladder) and e_d < 1e-12 and e_l < 1e-12 and refused == 3 and "m_star" not in lo
+    check("ladder halves merged = the whole ladder (flags, m*, delta series, tangent exponents)", ok,
+          f"m* {whole['m_star']}, flags {''.join('1' if f else '0' for f in whole['synced'])}, delta {e_d:.1e}, lyap {e_l:.1e}, {refused}/3 bad merges refused")
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 
@@ -481,10 +572,11 @@ def main(argv=None) -> int:
     ap.add_argument("--parts", default=None, help="comma-separated subset of instrument,graded,others,dthalf,murecord (all by default)")
     ap.add_argument("--tests", default=None, help="comma-separated test trajectory indices (all K by default)")
     ap.add_argument("--observers", default=None, help="comma-separated observer names for the graded/others parts (all by default)")
+    ap.add_argument("--ladder-half", type=int, choices=[0, 1], default=None, help="integrate only this half of the ladder; merge_world_halves joins the two")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
     run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world, a.parts.split(",") if a.parts else None,
-        [int(x) for x in a.tests.split(",")] if a.tests else None, a.observers.split(",") if a.observers else None); return 0
+        [int(x) for x in a.tests.split(",")] if a.tests else None, a.observers.split(",") if a.observers else None, a.ladder_half); return 0
 
 
 if __name__ == "__main__":

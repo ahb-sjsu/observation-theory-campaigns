@@ -3,7 +3,7 @@
  "F0": 1.0,
  "kf": 4,
  "alpha": 0.1,
- "nu_note": "FIXED 2026-10-10 by the owner from probe rounds 1-3: nu_1 = 0.03 and nu_2 = 0.02 with n = 96 as the coarser resolution (both chaotic and resolved at n = 96: Lyapunov +0.06 / +0.26, enstrophy tails 5e-10 / 1e-7); T_sync = 100, T_hold = 10 (chosen on the separation of delta: 3 of 52 graded cells ambiguous per valid world against 45 of 260 at T_sync = 50). Pilot ladder n = 96 and 128. Run ladder n = 128 and 192 by Section 2's rule (one step finer than the pilot) is PENDING the owner's decision on its cost (one n = 192 trajectory estimated at order 100 CPU-hours, not measured)",
+ "nu_note": "FIXED 2026-10-10 by the owner from probe rounds 1-3: nu_1 = 0.03 and nu_2 = 0.02 with n = 96 as the coarser resolution (both chaotic and resolved at n = 96: Lyapunov +0.06 / +0.26, enstrophy tails 5e-10 / 1e-7); T_sync = 100, T_hold = 10 (chosen on the separation of delta: 3 of 52 graded cells ambiguous per valid world against 45 of 260 at T_sync = 50). Pilot ladder n = 96 and 128. Run ladder n = 128 and 192 by Section 2's rule (one step finer than the pilot), DECIDED by the owner 2026-10-13 with K = 8 test trajectories per world (32 cells; PREREG-D8-RUN-DRAFT.md Section 1), on NRP in the exempt class, one Job per (world, trajectory, arm), the n = 192 graded and variant arms split by ladder halves",
  "omega_rms": 3.0,
  "ic_kmax": 8,
  "dt_base": 0.005,
@@ -47,10 +47,13 @@
  "seed_pilot_test": 20261073,
  "seed_run_train": 20261074,
  "seed_run_test": 20261075,
+ "seed_timing_train": 20261090,
+ "seed_timing_test": 20261091,
  "K_by_role": {
   "probe": 1,
   "pilot": 2,
-  "run": 4
+  "run": 8,
+  "timing": 1
  },
  "groups_by_role": {
   "probe": [
@@ -61,6 +64,9 @@
   ],
   "run": [
    "run"
+  ],
+  "timing": [
+   "timing"
   ]
  },
  "bars": "PREREG-D8-DRAFT.md Section 5; tolerances fixed from the pilot",
@@ -153,6 +159,14 @@
    "n": 192,
    "nu": 0.02,
    "seed_offset": 21
+  },
+  {
+   "name": "t_nu020_n192",
+   "group": "timing",
+   "n": 192,
+   "nu": 0.02,
+   "seed_offset": 31,
+   "note": "timing world (PREREG-D8-RUN-DRAFT.md Section 9): measures one run Job at n = 192 on its own seeds; no gate reads it"
   }
  ],
  "T_hold": 10.0,

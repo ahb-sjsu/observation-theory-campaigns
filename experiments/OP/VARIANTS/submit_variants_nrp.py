@@ -52,28 +52,42 @@ PINS = "numpy==2.2.6"  # the version D8's and the variants' self-tests passed on
 FILES = {"OD/D5/d5_burgers.py": EXP / "OD" / "D5" / "d5_burgers.py", "OD/D8/d8_sync.py": EXP / "OD" / "D8" / "d8_sync.py",
          "OD/D8/prereg_config.json": EXP / "OD" / "D8" / "prereg_config.json", "OP/OP4/op4_gram.py": EXP / "OP" / "OP4" / "op4_gram.py",
          "OP/VARIANTS/op_variants.py": HERE / "op_variants.py", "OP/VARIANTS/variants_config.json": HERE / "variants_config.json"}
-ROLES = {"probe": {"worlds": ["p_nu030_n96", "p_nu020_n96"], "seed_role": "pilot", "tests": [0, 1], "timeout": "16h", "batch": "op-var-probe"}}
-VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")
+CFG8 = json.loads(FILES["OD/D8/prereg_config.json"].read_text(encoding="utf-8"))
+WORLD_N = {w["name"]: int(w["n"]) for w in CFG8["worlds"]}
+ROLES = {"probe": {"worlds": ["p_nu030_n96", "p_nu020_n96"], "seed_role": "pilot", "tests": [0, 1], "timeout": "16h", "batch": "op-var-probe"},
+         # the run (PREREG-D8-RUN-DRAFT.md Sections 3 and 4): OP4's GRAM and the four secondary arms on the run worlds, K from
+         # the config; every arm carries the observer tangent like a graded D8 observer, so at n = 192 it is split into ladder
+         # halves (the same estimate as submit_d8_nrp.py's run role, to be measured before sealing)
+         "run": {"worlds": [w["name"] for w in CFG8["worlds"] if w["group"] in CFG8["groups_by_role"]["run"]], "seed_role": "run",
+                 "tests": list(range(int(CFG8["K_by_role"]["run"]))), "timeout": "20h", "batch": "op-var-run",
+                 "variants": ("GRAM", "READ_KE", "ESA", "GRAM_UN", "SV"), "halves_min_n": 192}}
+VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")  # the probe's arms; a role may name its own
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN opv result gz-b64----", "----END opv result----"
 ARG_LIMIT = 120_000  # bytes per exec argument, under MAX_ARG_STRLEN (131072) with margin; files ship gzip + base64
 
 
-def job_name(variant: str, world: str, role: str, test: int) -> str:
-    return f"opv-{role}-{variant.replace('_', '-').lower()}-{world.replace('_', '-').lower()}-t{test}"
+def job_name(variant: str, world: str, role: str, test: int, half: int | None = None) -> str:
+    return f"opv-{role}-{variant.replace('_', '-').lower()}-{world.replace('_', '-').lower()}-t{test}" + (f"-h{half}" if half is not None else "")
 
 
-def units(role: str, variants=None) -> list[tuple[str, str, int]]:
-    R = ROLES[role]; vs = VARIANTS if variants is None else [v for v in VARIANTS if v in variants]
-    return [(v, w, t) for w in R["worlds"] for v in vs for t in R["tests"]]
+def units(role: str, variants=None) -> list[tuple[str, str, int, int | None]]:
+    """(variant, world, test trajectory, ladder half or None) for every Job of the role; a world at or above the role's
+    halves_min_n runs each (variant, trajectory) as two ladder halves."""
+    R = ROLES[role]; allv = R.get("variants", VARIANTS); vs = allv if variants is None else [v for v in allv if v in variants]
+    out = []
+    for w in R["worlds"]:
+        hs = (0, 1) if WORLD_N[w] >= R.get("halves_min_n", 10 ** 9) else (None,)
+        out += [(v, w, t, h) for v in vs for t in R["tests"] for h in hs]
+    return out
 
 
 def cache_files(world: str, seed_role: str) -> dict[str, Path]:
     return {f"OP/VARIANTS/cache/{p}_{world}_{seed_role}.json": HERE / "cache" / f"{p}_{world}_{seed_role}.json" for p in ("rank", "gram")}
 
 
-def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tuple[str, str]]) -> str:
-    R = ROLES[role]; out = f"{role}_{variant}_{world}_t{test}.json"
+def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tuple[str, str]], half: int | None = None) -> str:
+    R = ROLES[role]; out = f"{role}_{variant}_{world}_t{test}" + (f"_h{half}" if half is not None else "") + ".json"
     lines = ["set -euo pipefail", "export PYTHONUNBUFFERED=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PIP_ROOT_USER_ACTION=ignore HOME=/work",
              "mkdir -p /work/OD/D5 /work/OD/D8 /work/OP/OP4 /work/OP/VARIANTS/cache"]
     for rel, (b64, sha) in blobs.items():
@@ -82,14 +96,14 @@ def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tup
               "python -c \"import numpy, sys; print('numpy', numpy.__version__, 'python', sys.version.split()[0])\"",
               "cd /work/OP/VARIANTS", "python -u op_variants.py --selftest",
               f"timeout {R['timeout']} python -u op_variants.py --config ../../OD/D8/prereg_config.json --vcfg variants_config.json --seed-role {R['seed_role']} "
-              f"--world {world} --part nudge --variant {variant} --tests {test} --cache cache --out {out}",
+              f"--world {world} --part nudge --variant {variant} --tests {test} --cache cache --out {out}" + (f" --ladder-half {half}" if half is not None else ""),
               f"echo '{BEGIN}'", f"gzip -c {out} | base64 -w0", "echo", f"echo '{END}'"]
     return "\n".join(lines) + "\n"
 
 
-def descriptor(variant, world, role, test, blobs, head) -> JobDescriptor:
-    return JobDescriptor(name=job_name(variant, world, role, test), image=IMAGE, command=["/bin/bash", "-c", command(variant, world, role, test, blobs)],
-                         env={"OPV_VARIANT": variant, "OPV_WORLD": world, "OPV_ROLE": role, "OPV_TEST": str(test), "OPV_HEAD": head},
+def descriptor(variant, world, role, test, blobs, head, half=None) -> JobDescriptor:
+    return JobDescriptor(name=job_name(variant, world, role, test, half), image=IMAGE, command=["/bin/bash", "-c", command(variant, world, role, test, blobs, half)],
+                         env={"OPV_VARIANT": variant, "OPV_WORLD": world, "OPV_ROLE": role, "OPV_TEST": str(test), "OPV_HALF": "all" if half is None else str(half), "OPV_HEAD": head},
                          resources=Resources(cpu=CPU, memory=MEM, gpu=0, ephemeral_storage=EPH),
                          labels={"atlas.io/batch": ROLES[role]["batch"], "atlas.io/role": role, "app": "op-variants"}, backoff_limit=0)
 
@@ -120,21 +134,27 @@ def submit(role: str, dry: bool, variants=None) -> int:
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in FILES.values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
+    if role == "run" and not dry and subprocess.run(["git", "cat-file", "-e", "HEAD:experiments/OD/D8/PREREG-D8-RUN.md"], cwd=HERE, capture_output=True).returncode != 0:
+        raise SystemExit("PREFLIGHT VETO: the run is submittable only once PREREG-D8-RUN.md is sealed in HEAD (a draft is not a registration); --dry-run works")
     R = ROLES[role]; base = {}
     for rel, p in FILES.items():
         raw = p.read_bytes(); base[rel] = (base64.b64encode(gzip.compress(raw, mtime=0)).decode(), hashlib.sha256(raw).hexdigest())
     descs = []; cache_sha = {}
-    for v, w, t in units(role, variants):
+    missing = set()
+    for v, w, t, h in units(role, variants):
         blobs = dict(base)
         for rel, p in cache_files(w, R["seed_role"]).items():
-            if not p.exists(): raise SystemExit(f"PREFLIGHT VETO: {p} missing; run op_variants.py --part rank and --part gram for {w} first")
+            if not p.exists():
+                if not dry: raise SystemExit(f"PREFLIGHT VETO: {p} missing; run op_variants.py --part rank and --part gram for {w} first")
+                missing.add(p.name); continue
             raw = p.read_bytes(); blobs[rel] = (base64.b64encode(gzip.compress(raw, mtime=0)).decode(), hashlib.sha256(raw).hexdigest()); cache_sha[rel] = blobs[rel][1]
-        descs.append(descriptor(v, w, role, t, blobs, head))
+        descs.append(descriptor(v, w, role, t, blobs, head, h))
+    if missing: print(f"DRY RUN WITHOUT CACHES (a submission would be vetoed): {sorted(missing)}")
     for d in descs: preflight(d, role)
     print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in base.items()} | cache_sha,
                       "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": R["timeout"], "pins": PINS}, indent=1))
     if dry:
-        v, w, t = units(role, variants)[0]; print(command(v, w, role, t, {k: ("<b64>", s) for k, (_, s) in base.items()})); return 0
+        v, w, t, h = units(role, variants)[-1]; print(command(v, w, role, t, {k: ("<b64>", s) for k, (_, s) in base.items()}, h)); return 0
     for i, d in enumerate(descs):
         if i: time.sleep(20)  # space submissions apart on Atlas (no churn); this is the submitter, not a Job
         t_sub = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
@@ -153,8 +173,8 @@ def submit(role: str, dry: bool, variants=None) -> int:
 def save(role: str) -> int:
     """Save every succeeded Job's result block to pieces/<job>.json, once, atomically; never overwrite."""
     out = HERE / "pieces"; out.mkdir(exist_ok=True)
-    for v, w, t in units(role):
-        name = job_name(v, w, role, t); path = out / f"{name}.json"
+    for v, w, t, h in units(role):
+        name = job_name(v, w, role, t, h); path = out / f"{name}.json"
         if path.exists(): continue
         st = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}").stdout.strip()
         if not st.startswith("1/"): continue  # never read logs of a Job that has not succeeded
@@ -167,8 +187,8 @@ def save(role: str) -> int:
 
 
 def cleanup(role: str) -> int:
-    for v, w, t in units(role):
-        name = job_name(v, w, role, t); got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
+    for v, w, t, h in units(role):
+        name = job_name(v, w, role, t, h); got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
         if got.returncode != 0: print(f"{name}: absent"); continue
         s, f, a = (got.stdout.strip().split("/") + ["", "", ""])[:3]
         if a not in ("", "0") or (s in ("", "0") and f in ("", "0")):

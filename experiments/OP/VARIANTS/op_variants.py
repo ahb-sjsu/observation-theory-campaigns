@@ -36,7 +36,7 @@ import numpy as np  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "OD" / "D8")); sys.path.insert(0, str(HERE.parent / "OP4"))
-from d8_sync import Candidates, ForcedNS2D, amplitudes, initial_field, nudge_record, sensitivities, spin_up, sq, vel_norm  # noqa: E402
+from d8_sync import Candidates, ForcedNS2D, amplitudes, initial_field, merge_halves, nudge_record, sensitivities, spin_up, sq, vel_norm  # noqa: E402
 from op4_gram import choose_frac, gram_blocks, greedy_gram, lyapunov_spectrum, qr_basis, to_real, window_readings  # noqa: E402
 
 VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV", "GRAM")
@@ -181,19 +181,33 @@ def gram_part(world, cfg8, vcfg, role, log=print) -> dict:
     return out
 
 
-def nudge_part(world, cfg8, order, name: str, role, tests, log=print) -> dict:
-    """One ordering through D8's nudging protocol, unchanged (same seeds and generator per record as D8's graded arms)."""
+def nudge_part(world, cfg8, order, name: str, role, tests, log=print, ladder_half: int | None = None) -> dict:
+    """One ordering through D8's nudging protocol, unchanged (same seeds and generator per record as D8's graded arms).
+    ladder_half: 0 or 1 integrates only that half of the ladder (records carry no m*); merge_variant_halves joins them."""
     cfg = {**cfg8, **world.get("overrides", {})}; off = int(world["seed_offset"]); model, cand, dt = world_model(world, cfg)
     mu = float(cfg["mu"]); chunk = int(cfg["chunk"]); seed_test = int(cfg[f"seed_{role}_test"]); ladder = [m for m in cfg["ladder"] if m <= cand.size]
-    lyap = (bool(cfg["obs_lyap"]), role in cfg.get("block_lyap_roles", [])); out = {"world": world["name"], "variant": name, "tests": []}
+    lyap = (bool(cfg["obs_lyap"]), role in cfg.get("block_lyap_roles", []))
+    out = {"world": world["name"], "variant": name, "ladder": ladder, "ladder_half": ladder_half, "tests": []}
     for j in tests:
         t1 = time.time(); rng = np.random.default_rng(seed_test + 100 * off + j)
         u0 = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
         d0 = amplitudes(model, u0, cand) * sensitivities(model, u0, cand, chunk)
-        rec = nudge_record(model, u0, cand, np.array(order), ladder, mu, dt, cfg, lyap, np.random.default_rng(seed_test + 7 * j + 3), d0)
+        rec = nudge_record(model, u0, cand, np.array(order), ladder, mu, dt, cfg, lyap, np.random.default_rng(seed_test + 7 * j + 3), d0, half=ladder_half)
         out["tests"].append({"index": j, "observers": {name: rec}})
-        log(json.dumps({"world": world["name"], "test": j, "observer": name, "m_star": rec["m_star"], "seconds": round(time.time() - t1, 1)}))
+        log(json.dumps({"world": world["name"], "test": j, "observer": name, "ladder_half": ladder_half, "m_star": rec.get("m_star"), "synced": rec["synced"],
+                        "seconds": round(time.time() - t1, 1)}))
     return out
+
+
+def merge_variant_halves(lo: dict, hi: dict) -> dict:
+    """Two nudge_part outputs of one variant and world, ladder halves 0 and 1 -> the whole ladder's output (D8's merge_halves)."""
+    if (lo.get("ladder_half"), hi.get("ladder_half")) != (0, 1): raise ValueError("need nudge outputs of ladder halves 0 and 1")
+    for k in ("world", "variant", "ladder"):
+        if lo[k] != hi[k]: raise ValueError(f"halves differ in {k}")
+    if [t["index"] for t in lo["tests"]] != [t["index"] for t in hi["tests"]]: raise ValueError("halves ran different test trajectories")
+    tests = [{"index": a["index"], "observers": {lo["variant"]: merge_halves(a["observers"][lo["variant"]], b["observers"][lo["variant"]], lo["ladder"])}}
+             for a, b in zip(lo["tests"], hi["tests"])]
+    return {**lo, "ladder_half": None, "merged_from_halves": True, "tests": tests}
 
 
 # ---------------------------------------------------------------- self-test
@@ -257,6 +271,7 @@ def main(argv=None) -> int:
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--config"); ap.add_argument("--vcfg"); ap.add_argument("--seed-role", default="pilot")
     ap.add_argument("--world"); ap.add_argument("--part", choices=["rank", "gram", "nudge"]); ap.add_argument("--variant", choices=VARIANTS)
     ap.add_argument("--tests", default="0"); ap.add_argument("--cache", default="cache"); ap.add_argument("--out")
+    ap.add_argument("--ladder-half", type=int, choices=[0, 1], default=None, help="nudge part: integrate only this half of the ladder")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
     cfg8 = json.load(open(a.config, encoding="utf-8")); vcfg = json.load(open(a.vcfg, encoding="utf-8"))
@@ -269,7 +284,7 @@ def main(argv=None) -> int:
     src = "rank" if a.variant in ("READ_KE", "ESA") else "gram"; p = Path(a.cache) / f"{src}_{a.world}_{a.seed_role}.json"  # GRAM comes from the gram part
     if not p.exists(): raise SystemExit(f"{p} missing: run --part {src} first")
     order = json.loads(p.read_text(encoding="utf-8"))["orders"][a.variant]
-    res = nudge_part(world, cfg8, order, a.variant, a.seed_role, [int(x) for x in a.tests.split(",")])
+    res = nudge_part(world, cfg8, order, a.variant, a.seed_role, [int(x) for x in a.tests.split(",")], ladder_half=a.ladder_half)
     json.dump(res, open(a.out, "w", encoding="utf-8"), indent=1, default=float); return 0
 
 

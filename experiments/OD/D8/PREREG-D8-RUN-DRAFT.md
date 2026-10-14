@@ -123,10 +123,14 @@ a node's log (three of D8's pilot logs were lost).
    equals OP4's GRAM when $m'_{GRAM} = m'_{UN}$.
 3. Ladder-half splitting and flag merging are added and tested (a merged split gives the unsplit $m^*$
    on a small world).
-4. `nats_results.py` is committed, its stream ensured, and a round trip tested from an NRP Job.
-5. `prereg_config.json` sets $K_{run} = 8$ and the run worlds. `OD:sync-observer` and the OP4 and
+4. The cost at $n = 192$ is measured, not estimated (added by the owner, 2026-10-14). One run-shaped Job
+   (`submit_d8_nrp.py --role timing`: the lower ladder half, 7 of 13 rungs, of READ with the observer
+   tangent, on the timing world `t_nu020_n192` with its own seeds) runs on NRP, and its wall time and
+   peak memory are recorded. The Job structure of item 3 is confirmed or revised from that measurement.
+5. `nats_results.py` is committed, its stream ensured, and a round trip tested from an NRP Job.
+6. `prereg_config.json` sets $K_{run} = 8$ and the run worlds. `OD:sync-observer` and the OP4 and
    variant families are entered in `claims/transformations/OD.toml` and `OP.toml`.
-6. A smoke run of one cell of every arm on a small world through the whole pipeline (submit, save,
+7. A smoke run of one cell of every arm on a small world through the whole pipeline (submit, save,
    collect, merge, grade).
-7. This draft is renamed `PREREG-D8-RUN.md` in one commit, and its blob hash is recorded in the track
+8. This draft is renamed `PREREG-D8-RUN.md` in one commit, and its blob hash is recorded in the track
    documents and the README status ledger.
