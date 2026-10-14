@@ -63,6 +63,37 @@ identifiable at a budget instead of maximizing a determinant or a trace. So OP4 
 whether the standard observability instrument, in its OT form, beats scale for nudging turbulence.
 The novelty is narrow, and a database search comes before any claim of it.
 
+Added 2026-10-14 from a web search (abstracts, not a systematic database review). No paper found
+picks a fixed Fourier set by a Gramian or by Lyapunov vectors and compares it with the low-pass ball
+by the budget to synchronization. The parts are prior work:
+- Kazma and Taha (arXiv:2402.14711, 2024) connect the empirical Gramian to Lyapunov exponents for
+  sensor selection, the nearest cousin of GRAM's Gramian on the Lyapunov subspace.
+- Assimilation in the unstable subspace (Trevisan, D'Isidoro and Talagrand, Q. J. R. Meteorol.
+  Soc. 136, 487, 2010; Palatella, Carrassi and Trevisan, J. Phys. A 46, 254020, 2013) puts the
+  optimal subspace dimension at about the number of non-negative exponents. That is a dimension of
+  the analysis, not a number of observations.
+- Carrassi, Trevisan and Uboldi (Tellus A 59, 101, 2007) place observations by bred vectors.
+
+What the literature predicts for OP4. Prior work favours the ball, so a "system" reading is the
+expected outcome.
+- The leading Lyapunov vector's spectrum peaks at the synchronization threshold (Li et al., J. Fluid
+  Mech. 983, A1, 2024, and 1008, A27, 2025). In 2-D that threshold is near $k_f$ (Inubushi and
+  Caulfield, arXiv:2508.16920). So the subspace GRAM is built on lies mostly where a ball of the same
+  budget already reads.
+- Targeted observations gain little over a dense regular network. Majumdar's review (Bull. Amer.
+  Meteor. Soc. 97, 2287, 2016) puts the average gain under 10%, and Morss, Emanuel and Snyder (J.
+  Atmos. Sci. 58, 210, 2001) find the gain shrinks as the network gets denser.
+
+Against that, Law, Sanz-Alonso, Shukla and Stuart (Physica D 325, 1, 2016) find that in Lorenz-96
+observation operators aligned with the unstable directions beat a fixed network, sometimes with
+fewer observations than positive exponents. Their operators change in time, while GRAM's set is fixed
+and trained offline. The write-up must draw that distinction before reading "system" as a property
+of the flow.
+
+A database search should still cover the papers citing Li et al., Law et al. and Kazma and Taha, and
+the Abarbanel group's work on the number of required observations (for example Whartenby, Quinn and
+Abarbanel, Mon. Wea. Rev. 141, 2013, whose content was not seen).
+
 ## 3. Design
 
 Worlds, seeds and trajectories: D8's pilot ($\nu \in \{0.03, 0.02\}$ at $n = 96$ and 128, training

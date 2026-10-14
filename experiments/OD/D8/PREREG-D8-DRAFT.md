@@ -29,9 +29,10 @@ exceeds the 924-pair grid at $n = 64$ almost everywhere. Where BALL's budget has
 the guarantee sits 80 to 7,500 times above it (theory note Section 6, table and caveats). The
 theorem therefore constrains none of the observers D8 compares, and it speaks only to BALL.
 
-What the synchronization literature already settles (web search 2026-10-10, not a systematic
-database review). Every study found nudges a low-pass ball of Fourier modes, $|k| \le k_a$, and
-asks how large $k_a$ must be.
+What the synchronization literature already settles (web searches 2026-10-10 and 2026-10-14, not a
+systematic database review). Most studies nudge a low-pass ball of Fourier modes, $|k| \le k_a$, and
+ask how large $k_a$ must be. The 2026-10-10 search said every study found did so. The 2026-10-14
+search found exceptions, listed below the list.
 - In 3-D homogeneous turbulence the ball synchronizes the flow once $k_a\eta \approx 0.15$ to $0.2$.
   This is from Yoshida, Yamaguchi and Kaneda (2005), Lalescu, Meneveau and Eyink (Phys. Rev. Lett.
   110, 084102, 2013), and Clark Di Leoni, Mazzino and Biferale (Phys. Rev. X 10, 011023, 2020). The
@@ -52,14 +53,46 @@ asks how large $k_a$ must be.
   ensemble Kalman filter (Fossella et al., arXiv:2507.15626, 2025). That is a different method and
   model.
 
-Not found: any comparison of mode sets other than the low-pass ball for nudging. That includes
-sets ranked by energy, enstrophy or sensitivity, and sets that leave out the large, low-amplitude
-scales. Observability-Gramian sensor placement exists (for example Kang and Xu 2012), but for
-variational estimation, not for choosing Fourier modes to nudge in turbulence. D8's comparison of
-READ, ENSTROPHY and KE against BALL is therefore, as far as this search shows, not done before. Its
-BALL arm is not new: it replicates Inubushi and Caulfield's observer on their flow family. A claim of
-novelty in any write-up needs a database search (Scholar, Web of Science) first. Which modes to
-observe for a given count is not settled by the classical theory or by this literature.
+Sets other than the ball have been nudged or coupled, though never compared with the ball at the
+same count (correction, 2026-10-14). The 2026-10-10 search reported none.
+- Duane and Tribbia (Phys. Rev. Lett. 86, 4298, 2001) synchronized two quasi-geostrophic channel
+  models by coupling only medium and small scales, with the largest modes left out.
+- Clark Di Leoni, Mazzino and Biferale (Phys. Rev. Fluids 3, 104604, 2018) nudged rotating 3-D
+  turbulence through bands $k_0 < |k| < k_1$, among them one around the forcing scale. They deferred
+  a systematic study of nudging windows, and no such study was found.
+- Fossella et al., above, chose which shells to measure.
+- In physical space, Franz, Larios and Victor (Comput. Methods Appl. Mech. Engrg. 392, 2022) compared
+  moving and static observers at the same number of measurements, for nudged 2-D Navier-Stokes.
+
+Not found: any comparison, at the same mode count, of the low-pass ball with sets ranked by energy,
+enstrophy or sensitivity, for nudging or for any other coupling. Nor any ranking like READ's
+$|\hat\omega_k|^2\|N_u e_k\|^2$. Observability-Gramian sensor placement exists (for example Kang and
+Xu, Tellus A 64, 17133, 2012), but for variational estimation, not for choosing Fourier modes to
+nudge in turbulence. D8's comparison of READ, ENSTROPHY and KE against BALL is therefore, as far as
+these searches show, not done before. The idea that the nudged set need not be the ball is not
+new. Its BALL arm is not new either: it replicates Inubushi and Caulfield's observer on their flow
+family.
+
+What the literature predicts for D8. Prior work favours the ball, so a win for BALL is the expected
+outcome, not a surprise.
+- The convergence theory of nudging (Azouani, Olson and Titi, J. Nonlinear Sci. 24, 277, 2014)
+  assumes an interpolant that approximates the whole field. A ball has that property, and a ranked
+  set with holes at low $|k|$ in general does not.
+- The threshold near $k_f$ and the Lyapunov-vector results above both point to the ball. Li et al.
+  (2024) find that synchronization fails when the conditional Lyapunov vector has a local maximum
+  among the modes left unobserved. A set that skips a low mode risks exactly that.
+- In Lorenz-96, observing where the forecast is most sensitive lost to observing where the analysis
+  error is largest (Lorenz and Emanuel, J. Atmos. Sci. 55, 399, 1998). That is an analogue of READ
+  and SENS, not a test of them.
+
+A claim of novelty in any write-up needs a database search (Web of Science or Scopus) first. It
+should cover:
+- the papers citing Duane and Tribbia 2001, Clark Di Leoni et al. 2020, Olson and Titi 2003 and
+  Azouani, Olson and Titi 2014;
+- whether the nudging-window study deferred in 2018 appeared.
+
+Which modes to observe for a given count is not settled by the classical theory or by this
+literature.
 
 D7v3 (PASS) found that, for a filtered flow at a
 single time, the discarded modes of largest read distortion (the resolved dynamics' sensitivity to
