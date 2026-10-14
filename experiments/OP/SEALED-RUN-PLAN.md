@@ -51,6 +51,10 @@ pair $k$ alone, under linear regression. $T$ is the full tendency in D8 and the 
 $P_C T$ in OP1 and OP2, as READ's sensitivity is in each. When the modes are uncorrelated and $DT$ is
 constant, ESA equals READ.
 
+Dropped from every sealed run, D8 and OP4 and OP1 and OP2 (owner, 2026-10-14), when the probe's
+stability rule for its sample count failed (Section 4). It is recorded as a declared variant that did
+not reach a sealed arm.
+
 V3, READ in the kinetic-energy metric (READ-KE; D8, OP1, OP2). OT's metric $G$ is a declared choice, and
 targeting depends on it (Palmer, Gelaro, Barkmeijer and Buizza, J. Atmos. Sci. 55, 1998). READ
 measures the read in the enstrophy norm (vorticity). READ-KE keeps each gate's READ exactly, its
@@ -83,6 +87,13 @@ What the probe may set: only the items marked PROBE. That is the number of train
 needs, chosen by split-half stability of its ranking (Spearman of the two halves' scores at least
 0.9, READ-blind). It is not the variants' standing, which the probe reports and which changes nothing.
 
+Outcome for ESA (2026-10-14). On the probe world $\nu = 0.03$, $n = 96$ (`VARIANTS/esa_stability.py`), the
+all-pairs Spearman of the two halves was 0.373 at 80 samples, 0.728 at 320, 0.878 at 1280, 0.886 at 2560
+and 0.890 at 5120, about 0.004 more per doubling, and 5120 samples took about 4 hours of one Atlas core.
+The rule was not met at any count tried and was not changed. It was reported to the owner with three
+options (drop ESA, extend to 10240 and 20480 samples, or accept 5120 as a recorded revision), and the
+owner dropped ESA. ESA's ranking was never nudged.
+
 ## 5. Claims and the correction for several arms
 
 Each gate keeps one primary claim, as registered: D8's READ against the best control, OP4's GRAM
@@ -98,6 +109,10 @@ trajectories), or 32 at the proposed $K = 8$ (Section 6). With four arms, the sm
 at 12 of 16). At 32 untied cells it needs at least 23 ahead (0.0100 at 23 of 32, 0.0251 at 22 of 32).
 Holm's thresholds for the remaining arms are 0.0167, 0.025 and 0.05. Margins in ladder steps, as D8's
 bars use, are reported beside the test.
+
+With ESA dropped (2026-10-14), D8 and OP4 have three secondary arms, READ-KE, GRAM-UN and SV, run at
+$K = 8$. At 32 untied cells Holm's thresholds are 0.0167, 0.025 and 0.05, and they need at least 23, 23
+and 22 cells ahead. OP1 and OP2 keep one secondary arm, READ-KE, tested at 0.05 with no correction.
 
 ## 6. Platform, order and cost (estimates, not measurements)
 
@@ -120,8 +135,9 @@ cost wall-clock only through the slowest Job.
    checks every reduction in Section 3. Commit and test `nats_results.py`.
 2. Run the variant probe on NRP, one Job per (variant, world, trajectory), with the Gramian phase as its
    own Job per world. That is about half a day of wall-clock, set by the slowest nudging Job.
-3. Write the registrations: D8 with READ-KE, ESA, GRAM-UN and SV as secondary arms (D8 and OP4 share the
-   run); OP1 and OP2 with READ-KE and ESA. Seal all of them in one commit per gate.
+3. Write the registrations: D8 with READ-KE, GRAM-UN and SV as secondary arms (D8 and OP4 share the
+   run); OP1 and OP2 with READ-KE. ESA was dropped from both (2026-10-14, Section 4). Seal all of them
+   in one commit per gate.
 4. Run D8 and OP4 on NRP, one Job per (world, trajectory, arm, ladder half where needed). The CPU total
    is several thousand hours, and the wall-clock is about one day, set by the slowest $n = 192$ Job. Run
    OP1's trajectories on NRP as one Job per world. Run OP2 on Atlas from them.

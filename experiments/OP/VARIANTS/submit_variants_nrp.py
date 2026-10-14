@@ -55,12 +55,13 @@ FILES = {"OD/D5/d5_burgers.py": EXP / "OD" / "D5" / "d5_burgers.py", "OD/D8/d8_s
 CFG8 = json.loads(FILES["OD/D8/prereg_config.json"].read_text(encoding="utf-8"))
 WORLD_N = {w["name"]: int(w["n"]) for w in CFG8["worlds"]}
 ROLES = {"probe": {"worlds": ["p_nu030_n96", "p_nu020_n96"], "seed_role": "pilot", "tests": [0, 1], "timeout": "16h", "batch": "op-var-probe"},
-         # the run (PREREG-D8-RUN-DRAFT.md Sections 3 and 4): OP4's GRAM and the four secondary arms on the run worlds, K from
+         # the run (PREREG-D8-RUN-DRAFT.md Sections 3 and 4): OP4's GRAM and the three secondary arms on the run worlds, K from
          # the config; every arm carries the observer tangent like a graded D8 observer, so at n = 192 it is split into ladder
-         # halves (the same estimate as submit_d8_nrp.py's run role, to be measured before sealing)
+         # halves (the same estimate as submit_d8_nrp.py's run role, to be measured before sealing); ESA was dropped
+         # before the seal when its sample-count rule failed (PREREG-D8-RUN-DRAFT.md Section 3, owner 2026-10-14)
          "run": {"worlds": [w["name"] for w in CFG8["worlds"] if w["group"] in CFG8["groups_by_role"]["run"]], "seed_role": "run",
                  "tests": list(range(int(CFG8["K_by_role"]["run"]))), "timeout": "20h", "batch": "op-var-run",
-                 "variants": ("GRAM", "READ_KE", "ESA", "GRAM_UN", "SV"), "halves_min_n": 192}}
+                 "variants": ("GRAM", "READ_KE", "GRAM_UN", "SV"), "halves_min_n": 192}}
 VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")  # the probe's arms; a role may name its own
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN opv result gz-b64----", "----END opv result----"

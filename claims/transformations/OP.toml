@@ -1,0 +1,39 @@
+# Transformation registry for the OP track, open problems of other fields where the read operator
+# might help (experiments/OPEN-PROBLEMS-TRACK.md). Opened 2026-10-14, when the first OP families
+# were declared before a seal; tests are entered when a gate's verdict is committed.
+#
+# OP1 and OP2 were recorded at their pilots and OP4 at its confirmation, unsealed, and none of them
+# entered a family. OP4's design draft says so ("No family enters claims/transformations/OP.toml for
+# OP4", 2026-10-13). The owner reopened D8, OP4, OP1 and OP2 for sealed runs the same day
+# (experiments/OP/SEALED-RUN-PLAN.md). The two families below are OP4's and the variants' in the
+# joint D8 and OP4 run (experiments/OD/D8/PREREG-D8-RUN-DRAFT.md Sections 2 and 3), entered before
+# its seal. OP1's and OP2's families are entered with their own sealed registrations.
+
+[registry]
+track = "OP"
+title = "Open problems of other fields where the choice of what to observe is the sharp part"
+commit = "OP1 and OP2 recorded at the pilot 2026-10-12, OP4 recorded at the confirmation 2026-10-13, all unsealed; the joint D8 and OP4 run declared 2026-10-14, not yet sealed"
+x = "the state spaces of the fields' own worlds: the Fourier pairs of forced two-dimensional turbulence (OP4 and the variants, on D8's world), EDMD lifts and Mori-Zwanzig projections of the same flow (OP1, OP2)"
+y = "the smallest observation budget at which an observer's task succeeds: here m*, the smallest ladder value from which a nudged copy reading the top m pairs stays synchronized"
+equivalence = "declared per gate before its seal: for the D8 and OP4 run, m* compared in ladder steps with D8's pilot tolerances (M1 = 0.5 step, TOL1 = 1 step, TOL_N = 0.5 step), and for the secondary arms a one-sided sign test over the 32 cells with Holm's correction across the three arms at family-wise level 0.05"
+complexity_ordering = "a field's classical selector applied to the flow first, then a variant of it the field's literature supplies, then a change of world"
+
+[[transformation]]
+id = "OP:gram-observer"
+family = "choice of the Fourier pairs a nudged copy of D8's flow reads by D6v3's window-Gramian selector on the leading tangent subspace: the pairs greedily ordered until every window's Gramian identifies d_u directions above its threshold"
+parameters = "leading subspace of m' = min(m0, 8 ceil(2 d_u / 8)) directions, m0 = 32, from a QR iteration (dt 1, spin 20, measure 40) on the training trajectory; d_u the count of positive finite-time Lyapunov exponents; window T_w = 1 / lambda_1 clipped to [1, 20], 4 windows of 20 samples; threshold frac x lambda_max of the all-pairs Gramian, frac the largest of 0.1, 0.01, 0.001 at which the all-pairs Gramian identifies all m' directions in every window; D6's greedy key; scored by D8's m* on D8's run worlds, seeds and ladder (OD:sync-observer)"
+closure = "none, a choice among orderings of the candidate pairs"
+rank = 1
+declared = "2026-10-14"
+
+# OP:sync-variants was written with four selectors on 2026-10-14. The fourth, ensemble sensitivity
+# (ESA), was dropped the same day, before the seal and before any ESA ranking was nudged, when its
+# declared sample-count rule failed (all-pairs split-half Spearman 0.890 at 5120 samples against 0.9;
+# experiments/OD/D8/PREREG-D8-RUN-DRAFT.md Section 3). The family is the three that remain.
+[[transformation]]
+id = "OP:sync-variants"
+family = "the three secondary selectors the literature supplies for the same choice that reached the seal, each an ordering of the candidate pairs scored by D8's m*: READ in the kinetic-energy norm, the Gramian on the unstable and neutral manifold, and singular-vector targeting"
+parameters = "READ-KE: D8's READ with the response measured in the kinetic-energy norm, E[a_k s_k^KE]; GRAM-UN: OP:gram-observer with the required count d_un = #{lambda_i > -0.1 lambda_1} (Trevisan, D'Isidoro and Talagrand 2010); SV: score sum_i sigma_i^2 |(U b_i)[k]|^2 over the singular vectors of the leading tangent subspace (Buizza and Montani 1999); every arm on D8's run worlds, seeds and ladder"
+closure = "none, three declared selectors, corrected as one family"
+rank = 2
+declared = "2026-10-14"

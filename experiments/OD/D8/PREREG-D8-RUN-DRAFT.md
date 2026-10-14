@@ -32,7 +32,9 @@ What changes, each fixed before any run and blind to every result of READ:
   2390ea0): M1 = 0.5 ladder step, TOL1 = 1 step, TOL_N = 0.5 step.
 - GRAM's subspace rule states its cap: $m'$ = the smallest multiple of 8 at least $2 d_u$, at most
   $m_0 = 32$. In the confirmation the cap was 24, not stated, and it bound on one world.
-- Four secondary arms are added (Section 3), with the correction for several arms of Section 5.
+- Three secondary arms are added (Section 3), with the correction for several arms of Section 5. A
+  fourth was declared, ESA, and dropped before the seal when its declared stability rule failed
+  (Section 3).
 
 ## 2. Primary claims (one per gate)
 
@@ -47,12 +49,20 @@ Neither primary claim can be rescued by a secondary arm.
 ## 3. Secondary arms (declared before any of them is probed)
 
 The four variants of `SEALED-RUN-PLAN.md` Section 3, as coded in `experiments/OP/VARIANTS/op_variants.py`
-(commit 364fa64):
+(commit 364fa64). Three are sealed arms (READ-KE, GRAM-UN and SV), and ESA is recorded as dropped:
 - READ-KE: D8's READ with the response measured in the kinetic-energy norm. Its self-test checks that
   it equals READ in the enstrophy norm.
 - ESA: full-covariance sensitivity, $\mathrm{ESA}_k = \|E_t[v_t\,\delta x_{k,t}]\|^2 / \mathrm{Var}(x_k)$ with
-  $v_t = N_{w_t}(w_t - \bar w)$. Its self-test checks that it reduces to READ for independent modes. The
-  number of training samples is PENDING (Section 9).
+  $v_t = N_{w_t}(w_t - \bar w)$. Its self-test checks that it reduces to READ for independent modes.
+  DROPPED before the seal (owner, 2026-10-14). `SEALED-RUN-PLAN.md` Section 4 lets the probe set one
+  thing, ESA's number of training samples, as the smallest count at which the Spearman correlation of
+  the two halves' scores over all candidate pairs is at least 0.9. On the probe world $\nu = 0.03$,
+  $n = 96$ (`experiments/OP/VARIANTS/esa_stability.py`, logs `esa_stability_p_nu030_n96.log` and
+  `esa_stability2_p_nu030_n96.log`) it was 0.373 at 80 samples, 0.728 at 320, 0.878 at 1280, 0.886 at
+  2560 and 0.890 at 5120, gaining about 0.004 per doubling. The rule was not met and was not changed.
+  At 5120 the top of the ranking had begun to settle (6 of the halves' top 8 pairs shared, Spearman
+  0.788 over the union of their top 64), which is recorded and changes nothing. ESA's ranking was never
+  nudged, so no budget of ESA was seen.
 - GRAM-UN: GRAM with the required count $d_{un} = \#\{\lambda_i > -0.1\,\lambda_1\}$, the unstable and
   neutral manifold (Trevisan, D'Isidoro and Talagrand 2010).
 - SV: singular-vector targeting in the leading tangent subspace (Buizza and Montani 1999).
@@ -68,7 +78,7 @@ budget in each cell is $m^*$ by D8's rule, on D8's ladder. Arms in every cell:
 - READ, BALL, ENSTROPHY and KE (graded);
 - SENS and five RANDOM draws (recorded);
 - GRAM (OP4 primary);
-- READ-KE, ESA, GRAM-UN and SV (secondary).
+- READ-KE, GRAM-UN and SV (secondary).
 
 Rankings and instruments are computed once per world, from that world's training trajectory, by
 `op_variants.py --part rank` and `--part gram` and D8's training. They are cached, committed, and carried
@@ -83,13 +93,15 @@ cell.
 ## 5. Bars for the secondary arms
 
 A secondary arm beats a control only by a one-sided sign test over the 32 cells, ties dropped, with
-Holm's correction across the four secondary arms at a family-wise level of 0.05. The control for this
+Holm's correction across the three secondary arms at a family-wise level of 0.05. The control for this
 test is BALL, the best control in every pilot cell. Each arm against READ, and against the best of the
 three graded controls per cell, is reported beside it without a test.
 
-At 32 untied cells, the strictest Holm threshold (0.0125) needs at least 23 cells ahead (one-sided
-$p = 0.0100$), and the loosest (0.05) needs at least 22 ($p = 0.0251$). With fewer untied cells the
-threshold is recomputed from the exact binomial. Margins in ladder steps are reported for every arm.
+At 32 untied cells, Holm's thresholds are 0.0167, 0.025 and 0.05. The first two need at least 23 cells
+ahead (one-sided $p = 0.0100$; 22 gives 0.0251), and the third needs at least 22 ($p = 0.0251$; 21 gives
+0.0551). With fewer untied cells the thresholds are recomputed from the exact binomial. Margins in
+ladder steps are reported for every arm. (Recomputed 2026-10-14 for three arms when ESA was dropped;
+with four, the strictest threshold was 0.0125 and needed the same 23.)
 
 ## 6. What each outcome would mean
 
@@ -118,18 +130,30 @@ a node's log (three of D8's pilot logs were lost).
 ## 9. Before sealing (each item done and recorded before the rename)
 
 1. The variant probe (`SEALED-RUN-PLAN.md` Section 4) completes, and ESA's number of training samples is
-   fixed by the declared split-half rule, or the rule's failure is reported to the owner.
+   fixed by the declared split-half rule, or the rule's failure is reported to the owner. ESA's part
+   done 2026-10-14: the rule failed (0.890 at 5120 samples, Section 3), it was reported, and the owner
+   dropped ESA from the sealed arms. The probe's nudging cells for READ-KE, GRAM-UN and SV are
+   recorded in `experiments/OP/VARIANTS/pieces/` as they finish.
 2. GRAM's leading-sub-block computation is added to `op_variants.py`, with a self-test check that it
-   equals OP4's GRAM when $m'_{GRAM} = m'_{UN}$.
+   equals OP4's GRAM when $m'_{GRAM} = m'_{UN}$. Done 2026-10-14: self-test checks 9 and 10 (commit
+   09d0d27), and on the probe world $\nu = 0.03$, $n = 96$ the sub-block GRAM reproduces OP4's recorded
+   ordering at all 256 positions, with the same frac (0.001) and count to $d_u$ (2)
+   (`experiments/OP/VARIANTS/cache_check/gram_p_nu030_n96_pilot.json`).
 3. Ladder-half splitting and flag merging are added and tested (a merged split gives the unsplit $m^*$
-   on a small world).
+   on a small world). Done 2026-10-14: `d8_sync.py` self-test check 14, and `test_ladder_split.py` on
+   an $n = 64$ test world, PASS (`ladder_split_test.json`): BALL $m^* = 6$ and READ $m^* = 48$ (flags
+   `0001100111111`, non-monotone, the change across the halves' boundary) are equal whole and merged,
+   with every delta series and tangent exponent identical.
 4. The cost at $n = 192$ is measured, not estimated (added by the owner, 2026-10-14). One run-shaped Job
    (`submit_d8_nrp.py --role timing`: the lower ladder half, 7 of 13 rungs, of READ with the observer
    tangent, on the timing world `t_nu020_n192` with its own seeds) runs on NRP, and its wall time and
    peak memory are recorded. The Job structure of item 3 is confirmed or revised from that measurement.
 5. `nats_results.py` is committed, its stream ensured, and a round trip tested from an NRP Job.
 6. `prereg_config.json` sets $K_{run} = 8$ and the run worlds. `OD:sync-observer` and the OP4 and
-   variant families are entered in `claims/transformations/OD.toml` and `OP.toml`.
+   variant families are entered in `claims/transformations/OD.toml` and `OP.toml`. Done 2026-10-14:
+   $K_{run} = 8$ in `prereg_config.json` (commit 76808f8, the run worlds were already there);
+   `OD:sync-observer` in `OD.toml`, and `OP:gram-observer` and `OP:sync-variants` in a new `OP.toml`,
+   with no test rows until the run's verdict.
 7. A smoke run of one cell of every arm on a small world through the whole pipeline (submit, save,
    collect, merge, grade).
 8. This draft is renamed `PREREG-D8-RUN.md` in one commit, and its blob hash is recorded in the track

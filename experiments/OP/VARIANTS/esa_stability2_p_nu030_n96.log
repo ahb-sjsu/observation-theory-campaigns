@@ -1,0 +1,2 @@
+{"world": "p_nu030_n96", "samples": 2560, "spearman_all_pairs": 0.886, "spearman_top64_union": 0.032, "halves_top_k_overlap": {"8": 1, "24": 5, "48": 33}, "full_first12_kmag": [4.47, 4.47, 2.0, 5.66, 5.66, 3.16, 5.83, 3.16, 3.61, 5.39, 5.83, 5.39]}
+{"world": "p_nu030_n96", "samples": 5120, "spearman_all_pairs": 0.89, "spearman_top64_union": 0.788, "halves_top_k_overlap": {"8": 6, "24": 15, "48": 44}, "full_first12_kmag": [2.0, 4.47, 4.47, 5.83, 5.83, 5.83, 5.83, 4.24, 4.24, 5.66, 3.16, 5.66]}

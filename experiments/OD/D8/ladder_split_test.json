@@ -1,0 +1,76 @@
+{
+ "test": "ladder-half splitting, PREREG-D8-RUN-DRAFT.md Section 9 item 3",
+ "world": {
+  "name": "split_test_nu030_n64",
+  "group": "test",
+  "n": 64,
+  "nu": 0.03,
+  "seed_offset": 31
+ },
+ "role": "probe",
+ "ladder": [
+  4,
+  6,
+  8,
+  12,
+  16,
+  24,
+  32,
+  48,
+  64,
+  96,
+  128,
+  192,
+  256
+ ],
+ "halves": [
+  [
+   4,
+   6,
+   8,
+   12,
+   16,
+   24,
+   32
+  ],
+  [
+   48,
+   64,
+   96,
+   128,
+   192,
+   256
+  ]
+ ],
+ "observers": {
+  "BALL": {
+   "m_star_whole": 6,
+   "m_star_merged": 6,
+   "nonmonotone_whole": false,
+   "nonmonotone_merged": false,
+   "flags_whole": "0111111111111",
+   "flags_merged": "0111111111111",
+   "delta_series_max_abs_diff": 0.0,
+   "lyap_obs_max_abs_diff": 0.0,
+   "lyap_block_max_abs_diff": 0.0
+  },
+  "READ": {
+   "m_star_whole": 48,
+   "m_star_merged": 48,
+   "nonmonotone_whole": true,
+   "nonmonotone_merged": true,
+   "flags_whole": "0001100111111",
+   "flags_merged": "0001100111111",
+   "delta_series_max_abs_diff": 0.0,
+   "lyap_obs_max_abs_diff": 0.0,
+   "lyap_block_max_abs_diff": 0.0
+  }
+ },
+ "seconds": {
+  "whole": 5337.508921861649,
+  "half_0": 2337.4363086223602,
+  "half_1": 2808.5439739227295
+ },
+ "criterion": "m*, nonmonotone and every flag equal for each observer",
+ "result": "PASS"
+}

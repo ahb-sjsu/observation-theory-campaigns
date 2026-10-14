@@ -81,6 +81,18 @@ declared = "2026-09-10"
 declared_in = "experiments/OD/D7/PREREG-D7.md, blob 5d601fb8f7795b4c335bcdd35af2c7ac50fc777b, seal commit f6ec331"
 entered = "2026-09-12"
 
+# D8, entered 2026-10-14 before its seal (PREREG-D8-RUN-DRAFT.md Section 9). D8's draft recorded on
+# 2026-10-12 that this family would not be entered, when D8 was closed at the pilot; the owner
+# reopened D8 for a sealed run on 2026-10-13 (experiments/OP/SEALED-RUN-PLAN.md), and this row is
+# that run's declaration. The pilot graded no verdict, so no test row is entered until the run's is.
+[[transformation]]
+id = "OD:sync-observer"
+family = "choice of which Fourier pairs a nudged copy of forced two-dimensional turbulence reads, the top m pairs of a ranking for each m on a ladder, judged by the smallest m at which the copy stays synchronized with the reference flow"
+parameters = "rankings READ (training mean of |w_k|^2 times the sensitivity of the nonlinear tendency, the declared arm), BALL (|k| ascending), ENSTROPHY (|w_k|^2) and KE (|w_k|^2 / |k|^2) graded, SENS and five seeded RANDOM permutations recorded; m on the ladder 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256; nudging gain mu = 50 over T_sync = 100, synchronized when delta stays at or below 1e-4 over the final T_hold = 10; Kolmogorov forcing at k_f = 4, drag 0.1, nu in {0.03, 0.02} at n = 128 and 192; K = 8 test trajectories per world on the run seeds 20261074 and 20261075"
+closure = "none, a choice among prefixes of rankings"
+rank = 1
+declared = "2026-10-14"
+
 [[test]]
 transformation = "OD:budget"
 claim = "a single-direction probe along coordinate e_i at size rho is reported identifiable at budget B exactly when P_ii > B^2 / rho^2, and a ladder of sizes brackets P_ii between B^2 / r_hi^2 and B^2 / r_lo^2 (article Theorem 2(b), Corollary 3)"

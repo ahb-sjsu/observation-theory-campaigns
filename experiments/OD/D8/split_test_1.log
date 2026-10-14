@@ -1,0 +1,3 @@
+{"world": "split_test_nu030_n64", "phase": "train", "candidates": 924, "tail": 1.745e-06, "stability": {"linear_stiffness": 0.38280000000000003, "cfl": 0.08965957070609147, "ok": true, "cfl_max_train": 0.09522456276172075}, "T1_max": 6.975108470180872e-16, "T2_max": 0.032907206371331, "seconds": 173.1}
+{"world": "split_test_nu030_n64", "test": 0, "observer": "READ", "ladder_half": 1, "m_star": null, "nonmonotone": null, "synced": [true, true, true, true, true, true], "seconds": 1451.4}
+{"world": "split_test_nu030_n64", "test": 0, "observer": "BALL", "ladder_half": 1, "m_star": null, "nonmonotone": null, "synced": [true, true, true, true, true, true], "seconds": 2635.4}
