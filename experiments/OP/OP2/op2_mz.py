@@ -21,7 +21,10 @@ statistics on each half of the training record (for the READ-blind reliability r
 generalized fluctuation-dissipation relation Omega(l) C(-D) = -<W(l+1) W(1)^T> as an extraction check.
 
     python op2_mz.py --selftest
-    python op2_mz.py --config op2_config.json --seed-role probe --traj-dir ../OP1/traj --out probe.json [--world NAME]
+    python op2_mz.py --config op2_config.json --seed-role probe --traj-dir ../OP1/traj --out probe.json [--world NAME] [--read-ke]
+
+With --read-ke, OP1's secondary arm READ_KE (READ with the consumer's response in the kinetic-energy norm) is ranked by
+OP1's code from the trajectory file's S_ke and gets its cells like every other ranking.
 """
 from __future__ import annotations
 
@@ -149,35 +152,41 @@ def cell(Xtr, Xte, split, tend, sel_cols, cfg, dt) -> dict:
             "consumer_kernel_norms": ms["norms"], "halves": halves, "gfd": gfd_check(Gtr, Om, C[1], [1, 2, 3]), "dim": int(Gtr.shape[1])}
 
 
-def run_world(world: dict, cfg: dict, seed: int, traj_dir: str, log=print) -> dict:
+def run_world(world: dict, cfg: dict, seed: int, traj_dir: str, log=print, read_ke: bool = False) -> dict:
+    """read_ke adds OP1's secondary arm READ_KE (the run registration's READ-KE), ranked by OP1's code from the kinetic-
+    energy sensitivities S_ke that `op1_edmd.py --read-ke` stores in the trajectory file; a file without them is refused."""
     t0 = time.time(); n = int(world["n"]); off = int(world["seed_offset"])
     model = ForcedNS2D(n, float(world["nu"]), float(cfg["alpha"]), float(cfg["F0"]), int(cfg["kf"])); cand = Candidates(model)
-    z = np.load(Path(traj_dir) / f"{world['name']}_seed{seed}.npz"); keep_all = np.nonzero(cand.kmag <= float(cfg["k_pool"]))[0]
+    path = Path(traj_dir) / f"{world['name']}_seed{seed}.npz"; z = np.load(path); keep_all = np.nonzero(cand.kmag <= float(cfg["k_pool"]))[0]
     if not np.array_equal(z["keep"], keep_all): raise SystemExit("cached pairs differ from this config's")
+    if read_ke and "S_ke" not in z.files: raise SystemExit(f"{path}: no S_ke; write it with op1_edmd.py --read-ke first")
     Xtr_all, S_all, S_at, Xte_all = z["Xtr"], z["S"], z["S_at"], z["Xte"]; pos = {int(j): i for i, j in enumerate(keep_all)}; m_all = len(keep_all)
+    Ske_all = z["S_ke"] if read_ke else None
     out = {"name": world["name"], "group": world["group"], "n": n, "nu": model.nu, "trajectory_cache": f"{world['name']}_seed{seed}.npz", "cutoffs": {}}; sofs = 0
+    arms = ("READ", "ENERGY", "BALL", "SENS") + (("READ_KE",) if read_ke else ())
     for kc in cfg["cutoffs"]:
         split = Split(cand, float(kc), float(cfg["k_pool"])); idx = np.array([pos[int(j)] for j in split.keep]); colmap = np.concatenate([idx, m_all + idx])
-        Xtr = Xtr_all[:, colmap]; Xte = Xte_all[:, colmap]; S = S_all[:, sofs:sofs + split.npool]; sofs += split.npool
-        orders, _ = rankings(Xtr, S, S_at, split, cand.kmag[split.pool], int(cfg["random_draws"]), np.random.default_rng(seed + off + 977))
+        Xtr = Xtr_all[:, colmap]; Xte = Xte_all[:, colmap]; S = S_all[:, sofs:sofs + split.npool]
+        S_ke = Ske_all[:, sofs:sofs + split.npool] if read_ke else None; sofs += split.npool
+        orders, _ = rankings(Xtr, S, S_at, split, cand.kmag[split.pool], int(cfg["random_draws"]), np.random.default_rng(seed + off + 977), S_ke)
         tend = make_tend(cand, split); ladder = [r for r in cfg["ladder"] if r <= split.npool]; dt = float(cfg["dt_sample"])
         rec = {"ladder": ladder, "NONE": cell(Xtr, Xte, split, tend, np.array([], int), cfg, dt), "cells": {}}
         for r in ladder:
             rec["cells"][str(r)] = {name: cell(Xtr, Xte, split, tend, pool_cols(split, o, r), cfg, dt) for name, o in orders.items()}
             c = rec["cells"][str(r)]
-            log(json.dumps({"world": world["name"], "kc": kc, "r": r, **{k: [round(c[k]["E_min"], 4), c[k]["L_star"], round(c[k]["tau90"], 2)] for k in ("READ", "ENERGY", "BALL", "SENS")},
+            log(json.dumps({"world": world["name"], "kc": kc, "r": r, **{k: [round(c[k]["E_min"], 4), c[k]["L_star"], round(c[k]["tau90"], 2)] for k in arms},
                             "RANDOM_Emin_median": round(float(np.median([c[f"RANDOM{j}"]["E_min"] for j in range(int(cfg["random_draws"]))])), 4), "seconds": round(time.time() - t0, 1)}))
         out["cutoffs"][str(kc)] = rec
     out["seconds"] = time.time() - t0
     return out
 
 
-def run(cfg: dict, seed_role: str, out_path: str, traj_dir: str, only_world: str | None = None) -> dict:
+def run(cfg: dict, seed_role: str, out_path: str, traj_dir: str, only_world: str | None = None, read_ke: bool = False) -> dict:
     seed = int(cfg[f"seed_{seed_role}"]); groups = cfg["groups_by_role"][seed_role]
-    result = {"config": cfg, "seed_role": seed_role, "seed": seed, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
+    result = {"config": cfg, "seed_role": seed_role, "seed": seed, "read_ke": read_ke, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     for world in cfg["worlds"]:
         if world["group"] not in groups or (only_world and world["name"] != only_world): continue
-        result["worlds"].append(run_world(world, cfg, seed, traj_dir)); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
+        result["worlds"].append(run_world(world, cfg, seed, traj_dir, read_ke=read_ke)); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     if only_world and not result["worlds"]: raise SystemExit(f"no world named {only_world} in role {seed_role}")
     result["finished"] = time.strftime("%Y-%m-%d %H:%M:%S"); json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     return result
@@ -232,6 +241,37 @@ def selftest() -> int:
     # The lag cap: with 2000 samples and ratio 4, 56 observables allow L up to 7, 160 allow 2, 224 allow 1, 600 allow only 0
     caps = [lag_ladder([0, 1, 2, 4, 8, 16], d, 2000, 4.0) for d in (56, 160, 224, 600)]
     check("the lag ladder is capped by the sample budget", caps == [[0, 1, 2, 4], [0, 1, 2], [0, 1], [0]], str(caps))
+    # READ-KE through OP1's rankings, on a tiny world whose trajectory file OP1's own code writes (op1_edmd --read-ke)
+    import tempfile
+    import op1_edmd as op1
+    t1 = {"F0": 1.0, "kf": 4, "alpha": 0.1, "omega_rms": 3.0, "ic_kmax": 6, "dt_base": 0.01, "n_ref": 32, "T_spin": 1.0, "T_train": 80.0, "T_test": 20.0,
+          "dt_sample": 0.5, "sens_every": 2.0, "k_pool": 8.0, "cutoffs": [3], "ladder": [2], "lifts": ["lin"], "rff_features": 16, "ridge": 1e-6,
+          "horizons": [1, 2], "error_cap": 2.0, "test_start_stride": 1, "random_draws": 2, "chunk": 64, "greedy_lifts": [], "greedy_fit_fraction": 0.75}
+    t2 = {"F0": 1.0, "kf": 4, "alpha": 0.1, "dt_sample": 0.5, "k_pool": 8.0, "cutoffs": [3], "ladder": [2, 4], "random_draws": 2, "horizons": [1, 2],
+          "error_cap": 2.0, "test_start_stride": 1, "ridge": 1e-8, "memory_ladder": [0, 1, 2, 4], "lstar_fraction": 0.01, "lag_budget_ratio": 4.0}
+    tw = {"name": "selftest_n32", "group": "probe", "nu": 0.02, "n": 32, "seed_offset": 0}; quiet = lambda *_: None; seed = 11
+    with tempfile.TemporaryDirectory() as td:
+        op1.run_world(tw, t1, seed, quiet, td, read_ke=True)
+        w_ke = run_world(tw, t2, seed, td, quiet, read_ke=True); w0 = run_world(tw, t2, seed, td, quiet)
+        z = dict(np.load(Path(td) / f"selftest_n32_seed{seed}.npz"))
+        bare = Path(td) / "bare"; bare.mkdir(); np.savez_compressed(bare / f"selftest_n32_seed{seed}.npz", **{k: v for k, v in z.items() if k != "S_ke"})
+        try:
+            run_world(tw, t2, seed, str(bare), quiet, read_ke=True); refused = False
+        except SystemExit:
+            refused = True
+    # the orders OP1's code returns for this file, rebuilt here exactly as run_world does
+    model = ForcedNS2D(32, 0.02, 0.1, 1.0, 4); cand = Candidates(model); sp = Split(cand, 3.0, 8.0); keep_all = np.nonzero(cand.kmag <= 8.0)[0]
+    pos = {int(j): i for i, j in enumerate(keep_all)}; ix = np.array([pos[int(j)] for j in sp.keep]); cm = np.concatenate([ix, len(keep_all) + ix])
+    Xtr, Xte = z["Xtr"][:, cm], z["Xte"][:, cm]
+    o, _ = rankings(Xtr, z["S"], z["S_at"], sp, cand.kmag[sp.pool], 2, np.random.default_rng(seed + 977), z["S_ke"])
+    cells_ke, cells0 = w_ke["cutoffs"]["3"]["cells"], w0["cutoffs"]["3"]["cells"]
+    check("every ranking OP1 returns, READ_KE included, gets its cells", "READ_KE" in o and all(set(cells_ke[str(r)]) == set(o) for r in (2, 4)),
+          f"{sorted(o)}")
+    direct = cell(Xtr, Xte, sp, make_tend(cand, sp), pool_cols(sp, o["READ_KE"], 2), t2, 0.5); got = cells_ke["2"]["READ_KE"]
+    check("READ_KE's cell is the cell of OP1's READ_KE order", direct["E_min"] == got["E_min"] and direct["share"] == got["share"], f"share {got['share']:.4f}")
+    same = all(cells0[str(r)][k]["E_min"] == cells_ke[str(r)][k]["E_min"] and cells0[str(r)][k]["share"] == cells_ke[str(r)][k]["share"] for r in (2, 4) for k in cells0[str(r)])
+    check("without --read-ke: no READ_KE, every other cell unchanged", same and all("READ_KE" not in cells0[str(r)] for r in (2, 4)), "")
+    check("--read-ke refuses a trajectory file without S_ke", refused, "")
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 
@@ -240,9 +280,10 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--config"); ap.add_argument("--seed-role", default="probe")
     ap.add_argument("--out", default="out.json"); ap.add_argument("--world", default=None); ap.add_argument("--traj-dir", default="../OP1/traj")
+    ap.add_argument("--read-ke", action="store_true", help="add OP1's secondary arm READ_KE (needs S_ke in the trajectory file)")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
-    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.traj_dir, a.world); return 0
+    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.traj_dir, a.world, a.read_ke); return 0
 
 
 if __name__ == "__main__":
