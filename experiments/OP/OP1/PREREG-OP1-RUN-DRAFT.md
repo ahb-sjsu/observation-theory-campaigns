@@ -125,6 +125,13 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
    $|k| \le 12$ and the enstrophy-norm sensitivities, and the kinetic-energy sensitivity needs the
    whole field. So each probe world is simulated again (`op1_edmd.py --read-ke`), and the new record
    must equal the cached one exactly before it is used (corrected 2026-10-14).
+   Done 2026-10-15 (Atlas, one core per world; `probe_ke_pr_nu020_n96.json` and
+   `probe_ke_pr_nu030_n96.json` with their logs). Both re-simulated records equal the cached ones in
+   every array, and every cell value $E$ of READ, ENERGY, BALL and SENS equals `probe2_*.json`'s. READ-KE's
+   top $r$ shares 2, 3 to 4, 7 to 8, 15 to 16 and 31 to 32 pairs with READ's at $r = 2, 4, 8, 16, 32$.
+   In the 40 graded cells (RFF and TEND) READ-KE is ahead of the better of ENERGY and BALL in 12,
+   behind in 27 and tied in 1; READ is ahead in 15 and behind in 25; READ-KE against READ is 13
+   ahead, 14 behind, 13 tied. Wall time 2.7 and 3.7 h, peak RSS 207 MiB. Recorded; it sets nothing.
 4. The cost at $n = 192$ is measured, not estimated: one run-shaped Job on a timing world with its own
    seeds, recording wall time and peak memory. Its result fixes the Job bound, and whether a world
    must be split (for example the simulation and the scoring as separate Jobs), before any run Job.

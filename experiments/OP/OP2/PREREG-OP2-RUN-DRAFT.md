@@ -112,6 +112,11 @@ does not grow with $n$. No NRP Job is needed.
 3. READ-KE is probed with OP1's probe (`SEALED-RUN-PLAN.md` Section 4), on the probe trajectory files
    OP1's READ-KE probe rewrites with the kinetic-energy sensitivities (OP1 run registration, Section 9,
    item 3), and recorded. The probe sets nothing.
+   Done 2026-10-15 (Atlas; `probe_ke_pr_nu020_n96.json` and `probe_ke_pr_nu030_n96.json` with their
+   logs). Every memory share of READ, ENERGY and BALL equals `probe_*.json`'s. In the 20 cells READ-KE's
+   memory share is below the better of ENERGY's and BALL's in 7 and above it in 13; READ's is below in
+   6 and above in 14; READ-KE against READ is 8 below, 6 above, 6 tied. About 3 minutes per world.
+   Recorded; it sets nothing.
 4. The run's grader, `op2_run_grade.py`, applies the owner's reading of Section 4 and the sign test of
    Section 5 and calls `op2_grade.py` unchanged. A self-test covers the binomial thresholds and the world
    removal. Any role but the run is labelled "NOT A VERDICT".
