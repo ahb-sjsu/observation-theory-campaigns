@@ -44,6 +44,8 @@
  "seed_probe": 20261111,
  "seed_pilot": 20261112,
  "seed_run": 20261113,
+ "seed_timing": 20261131,
+ "seed_smoke": 20261132,
  "groups_by_role": {
   "probe": [
    "probe"
@@ -53,6 +55,12 @@
   ],
   "run": [
    "run"
+  ],
+  "timing": [
+   "timing"
+  ],
+  "smoke": [
+   "smoke"
   ]
  },
  "bars": "PREREG-OP1-DRAFT.md Section 5; tolerances fixed from the pilot",
@@ -126,6 +134,26 @@
    "nu": 0.02,
    "n": 192,
    "seed_offset": 22
+  },
+  {
+   "name": "t_nu030_n192",
+   "group": "timing",
+   "nu": 0.03,
+   "n": 192,
+   "seed_offset": 31,
+   "note": "timing world (PREREG-OP1-RUN-DRAFT.md Section 9, item 4): one run-shaped Job at n = 192 on its own seed, measuring wall time and peak memory; nu = 0.03 because its n = 128 pilot world was the slower (18826 s against 12556 s); no gate reads it"
+  },
+  {
+   "name": "s_nu030_n64",
+   "group": "smoke",
+   "nu": 0.03,
+   "n": 64,
+   "seed_offset": 41,
+   "overrides": {
+    "T_train": 200.0,
+    "T_test": 100.0
+   },
+   "note": "smoke world (PREREG-OP1-RUN-DRAFT.md Section 9, item 7): the run's whole pipeline (submit, NATS, collect, grade, then OP2) on its own seed, with shortened trajectories; no gate reads it"
   }
  ],
  "greedy_lifts": [
