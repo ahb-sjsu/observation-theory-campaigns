@@ -21,6 +21,9 @@ Rankings of the pool (computed on the training trajectory only).
   BALL     |k| ascending (graded control, the scale-based choice)
   SENS     E_t[s_k] alone (recorded)
   RANDOM   seeded permutations (the null, median over draws)
+  READ_KE  with --read-ke only: READ with the consumer's response measured in the kinetic-energy norm, sum |.|^2 / |k|^2,
+           instead of the enstrophy norm; the mask and the amplitude factor unchanged (the secondary arm READ-KE of
+           PREREG-OP1-RUN-DRAFT.md Section 3)
 Records beside them: POD, the leading 2r principal components of the pool coordinates (a different basis, matched real
 dimension); GREEDY, forward selection on a validation split of the training trajectory (the data-fitted selector); NONE,
 the consumer's coordinates alone.
@@ -39,7 +42,7 @@ off the iterate. Error at horizon h: sqrt(sum |p_hat - p|^2 / sum |p - mean p|^2
 the climatology. The graded cell value is the mean over the declared horizons of min(e_h, cap).
 
     python op1_edmd.py --selftest
-    python op1_edmd.py --config prereg_config.json --seed-role probe --out probe.json [--world NAME]
+    python op1_edmd.py --config prereg_config.json --seed-role probe --out probe.json [--world NAME] [--traj-dir DIR] [--read-ke]
 """
 from __future__ import annotations
 
@@ -56,7 +59,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):  # one
 import numpy as np  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "OD" / "D8"))
-from d8_sync import Candidates, ForcedNS2D, initial_field, sq, spectrum_tail, spin_up, stability  # noqa: E402
+from d8_sync import Candidates, ForcedNS2D, initial_field, sq, spectrum_tail, spin_up, stability, vel_norm  # noqa: E402
 
 ARMS_GRADED = ("READ", "ENERGY", "BALL")
 LIFTS = ("lin", "rff", "tend")
@@ -85,15 +88,23 @@ def consumer_mask(model, kc: float) -> np.ndarray:
     return (model.kmag <= kc) & model.dealias
 
 
-def consumer_sens(model, wh, cand: Candidates, pairs: np.ndarray, cmask: np.ndarray, chunk: int) -> np.ndarray:
-    """s_k = (|P_C N_w e_re|^2 + |P_C N_w e_im|^2) / 2 for the given pairs, in math units."""
-    s = np.empty(len(pairs))
+def ke_sq(model, X):
+    """Sum of |X_k|^2 / |k|^2 over the last two axes in math units: the squared velocity norm over (2 pi)^2, the
+    kinetic-energy norm of a vorticity field (as in experiments/OP/VARIANTS/op_variants.py)."""
+    k2 = model.k2true.copy(); k2[0, 0] = np.inf
+    return np.sum(np.abs(X) ** 2 / k2, axis=(-2, -1)) / model.n ** 4
+
+
+def consumer_sens(model, wh, cand: Candidates, pairs: np.ndarray, cmask: np.ndarray, chunk: int, norms=(sq,)) -> np.ndarray:
+    """s_k = (|P_C N_w e_re|^2 + |P_C N_w e_im|^2) / 2 for the given pairs, in math units, with the response measured in
+    `norms[0]`. With several norms, one row per norm from the same tangent evaluations (READ-KE: norms=(sq, ke_sq))."""
+    s = np.empty((len(norms), len(pairs)))
     for a in range(0, len(pairs), chunk):
         sel = pairs[a:a + chunk]
-        re = sq(model, cmask * model.tangent_nl(wh, cand.unit(sel, model.n, False)))
-        im = sq(model, cmask * model.tangent_nl(wh, cand.unit(sel, model.n, True)))
-        s[a:a + len(sel)] = 0.5 * (re + im)
-    return s
+        dre = cmask * model.tangent_nl(wh, cand.unit(sel, model.n, False)); dim = cmask * model.tangent_nl(wh, cand.unit(sel, model.n, True))
+        for i, norm in enumerate(norms):
+            s[i, a:a + len(sel)] = 0.5 * (norm(model, dre) + norm(model, dim))
+    return s[0] if len(norms) == 1 else s
 
 
 def record_trajectory(model, wh, T: float, dt: float, ds: float, cand, keep, sens_every: float = 0.0, sens_fn=None):
@@ -136,16 +147,21 @@ def pair_fluct(X: np.ndarray, m: int, local: np.ndarray, offset: int) -> np.ndar
     Xc = X - X.mean(axis=0); re = Xc[:, offset + local]; im = Xc[:, m + offset + local]; return re ** 2 + im ** 2
 
 
-def rankings(X: np.ndarray, S: np.ndarray, S_at: np.ndarray, split: Split, kmag: np.ndarray, draws: int, rng) -> dict:
-    """Orders of the pool (positions 0..npool-1). X is the training record, S the consumer sensitivities at rows S_at."""
+def rankings(X: np.ndarray, S: np.ndarray, S_at: np.ndarray, split: Split, kmag: np.ndarray, draws: int, rng, S_ke=None) -> dict:
+    """Orders of the pool (positions 0..npool-1). X is the training record, S the consumer sensitivities at rows S_at.
+    With S_ke (the same sensitivities in the kinetic-energy norm) the secondary arm READ_KE is added; the RANDOM draws
+    come after it from the same rng, so they are the same with or without it."""
     m = len(split.keep); loc = np.arange(split.npool); F = pair_fluct(X, m, loc, split.nc)
     read = np.mean(S * F[S_at], axis=0); energy = F.mean(axis=0); sens = S.mean(axis=0)
     idx = np.arange(split.npool)  # ties in |k| broken by index, which is deterministic
     o = {"READ": np.argsort(-read, kind="stable"), "ENERGY": np.argsort(-energy, kind="stable"),
          "BALL": np.lexsort((idx, np.round(kmag, 12))), "SENS": np.argsort(-sens, kind="stable")}
+    scores = {"read": read, "energy": energy, "sens": sens}
+    if S_ke is not None:
+        scores["read_ke"] = np.mean(S_ke * F[S_at], axis=0); o["READ_KE"] = np.argsort(-scores["read_ke"], kind="stable")
     for j in range(draws):
         o[f"RANDOM{j}"] = rng.permutation(split.npool)
-    return o, {"read": read, "energy": energy, "sens": sens}
+    return o, scores
 
 
 # ---------------------------------------------------------------- EDMD
@@ -249,7 +265,10 @@ def greedy_order(Xtr: np.ndarray, split: Split, kind: str, cfg: dict, seed: int,
 
 # ---------------------------------------------------------------- one world
 
-def run_world(world: dict, cfg: dict, seed: int, log=print, traj_dir: str | None = None) -> dict:
+def run_world(world: dict, cfg: dict, seed: int, log=print, traj_dir: str | None = None, read_ke: bool = False) -> dict:
+    """read_ke adds the secondary arm READ_KE (the run registration's READ-KE): the consumer sensitivities are also taken
+    in the kinetic-energy norm, from the same tangent evaluations, and stored in the trajectory file as S_ke. A cached
+    file without S_ke is simulated again, and the new record must equal the cached one exactly before it replaces it."""
     cfg = {**cfg, **world.get("overrides", {})}; t0 = time.time(); n = int(world["n"]); off = int(world["seed_offset"])
     model = ForcedNS2D(n, float(world["nu"]), float(cfg["alpha"]), float(cfg["F0"]), int(cfg["kf"])); cand = Candidates(model)
     dt = float(cfg["dt_base"]) * int(cfg["n_ref"]) / n; ds = float(cfg["dt_sample"]); kpool = float(cfg["k_pool"])
@@ -259,51 +278,66 @@ def run_world(world: dict, cfg: dict, seed: int, log=print, traj_dir: str | None
     splits = {str(kc): Split(cand, float(kc), kpool) for kc in cfg["cutoffs"]}
     masks = {k: consumer_mask(model, float(k)) for k in splits}
 
-    def sens_fn(wh):
-        return np.concatenate([consumer_sens(model, wh, cand, s.pool, masks[k], int(cfg["chunk"])) for k, s in splits.items()])
+    norms = (sq, ke_sq) if read_ke else (sq,); npool_tot = sum(s.npool for s in splits.values())
+
+    def sens_fn(wh):  # [enstrophy rows of every cutoff, then kinetic-energy rows of every cutoff]
+        rows = [np.atleast_2d(consumer_sens(model, wh, cand, s.pool, masks[k], int(cfg["chunk"]), norms)) for k, s in splits.items()]
+        return np.concatenate([np.concatenate([r[i] for r in rows]) for i in range(len(norms))])
 
     cache = Path(traj_dir) / f"{world['name']}_seed{seed}.npz" if traj_dir else None
-    if cache is not None and cache.exists():  # the trajectories are seed-deterministic; a cached copy is the same record
-        z = np.load(cache); Xtr_all, S_all, S_at, Xte_all = z["Xtr"], z["S"], z["S_at"], z["Xte"]
+    z = np.load(cache) if cache is not None and cache.exists() else None
+    if z is not None and not np.array_equal(z["keep"], keep_all): raise SystemExit(f"{cache}: cached pairs differ from this config's")
+    Ske_all = None
+    if z is not None and (not read_ke or "S_ke" in z.files):  # the trajectories are seed-deterministic; a cached copy is the same record
+        Xtr_all, S_all, S_at, Xte_all = z["Xtr"], z["S"], z["S_at"], z["Xte"]; Ske_all = z["S_ke"] if read_ke else None
         out.update(json.loads(str(z["meta"]))); out["trajectory_cache"] = cache.name
-        if not np.array_equal(z["keep"], keep_all): raise SystemExit(f"{cache}: cached pairs differ from this config's")
     else:
         rng = np.random.default_rng(seed + off); u = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
         out["stability"] = stability(model, u, dt, 0.0)
         if not out["stability"]["ok"]:
             out["refused"] = "explicit RK4 stability guard failed"; log(json.dumps({"world": world["name"], "refused": out["refused"]})); return out
         Xtr_all, S_all, S_at, u = record_trajectory(model, u, float(cfg["T_train"]), dt, ds, cand, keep_all, float(cfg["sens_every"]), sens_fn)
+        if read_ke: Ske_all = S_all[:, npool_tot:]; S_all = S_all[:, :npool_tot]
         out["train_spectrum_tail"] = spectrum_tail(model, u)
         rng = np.random.default_rng(seed + off + 5000); v = spin_up(model, initial_field(model, rng, int(cfg["ic_kmax"]), float(cfg["omega_rms"])), float(cfg["T_spin"]), dt)
         Xte_all, _, _, v = record_trajectory(model, v, float(cfg["T_test"]), dt, ds, cand, keep_all)
         out["test_spectrum_tail"] = spectrum_tail(model, v); out["trajectory_seconds"] = round(time.time() - t0, 1)
+        if z is not None:  # a cached record without S_ke: the new one must be the same record, or nothing is replaced
+            same = {k: bool(np.array_equal(a, z[k])) for k, a in (("Xtr", Xtr_all), ("S", S_all), ("S_at", S_at), ("Xte", Xte_all))}
+            out["trajectory_recheck"] = {"cache": cache.name, "identical": same}; log(json.dumps({"world": world["name"], "trajectory_recheck": same}))
+            if not all(same.values()): raise SystemExit(f"{cache}: the simulated record differs from the cached one {same}; cache left as it was")
         if cache is not None:
             meta = {k: out[k] for k in ("stability", "train_spectrum_tail", "test_spectrum_tail", "trajectory_seconds")}
-            tmp = cache.with_suffix(".tmp.npz"); np.savez_compressed(tmp, Xtr=Xtr_all, S=S_all, S_at=S_at, Xte=Xte_all, keep=keep_all, meta=json.dumps(meta, default=float)); tmp.replace(cache)
+            extra = {"S_ke": Ske_all} if read_ke else {}
+            tmp = cache.with_suffix(".tmp.npz"); np.savez_compressed(tmp, Xtr=Xtr_all, S=S_all, S_at=S_at, Xte=Xte_all, keep=keep_all, meta=json.dumps(meta, default=float), **extra); tmp.replace(cache)
     log(json.dumps({"world": world["name"], "phase": "trajectories", "samples": [len(Xtr_all), len(Xte_all)], "tail": [round(out["train_spectrum_tail"], 9), round(out["test_spectrum_tail"], 9)], "seconds": out["trajectory_seconds"]}))
 
     pos = {int(j): i for i, j in enumerate(keep_all)}; m_all = len(keep_all); sofs = 0
     for kc, split in splits.items():
         # re-index the recorded coordinates to this split's keep order (consumer first, then pool)
         idx = np.array([pos[int(j)] for j in split.keep]); colmap = np.concatenate([idx, m_all + idx])
-        Xtr = Xtr_all[:, colmap]; Xte = Xte_all[:, colmap]; S = S_all[:, sofs:sofs + split.npool]; sofs += split.npool
-        orders, scores = rankings(Xtr, S, S_at, split, cand.kmag[split.pool], int(cfg["random_draws"]), np.random.default_rng(seed + off + 977))
+        Xtr = Xtr_all[:, colmap]; Xte = Xte_all[:, colmap]; S = S_all[:, sofs:sofs + split.npool]
+        S_ke = Ske_all[:, sofs:sofs + split.npool] if read_ke else None; sofs += split.npool
+        orders, scores = rankings(Xtr, S, S_at, split, cand.kmag[split.pool], int(cfg["random_draws"]), np.random.default_rng(seed + off + 977), S_ke)
+        arms = ("READ", "ENERGY", "BALL", "SENS") + (("READ_KE",) if read_ke else ())
         ladder = [r for r in cfg["ladder"] if r <= split.npool]
         rec = {"n_consumer_pairs": split.nc, "n_pool_pairs": split.npool, "ladder": ladder,
                "rankings": {k: [[int(cand.kx[split.pool[i]]), int(cand.ky[split.pool[i]])] for i in o[:max(ladder)]] for k, o in orders.items()},
                "scores_top": {k: [float(x) for x in np.sort(v)[::-1][:max(ladder)]] for k, v in scores.items()}, "lifts": {}}
         # overlap of READ's top r with the controls' top r, the first thing to read if READ and a control tie
         rec["overlap"] = {c: {str(r): len(set(orders["READ"][:r]) & set(orders[c][:r])) for r in ladder} for c in ("ENERGY", "BALL", "SENS")}
+        if read_ke:  # READ-KE's top r against its control's and READ's
+            rec["overlap_read_ke"] = {c: {str(r): len(set(orders["READ_KE"][:r]) & set(orders[c][:r])) for r in ladder} for c in ("READ", "ENERGY", "BALL")}
         tend = make_tend(cand, split)
         for kind in cfg["lifts"]:
             prob = Problem(Xtr, Xte, split, kind, cfg, seed + 31, tend); cells = {"NONE": prob.score(np.array([], int)), "PERSIST": prob.persist()}
             for r in ladder:
-                c = {name: prob.score(pool_cols(split, orders[name], r)) for name in ("READ", "ENERGY", "BALL", "SENS")}
+                c = {name: prob.score(pool_cols(split, orders[name], r)) for name in arms}
                 rnd = [prob.score(pool_cols(split, orders[f"RANDOM{j}"], r)) for j in range(int(cfg["random_draws"]))]
                 c["RANDOM_median_E"] = float(np.median([x["E"] for x in rnd])); c["RANDOM_E"] = [x["E"] for x in rnd]
                 c["POD"] = prob.score(pod_extra(Xtr, split, 2 * r))
                 cells[str(r)] = c
-                log(json.dumps({"world": world["name"], "kc": kc, "lift": kind, "r": r, **{k: (round(c[k]["E"], 4) if c[k] else None) for k in ("READ", "ENERGY", "BALL", "SENS", "POD")}, "RANDOM": round(c["RANDOM_median_E"], 4), "seconds": round(time.time() - t0, 1)}))
+                log(json.dumps({"world": world["name"], "kc": kc, "lift": kind, "r": r, **{k: (round(c[k]["E"], 4) if c[k] else None) for k in arms + ("POD",)}, "RANDOM": round(c["RANDOM_median_E"], 4), "seconds": round(time.time() - t0, 1)}))
             if kind in cfg.get("greedy_lifts", []):
                 g = greedy_order(Xtr, split, kind, cfg, seed + 31, max(ladder), tend=tend)
                 for r in ladder:
@@ -321,12 +355,12 @@ def footprint(t_wall0: float) -> dict:
     return {"peak_rss_mib": ru.ru_maxrss / 1024.0, "cpu_seconds": ru.ru_utime + ru.ru_stime, "wall_seconds": wall}
 
 
-def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, traj_dir: str | None = None) -> dict:
+def run(cfg: dict, seed_role: str, out_path: str, only_world: str | None = None, traj_dir: str | None = None, read_ke: bool = False) -> dict:
     t_wall0 = time.time(); seed = int(cfg[f"seed_{seed_role}"]); groups = cfg["groups_by_role"][seed_role]
-    result = {"config": cfg, "seed_role": seed_role, "seed": seed, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
+    result = {"config": cfg, "seed_role": seed_role, "seed": seed, "read_ke": read_ke, "started": time.strftime("%Y-%m-%d %H:%M:%S"), "worlds": []}
     for world in cfg["worlds"]:
         if world["group"] not in groups or (only_world and world["name"] != only_world): continue
-        result["worlds"].append(run_world(world, cfg, seed, traj_dir=traj_dir)); result["footprint"] = footprint(t_wall0)
+        result["worlds"].append(run_world(world, cfg, seed, traj_dir=traj_dir, read_ke=read_ke)); result["footprint"] = footprint(t_wall0)
         json.dump(result, open(out_path, "w", encoding="utf-8"), indent=1, default=float)
     if only_world and not result["worlds"]: raise SystemExit(f"no world named {only_world} in role {seed_role}")
     result["finished"] = time.strftime("%Y-%m-%d %H:%M:%S"); result["footprint"] = footprint(t_wall0)
@@ -415,6 +449,47 @@ def selftest() -> int:
         ref = -m96.nl_hat(only)[c96.ix[s96.cons], c96.iy[s96.cons]] / 96 ** 2; ref = np.concatenate([ref.real, ref.imag])
         errs.append(float(np.max(np.abs(tf(X1, sub)[0] - ref)) / np.max(np.abs(ref))))
     check("TEND = the consumer tendency on the chosen pairs (all recorded, and consumer plus 5)", max(errs) < 1e-10, ", ".join(f"{e:.1e}" for e in errs))
+    # 9. READ-KE. The kinetic-energy norm is the velocity norm squared over (2 pi)^2
+    e = abs(ke_sq(model, wh) * (2 * math.pi) ** 2 - vel_norm(model, wh) ** 2) / vel_norm(model, wh) ** 2
+    check("ke_sq = velocity norm^2 / (2 pi)^2", e < 1e-12, f"{e:.1e}")
+    # 10. READ-KE reduces to READ in the enstrophy norm: the sensitivity rows are READ's exactly, the order and score are
+    # READ's, and adding the arm leaves every other order (the RANDOM draws included) unchanged
+    s2 = consumer_sens(model, wh, cand, sp.pool[:5], cm, 4, (sq, sq))
+    o0, sc0 = rankings(Xr, Sr, Sat, sp, cand.kmag[sp.pool], 2, np.random.default_rng(6))
+    o1, sc1 = rankings(Xr, Sr, Sat, sp, cand.kmag[sp.pool], 2, np.random.default_rng(6), Sr)
+    same = all(np.array_equal(o0[k], o1[k]) for k in o0)
+    check("READ-KE in the enstrophy norm = READ (sensitivity, score, order); other orders unchanged",
+          np.array_equal(s2[0], s) and np.array_equal(s2[1], s) and np.array_equal(sc1["read_ke"], sc1["read"]) and np.array_equal(o1["READ_KE"], o1["READ"]) and same, "")
+    # 11. the kinetic-energy sensitivity equals the central difference of the consumer tendency measured in that norm
+    s_both = consumer_sens(model, wh, cand, sp.pool[:5], cm, 4, (sq, ke_sq)); cdk = []
+    for j in sp.pool[:5]:
+        tot = 0.0
+        for imag in (False, True):
+            e = cand.unit(np.array([j]), 32, imag)[0]
+            d = (-model.nl_hat(wh + eps * e) + model.nl_hat(wh - eps * e)) / (2 * eps); tot += ke_sq(model, cm * d)
+        cdk.append(0.5 * tot)
+    err = float(np.max(np.abs(np.array(cdk) - s_both[1])) / np.max(s_both[1]))
+    check("kinetic-energy sensitivity = central difference of the consumer tendency in the KE norm", err < 1e-9 and np.array_equal(s_both[0], s), f"{err:.1e}")
+    # 12. the two norms differ on the flow, so READ-KE is a different ranking and not a relabelling of READ
+    check("the kinetic-energy sensitivity differs from the enstrophy one", not np.allclose(s_both[1], s) and np.all(s_both[1] >= 0), "")
+    # 13. the whole world path on a tiny world: without READ-KE it writes the trajectory file; with it, the file is
+    # simulated again, found identical, and given S_ke; a third pass reads it back. READ_KE is scored in every cell
+    import tempfile
+    tcfg = {**base, "F0": 1.0, "kf": 4, "alpha": 0.1, "omega_rms": 3.0, "ic_kmax": 6, "dt_base": 0.01, "n_ref": 32, "T_spin": 1.0,
+            "T_train": 20.0, "T_test": 10.0, "dt_sample": 0.5, "sens_every": 2.0, "k_pool": 8.0, "cutoffs": [3], "ladder": [2, 4],
+            "lifts": ["rff"], "horizons": [1, 2], "test_start_stride": 1, "random_draws": 2, "chunk": 64, "greedy_lifts": []}
+    tw = {"name": "selftest_n32", "group": "probe", "nu": 0.02, "n": 32, "seed_offset": 0}; quiet = lambda *_: None
+    with tempfile.TemporaryDirectory() as td:
+        w0 = run_world(tw, tcfg, 11, quiet, td); z0 = dict(np.load(Path(td) / "selftest_n32_seed11.npz"))
+        w1 = run_world(tw, tcfg, 11, quiet, td, read_ke=True); z1 = dict(np.load(Path(td) / "selftest_n32_seed11.npz"))
+        w2 = run_world(tw, tcfg, 11, quiet, td, read_ke=True)
+    c0, c1, c2 = (w["cutoffs"]["3"]["lifts"]["rff"] for w in (w0, w1, w2))
+    kept = all(np.array_equal(z0[k], z1[k]) for k in ("Xtr", "S", "S_at", "Xte"))
+    scored = all("READ_KE" in c1[str(r)] and c1[str(r)]["READ_KE"]["E"] == c2[str(r)]["READ_KE"]["E"] for r in (2, 4))
+    unchanged = all(c0[str(r)][k]["E"] == c1[str(r)][k]["E"] for r in (2, 4) for k in ("READ", "ENERGY", "BALL", "SENS")) and all(c0[str(r)]["RANDOM_E"] == c1[str(r)]["RANDOM_E"] for r in (2, 4))
+    check("world path: recheck identical, S_ke added and read back, READ_KE scored, other arms unchanged",
+          "S_ke" not in z0 and z1["S_ke"].shape == z1["S"].shape and all(w1["trajectory_recheck"]["identical"].values()) and kept and scored and unchanged
+          and "READ_KE" not in c0["2"] and w2.get("trajectory_cache") == "selftest_n32_seed11.npz", f"S_ke {z1['S_ke'].shape}")
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 
@@ -424,9 +499,10 @@ def main(argv=None) -> int:
     ap.add_argument("--selftest", action="store_true"); ap.add_argument("--config"); ap.add_argument("--seed-role", default="probe")
     ap.add_argument("--out", default="out.json"); ap.add_argument("--world", default=None)
     ap.add_argument("--traj-dir", default=None, help="cache the world's trajectories here (seed-deterministic; reused if present)")
+    ap.add_argument("--read-ke", action="store_true", help="add the secondary arm READ_KE (the run registration's READ-KE)")
     a = ap.parse_args(argv)
     if a.selftest: return 1 if selftest() else 0
-    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world, a.traj_dir); return 0
+    run(json.load(open(a.config, encoding="utf-8")), a.seed_role, a.out, a.world, a.traj_dir, a.read_ke); return 0
 
 
 if __name__ == "__main__":

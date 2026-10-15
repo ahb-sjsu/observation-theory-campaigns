@@ -109,8 +109,9 @@ does not grow with $n$. No NRP Job is needed.
    readings, now written into Sections 4 and 5.
 2. READ-KE reaches OP2 through OP1's rankings (OP1 run registration, Section 9, item 2), and
    `op2_mz.py`'s self-test checks that every ranking OP1 returns, READ-KE included, gets its cells.
-3. READ-KE is probed on OP1's cached probe trajectories with OP1's probe (`SEALED-RUN-PLAN.md` Section 4),
-   and recorded. The probe sets nothing.
+3. READ-KE is probed with OP1's probe (`SEALED-RUN-PLAN.md` Section 4), on the probe trajectory files
+   OP1's READ-KE probe rewrites with the kinetic-energy sensitivities (OP1 run registration, Section 9,
+   item 3), and recorded. The probe sets nothing.
 4. The run's grader, `op2_run_grade.py`, applies the owner's reading of Section 4 and the sign test of
    Section 5 and calls `op2_grade.py` unchanged. A self-test covers the binomial thresholds and the world
    removal. Any role but the run is labelled "NOT A VERDICT".

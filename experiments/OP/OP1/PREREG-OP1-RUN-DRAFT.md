@@ -120,8 +120,11 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
 2. READ-KE is added to `op1_edmd.py`'s rankings, with a self-test check that it equals READ in the
    enstrophy norm, and a check that its kinetic-energy sensitivity equals a central difference of the
    consumer's tendency measured in that norm.
-3. READ-KE is probed on OP1's cached probe trajectories (`SEALED-RUN-PLAN.md` Section 4), at no
-   simulation cost, and recorded. The probe sets nothing.
+3. READ-KE is probed on OP1's probe worlds and seeds (`SEALED-RUN-PLAN.md` Section 4) and recorded.
+   The probe sets nothing. The cached probe trajectories cannot serve alone: they hold only the pairs
+   $|k| \le 12$ and the enstrophy-norm sensitivities, and the kinetic-energy sensitivity needs the
+   whole field. So each probe world is simulated again (`op1_edmd.py --read-ke`), and the new record
+   must equal the cached one exactly before it is used (corrected 2026-10-14).
 4. The cost at $n = 192$ is measured, not estimated: one run-shaped Job on a timing world with its own
    seeds, recording wall time and peak memory. Its result fixes the Job bound, and whether a world
    must be split (for example the simulation and the scoring as separate Jobs), before any run Job.

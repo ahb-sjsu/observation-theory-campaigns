@@ -81,7 +81,11 @@ BALL, READ, ENSTROPHY and KE and with OP4's GRAM budgets. The probe runs on the 
 ($\nu = 0.03$ and 0.02), both trajectories, which is 4 cells per variant, on Atlas. Every variant's
 ranking or instrument is computed from the training trajectory alone. Its nudging budget is measured
 by D8's protocol, unchanged. For OP1 and OP2, ESA and READ-KE are added as rankings and probed on OP1's
-cached probe trajectories, at no simulation cost.
+probe worlds and seeds. (Corrected 2026-10-14. This said "on OP1's cached probe trajectories, at no
+simulation cost", which is wrong for READ-KE: the cached files hold only the pairs $|k| \le 12$ and
+the enstrophy-norm sensitivities, and the kinetic-energy sensitivity needs the whole field. Each
+probe world is simulated again with its own seed, 1.0 to 1.1 h of trajectory per world in OP1's probe,
+and the new record must equal the cached one exactly before it is used.)
 
 What the probe may set: only the items marked PROBE. That is the number of training samples ESA
 needs, chosen by split-half stability of its ranking (Spearman of the two halves' scores at least
