@@ -27,6 +27,7 @@
  "seed_probe": 20261111,
  "seed_pilot": 20261112,
  "seed_run": 20261113,
+ "seed_smoke": 20261132,
  "groups_by_role": {
   "probe": [
    "probe"
@@ -36,6 +37,9 @@
   ],
   "run": [
    "run"
+  ],
+  "smoke": [
+   "smoke"
   ]
  },
  "worlds": [
@@ -108,6 +112,14 @@
    "nu": 0.02,
    "n": 192,
    "seed_offset": 22
+  },
+  {
+   "name": "s_nu030_n64",
+   "group": "smoke",
+   "nu": 0.03,
+   "n": 64,
+   "seed_offset": 41,
+   "note": "smoke world (PREREG-OP2-RUN-DRAFT.md Section 9, item 5): OP2 on the trajectory file of OP1's smoke world (OP1's prereg_config.json, same name, seed_smoke and seed_offset; T_train 200 and T_test 100 there), after OP1's smoke Job; OP2 reads the trajectory and simulates nothing, so it carries no trajectory overrides; no gate reads it"
   }
  ],
  "ridge": 1e-08,
