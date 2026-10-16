@@ -3,8 +3,9 @@
 ATLAS from the repository checkout (it needs the NATS hub and kubectl). SEALED-RUN-PLAN.md Sections 4 and 6.
 
 Two stages. The ranking and Gramian parts (`op_variants.py --part rank|gram`) run first and cache each world's orderings
-in `cache/`. Every nudging Job then carries its world's cached orderings inside it (base64, sha256 asserted), so no Job
-depends on another and none reads a shared volume. One Job per (variant, world, test trajectory).
+in `cache/`. Every nudging Job then carries its world's cached orderings inside it (gzip + base64 in one environment
+variable per file, sha256 asserted), so no Job depends on another and none reads a shared volume. One Job per (variant,
+world, test trajectory).
 
 The transport is D8's, imported and not copied: `publish` (status subscription opened before publishing), `created`
 (fresh creationTimestamp after submit) and `kubectl`. The preflight is scored against the PREFLIGHT of
@@ -12,7 +13,8 @@ reference_nrp_job_policies line by line:
   * CPU-only (gpu = 0). Exempt class: cpu = 1, memory = 2Gi, ephemeral-storage 2Gi declared; D8's footprint at n = 96
     is about 220 MiB on one core. OMP_NUM_THREADS = 1.
   * Self-terminating: bounded by `timeout`; no sleep anywhere in the Job; backoff_limit = 0.
-  * Self-contained: the code, configs and cache ride in as base64 with sha256 asserted; numpy is pinned to the version
+  * Self-contained: the code, configs and cache ride in as environment variables (gzip + base64, one per file) with
+    sha256 asserted, decoded and unset before anything runs; numpy is pinned to the version
     the self-tests passed on; the variants' self-test runs in the pod first.
   * Names checked absent before submit, creationTimestamp checked fresh after; logs read only from Jobs that
     succeeded; `--save` keeps each result block the moment its Job succeeds (three D8 pilot logs were lost when it
@@ -70,7 +72,19 @@ ROLES["smoke"] = {**ROLES["run"], "worlds": [w["name"] for w in CFG8["worlds"] i
 VARIANTS = ("READ_KE", "ESA", "GRAM_UN", "SV")  # the probe's arms; a role may name its own
 CPU, MEM, EPH = "1", "2Gi", "2Gi"
 BEGIN, END = "----BEGIN opv result gz-b64----", "----END opv result----"
-ARG_LIMIT = 120_000  # bytes per exec argument, under MAX_ARG_STRLEN (131072) with margin; files ship gzip + base64
+ARG_LIMIT = 120_000  # bytes per exec argument or environment string, under MAX_ARG_STRLEN (131072) with margin
+# The files ship in environment variables, one per file, so each sits under ARG_LIMIT on its own (the n = 192 caches put
+# 157536 bytes into one command argument, vetoed 2026-10-15). Two totals bound the Job as a whole, both measured on Atlas
+# 2026-10-16: the burst.submit message under the hub's max_payload (1048576, from :8222/varz, nats-server 2.10.24), and the
+# command plus environment under ARG_MAX (2097152 at the 8 MiB default stack, getconf ARG_MAX). The pod's own stack limit
+# is not measured; the smoke run is the check.
+TOTAL_LIMIT = 1_000_000
+FILE_ENV = "OPV_FILE_"
+
+
+def file_env(blobs: dict[str, tuple[str, str]]) -> dict[str, str]:
+    """One environment variable per shipped file, in the order of `blobs`."""
+    return {f"{FILE_ENV}{i}": b64 for i, (b64, _) in enumerate(blobs.values())}
 
 
 def job_name(variant: str, world: str, role: str, test: int, half: int | None = None) -> str:
@@ -96,8 +110,9 @@ def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tup
     R = ROLES[role]; out = f"{role}_{variant}_{world}_t{test}" + (f"_h{half}" if half is not None else "") + ".json"
     lines = ["set -euo pipefail", "export PYTHONUNBUFFERED=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PIP_ROOT_USER_ACTION=ignore HOME=/work",
              "mkdir -p /work/OD/D5 /work/OD/D8 /work/OP/OP4 /work/OP/VARIANTS/cache"]
-    for rel, (b64, sha) in blobs.items():
-        lines += [f"echo '{b64}' | base64 -d | gunzip > /work/{rel}", f"echo '{sha}  /work/{rel}' | sha256sum -c - || exit 3"]
+    for i, (rel, (_, sha)) in enumerate(blobs.items()):
+        lines += [f"printf '%s' \"${FILE_ENV}{i}\" | base64 -d | gunzip > /work/{rel}", f"echo '{sha}  /work/{rel}' | sha256sum -c - || exit 3"]
+    lines += ["unset " + " ".join(f"{FILE_ENV}{i}" for i in range(len(blobs)))]
     pins = PINS + (f" {NATS_PIN}" if R.get("nats") else "")
     lines += [f"pip install -q --no-cache-dir {pins} 2>&1 | tail -1 || true",
               "python -c \"import numpy, sys; print('numpy', numpy.__version__, 'python', sys.version.split()[0])\"",
@@ -112,7 +127,7 @@ def command(variant: str, world: str, role: str, test: int, blobs: dict[str, tup
 def descriptor(variant, world, role, test, blobs, head, half=None) -> JobDescriptor:
     return JobDescriptor(name=job_name(variant, world, role, test, half), image=IMAGE, command=["/bin/bash", "-c", command(variant, world, role, test, blobs, half)],
                          env={"OPV_VARIANT": variant, "OPV_WORLD": world, "OPV_ROLE": role, "OPV_TEST": str(test), "OPV_HALF": "all" if half is None else str(half), "OPV_HEAD": head}
-                         | ({"NATS_URL": NATS_URL} if ROLES[role].get("nats") else {}),
+                         | ({"NATS_URL": NATS_URL} if ROLES[role].get("nats") else {}) | file_env(blobs),
                          resources=Resources(cpu=CPU, memory=MEM, gpu=0, ephemeral_storage=EPH),
                          labels={"atlas.io/batch": ROLES[role]["batch"], "atlas.io/role": role, "app": "op-variants"}, backoff_limit=0)
 
@@ -135,6 +150,15 @@ def preflight(d: JobDescriptor, role: str) -> None:
     # "exec /bin/bash: argument list too long" with ~200 KB of uncompressed base64 in the command
     big = max(len(a.encode()) for a in d.command)
     if big > ARG_LIMIT: problems.append(f"command argument {big} bytes exceeds {ARG_LIMIT} (MAX_ARG_STRLEN is 131072)")
+    env_big = max((len(f"{k}={v}".encode()), k) for k, v in d.env.items())
+    if env_big[0] > ARG_LIMIT: problems.append(f"environment string {env_big[1]} {env_big[0]} bytes exceeds {ARG_LIMIT} (MAX_ARG_STRLEN is 131072)")
+    total = sum(len(a.encode()) + 1 for a in d.command) + sum(len(f"{k}={v}".encode()) + 1 for k, v in d.env.items())
+    if total > TOTAL_LIMIT: problems.append(f"command plus environment {total} bytes exceeds {TOTAL_LIMIT} (ARG_MAX 2097152 on Atlas)")
+    msg = len(json.dumps({"job_id": f"{d.name}-00000000", "descriptor": d.to_dict()}).encode())  # the message publish() sends
+    if msg > TOTAL_LIMIT: problems.append(f"burst.submit message {msg} bytes exceeds {TOTAL_LIMIT} (hub max_payload 1048576)")
+    shipped = sorted(k for k in d.env if k.startswith(FILE_ENV)); cmd = d.command[-1]; cut = cmd.find("\nunset ")
+    if shipped and (cut < 0 or any(f"\"${k}\" | base64 -d" not in cmd[:cut] for k in shipped)):
+        problems.append("a shipped-file variable is not decoded before the unset")
     got = kubectl("get", "job", d.name, "-o", "name")
     if got.returncode == 0 and got.stdout.strip(): problems.append(f"Job {d.name} already exists (delete the finished one first)")
     if problems:
