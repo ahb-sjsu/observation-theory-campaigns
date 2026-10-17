@@ -84,6 +84,22 @@ Rankings and instruments are computed once per world, from that world's training
 `op_variants.py --part rank` and `--part gram` and D8's training. They are cached, committed, and carried
 into the nudging Jobs.
 
+The run worlds' caches were computed on Atlas from 2026-10-14 to 2026-10-15 and committed on 2026-10-17
+(commit 3564ef0, `experiments/OP/VARIANTS/cache/rank_<world>_run.json` and `gram_<world>_run.json`): eight
+processes, one per (part, world), run at the same time, each single-threaded (98 to 99% of one core by
+`/usr/bin/time -v`), at nice 10, under a thermal guard that would have paused them above 80 C and never did,
+and every one exited 0. Wall time and peak RSS:
+- rank: `r_nu030_n128` 1.24 h and 334 MiB, `r_nu030_n192` 4.97 h and 629 MiB, `r_nu020_n128` 1.06 h and
+  334 MiB, `r_nu020_n192` 6.56 h and 629 MiB;
+- gram: `r_nu030_n128` 6.65 h and 166 MiB, `r_nu030_n192` 16.20 h and 331 MiB, `r_nu020_n128` 7.56 h and
+  395 MiB, `r_nu020_n192` 21.14 h and 917 MiB.
+
+The Gramian selector's threshold rule was met on every world ($d_u$ = 6, 6, 13 and 12 in the order above).
+The gram part at $\nu = 0.02$, $n = 192$ took longer on Atlas than the 20 h bound of a run Job.
+The rank caches also hold an ESA ordering, which
+`op_variants.py` computes with the others. ESA was dropped before the seal (Section 3), and the run role of
+`submit_variants_nrp.py` has no ESA arm, so that ordering travels inside the cache file and is never nudged.
+
 Each Job is one (world, trajectory, arm) in the exempt class on NRP. An arm whose estimated time at
 $n = 192$ exceeds 16 hours is split by ladder halves, and its flags are merged before $m^*$ is taken
 (tooling, Section 9). As in the pilot, the theorem checks T1 and T2 run on each world's training
