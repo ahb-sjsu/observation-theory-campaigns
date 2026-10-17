@@ -5,17 +5,22 @@
 # OP1 and OP2 were recorded at their pilots and OP4 at its confirmation, unsealed, and none of them
 # entered a family. OP4's design draft says so ("No family enters claims/transformations/OP.toml for
 # OP4", 2026-10-13). The owner reopened D8, OP4, OP1 and OP2 for sealed runs the same day
-# (experiments/OP/SEALED-RUN-PLAN.md). The two families below are OP4's and the variants' in the
-# joint D8 and OP4 run (experiments/OD/D8/PREREG-D8-RUN-DRAFT.md Sections 2 and 3), entered before
-# its seal. OP1's and OP2's families are entered with their own sealed registrations.
+# (experiments/OP/SEALED-RUN-PLAN.md). The first two families below are OP4's and the variants' in
+# the joint D8 and OP4 run (experiments/OD/D8/PREREG-D8-RUN-DRAFT.md Sections 2 and 3), entered before
+# its seal. The last four are OP1's and OP2's run families, each with its READ-KE arm
+# (experiments/OP/OP1/PREREG-OP1-RUN-DRAFT.md and experiments/OP/OP2/PREREG-OP2-RUN-DRAFT.md,
+# Sections 1 to 5), entered on 2026-10-16 before either seal. Their rankings, lifts and statistics
+# were fixed in PREREG-OP1-DRAFT.md and PREREG-OP2-DRAFT.md before the pilots, and READ-KE in the run
+# drafts on 2026-10-14; `declared` below is the day the families entered this registry, which
+# precedes the seals.
 
 [registry]
 track = "OP"
 title = "Open problems of other fields where the choice of what to observe is the sharp part"
-commit = "OP1 and OP2 recorded at the pilot 2026-10-12, OP4 recorded at the confirmation 2026-10-13, all unsealed; the joint D8 and OP4 run declared 2026-10-14, not yet sealed"
+commit = "OP1 and OP2 recorded at the pilot 2026-10-12, OP4 recorded at the confirmation 2026-10-13, all unsealed; the joint D8 and OP4 run declared 2026-10-14, OP1's and OP2's runs declared 2026-10-14, none yet sealed"
 x = "the state spaces of the fields' own worlds: the Fourier pairs of forced two-dimensional turbulence (OP4 and the variants, on D8's world), EDMD lifts and Mori-Zwanzig projections of the same flow (OP1, OP2)"
-y = "the smallest observation budget at which an observer's task succeeds: here m*, the smallest ladder value from which a nudged copy reading the top m pairs stays synchronized"
-equivalence = "declared per gate before its seal: for the D8 and OP4 run, m* compared in ladder steps with D8's pilot tolerances (M1 = 0.5 step, TOL1 = 1 step, TOL_N = 0.5 step), and for the secondary arms a one-sided sign test over the 32 cells with Holm's correction across the three arms at family-wise level 0.05"
+y = "per gate, the quantity an observer's choice is judged by: for OP4 and the variants m*, the smallest ladder value from which a nudged copy reading the top m pairs stays synchronized; for OP1 the consumer's Koopman forecast error E at budget r; for OP2 the memory share of the consumer block at budget r"
+equivalence = "declared per gate before its seal: for the D8 and OP4 run, m* compared in ladder steps with D8's pilot tolerances (M1 = 0.5 step, TOL1 = 1 step, TOL_N = 0.5 step), and for the secondary arms a one-sided sign test over the 32 cells with Holm's correction across the three arms at family-wise level 0.05; for OP1 and OP2, the relative advantage over the better of ENERGY and BALL per cell with each pilot's tolerances (M1 = 0.01, TOL1 = 0.25, TOL_N = 0.05), and for READ-KE a one-sided sign test over the graded cells, ties dropped, at level 0.05 with no correction (one secondary arm per gate)"
 complexity_ordering = "a field's classical selector applied to the flow first, then a variant of it the field's literature supplies, then a change of world"
 
 [[transformation]]
@@ -37,3 +42,38 @@ parameters = "READ-KE: D8's READ with the response measured in the kinetic-energ
 closure = "none, three declared selectors, corrected as one family"
 rank = 2
 declared = "2026-10-14"
+
+# OP1's and OP2's run families (PREREG-OP1-RUN-DRAFT.md and PREREG-OP2-RUN-DRAFT.md Section 9, items 8
+# and 6). OP2's observables are built on OP1's rankings and trajectories, so OP2's rows name OP1's.
+# A world OP1's regime check removes (Section 4 of both drafts) is outside both gates' families.
+[[transformation]]
+id = "OP:koopman-dictionary"
+family = "choice of the pool pairs on which a consumer's Koopman dictionary is built, the top r pairs of a ranking for each r on a ladder, judged by the EDMD forecast error of the consumer's coordinates"
+parameters = "rankings READ (training mean of s_k |w_k - mean w_k|^2, s_k the sensitivity of the consumer's tendency to pair k in the enstrophy norm, the declared arm), ENERGY (training variance of w_k) and BALL (|k| ascending) graded, SENS recorded, six seeded RANDOM permutations the null; references POD, GREEDY, NONE and PERSIST recorded; lifts RFF (D = 256 random Fourier features) and TEND (the consumer's tendency on the chosen pairs appended) graded, LIN recorded; ridge 1e-6 tr(G) / dim psi; error E = mean over horizons 1, 2 and 4 samples of min(e_h, 2); r on the ladder 2, 4, 8, 16, 32; consumer cutoffs k_c in {3, 5}, pool k_c < |k| <= 12; D8's forced turbulence at nu in {0.03, 0.02}, n = 128 and 192, run seed 20261113 with offsets 21 and 22; worlds kept by the regime check (PERSIST's E averaged over the cutoffs, the pair at one viscosity within a factor 1.5)"
+closure = "none, a choice among prefixes of rankings"
+rank = 1
+declared = "2026-10-16"
+
+[[transformation]]
+id = "OP:koopman-read-ke"
+family = "the one secondary selector that reached OP1's seal, an ordering of the pool pairs scored by OP:koopman-dictionary's forecast error: READ with the consumer's response measured in the kinetic-energy norm"
+parameters = "READ-KE: E_t[s_k^KE |w_k - mean w_k|^2], s_k^KE the same tangent response under P_C measured in sum |X_k|^2 / |k|^2 (variant V3 of SEALED-RUN-PLAN.md Section 3), the mask and amplitude factor of READ unchanged, equal to READ in the enstrophy norm; every other parameter, world, seed and graded lift as in OP:koopman-dictionary; tested against the better of ENERGY and BALL per cell"
+closure = "none, one declared selector, no correction"
+rank = 2
+declared = "2026-10-16"
+
+[[transformation]]
+id = "OP:mz-explicit-modes"
+family = "choice of which pool pairs a Mori-Zwanzig reduced model of the consumer carries explicitly, the top r pairs of one of OP1's rankings for each r on a ladder, judged by the memory left in the consumer block"
+parameters = "rankings READ (the declared arm), ENERGY and BALL graded, SENS recorded, six seeded RANDOM permutations the null, all OP1's (OP:koopman-dictionary) on OP1's run trajectories; observables the consumer's coordinates, the r chosen pairs and OP1's TEND observable on them, with a constant; Mori's projection with the time-average inner product, kernels by the correlation recursion with ridge 1e-8 tr(C0) / dim on C(0) and 16 lags; graded statistic the memory share sum_{l >= 1} |Omega_CC^(l)| / |Omega_CC^(0)| (chosen on the probe by the split-half rule), and min_L E_L of the lag predictor for L in {0, 1, 2, 4, 8, 16} capped at d (L + 1) <= N / 4; r on the ladder 2, 4, 8, 16, 32; k_c in {3, 5}; OP1's run worlds, seeds and regime check"
+closure = "none, a choice among prefixes of rankings"
+rank = 1
+declared = "2026-10-16"
+
+[[transformation]]
+id = "OP:mz-read-ke"
+family = "the one secondary selector that reached OP2's seal, OP:koopman-read-ke's ordering, scored by OP:mz-explicit-modes's memory share"
+parameters = "READ-KE's order as computed by OP1's code from the same training trajectory (OP:koopman-read-ke); every other parameter, world and seed as in OP:mz-explicit-modes; tested against the lower of ENERGY's and BALL's shares per cell, with its best error with memory against the control's reported beside"
+closure = "none, one declared selector, no correction"
+rank = 2
+declared = "2026-10-16"

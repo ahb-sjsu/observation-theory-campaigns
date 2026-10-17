@@ -122,6 +122,7 @@ does not grow with $n$. No NRP Job is needed.
    removal. Any role but the run is labelled "NOT A VERDICT".
 5. OP2 runs on the smoke world's trajectory file as part of OP1's smoke run (OP1 run registration,
    Section 9, item 7).
-6. OP2's family and READ-KE's are entered in `claims/transformations/OP.toml`.
+6. OP2's family and READ-KE's are entered in `claims/transformations/OP.toml`. Done 2026-10-16:
+   `OP:mz-explicit-modes` and `OP:mz-read-ke`, with no test rows until the run's verdict.
 7. This draft is renamed `PREREG-OP2-RUN.md` in one commit, and its blob hash is recorded in the track
    documents and the README status ledger.

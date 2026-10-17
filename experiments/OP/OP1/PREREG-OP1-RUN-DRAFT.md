@@ -143,6 +143,7 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
    thresholds. Any role but the run is labelled "NOT A VERDICT".
 7. A smoke run of one small world through the whole pipeline (submit, save, collect from the stream,
    grade), on its own seeds, followed by OP2's run on that world's trajectory file.
-8. OP1's family and READ-KE's are entered in `claims/transformations/OP.toml`.
+8. OP1's family and READ-KE's are entered in `claims/transformations/OP.toml`. Done 2026-10-16:
+   `OP:koopman-dictionary` and `OP:koopman-read-ke`, with no test rows until the run's verdict.
 9. This draft is renamed `PREREG-OP1-RUN.md` in one commit, and its blob hash is recorded in the track
    documents and the README status ledger.
