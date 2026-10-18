@@ -166,6 +166,21 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
    thresholds. Any role but the run is labelled "NOT A VERDICT".
 7. A smoke run of one small world through the whole pipeline (submit, save, collect from the stream,
    grade), on its own seeds, followed by OP2's run on that world's trajectory file.
+   Done 2026-10-18 (`submit_op1_nrp.py --role smoke`, from commit 93c303c): Job `op1-smoke-s-nu030-n64`,
+   created 15:05:19 UTC through nats-bursting (creation time checked fresh), bounded by `timeout 6h`. It
+   succeeded at its first attempt, completing at 15:29:54 UTC. The world is `s_nu030_n64` ($\nu = 0.03$,
+   $n = 64$, the smoke seed 20261132). Its footprint: wall time 1441 s on one core (CPU time 1441 s), peak
+   RSS 132 MiB; the stability guard passed (CFL 0.074). Collected on Atlas (`smoke.json`,
+   `smoke_s_nu030_n64.json` and `.log`, and the trajectory file `traj/s_nu030_n64_seed20261132.npz`,
+   2157888 bytes). The copies in `OD_RESULTS` equal the collected files byte for byte, the result in 1
+   chunk and the trajectory file in 3. The Job was deleted after it finished (`--cleanup`). Graded by
+   `op1_run_grade.py` (`smoke_grade.json`), labelled "SMOKE GRADE, NOT A VERDICT". The regime check kept
+   the lone world as "pair incomplete: not checked, graded". Of 20 cells, E1 held, L1 failed (pooled
+   advantage -0.031, 15 cells behind) and L2 failed; N1 is not gradable with one resolution. READ-KE was
+   ahead of the control in 3 of 20 cells, with 15 needed (one-sided p 0.9998, pooled advantage -0.040).
+   The smoke world is one small world on its own seed, so these grades test the pipeline and say nothing
+   about the claim. OP2's run on the trajectory file is recorded in OP2's run registration, Section 9,
+   item 5.
 8. OP1's family and READ-KE's are entered in `claims/transformations/OP.toml`. Done 2026-10-16:
    `OP:koopman-dictionary` and `OP:koopman-read-ke`, with no test rows until the run's verdict.
 9. This draft is renamed `PREREG-OP1-RUN.md` in one commit, and its blob hash is recorded in the track

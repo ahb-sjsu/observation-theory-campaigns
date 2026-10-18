@@ -122,6 +122,17 @@ does not grow with $n$. No NRP Job is needed.
    removal. Any role but the run is labelled "NOT A VERDICT".
 5. OP2 runs on the smoke world's trajectory file as part of OP1's smoke run (OP1 run registration,
    Section 9, item 7).
+   Done 2026-10-18 on Atlas, on one core (`nice -n 10 timeout 2h op2_mz.py --config op2_config.json
+   --seed-role smoke --world s_nu030_n64 --traj-dir ../OP1/traj --read-ke --out smoke.json`), on the
+   trajectory file collected from OP1's smoke Job (sha256 beginning 2fb8c153). It exited 0 after 3 min
+   40 s, with peak RSS 125 MiB (`smoke.json`, `smoke.log`). Graded by `op2_run_grade.py` with OP1's smoke
+   result (`smoke_grade.json`), labelled "SMOKE GRADE, NOT A VERDICT". The regime check is OP1's ("pair
+   incomplete: not checked, graded"), and all 10 cells were graded. E1 failed (pooled shares 2.26, 2.08
+   and 2.11 for READ, ENERGY and BALL, against 1.75 for random), L1 failed (pooled advantage -0.148, 8 of
+   10 cells behind), and L1E and L2 failed. N1 reads `holds: false` with no cells: `op2_grade.py`, called
+   unchanged, has no one-resolution note as OP1's grader has, so with one resolution this is N1 not
+   gradable, not an N1 failure. READ-KE was below the control in 3 of 10 cells, with 9 needed (one-sided
+   p 0.945). As in OP1's smoke run, these grades test the pipeline only.
 6. OP2's family and READ-KE's are entered in `claims/transformations/OP.toml`. Done 2026-10-16:
    `OP:mz-explicit-modes` and `OP:mz-read-ke`, with no test rows until the run's verdict.
 7. This draft is renamed `PREREG-OP2-RUN.md` in one commit, and its blob hash is recorded in the track

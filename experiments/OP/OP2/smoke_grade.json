@@ -1,0 +1,195 @@
+{
+ "seed_role": "smoke",
+ "read_ke_in_file": true,
+ "regime_check": {
+  "limit": 1.5,
+  "by_nu": {
+   "0.03": {
+    "persist": {
+     "s_nu030_n64": 0.3157729015333588
+    },
+    "ratio": null,
+    "passes": null,
+    "note": "pair incomplete: not checked, graded"
+   }
+  },
+  "removed": [],
+  "missing": [],
+  "refused": [],
+  "kept": [
+   "s_nu030_n64"
+  ],
+  "unable_to_test": false,
+  "op2_missing": []
+ },
+ "cells_not_graded": {
+  "count": 0,
+  "cells": []
+ },
+ "op2": {
+  "tolerances": {
+   "M1": 0.01,
+   "TOL1": 0.25,
+   "TOL_N": 0.05,
+   "limits_binding": {
+    "M1": "lower limit",
+    "TOL1": "upper limit",
+    "TOL_N": "upper limit"
+   },
+   "pilot": {
+    "pooled_advantage": -0.02992942708421249,
+    "worst_shortfall": 0.5857748426631016,
+    "max_change_between_resolutions": 0.03642832556914158,
+    "n_cells": 40
+   }
+  },
+  "n_cells": 10,
+  "bars": {
+   "E1": {
+    "by_ranking": {
+     "READ": {
+      "pooled_share": 2.256513973142098,
+      "random": 1.7518809804477296
+     },
+     "ENERGY": {
+      "pooled_share": 2.081346472493397,
+      "random": 1.7518809804477296
+     },
+     "BALL": {
+      "pooled_share": 2.105175896632036,
+      "random": 1.7518809804477296
+     }
+    },
+    "holds": false
+   },
+   "L1": {
+    "pooled_advantage": -0.14836974132698275,
+    "margin": 0.01,
+    "worst_cell": {
+     "world": "s_nu030_n64",
+     "kc": "5",
+     "r": 8,
+     "a": -0.48590166197505474
+    },
+    "tol": 0.25,
+    "cells_behind": 8,
+    "n_cells": 10,
+    "holds": false
+   },
+   "L1E": {
+    "pooled_E_advantage": -0.03147579071137589,
+    "limit": -0.01,
+    "holds": false
+   },
+   "L2": {
+    "pooled_by_cutoff": {
+     "3": -0.14636933418293424,
+     "5": -0.15037014847103128
+    },
+    "margin": 0.01,
+    "holds": false
+   },
+   "N1": {
+    "by_nu": {},
+    "limit": 0.05,
+    "holds": false
+   }
+  },
+  "records": {
+   "pooled_share_SENS": 1.903934027931579
+  },
+  "gate": "SMOKE GRADE, NOT A VERDICT: FAIL"
+ },
+ "read_ke": {
+  "cells": 10,
+  "dropped_no_read_ke": [],
+  "below": 3,
+  "above": 7,
+  "tied": 0,
+  "untied": 10,
+  "needed": 9,
+  "p_one_sided": 0.9453125,
+  "alpha": 0.05,
+  "pooled_advantage": -0.08977634223181447,
+  "vs_read": {
+   "below": 6,
+   "above": 2,
+   "tied": 2,
+   "pooled_relative": 0.0430563319
+  },
+  "pooled_E_advantage": -0.03999404749065615,
+  "per_cell": {
+   "s_nu030_n64/kc3/r2": {
+    "READ_KE": 1.379447796615754,
+    "ctrl": 1.4076538469827915,
+    "READ": 1.379447796615754,
+    "E_min": 0.787649847963417,
+    "E_min_ctrl": 0.6655105900721386
+   },
+   "s_nu030_n64/kc3/r4": {
+    "READ_KE": 1.2399567885470206,
+    "ctrl": 1.2149820142041399,
+    "READ": 1.2399567885470206,
+    "E_min": 0.6602720982237145,
+    "E_min_ctrl": 0.6510436724756308
+   },
+   "s_nu030_n64/kc3/r8": {
+    "READ_KE": 1.2601186285714476,
+    "ctrl": 1.2601186285714605,
+    "READ": 1.2897154376624782,
+    "E_min": 0.6939443483488287,
+    "E_min_ctrl": 0.6525293204047745
+   },
+   "s_nu030_n64/kc3/r16": {
+    "READ_KE": 1.2956163149888538,
+    "ctrl": 1.2538058176340103,
+    "READ": 1.593007425501056,
+    "E_min": 0.6397507585774719,
+    "E_min_ctrl": 0.6209081611757522
+   },
+   "s_nu030_n64/kc3/r32": {
+    "READ_KE": 2.468537302183659,
+    "ctrl": 2.2363916870530134,
+    "READ": 3.2143740836191808,
+    "E_min": 0.7209078073399441,
+    "E_min_ctrl": 0.7112214339108007
+   },
+   "s_nu030_n64/kc5/r2": {
+    "READ_KE": 2.2699215855283015,
+    "ctrl": 1.951045175832061,
+    "READ": 2.098627731778683,
+    "E_min": 1.3690350827132038,
+    "E_min_ctrl": 1.3824973904615208
+   },
+   "s_nu030_n64/kc5/r4": {
+    "READ_KE": 2.2434312603569646,
+    "ctrl": 2.139604016467274,
+    "READ": 2.4136406585731005,
+    "E_min": 1.3532705022117195,
+    "E_min_ctrl": 1.3039545106884536
+   },
+   "s_nu030_n64/kc5/r8": {
+    "READ_KE": 3.2157695290553154,
+    "ctrl": 2.164187315604557,
+    "READ": 3.2157695290821433,
+    "E_min": 1.3708976536032758,
+    "E_min_ctrl": 1.3057456090828523
+   },
+   "s_nu030_n64/kc5/r16": {
+    "READ_KE": 2.7415224561504874,
+    "ctrl": 2.7415224562161495,
+    "READ": 2.741522455951792,
+    "E_min": 1.3984490349197518,
+    "E_min_ctrl": 1.3901362215829554
+   },
+   "s_nu030_n64/kc5/r32": {
+    "READ_KE": 3.379077823886123,
+    "ctrl": 3.1811227372577755,
+    "READ": 3.379077824089773,
+    "E_min": 1.4461342220810423,
+    "E_min_ctrl": 1.4306192570823921
+   }
+  },
+  "beats_control": "SMOKE GRADE, NOT A VERDICT: does not beat the control"
+ }
+}

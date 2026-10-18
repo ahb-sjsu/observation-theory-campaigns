@@ -1,0 +1,246 @@
+{
+ "seed_role": "smoke",
+ "read_ke_in_file": true,
+ "regime_check": {
+  "limit": 1.5,
+  "by_nu": {
+   "0.03": {
+    "persist": {
+     "s_nu030_n64": 0.3157729015333588
+    },
+    "ratio": null,
+    "passes": null,
+    "note": "pair incomplete: not checked, graded"
+   }
+  },
+  "removed": [],
+  "missing": [],
+  "refused": [],
+  "kept": [
+   "s_nu030_n64"
+  ],
+  "unable_to_test": false
+ },
+ "op1": {
+  "tolerances": {
+   "M1": 0.01,
+   "TOL1": 0.25,
+   "TOL_N": 0.05,
+   "limits_binding": {
+    "M1": "lower limit",
+    "TOL1": "upper limit",
+    "TOL_N": "upper limit"
+   },
+   "pilot": {
+    "pooled_advantage": -0.017537806454120473,
+    "worst_shortfall": 0.34496356607501166,
+    "max_change_between_resolutions": 0.07155663202013275,
+    "n_cells": 80
+   },
+   "rule": "PREREG-OP1 Section 5: M1 0.5x pooled (down to 0.005) in [0.01, 0.10]; TOL1 1.25x worst shortfall (up to 0.01) in [0.05, 0.25]; TOL_N 1.5x resolution change (up to 0.005) in [0.01, 0.05]"
+  },
+  "n_cells": 20,
+  "bars": {
+   "E1": {
+    "structured_below_random": {
+     "READ": {
+      "pooled": 0.8571788801700478,
+      "random": 0.8973453070600369,
+      "holds": true
+     },
+     "ENERGY": {
+      "pooled": 0.8590937989728404,
+      "random": 0.8973453070600369,
+      "holds": true
+     },
+     "BALL": {
+      "pooled": 0.8482140794918068,
+      "random": 0.8973453070600369,
+      "holds": true
+     }
+    },
+    "best_at_top_r": 0.8105636411316336,
+    "none": 0.8851008294229799,
+    "holds": true
+   },
+   "L1": {
+    "pooled_advantage": -0.03076711686161729,
+    "margin": 0.01,
+    "worst_cell": {
+     "world": "s_nu030_n64",
+     "kc": "3",
+     "lift": "tend",
+     "r": 2,
+     "a": -0.1994367076154238
+    },
+    "tol": 0.25,
+    "cells_behind": 15,
+    "n_cells": 20,
+    "holds": false
+   },
+   "L2": {
+    "pooled_by_lift": {
+     "rff": -0.028219248977833726,
+     "tend": -0.03331498474540087
+    },
+    "margin": 0.01,
+    "holds": false
+   },
+   "N1": {
+    "by_nu": {},
+    "limit": 0.05,
+    "holds": false,
+    "note": "one resolution only: N1 not gradable"
+   }
+  },
+  "records": {
+   "READ": 0.8571788801700478,
+   "ENERGY": 0.8590937989728404,
+   "BALL": 0.8482140794918068,
+   "SENS": 0.8739374902381577,
+   "RANDOM": 0.8973453070600369,
+   "NONE": 0.88510082942298,
+   "POD": 0.7610482058613368,
+   "GREEDY_lin": 0.9913819801496478,
+   "PERSIST": 0.31577290153335885,
+   "diverged_arm_cells": 0,
+   "pooled_advantage_by_kc": {
+    "3": -0.054038576328782575,
+    "5": -0.007495657394452024
+   },
+   "pooled_advantage_by_r": {
+    "2": -0.06878313390124279,
+    "4": -0.04435707168932499,
+    "8": -0.026332891981257503,
+    "16": -0.02712978480528574,
+    "32": 0.012767298069024529
+   }
+  },
+  "gate": "SMOKE GRADE, NOT A VERDICT: FAIL"
+ },
+ "read_ke": {
+  "graded_lifts": [
+   "rff",
+   "tend"
+  ],
+  "cells": 20,
+  "dropped_no_read_ke": [],
+  "ahead": 3,
+  "behind": 17,
+  "tied": 0,
+  "untied": 20,
+  "needed": 15,
+  "p_one_sided": 0.9997987747192383,
+  "alpha": 0.05,
+  "pooled_advantage": -0.04033544063384238,
+  "vs_read": {
+   "ahead": 5,
+   "behind": 11,
+   "tied": 4,
+   "pooled_relative": -0.010082041270475997
+  },
+  "per_cell": {
+   "s_nu030_n64/kc3/rff/r2": {
+    "READ_KE": 0.7726077487344224,
+    "ctrl": 0.6891307495523716,
+    "READ": 0.7726077487344224
+   },
+   "s_nu030_n64/kc3/rff/r4": {
+    "READ_KE": 0.7206602432404221,
+    "ctrl": 0.6302629091011268,
+    "READ": 0.7206602432404221
+   },
+   "s_nu030_n64/kc3/rff/r8": {
+    "READ_KE": 0.7087972594017288,
+    "ctrl": 0.7068398616850139,
+    "READ": 0.6691980960615368
+   },
+   "s_nu030_n64/kc3/rff/r16": {
+    "READ_KE": 0.7283225313579638,
+    "ctrl": 0.6648259257780309,
+    "READ": 0.729895941637699
+   },
+   "s_nu030_n64/kc3/rff/r32": {
+    "READ_KE": 0.6855012529253864,
+    "ctrl": 0.7331391735346271,
+    "READ": 0.6689968735726705
+   },
+   "s_nu030_n64/kc3/tend/r2": {
+    "READ_KE": 0.8006779466664337,
+    "ctrl": 0.6675449747225475,
+    "READ": 0.8006779466664337
+   },
+   "s_nu030_n64/kc3/tend/r4": {
+    "READ_KE": 0.6822914138265196,
+    "ctrl": 0.665215943541253,
+    "READ": 0.6822914138265196
+   },
+   "s_nu030_n64/kc3/tend/r8": {
+    "READ_KE": 0.7229657231358235,
+    "ctrl": 0.6707159133265392,
+    "READ": 0.7043617603576623
+   },
+   "s_nu030_n64/kc3/tend/r16": {
+    "READ_KE": 0.6561315540890204,
+    "ctrl": 0.6410970610021958,
+    "READ": 0.6420600534251076
+   },
+   "s_nu030_n64/kc3/tend/r32": {
+    "READ_KE": 0.7461866543929281,
+    "ctrl": 0.730310735539811,
+    "READ": 0.760925609456577
+   },
+   "s_nu030_n64/kc5/rff/r2": {
+    "READ_KE": 0.7970177100866508,
+    "ctrl": 0.7939677086285423,
+    "READ": 0.8030381815703121
+   },
+   "s_nu030_n64/kc5/rff/r4": {
+    "READ_KE": 0.8264633871945471,
+    "ctrl": 0.8153366340173975,
+    "READ": 0.8359308033640089
+   },
+   "s_nu030_n64/kc5/rff/r8": {
+    "READ_KE": 0.8384817384548914,
+    "ctrl": 0.8253546155456046,
+    "READ": 0.8555310983077057
+   },
+   "s_nu030_n64/kc5/rff/r16": {
+    "READ_KE": 0.8952509279344815,
+    "ctrl": 0.8742906206207298,
+    "READ": 0.882283184471382
+   },
+   "s_nu030_n64/kc5/rff/r32": {
+    "READ_KE": 0.9142042381605341,
+    "ctrl": 0.9193107334284812,
+    "READ": 0.8991894929566392
+   },
+   "s_nu030_n64/kc5/tend/r2": {
+    "READ_KE": 1.2870563617801156,
+    "ctrl": 1.2902340715716811,
+    "READ": 1.2168685668517674
+   },
+   "s_nu030_n64/kc5/tend/r4": {
+    "READ_KE": 1.2497463830784812,
+    "ctrl": 1.2215844872690538,
+    "READ": 1.2009064330100852
+   },
+   "s_nu030_n64/kc5/tend/r8": {
+    "READ_KE": 1.2382794049874002,
+    "ctrl": 1.1552630717878165,
+    "READ": 1.2382794049858232
+   },
+   "s_nu030_n64/kc5/tend/r16": {
+    "READ_KE": 1.10065125852417,
+    "ctrl": 1.100651258518793,
+    "READ": 1.1006512585191848
+   },
+   "s_nu030_n64/kc5/tend/r32": {
+    "READ_KE": 0.9592234923868763,
+    "ctrl": 0.943757462457414,
+    "READ": 0.9592234923849979
+   }
+  },
+  "beats_control": "SMOKE GRADE, NOT A VERDICT: does not beat the control"
+ }
+}
