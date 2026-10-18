@@ -1,0 +1,56 @@
+/work/OD/D5/d5_burgers.py: OK
+/work/OD/D8/d8_sync.py: OK
+/work/OP/OP1/op1_edmd.py: OK
+/work/OP/OP1/prereg_config.json: OK
+/work/OD/D8/nats_results.py: OK
+[notice] To update, run: pip install --upgrade pip
+numpy 2.2.6 python 3.12.11
+READ ranks the read pair first, ENERGY the loud one: READ [0, 1] ENERGY [1, 0] PASS
+dictionary with the read pair is exact at every horizon; the loud pair adds nothing: E none 0.804, y1 4.6e-09, y2 0.805 PASS
+greedy forward selection picks the read pair: [0] PASS
+linear EDMD forecasts a linear system exactly: 1.9e-12 PASS
+error scale: truth 0, climatology 1: 0.0, 1.0 PASS
+RFF deterministic per dimension and close to the Gaussian kernel: 0.306 vs 0.313 PASS
+consumer sensitivity = central difference of the consumer tendency: 2.0e-13 PASS
+split partitions the pairs; coordinates read back the field: 14 consumer, 84 pool pairs PASS
+rankings are permutations; NONE and POD dimensions: NONE 93, POD(4) 97 PASS
+TEND = the consumer tendency on the chosen pairs (all recorded, and consumer plus 5): 2.1e-15, 1.0e-15 PASS
+ke_sq = velocity norm^2 / (2 pi)^2: 1.9e-16 PASS
+READ-KE in the enstrophy norm = READ (sensitivity, score, order); other orders unchanged:  PASS
+kinetic-energy sensitivity = central difference of the consumer tendency in the KE norm: 2.3e-13 PASS
+the kinetic-energy sensitivity differs from the enstrophy one:  PASS
+world path: recheck identical, S_ke added and read back, READ_KE scored, other arms unchanged: S_ke (11, 84) PASS
+SELFTEST PASS
+{"world": "t_nu030_n192", "phase": "trajectories", "samples": [2001, 801], "tail": [0.0, 0.0], "seconds": 20630.1}
+{"world": "t_nu030_n192", "kc": "3", "lift": "lin", "r": 2, "READ": 0.3255, "ENERGY": 0.3298, "BALL": 0.3289, "SENS": 0.3255, "READ_KE": 0.3255, "POD": 0.3336, "RANDOM": 0.3312, "seconds": 20630.8}
+{"world": "t_nu030_n192", "kc": "3", "lift": "lin", "r": 4, "READ": 0.3329, "ENERGY": 0.3319, "BALL": 0.3354, "SENS": 0.3289, "READ_KE": 0.3329, "POD": 0.3405, "RANDOM": 0.3313, "seconds": 20631.0}
+{"world": "t_nu030_n192", "kc": "3", "lift": "lin", "r": 8, "READ": 0.3396, "ENERGY": 0.3422, "BALL": 0.3378, "SENS": 0.3342, "READ_KE": 0.3378, "POD": 0.4144, "RANDOM": 0.3372, "seconds": 20631.2}
+{"world": "t_nu030_n192", "kc": "3", "lift": "lin", "r": 16, "READ": 0.3807, "ENERGY": 0.3712, "BALL": 0.4135, "SENS": 0.3797, "READ_KE": 0.3554, "POD": 0.4353, "RANDOM": 0.3464, "seconds": 20631.5}
+{"world": "t_nu030_n192", "kc": "3", "lift": "lin", "r": 32, "READ": 0.4542, "ENERGY": 0.4644, "BALL": 0.4702, "SENS": 0.4431, "READ_KE": 0.4702, "POD": 0.4266, "RANDOM": 0.3774, "seconds": 20631.8}
+{"world": "t_nu030_n192", "kc": "3", "lift": "rff", "r": 2, "READ": 0.7191, "ENERGY": 0.6573, "BALL": 0.611, "SENS": 0.7191, "READ_KE": 0.7191, "POD": 0.6769, "RANDOM": 0.6057, "seconds": 20652.1}
+{"world": "t_nu030_n192", "kc": "3", "lift": "rff", "r": 4, "READ": 0.7487, "ENERGY": 0.7005, "BALL": 0.6462, "SENS": 0.6862, "READ_KE": 0.7487, "POD": 0.7231, "RANDOM": 0.6116, "seconds": 20653.9}
+{"world": "t_nu030_n192", "kc": "3", "lift": "rff", "r": 8, "READ": 0.7139, "ENERGY": 0.67, "BALL": 0.7309, "SENS": 0.6703, "READ_KE": 0.6744, "POD": 0.6227, "RANDOM": 0.5755, "seconds": 20655.6}
+{"world": "t_nu030_n192", "kc": "3", "lift": "rff", "r": 16, "READ": 0.6711, "ENERGY": 0.6491, "BALL": 0.6511, "SENS": 0.6267, "READ_KE": 0.6626, "POD": 0.6005, "RANDOM": 0.4906, "seconds": 20657.6}
+{"world": "t_nu030_n192", "kc": "3", "lift": "rff", "r": 32, "READ": 0.6522, "ENERGY": 0.6379, "BALL": 0.6796, "SENS": 0.6856, "READ_KE": 0.7077, "POD": 0.606, "RANDOM": 0.4898, "seconds": 20660.0}
+{"world": "t_nu030_n192", "kc": "3", "lift": "tend", "r": 2, "READ": 0.3276, "ENERGY": 0.3342, "BALL": 0.3455, "SENS": 0.3276, "READ_KE": 0.3276, "POD": null, "RANDOM": 0.351, "seconds": 20670.2}
+{"world": "t_nu030_n192", "kc": "3", "lift": "tend", "r": 4, "READ": 0.3239, "ENERGY": 0.312, "BALL": 0.3401, "SENS": 0.3287, "READ_KE": 0.3239, "POD": null, "RANDOM": 0.354, "seconds": 20679.5}
+{"world": "t_nu030_n192", "kc": "3", "lift": "tend", "r": 8, "READ": 0.3402, "ENERGY": 0.3468, "BALL": 0.3319, "SENS": 0.3244, "READ_KE": 0.3319, "POD": null, "RANDOM": 0.3623, "seconds": 20688.8}
+{"world": "t_nu030_n192", "kc": "3", "lift": "tend", "r": 16, "READ": 0.3039, "ENERGY": 0.3253, "BALL": 0.2744, "SENS": 0.3314, "READ_KE": 0.3325, "POD": null, "RANDOM": 0.3669, "seconds": 20698.2}
+{"world": "t_nu030_n192", "kc": "3", "lift": "tend", "r": 32, "READ": 0.2237, "ENERGY": 0.2526, "BALL": 0.2198, "SENS": 0.2637, "READ_KE": 0.2379, "POD": null, "RANDOM": 0.3772, "seconds": 20707.6}
+{"world": "t_nu030_n192", "kc": "5", "lift": "lin", "r": 2, "READ": 0.5782, "ENERGY": 0.5684, "BALL": 0.5684, "SENS": 0.5782, "READ_KE": 0.5782, "POD": 0.5729, "RANDOM": 0.5698, "seconds": 24295.1}
+{"world": "t_nu030_n192", "kc": "5", "lift": "lin", "r": 4, "READ": 0.6214, "ENERGY": 0.5717, "BALL": 0.5747, "SENS": 0.5812, "READ_KE": 0.5881, "POD": 0.5891, "RANDOM": 0.574, "seconds": 24295.4}
+{"world": "t_nu030_n192", "kc": "5", "lift": "lin", "r": 8, "READ": 0.6226, "ENERGY": 0.5874, "BALL": 0.5888, "SENS": 0.6259, "READ_KE": 0.6255, "POD": 0.598, "RANDOM": 0.585, "seconds": 24295.6}
+{"world": "t_nu030_n192", "kc": "5", "lift": "lin", "r": 16, "READ": 0.6374, "ENERGY": 0.6374, "BALL": 0.653, "SENS": 0.6399, "READ_KE": 0.6374, "POD": 0.6274, "RANDOM": 0.592, "seconds": 24296.0}
+{"world": "t_nu030_n192", "kc": "5", "lift": "lin", "r": 32, "READ": 0.6406, "ENERGY": 0.6335, "BALL": 0.6477, "SENS": 0.6527, "READ_KE": 0.6324, "POD": 0.6458, "RANDOM": 0.605, "seconds": 24296.5}
+{"world": "t_nu030_n192", "kc": "5", "lift": "rff", "r": 2, "READ": 0.8673, "ENERGY": 0.8845, "BALL": 0.8845, "SENS": 0.8673, "READ_KE": 0.8673, "POD": 0.8575, "RANDOM": 0.8638, "seconds": 24331.3}
+{"world": "t_nu030_n192", "kc": "5", "lift": "rff", "r": 4, "READ": 0.8858, "ENERGY": 0.8876, "BALL": 0.8835, "SENS": 0.9065, "READ_KE": 0.9725, "POD": 0.8661, "RANDOM": 0.8579, "seconds": 24333.6}
+{"world": "t_nu030_n192", "kc": "5", "lift": "rff", "r": 8, "READ": 0.8371, "ENERGY": 0.8664, "BALL": 0.9178, "SENS": 0.8901, "READ_KE": 0.8522, "POD": 0.8468, "RANDOM": 0.8058, "seconds": 24335.9}
+{"world": "t_nu030_n192", "kc": "5", "lift": "rff", "r": 16, "READ": 0.8451, "ENERGY": 0.887, "BALL": 0.8989, "SENS": 0.8392, "READ_KE": 0.8372, "POD": 0.8493, "RANDOM": 0.7779, "seconds": 24338.3}
+{"world": "t_nu030_n192", "kc": "5", "lift": "rff", "r": 32, "READ": 0.9173, "ENERGY": 0.9215, "BALL": 0.873, "SENS": 0.8822, "READ_KE": 0.8423, "POD": 0.8811, "RANDOM": 0.7559, "seconds": 24341.2}
+{"world": "t_nu030_n192", "kc": "5", "lift": "tend", "r": 2, "READ": 0.374, "ENERGY": 0.382, "BALL": 0.382, "SENS": 0.374, "READ_KE": 0.374, "POD": null, "RANDOM": 0.3883, "seconds": 24351.6}
+{"world": "t_nu030_n192", "kc": "5", "lift": "tend", "r": 4, "READ": 0.3891, "ENERGY": 0.3876, "BALL": 0.3817, "SENS": 0.3777, "READ_KE": 0.3748, "POD": null, "RANDOM": 0.3891, "seconds": 24361.1}
+{"world": "t_nu030_n192", "kc": "5", "lift": "tend", "r": 8, "READ": 0.3741, "ENERGY": 0.3657, "BALL": 0.3517, "SENS": 0.4099, "READ_KE": 0.3714, "POD": null, "RANDOM": 0.3924, "seconds": 24370.8}
+{"world": "t_nu030_n192", "kc": "5", "lift": "tend", "r": 16, "READ": 0.3561, "ENERGY": 0.3561, "BALL": 0.3631, "SENS": 0.369, "READ_KE": 0.3561, "POD": null, "RANDOM": 0.3972, "seconds": 24380.5}
+{"world": "t_nu030_n192", "kc": "5", "lift": "tend", "r": 32, "READ": 0.3444, "ENERGY": 0.3512, "BALL": 0.3461, "SENS": 0.3582, "READ_KE": 0.3397, "POD": null, "RANDOM": 0.4192, "seconds": 24390.3}
+NATS-PUBLISHED od.results.op1.timing.op1-timing-t-nu030-n192 chunks=1 seqs=[30]
+NATS-PUBLISHED od.results.op1traj.timing.op1-timing-t-nu030-n192 chunks=13 seqs=[31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]

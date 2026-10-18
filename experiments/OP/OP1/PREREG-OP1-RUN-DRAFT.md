@@ -135,6 +135,29 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
 4. The cost at $n = 192$ is measured, not estimated: one run-shaped Job on a timing world with its own
    seeds, recording wall time and peak memory. Its result fixes the Job bound, and whether a world
    must be split (for example the simulation and the scoring as separate Jobs), before any run Job.
+   Submitted 2026-10-17 (`submit_op1_nrp.py --role timing`, from commit 3564ef0): Job
+   `op1-timing-t-nu030-n192`, created 13:03:56 UTC through nats-bursting (creation time checked fresh), its
+   pod started 13:03:57 on `sl-um-es3.slateci.io`. The world is `t_nu030_n192` in `prereg_config.json`
+   ($\nu = 0.03$, $n = 192$, the timing seed 20261131 with offset 31), chosen at $\nu = 0.03$ because that
+   viscosity's $n = 128$ pilot world was the slower (18826 s against 12556 s); no gate reads it. The Job is
+   run-shaped: the image `python:3.12-slim` with numpy 2.2.6 and nats-py 2.14.0, the shipped files pinned by
+   sha256, `op1_edmd.py --selftest` in the pod, then the whole world as a run Job does it
+   (`op1_edmd.py --seed-role timing --world t_nu030_n192 --traj-dir traj --read-ke`, simulation and scoring
+   in one Job), bounded by `timeout 20h`, then the result and the trajectory file each published to
+   `OD_RESULTS` under `timeout 10m` (subjects `od.results.op1.timing.<Job>` and
+   `od.results.op1traj.timing.<Job>`). Exempt class: 1 CPU, 2 GiB memory and 2 GiB ephemeral storage,
+   requests equal to limits, `backoffLimit` 0, no sleep. The self-test passed in the pod.
+   Measured 2026-10-17, collected on Atlas 2026-10-18 (`timing.json`, `timing_t_nu030_n192.json` and `.log`,
+   and the trajectory file `traj/t_nu030_n192_seed20261131.npz`, 10055868 bytes). The Job succeeded at its
+   first attempt, completing at 20:47:35 UTC, 7 h 44 min after creation including the install and the
+   self-test. The copies in `OD_RESULTS` equal the collected files byte for byte, the result in 1 chunk and
+   the trajectory file in 13. The world's footprint: wall time 27772 s (7.71 h) on one core (CPU time
+   27752 s, mean 1.00 cores), of which the trajectories took 20630 s (5.73 h) and the scoring about 7140 s
+   (1.98 h); peak RSS 686 MiB, 33% of the 2 GiB class. The stability guard passed (CFL 0.092). With the
+   margin 1.25, 857 MiB fits 2 GiB and 9.6 h fits the 20 h bound, so `measured_ok` accepts the record. This
+   is one Job on one node. The $\nu = 0.02$, $n = 192$ run world is not measured; its $n = 128$ pilot world
+   was the faster. Whether the run keeps the 20 h bound and one Job per world is for the owner to confirm
+   from this measurement.
 5. A submitter for OP1's run (`submit_op1_nrp.py`) with the preflight of D8's: exempt class, a
    measured footprint, the bounded NATS publish of the result and of the trajectory file, a dirty-tree
    check, and the dry run.
