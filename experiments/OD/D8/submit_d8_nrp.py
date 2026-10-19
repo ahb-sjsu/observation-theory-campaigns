@@ -224,7 +224,9 @@ def created(name: str) -> dt.datetime | None:
     return dt.datetime.fromisoformat(got.stdout.strip().replace("Z", "+00:00"))
 
 
-def submit(dry: bool, split: bool = False, role: str = "probe", only: list[str] | None = None) -> int:
+def build(dry: bool, split: bool = False, role: str = "probe", only: list[str] | None = None):
+    """The checks before any submission and the role's Jobs, each preflighted: (head, blobs, units, descriptors). Used by
+    submit() and by run_pool.py, so the pool sends exactly the Jobs this submitter would."""
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in (FILES | NATS_FILES).values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
@@ -241,6 +243,11 @@ def submit(dry: bool, split: bool = False, role: str = "probe", only: list[str] 
         if missing: raise SystemExit(f"--only names not in role {role}: {sorted(missing)}")
     descs = [descriptor(w, blobs, head, p, role, t) for w, t, p in us]
     for d in descs: preflight(d, role)
+    return head, blobs, us, descs
+
+
+def submit(dry: bool, split: bool = False, role: str = "probe", only: list[str] | None = None) -> int:
+    head, blobs, us, descs = build(dry, split, role, only)
     print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in blobs.items()},
                       "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": ROLES[role]["timeout"]}, indent=1))
     if dry:

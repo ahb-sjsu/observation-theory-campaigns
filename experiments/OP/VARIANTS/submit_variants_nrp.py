@@ -165,7 +165,9 @@ def preflight(d: JobDescriptor, role: str) -> None:
         raise SystemExit(f"PREFLIGHT VETO {d.name}: " + "; ".join(problems))
 
 
-def submit(role: str, dry: bool, variants=None) -> int:
+def build(role: str, dry: bool, variants=None):
+    """The checks before any submission and the role's Jobs, each preflighted: (head, base blobs, cache sha256, descriptors).
+    Used by submit() and by OD/D8/run_pool.py, so the pool sends exactly the Jobs this submitter would."""
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in (FILES | NATS_FILES).values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
@@ -186,6 +188,11 @@ def submit(role: str, dry: bool, variants=None) -> int:
         descs.append(descriptor(v, w, role, t, blobs, head, h))
     if missing: print(f"DRY RUN WITHOUT CACHES (a submission would be vetoed): {sorted(missing)}")
     for d in descs: preflight(d, role)
+    return head, base, cache_sha, descs
+
+
+def submit(role: str, dry: bool, variants=None) -> int:
+    head, base, cache_sha, descs = build(role, dry, variants); R = ROLES[role]
     print(json.dumps({"head": head, "role": role, "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in base.items()} | cache_sha,
                       "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": R["timeout"], "pins": PINS + (f" {NATS_PIN}" if R.get("nats") else "")}, indent=1))
     if dry:
