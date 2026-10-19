@@ -17,7 +17,7 @@
 [registry]
 track = "OP"
 title = "Open problems of other fields where the choice of what to observe is the sharp part"
-commit = "OP1 and OP2 recorded at the pilot 2026-10-12, OP4 recorded at the confirmation 2026-10-13, all unsealed; the joint D8 and OP4 run declared 2026-10-14, OP1's and OP2's runs declared 2026-10-14, none yet sealed"
+commit = "OP1 and OP2 recorded at the pilot 2026-10-12, OP4 recorded at the confirmation 2026-10-13, all unsealed; the joint D8 and OP4 run declared 2026-10-14, not yet sealed; OP1's and OP2's runs SEALED 2026-10-18 (a6f8b3b) and graded 2026-10-19, both FAIL"
 x = "the state spaces of the fields' own worlds: the Fourier pairs of forced two-dimensional turbulence (OP4 and the variants, on D8's world), EDMD lifts and Mori-Zwanzig projections of the same flow (OP1, OP2)"
 y = "per gate, the quantity an observer's choice is judged by: for OP4 and the variants m*, the smallest ladder value from which a nudged copy reading the top m pairs stays synchronized; for OP1 the consumer's Koopman forecast error E at budget r; for OP2 the memory share of the consumer block at budget r"
 equivalence = "declared per gate before its seal: for the D8 and OP4 run, m* compared in ladder steps with D8's pilot tolerances (M1 = 0.5 step, TOL1 = 1 step, TOL_N = 0.5 step), and for the secondary arms a one-sided sign test over the 32 cells with Holm's correction across the three arms at family-wise level 0.05; for OP1 and OP2, the relative advantage over the better of ENERGY and BALL per cell with each pilot's tolerances (M1 = 0.01, TOL1 = 0.25, TOL_N = 0.05), and for READ-KE a one-sided sign test over the graded cells, ties dropped, at level 0.05 with no correction (one secondary arm per gate)"
@@ -77,3 +77,44 @@ parameters = "READ-KE's order as computed by OP1's code from the same training t
 closure = "none, one declared selector, no correction"
 rank = 2
 declared = "2026-10-16"
+
+# OP1's and OP2's sealed runs, graded 2026-10-19 (experiments/OPEN-PROBLEMS-TRACK.md, OP1 and OP2 run records).
+[[test]]
+transformation = "OP:koopman-dictionary"
+claim = "ranking the further pool pairs by READ gives a lower EDMD forecast error of the consumer's coordinates than the better of ENERGY and BALL, pooled by at least 0.01, in each graded lift (RFF and TEND), converging in resolution"
+entries = ["read-operator", "read-distortion", "consumer"]
+outcome = "failed"
+record = "experiments/OPEN-PROBLEMS-TRACK.md, OP1 run record; experiments/OP/OP1/run_grade.json"
+witness = "READ's pooled advantage -0.0046 with 34 of 60 cells behind (worst -0.077 at r_nu030_n192, cutoff 3, RFF, r = 2), RFF -0.020 and TEND +0.011; READ, ENERGY and BALL pool within 0.003 of each other (0.428, 0.429, 0.426), so the choice among the three moves the error less than the margin; E1 and N1 hold; on the three run worlds that returned (r_nu020_n192 lost to node failures at both attempts, reported and not graded)"
+absorbed_by = "declaration"
+revision = "none"
+
+[[test]]
+transformation = "OP:koopman-read-ke"
+claim = "READ-KE's forecast error is below the better of ENERGY and BALL in more cells than the one-sided binomial at alpha 0.05 allows by chance"
+entries = ["read-operator", "consumer"]
+outcome = "failed"
+record = "experiments/OPEN-PROBLEMS-TRACK.md, OP1 run record; experiments/OP/OP1/run_grade.json"
+witness = "ahead in 29 of 59 untied cells with 37 needed (one-sided p 0.60), pooled -0.0025; against READ 21 ahead, 17 behind, 22 tied; on the three run worlds that returned (r_nu020_n192 lost to node failures at both attempts, reported and not graded)"
+absorbed_by = "declaration"
+revision = "none"
+
+[[test]]
+transformation = "OP:mz-explicit-modes"
+claim = "the modes READ makes explicit leave a smaller Mori-Zwanzig memory share than the better of ENERGY's and BALL's, pooled by at least 0.01, at each cutoff, converging in resolution"
+entries = ["read-operator", "consumer"]
+outcome = "failed"
+record = "experiments/OPEN-PROBLEMS-TRACK.md, OP2 run record; experiments/OP/OP2/run_grade.json"
+witness = "pooled advantage -0.026 with 17 of 30 cells behind (worst -0.613 at r_nu020_n128, cutoff 3, r = 8), cutoff 3 -0.037 and cutoff 5 -0.015; at nu 0.03 alone READ is ahead (+0.013 at n = 128, +0.007 at n = 192) and BALL's pooled share is below READ's (0.529 against 0.537); E1, L1E and N1 hold; on the three run worlds that returned (r_nu020_n192 lost to node failures at both attempts, reported and not graded)"
+absorbed_by = "declaration"
+revision = "none"
+
+[[test]]
+transformation = "OP:mz-read-ke"
+claim = "the modes READ-KE makes explicit leave a smaller memory share than the better of ENERGY's and BALL's in more cells than the one-sided binomial at alpha 0.05 allows by chance"
+entries = ["read-operator", "consumer"]
+outcome = "failed"
+record = "experiments/OPEN-PROBLEMS-TRACK.md, OP2 run record; experiments/OP/OP2/run_grade.json"
+witness = "below the control in 12 of 30 cells with 20 needed (one-sided p 0.90), pooled -0.023; against READ 12 below, 10 above, 8 tied; on the three run worlds that returned (r_nu020_n192 lost to node failures at both attempts, reported and not graded)"
+absorbed_by = "declaration"
+revision = "none"

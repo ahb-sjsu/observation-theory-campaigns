@@ -1,0 +1,62 @@
+{
+ "what": "OP1 run, world r_nu020_n192, attempt 2 of 2 (PREREG-OP1-RUN.md Section 7: a failed Job is resubmitted once with the same seed and both attempts are recorded; a world missing after one resubmission is reported and not graded)",
+ "job": {
+  "name": "op1-run-r-nu020-n192",
+  "uid": "b04dcd15-b8a7-440c-a095-ee3d3448242f",
+  "creationTimestamp": "2026-10-19T10:46:26Z",
+  "labels": {
+   "app": "op-op1",
+   "app.kubernetes.io/managed-by": "nats-bursting",
+   "atlas.io/batch": "op1-run",
+   "atlas.io/role": "run"
+  },
+  "backoffLimit": 0,
+  "status": {
+   "conditions": [
+    {
+     "lastProbeTime": "2026-10-19T15:08:27Z",
+     "lastTransitionTime": "2026-10-19T15:08:27Z",
+     "message": "Job has reached the specified backoff limit",
+     "reason": "BackoffLimitExceeded",
+     "status": "True",
+     "type": "FailureTarget"
+    },
+    {
+     "lastProbeTime": "2026-10-19T15:09:08Z",
+     "lastTransitionTime": "2026-10-19T15:09:08Z",
+     "message": "Job has reached the specified backoff limit",
+     "reason": "BackoffLimitExceeded",
+     "status": "True",
+     "type": "Failed"
+    }
+   ],
+   "failed": 1,
+   "ready": 0,
+   "startTime": "2026-10-19T10:46:26Z",
+   "terminating": 0,
+   "uncountedTerminatedPods": {}
+  }
+ },
+ "submitted_from_commit": "23cd034",
+ "pod": "op1-run-r-nu020-n192-l7ktt on ucm-fiona01.ucmerced.edu, started 2026-10-19T10:46:26Z, SELFTEST PASS",
+ "events_read_2026-10-19T15:13Z (ages relative to that read)": [
+  "9m21s   Warning   NodeNotReady             pod/op1-run-r-nu020-n192-l7ktt      Node is not ready",
+  "4m6s    Normal    TaintManagerEviction     pod/op1-run-r-nu020-n192-l7ktt      Cancelling deletion of Pod ssu-atlas-ai/op1-run-r-nu020-n192-l7ktt",
+  "4m21s   Normal    TaintManagerEviction     pod/op1-run-r-nu020-n192-l7ktt      Marking for deletion Pod ssu-atlas-ai/op1-run-r-nu020-n192-l7ktt",
+  "4m11s   Normal    Killing                  pod/op1-run-r-nu020-n192-l7ktt      Stopping container main",
+  "3m36s   Warning   BackoffLimitExceeded     job/op1-run-r-nu020-n192            Job has reached the specified backoff limit"
+ ],
+ "cause": "the node went NotReady about 4 h 17 min after the pod started; the taint manager evicted the pod and backoffLimit 0 marked the Job failed, with no result (the run was still simulating its trajectories)",
+ "watcher_log": [
+  "2026-10-19T10:46:36Z WATCH START op1-run-r-nu020-n192",
+  "2026-10-19T10:46:37Z STATE job=1// pods=op1-run-r-nu020-n192-l7ktt Running restarts=0;",
+  "2026-10-19T10:46:37Z SAMPLE no metrics log: /work/OD/D8/nats_results.py: OK",
+  "2026-10-19T11:46:48Z SAMPLE op1-run-r-nu020-n192-l7ktt {'cpu': '934m', 'memory': '51044Ki'} log: SELFTEST PASS",
+  "2026-10-19T12:47:08Z SAMPLE op1-run-r-nu020-n192-l7ktt {'cpu': '658m', 'memory': '49024Ki'} log: ",
+  "2026-10-19T13:47:17Z SAMPLE op1-run-r-nu020-n192-l7ktt {'cpu': '1018m', 'memory': '50783573333m'} log: SELFTEST PASS",
+  "2026-10-19T14:47:27Z SAMPLE op1-run-r-nu020-n192-l7ktt {'cpu': '937m', 'memory': '53584Ki'} log: SELFTEST PASS",
+  "2026-10-19T15:12:35Z STATE job=//1 pods=",
+  "2026-10-19T15:12:56Z TERMINAL failed; last log: ; reason: "
+ ],
+ "result": null
+}

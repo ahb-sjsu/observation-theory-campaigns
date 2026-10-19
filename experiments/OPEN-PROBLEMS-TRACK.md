@@ -8,8 +8,9 @@ persistence. OP2 (memory in
 Mori–Zwanzig models): RECORDED AT THE PILOT (owner, 2026-10-12), pilot grade FAIL; the modes READ
 makes explicit leave less memory than ENERGY's (0.538 against 0.574) and slightly more than BALL's
 (0.531), at both resolutions. OP3 a record. OP4 (D6v3's Gramian selector on D8's flow): RECORDED AT THE CONFIRMATION (owner,
-2026-10-13), reads "system" in 8 of 8 cells. OP1's and OP2's sealed runs (the owner's plan of 2026-10-13): SEALED 2026-10-18,
-not yet run. Nothing here is claim-bearing until registered. Chip 🧭 OP.
+2026-10-13), reads "system" in 8 of 8 cells. OP1's and OP2's sealed runs (the owner's plan of 2026-10-13): SEALED 2026-10-18, run
+2026-10-19, both FAIL by their sealed graders, READ-KE beating neither control, and one run world lost to
+node failures at both attempts. Nothing here is claim-bearing until registered. Chip 🧭 OP.
 
 ## 1. Question
 
@@ -71,7 +72,23 @@ pilot on the owner's decision (2026-10-12): pilot grade FAIL, not sealed.
 
 Sealed run. SEALED 2026-10-18 as `experiments/OP/OP1/PREREG-OP1-RUN.md`, blob f6c130d62423149e231247ba42e6e9b26f0cb1ff:
 OP1's claim on the run worlds ($n = 128$ and $192$ at $\nu = 0.03$ and $0.02$), with the regime check
-of `experiments/OP/SEALED-RUN-PLAN.md` Section 2 and READ-KE as its one declared variant. Not yet run.
+of `experiments/OP/SEALED-RUN-PLAN.md` Section 2 and READ-KE as its one declared variant.
+Run, 2026-10-19 (NRP, one Job per world from a6f8b3b, the exempt class, run seed 20261113;
+`run.json`, `run_<world>.json` and `.log`, `run_grade.json`). Three worlds returned: `r_nu030_n128`
+(1.09 h, peak 338 MiB), `r_nu030_n192` (7.15 h, 685 MiB) and `r_nu020_n128` (2.16 h, 338 MiB), each
+result and trajectory file equal to its `OD_RESULTS` copy byte for byte. `r_nu020_n192` failed at both
+attempts when its node went NotReady and the pod was evicted, 5 min and 4 h 17 min after start
+(`run_r_nu020_n192_attempt1.json` and `run_r_nu020_n192_attempt2.json`, the second from 23cd034). By
+Section 7 of the registration it is reported and not graded, its partner `r_nu020_n128` is graded and
+recorded as unchecked, and N1 is graded at $\nu = 0.03$ only. The regime check at $\nu = 0.03$: PERSIST
+0.340 and 0.311, ratio 1.09, passes. `op1_run_grade.py run.json --tols tolerances.json` on Atlas, 60
+cells. Verdict by the sealed grader: FAIL. E1 holds (READ 0.428, ENERGY 0.429, BALL 0.426, random
+0.432). L1 fails: READ's pooled advantage over the better of ENERGY and BALL is $-0.0046$ against the
+margin 0.01, with 34 of 60 cells behind and the worst $-0.077$ (`r_nu030_n192`, cutoff 3, RFF, $r = 2$).
+L2 fails (RFF $-0.020$, TEND $+0.011$). N1 holds at $\nu = 0.03$ ($-0.0047$ at $n = 128$, $-0.0079$ at
+$n = 192$). READ-KE does not beat the control: ahead in 29 of 59 untied cells with 37 needed (one-sided
+$p = 0.60$), pooled $-0.0025$. Recorded and not graded: the persistence forecast pooled 0.424, below
+READ's 0.428, and the greedy reference GREEDY_lin 0.302.
 
 What falsifies. READ not ahead of the better of ENERGY and BALL, pooled, in either lift.
 
@@ -113,7 +130,17 @@ than ENERGY's or BALL's.
 
 Sealed run. SEALED 2026-10-18 as `experiments/OP/OP2/PREREG-OP2-RUN.md`, blob 1f8aacedfa47f57649f41661816d0aaa58abba3f:
 OP2's claim on the trajectory files of OP1's run, inheriting OP1's regime check, with READ-KE as its one
-declared variant. Not yet run.
+declared variant.
+Run, 2026-10-19 (Atlas, one core per world in screens under `nice 10`, code at 23cd034, on OP1's three run
+trajectory files; about 42 min and 150 MiB per world; `run.json`, `run_<world>.json` and `.log`,
+`run_grade.json`). `r_nu020_n192` has no trajectory file and is reported and not graded, as in OP1.
+`op2_run_grade.py run.json --op1 ../OP1/run.json --tols tolerances.json` on Atlas, 30 cells, none
+dropped. Verdict by the sealed grader: FAIL. E1 holds (pooled memory share READ 0.537, ENERGY 0.582,
+BALL 0.529, random 0.645). L1 fails: the pooled advantage is $-0.026$ against the margin 0.01, with 17
+of 30 cells behind and the worst $-0.613$ (`r_nu020_n128`, cutoff 3, $r = 8$). L1E holds ($-0.0046$
+against the limit $-0.01$). L2 fails (cutoff 3 $-0.037$, cutoff 5 $-0.015$). N1 holds at $\nu = 0.03$
+($+0.013$ at $n = 128$, $+0.007$ at $n = 192$). READ-KE does not beat the control: below it in 12 of 30
+cells with 20 needed (one-sided $p = 0.90$), pooled $-0.023$.
 
 ### OP3. Sensor selection as observer choice, the joint record
 
