@@ -78,6 +78,14 @@ def role_worlds(role: str) -> list[str]:
     return [w["name"] for w in CFG["worlds"] if w["group"] in CFG["groups_by_role"][role]]
 
 
+def pick_worlds(role: str, world: str | None) -> list[str]:
+    """The role's worlds, or only the one named (a resubmission, PREREG-OP1-RUN.md Section 7); a world outside the role is refused."""
+    ws = role_worlds(role)
+    if world is None: return ws
+    if world not in ws: raise SystemExit(f"--world {world} is not a {role} world ({ws})")
+    return [world]
+
+
 def seed(role: str) -> int:
     return int(CFG[f"seed_{role}"])
 
@@ -157,7 +165,7 @@ def preflight(d: JobDescriptor, role: str) -> None:
         raise SystemExit(f"PREFLIGHT VETO {d.name}: " + "; ".join(problems))
 
 
-def submit(role: str, dry: bool) -> int:
+def submit(role: str, dry: bool, world: str | None = None) -> int:
     head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     dirty = subprocess.run(["git", "status", "--porcelain", "--", *[str(p) for p in (FILES | NATS_FILES).values()]], capture_output=True, text=True, cwd=HERE).stdout.strip()
     if dirty: raise SystemExit(f"PREFLIGHT VETO: shipped files differ from HEAD {head}:\n{dirty}")
@@ -173,12 +181,12 @@ def submit(role: str, dry: bool) -> int:
     blobs = {}
     for rel, p in (FILES | NATS_FILES).items():
         raw = p.read_bytes(); blobs[rel] = (base64.b64encode(gzip.compress(raw, mtime=0)).decode(), hashlib.sha256(raw).hexdigest())
-    descs = [descriptor(w, role, blobs, head) for w in role_worlds(role)]
+    worlds = pick_worlds(role, world); descs = [descriptor(w, role, blobs, head) for w in worlds]
     for d in descs: preflight(d, role)
     print(json.dumps({"head": head, "role": role, "seed": seed(role), "n_jobs": len(descs), "jobs": [d.name for d in descs], "sha256": {k: v[1] for k, v in blobs.items()},
                       "resources": {"cpu": CPU, "memory": MEM, "ephemeral_storage": EPH}, "timeout": R["timeout"], "pins": f"{PINS} {NATS_PIN}"}, indent=1))
     if dry:
-        print(command(role_worlds(role)[0], role, {k: ("<b64>", s) for k, (_, s) in blobs.items()})); return 0
+        print(command(worlds[0], role, {k: ("<b64>", s) for k, (_, s) in blobs.items()})); return 0
     for i, d in enumerate(descs):
         if i: time.sleep(20)  # space submissions apart on Atlas (no churn); this is the submitter, not a Job
         t_sub = dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)
@@ -244,8 +252,8 @@ def collect(role: str) -> int:
     return 0
 
 
-def cleanup(role: str) -> int:
-    for w in role_worlds(role):
+def cleanup(role: str, world: str | None = None) -> int:
+    for w in pick_worlds(role, world):
         name = job_name(w, role); got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
         if got.returncode != 0: print(f"{name}: absent"); continue
         s, f, a = (got.stdout.strip().split("/") + ["", "", ""])[:3]
@@ -288,6 +296,12 @@ def selftest() -> int:
     check("a trajectory file is saved only with S_ke and loadable", check_traj(good.getvalue(), "w") is None and "S_ke" in check_traj(bare.getvalue(), "w")
           and "does not load" in check_traj(b"junk", "w"), "")
     check("timeouts parse and the run's bound is the timing role's", seconds("20h") == 72000 and seconds("6h") == 21600 and ROLES["run"]["timeout"] == ROLES["timing"]["timeout"], "")
+    try:
+        pick_worlds("run", "s_nu030_n64"); refused = False
+    except SystemExit:
+        refused = True
+    check("--world picks one world of the role and refuses any other",
+          pick_worlds("run", None) == ws["run"] and pick_worlds("run", "r_nu020_n192") == ["r_nu020_n192"] and refused, "")
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 
@@ -297,13 +311,14 @@ def main() -> int:
     ap.add_argument("--i-have-checked-nrp-policy", action="store_true", dest="ack"); ap.add_argument("--role", default="timing", choices=list(ROLES))
     ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--collect", action="store_true"); ap.add_argument("--cleanup", action="store_true")
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--world", default=None, help="submit or clean up only this world of the role (a resubmission)")
     a = ap.parse_args()
     if a.selftest: return 1 if selftest() else 0
     if a.collect: return collect(a.role)
-    if a.cleanup: return cleanup(a.role)
+    if a.cleanup: return cleanup(a.role, a.world)
     if not a.ack and not a.dry_run:
         sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")
-    return submit(a.role, a.dry_run)
+    return submit(a.role, a.dry_run, a.world)
 
 
 if __name__ == "__main__":

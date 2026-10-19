@@ -1,0 +1,58 @@
+{
+ "what": "OP1 run, world r_nu020_n192, attempt 1 of 2 (PREREG-OP1-RUN.md Section 7: a failed Job is resubmitted once with the same seed and both attempts are recorded)",
+ "job": {
+  "name": "op1-run-r-nu020-n192",
+  "uid": "e0897f14-6566-41f8-83a9-2544d45e86d6",
+  "creationTimestamp": "2026-10-19T03:00:47Z",
+  "labels": {
+   "app": "op-op1",
+   "app.kubernetes.io/managed-by": "nats-bursting",
+   "atlas.io/batch": "op1-run",
+   "atlas.io/role": "run"
+  },
+  "backoffLimit": 0,
+  "status": {
+   "conditions": [
+    {
+     "lastProbeTime": "2026-10-19T03:09:19Z",
+     "lastTransitionTime": "2026-10-19T03:09:19Z",
+     "message": "Job has reached the specified backoff limit",
+     "reason": "BackoffLimitExceeded",
+     "status": "True",
+     "type": "FailureTarget"
+    },
+    {
+     "lastProbeTime": "2026-10-19T03:10:14Z",
+     "lastTransitionTime": "2026-10-19T03:10:14Z",
+     "message": "Job has reached the specified backoff limit",
+     "reason": "BackoffLimitExceeded",
+     "status": "True",
+     "type": "Failed"
+    }
+   ],
+   "failed": 1,
+   "ready": 0,
+   "startTime": "2026-10-19T03:00:47Z",
+   "terminating": 0,
+   "uncountedTerminatedPods": {}
+  }
+ },
+ "pod_events_observed_2026-10-19T03:51Z": [
+  "Scheduled: pod op1-run-r-nu020-n192-48kzh assigned to k8s-haosu-06.sdsc.optiputer.net",
+  "Pulling image python:3.12-slim",
+  "Pulled: successfully pulled image python:3.12-slim in 7.814s (4m3.581s including waiting)",
+  "Created container main; Started container main",
+  "SELFTEST PASS in the pod log (read from Atlas before the eviction)",
+  "TaintManagerEviction: Marking for deletion Pod ssu-atlas-ai/op1-run-r-nu020-n192-48kzh (about 5 min after Started)",
+  "NodeNotReady: Node is not ready",
+  "Job BackoffLimitExceeded: Job has reached the specified backoff limit"
+ ],
+ "cause": "the node went NotReady and the pod was evicted by the taint manager; the workload produced no result (pod and log gone with the eviction)",
+ "watcher_log": [
+  "2026-10-19T03:50:47Z WATCH START op1-run-r-nu020-n192",
+  "2026-10-19T03:50:48Z STATE job=//1 pods=",
+  "2026-10-19T03:51:09Z SAMPLE no metrics log: ",
+  "2026-10-19T03:51:30Z TERMINAL failed; last log: ; reason: "
+ ],
+ "result": null
+}
