@@ -1,11 +1,12 @@
-# PREREG OP2 RUN (DRAFT): the sealed run of OP2, with one declared variant
+# PREREG OP2 RUN: the sealed run of OP2, with one declared variant
 
-Status: DRAFT, 2026-10-14. Not sealed and not claim-bearing. The registration of OP2's sealed run, which
-the owner chose on 2026-10-13 (`experiments/OP/SEALED-RUN-PLAN.md`). OP2 (which modes a reduced model
-should carry explicitly, so that the rest needs the least memory) was recorded at its pilot on
-2026-10-12, unsealed, with a pilot grade of FAIL. That record stands as it is, and this run is new
-evidence beside it. Section 9 lists what must be done before this draft is renamed `PREREG-OP2-RUN.md`
-and sealed.
+Status: SEALED 2026-10-18 by the rename of `PREREG-OP2-RUN-DRAFT.md` (drafted 2026-10-14) to
+`PREREG-OP2-RUN.md`; blob hash recorded in `experiments/OPEN-PROBLEMS-TRACK.md` and the README status
+ledger. The registration of OP2's sealed run, which the owner chose on 2026-10-13
+(`experiments/OP/SEALED-RUN-PLAN.md`). OP2 (which modes a reduced model should carry explicitly, so that
+the rest needs the least memory) was recorded at its pilot on 2026-10-12, unsealed, with a pilot grade of
+FAIL. That record stands as it is, and this run is new evidence beside it. Section 9 lists what was done
+before the seal.
 
 ## 1. What is incorporated by reference, and what changes
 
@@ -46,7 +47,7 @@ bar named. The secondary arm cannot rescue the primary claim.
 ## 3. Secondary arm (declared before it is probed)
 
 READ-KE, variant V3 of `SEALED-RUN-PLAN.md` Section 3, exactly as in OP1's run registration
-(`experiments/OP/OP1/PREREG-OP1-RUN-DRAFT.md` Section 3): OP1's READ with the consumer's response
+(`experiments/OP/OP1/PREREG-OP1-RUN.md` Section 3): OP1's READ with the consumer's response
 measured in the kinetic-energy norm, the mask and the amplitude factor unchanged. OP2 imports OP1's
 rankings, so READ-KE's order is computed by OP1's code from the same training trajectory, and OP2 builds
 its observables on it as it does for every ranking.
@@ -113,6 +114,7 @@ does not grow with $n$. No NRP Job is needed.
    confirmed by the owner on 2026-10-18.
 2. READ-KE reaches OP2 through OP1's rankings (OP1 run registration, Section 9, item 2), and
    `op2_mz.py`'s self-test checks that every ranking OP1 returns, READ-KE included, gets its cells.
+   Done 2026-10-14 (da9f80b).
 3. READ-KE is probed with OP1's probe (`SEALED-RUN-PLAN.md` Section 4), on the probe trajectory files
    OP1's READ-KE probe rewrites with the kinetic-energy sensitivities (OP1 run registration, Section 9,
    item 3), and recorded. The probe sets nothing.
@@ -123,7 +125,7 @@ does not grow with $n$. No NRP Job is needed.
    Recorded; it sets nothing.
 4. The run's grader, `op2_run_grade.py`, applies the owner's reading of Section 4 and the sign test of
    Section 5 and calls `op2_grade.py` unchanged. A self-test covers the binomial thresholds and the world
-   removal. Any role but the run is labelled "NOT A VERDICT".
+   removal. Any role but the run is labelled "NOT A VERDICT". Done 2026-10-16 (c9d33f9).
 5. OP2 runs on the smoke world's trajectory file as part of OP1's smoke run (OP1 run registration,
    Section 9, item 7).
    Done 2026-10-18 on Atlas, on one core (`nice -n 10 timeout 2h op2_mz.py --config op2_config.json
@@ -140,4 +142,4 @@ does not grow with $n$. No NRP Job is needed.
 6. OP2's family and READ-KE's are entered in `claims/transformations/OP.toml`. Done 2026-10-16:
    `OP:mz-explicit-modes` and `OP:mz-read-ke`, with no test rows until the run's verdict.
 7. This draft is renamed `PREREG-OP2-RUN.md` in one commit, and its blob hash is recorded in the track
-   documents and the README status ledger.
+   documents and the README status ledger. Done by this commit.

@@ -8,8 +8,8 @@ persistence. OP2 (memory in
 Mori–Zwanzig models): RECORDED AT THE PILOT (owner, 2026-10-12), pilot grade FAIL; the modes READ
 makes explicit leave less memory than ENERGY's (0.538 against 0.574) and slightly more than BALL's
 (0.531), at both resolutions. OP3 a record. OP4 (D6v3's Gramian selector on D8's flow): RECORDED AT THE CONFIRMATION (owner,
-2026-10-13), reads "system" in 8 of 8 cells. Nothing here is claim-bearing until
-registered. Chip 🧭 OP.
+2026-10-13), reads "system" in 8 of 8 cells. OP1's and OP2's sealed runs (the owner's plan of 2026-10-13): SEALED 2026-10-18,
+not yet run. Nothing here is claim-bearing until registered. Chip 🧭 OP.
 
 ## 1. Question
 
@@ -69,6 +69,10 @@ RANDOM; references POD, GREEDY and the persistence forecast. Registration draft
 `experiments/OP/OP1/PREREG-OP1-DRAFT.md`, code `experiments/OP/OP1/op1_edmd.py`. Recorded at the
 pilot on the owner's decision (2026-10-12): pilot grade FAIL, not sealed.
 
+Sealed run. SEALED 2026-10-18 as `experiments/OP/OP1/PREREG-OP1-RUN.md`, blob f6c130d62423149e231247ba42e6e9b26f0cb1ff:
+OP1's claim on the run worlds ($n = 128$ and $192$ at $\nu = 0.03$ and $0.02$), with the regime check
+of `experiments/OP/SEALED-RUN-PLAN.md` Section 2 and READ-KE as its one declared variant. Not yet run.
+
 What falsifies. READ not ahead of the better of ENERGY and BALL, pooled, in either lift.
 
 ### OP2. How much memory a reduced model needs, and which modes to keep explicit
@@ -106,6 +110,10 @@ percent worse pooled. Not sealed. It uses Mori's linear
 projection and the correlation recursion of Lin and coauthors on OP1's world, trajectories,
 rankings and TEND observable, and asks whether the modes READ makes explicit leave a shorter memory
 than ENERGY's or BALL's.
+
+Sealed run. SEALED 2026-10-18 as `experiments/OP/OP2/PREREG-OP2-RUN.md`, blob 1f8aacedfa47f57649f41661816d0aaa58abba3f:
+OP2's claim on the trajectory files of OP1's run, inheriting OP1's regime check, with READ-KE as its one
+declared variant. Not yet run.
 
 ### OP3. Sensor selection as observer choice, the joint record
 

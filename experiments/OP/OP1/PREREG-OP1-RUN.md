@@ -1,10 +1,11 @@
-# PREREG OP1 RUN (DRAFT): the sealed run of OP1, with one declared variant
+# PREREG OP1 RUN: the sealed run of OP1, with one declared variant
 
-Status: DRAFT, 2026-10-14. Not sealed and not claim-bearing. The registration of OP1's sealed run, which
-the owner chose on 2026-10-13 (`experiments/OP/SEALED-RUN-PLAN.md`). OP1 (on which coordinates a
-consumer's Koopman dictionary should be built) was recorded at its pilot on 2026-10-12, unsealed, with a
-pilot grade of FAIL. That record stands as it is, and this run is new evidence beside it. Section 9 lists
-what must be done before this draft is renamed `PREREG-OP1-RUN.md` and sealed.
+Status: SEALED 2026-10-18 by the rename of `PREREG-OP1-RUN-DRAFT.md` (drafted 2026-10-14) to
+`PREREG-OP1-RUN.md`; blob hash recorded in `experiments/OPEN-PROBLEMS-TRACK.md` and the README status
+ledger. The registration of OP1's sealed run, which the owner chose on 2026-10-13
+(`experiments/OP/SEALED-RUN-PLAN.md`). OP1 (on which coordinates a consumer's Koopman dictionary should be
+built) was recorded at its pilot on 2026-10-12, unsealed, with a pilot grade of FAIL. That record stands
+as it is, and this run is new evidence beside it. Section 9 lists what was done before the seal.
 
 ## 1. What is incorporated by reference, and what changes
 
@@ -126,6 +127,7 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
 2. READ-KE is added to `op1_edmd.py`'s rankings, with a self-test check that it equals READ in the
    enstrophy norm, and a check that its kinetic-energy sensitivity equals a central difference of the
    consumer's tendency measured in that norm.
+   Done 2026-10-14 (dee1440).
 3. READ-KE is probed on OP1's probe worlds and seeds (`SEALED-RUN-PLAN.md` Section 4) and recorded.
    The probe sets nothing. The cached probe trajectories cannot serve alone: they hold only the pairs
    $|k| \le 12$ and the enstrophy-norm sensitivities, and the kinetic-energy sensitivity needs the
@@ -166,10 +168,10 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
    bound, with one Job per world as the submitter has it.
 5. A submitter for OP1's run (`submit_op1_nrp.py`) with the preflight of D8's: exempt class, a
    measured footprint, the bounded NATS publish of the result and of the trajectory file, a dirty-tree
-   check, and the dry run.
+   check, and the dry run. Done 2026-10-15 (27bd5f7).
 6. The run's grader, `op1_run_grade.py`, applies the regime check and the sign test of Section 5 and
    calls `op1_grade.py` unchanged. A self-test covers the check's three readings and the binomial
-   thresholds. Any role but the run is labelled "NOT A VERDICT".
+   thresholds. Any role but the run is labelled "NOT A VERDICT". Done 2026-10-16 (1f4a29b).
 7. A smoke run of one small world through the whole pipeline (submit, save, collect from the stream,
    grade), on its own seeds, followed by OP2's run on that world's trajectory file.
    Done 2026-10-18 (`submit_op1_nrp.py --role smoke`, from commit 93c303c): Job `op1-smoke-s-nu030-n64`,
@@ -190,4 +192,4 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
 8. OP1's family and READ-KE's are entered in `claims/transformations/OP.toml`. Done 2026-10-16:
    `OP:koopman-dictionary` and `OP:koopman-read-ke`, with no test rows until the run's verdict.
 9. This draft is renamed `PREREG-OP1-RUN.md` in one commit, and its blob hash is recorded in the track
-   documents and the README status ledger.
+   documents and the README status ledger. Done by this commit.
