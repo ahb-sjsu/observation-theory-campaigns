@@ -64,6 +64,9 @@ the check, read as OP1's run registration Section 4 reads it. A world OP1's chec
 and not graded in OP2 either, and OP2's N1 is not graded at that viscosity, since the check is about
 the trajectory, not the gate. The alternative offered, grading every world with the check's outcome
 recorded beside, was not taken.
+The reading for a world with no partner is OP1's too (OP1 run registration, Section 4, confirmed by the
+owner on 2026-10-18): the partner is graded and recorded as unchecked, and N1 is not graded at that
+viscosity. A world with no OP2 result is treated the same way in OP2 (`op2_run_grade.py`).
 OP2's pilot had no such failure: N1 held, and its worst cell was checked and stood as measured
 (`PREREG-OP2-DRAFT.md` Section 6).
 
@@ -106,7 +109,8 @@ does not grow with $n$. No NRP Job is needed.
 
 1. The owner settles the open readings: whether OP1's regime check removes OP2's worlds (Section 4),
    and the control for READ-KE's test (Section 5). Done 2026-10-14: the owner accepted the proposed
-   readings, now written into Sections 4 and 5.
+   readings, now written into Sections 4 and 5. The reading for a world with no partner (Section 4) was
+   confirmed by the owner on 2026-10-18.
 2. READ-KE reaches OP2 through OP1's rankings (OP1 run registration, Section 9, item 2), and
    `op2_mz.py`'s self-test checks that every ranking OP1 returns, READ-KE included, gets its cells.
 3. READ-KE is probed with OP1's probe (`SEALED-RUN-PLAN.md` Section 4), on the probe trajectory files

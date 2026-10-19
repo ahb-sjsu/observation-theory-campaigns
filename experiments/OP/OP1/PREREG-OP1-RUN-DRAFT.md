@@ -73,6 +73,11 @@ the owner decided them on 2026-10-14, before any run (Section 9, item 1):
   symmetric, and nothing in the check says which of the two is the odd one.
 - What it does to N1: N1 is not graded at a viscosity whose pair failed the check. If both viscosities
   fail, OP1 is reported as unable to test its claim on the run worlds.
+- A world with no partner: a world missing after its resubmission, or refused by the stability guard,
+  is reported and not graded (Section 7). Its partner at the other resolution cannot be checked, so it
+  is graded and recorded as unchecked ("pair incomplete: not checked, graded"), and N1 is not graded at
+  that viscosity, since N1 needs both resolutions. Confirmed by the owner on 2026-10-18, before any run
+  Job, as `op1_run_grade.py` reads it (Section 9, item 6).
 
 ## 5. Bar for the secondary arm
 
@@ -116,7 +121,8 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
 
 1. The owner settles the open readings: the regime check's quantity, which world it removes and its
    effect on N1 (Section 4), and the control for READ-KE's test (Section 5). Done 2026-10-14: the owner
-   accepted the proposed readings, now written into Sections 4 and 5.
+   accepted the proposed readings, now written into Sections 4 and 5. The reading for a world with no
+   partner (Section 4) was confirmed by the owner on 2026-10-18.
 2. READ-KE is added to `op1_edmd.py`'s rankings, with a self-test check that it equals READ in the
    enstrophy norm, and a check that its kinetic-energy sensitivity equals a central difference of the
    consumer's tendency measured in that norm.
@@ -156,8 +162,8 @@ memory. The time and memory at $n = 192$ are not measured (Section 9, item 4).
    (1.98 h); peak RSS 686 MiB, 33% of the 2 GiB class. The stability guard passed (CFL 0.092). With the
    margin 1.25, 857 MiB fits 2 GiB and 9.6 h fits the 20 h bound, so `measured_ok` accepts the record. This
    is one Job on one node. The $\nu = 0.02$, $n = 192$ run world is not measured; its $n = 128$ pilot world
-   was the faster. Whether the run keeps the 20 h bound and one Job per world is for the owner to confirm
-   from this measurement.
+   was the faster. The owner confirmed on 2026-10-18, from this measurement, that the run keeps the 20 h
+   bound, with one Job per world as the submitter has it.
 5. A submitter for OP1's run (`submit_op1_nrp.py`) with the preflight of D8's: exempt class, a
    measured footprint, the bounded NATS publish of the result and of the trajectory file, a dirty-tree
    check, and the dry run.
