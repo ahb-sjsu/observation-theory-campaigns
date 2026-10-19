@@ -1,12 +1,13 @@
-# PREREG D8 RUN (DRAFT): the sealed run of D8 and OP4, with four declared variants
+# PREREG D8 RUN: the sealed run of D8 and OP4, with four declared variants
 
-Status: DRAFT, 2026-10-13. Not sealed and not claim-bearing. The registration of the sealed run that
+Status: SEALED 2026-10-19 by the rename of `PREREG-D8-RUN-DRAFT.md` (drafted 2026-10-13) to
+`PREREG-D8-RUN.md`; blob hash recorded in `experiments/DISCOVERY-TRACK.md`,
+`experiments/OPEN-PROBLEMS-TRACK.md` and the README status ledger. The registration of the sealed run that
 the owner chose on 2026-10-13 (`experiments/OP/SEALED-RUN-PLAN.md`). D8 (which modes a nudged copy of
 forced two-dimensional turbulence must read) and OP4 (D6v3's window-Gramian selector on the same
 task) share one run, since they share the worlds, the seeds, the nudging protocol and the controls.
 D8 and OP4 were each recorded unsealed, at the pilot and at the confirmation. Those records stand as
-they are, and this run is new evidence beside them. Section 9 lists what must be done before this
-draft is renamed `PREREG-D8-RUN.md` and sealed.
+they are, and this run is new evidence beside them. Section 9 lists what was done before the seal.
 
 ## 1. What is incorporated by reference, and what changes
 
@@ -212,4 +213,4 @@ a node's log (three of D8's pilot logs were lost).
    variant Jobs record no footprint (peak RSS), unlike D8's; their $n = 192$ memory rests on D8's
    measurement of the same nudging code (item 4).
 8. This draft is renamed `PREREG-D8-RUN.md` in one commit, and its blob hash is recorded in the track
-   documents and the README status ledger.
+   documents and the README status ledger. Done by this commit.

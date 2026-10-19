@@ -1358,6 +1358,11 @@ establishes: for synchronizing this flow, scale, not the per-mode read, is what 
 read first, consistent with Inubushi and Caulfield (arXiv:2508.16920). Whether that belongs to the
 per-mode instrument or to the flow is gate OP4 of the OP track.
 
+Sealed run. SEALED 2026-10-19 as `experiments/OD/D8/PREREG-D8-RUN.md`, blob f61699dcd9b2f85b2fd704abfde3ab11d5d594ae:
+D8's claim on the run worlds ($n = 128$ and $192$ at $\nu = 0.03$ and $0.02$, $K = 8$ test trajectories each,
+32 cells, D8's pilot tolerances), joint with OP4, with the secondary arms READ-KE, GRAM-UN and SV (ESA
+declared and dropped before the seal). Not yet run.
+
 ## 5. Records
 
 Each gate writes its registry families to `claims/transformations/OD.toml` before sealing,

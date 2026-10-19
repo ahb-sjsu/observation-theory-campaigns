@@ -8,7 +8,8 @@ persistence. OP2 (memory in
 Mori–Zwanzig models): RECORDED AT THE PILOT (owner, 2026-10-12), pilot grade FAIL; the modes READ
 makes explicit leave less memory than ENERGY's (0.538 against 0.574) and slightly more than BALL's
 (0.531), at both resolutions. OP3 a record. OP4 (D6v3's Gramian selector on D8's flow): RECORDED AT THE CONFIRMATION (owner,
-2026-10-13), reads "system" in 8 of 8 cells. OP1's and OP2's sealed runs (the owner's plan of 2026-10-13): SEALED 2026-10-18, run
+2026-10-13), reads "system" in 8 of 8 cells; its sealed run, joint with D8, SEALED 2026-10-19, not yet
+run. OP1's and OP2's sealed runs (the owner's plan of 2026-10-13): SEALED 2026-10-18, run
 2026-10-19, both FAIL by their sealed graders, READ-KE beating neither control, and one run world lost to
 node failures at both attempts. Nothing here is claim-bearing until registered. Chip 🧭 OP.
 
@@ -159,6 +160,10 @@ seeds. The outcome says whether D8's loss to BALL belongs to the per-mode instru
 system. Draft: `experiments/OP/OP4/OP4-DESIGN-DRAFT.md` (2026-10-12). Recorded at the confirmation on
 the owner's decision (2026-10-13), not sealed. The result reads "system" in all 8 cells: GRAM is
 behind BALL in every cell, by 5.5 ladder steps pooled, and never ahead of READ.
+
+Sealed run. Joint with D8, SEALED 2026-10-19 as `experiments/OD/D8/PREREG-D8-RUN.md`, blob
+f61699dcd9b2f85b2fd704abfde3ab11d5d594ae: GRAM against BALL and READ on D8's run worlds, read by OP4's three
+readings, with the secondary selectors of `OP:sync-variants`. Not yet run.
 
 ### Deferred
 
