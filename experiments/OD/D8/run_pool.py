@@ -15,7 +15,12 @@ adds what 608 Jobs on a shared cluster need:
   * A brake: new submissions pause (state "paused", an ALERT line) when more than BRAKE Jobs fail within an hour, or when
     a submission does not show a fresh Job. Nothing is deleted while paused; the pool keeps saving results.
   * No Job is ever deleted except a failed one before its single resubmission; succeeded Jobs are left for --cleanup.
-State is in run_pool_state.json, so a restarted pool adopts the Jobs already out and never resubmits a saved one.
+  * Each poll notes the node of every pod of the run (a NODE line when first seen), so a lost attempt's record names the
+    node its pod last ran on even when the pod is gone by the time the loss is seen (the losses of 2026-10-20).
+State is in run_pool_state.json, so a restarted pool adopts the Jobs already out and never resubmits a saved one. A restart
+at a later HEAD is allowed only when no file the Jobs carry or are built from changed between the state's HEAD and this one
+(`git diff`), and when the Jobs built now are the ones the state was written for (a fingerprint of every Job, its HEAD label
+aside); the state keeps the launch HEAD and lists every HEAD the pool has run at.
 
   /home/claude/env/bin/python run_pool.py --selftest
   /home/claude/env/bin/python run_pool.py --dry-run          # builds and preflights all Jobs, submits nothing
@@ -114,16 +119,80 @@ class Pool:
 
 # ---------------------------------------------------------------- the cluster side (Atlas)
 
-def build_all(dry: bool):
+class names_absent:
+    """While building at a restart, the submitters' preflight is told every run Job's name is absent: the Jobs already out
+    are the ones being adopted, not sent. Every other check of the preflight runs as written, and send() runs the whole
+    preflight, the name's absence included, against the real cluster before each Job is sent."""
+
+    def __init__(self, on: bool):
+        self.on = on
+
+    def __enter__(self):
+        import subprocess
+        import submit_d8_nrp as S8
+        import submit_variants_nrp as SV
+        self.mods, self.real = (S8, SV), (S8.kubectl, SV.kubectl)
+        if self.on:
+            def kc(*args):
+                if len(args) == 5 and args[:2] == ("get", "job") and args[3:] == ("-o", "name"):  # the preflight's name check
+                    return subprocess.CompletedProcess(args, 1, "", "adopting at a restart: the name check runs at send time")
+                return self.real[0](*args)
+            S8.kubectl = SV.kubectl = kc
+        return self
+
+    def __exit__(self, *exc):
+        self.mods[0].kubectl, self.mods[1].kubectl = self.real
+        return False
+
+
+def build_all(dry: bool, adopting: bool = False):
     import submit_d8_nrp as S8
     import submit_variants_nrp as SV
-    h8, _, us8, d8 = S8.build(dry, False, "run")
-    hv, _, _, dv = SV.build("run", dry)
+    with names_absent(adopting):
+        h8, _, us8, d8 = S8.build(dry, False, "run")
+        hv, _, _, dv = SV.build("run", dry)
     if h8 != hv: raise SystemExit(f"the two submitters see different HEADs: {h8} {hv}")
     n_of = {w["name"]: int(w["n"]) for w in S8.config()["worlds"]}
     items = [(d, "d8", n_of[d.env["D8_WORLD"]]) for d in d8] + [(d, "opv", n_of[d.env["OPV_WORLD"]]) for d in dv]
     items = [x for _, x in sorted(enumerate(items), key=lambda p: order_key(p[1][2], p[0]))]
     return h8, {d.name: (d, kind) for d, kind, _ in items}, [d.name for d, _, _ in items]
+
+
+def built_from() -> list[Path]:
+    """Every file a run Job carries or is built from: both submitters' shipped files, the variant caches of the run worlds,
+    and the two submitters themselves (they write the command, resources and env)."""
+    import submit_d8_nrp as S8
+    import submit_variants_nrp as SV
+    ps = {*S8.FILES.values(), *S8.NATS_FILES.values(), *SV.FILES.values(), Path(S8.__file__), Path(SV.__file__)}
+    for w in SV.ROLES["run"]["worlds"]: ps |= set(SV.cache_files(w, SV.ROLES["run"]["seed_role"]).values())
+    return sorted(Path(p).resolve() for p in ps)
+
+
+def git_changed(old: str, new: str, paths: list[Path]) -> list[str] | None:
+    """The files among `paths` that differ between commits old and new, or None when git cannot tell."""
+    import subprocess
+    got = subprocess.run(["git", "diff", "--name-only", old, new, "--", *map(str, paths)], capture_output=True, text=True, cwd=HERE)
+    return None if got.returncode != 0 else [x for x in got.stdout.splitlines() if x.strip()]
+
+
+def restart_problem(state_head: str, head: str, paths: list[Path], changed=git_changed) -> str | None:
+    """Why a pool whose state was written at state_head must not restart at head, or None when it may."""
+    if state_head == head: return None
+    got = changed(state_head, head, paths)
+    if got is None: return f"git cannot compare {state_head} with {head}"
+    if got: return f"files the Jobs carry or are built from changed between {state_head} and {head}: {got}"
+    return None
+
+
+def fingerprint(descs: dict) -> str:
+    """sha256 over every Job as it would be sent, its HEAD label left out (D8_HEAD, OPV_HEAD name the commit, not the Job)."""
+    import dataclasses
+    import hashlib
+    rows = []
+    for name in sorted(descs):
+        d = dataclasses.asdict(descs[name][0]); d["env"] = {k: v for k, v in d["env"].items() if not k.endswith("_HEAD")}
+        rows.append(d)
+    return hashlib.sha256(json.dumps(rows, sort_keys=True, default=str).encode()).hexdigest()
 
 
 def kubectl(*args: str, timeout: int = 120):
@@ -137,12 +206,14 @@ def kubectl(*args: str, timeout: int = 120):
         return subprocess.CompletedProcess(args, 124, "", f"kubectl {' '.join(args[:2])} timed out after {timeout} s")
 
 
-def make_cluster(descs: dict):
+def make_cluster(descs: dict, kc=None, note=None, attempts_dir: Path | None = None):
     import submit_d8_nrp as S8
     import submit_variants_nrp as SV
+    kubectl_ = kc or kubectl; note = note or say; attempts = attempts_dir or ATTEMPTS
+    seen: dict[str, dict] = {}  # Job name -> the pod of its current attempt last seen: pod, node, phase, time
 
     def cluster() -> dict:
-        got = kubectl("get", "jobs", "-o", "json")
+        got = kubectl_("get", "jobs", "-o", "json")
         if got.returncode != 0: raise RuntimeError(f"kubectl get jobs failed: {got.stderr.strip()[:200]}")
         out = {}
         for j in json.loads(got.stdout)["items"]:
@@ -150,6 +221,15 @@ def make_cluster(descs: dict):
             if n not in descs: continue
             s = j.get("status", {})
             out[n] = "succeeded" if s.get("succeeded") else "failed" if s.get("failed") else "active"
+        pods = kubectl_("get", "pods", "-l", "job-name", "-o", "json")
+        if pods.returncode != 0: note(f"WARN kubectl get pods failed, nodes not noted this poll: {pods.stderr.strip()[:200]}")
+        else:
+            for pod in json.loads(pods.stdout).get("items", []):
+                n = pod["metadata"].get("labels", {}).get("job-name"); node = pod.get("spec", {}).get("nodeName")
+                if n not in out or out[n] != "active" or not node: continue  # only pods of the run's Jobs in flight
+                p = pod["metadata"]["name"]
+                if seen.get(n, {}).get("pod") != p or seen[n].get("node") != node: note(f"NODE {n} pod {p} on {node}")
+                seen[n] = {"pod": p, "node": node, "phase": pod.get("status", {}).get("phase"), "seen": now().isoformat()}
         return out
 
     def send(name: str) -> bool:
@@ -165,18 +245,18 @@ def make_cluster(descs: dict):
         return c is not None and c >= t_sub
 
     def delete(name: str) -> None:
-        got = kubectl("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
+        got = kubectl_("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
         s, f, a = (got.stdout.strip().split("/") + ["", "", ""])[:3]
         if got.returncode != 0 or a not in ("", "0") or f in ("", "0"):
             raise SystemExit(f"{name}: not a failed, finished Job (succeeded={s} failed={f} active={a}); refusing to delete")
-        say(f"DELETE {name}: " + kubectl("delete", "job", name, "--wait=true", timeout=300).stdout.strip())
-        if kubectl("get", "job", name, "-o", "name").returncode == 0: raise SystemExit(f"{name}: still present after delete; its name cannot be reused yet")
+        say(f"DELETE {name}: " + kubectl_("delete", "job", name, "--wait=true", timeout=300).stdout.strip())
+        if kubectl_("get", "job", name, "-o", "name").returncode == 0: raise SystemExit(f"{name}: still present after delete; its name cannot be reused yet")
 
     def save(name: str) -> bool:
         d, kind = descs[name]; out = PIECES_D8 if kind == "d8" else PIECES_VAR; out.mkdir(exist_ok=True)
         path = out / f"{name}.json"
         if path.exists(): return True
-        got = kubectl("logs", f"job/{name}"); log = got.stdout if got.returncode == 0 else ""; raw = None
+        got = kubectl_("logs", f"job/{name}"); log = got.stdout if got.returncode == 0 else ""; raw = None
         begin, end = (S8.BEGIN, S8.END) if kind == "d8" else (SV.BEGIN, SV.END)
         if begin in log: raw = gzip.decompress(base64.b64decode(log.split(begin, 1)[1].split(end, 1)[0].strip()))
         subject = S8.nats_subject(kind, "run", name); streamed = S8.fetch_nats(subject)
@@ -189,19 +269,19 @@ def make_cluster(descs: dict):
         return True
 
     def record(name: str, attempt: int, why: str) -> None:
-        ATTEMPTS.mkdir(exist_ok=True); p = ATTEMPTS / f"{name}_attempt{attempt}.json"
-        got = kubectl("get", "job", name, "-o", "json")
-        ev = kubectl("get", "events", "--field-selector", f"involvedObject.name={name}", "-o", "json")
-        pods = kubectl("get", "pods", "-l", f"job-name={name}", "-o", "json")
+        attempts.mkdir(exist_ok=True); p = attempts / f"{name}_attempt{attempt}.json"
+        got = kubectl_("get", "job", name, "-o", "json")
+        ev = kubectl_("get", "events", "--field-selector", f"involvedObject.name={name}", "-o", "json")
+        pods = kubectl_("get", "pods", "-l", f"job-name={name}", "-o", "json")
         pev = []
         if pods.returncode == 0:
             for pod in json.loads(pods.stdout).get("items", []):
-                e = kubectl("get", "events", "--field-selector", f"involvedObject.name={pod['metadata']['name']}", "-o", "json")
+                e = kubectl_("get", "events", "--field-selector", f"involvedObject.name={pod['metadata']['name']}", "-o", "json")
                 if e.returncode == 0: pev += [{"reason": x.get("reason"), "message": x.get("message"), "last": x.get("lastTimestamp")} for x in json.loads(e.stdout).get("items", [])]
         rec = {"job": name, "attempt": attempt, "why": why, "recorded": now().isoformat(),
                "status": json.loads(got.stdout).get("status") if got.returncode == 0 else None,
                "job_events": [{"reason": x.get("reason"), "message": x.get("message"), "last": x.get("lastTimestamp")} for x in json.loads(ev.stdout).get("items", [])] if ev.returncode == 0 else [],
-               "pod_events": pev}
+               "pod_events": pev, "pod_last_seen": seen.pop(name, None)}  # popped: the next attempt's pod is noted afresh
         if not p.exists(): p.write_text(json.dumps(rec, indent=1) + "\n", encoding="utf-8")
 
     return cluster, send, delete, save, record
@@ -209,18 +289,23 @@ def make_cluster(descs: dict):
 
 def run(ack: bool) -> int:
     if not ack: sys.exit("refusing without --i-have-checked-nrp-policy (read reference_nrp_job_policies first)")
-    head, descs, jobs = build_all(False)
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
-    if state and state.get("head") != head: raise SystemExit(f"state was written at {state.get('head')}, HEAD is {head}: stop and look")
+    head, descs, jobs = build_all(False, adopting=bool(state))
+    launch = state.get("head", head); heads = state.get("heads", [launch]); fp = fingerprint(descs)
+    why = restart_problem(heads[-1], head, built_from())
+    if why: raise SystemExit(f"state was written at {heads[-1]}, HEAD is {head}, and {why}: stop and look")
+    if state.get("fingerprint", fp) != fp: raise SystemExit(f"the Jobs built at {head} are not the ones the state was written for: stop and look")
+    if head not in heads: heads.append(head)
     pool = Pool(jobs, *make_cluster(descs), state=state)
-    say(f"POOL START head {head}, {len(jobs)} Jobs, cap {CAP}, {sum(1 for n in jobs if n in pool.done)} already done")
+    say(f"POOL START head {head} (launched at {launch}), {len(jobs)} Jobs, cap {CAP}, {sum(1 for n in jobs if n in pool.done)} already done"
+        + (f", paused: {pool.paused}" if pool.paused else ""))
     while True:
         try:
             events = pool.tick(now())
         except RuntimeError as e:
             events = [f"WARN {e}"]
         for e in events: say(e)
-        tmp = STATE.with_suffix(".tmp"); tmp.write_text(json.dumps({"head": head, **pool.state()}, indent=1), encoding="utf-8"); os.replace(tmp, STATE)
+        tmp = STATE.with_suffix(".tmp"); tmp.write_text(json.dumps({"head": launch, "heads": heads, "fingerprint": fp, **pool.state()}, indent=1), encoding="utf-8"); os.replace(tmp, STATE)
         if "POOL DONE" in events: return 0
         time.sleep(TICK)  # the pool's poll interval on Atlas, not a Job
 
@@ -307,6 +392,59 @@ def selftest() -> int:
     cl.clear(); p.tick(t + dt.timedelta(minutes=12))
     check("and it is counted lost once it has been absent 10 minutes, then sent once more", log["recorded"] == [("x", 1, "vanished")] and log["sent"] == ["x", "x"], str(log["recorded"]))
     check("longest first: n = 192 before n = 128, the submitters' order kept within", sorted([(128, 0), (192, 1), (128, 2), (192, 3)], key=lambda x: order_key(*x)) == [(192, 1), (192, 3), (128, 0), (128, 2)], "")
+    # the restart check and the fingerprint
+    ps = [Path("a.py")]
+    check("a restart at the same HEAD is allowed without asking git", restart_problem("h1", "h1", ps, changed=lambda *a: (_ for _ in ()).throw(SystemExit("asked git"))) is None, "")
+    check("a restart at a later HEAD with no built-from file changed is allowed", restart_problem("h1", "h2", ps, changed=lambda *a: []) is None, "")
+    check("and refused when one changed, or when git cannot tell", restart_problem("h1", "h2", ps, changed=lambda *a: ["OD/D8/d8_sync.py"]) is not None
+          and restart_problem("h1", "h2", ps, changed=lambda *a: None) is not None, "")
+    import dataclasses
+
+    @dataclasses.dataclass
+    class D:
+        name: str; command: list; env: dict
+    f0 = fingerprint({"a": (D("a", ["x"], {"D8_WORLD": "w", "D8_HEAD": "h1"}), "d8")})
+    check("the fingerprint ignores the HEAD label", f0 == fingerprint({"a": (D("a", ["x"], {"D8_WORLD": "w", "D8_HEAD": "h2"}), "d8")}), "")
+    check("and catches a changed command or env", f0 != fingerprint({"a": (D("a", ["y"], {"D8_WORLD": "w", "D8_HEAD": "h1"}), "d8")})
+          and f0 != fingerprint({"a": (D("a", ["x"], {"D8_WORLD": "v", "D8_HEAD": "h1"}), "d8")}), "")
+    # the node noted while the pod lives reaches the record of a loss seen after the pod is gone
+    import subprocess
+    import tempfile
+    world = {"jobs": [{"metadata": {"name": "j"}, "status": {"active": 1}}],
+             "pods": [{"metadata": {"name": "j-abc", "labels": {"job-name": "j"}}, "spec": {"nodeName": "node-7"}, "status": {"phase": "Running"}},
+                      {"metadata": {"name": "z-1", "labels": {"job-name": "other"}}, "spec": {"nodeName": "node-9"}, "status": {"phase": "Running"}}]}
+
+    def kc(*args, timeout=120):
+        if args[:2] == ("get", "jobs"): return subprocess.CompletedProcess(args, 0, json.dumps({"items": world["jobs"]}), "")
+        if args[:2] == ("get", "pods") and args[3] == "job-name": return subprocess.CompletedProcess(args, 0, json.dumps({"items": world["pods"]}), "")
+        if args[:2] == ("get", "pods"): return subprocess.CompletedProcess(args, 0, json.dumps({"items": []}), "")
+        return subprocess.CompletedProcess(args, 1, "", "NotFound")
+    notes = []
+    with tempfile.TemporaryDirectory() as td:
+        cl, _s, _d, _sv, rec = make_cluster({"j": (None, "d8")}, kc=kc, note=notes.append, attempts_dir=Path(td))
+        st1 = cl(); cl()
+        world["jobs"], world["pods"] = [], []  # the Job and its pod gone, as on 2026-10-20
+        rec("j", 1, "vanished"); r = json.loads((Path(td) / "j_attempt1.json").read_text(encoding="utf-8"))
+        rec("j", 2, "vanished"); r2 = json.loads((Path(td) / "j_attempt2.json").read_text(encoding="utf-8"))
+    check("a running pod's node is noted once, and only for the run's Jobs", st1 == {"j": "active"} and notes == ["NODE j pod j-abc on node-7"], str(notes))
+    check("a lost attempt's record names the node its pod last ran on", (r.get("pod_last_seen") or {}).get("node") == "node-7", str(r.get("pod_last_seen")))
+    check("and the next attempt's record does not inherit it", r2.get("pod_last_seen") is None, str(r2.get("pod_last_seen")))
+    # building at a restart: only the preflight's name check is answered "absent", and only inside the block
+    import submit_d8_nrp as S8
+    import submit_variants_nrp as SV
+    orig = (S8.kubectl, SV.kubectl); calls = []
+    S8.kubectl = SV.kubectl = lambda *a: (calls.append(a), subprocess.CompletedProcess(a, 0, "job.batch/x\n", ""))[1]
+    try:
+        stub = S8.kubectl
+        with names_absent(True):
+            gone = S8.kubectl("get", "job", "x", "-o", "name").returncode == 1 and SV.kubectl("get", "job", "y", "-o", "name").returncode == 1
+            S8.kubectl("get", "job", "x", "-o", "json")
+        with names_absent(False):
+            kept = S8.kubectl is stub
+        check("at a restart the name check reads absent, every other call reaches kubectl, and both are restored after",
+              gone and calls == [("get", "job", "x", "-o", "json")] and kept and S8.kubectl is stub and SV.kubectl is stub, str(calls))
+    finally:
+        S8.kubectl, SV.kubectl = orig
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 
