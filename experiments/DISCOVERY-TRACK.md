@@ -1361,7 +1361,20 @@ per-mode instrument or to the flow is gate OP4 of the OP track.
 Sealed run. SEALED 2026-10-19 as `experiments/OD/D8/PREREG-D8-RUN.md`, blob f61699dcd9b2f85b2fd704abfde3ab11d5d594ae:
 D8's claim on the run worlds ($n = 128$ and $192$ at $\nu = 0.03$ and $0.02$, $K = 8$ test trajectories each,
 32 cells, D8's pilot tolerances), joint with OP4, with the secondary arms READ-KE, GRAM-UN and SV (ESA
-declared and dropped before the seal). Not yet run.
+declared and dropped before the seal).
+
+Run, started 2026-10-19 (NRP; in progress). `run_pool.py` (commit cff38e3) runs in the screen
+`d8-run-pool` on Atlas and sends the run's 608 Jobs, the 416 of `submit_d8_nrp.py` and the 192 of
+`submit_variants_nrp.py`, each built and preflighted by its submitter's `build()`: exempt class (1 CPU,
+2 GiB, requests equal to limits), bounded by `timeout 20h`, no sleep, through nats-bursting with fresh
+names. At most 48 are in flight at once (the owner's cap, 2026-10-19), the $n = 192$ Jobs first. Per
+Section 7, a failed or vanished Job is recorded in `attempts/` and resubmitted once with the same seeds,
+and every succeeded Job's result is saved at once (`pieces/`, and `experiments/OP/VARIANTS/pieces/` for
+the variant arms) and compared with its `OD_RESULTS` copy; the pool's state is `run_pool_state.json`
+and its log `run_pool.log`. The pool started at 22:48 UTC after building and preflighting all 608
+Jobs, and its first 48, the instrument and ladder-half Jobs of `r_nu030_n192` for test trajectories 0
+to 3, were created fresh between 22:48 and 23:06 UTC, all running; the self-test passed in the pod
+checked.
 
 ## 5. Records
 
