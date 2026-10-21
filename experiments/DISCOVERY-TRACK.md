@@ -1410,10 +1410,21 @@ were saved while it was paused.
   were done (239 saved, 6 missing). The pool was stopped after a state write, its state backed up
   (`run_pool_state.before-resume-20261021T191206Z.json`), the pause cleared, and it restarted at
   19:13 UTC at 6f8ffc0d.
+* After the second resume. The three GRAM halves queued at the pause (`r_nu030_n192` t5 `h0`, t6 `h0`
+  and `h1`) went out as attempt 2 at 19:29 UTC. Three secondary-arm Jobs of `r_nu030_n192` were lost
+  at attempt 1 and resubmitted once: READ-KE t3 `h0` (19:32 UTC; on k8s-haosu-09, where its pod
+  events show a `TaintManagerEviction` at 19:26, the cluster evicting the pod from a tainted node,
+  about 8 minutes after it started), and READ-KE t7 `h1` and GRAM-UN t0 `h1` (19:37 UTC; both on
+  k8s-chase-ci-01.calit2.optiputer.net, not a haosu node, with no pod events left, so their cause is
+  not established). The brake did not trip (3 failures within the hour). The first of these losses
+  came while the restarted pool was still sending its first round, when it notes no nodes; its node
+  is from its pod events. As of 2026-10-21 20:45 UTC, 247 Jobs were done (241 saved, 6 missing) and
+  the pool was at its cap of 48.
 
 Missing after both attempts, so far (Section 7: each cell is reported and dropped from that arm's
 test, with the threshold recomputed): D8 `r_nu020_n192` t0 `ball-h0`, `random1` and `random2`; OP4
-GRAM `r_nu030_n192` t3 `h0`, t4 `h0` and `h1`. The 25 attempt records are in `attempts/`. The
+GRAM `r_nu030_n192` t3 `h0`, t4 `h0` and `h1`. The attempt records are in `attempts/` (28 as of
+2026-10-21 20:45 UTC). The
 `POOL EXITED 0` lines in `run_pool.log` before 2026-10-21 19:13 UTC do not carry the pool's exit code
 (the screen wrapper read `$?` after a command substitution); the wrapper now records it.
 
