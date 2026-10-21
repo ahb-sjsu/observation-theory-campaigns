@@ -1376,6 +1376,47 @@ Jobs, and its first 48, the instrument and ladder-half Jobs of `r_nu030_n192` fo
 to 3, were created fresh between 22:48 and 23:06 UTC, all running; the self-test passed in the pod
 checked.
 
+Pauses and resumes (2026-10-20 and 2026-10-21). The pool's brake paused new submissions twice; no
+Job was deleted except a failed one before its single resubmission, and the Jobs in flight ran on and
+were saved while it was paused.
+
+* First pause, 2026-10-20 13:30 UTC, "9 failures within an hour". Nine Jobs were lost at attempt 1
+  (three at 11:22 UTC, four at 13:07, two at 13:30), all `r_nu*_n192` D8 Jobs. Three of them failed
+  again at attempt 2 and are missing after both attempts: `r_nu020_n192` test trajectory 0, BALL's
+  lower ladder half (`ball-h0`) and the RANDOM draws 1 and 2. Every loss was `BackoffLimitExceeded`,
+  most 20 to 40 minutes after the pod started, with the pod and its log gone by the time the pool saw
+  it; consistent with node loss or eviction, not established. 134 of the 608 Jobs were done (131 saved,
+  the 3 missing).
+* Before the resume, commit 6f8ffc0 changed `run_pool.py` (platform only; no shipped file, cache or
+  submitter changed): each poll now notes the node of every pod in flight, so a lost attempt's record
+  names it (`pod_last_seen`); a restart at a later HEAD is allowed only when `git diff` shows nothing
+  the Jobs carry or are built from changed and a fingerprint of every Job (its HEAD label aside)
+  matches; and at a restart the submitters' name check is answered "absent" for the adopted Jobs,
+  which before this could not be rebuilt while any was out (every other preflight check runs, and each
+  Job still gets the whole preflight when it is sent). Self-test 23 checks, PASS. On the owner's word
+  (2026-10-20) the pool was stopped after a state write, its state backed up
+  (`run_pool_state.before-resume-20261020T220553Z.json`), the pause cleared, and the pool restarted at
+  22:07 UTC at 6f8ffc0d, adopting the Jobs out; resubmitted Jobs carry `D8_HEAD`/`OPV_HEAD` 6f8ffc0d,
+  the earlier ones cff38e30.
+* Second pause, 2026-10-21 12:29 UTC, "7 failures within an hour". Ten Jobs were lost at attempt 1
+  after the resume (four D8 Jobs of `r_nu020_n192` at 03:41 and 04:27 UTC, six OP4 GRAM halves of
+  `r_nu030_n192` between 11:58 and 13:00). Three GRAM halves are missing after both attempts:
+  `r_nu030_n192` test trajectory 3's lower half and both halves of test trajectory 4. Every lost
+  attempt whose node was noted ran on one of three nodes: k8s-haosu-06 (5 lost, 0 saved),
+  k8s-haosu-21 (3 lost, 0 saved) and k8s-haosu-12 (3 lost, 4 saved), with no loss on any of the
+  other 43 nodes noted. When checked later that day, k8s-haosu-21 was flagged by the cluster
+  (`GPUFailed`, a `self-node-remediation` NoSchedule taint). nats-bursting can only select nodes by
+  label (nodeSelector), not exclude them, so the owner chose to resume as is (2026-10-21). 245 Jobs
+  were done (239 saved, 6 missing). The pool was stopped after a state write, its state backed up
+  (`run_pool_state.before-resume-20261021T191206Z.json`), the pause cleared, and it restarted at
+  19:13 UTC at 6f8ffc0d.
+
+Missing after both attempts, so far (Section 7: each cell is reported and dropped from that arm's
+test, with the threshold recomputed): D8 `r_nu020_n192` t0 `ball-h0`, `random1` and `random2`; OP4
+GRAM `r_nu030_n192` t3 `h0`, t4 `h0` and `h1`. The 25 attempt records are in `attempts/`. The
+`POOL EXITED 0` lines in `run_pool.log` before 2026-10-21 19:13 UTC do not carry the pool's exit code
+(the screen wrapper read `$?` after a command substitution); the wrapper now records it.
+
 ## 5. Records
 
 Each gate writes its registry families to `claims/transformations/OD.toml` before sealing,
