@@ -1,0 +1,9 @@
+{
+ "exclude_nodes": [
+  "k8s-haosu-06.sdsc.optiputer.net",
+  "k8s-haosu-12.sdsc.optiputer.net",
+  "k8s-haosu-15.sdsc.optiputer.net",
+  "k8s-haosu-21.sdsc.optiputer.net"
+ ],
+ "why": "Owner's word 2026-10-22: keep the run's pods off nodes that keep killing them. Of the run's 41 lost attempts by 2026-10-22 14:22 UTC, 27 have a known node and 24 of those ran on these four (k8s-haosu-12: 12, -06: 6, -15: 3, -21: 3); the others were k8s-chase-ci-01 (2) and k8s-haosu-09 (1). Scheduling only: the Jobs' command, image, resources and env are unchanged. The pool rereads this file before each send."
+}

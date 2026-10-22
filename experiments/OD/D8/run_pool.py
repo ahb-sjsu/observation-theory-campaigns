@@ -17,6 +17,10 @@ adds what 608 Jobs on a shared cluster need:
   * No Job is ever deleted except a failed one before its single resubmission; succeeded Jobs are left for --cleanup.
   * Each poll notes the node of every pod of the run (a NODE line when first seen), so a lost attempt's record names the
     node its pod last ran on even when the pod is gone by the time the loss is seen (the losses of 2026-10-20).
+  * Nodes listed in exclude_nodes.json are kept out: every Job is sent with nats-bursting's exclude_nodes (a required
+    NotIn node affinity on kubernetes.io/hostname), the file is reread before each send so a node can be added while
+    the pool runs, and a Job created without the exclusion pauses the pool (a controller that ignores the field).
+    The exclusion is scheduling only: the Job's command, image, resources and env are unchanged.
 State is in run_pool_state.json, so a restarted pool adopts the Jobs already out and never resubmits a saved one. A restart
 at a later HEAD is allowed only when no file the Jobs carry or are built from changed between the state's HEAD and this one
 (`git diff`), and when the Jobs built now are the ones the state was written for (a fingerprint of every Job, its HEAD label
@@ -49,6 +53,7 @@ TICK = 120  # seconds between polls of the cluster
 BRAKE = 6  # failures within an hour that pause new submissions
 STATE = HERE / "run_pool_state.json"; LOG = HERE / "run_pool.log"
 PIECES_D8 = HERE / "pieces"; PIECES_VAR = VAR / "pieces"; ATTEMPTS = HERE / "attempts"
+EXCLUDE = HERE / "exclude_nodes.json"  # {"exclude_nodes": [hostname, ...], "why": "..."}
 
 
 def now() -> dt.datetime:
@@ -67,8 +72,9 @@ def order_key(n: int, i: int) -> tuple[int, int]:
 
 class Pool:
     """The scheduler. `cluster` returns {name: 'active' | 'succeeded' | 'failed'} for the run's Jobs that exist; `send`
-    submits one Job and returns True when a fresh Job was seen; `delete`, `save` and `record` act on one Job. All five are
-    injected, so the self-test drives the same code on a fake cluster."""
+    submits one Job and returns True when a fresh Job was seen, False when none was, or a reason (a str) when the Job was
+    created but the pool must pause after it; `delete`, `save` and `record` act on one Job. All five are injected, so the
+    self-test drives the same code on a fake cluster."""
 
     def __init__(self, jobs: list[str], cluster, send, delete, save, record, state: dict | None = None, cap: int = CAP, brake: int = BRAKE):
         self.jobs = jobs; self.cluster, self.send, self.delete, self.save, self.record = cluster, send, delete, save, record
@@ -109,8 +115,10 @@ class Pool:
             if self.paused or inflight >= self.cap: break
             if name in self.done or self.attempts.get(name, 0) > 0: continue
             k = 2 if name in self.attempts and self.attempts[name] == 0 else 1
-            if self.send(name):
+            r = self.send(name)
+            if r:
                 self.attempts[name] = k; self.sent_at[name] = t.isoformat(); inflight += 1; events.append(f"SUBMITTED {name} (attempt {k}, {inflight} in flight)")
+                if isinstance(r, str): self.paused = r; events.append(f"ALERT paused: {self.paused}")  # sent, but stop after it
             else:
                 self.paused = f"no fresh Job after submitting {name}"; events.append(f"ALERT paused: {self.paused}")
         if all(n in self.done for n in self.jobs): events.append("POOL DONE")
@@ -206,7 +214,40 @@ def kubectl(*args: str, timeout: int = 120):
         return subprocess.CompletedProcess(args, 124, "", f"kubectl {' '.join(args[:2])} timed out after {timeout} s")
 
 
-def make_cluster(descs: dict, kc=None, note=None, attempts_dir: Path | None = None):
+def excluded_nodes(path: Path | None = None) -> list[str]:
+    """The nodes to keep the run's pods off, reread before each send. No file means no exclusion; a malformed file is an
+    error (RuntimeError, which the loop reports as a WARN and retries), never a silent empty list."""
+    p = path or EXCLUDE
+    if not p.exists(): return []
+    try:
+        got = json.loads(p.read_text(encoding="utf-8"))["exclude_nodes"]
+    except (ValueError, KeyError, TypeError) as e:
+        raise RuntimeError(f"{p.name} is malformed ({e}); nothing sent") from None
+    if not isinstance(got, list) or not all(isinstance(x, str) and x.strip() for x in got):
+        raise RuntimeError(f"{p.name}: exclude_nodes must be a list of non-empty hostnames; nothing sent")
+    return sorted({x.strip() for x in got})
+
+
+class Excluding:
+    """A submitter's JobDescriptor sent with exclude_nodes added to its payload. The nats-bursting client on Atlas predates
+    the field, so it is added to the dict the submitters publish; everything else is the descriptor as built."""
+
+    def __init__(self, d, nodes: list[str]):
+        self._d, self._nodes = d, list(nodes)
+
+    def __getattr__(self, k):
+        return getattr(self._d, k)
+
+    def to_dict(self) -> dict:
+        x = self._d.to_dict()
+        if self._nodes: x["exclude_nodes"] = list(self._nodes)
+        return x
+
+
+AFFINITY = "jsonpath={.spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[*].matchExpressions[?(@.key=='kubernetes.io/hostname')].values[*]}"
+
+
+def make_cluster(descs: dict, kc=None, note=None, attempts_dir: Path | None = None, exclude_path: Path | None = None):
     import submit_d8_nrp as S8
     import submit_variants_nrp as SV
     kubectl_ = kc or kubectl; note = note or say; attempts = attempts_dir or ATTEMPTS
@@ -232,17 +273,26 @@ def make_cluster(descs: dict, kc=None, note=None, attempts_dir: Path | None = No
                 seen[n] = {"pod": p, "node": node, "phase": pod.get("status", {}).get("phase"), "seen": now().isoformat()}
         return out
 
-    def send(name: str) -> bool:
+    def send(name: str):
         d, kind = descs[name]; M = S8 if kind == "d8" else SV
+        ex = excluded_nodes(exclude_path)  # reread each time; a malformed file raises before anything is sent
         M.preflight(d, "run")  # the name is absent and the Job is the sealed shape, checked again at send time
-        t_sub = now() - dt.timedelta(seconds=5); ev = asyncio.run(M.publish(d)); c = None
+        t_sub = now() - dt.timedelta(seconds=5); ev = asyncio.run(M.publish(Excluding(d, ex))); c = None
         for _ in range(12):
             c = M.created(name)
             if c: break
             time.sleep(5)  # the pool on Atlas waiting for the controller, not a Job
-        say(json.dumps({"job": name, "status_events": ev, "creationTimestamp": c.isoformat() if c else None}))
+        rendered = None
+        if c is not None and ex:
+            got = kubectl_("get", "job", name, "-o", AFFINITY)
+            rendered = sorted(got.stdout.split()) if got.returncode == 0 else None
+        note(json.dumps({"job": name, "status_events": ev, "creationTimestamp": c.isoformat() if c else None,
+                         "exclude_nodes": ex, "exclusion_on_job": rendered}))
         time.sleep(SPACING)
-        return c is not None and c >= t_sub
+        if c is None or c < t_sub: return False
+        if ex and rendered != ex:
+            return f"{name} was created without its node exclusion (on the Job: {rendered}); the controller may predate exclude_nodes"
+        return True
 
     def delete(name: str) -> None:
         got = kubectl_("get", "job", name, "-o", "jsonpath={.status.succeeded}/{.status.failed}/{.status.active}")
@@ -445,6 +495,56 @@ def selftest() -> int:
               gone and calls == [("get", "job", "x", "-o", "json")] and kept and S8.kubectl is stub and SV.kubectl is stub, str(calls))
     finally:
         S8.kubectl, SV.kubectl = orig
+    # node exclusion: the list file, the payload, and a Job created without the exclusion
+    with tempfile.TemporaryDirectory() as td:
+        ep = Path(td) / "exclude_nodes.json"
+        none = excluded_nodes(ep)
+        ep.write_text(json.dumps({"exclude_nodes": ["n-b", "n-a", "n-a"]}), encoding="utf-8")
+        listed = excluded_nodes(ep)
+        bad = []
+        for text in ("{not json", json.dumps({"nodes": []}), json.dumps({"exclude_nodes": ["ok", ""]})):
+            ep.write_text(text, encoding="utf-8")
+            try:
+                excluded_nodes(ep)
+            except RuntimeError:
+                bad.append(text)
+        check("exclude list: no file is none, a list is sorted and deduplicated, a malformed file is an error",
+              none == [] and listed == ["n-a", "n-b"] and len(bad) == 3, f"{none} {listed} {len(bad)}")
+
+        class FD:
+            name = "j"
+
+            def to_dict(self):
+                return {"name": "j", "image": "alpine"}
+        check("the payload carries exclude_nodes only when the list is non-empty",
+              Excluding(FD(), ["n-a"]).to_dict() == {"name": "j", "image": "alpine", "exclude_nodes": ["n-a"]}
+              and "exclude_nodes" not in Excluding(FD(), []).to_dict() and Excluding(FD(), []).name == "j", "")
+
+        ep.write_text(json.dumps({"exclude_nodes": ["n-a", "n-b"]}), encoding="utf-8")
+        sent, on_job = [], {"values": "n-b n-a"}
+        saved = (S8.preflight, S8.publish, S8.created, globals()["SPACING"])
+
+        async def fake_publish(d, listen_s=15.0):
+            sent.append(d.to_dict()); return [{"state": "submitted"}]
+
+        def kc2(*args, timeout=120):
+            if args[:2] == ("get", "job") and args[3:4] == ("-o",) and args[4].startswith("jsonpath={.spec.template.spec.affinity"):
+                return subprocess.CompletedProcess(args, 0, on_job["values"], "")
+            return subprocess.CompletedProcess(args, 1, "", "NotFound")
+        try:
+            S8.preflight = lambda d, role: None; S8.publish = fake_publish
+            S8.created = lambda n: now() + dt.timedelta(seconds=1); globals()["SPACING"] = 0
+            _c, snd, *_r = make_cluster({"j": (FD(), "d8")}, kc=kc2, note=lambda m: None, attempts_dir=Path(td), exclude_path=ep)
+            ok_send = snd("j"); on_job["values"] = ""; bare_send = snd("j")
+        finally:
+            S8.preflight, S8.publish, S8.created, globals()["SPACING"] = saved
+        check("a Job sent with the exclusion on it counts as sent; one created without it returns a pause reason",
+              ok_send is True and isinstance(bare_send, str) and sent[0].get("exclude_nodes") == ["n-a", "n-b"], f"{ok_send!r} {bare_send!r}")
+    cluster, send, delete, save, record, finish, log, cl = fake(["a", "b"], {})
+    p = Pool(["a", "b"], cluster, lambda n: (send(n), "exclusion missing")[1], delete, save, record)
+    ev = p.tick(t)
+    check("a send that returns a reason is counted in flight and pauses the pool after it",
+          p.attempts.get("a") == 1 and "b" not in p.attempts and p.paused == "exclusion missing" and log["sent"] == ["a"], str(ev))
     print("SELFTEST", "PASS" if fails == 0 else f"FAIL ({fails})")
     return fails
 
