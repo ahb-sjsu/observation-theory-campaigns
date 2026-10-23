@@ -1420,11 +1420,28 @@ were saved while it was paused.
   came while the restarted pool was still sending its first round, when it notes no nodes; its node
   is from its pod events. As of 2026-10-21 20:45 UTC, 247 Jobs were done (241 saved, 6 missing) and
   the pool was at its cap of 48.
+* The third pause and the node exclusion. On 2026-10-22, thirteen Jobs were lost at attempt 1: three
+  on k8s-haosu-15 (06:36 UTC), one on k8s-haosu-06 (08:25 UTC) and nine on k8s-haosu-12, recorded as
+  failed between 09:53:33 and 09:53:51 UTC. The nine tripped the brake, which paused the pool at
+  09:53:52 UTC (9 failures within an hour). Over the run, 27 of the 41 attempt records name the
+  pod's node, and four nodes account for 24 of them: k8s-haosu-12 (12), k8s-haosu-06 (6),
+  k8s-haosu-15 (3) and k8s-haosu-21 (3; that node then carried a `GPUFailed` condition and a
+  remediation taint). `run_pool.py` (commit `2ae6dec`) now rereads `exclude_nodes.json` before each
+  send, asks the submitter to keep the Job's pods off the listed nodes (a required node-affinity term
+  on `kubernetes.io/hostname`, nats-bursting PR #54), reads the affinity back from the created Job,
+  and pauses the pool if it is missing. `exclude_nodes.json` lists those four nodes. The pool was
+  restarted at `2ae6dec` at 15:25 UTC with 398 Jobs done (392 saved, 6 missing). Its first Job, GRAM
+  `r_nu020_n192` t2 `h0` (attempt 2), was created without the exclusion: two controllers take
+  submissions, and the one that handled it predates the feature. The pool paused itself at
+  15:25:34 UTC, as designed. That Job ran on pas.rale.net.internet2.edu, which is not on the list,
+  and was saved at 20:15 UTC. The pool stays paused until the second controller is updated; 399
+  Jobs are done (393 saved, 6 missing). The `POOL EXITED 130` line at 15:24:46 UTC is the old pool
+  being stopped for the restart.
 
 Missing after both attempts, so far (Section 7: each cell is reported and dropped from that arm's
 test, with the threshold recomputed): D8 `r_nu020_n192` t0 `ball-h0`, `random1` and `random2`; OP4
-GRAM `r_nu030_n192` t3 `h0`, t4 `h0` and `h1`. The attempt records are in `attempts/` (28 as of
-2026-10-21 20:45 UTC). The
+GRAM `r_nu030_n192` t3 `h0`, t4 `h0` and `h1`. The attempt records are in `attempts/` (41 as of
+2026-10-23). The
 `POOL EXITED 0` lines in `run_pool.log` before 2026-10-21 19:13 UTC do not carry the pool's exit code
 (the screen wrapper read `$?` after a command substitution); the wrapper now records it.
 
