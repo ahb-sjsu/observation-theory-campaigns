@@ -11,7 +11,7 @@ At matched bits, the outcome in which the code with the worse reconstruction err
 
 **Example.** Codes diag(0.3, 1.7) and diag(1.7, 0.3) have the same total error 2.0, and a reader at 15 degrees pays 0.394 for one and 1.606 for the other.
 
-**Known as, or related to prior art.** Consumer-relative compression sits beside the information bottleneck of Tishby, Pereira, and Bialek and beside task-based quantization. The flip is the measured claim that at matched bits the code that reconstructs worse can serve the consumer better.
+**Known as, or related to prior art.** The classical name is a ranking reversal between reconstruction error and task loss. Its premise is task-based quantization, where the quantizer is designed for the task and not for reconstruction (Shlezinger, Eldar, and Rodrigues (IEEE Transactions on Signal Processing, 2019)). Hessian-weighted network quantization ranks codes by the same kind of sensitivity weighting (Choi, El-Khamy, and Lee, ICLR 2017, and HAWQ, Dong et al., ICCV 2019). Consumer-relative compression also sits beside the information bottleneck of Tishby, Pereira, and Bialek (Allerton, 1999). The flip is the measured claim that at matched bits the code that reconstructs worse can serve the consumer better.
 
 ## equation
 

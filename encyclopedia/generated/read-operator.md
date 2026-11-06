@@ -11,7 +11,7 @@ The average outer product of a consumer's sensitivity over a dataset, an average
 
 **Example.** The affine consumer 3x1 + 4x2 has read operator with rows (9, 12) and (12, 16) at every row.
 
-**Known as, or related to prior art.** In the scalar Euclidean-output case the read operator is the active-subspace matrix of Constantine and Gleich, the covariance of the gradient. What the program adds is the pullback through the output metric, the observer triple, the budget, and the audit discipline.
+**Known as, or related to prior art.** The classical name is the active-subspace matrix, the expected gradient outer product (Constantine, Dow, and Wang (SIAM Journal on Scientific Computing, 2014), and Constantine, Active Subspaces, SIAM, 2015). Statistics calls the same matrix the outer product of gradients (Hristache, Juditsky, Polzehl, and Spokoiny, Annals of Statistics, 2001, and Xia, Tong, Li, and Zhu, Journal of the Royal Statistical Society B, 2002). With an output metric G it is the averaged pullback metric J^T G J of information geometry (Rao, 1945, and Amari). In coding papers it is the distortion weight matrix W. What the program adds is the observer triple, the budget, and the audit discipline.
 
 ## equation
 

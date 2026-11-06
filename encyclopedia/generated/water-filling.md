@@ -11,7 +11,7 @@ The allocation of a bit budget across directions that gives each direction half 
 
 **Example.** Directions with variances 4, 1, and 0.1 and a water level of 0.5 get bits in proportion to the log of 8, the log of 2, and nothing.
 
-**Known as, or related to prior art.** Reverse water-filling of rate-distortion theory, per Cover and Thomas, applied to the read-weighted spectrum.
+**Known as, or related to prior art.** The consumer-relative rate-distortion function is the weighted rate-distortion function of Sakrison (1968). It is also the indirect, or remote, rate-distortion function of Dobrushin and Tsybakov (IRE Transactions on Information Theory, 1962), Wolf and Ziv (IEEE Transactions on Information Theory, 1970), and Witsenhausen (IEEE Transactions on Information Theory, 1980). The allocation is reverse water-filling (Kolmogorov, 1956, Berger, Rate Distortion Theory, 1971, and Cover and Thomas) applied to the read-weighted spectrum.
 
 ## equation
 

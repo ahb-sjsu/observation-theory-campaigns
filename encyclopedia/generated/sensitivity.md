@@ -11,7 +11,7 @@ The vector of partial derivatives of a consumer with respect to each coordinate 
 
 **Example.** For C(x1, x2) equal to 3x1 + 4x2 the sensitivity is (3, 4) at every row.
 
-**Known as, or related to prior art.** The gradient of the consumer at a row, the quantity active-subspace methods average.
+**Known as, or related to prior art.** The gradient, or Jacobian, of the consumer at a row. Active-subspace methods (Constantine, Dow, and Wang (SIAM Journal on Scientific Computing, 2014)) and the outer product of gradients (Xia, Tong, Li, and Zhu, Journal of the Royal Statistical Society B, 2002) average its outer product.
 
 ## equation
 

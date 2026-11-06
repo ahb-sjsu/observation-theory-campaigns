@@ -11,7 +11,7 @@ A consumer, its output metric, and its budget, written as the triple in equation
 
 **Example.** A cosine ranker with rank order as its metric and 1000 candidates as its budget is one observer.
 
-**Known as, or related to prior art.** The observer triple extends the active-subspace matrix with an output metric, a budget, and an audit discipline.
+**Known as, or related to prior art.** In plain terms the observer triple is a task map, an output metric, and a budget. The task map's expected gradient outer product is the active-subspace matrix of Constantine, Dow, and Wang (SIAM Journal on Scientific Computing, 2014). The output metric makes it the pullback metric of information geometry (Rao, 1945, and Amari). The budget is a rank or rate constraint. The triple extends the active-subspace matrix with the output metric, the budget, and an audit discipline.
 
 ## equation
 

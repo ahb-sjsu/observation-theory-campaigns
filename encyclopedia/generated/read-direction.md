@@ -11,6 +11,8 @@ An eigenvector of the read operator with a nonzero eigenvalue, a direction the c
 
 **Example.** For the consumer 3x1 + 4x2 the read direction is (3, 4) over 5.
 
+**Known as, or related to prior art.** An eigenvector of the active-subspace matrix of Constantine, Dow, and Wang (SIAM Journal on Scientific Computing, 2014) with a nonzero eigenvalue.
+
 ## equation
 
 none

@@ -11,6 +11,8 @@ An instrument that recovers a consumer's read operator from calls to the consume
 
 **Example.** Probing a 16-dimensional consumer with 16 directions costs 32 calls and resolves the operator, and 15 directions do not.
 
+**Known as, or related to prior art.** The classical name is finite-difference active-subspace estimation. It estimates the active-subspace matrix of Constantine, Dow, and Wang (SIAM Journal on Scientific Computing, 2014) from function calls with finite-difference gradients, as in Constantine, Active Subspaces (SIAM, 2015). Estimating gradient information from function values alone is also the zeroth-order setting of Duchi, Jordan, Wainwright, and Wibisono (IEEE Transactions on Information Theory, 2015).
+
 ## equation
 
 Book equation 0.8.

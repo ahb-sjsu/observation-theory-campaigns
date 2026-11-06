@@ -11,7 +11,7 @@ The error as a consumer experiences it, the trace of the read operator times the
 
 **Example.** A reader with operator diag(1, 0) charges a code with errors (0.3, 1.7) only 0.3.
 
-**Known as, or related to prior art.** The consumer-weighted squared error. Task-based quantization studies the same objective for a known task.
+**Known as, or related to prior art.** The classical name is weighted, or sensitivity-weighted, mean squared error. Squared error under a weight matrix is the weighted rate-distortion setting of Sakrison (1968). Hessian-weighted quantization error is the same quantity with the Hessian of the loss in place of the read operator, and the two agree under the Gauss-Newton approximation (Choi, El-Khamy, and Lee, ICLR 2017, and Dong et al., ICCV 2019). Task-based quantization studies the same objective for a known task (Shlezinger, Eldar, and Rodrigues (IEEE Transactions on Signal Processing, 2019)). In coding papers the read operator is written as the distortion weight matrix W.
 
 ## equation
 
