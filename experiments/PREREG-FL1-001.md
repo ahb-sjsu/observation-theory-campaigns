@@ -42,8 +42,8 @@ size-independent, degree-only account predicts).
   as well as it did to the worst held-out size it was calibrated on.
 - **Test cells:** the six topology files `topology-builders build random-regular --routers N --degree d --seed 1`,
   N in {1024, 2048}, d in {4, 8, 16}, as the queue scripts `tb-n1024/n1024.sh` and `tb-n2048/n2048.sh` build them.
-  `fl1_predict.py` writes their predictions in the gap before each size's labs; the output's sha256 line is in the
-  queue log before that size's first `LAB` line.
+  `fl1_predict.py` writes their predictions in the gap before each size's labs; the gap step's log carries the
+  output's sha256 before that size's first `LAB` line.
 - **Measurement:** as queued: `measure --backend netns --profile --links 3 --repeat 2 --max-wait 600`, one container
   per degree, routers on CPUs 12-23,36-43, one lab at a time, nothing else of ours on those CPUs during a lab.
 - **512 routers:** predicted in the gap before its labs (hash in `tb-n512/n512.log`), so the prediction precedes
@@ -73,7 +73,10 @@ sealed_gates:
   discriminating: |m_law - d_law| >= 2 * bar (fixed by the predictions, before any test measurement)
   I0: integrity - multiplicity recomputed by fl_common equals the builder's recorded value (|diff| <= 1e-4) on
       every calibration graph that records one
-  I1: integrity - each test size's predictions hash appears in its queue log before its first LAB line
+  I1: integrity - each test size's predictions and their sha256 are written by the gap step (its log
+      /archive/experiments/tb-colab/gap-hook-<UTC time>.log) before that size's first LAB line in its queue log,
+      by the sealed fl1_predict.py, from the calibration whose sha256 is sealed below (the gap step refuses
+      otherwise)
   I2: integrity - each graded cell's records carry the sha256 of the predicted topology file
   on I0-I2 failure no gate is interpreted; the run is VOID for FL1 and reported
 verdict: PASS iff >= 2 discriminating cells graded and G1 and G2 hold; FAIL iff >= 2 graded and G1 or G2 fails;

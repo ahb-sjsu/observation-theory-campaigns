@@ -1,6 +1,6 @@
 # FL Track: Flood Reduction Read Through Two Hops
 
-**Status:** design note, non-claim-bearing. Chip FL. Registrations: `PREREG-FL1-001` (the two-hop law at 1,024
+**Status:** design note, non-claim-bearing. Chip 📣 FL. Registrations: `PREREG-FL1-001` (the two-hop law at 1,024
 and 2,048 routers), `PREREG-FL2-001` (the aging reference of the CPU harness). Both drafts, unsealed.
 
 ## Substrate
