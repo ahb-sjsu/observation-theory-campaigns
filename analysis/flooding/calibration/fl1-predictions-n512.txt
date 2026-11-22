@@ -1,0 +1,4 @@
+  random-regular-n512-d16-s1.json: m=1.2256 m-law 23.9%  d-law 74.7%  model 20.0%
+  random-regular-n512-d4-s1.json: m=1.0086 m-law 7.0%  d-law 12.4%  model 2.5%
+  random-regular-n512-d8-s1.json: m=1.0415 m-law 11.0%  d-law 35.3%  model 5.4%
+FL1_PREDICTIONS_SHA256 75cefbb952b9edf97a528e32e1dce8941d8a5f09842724b5b85fd3bc30502e36 /tmp/tb-gap/out/fl/fl1-predictions-n512.json

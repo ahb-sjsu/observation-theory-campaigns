@@ -84,7 +84,7 @@ def isotonic(xs, ys):
     """Pool-adjacent-violators: the non-decreasing least-squares fit of ys on xs (equal xs averaged first).
     Returns the knots [(x, fitted y)], sorted by x."""
     pts = {}
-    for x, y in zip(xs, ys):
+    for x, y in zip(xs, ys, strict=True):
         pts.setdefault(x, []).append(y)
     blocks = [[x, sum(v) / len(v), len(v)] for x, v in sorted(pts.items())]  # x, mean, weight
     merged = []
@@ -103,7 +103,7 @@ def interpolate(knots, x):
         return knots[0][1]
     if x >= knots[-1][0]:
         return knots[-1][1]
-    for (x0, y0), (x1, y1) in zip(knots, knots[1:]):
+    for (x0, y0), (x1, y1) in zip(knots, knots[1:], strict=False):
         if x0 <= x <= x1:
             return y0 if x1 == x0 else y0 + (y1 - y0) * (x - x0) / (x1 - x0)
     return knots[-1][1]

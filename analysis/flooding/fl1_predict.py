@@ -17,6 +17,7 @@ from statistics import mean
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fl_common as F  # noqa: E402
+
 from topology_builders import clab, measure  # noqa: E402
 from topology_builders import flood_model as fm  # noqa: E402
 

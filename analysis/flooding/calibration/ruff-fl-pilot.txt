@@ -1,0 +1,55 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> /tmp/tb-gap/fl/fl1_predict.py:19:1
+   |
+18 |   sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+19 | / import fl_common as F  # noqa: E402
+20 | | from topology_builders import clab, measure  # noqa: E402
+21 | | from topology_builders import flood_model as fm  # noqa: E402
+   | |_______________________________________________^
+help: Organize imports
+   |
+19 | import fl_common as F  # noqa: E402
+20 +
+21 | from topology_builders import clab, measure  # noqa: E402
+   |
+
+B905 `zip()` without an explicit `strict=` parameter
+  --> /tmp/tb-gap/fl/fl_common.py:87:17
+   |
+85 |     Returns the knots [(x, fitted y)], sorted by x."""
+86 |     pts = {}
+87 |     for x, y in zip(xs, ys):
+   |                 ^^^^^^^^^^^
+88 |         pts.setdefault(x, []).append(y)
+89 |     blocks = [[x, sum(v) / len(v), len(v)] for x, v in sorted(pts.items())]  # x, mean, weight
+   |
+help: Add explicit value for parameter `strict=`
+   |
+86 |     pts = {}
+   -     for x, y in zip(xs, ys):
+87 +     for x, y in zip(xs, ys, strict=False):
+88 |         pts.setdefault(x, []).append(y)
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+B905 `zip()` without an explicit `strict=` parameter
+   --> /tmp/tb-gap/fl/fl_common.py:106:31
+    |
+104 |     if x >= knots[-1][0]:
+105 |         return knots[-1][1]
+106 |     for (x0, y0), (x1, y1) in zip(knots, knots[1:]):
+    |                               ^^^^^^^^^^^^^^^^^^^^^
+107 |         if x0 <= x <= x1:
+108 |             return y0 if x1 == x0 else y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+    |
+help: Add explicit value for parameter `strict=`
+    |
+105 |         return knots[-1][1]
+    -     for (x0, y0), (x1, y1) in zip(knots, knots[1:]):
+106 +     for (x0, y0), (x1, y1) in zip(knots, knots[1:], strict=False):
+107 |         if x0 <= x <= x1:
+    |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 3 errors.
+[*] 1 fixable with `--fix` (2 unsafe fixes available with `--fix --unsafe-fixes`).

@@ -1,0 +1,49 @@
+{
+ "rows": 23,
+ "records_without_topology_file": 0,
+ "left_out_not_converged": [
+  "{'degree': 48, 'routers': 64, 'seed': 1} in results/random-regular-n64/measurements.jsonl.gz",
+  "{'degree': 32, 'routers': 64, 'seed': 3} in results/seeds-n64/measurements.jsonl.gz",
+  "{'degree': 32, 'routers': 64, 'seed': 1} in results/seeds-n64/measurements.jsonl.gz",
+  "{'degree': 32, 'routers': 64, 'seed': 2} in results/seeds-n64/measurements.jsonl.gz",
+  "{'degree': 16, 'routers': 256, 'seed': 1} in /archive/experiments/tb-n256/out/measurements.jsonl.gz"
+ ],
+ "I0_max_abs_m_vs_builder": 1.8999999999991246e-05,
+ "I0_checked": 2,
+ "sigma_seed_pct": 2.4872140993154033,
+ "sigma_seed_by_cell": {
+  "64x4": 2.4872140993154033,
+  "64x8": 1.1834250757863798,
+  "64x16": 0.4514759074413598
+ },
+ "loso_max_abs_error_pct": 41.32,
+ "loso_mean_abs_error_pct_by_size": {
+  "64": 13.091191794822914,
+  "128": 2.0289275698395692,
+  "256": 1.1808545027069872
+ },
+ "bar_pct": 41.32
+}
+  N=   64 d=  3 seed=1 m=1.0105 saving=7.0% (docker, random-regular-n64)
+  N=   64 d=  4 seed=1 m=1.0368 saving=11.8% (docker, random-regular-n64)
+  N=   64 d=  4 seed=1 m=1.0368 saving=9.2% (docker, seeds-n64)
+  N=   64 d=  4 seed=2 m=1.0776 saving=14.8% (docker, seeds-n64)
+  N=   64 d=  4 seed=3 m=1.0645 saving=13.9% (docker, seeds-n64)
+  N=   64 d=  6 seed=1 m=1.1753 saving=22.7% (docker, random-regular-n64)
+  N=   64 d=  8 seed=1 m=1.4239 saving=36.5% (docker, seeds-n64)
+  N=   64 d=  8 seed=1 m=1.4239 saving=35.8% (docker, random-regular-n64)
+  N=   64 d=  8 seed=2 m=1.3995 saving=35.0% (docker, seeds-n64)
+  N=   64 d=  8 seed=3 m=1.4038 saving=33.7% (docker, seeds-n64)
+  N=   64 d= 12 seed=1 m=2.3483 saving=58.8% (docker, random-regular-n64)
+  N=   64 d= 16 seed=1 m=3.9384 saving=75.1% (docker, random-regular-n64)
+  N=   64 d= 16 seed=1 m=3.9384 saving=74.1% (docker, families-n64)
+  N=   64 d= 16 seed=1 m=3.9384 saving=75.0% (docker, seeds-n64)
+  N=   64 d= 16 seed=2 m=3.9286 saving=75.0% (docker, seeds-n64)
+  N=   64 d= 16 seed=3 m=3.9686 saving=74.3% (docker, seeds-n64)
+  N=   64 d= 24 seed=1 m=9.0553 saving=90.5% (docker, random-regular-n64)
+  N=   64 d= 32 seed=1 m=16.3014 saving=94.1% (docker, random-regular-n64)
+  N=  128 d=  4 seed=1 m=1.0271 saving=8.1% (docker, random-regular-n128)
+  N=  128 d=  8 seed=1 m=1.1784 saving=19.5% (docker, random-regular-n128)
+  N=  128 d= 16 seed=1 m=2.1516 saving=52.8% (docker, random-regular-n128)
+  N=  256 d=  4 seed=1 m=1.0119 saving=8.5% (netns, out)
+  N=  256 d=  8 seed=1 m=1.0885 saving=14.5% (netns, out)

@@ -1,0 +1,18 @@
+link-down windows: e_j = |net send_hello_cb|, ms summed over the routers
+  seeds-n64              runs  80  D>0  46  D<0  34  sign-test p 0.109  mean e by window 26, 28, 31 ms  last/first 1.17
+  n128                   runs  12  D>0   3  D<0   9  sign-test p 0.981  mean e by window 26, 44, 28 ms  last/first 1.09
+  fat-tree               runs  20  D>0  10  D<0  10  sign-test p 0.588  mean e by window 13, 12, 13 ms  last/first 0.99
+  nfly                   runs  16  D>0   5  D<0  11  sign-test p 0.962  mean e by window 5, 4, 3 ms  last/first 0.70
+  colab-sessions         runs  56  D>0  40  D<0  16  sign-test p 0.000921  mean e by window 37, 50, 60 ms  last/first 1.49
+  atlas-colab-links      runs  12  D>0   8  D<0   4  sign-test p 0.194  mean e by window 13, 13, 18 ms  last/first 1.36
+  n256                   runs  12  D>0   6  D<0   6  sign-test p 0.613  mean e by window 149, 126, 236 ms  last/first 1.58
+  POOLED                 runs 208  D>0 118  D<0  90  sign-test p 0.0305  mean e by window 33, 36, 44 ms  last/first 1.37
+link-up windows: e_j = |net send_hello_cb|, ms summed over the routers
+  seeds-n64              runs  80  D>0  46  D<0  34  sign-test p 0.109  mean e by window 29, 41, 30 ms  last/first 1.05
+  n128                   runs  12  D>0   4  D<0   8  sign-test p 0.927  mean e by window 36, 51, 25 ms  last/first 0.68
+  fat-tree               runs  20  D>0  11  D<0   9  sign-test p 0.412  mean e by window 20, 19, 21 ms  last/first 1.04
+  nfly                   runs  16  D>0  11  D<0   5  sign-test p 0.105  mean e by window 2, 2, 2 ms  last/first 1.33
+  colab-sessions         runs  56  D>0  33  D<0  23  sign-test p 0.114  mean e by window 46, 51, 59 ms  last/first 1.15
+  atlas-colab-links      runs  12  D>0   5  D<0   7  sign-test p 0.806  mean e by window 17, 22, 19 ms  last/first 1.11
+  n256                   runs  12  D>0   7  D<0   5  sign-test p 0.387  mean e by window 165, 196, 218 ms  last/first 1.32
+  POOLED                 runs 208  D>0 117  D<0  91  sign-test p 0.0414  mean e by window 38, 47, 43 ms  last/first 1.13
