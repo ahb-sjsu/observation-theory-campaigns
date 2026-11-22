@@ -1,8 +1,12 @@
 # FL Track: Flood Reduction Read Through Two Hops
 
-**Status:** design note, non-claim-bearing. Chip 📣 FL. Registrations: `PREREG-FL1-001` (the two-hop law at 1,024
-and 2,048 routers) and `PREREG-FL2-001` (the aging reference of the CPU harness), both SEALED 2026-11-22
-(`SEALS.md`) after a logged calibration pilot; the test runs are the 1,024- and 2,048-router labs on Atlas.
+**Status:** design note, non-claim-bearing. Chip 📣 FL. Registrations, all SEALED 2026-11-22 (`SEALS.md`):
+`PREREG-FL1-001` (the two-hop law at 1,024 and 2,048 routers on the Atlas host) and `PREREG-FL2-001` (the aging
+reference of the CPU harness), after a logged calibration pilot. Their test labs never ran: the 512-router lab queued
+before them overloaded the host and its uplink failed, and labs on Atlas now run only in KVM guests. FL1-001 is VOID
+without data. Its successor `PREREG-FL1-002` tests the same law, calibration and bar at 512 and 1,024 routers in KVM
+guests under FRR's default timers, after a setup gate that re-measures two 256-router calibration graphs. FL2-001's
+status is open.
 
 ## Substrate
 
