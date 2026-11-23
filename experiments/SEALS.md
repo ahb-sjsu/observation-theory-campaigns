@@ -52,6 +52,7 @@ stored in git at that commit, i.e. LF line endings). Verify with:
 | PREREG-FL1-001 | experiments/PREREG-FL1-001.md | 061a41e | 1e2619a0abc3306542904ddfb08e5d1d70d20db1ef717525f41a43b3ba3f6048 | 2026-11-22 | A. H. Bond (session instruction) |
 | PREREG-FL2-001 | experiments/PREREG-FL2-001.md | 061a41e | 0a698adf61cfd74b0860f8bf361f1aca8b188e2e9831bb828dafa8c707382f2d | 2026-11-22 | A. H. Bond (session instruction) |
 | PREREG-FL1-002 | experiments/PREREG-FL1-002.md | 62c255d | 416bafdc8b321e9fbc176e4c4c39b24683a5bec3a1907a8087cb20532380e84f | 2026-11-22 | A. H. Bond (session instruction) |
+| PREREG-FL1-003 | experiments/PREREG-FL1-003.md | 8f5a8e6 | 926afb2074644b047a3b4dda47bf8380556a9b17581785dce541c63b641e4262 | 2026-11-23 | A. H. Bond (session instruction) |
 
 ## Re-homed freshness cells (sealed in `network-governor`; cross-repo provenance)
 
