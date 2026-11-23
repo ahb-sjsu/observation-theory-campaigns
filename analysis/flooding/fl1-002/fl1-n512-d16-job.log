@@ -1,0 +1,41 @@
+Loaded image: tb-colab-test:latest
+isisd version 10.9.0-dev-pr24128-e263c441
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/measure.py", line 557, in containerlab
+    self._deploy()
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/measure.py", line 551, in _deploy
+    self._run(self.enter(r) + ["vtysh", "-N", r, "-b"])
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/measure.py", line 483, in _run
+    p = subprocess.run(args, capture_output=True, text=True, timeout=timeout, check=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['nsenter', '--net=/run/netns/r359', '--', 'vtysh', '-N', 'r359', '-b']' timed out after 120 seconds
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/__main__.py", line 198, in <module>
+    main()
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/__main__.py", line 152, in main
+    records = M.run(a.labs, repeat=a.repeat, settle=a.settle, window=a.window, seed=a.seed, out=a.out,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/measure.py", line 705, in run
+    rec = run_one(lab, chosen, settle, window, max_wait, i, position, timing=timing, profile=profile)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/measure.py", line 623, in run_one
+    rec["deploy_s"] = lab.containerlab("deploy")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/topology_builders/measure.py", line 559, in containerlab
+    raise RuntimeError(f"deploying {self.name} failed: {e}") from e
+RuntimeError: deploying fl1-n512-d16-off failed: Command '['nsenter', '--net=/run/netns/r359', '--', 'vtysh', '-N', 'r359', '-b']' timed out after 120 seconds

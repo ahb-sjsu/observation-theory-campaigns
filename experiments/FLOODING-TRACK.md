@@ -4,9 +4,10 @@
 `PREREG-FL1-001` (the two-hop law at 1,024 and 2,048 routers on the Atlas host) and `PREREG-FL2-001` (the aging
 reference of the CPU harness), after a logged calibration pilot. Their test labs never ran: the 512-router lab queued
 before them overloaded the host and its uplink failed, and labs on Atlas now run only in KVM guests. FL1-001 is VOID
-without data. Its successor `PREREG-FL1-002` tests the same law, calibration and bar at 512 and 1,024 routers in KVM
-guests under FRR's default timers, after a setup gate that re-measures two 256-router calibration graphs. FL2-001's
-status is open.
+without data. Its successor `PREREG-FL1-002` (the same law, calibration and bar at 512 and 1,024 routers in KVM
+guests under FRR's default timers) ran on 2026-11-22/23 and is VOID: its setup gates passed, but both discriminating
+512-router cells failed at deployment (a 120 s limit in the lab harness), so the 1,024-router cells were not run
+(`analysis/flooding/fl1-002/`). FL2-001's status is open.
 
 ## Substrate
 

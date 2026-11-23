@@ -1,0 +1,7 @@
+GAP2 2026-11-22T22:15:18Z
+GAP checks PASS (8 sealed files, summary byte-identical)
+  random-regular-n512-d16-s1.json: m=1.2256 m-law 23.9%  d-law 74.7%  model 20.0%
+  random-regular-n512-d4-s1.json: m=1.0086 m-law 7.0%  d-law 12.4%  model 2.5%
+  random-regular-n512-d8-s1.json: m=1.0415 m-law 11.0%  d-law 35.3%  model 5.4%
+FL1_PREDICTIONS_SHA256 40094c259d0d334b27065117201f63180f5e3251e1a480e17833bce88a9139f9 /archive/experiments/tb-vm/fl1-002/out/fl1-002-predictions-n512.json
+GAP n512 values equal fl1-predictions-n512.json: PASS

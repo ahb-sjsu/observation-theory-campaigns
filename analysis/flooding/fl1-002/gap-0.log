@@ -1,0 +1,13 @@
+GAP0 2026-11-22T20:43:04Z
+GAP tree 4eed65e587ac6aba (/archive/experiments/tb-vm/fl1-002/src)
+GAP checks PASS (8 sealed files, summary byte-identical)
+GAP hook timers-study: 16 records from 4 labs
+GAP hook report timers-study exit 0
+GAP hook timers-frr-defaults: 20 records from 5 labs
+GAP hook report timers-frr-defaults exit 0
+GAP hook zoo-study: 40 records from 10 labs
+GAP hook report zoo-study exit 0
+GAP hook zoo-frr-defaults: 16 records from 4 labs
+GAP hook report zoo-frr-defaults exit 0
+GAP hook ops analysis done 2026-11-22T20:43:07Z
+GAP hook exit 0

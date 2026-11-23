@@ -1,0 +1,6 @@
+GAP1 2026-11-22T22:15:18Z
+GAP checks PASS (8 sealed files, summary byte-identical)
+  8 records, 0 outside the test setup; FL1_SETUP_I4 PASS
+  1a2908911122 N=256 d=4: calibration 8.55% (1 rows); test setup 6.12% (4 runs, 12/12 windows); difference -2.43 points; graded
+  c2def38b8652 N=256 d=8: calibration 14.53% (1 rows); test setup 12.51% (4 runs, 12/12 windows); difference -2.02 points; graded
+bar 8.5568 points; FL1_SETUP_I3 PASS

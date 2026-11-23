@@ -1,0 +1,31 @@
+QUEUED 2026-11-22T20:07:34Z waiting for the ops block
+GAP tree 4eed65e587ac6aba (/archive/experiments/tb-vm/fl1-002/src)
+GAP checks PASS (8 sealed files, summary byte-identical)
+GAP hook timers-study: 16 records from 4 labs
+GAP hook report timers-study exit 0
+GAP hook timers-frr-defaults: 20 records from 5 labs
+GAP hook report timers-frr-defaults exit 0
+GAP hook zoo-study: 40 records from 10 labs
+GAP hook report zoo-study exit 0
+GAP hook zoo-frr-defaults: 16 records from 4 labs
+GAP hook report zoo-frr-defaults exit 0
+GAP hook ops analysis done 2026-11-22T20:43:07Z
+GAP hook exit 0
+LAB fl1-n256-d4 1a2908911122d79c mem 65536 MiB cap 18000 s 2026-11-22T20:43:08Z
+LAB_DONE fl1-n256-d4 job exit 0 records 4 2026-11-22T21:28:16Z
+LAB fl1-n256-d8 c2def38b865218ce mem 65536 MiB cap 18000 s 2026-11-22T21:28:17Z
+LAB_DONE fl1-n256-d8 job exit 0 records 4 2026-11-22T22:15:18Z
+GAP checks PASS (8 sealed files, summary byte-identical)
+  8 records, 0 outside the test setup; FL1_SETUP_I4 PASS
+bar 8.5568 points; FL1_SETUP_I3 PASS
+GAP checks PASS (8 sealed files, summary byte-identical)
+FL1_PREDICTIONS_SHA256 40094c259d0d334b27065117201f63180f5e3251e1a480e17833bce88a9139f9 /archive/experiments/tb-vm/fl1-002/out/fl1-002-predictions-n512.json
+GAP n512 values equal fl1-predictions-n512.json: PASS
+LAB fl1-n512-d4 c2d09c9524662245 mem 65536 MiB cap 28800 s 2026-11-22T22:15:23Z
+LAB_DONE fl1-n512-d4 job exit 0 records 4 2026-11-22T23:33:30Z
+LAB fl1-n512-d8 9d36d1c6e23ad298 mem 65536 MiB cap 28800 s 2026-11-22T23:33:31Z
+LAB_DONE fl1-n512-d8 job exit 1 records 0 2026-11-23T00:04:48Z
+LAB fl1-n512-d16 22a0e7415770fdc4 mem 65536 MiB cap 28800 s 2026-11-23T00:04:49Z
+LAB_DONE fl1-n512-d16 job exit 1 records 0 2026-11-23T00:45:42Z
+GAP3 discriminating 512-router cells graded: 0
+STOP_FL1_002 no discriminating 512 cell graded: 1,024 not run; FL1-002 VOID 2026-11-23T00:45:43Z
