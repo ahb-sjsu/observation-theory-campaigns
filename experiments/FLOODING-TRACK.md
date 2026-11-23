@@ -7,7 +7,8 @@ before them overloaded the host and its uplink failed, and labs on Atlas now run
 without data. Its successor `PREREG-FL1-002` (the same law, calibration and bar at 512 and 1,024 routers in KVM
 guests under FRR's default timers) ran on 2026-11-22/23 and is VOID: its setup gates passed, but both discriminating
 512-router cells failed at deployment (a 120 s limit in the lab harness), so the 1,024-router cells were not run
-(`analysis/flooding/fl1-002/`). FL2-001's status is open.
+(`analysis/flooding/fl1-002/`). Its successor `PREREG-FL1-003` (SEALED 2026-11-23) runs the same test with that
+limit raised (topology-builders 69220fe) on the cells that did not run. FL2-001's status is open.
 
 ## Substrate
 
