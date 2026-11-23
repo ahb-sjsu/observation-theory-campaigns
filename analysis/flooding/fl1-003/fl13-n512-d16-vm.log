@@ -1,0 +1,4 @@
+=== fl13-n512-d16: KVM guest, 16 vCPUs on CPUs 12-23,36-43, 65536 MiB, timeout 28800 s, 2026-11-23T10:58:45Z ===
+network devices in the guest: 0; QEMU user: libvirt-qemu
+=== fl13-n512-d16 ended 2026-11-23T18:21:02Z after 26535 s; job exit 1 ===
+VM_RUN_DONE fl13-n512-d16

@@ -1,0 +1,14 @@
+START 2026-11-23T02:56:15Z
+GAP0 2026-11-23T02:56:15Z
+GAP package 6342187e3a9ad43d (69220fe, /archive/experiments/tb-vm/fl1-003/src)
+GAP CONFIG_TIMEOUT lines: 1
+GAP checks PASS (8 sealed files, summary byte-identical)
+GAP checks PASS (8 sealed files, summary byte-identical)
+FL1_PREDICTIONS_SHA256 a8cbb58463c6ea18791720a6704642f807c926ad3ee6601894f856e8d7089f40 /archive/experiments/tb-vm/fl1-003/out/fl1-003-predictions-n512.json
+GAP n512 values equal FL1-002's for the two test files: PASS
+LAB fl13-n512-d8 9d36d1c6e23ad298 mem 65536 MiB cap 28800 s 2026-11-23T02:56:19Z
+LAB_DONE fl13-n512-d8 job exit 124 records 2 2026-11-23T10:58:43Z
+LAB fl13-n512-d16 22a0e7415770fdc4 mem 65536 MiB cap 28800 s 2026-11-23T10:58:44Z
+LAB_DONE fl13-n512-d16 job exit 1 records 1 2026-11-23T18:21:03Z
+GAP3 discriminating 512-router cells graded: 0
+STOP_FL1_003 no discriminating 512 cell graded: 1,024 not run; FL1-003 VOID 2026-11-23T18:21:03Z

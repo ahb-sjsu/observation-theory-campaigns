@@ -1,0 +1,37 @@
+{
+ "calibration_bar_pct": 8.556798083166875,
+ "predictions": [
+  {
+   "topology": "random-regular-n512-d8-s1.json",
+   "sha256": "9d36d1c6e23ad29887cee826cf27a907ce8b79b41dc180a1b3b8d742002da778",
+   "routers": 512,
+   "degree": 8,
+   "seed": 1,
+   "m": 1.041517,
+   "m_law_pct": 11.0495,
+   "d_law_pct": 35.2538,
+   "model_lockstep_pct": 5.3565,
+   "links": [
+    "r231-r505",
+    "r359-r492",
+    "r129-r155"
+   ]
+  },
+  {
+   "topology": "random-regular-n512-d16-s1.json",
+   "sha256": "22a0e7415770fdc49d4cfd39d23c6b71927f39f7e28f0fe96856ef7c46141f54",
+   "routers": 512,
+   "degree": 16,
+   "seed": 1,
+   "m": 1.225576,
+   "m_law_pct": 23.9207,
+   "d_law_pct": 74.7125,
+   "model_lockstep_pct": 20.0078,
+   "links": [
+    "r57-r482",
+    "r3-r503",
+    "r149-r327"
+   ]
+  }
+ ]
+}

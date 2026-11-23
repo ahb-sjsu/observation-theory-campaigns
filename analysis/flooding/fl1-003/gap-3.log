@@ -1,0 +1,5 @@
+GAP3 2026-11-23T18:21:03Z
+  N=512 d=8 m=1.0415: measured -16657.8%; m-law 11.0%, d-law 35.3%, model 5.4% (VOID, discriminating; 2 runs)
+  N=512 d=16 m=1.2256: measured -; m-law 23.9%, d-law 74.7%, model 20.0% (VOID, discriminating; 1 runs)
+bar 8.56 points; discriminating cells graded: 0
+FL1_VERDICT VOID
