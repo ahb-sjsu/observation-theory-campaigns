@@ -29,6 +29,10 @@ SITE = os.path.join(ROOT, "site")
 os.makedirs(SITE, exist_ok=True)
 SRC = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.dirname(REPO)
 GITHUB = "https://github.com/ahb-sjsu"
+# The book's online edition and the site's shared top bar, both relative to the encyclopedia's directory on
+# erisml.org (docs/encyclopedia in erisml-lib; the book is published beside it by its tools/publish_site.py).
+BOOK_URL = "../data-mining-as-observation"
+SITEBAR = '<script defer src="../assets/js/sitebar.js"></script>'
 
 
 def run(cmd, cwd=None, inp=None):
@@ -80,6 +84,99 @@ for e in entries:
     if m:
         book_commit = m.group(1)
         break
+
+
+# ---------------------------------------------------------------- references to the book
+# The book's repository is private, so a link to a file in it serves no reader. Every such link is rewritten to
+# the same place in the online edition: a chapter file and line range to the chapter page at the section holding
+# those lines, a Lean file to its published page. The link text, repo/path:lines, is the record and stays.
+BOOK_REPO = REPOS.get("observation-data-mining", "")
+BOOK_PAGES = {"how_to_use": "how_to_use.html", "notation": "notation.html", "glossary": "glossary.html",
+              "machine_checked": "machine_checked.html", "preface": "index.html#preface"}
+_headings = {}
+
+
+def book_draft():
+    try:
+        m = re.search(r"Draft ([0-9.]+)", open(os.path.join(BOOK_REPO, "html", "index.html"), encoding="utf-8").read())
+        return m.group(1) if m else "?"
+    except OSError:
+        return "?"
+
+
+BOOK_DRAFT = book_draft()
+
+
+def heading_at(md_name, line):
+    """The anchor the book's HTML build gives the last heading at or before a line of a chapter file."""
+    if md_name not in _headings:
+        hs = []
+        try:
+            for i, l in enumerate(open(os.path.join(BOOK_REPO, "chapters", md_name), encoding="utf-8").read().split("\n"), 1):
+                m = re.match(r"^(#{1,3}) (.*)$", l)
+                if m:  # the rule of the book's tools/build_html.py
+                    hs.append((i, len(m.group(1)), re.sub(r"[^a-z0-9]+", "-", m.group(2).lower()).strip("-")))
+        except OSError:
+            pass
+        _headings[md_name] = hs
+    best = ""
+    for i, lvl, anchor in _headings[md_name]:
+        if i > line:
+            break
+        best = anchor if lvl > 1 else ""  # the chapter title is the top of the page
+    return best
+
+
+def book_link(url):
+    """The online-edition address for a GitHub link into the book's repository, or None to leave the link alone."""
+    m = re.match(rf"{re.escape(GITHUB)}/observation-data-mining/(?:blob|tree)/[^/]+/(.*?)(?:#L(\d+)(?:-L\d+)?)?$", url)
+    if not m:
+        return None
+    path, line = m.group(1), int(m.group(2)) if m.group(2) else None
+    lm = re.fullmatch(r"lean/DataMiningAsObservation/(\w+)\.lean", path)
+    if lm:
+        return f"{BOOK_URL}/lean/{lm.group(1)}.html"
+    if path.rstrip("/") in ("lean", "lean/DataMiningAsObservation", "lean/DataMiningAsObservation.lean"):
+        return f"{BOOK_URL}/lean/index.html"
+    if path == "references.bib":
+        return f"{BOOK_URL}/index.html#references"
+    cm = re.fullmatch(r"chapters/(\w+)\.md", path)
+    if not cm:
+        return None
+    name = cm.group(1)
+    if name.startswith("primer_"):
+        page = name[:8] + ".html"
+    elif re.match(r"ch\d\d", name):
+        page = name[:4] + ".html"
+    elif name in BOOK_PAGES:
+        page = BOOK_PAGES[name]
+    else:  # the answer key and the appendices the HTML build leaves out
+        return f"{BOOK_URL}/index.html"
+    anchor = heading_at(name + ".md", line) if line and "#" not in page else ""
+    return f"{BOOK_URL}/{page}" + (f"#{anchor}" if anchor else "")
+
+
+UNMAPPED = collections.Counter()
+
+
+def book_links(page):
+    def one(m):
+        new = book_link(html.unescape(m.group(1)))
+        if new is None:
+            UNMAPPED[re.sub(r"#.*", "", m.group(1)).split("/", 7)[-1]] += 1
+            return m.group(0)
+        return f'href="{html.escape(new)}"'
+
+    return re.sub(r'href="(https://github\.com/ahb-sjsu/observation-data-mining/[^"]*)"', one, page)
+
+
+def chapter_link(c):
+    """A chapter number or primer letter, linked to its page of the online edition."""
+    page = f"primer_{c.lower()}.html" if not str(c).isdigit() else f"ch{int(c):02d}.html"
+    return f'<a href="{BOOK_URL}/{page}">{c}</a>'
+
+
+BOOK_TITLE = f'<a href="{BOOK_URL}/index.html"><em>Data Mining as Observation</em></a>'
 
 
 def md_to_html(md):
@@ -177,7 +274,7 @@ def card(e):
     rows = [
         ("Definition", html.escape(secs.get("definition", "none").split("\n")[0]) + (" <span class=al>Also " + ", ".join(html.escape(a) for a in aliases(e)) + ".</span>" if aliases(e) else "")),
         ("Example", ex.group(1).strip() if ex else "none"),
-        ("Book",f"<em>Data Mining as Observation</em>, draft 0.2, commit <code>{book_commit}</code>; entry id <code>{eid}</code>, kind {e['kind']}."),
+        ("Book", f"{BOOK_TITLE}, draft {BOOK_DRAFT}, commit <code>{book_commit}</code>; entry id <code>{eid}</code>, kind {e['kind']}."),
         ("Status", f"{html.escape(epi)}. Corrections: {corr}."),
         ("Defining equation", first_eq or "none"),
         ("Assumptions and scope", ("<ul>" + "".join(f"<li>{c}</li>" for c in conds) + "</ul>") if conds else "none"),
@@ -225,8 +322,8 @@ def shell(title, body, single=False, extra_head=""):
            f'<a href="{"#tsk" if single else "tsk.html"}">From TSK</a><a href="{"#about" if single else "about.html"}">About</a><a href="{"#kinds" if single else "kinds.html"}">By kind</a>'
            f'<a href="{"#chapters" if single else "chapters.html"}">By chapter</a><a href="{"#lean" if single else "lean.html"}">By Lean file</a>'
            f'<a href="{"#ledger" if single else "ledger.html"}">Ledger</a><a href="{"#provenance" if single else "provenance.html"}">Provenance</a></header>')
-    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
-            f'<title>{html.escape(title)}</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@600&display=swap"><style>{CSS}</style>{MATHJAX}{extra_head}</head><body>{nav}<main>{body}</main></body></html>')
+    return book_links(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
+                      f'<title>{html.escape(title)}</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@600&display=swap"><style>{CSS}</style>{MATHJAX}{SITEBAR}{extra_head}</head><body>{nav}<main>{body}</main></body></html>')
 
 
 def figure_html(eid):
@@ -292,6 +389,11 @@ if os.path.exists(lp):
                     LEDGER.append((key, re.sub(r"\*\*", "", cells[1]), cls[0] if cls else "", i))
 
 
+def chapters_cell(text):
+    """The TSK table's chapter column, each chapter number linked to its page."""
+    return re.sub(r"(?<![\w.])(1[0-4]|[0-9])(?![\w.])", lambda m: chapter_link(m.group(1)), html.escape(str(text)))
+
+
 def elink(eid, single):
     return f'<a href="{"#" if single else ""}{eid}{"" if single else ".html"}">{html.escape(by_id[eid]["title"])}</a>'
 
@@ -300,8 +402,8 @@ def lists_html(single):
     parts = []
     kinds = collections.OrderedDict((k, [e for e in entries if e["kind"] == k]) for k in ("concept", "instrument", "result", "correction", "reference"))
     parts.append(('kinds', "Entries by kind", "".join(f"<h2>{k}, {len(v)}</h2><p>" + "; ".join(elink(e["id"], single) for e in v) + ".</p>" for k, v in kinds.items())))
-    parts.append(('chapters', "Entries by chapter of the book", "<p>The two primers, L for linear algebra and S for probability and statistics, come before chapter 0 in the book.</p>" + "".join(f"<h2>{'Primer' if isinstance(c, str) else 'Chapter'} {c}, {len(set(v))}</h2><p>" + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for c, v in sorted(used_in.items(), key=lambda kv: (0, kv[0]) if isinstance(kv[0], str) else (1, f"{kv[0]:02d}")))))
-    parts.append(('lean', "Entries by Lean file", "<p>The file in the book's repository that machine-checks the entry's core.</p>" + "".join(f'<h2><a href="{GITHUB}/observation-data-mining/blob/{book_commit}/lean/DataMiningAsObservation/{f}"><code>{f}</code></a></h2><p>' + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for f, v in sorted(by_lean.items(), key=lambda kv: kv[0].lower()))))
+    parts.append(('chapters', "Entries by chapter of the book", "<p>The two primers, L for linear algebra and S for probability and statistics, come before chapter 0 in the book.</p>" + "".join(f"<h2>{'Primer' if isinstance(c, str) else 'Chapter'} {chapter_link(c)}, {len(set(v))}</h2><p>" + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for c, v in sorted(used_in.items(), key=lambda kv: (0, kv[0]) if isinstance(kv[0], str) else (1, f"{kv[0]:02d}")))))
+    parts.append(('lean', "Entries by Lean file", f"<p>The file of the book's Lean project that machine-checks the entry's core. Each name links to the file's source in the book's online edition. Appendix C of the book, <a href='{BOOK_URL}/machine_checked.html'>Machine-checked statements</a>, says what each file proves.</p>" + "".join(f'<h2><a href="{GITHUB}/observation-data-mining/blob/{book_commit}/lean/DataMiningAsObservation/{f}"><code>{f}</code></a></h2><p>' + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for f, v in sorted(by_lean.items(), key=lambda kv: kv[0].lower()))))
     led = ["<p>Every ledger row an entry cites, printed once in full from geometric-observation's claims ledger, with the entries it bears on.</p>"]
     for key, claim, cls, ln in LEDGER:
         ents = sorted({i for p, v in by_row.items() if key.startswith(p) and not key[len(p):len(p) + 1].isdigit() for i in v}, key=lambda i: sort_key(by_id[i]))
@@ -309,23 +411,23 @@ def lists_html(single):
     parts.append(('ledger', "The ledger", "".join(led)))
     status = pages[entries[0]["id"]][0].get("status", "")
     prov = (f"<p>This site was built on {DATE} from commit <code>{COMMIT}</code> of ahb-sjsu/observation-theory-campaigns by <code>encyclopedia/build_site.py</code>. "
-            f"The book is <em>Data Mining as Observation</em>, draft 0.2, at commit <code>{book_commit}</code>. {html.escape(status)}</p>"
+            f"The book is {BOOK_TITLE}, draft {BOOK_DRAFT}, at commit <code>{book_commit}</code>. {html.escape(status)}</p>"
             "<p>The hand-filled entries, the flip, the false-clear rate, and the Youden F1 bound, were written on 2026-09-03 to fix the schema and are the generator's acceptance test. "
             "<code>encyclopedia/check.py</code> verifies that every number in each of them appears in its generated counterpart and that every cited path exists. "
             "An archival PDF snapshot, <code>encyclopedia/pdf/Observation-Theory-Encyclopedia.pdf</code>, is rebuilt and committed with the site.</p>")
     parts.append(('provenance', "Provenance", prov))
     tsk_rows = tomllib.load(open(os.path.join(ROOT, "tsk_map.toml"), "rb"))["row"]
-    tb = ["<p>A student reading Tan, Steinbach, Karpatne, and Kumar, <em>Introduction to Data Mining</em>, second edition, meets a term and does not know which entries to read. For each TSK term, the entries to read in order and the chapter of <em>Data Mining as Observation</em> that takes the term up.</p>",
+    tb = ["<p>A student reading Tan, Steinbach, Karpatne, and Kumar, <em>Introduction to Data Mining</em>, second edition, meets a term and does not know which entries to read. For each TSK term, the entries to read in order and the chapter of " + BOOK_TITLE + " that takes the term up.</p>",
           "<table><tr><th>TSK term</th><th>TSK</th><th>Entries to read</th><th>Book chapter</th></tr>"]
     for r in tsk_rows:
-        tb.append(f"<tr><td>{html.escape(r['tsk'])}</td><td>{html.escape(r['where'])}</td><td>" + "; ".join(elink(i, single) for i in r["entries"] if i in by_id) + f"</td><td>{r['chapter']}</td></tr>")
+        tb.append(f"<tr><td>{html.escape(r['tsk'])}</td><td>{html.escape(r['where'])}</td><td>" + "; ".join(elink(i, single) for i in r["entries"] if i in by_id) + f"</td><td>{chapters_cell(r['chapter'])}</td></tr>")
     tb.append("</table>")
     parts.insert(0, ('tsk', "From TSK to the encyclopedia", "".join(tb)))
     return parts
 
 
 ABOUT = """
-<p>This is the encyclopedia of the observation theory program, the companion to the textbook <em>Data Mining as Observation</em>. It has one entry for every headword of the book's glossary and three that were filled by hand before the generator existed.</p>
+<p>This is the encyclopedia of the observation theory program, the companion to the textbook <a href="../data-mining-as-observation/index.html"><em>Data Mining as Observation</em></a>, which can be read online. It has one entry for every headword of the book's glossary and three that were filled by hand before the generator existed.</p>
 <p><strong>Where the entries come from.</strong> An entry is built from the program's records rather than written beside them. The claims ledger in geometric-observation is the authority for what a result is worth, a campaign track file for what was measured, and the book's sources tables for every number the book states. The generator gathers what those records say about one thing, keyed by their identifiers, so that a correction in a record propagates on the next rebuild. The curated parts, the definition, the conditions, the prior art, and the related entries, live in <code>entries.toml</code>.</p>
 <p><strong>The card.</strong> Every entry opens with a card: the canonical definition and aliases, the exact book version and commit, the epistemic and correction status, the defining equation, the assumptions and scope, the prior-art relationship, the evidence links, and the last semantic review date. Below the card come a schematic, the full entry, the related entries, and what was cited beside the entry without naming it.</p>
 <p><strong>Typed edges.</strong> A record joins an entry when it names the entry. A book equation defines the entry when the paragraph around it names the entry's terms. A ledger row proves, measures, or refutes and corrects the entry by its class, proved, demonstrated, replicated, predicted, exploratory, refuted, missed, or void. A sources-table row measures the entry when its claim names it. Records cited beside an entry without naming it are listed under see also. A ledger row is printed once in full on the ledger page, and an entry carries its first sentence, its class, and a link to the line.</p>
@@ -347,7 +449,7 @@ def index_body(single):
     letters = sorted({letter(e) for e in entries})
     search = ('<input class="search" id="q" placeholder="Search entries, aliases, and definitions" oninput="filt()">'
               '<script>function filt(){var q=document.getElementById("q").value.toLowerCase();document.querySelectorAll(".tile").forEach(function(t){t.style.display=(!q||t.dataset.k.indexOf(q)>=0)?"":"none"});}</script>')
-    return (f'<h1 id="top">The Observation Theory Encyclopedia</h1><p class=al>{len(entries)} entries, companion to <em>Data Mining as Observation</em>. Built {DATE} from commit <code>{COMMIT}</code>.</p>'
+    return (f'<h1 id="top">The Observation Theory Encyclopedia</h1><p class=al>{len(entries)} entries, companion to {BOOK_TITLE}. Built {DATE} from commit <code>{COMMIT}</code>.</p>'
             + search + '<p class="letters">' + "".join(f'<a href="#L{L}">{L}</a>' for L in letters) + "</p><div>" + "".join(tiles) + "</div>")
 
 
@@ -377,3 +479,5 @@ window.addEventListener('hashchange',route);window.addEventListener('DOMContentL
 </script>"""
 open(os.path.join(SITE, "all.html"), "w", encoding="utf-8").write(shell("The Observation Theory Encyclopedia", "\n".join(single) + ROUTER, single=True))
 print("wrote", SITE, "pages", len(entries) + 7, "single file", os.path.getsize(os.path.join(SITE, "all.html")) // 1024, "KB")
+if UNMAPPED:
+    print("links into the book's repository with no page in the online edition, left as they are:", dict(UNMAPPED.most_common()))
