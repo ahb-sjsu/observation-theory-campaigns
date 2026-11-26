@@ -31,7 +31,7 @@ none. *standing.* A correlation the chapter reports on a public dataset as a fir
 
 ## first stated
 
-Section 7.5.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:220-232`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iii/ch07_whale_communication.md#L220-L232). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch07_whale_communication.html).
+Section 7.5.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:212-222`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iii/ch07_whale_communication.md#L212-L222). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch07_whale_communication.html).
 
 ## measurements
 

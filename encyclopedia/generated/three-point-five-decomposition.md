@@ -28,7 +28,7 @@ none. *standing.* A posited illustration with composite students. It is a specif
 
 ## first stated
 
-Section 1.3, [`geometric-education/manuscript/part_i/ch01_gpa_trap.md:111-137`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_i/ch01_gpa_trap.md#L111-L137). Online, [Geometric Education](https://erisml.org/geometric-education/ch01_gpa_trap.html).
+Section 1.3, [`geometric-education/manuscript/part_i/ch01_gpa_trap.md:111-135`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_i/ch01_gpa_trap.md#L111-L135). Online, [Geometric Education](https://erisml.org/geometric-education/ch01_gpa_trap.html).
 
 ## measurements
 

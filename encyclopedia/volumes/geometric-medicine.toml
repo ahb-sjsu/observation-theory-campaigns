@@ -25,7 +25,7 @@ id = "clinical-edge-weight"
 kind = "concept"
 title = "Clinical edge weight"
 definition = "The cost of one clinical action. It is the quadratic form $\\Delta a^T \\Sigma^{-1} \\Delta a$ in the change of the patient's nine-component attribute vector, with $\\Sigma$ the 9 by 9 clinical-moral covariance matrix, plus the sum of the penalties $\\beta_k$ of the clinical-moral boundaries the action crosses."
-first_stated = "Definition 4.2, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:148-152`."
+first_stated = "Definition 4.2, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:144-148`."
 conditions = [
   "The volume calls the quadratic form the Mahalanobis distance. The formula has no square root.",
   "The covariance matrix has 45 independent entries and the theorems are said to hold for any positive-definite one. None of the entries has been estimated, and Section 4.5.2 says the framework runs on the qualitative structure until it is.",
@@ -39,7 +39,7 @@ id = "clinical-moral-boundaries"
 kind = "concept"
 title = "Clinical-moral boundaries"
 definition = "Thresholds on the clinical decision complex where the decision regime changes discontinuously, each with a penalty added to the weight of any action that crosses it. Five are defined, namely harm, futility, consent, abandonment and sacred value. The sacred-value penalty is infinite, and the others are finite in at least some settings."
-first_stated = "Definition 4.3, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:170-180`."
+first_stated = "Definition 4.3, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:166-176`."
 conditions = [
   "The penalty ranges are given as typical calibrations in normalized units. They are not measured, and Section 4.12 says they must be calibrated for specific clinical populations.",
   "The consent penalty is about infinite for a competent patient outside an emergency and drops to a finite value in an emergency or when the patient lacks capacity.",
@@ -53,7 +53,7 @@ id = "clinical-friction"
 kind = "concept"
 title = "Clinical friction"
 definition = "The total cost of a path on the clinical decision complex, the sum of the clinical edge weights of its steps. It splits into distance friction, the sum of the covariance-weighted terms, and boundary friction, the sum of the boundary penalties crossed."
-first_stated = "Definition 4.6, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:275-279`, with the decomposition at `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:287-293`."
+first_stated = "Definition 4.6, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:277-281`, with the decomposition at `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:289-295`."
 conditions = [
   "Friction is a property of a path and not of a case. A clinically difficult case can have a low-friction minimum path.",
   "The volume calls distance friction reducible by better treatments and boundary friction structural.",
@@ -81,7 +81,7 @@ id = "forced-contraction"
 kind = "concept"
 title = "Forced contraction"
 definition = "A decision process in which a nine-dimensional clinical-moral state must be mapped to one of a finite set of triage categories under a time limit that prevents full nine-dimensional pathfinding. The contraction operator projects onto fewer dimensions as the available time falls, and onto survival probability alone at zero time."
-first_stated = "Definition 2.1, `geometric-medicine/manuscript/part_i/ch02_triage_forced_contraction.md:90-90`."
+first_stated = "Definition 2.1, `geometric-medicine/manuscript/part_i/ch02_triage_forced_contraction.md:86-86`."
 conditions = [
   "The time limit is below a threshold. With unlimited time the operator is the clinical geodesic on the full complex.",
   "Time pressure contracts the assessment. Resource scarcity is treated separately, as the removal of edges from the complex.",
@@ -94,7 +94,7 @@ id = "moral-residue-of-contraction"
 kind = "concept"
 title = "Moral residue of contraction"
 definition = "The clinical friction of the path a forced contraction mandates minus the clinical friction of the clinical geodesic on the full complex, for the same clinical state. It is never negative, and it is zero only when the contraction selects the same path as the geodesic."
-first_stated = "Definition 2.2, `geometric-medicine/manuscript/part_i/ch02_triage_forced_contraction.md:106-112`."
+first_stated = "Definition 2.2, `geometric-medicine/manuscript/part_i/ch02_triage_forced_contraction.md:102-108`."
 conditions = [
   "Non-negativity holds because the forced path is one feasible path and the geodesic is the minimum-cost path.",
   "The definition is given in Chapter 2, before clinical friction is defined in Chapter 4.",
@@ -108,7 +108,7 @@ id = "qaly-irrecoverability"
 kind = "result"
 title = "QALY Irrecoverability Theorem"
 definition = "Any continuous function that maps the nine-component clinical-moral attribute vector to one scalar value is not injective, has no left inverse, and yields a value-maximizing path that can differ from the clinical geodesic by more than any amount fixed in advance. For the standard QALY, which depends on the outcomes score alone, all variation on the other eight dimensions is lost."
-first_stated = "Theorem 5.1, `geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:34-40`, with the kernel of the standard QALY in Corollary 5.1, `geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:70-74`. Previewed as Theorem 1.1."
+first_stated = "Theorem 5.1, `geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:34-40`, with the kernel of the standard QALY in Corollary 5.1, `geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:72-76`. Previewed as Theorem 1.1."
 conditions = [
   "The proof of non-injectivity uses rank and nullity where the function is differentiable and a dimension count where it is continuous.",
   "The unbounded divergence is shown by a constructed three-vertex complex in which the path the scalar prefers crosses a boundary whose penalty can be made as large as wished.",
@@ -124,7 +124,7 @@ id = "qaly-adequacy-conditions"
 kind = "result"
 title = "When QALYs are adequate"
 definition = "QALY-based analysis is an adequate approximation of the clinical geodesic when and only when three conditions hold together. The decision activates mainly the outcomes dimension, the patient population is homogeneous on the other eight dimensions, and no moral boundary is crossed by any available action."
-first_stated = "Proposition 5.1, `geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:90-96`."
+first_stated = "Proposition 5.1, `geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:92-98`."
 conditions = [
   "The volume says the conditions are approximately satisfied for routine cost-effectiveness comparisons of pharmacologically similar drugs for a well-defined condition in a homogeneous population.",
   "It says they are violated in end-of-life care, mental health, disability, resource rationing, vulnerable populations and cross-cultural care.",
@@ -183,7 +183,7 @@ id = "consent-invariance-score"
 kind = "instrument"
 title = "Consent invariance score"
 definition = "For a set of $m$ meaning-preserving transformations of the clinical information, the share of them under which the patient's decision stays the same. A score of 1 means the decision is invariant under all tested transformations, and 0 means it changes under every one."
-first_stated = "Definition 8.4, `geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:263-267`."
+first_stated = "Definition 8.4, `geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:265-269`."
 conditions = [
   "The score depends on which transformations are in the set, and it says nothing about transformations not tested.",
   "It is proposed as a supplement to the legal consent checklist and not a replacement.",
@@ -196,7 +196,7 @@ id = "medical-bond-invariance-principle"
 kind = "concept"
 title = "Medical Bond Invariance Principle"
 definition = "Clinical evaluations must be invariant under patient re-description. If a re-description of the patient's state preserves the attribute vector, for example a different physician, language or chart format, the clinical geodesic must be the same."
-first_stated = "Definition 8.3, `geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:159-163`."
+first_stated = "Definition 8.3, `geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:161-165`."
 conditions = [
   "It is a normative requirement, stated as a definition. It applies only to re-descriptions that leave the nine-component attribute vector unchanged, and deciding which do is a judgment.",
   "The volume reads algorithmic bias as a violation, when a recommendation changes with race, zip code or insurance status.",
@@ -210,7 +210,7 @@ id = "proxy-pathfinding-divergence"
 kind = "result"
 title = "Proxy pathfinding divergence"
 definition = "When a proxy decides for a patient, the search runs on the patient's complex with the proxy's heuristic. The distance between the proxy's path and the patient's own is at most a constant $K$ times the largest difference between the two heuristics, and no calibration can guarantee that difference is small without direct knowledge of the patient's heuristic."
-first_stated = "Theorem 9.1, `geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:280-286`, after Definition 9.2 at `geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:266-270`."
+first_stated = "Theorem 9.1, `geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:282-288`, after Definition 9.2 at `geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:268-272`."
 conditions = [
   "The constant is said to depend on the curvature of the clinical decision complex. Neither the constant nor the distance between two paths is defined.",
   "The theorem is stated without a proof.",
@@ -224,7 +224,7 @@ id = "triage-divergence-theorem"
 kind = "result"
 title = "Divergence of utilitarian and manifold-optimal triage"
 definition = "The allocation that maximizes total outcomes equals the allocation that minimizes total clinical friction when triage activates only the outcomes dimension and crosses no moral boundary. They differ when a boundary is crossed or another dimension is active, as in ventilator withdrawal, age-based deprioritization and the choice of a lottery between similar prognoses."
-first_stated = "Theorem 10.1, `geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:81-91`, on the triage problem of Definition 10.1, `geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`."
+first_stated = "Theorem 10.1, `geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:79-89`, on the triage problem of Definition 10.1, `geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`."
 conditions = [
   "Both allocations obey the same resource bound. The triage problem is a set of patients, one complex and one goal region per patient, and that bound.",
   "In the withdrawal case the allocations differ only when the abandonment and trust penalties exceed the outcome differential between the two patients.",
@@ -281,7 +281,7 @@ id = "bond-index-disparity-ratio"
 kind = "instrument"
 title = "Bond Index disparity ratio"
 definition = "For one policy and two populations, the clinical Bond Index of the first population divided by that of the second. A ratio of 1.0 means equal cost beyond the optimum, and a ratio of 2.3 means the first population bears 2.3 times the cost of the second."
-first_stated = "Definition 12.2, `geometric-medicine/manuscript/part_iv/ch12_bond_index.md:47-51`, with the thresholds of Proposition 12.2 at `geometric-medicine/manuscript/part_iv/ch12_bond_index.md:305-312`."
+first_stated = "Definition 12.2, `geometric-medicine/manuscript/part_iv/ch12_bond_index.md:47-51`, with the thresholds of Proposition 12.2 at `geometric-medicine/manuscript/part_iv/ch12_bond_index.md:309-316`."
 conditions = [
   "It uses the clinical Bond Index and inherits its counterfactual geodesic and unestimated parameters.",
   "The four zones of Proposition 12.2 (below 1.2, 1.2 to 1.5, 1.5 to 2.0, and 2.0 or more) are called illustrative, not prescriptive. Each institution and community is to set its own.",
@@ -295,7 +295,7 @@ id = "clinical-moral-injury"
 kind = "concept"
 title = "Moral injury as forced boundary crossing"
 definition = "A clinician is morally injured when the institutionally mandated path requires crossing a boundary to which the clinician's own complex assigns a penalty above the clinician's tolerance threshold. Each such crossing adds the excess of the penalty over the threshold, and the sum over time is the cumulative moral injury."
-first_stated = "Definition 13.1, `geometric-medicine/manuscript/part_v/ch13_moral_injury_theory.md:57-63`. It is anticipated in Section 7.2.3 and Proposition 7.5, `geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:78-78` and `geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:198-200`."
+first_stated = "Definition 13.1, `geometric-medicine/manuscript/part_v/ch13_moral_injury_theory.md:57-63`. It is anticipated in Section 7.2.3 and Proposition 7.5, `geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:78-78` and `geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:200-202`."
 conditions = [
   "Three things must hold together, namely an institutional mandate, a boundary crossing, and a penalty above the threshold. A voluntary crossing or one below the threshold gives distress but not injury.",
   "Theorem 13.1 adds that the total never decreases and that above a clinician-specific critical level the heuristic is permanently altered, by inflated penalties (hypervigilance) or deflated ones (numbing).",

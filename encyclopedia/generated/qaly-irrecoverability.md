@@ -31,7 +31,7 @@ none. *standing.* A theorem the volume proves in Section 5.2. Section 18.9 lists
 
 ## first stated
 
-Theorem 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:34-40`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch05_qaly_irrecoverability.md#L34-L40), with the kernel of the standard QALY in Corollary 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:70-74`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch05_qaly_irrecoverability.md#L70-L74). Previewed as Theorem 1.1. Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
+Theorem 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:34-40`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch05_qaly_irrecoverability.md#L34-L40), with the kernel of the standard QALY in Corollary 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:72-76`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch05_qaly_irrecoverability.md#L72-L76). Previewed as Theorem 1.1. Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
 
 ## measurements
 

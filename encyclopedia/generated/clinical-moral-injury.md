@@ -29,7 +29,7 @@ none. *standing.* A posited definition with stated predictions and no measuremen
 
 ## first stated
 
-Definition 13.1, [`geometric-medicine/manuscript/part_v/ch13_moral_injury_theory.md:57-63`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_v/ch13_moral_injury_theory.md#L57-L63). It is anticipated in Section 7.2.3 and Proposition 7.5, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:78-78`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch07_heuristic_spectrum.md#L78-L78) and [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:198-200`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch07_heuristic_spectrum.md#L198-L200). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch13_moral_injury_theory.html).
+Definition 13.1, [`geometric-medicine/manuscript/part_v/ch13_moral_injury_theory.md:57-63`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_v/ch13_moral_injury_theory.md#L57-L63). It is anticipated in Section 7.2.3 and Proposition 7.5, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:78-78`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch07_heuristic_spectrum.md#L78-L78) and [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:200-202`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch07_heuristic_spectrum.md#L200-L202). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch13_moral_injury_theory.html).
 
 ## measurements
 

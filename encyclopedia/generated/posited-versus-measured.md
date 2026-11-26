@@ -35,8 +35,8 @@ The epistemic banners of the four posited volumes, `geometric-ai/README.md`, `ge
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 14 section 14.8 | registry rules, V4 proved in Lean and verified 2026-08-17 at commit ea7ee82, D4 posited with the drift list, reliability weight as one formula one source, 8 of 9 | [`erisml-lib/docs/CONCEPT_REGISTRY.md:1-160`](https://github.com/ahb-sjsu/erisml-lib/blob/ddb32c4/docs/CONCEPT_REGISTRY.md#L1-L160) |
-| chapter 14 section 14.8 | the four posited volumes | [`geometric-ai/README.md`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/README.md); [`geometric-cognition/README.md`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/README.md); [`geometric-reasoning/README.md`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/README.md); [`geometric-education/README.md`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/README.md) epistemic banners |
+| chapter 14 section 14.8 | registry rules, V4 proved in Lean and verified 2026-08-17 at commit ea7ee82, D4 posited with the drift list, reliability weight as one formula one source, 8 of 9 | [`erisml-lib/docs/CONCEPT_REGISTRY.md:1-160`](https://github.com/ahb-sjsu/erisml-lib/blob/eb821cd/docs/CONCEPT_REGISTRY.md#L1-L160) |
+| chapter 14 section 14.8 | the four posited volumes | [`geometric-ai/README.md`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/README.md); [`geometric-cognition/README.md`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/README.md); [`geometric-reasoning/README.md`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/README.md); [`geometric-education/README.md`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/README.md) epistemic banners |
 
 ## failures and corrections
 

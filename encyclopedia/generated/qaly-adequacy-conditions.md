@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Proposition 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:90-96`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch05_qaly_irrecoverability.md#L90-L96). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
+Proposition 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:92-98`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch05_qaly_irrecoverability.md#L92-L98). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
 
 ## measurements
 

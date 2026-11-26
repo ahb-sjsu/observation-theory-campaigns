@@ -29,7 +29,7 @@ none. *standing.* A theorem with an argument given in Section 10.2. Its numerica
 
 ## first stated
 
-Theorem 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:81-91`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch10_pandemic_triage.md#L81-L91), on the triage problem of Definition 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch10_pandemic_triage.md#L24-L35). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch10_pandemic_triage.html).
+Theorem 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:79-89`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch10_pandemic_triage.md#L79-L89), on the triage problem of Definition 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch10_pandemic_triage.md#L24-L35). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch10_pandemic_triage.html).
 
 ## measurements
 

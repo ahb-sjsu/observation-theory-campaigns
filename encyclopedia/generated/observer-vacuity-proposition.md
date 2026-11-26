@@ -31,7 +31,7 @@ none. *standing.* The ledger grades the proposition proved and not new (GC-27). 
 
 ## first stated
 
-Proposition 3 of the foundational paper, [`geometric-cognition/paper/olgc.tex:185-196`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/paper/olgc.tex#L185-L196), with the observer defined at [`geometric-cognition/paper/olgc.tex:164-171`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/paper/olgc.tex#L164-L171) and the README's statement at [`geometric-cognition/README.md:41-47`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/README.md#L41-L47).
+Proposition 3 of the foundational paper, [`geometric-cognition/paper/olgc.tex:185-196`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/paper/olgc.tex#L185-L196), with the observer defined at [`geometric-cognition/paper/olgc.tex:164-171`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/paper/olgc.tex#L164-L171) and the README's statement at [`geometric-cognition/README.md:41-47`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/README.md#L41-L47).
 
 ## measurements
 

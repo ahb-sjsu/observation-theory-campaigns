@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 11.3, [`geometric-medicine/manuscript/part_iv/ch11_allocation.md:124-134`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch11_allocation.md#L124-L134). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch11_allocation.html).
+Definition 11.3, [`geometric-medicine/manuscript/part_iv/ch11_allocation.md:124-134`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch11_allocation.md#L124-L134). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch11_allocation.html).
 
 ## measurements
 

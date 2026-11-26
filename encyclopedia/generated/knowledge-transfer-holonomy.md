@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 11.1, [`geometric-education/manuscript/part_iii/ch11_transfer_learning.md:20-24`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch11_transfer_learning.md#L20-L24), and Theorem 11.1, [`geometric-education/manuscript/part_iii/ch11_transfer_learning.md:56-66`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch11_transfer_learning.md#L56-L66). Online, [Geometric Education](https://erisml.org/geometric-education/ch11_transfer_learning.html).
+Definition 11.1, [`geometric-education/manuscript/part_iii/ch11_transfer_learning.md:20-24`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch11_transfer_learning.md#L20-L24), and Theorem 11.1, [`geometric-education/manuscript/part_iii/ch11_transfer_learning.md:56-66`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch11_transfer_learning.md#L56-L66). Online, [Geometric Education](https://erisml.org/geometric-education/ch11_transfer_learning.html).
 
 ## measurements
 

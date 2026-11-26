@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 7.2, Definitions 7.1 to 7.4, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:38-90`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch07_heuristic_spectrum.md#L38-L90). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch07_heuristic_spectrum.html).
+Section 7.2, Definitions 7.1 to 7.4, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:38-90`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch07_heuristic_spectrum.md#L38-L90). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch07_heuristic_spectrum.html).
 
 ## measurements
 

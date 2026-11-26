@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 2.1, [`geometric-medicine/manuscript/part_i/ch02_triage_forced_contraction.md:90-90`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_i/ch02_triage_forced_contraction.md#L90-L90). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch02_triage_forced_contraction.html).
+Definition 2.1, [`geometric-medicine/manuscript/part_i/ch02_triage_forced_contraction.md:86-86`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_i/ch02_triage_forced_contraction.md#L86-L86). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch02_triage_forced_contraction.html).
 
 ## measurements
 

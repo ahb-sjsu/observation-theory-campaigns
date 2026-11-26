@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 6.3, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:80-86`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch06_teaching_geodesic.md#L80-L86). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
+Definition 6.3, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:80-86`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch06_teaching_geodesic.md#L80-L86). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
 
 ## measurements
 

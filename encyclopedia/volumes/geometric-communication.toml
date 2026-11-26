@@ -23,7 +23,7 @@ id = "communication-metric"
 kind = "concept"
 title = "communication metric"
 definition = "A Riemannian metric on the communication manifold written in three by three block form. The diagonal blocks are the metrics on signal, pragmatics and content, and the off-diagonal blocks carry the correlations between factors. With the off-diagonal blocks zero it reduces to $d^2 = \\alpha_S d_S^2 + \\alpha_P d_P^2 + \\alpha_C d_C^2$ with positive weights."
-first_stated = "Definition 3.2, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:135-141`, with the block-diagonal form at `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:127-131`."
+first_stated = "Definition 3.2, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:137-143`, with the block-diagonal form at `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:129-133`."
 conditions = [
   "The metric tensor is symmetric and positive definite. The chapter calls the block-diagonal form an approximation.",
   "The blocks are proposed, not fitted. The chapter suggests the log-Euclidean distance between spectral covariance matrices for acoustic signals, an embedding distance for content, and the Poincare ball distance for hierarchical content.",
@@ -36,7 +36,7 @@ id = "communication-distance-patterns"
 kind = "concept"
 title = "diagnostic distance patterns (translation, sarcasm, paraphrase)"
 definition = "Three profiles of the factor distances. Translation has a large signal distance with pragmatic and content distances near zero. Sarcasm has a small signal distance with large pragmatic and content distances. Paraphrase has a moderate signal distance with the other two near zero. A scalar evaluation that projects onto one factor conflates at least two of them."
-first_stated = "Proposition 3.2, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:183-191`."
+first_stated = "Proposition 3.2, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:185-193`."
 conditions = [
   "The profiles are stated for a faithful translation and for the textual representation of sarcasm. In the acoustic representation the signal distance of sarcasm is nonzero because prosody differs.",
   "The entries of the table are qualitative (large, small, moderate, near zero). No distances are measured.",
@@ -49,7 +49,7 @@ id = "communication-heuristic-field"
 kind = "concept"
 title = "communication heuristic field"
 definition = "A smooth function h on the communication manifold that gives, at each point, the estimated cost of reaching the intended communicative act. Its negative gradient points toward the interpretations the heuristic judges more likely. It is admissible if it never overestimates the distance to the intended meaning."
-first_stated = "Definitions 3.3 and 3.4, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:205-217`."
+first_stated = "Definitions 3.3 and 3.4, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:207-219`."
 conditions = [
   "Interpretation is modelled as search on the manifold. The hearer is given the signal and partial information about pragmatics and content.",
   "The field is not static. The chapter says it is assembled from at least four sources, among them linguistic convention and discourse context.",
@@ -64,7 +64,7 @@ id = "communication-gauge-group"
 kind = "concept"
 title = "communication gauge group"
 definition = "The group $G = T \\times R \\times F$ of meaning-preserving transformations. T relabels across languages, R paraphrases within a language, and F changes the modality between spoken, written and signed. A gauge transformation changes the signal coordinates and preserves the content and pragmatic coordinates, up to the holonomy of the transformation path."
-first_stated = "Definition 3.5, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:263-273`."
+first_stated = "Definition 3.5, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:265-275`."
 conditions = [
   "Preservation is approximate for pragmatics. For a translation the chapter requires the content to be equal and the pragmatic force to be approximately equal.",
   "The chapter calls the re-description group the largest and least well-defined component, and says the framework does not solve the question of when two expressions are true paraphrases.",
@@ -77,7 +77,7 @@ id = "meaning-as-gauge-orbit"
 kind = "concept"
 title = "meaning as a gauge orbit"
 definition = "The meaning of a communicative act m is its equivalence class under the communication gauge group, the set of all $\\tau(m)$ for $\\tau$ in G. Two acts have the same meaning exactly when a gauge transformation relates them."
-first_stated = "Proposition 3.4, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:319-323`, and earlier as the definition of Section 2.5.2, `geometric-communication/manuscript/part_i/ch02_saussure.md:223-225`."
+first_stated = "Proposition 3.4, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:321-325`, and earlier as the definition of Section 2.5.2, `geometric-communication/manuscript/part_i/ch02_saussure.md:221-223`."
 conditions = [
   "It is a definition, and it depends on which transformations are admitted to the gauge group.",
   "The space of orbits is parameterized by the content manifold together with the pragmatic manifold.",
@@ -90,7 +90,7 @@ id = "communication-bond-invariance-principle"
 kind = "concept"
 title = "Communication BIP (Bond Invariance Principle for communication)"
 definition = "An evaluation $\\phi$ that claims to measure meaning must satisfy $\\phi(\\tau(m)) = \\phi(m)$ for every act m and every transformation $\\tau$ of the communication gauge group. A dependence on the signal coordinates that is not mediated by the signal-pragmatic and signal-content cross-terms is called a gauge anomaly."
-first_stated = "Definition 3.6, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:335-339`."
+first_stated = "Definition 3.6, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:337-341`."
 conditions = [
   "The chapter calls it a diagnostic criterion, not a normative aspiration. The test is to apply gauge transformations to a tool and check whether its output changes.",
   "Chapter 10 reads it as the claim that translation has zero holonomy, and says the principle is an ideal and not a description, because the content manifold is not flat everywhere.",
@@ -103,7 +103,7 @@ id = "signal-scalar-gauge-trilemma"
 kind = "result"
 title = "No Scalar Is Gauge-Invariant (Proposition 3.5)"
 definition = "No scalar evaluation of a communicative act can be at once invariant under the communication gauge group, sensitive to differences in content, and computable from the signal alone. Any two of the three properties can hold together."
-first_stated = "Proposition 3.5 and its proof sketch, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:353-355`."
+first_stated = "Proposition 3.5 and its proof sketch, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:355-357`."
 conditions = [
   "The argument assumes that different signals can express the same content and that the same signal can arise in different languages, so a function of the signal alone cannot separate content classes.",
   "Invariance with content sensitivity is obtained by projecting onto the content manifold, which needs access to the content. Content sensitivity with computability from the signal is what standard metrics have, without invariance.",
@@ -117,7 +117,7 @@ id = "communication-scalar-irrecoverability"
 kind = "result"
 title = "Communication Scalar Irrecoverability"
 definition = "For any smooth scalar evaluation $\\phi$ of a communicative act and any regular value r of $\\phi$, the level set $\\phi^{-1}(r)$ is a submanifold of the communication manifold of codimension 1, so it has dimension dim(S) + dim(P) + dim(C) - 1. The scalar value alone does not recover the act's position in the discarded directions."
-first_stated = "Theorem 3.1, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:389-395`, and in profile form as Theorem 1.1, `geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:174-176`."
+first_stated = "Theorem 3.1, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:391-397`, and in profile form as Theorem 1.1, `geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:168-170`."
 conditions = [
   "Chapter 3 says the statement follows from the dimensional mismatch between the manifold and the real line. Chapter 1 defers the proof to the parent theorem of Geometric Reasoning.",
   "The form of Theorem 1.1 needs quality profiles that are mutually Pareto-non-dominated across d independent dimensions. Its corollary says k scalar metrics with k below d still do not recover the profile.",
@@ -132,7 +132,7 @@ id = "acoustic-geometric-feature-vector"
 kind = "instrument"
 title = "geometric feature vector (156 dimensions)"
 definition = "For one audio signal, the concatenation of 136 SPD features (the upper triangle of the matrix logarithm of the 16 by 16 frequency-band covariance), 4 spectral-trajectory features (path length, geodesic distance, deviation, step count) and 16 TDA features (8 persistence summary statistics each for $H_0$ and $H_1$)."
-first_stated = "Definition 4.16, `geometric-communication/manuscript/part_ii/ch04_three_geometries.md:593-603`."
+first_stated = "Definition 4.16, `geometric-communication/manuscript/part_ii/ch04_three_geometries.md:591-601`."
 conditions = [
   "The covariance is computed from 16 bands of a mel spectrogram with a regularization of 0.0001 times the identity. The TDA features come from a time-delay embedding of the waveform with delay 10 and dimension 3.",
   "The chapter calls the parameter values design choices that can be adjusted for other domains.",
@@ -160,7 +160,7 @@ id = "hyperbolic-attention-bias"
 kind = "instrument"
 title = "hyperbolic attention bias"
 definition = "A term $B_{geo}(i, j) = -\\alpha \\, d_{\\mathbb{B}}(e_i, e_j)$ added to a transformer's attention logits beside the position bias. Here $e_i$ and $e_j$ are Poincare ball embeddings of the tokens at positions i and j, $d_{\\mathbb{B}}$ is the Poincare distance, and $\\alpha$ is a learnable scalar. Tokens with nearby embeddings attend to each other more."
-first_stated = "Section 5.6.2, `geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:256-264`, and Section 9.4.1, `geometric-communication/manuscript/part_iv/ch09_cuneiform.md:114-120`."
+first_stated = "Section 5.6.2, `geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:254-262`, and Section 9.4.1, `geometric-communication/manuscript/part_iv/ch09_cuneiform.md:116-122`."
 conditions = [
   "In the cuneiform model the embeddings are learnable, 32-dimensional, one for each of ByT5's 384 byte tokens, with curvature fixed at 1.0 and the scale initialised to 0.1. The bias enters the first four encoder layers.",
   "The bias is monotonically decreasing in hyperbolic distance when the scale is positive (Proposition 5.5).",
@@ -175,7 +175,7 @@ id = "hyperbolic-embedding-advantage-regime"
 kind = "result"
 title = "when hyperbolic embedding wins (Proposition 5.3)"
 definition = "The advantage of a hyperbolic over a Euclidean embedding of a hierarchy grows with tree depth, with branching factor, and when the embedding dimension is fixed. It is negligible when the hierarchy is shallow (depth at most 3) and narrow (branching at most 4), when the dimension is unrestricted, or when the task does not depend on the tree."
-first_stated = "Proposition 5.3 and the paragraphs around it, `geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:320-335`, with the coda comparison in Section 7.2.2, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:52-52`."
+first_stated = "Proposition 5.3 and the paragraphs around it, `geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:316-331`, with the coda comparison in Section 7.2.2, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:48-48`."
 conditions = [
   "For the 28 sperm whale coda types in 16 dimensions the Euclidean baselines preserved taxonomic distance better. Classical MDS and PCA reached a Spearman correlation of 0.79, Isomap 0.77, and the Poincare embedding was lower. The chapter prints no value for it.",
   "The hyperbolic classifier reached 74.3% accuracy, which the chapter calls competitive with Euclidean baselines and not better. The split was random and not grouped by whale.",
@@ -190,7 +190,7 @@ id = "decoder-robustness-index"
 kind = "instrument"
 title = "Decoder Robustness Index (DRI)"
 definition = "Perturb each signal with nine acoustic transforms at eleven intensities, re-extract the inter-click intervals, decode, and score each outcome by a graded distance $\\omega$ that is 0 for an unchanged label and between 0.5 and 1 for a flip. The index is 0.5 times the mean of $\\omega$ plus 0.3 times its 75th percentile plus 0.2 times its 95th percentile."
-first_stated = "Section 7.4.2, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:136-170`."
+first_stated = "Section 7.4.2, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:126-160`."
 conditions = [
   "For a flip, $\\omega$ is 0.5 plus 0.5 times the weighted share of differing features, with weights 1.0 for rhythm, 0.7 for tempo, 0.4 for rubato and 0.2 for ornamentation.",
   "The signals are synthesised click trains. A footnote says the results describe robustness to perturbation of the synthesis model and not robustness under real ocean acoustics.",
@@ -205,7 +205,7 @@ id = "coda-boundary-asymmetry"
 kind = "result"
 title = "asymmetry of coda decision boundaries"
 definition = "Under the perturbations of the Decoder Robustness Index, misclassifications between sperm whale coda types run mostly one way. The mean boundary asymmetry is 0.87 on a scale where 0 is symmetric and 1 is purely one-directional. Perturbed 5R3 codas were decoded as 4R2 in 223 instances and the reverse occurred 0 times."
-first_stated = "Section 7.4.4, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:186-194`."
+first_stated = "Section 7.4.4, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:178-186`."
 conditions = [
   "The asymmetry characterises the decoder's decision boundaries, not necessarily the whales' perceptual space. The chapter says so.",
   "It was measured on one nearest-centroid decoder and on synthesised signals. Section 7.8 lists whether it is a property of the signal or of the decoder as unknown.",
@@ -219,7 +219,7 @@ id = "coda-menzerath-law"
 kind = "result"
 title = "Menzerath's law in sperm whale codas"
 definition = "Longer codas have shorter constituents. Across 8,719 annotated codas of the Dominica Sperm Whale Project, click count and mean inter-click interval have a Spearman correlation of -0.269, with p below $10^{-144}$."
-first_stated = "Section 7.5.2, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:220-232`."
+first_stated = "Section 7.5.2, `geometric-communication/manuscript/part_iii/ch07_whale_communication.md:212-222`."
 conditions = [
   "The chapter calls the effect modest and says the p-value is uninformative at this sample size.",
   "It is a simple correlation over all codas. The chapter says a mixed-effects model with random intercepts for whale and session would be the more rigorous test, because codas from one whale in one session are not independent.",
@@ -235,7 +235,7 @@ id = "language-chart"
 kind = "concept"
 title = "language chart and translation map"
 definition = "A language L is a coordinate chart on the content manifold, a domain $U_L$ of expressible meanings with a map $\\varphi_L$ to the language's expressions. The translation map from $L_1$ to $L_2$ is the transition function $\\varphi_{L_2} \\circ \\varphi_{L_1}^{-1}$, defined on the overlap of the two domains."
-first_stated = "Definitions 10.1 and 10.2, `geometric-communication/manuscript/part_iv/ch10_translation.md:26-40`."
+first_stated = "Definitions 10.1 and 10.2, `geometric-communication/manuscript/part_iv/ch10_translation.md:26-38`."
 conditions = [
   "The chart is partial. The domain need not cover the whole content manifold, and different languages have different domains.",
   "A meaning outside the overlap is untranslatable in this formulation. A meaning charted at lower resolution in the target language translates with a loss of precision.",
@@ -248,7 +248,7 @@ id = "translation-loop-residual"
 kind = "instrument"
 title = "translation loop residual"
 definition = "For a text t and a chain of translations that returns to the starting language with result $\\hat{t}$, the residual is $\\rho(t) = 1 - \\mathrm{sim}(t, \\hat{t})$, where sim is a semantic similarity measure on the starting language. The volume uses it as a proxy for sectional curvature and as the empirical counterpart of holonomy."
-first_stated = "Definition 10.7 and the genre table, `geometric-communication/manuscript/part_iv/ch10_translation.md:196-213`."
+first_stated = "Definition 10.7 and the genre table, `geometric-communication/manuscript/part_iv/ch10_translation.md:194-211`."
 conditions = [
   "The value depends on the chosen similarity measure and on the translation systems in the chain. In the Old Assyrian run the similarity was chrF++ on the Akkadian transliteration and the return leg was a backtranslation by the trained model.",
   "The chapter reports mean residuals of 0.08 for commercial records, 0.14 for contracts, 0.23 for legal proceedings and 0.31 for private letters over 1,561 pairs, with F(3, 1557) = 142.7.",
@@ -264,7 +264,7 @@ id = "translation-error-decomposition"
 kind = "result"
 title = "translation error decomposition"
 definition = "The error of a translation system on a source text is written as a sum of three parts. Intrinsic holonomy is the minimum loss over all paths, fixed by the curvature of the content manifold. Path error is the extra holonomy of a path that is not the geodesic. Chart error comes from the system's imperfect representation of the two languages."
-first_stated = "Proposition 10.3, `geometric-communication/manuscript/part_iv/ch10_translation.md:312-322`."
+first_stated = "Proposition 10.3, `geometric-communication/manuscript/part_iv/ch10_translation.md:306-316`."
 conditions = [
   "It presupposes the content manifold with a metric, its Levi-Civita connection, and languages as charts, all of which the volume posits.",
   "The holonomy part is called irreducible and is nonzero only where the source meaning lies outside the flat overlap of the two charts. The other two parts are called reducible.",
@@ -279,7 +279,7 @@ id = "hohfeldian-cross-lingual-transfer"
 kind = "result"
 title = "cross-lingual transfer of Hohfeldian classification (BIP experiment)"
 definition = "An encoder with an adversarially trained bond space, trained on 3.9 million Hebrew and Aramaic passages, classified the Hohfeldian relation (Right, Duty, Liberty, No-Right) of 68,000 English Dear Abby letters with macro F1 of 44.5%, against a chance level of 25% and an in-distribution ceiling of 79.99% from mixed training."
-first_stated = "Section 11.3.1, `geometric-communication/manuscript/part_v/ch11_cross_lingual.md:185-198`, with the control ceiling in Section 11.3.4, `geometric-communication/manuscript/part_v/ch11_cross_lingual.md:223-230`."
+first_stated = "Section 11.3.1, `geometric-communication/manuscript/part_v/ch11_cross_lingual.md:183-196`, with the control ceiling in Section 11.3.4, `geometric-communication/manuscript/part_v/ch11_cross_lingual.md:219-226`."
 conditions = [
   "The chapter states a 95% interval of 42.1% to 46.9%, an accuracy of 50.7%, and a transfer efficiency of 55.6% (transfer F1 over control F1). The labels were assigned by pattern matching on deontic words such as must, may and entitled, a method the chapter calls deliberately noisy.",
   "The encoder was pretrained on more than 50 languages, Hebrew and English among them. The chapter says a test with two independent monolingual encoders remains future work.",
@@ -308,7 +308,7 @@ id = "selective-path-dependence"
 kind = "result"
 title = "Selective Path Dependence (Proposition 13.3)"
 definition = "The order in which two considerations are presented changes the judgment only on cross-type paths, where the factors point toward different vertices of the Hohfeldian square, and not on within-type paths, where all factors point toward the same vertex. The proposition explained this by non-commuting elements of a $D_4$ gauge group. The chapter marked that explanation withdrawn on 2026-11-26, pending restatement under the Klein four-group $V_4$, and keeps the observed order effect."
-first_stated = "Proposition 13.3 with its withdrawal note, `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:400-408`, with the table of Wilson loop estimates at `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:377-390` and the estimator at `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:373-373`."
+first_stated = "Proposition 13.3 with its withdrawal note, `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:406-414`, with the table of Wilson loop estimates at `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:383-396` and the estimator at `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:379-379`."
 conditions = [
   "The evidence cited is SQND Protocol 2 with 640 evaluations over 8 scenarios. Two scenarios, journalist and teacher, showed path dependence (estimates 0.659 and 0.862 in the table) and six did not, with combined chi-squared 72.14 on 16 degrees of freedom.",
   "The tabulated numbers are estimates and not group elements. The protocol takes the overlap of the response distributions under the two orders (the Bhattacharyya coefficient), which is 1 when the two orders give the same distribution of judgments.",

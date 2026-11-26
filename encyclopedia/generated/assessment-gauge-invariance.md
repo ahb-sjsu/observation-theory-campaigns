@@ -31,7 +31,7 @@ none. *standing.* Named a theorem in the volume. The statement is a criterion th
 
 ## first stated
 
-Section 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:19-21`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch09_gauge_invariance.md#L19-L21), and Theorem 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:25-33`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch09_gauge_invariance.md#L25-L33). Online, [Geometric Education](https://erisml.org/geometric-education/ch09_gauge_invariance.html).
+Section 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:19-21`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch09_gauge_invariance.md#L19-L21), and Theorem 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:25-33`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch09_gauge_invariance.md#L25-L33). Online, [Geometric Education](https://erisml.org/geometric-education/ch09_gauge_invariance.html).
 
 ## measurements
 

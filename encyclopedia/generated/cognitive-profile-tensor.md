@@ -28,7 +28,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 1.1, [`geometric-cognition/chapters/ch01_iq_trap.md:59-63`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch01_iq_trap.md#L59-L63). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch01_iq_trap.html).
+Definition 1.1, [`geometric-cognition/chapters/ch01_iq_trap.md:59-63`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch01_iq_trap.md#L59-L63). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch01_iq_trap.html).
 
 ## measurements
 

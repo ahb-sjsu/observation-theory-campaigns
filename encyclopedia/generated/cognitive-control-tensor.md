@@ -28,7 +28,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 6.4, [`geometric-cognition/chapters/ch06_executive_functions.md:181-186`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch06_executive_functions.md#L181-L186). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch06_executive_functions.html).
+Definition 6.4, [`geometric-cognition/chapters/ch06_executive_functions.md:185-190`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch06_executive_functions.md#L185-L190). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch06_executive_functions.html).
 
 ## measurements
 

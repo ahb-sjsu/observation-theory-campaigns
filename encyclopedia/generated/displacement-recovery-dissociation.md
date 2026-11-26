@@ -29,7 +29,7 @@ none. *standing.* A measured pattern in five models that the ledger's anchoring 
 
 ## first stated
 
-Section 6.4, [`geometric-cognition/chapters/ch06_executive_functions.md:108-123`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch06_executive_functions.md#L108-L123). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch06_executive_functions.html).
+Section 6.4, [`geometric-cognition/chapters/ch06_executive_functions.md:112-127`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch06_executive_functions.md#L112-L127). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch06_executive_functions.html).
 
 ## measurements
 

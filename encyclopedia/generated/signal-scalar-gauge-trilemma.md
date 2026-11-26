@@ -28,7 +28,7 @@ none. *standing.* A proposition with a proof sketch. The volume gives no full pr
 
 ## first stated
 
-Proposition 3.5 and its proof sketch, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:353-355`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_i/ch03_communication_manifold.md#L353-L355). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
+Proposition 3.5 and its proof sketch, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:355-357`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_i/ch03_communication_manifold.md#L355-L357). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
 
 ## measurements
 

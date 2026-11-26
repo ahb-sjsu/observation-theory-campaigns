@@ -29,7 +29,7 @@ none. *standing.* The ledger grades the observation exploratory (GC-20), with it
 
 ## first stated
 
-Section 9.8, [`geometric-cognition/chapters/ch09_metacognition.md:193-205`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch09_metacognition.md#L193-L205), with Definition 9.5, [`geometric-cognition/chapters/ch09_metacognition.md:217-224`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch09_metacognition.md#L217-L224). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch09_metacognition.html).
+Section 9.8, [`geometric-cognition/chapters/ch09_metacognition.md:193-205`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch09_metacognition.md#L193-L205), with Definition 9.5, [`geometric-cognition/chapters/ch09_metacognition.md:217-224`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch09_metacognition.md#L217-L224). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch09_metacognition.html).
 
 ## measurements
 

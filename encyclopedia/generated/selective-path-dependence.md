@@ -32,7 +32,7 @@ none. *standing.* Withdrawn pending restatement under $V_4$, by the chapter's no
 
 ## first stated
 
-Proposition 13.3 with its withdrawal note, [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:400-408`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch13_gauge_theory.md#L400-L408), with the table of Wilson loop estimates at [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:377-390`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch13_gauge_theory.md#L377-L390) and the estimator at [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:373-373`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch13_gauge_theory.md#L373-L373). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch13_gauge_theory.html).
+Proposition 13.3 with its withdrawal note, [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:406-414`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_v/ch13_gauge_theory.md#L406-L414), with the table of Wilson loop estimates at [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:383-396`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_v/ch13_gauge_theory.md#L383-L396) and the estimator at [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:379-379`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_v/ch13_gauge_theory.md#L379-L379). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch13_gauge_theory.html).
 
 ## measurements
 

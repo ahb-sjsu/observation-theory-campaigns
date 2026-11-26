@@ -31,7 +31,7 @@ none. *standing.* A defined quantity with one reported run. The identification w
 
 ## first stated
 
-Definition 10.7 and the genre table, [`geometric-communication/manuscript/part_iv/ch10_translation.md:196-213`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iv/ch10_translation.md#L196-L213). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
+Definition 10.7 and the genre table, [`geometric-communication/manuscript/part_iv/ch10_translation.md:194-211`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iv/ch10_translation.md#L194-L211). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
 
 ## measurements
 

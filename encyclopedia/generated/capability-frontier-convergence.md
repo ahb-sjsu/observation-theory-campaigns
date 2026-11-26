@@ -28,7 +28,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Section 16.9, [`geometric-cognition/chapters/ch16_five_signatures.md:284-288`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch16_five_signatures.md#L284-L288). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch16_five_signatures.html).
+Section 16.9, [`geometric-cognition/chapters/ch16_five_signatures.md:284-288`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch16_five_signatures.md#L284-L288). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch16_five_signatures.html).
 
 ## measurements
 

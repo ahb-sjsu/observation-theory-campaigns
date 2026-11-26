@@ -29,7 +29,7 @@ none. *standing.* Posited, by analogy with the moral injury of Geometric Medicin
 
 ## first stated
 
-Definition 8.1, [`geometric-education/manuscript/part_iii/ch08_grading_moral_injury.md:28-34`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch08_grading_moral_injury.md#L28-L34), and Theorem 8.1, [`geometric-education/manuscript/part_iii/ch08_grading_moral_injury.md:38-46`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch08_grading_moral_injury.md#L38-L46). Online, [Geometric Education](https://erisml.org/geometric-education/ch08_grading_moral_injury.html).
+Definition 8.1, [`geometric-education/manuscript/part_iii/ch08_grading_moral_injury.md:28-34`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch08_grading_moral_injury.md#L28-L34), and Theorem 8.1, [`geometric-education/manuscript/part_iii/ch08_grading_moral_injury.md:42-50`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch08_grading_moral_injury.md#L42-L50). Online, [Geometric Education](https://erisml.org/geometric-education/ch08_grading_moral_injury.html).
 
 ## measurements
 

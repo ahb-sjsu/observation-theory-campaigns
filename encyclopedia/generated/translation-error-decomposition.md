@@ -29,7 +29,7 @@ none. *standing.* A proposition with a short proof inside the posited geometry. 
 
 ## first stated
 
-Proposition 10.3, [`geometric-communication/manuscript/part_iv/ch10_translation.md:312-322`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iv/ch10_translation.md#L312-L322). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
+Proposition 10.3, [`geometric-communication/manuscript/part_iv/ch10_translation.md:306-316`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iv/ch10_translation.md#L306-L316). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
 
 ## measurements
 

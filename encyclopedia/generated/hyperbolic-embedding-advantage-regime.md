@@ -30,7 +30,7 @@ none. *standing.* A proposition stated without proof, motivated by the cited tre
 
 ## first stated
 
-Proposition 5.3 and the paragraphs around it, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:320-335`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L320-L335), with the coda comparison in Section 7.2.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:52-52`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iii/ch07_whale_communication.md#L52-L52). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
+Proposition 5.3 and the paragraphs around it, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:316-331`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L316-L331), with the coda comparison in Section 7.2.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:48-48`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iii/ch07_whale_communication.md#L48-L48). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
 
 ## measurements
 

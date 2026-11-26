@@ -29,7 +29,7 @@ none. *standing.* A theorem stated with an argument from dimension counting. The
 
 ## first stated
 
-Theorem 3.1, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:389-395`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_i/ch03_communication_manifold.md#L389-L395), and in profile form as Theorem 1.1, [`geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:174-176`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_i/ch01_perplexity_trap.md#L174-L176). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
+Theorem 3.1, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:391-397`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_i/ch03_communication_manifold.md#L391-L397), and in profile form as Theorem 1.1, [`geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:168-170`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_i/ch01_perplexity_trap.md#L168-L170). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
 
 ## measurements
 

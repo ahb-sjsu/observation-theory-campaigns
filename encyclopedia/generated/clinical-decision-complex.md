@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 4.1, [`geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:28-36`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch04_clinical_manifold.md#L28-L36). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch04_clinical_manifold.html).
+Definition 4.1, [`geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:28-36`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch04_clinical_manifold.md#L28-L36). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch04_clinical_manifold.html).
 
 ## measurements
 

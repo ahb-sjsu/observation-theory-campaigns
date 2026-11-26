@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 6.2, [`geometric-medicine/manuscript/part_ii/ch06_clinical_astar.md:106-112`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch06_clinical_astar.md#L106-L112). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch06_clinical_astar.html).
+Definition 6.2, [`geometric-medicine/manuscript/part_ii/ch06_clinical_astar.md:106-112`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch06_clinical_astar.md#L106-L112). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch06_clinical_astar.html).
 
 ## measurements
 

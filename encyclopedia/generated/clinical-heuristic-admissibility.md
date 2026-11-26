@@ -30,7 +30,7 @@ none. *standing.* A theorem with a short proof in Section 7.1, conditional on th
 
 ## first stated
 
-Theorem 7.1, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:26-32`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch07_heuristic_spectrum.md#L26-L32). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch07_heuristic_spectrum.html).
+Theorem 7.1, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:26-32`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch07_heuristic_spectrum.md#L26-L32). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch07_heuristic_spectrum.html).
 
 ## measurements
 

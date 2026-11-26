@@ -28,7 +28,7 @@ none. *standing.* A measured mean whose run records are not in the repository. T
 
 ## first stated
 
-Section 2.6, [`geometric-cognition/chapters/ch02_kahneman.md:164-166`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch02_kahneman.md#L164-L166), and Section 6.5, [`geometric-cognition/chapters/ch06_executive_functions.md:132-145`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch06_executive_functions.md#L132-L145). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
+Section 2.6, [`geometric-cognition/chapters/ch02_kahneman.md:164-166`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch02_kahneman.md#L164-L166), and Section 6.5, [`geometric-cognition/chapters/ch06_executive_functions.md:136-149`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch06_executive_functions.md#L136-L149). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
 
 ## measurements
 

@@ -29,7 +29,7 @@ none. *standing.* A construction with an ablation that the volume reports only a
 
 ## first stated
 
-Section 5.6.2, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:256-264`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L256-L264), and Section 9.4.1, [`geometric-communication/manuscript/part_iv/ch09_cuneiform.md:114-120`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iv/ch09_cuneiform.md#L114-L120). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
+Section 5.6.2, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:254-262`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L254-L262), and Section 9.4.1, [`geometric-communication/manuscript/part_iv/ch09_cuneiform.md:116-122`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iv/ch09_cuneiform.md#L116-L122). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
 
 ## measurements
 

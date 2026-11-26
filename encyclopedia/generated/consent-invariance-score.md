@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 8.4, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:263-267`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch08_consent_gauge.md#L263-L267). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
+Definition 8.4, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:265-269`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch08_consent_gauge.md#L265-L269). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
 
 ## measurements
 

@@ -29,7 +29,7 @@ none. *standing.* GC-34 stays predicted and unsealed. The campaign record counts
 
 ## first stated
 
-The claim is in [`geometric-cognition/experiments/C1/PREREG-C1-DRAFT.md:13-17`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/experiments/C1/PREREG-C1-DRAFT.md#L13-L17), and the outcome is in [`geometric-cognition/CAMPAIGN.md:266-306`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/CAMPAIGN.md#L266-L306) with the disposition at [`geometric-cognition/experiments/C1/PREREG-C1-DRAFT.md:1515-1520`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/experiments/C1/PREREG-C1-DRAFT.md#L1515-L1520).
+The claim is in [`geometric-cognition/experiments/C1/PREREG-C1-DRAFT.md:13-17`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/experiments/C1/PREREG-C1-DRAFT.md#L13-L17), and the outcome is in [`geometric-cognition/CAMPAIGN.md:266-306`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/CAMPAIGN.md#L266-L306) with the disposition at [`geometric-cognition/experiments/C1/PREREG-C1-DRAFT.md:1515-1520`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/experiments/C1/PREREG-C1-DRAFT.md#L1515-L1520).
 
 ## measurements
 

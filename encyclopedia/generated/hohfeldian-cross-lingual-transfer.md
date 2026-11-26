@@ -30,7 +30,7 @@ none. *standing.* An experiment the chapter reports with intervals and limitatio
 
 ## first stated
 
-Section 11.3.1, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:185-198`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch11_cross_lingual.md#L185-L198), with the control ceiling in Section 11.3.4, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:223-230`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch11_cross_lingual.md#L223-L230). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch11_cross_lingual.html).
+Section 11.3.1, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:183-196`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_v/ch11_cross_lingual.md#L183-L196), with the control ceiling in Section 11.3.4, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:219-226`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_v/ch11_cross_lingual.md#L219-L226). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch11_cross_lingual.html).
 
 ## measurements
 

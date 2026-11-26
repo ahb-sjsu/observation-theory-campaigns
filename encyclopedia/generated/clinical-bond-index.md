@@ -29,7 +29,7 @@ none. *standing.* A defined quantity that has not been computed. Its use as a me
 
 ## first stated
 
-Definition 12.1 and Proposition 12.1, [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:21-41`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch12_bond_index.md#L21-L41), with the distinction from the Bond Index at [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:17-19`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch12_bond_index.md#L17-L19). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch12_bond_index.html).
+Definition 12.1 and Proposition 12.1, [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:21-41`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch12_bond_index.md#L21-L41), with the distinction from the Bond Index at [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:17-19`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch12_bond_index.md#L17-L19). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch12_bond_index.html).
 
 ## measurements
 

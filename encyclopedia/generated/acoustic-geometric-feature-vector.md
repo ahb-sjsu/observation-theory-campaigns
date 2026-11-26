@@ -29,7 +29,7 @@ none. *standing.* A definition of a feature pipeline. The complementarity claim 
 
 ## first stated
 
-Definition 4.16, [`geometric-communication/manuscript/part_ii/ch04_three_geometries.md:593-603`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_ii/ch04_three_geometries.md#L593-L603). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch04_three_geometries.html).
+Definition 4.16, [`geometric-communication/manuscript/part_ii/ch04_three_geometries.md:591-601`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_ii/ch04_three_geometries.md#L591-L601). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch04_three_geometries.html).
 
 ## measurements
 

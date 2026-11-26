@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 12.2, [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:47-51`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch12_bond_index.md#L47-L51), with the thresholds of Proposition 12.2 at [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:305-312`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch12_bond_index.md#L305-L312). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch12_bond_index.html).
+Definition 12.2, [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:47-51`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch12_bond_index.md#L47-L51), with the thresholds of Proposition 12.2 at [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:309-316`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch12_bond_index.md#L309-L316). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch12_bond_index.html).
 
 ## measurements
 

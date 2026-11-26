@@ -29,7 +29,7 @@ none. *standing.* Stated as a theorem with a proof sketch. It is a restatement f
 
 ## first stated
 
-Theorem 12.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:51-58`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch12_ai_education.md#L51-L58), with the proof sketch in Section 12.3.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:62-68`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch12_ai_education.md#L62-L68). Online, [Geometric Education](https://erisml.org/geometric-education/ch12_ai_education.html).
+Theorem 12.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:55-62`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch12_ai_education.md#L55-L62), with the proof sketch in Section 12.3.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:66-72`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch12_ai_education.md#L66-L72). Online, [Geometric Education](https://erisml.org/geometric-education/ch12_ai_education.html).
 
 ## measurements
 

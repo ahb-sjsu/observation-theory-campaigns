@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 9.2, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:93-99`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch09_gauge_invariance.md#L93-L99), with the table for the SAT at [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:101-111`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch09_gauge_invariance.md#L101-L111). Online, [Geometric Education](https://erisml.org/geometric-education/ch09_gauge_invariance.html).
+Definition 9.2, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:97-103`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch09_gauge_invariance.md#L97-L103), with the table for the SAT at [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:105-115`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch09_gauge_invariance.md#L105-L115). Online, [Geometric Education](https://erisml.org/geometric-education/ch09_gauge_invariance.html).
 
 ## measurements
 

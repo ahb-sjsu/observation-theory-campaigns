@@ -31,7 +31,7 @@ none. *standing.* A theorem derived from an axiom. Section 18.9 gives it the sta
 
 ## first stated
 
-Theorem 8.1, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:79-85`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch08_consent_gauge.md#L79-L85). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
+Theorem 8.1, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:79-85`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch08_consent_gauge.md#L79-L85). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
 
 ## measurements
 
