@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-ai.toml` rather than read from a re
 
 ## ledger
 
-none. *standing.* A posited instrument defined as a geodesic deviation, which the volume says is the same construction as in the other books of the series. It is a different formula from the re-description audit recorded under the Ethics entry for the Bond Index, and no measured value of it is reported.
+none. *standing.* A posited instrument defined as a geodesic deviation. A note of 2026-11-26 in Section 9.8 says it is of the kind that Geometric Ethics calls the clinical Bond Index, and that this is a different quantity from the Bond Index of Geometric Ethics, the mean change of an evaluation under declared re-descriptions. No measured value of it is reported.
 
 ## first stated
 
-Definition 9.1, Section 9.1, [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:26-36`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iii/ch09_bond_index_ai.md#L26-L36), with the total at [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:50-56`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iii/ch09_bond_index_ai.md#L50-L56), the stratified form at [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:58-66`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iii/ch09_bond_index_ai.md#L58-L66) and the running form at [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:76-88`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iii/ch09_bond_index_ai.md#L76-L88). Online, [Geometric AI](https://erisml.org/geometric-ai/ch09_bond_index_ai.html).
+Definition 9.1, Section 9.1, [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:26-36`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch09_bond_index_ai.md#L26-L36), with the total at [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:50-56`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch09_bond_index_ai.md#L50-L56), the stratified form at [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:58-66`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch09_bond_index_ai.md#L58-L66) and the running form at [`geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:76-88`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch09_bond_index_ai.md#L76-L88). Online, [Geometric AI](https://erisml.org/geometric-ai/ch09_bond_index_ai.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

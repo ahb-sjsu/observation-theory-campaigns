@@ -40,8 +40,8 @@ Chapter 0 section 0.10 and chapter 3 section 3.3 of *Data Mining as Observation*
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 3 section 3.3 | row normalization is the projection onto the read subspace of the geodesic-rank consumer | [`geometric-observation/chapters/ch09_legibility.md:31-41`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/chapters/ch09_legibility.md#L31-L41); [`geometric-observation/chapters/ch03_historical_precursors.md:98-110`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/chapters/ch03_historical_precursors.md#L98-L110) |
-| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | [`geometric-observation/chapters/ch09_legibility.md:10-41`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/chapters/ch09_legibility.md#L10-L41); `the-angular-observer/theorem.md:110-146` |
+| chapter 3 section 3.3 | row normalization is the projection onto the read subspace of the geodesic-rank consumer | [`geometric-observation/chapters/ch09_legibility.md:31-41`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch09_legibility.md#L31-L41); [`geometric-observation/chapters/ch03_historical_precursors.md:98-110`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch03_historical_precursors.md#L98-L110) |
+| chapter 9 section 9.1 | the geodesic-rank reader discards the radius, row normalization is the angular projection | [`geometric-observation/chapters/ch09_legibility.md:10-41`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch09_legibility.md#L10-L41); `the-angular-observer/theorem.md:110-146` |
 
 ## failures and corrections
 
@@ -54,7 +54,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/GeodesicDistance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/GeodesicDistance.lean), theorems `dist_self`, `dist_comm`, `dist_triangle`, `dist_adj`, `geodesic_rank_invariant`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/GeodesicDistance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/736f790/lean/DataMiningAsObservation/GeodesicDistance.lean), theorems `dist_self`, `dist_comm`, `dist_triangle`, `dist_adj`, `geodesic_rank_invariant`, at observation-data-mining 736f790; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/736f790/chapters/machine_checked.md).
 
 ## used in
 
@@ -74,4 +74,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

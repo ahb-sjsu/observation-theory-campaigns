@@ -26,11 +26,11 @@ Conditions are curated in `volumes/geometric-ethics.toml` rather than read from 
 
 ## ledger
 
-none. *standing.* Tagged Formal Definition in the text. The v1.28 change notes state that the ledger has no claim for Definition 8.13 or for the metric's predictive value.
+none. *standing.* Tagged Formal Definition in the text, and listed as a Formal Definition in Appendix F as of v1.29, where its name carries the words metric untested. The v1.28 change notes state that the ledger has no claim for Definition 8.13 or for the metric's predictive value.
 
 ## first stated
 
-Definition 8.13, Section 8.10a, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1270-1285`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1270-L1285), with the penalties classified at [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1318-1333`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1318-L1333). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.13, Section 8.10a, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1274-1289`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1274-L1289), with the penalties classified at [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1322-1337`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1322-L1337). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

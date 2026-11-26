@@ -28,7 +28,7 @@ none. *standing.* A conditional statement about threshold search, given without 
 
 ## first stated
 
-Proposition 3.1 and Corollary 3.1, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:439-441`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch03_the_heuristic_field.md#L439-L441), with the reading of overconfidence in Section 3.6.3, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:273-277`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch03_the_heuristic_field.md#L273-L277). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
+Proposition 3.1 and Corollary 3.1, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:439-441`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L439-L441), with the reading of overconfidence in Section 3.6.3, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:273-277`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L273-L277). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

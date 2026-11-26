@@ -17,7 +17,7 @@ none
 ## conditions
 
 - The split is stated for closed bilateral exchanges. Chapter 9 derives conservation on the transferable dimensions from it.
-- Section 8.2 groups $d_1$ to $d_4$ as transferable and $d_5$ to $d_9$ as evaluative, which differs from Definition 2 and from Theorem 9.1 on where fairness $d_3$ sits.
+- Fairness $d_3$ is evaluative throughout the volume. Section 8.2 and other passages grouped it with the transferable dimensions until the correction of 2026-11-26.
 - Evaluative dimensions are not necessarily conserved. Chapter 9 adds that they can also fall for both parties.
 
 Conditions are curated in `volumes/geometric-economics.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 2, Section 3.2, [`geometric-economics/chapters/ch03_decision_manifold.md:79-81`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch03_decision_manifold.md#L79-L81). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
+Definition 2, Section 3.2, [`geometric-economics/chapters/ch03_decision_manifold.md:83-85`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L83-L85). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

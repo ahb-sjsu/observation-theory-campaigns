@@ -29,7 +29,7 @@ none. *standing.* A definition. Appendix C states the convergence of the empiric
 
 ## first stated
 
-Sections 9.2.1 and 9.2.2, [`geometric-methods/chapters/chapter-09-adversarial-robustness.md:83-102`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-09-adversarial-robustness.md#L83-L102). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-09-adversarial-robustness.html).
+Sections 9.2.1 and 9.2.2, [`geometric-methods/chapters/chapter-09-adversarial-robustness.md:83-102`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-09-adversarial-robustness.md#L83-L102). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-09-adversarial-robustness.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

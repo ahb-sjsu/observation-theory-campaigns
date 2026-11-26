@@ -17,7 +17,8 @@ none
 ## conditions
 
 - The weight is asymmetric, so it is a cost function for shortest paths on a directed graph and not a metric. The volume states that only the doctrinal term taken alone is a metric.
-- The formula uses the quadratic form without the square root, although the chapter labels that term the Mahalanobis distance. The worked example adds the squared value to the other two terms.
+- The first term is the quadratic form without the square root, which the chapter labels the squared Mahalanobis distance. The worked example adds the squared value to the other two terms.
+- Chapters 3 and 4 give different rules for the hierarchical cost between courts of the same level. The volume's corrections record of 2026-11-26 lists the choice of rule as unresolved.
 - The boundary penalties are to be estimated from the observed cost of crossing jurisdictional, doctrinal, statutory and constitutional boundaries. The volume gives no estimated values.
 - Chapter 15 gives a different operational weight, a cross-validated mix of a citation-type term, an attribute-distance term and an outcome term.
 
@@ -29,7 +30,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:114-155`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch04_legal_metric.md#L114-L155), with the appendix form at [`geometric-law/chapters/ch04_legal_metric.md:408-412`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch04_legal_metric.md#L408-L412). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
+Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:114-155`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L114-L155), with the appendix form at [`geometric-law/chapters/ch04_legal_metric.md:412-416`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L412-L416). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
 
 ## measurements
 
@@ -62,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

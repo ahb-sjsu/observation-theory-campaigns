@@ -31,7 +31,7 @@ none. *standing.* Appendix F lists Definition 10.3 as a Formal Definition (ledge
 
 ## first stated
 
-Definition 10.3, Section 10.5, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:309-324`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L309-L324). The infinitesimal form is Proposition 10.2, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:1020-1030`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L1020-L1030). Online, [Geometric Ethics](https://erisml.org/book/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html).
+Definition 10.3, Section 10.5, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:309-324`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L309-L324). The infinitesimal form is Proposition 10.2, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:1020-1030`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L1020-L1030). Online, [Geometric Ethics](https://erisml.org/book/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definition 4.2, Section 4.4.1, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:160-174`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch04_value_manifold.md#L160-L174). The constraint form is in Section 14.2.2, [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:48-56`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iv/ch14_constitutional_geometry.md#L48-L56). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
+Definition 4.2, Section 4.4.1, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:160-174`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch04_value_manifold.md#L160-L174). The constraint form is in Section 14.2.2, [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:48-56`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iv/ch14_constitutional_geometry.md#L48-L56). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-ethics.toml` rather than read from 
 
 ## ledger
 
-none. *standing.* Proved by induction on the event sequence and machine-checked in Lean 4 in the book's formal/lean project, on the standard axioms only. Ledger row GE-THM-8-7 has class proved.
+none. *standing.* Proved by induction on the event sequence and machine-checked in Lean 4 in the book's formal/lean project, on the standard axioms only. Ledger row GE-THM-8-7 has class proved, and Appendix F lists the theorem as Proved (Lean) as of v1.29.
 
 ## first stated
 
-Theorem 8.7, Section 8.10b, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1416-1419`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1416-L1419), with its status at [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1420-1427`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1420-L1427). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Theorem 8.7, Section 8.10b, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1420-1423`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1420-L1423), with its status at [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1424-1431`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1424-L1431). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

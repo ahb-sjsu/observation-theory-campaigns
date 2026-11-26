@@ -31,7 +31,7 @@ none. *standing.* A definition. Its metric property is stated with a proof sketc
 
 ## first stated
 
-Definition 4.2 and Proposition 4.1, [`geometric-methods/chapters/chapter-04-spd-manifolds.md:45-55`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-04-spd-manifolds.md#L45-L55). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-04-spd-manifolds.html).
+Definition 4.2 and Proposition 4.1, [`geometric-methods/chapters/chapter-04-spd-manifolds.md:45-55`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-04-spd-manifolds.md#L45-L55). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-04-spd-manifolds.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

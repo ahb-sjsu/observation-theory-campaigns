@@ -29,7 +29,7 @@ none. *standing.* Stated as a theorem. The text says the proof uses the calculus
 
 ## first stated
 
-Theorem 5.3, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:68-76`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch05_assessment_contraction.md#L68-L76), with Corollaries 5.3.1 and 5.3.2 at [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:100-110`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch05_assessment_contraction.md#L100-L110). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
+Theorem 5.3, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:68-76`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch05_assessment_contraction.md#L68-L76), with Corollaries 5.3.1 and 5.3.2 at [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:100-110`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch05_assessment_contraction.md#L100-L110). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

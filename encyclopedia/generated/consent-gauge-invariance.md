@@ -18,20 +18,20 @@ none
 
 ## conditions
 
-- The opening sentence of the theorem says equivalent. The formal statement and the proof give a necessary condition only.
+- The theorem gives a necessary condition only. Its opening sentence says that valid consent requires the invariance, and the formal statement and the proof give that direction.
 - The proof rests on the Bond Invariance Principle, which the volume calls the foundational axiom of the Geometric Ethics programme.
 - The test covers the reframings presented and no others. The volume lists positive against negative framing, absolute against relative risk, gains against losses, and natural frequencies against percentages.
-- The pilot figures of Chapter 17 (84 patients, a correlation of -0.41) are told as the study of Sarah Chen, whom the front matter calls a composite character. They are not a recorded measurement.
+- The pilot figures of Chapter 17 (84 patients, a correlation of -0.41 between framing variance and health literacy) belong to the scenario of Sarah Chen, a composite character. Section 17.6 labels the scenario illustrative and says that no such study has been run and that the numbers are invented.
 
 Conditions are curated in `volumes/geometric-medicine.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* A theorem derived from an axiom. Section 18.8 gives it the status formally developed, pilot data supportive, full study not yet conducted, and the pilot is the narrative one.
+none. *standing.* A theorem derived from an axiom. Section 18.9 gives it the status formally developed, untested, illustrated by a hypothetical pilot (Section 17.6), full study not yet conducted.
 
 ## first stated
 
-Theorem 8.1, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:79-85`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_ii/ch08_consent_gauge.md#L79-L85). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
+Theorem 8.1, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:79-85`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch08_consent_gauge.md#L79-L85). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

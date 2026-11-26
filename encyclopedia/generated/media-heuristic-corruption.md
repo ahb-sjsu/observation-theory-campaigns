@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 11, [`geometric-politics/manuscript/part_iii/ch11_media.md:26-72`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/part_iii/ch11_media.md#L26-L72). Chapter 6 gives the three campaign versions at [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:84-92`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/part_ii/ch06_campaigns_heuristic.md#L84-L92). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch11_media.html).
+Chapter 11, [`geometric-politics/manuscript/part_iii/ch11_media.md:26-72`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch11_media.md#L26-L72). Chapter 6 gives the three campaign versions at [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:84-92`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch06_campaigns_heuristic.md#L84-L92). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch11_media.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

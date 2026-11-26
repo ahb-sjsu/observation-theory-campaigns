@@ -18,7 +18,7 @@ none
 
 - Two modalities only. The targets also differ (Goodreads rating for books, log listens for music), and so do the encoders (LaBSE and MERT).
 - The volume has not ruled out that the flip comes from the encoders. Section 17.9 and Appendix E.4 keep that as a legitimate alternative reading.
-- Appendix E says the flip was checked after the Hellinger fix and persists. Section 12.5 says genre residualization preserves both flips.
+- Appendix E says the flip was checked after the Hellinger fix and persists. Section 12.5 says the flips are not reported on genre-residualized targets.
 - Extension of the pattern to film, visual art or architecture is marked conjectured in Appendix F (F22.1, F29.4). The README lists cross-modal sign flips among the reasons the AesBSE instrument was ruled inadmissible.
 
 Conditions are curated in `volumes/geometric-aesthetics.toml` rather than read from a record.
@@ -29,7 +29,7 @@ none. *standing.* Verified empirically in Appendix F (F21.6, F21.7). The reading
 
 ## first stated
 
-Section 17.6.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:172-189`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L172-L189). Stated as Claim 17.2 at [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:197-199`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L197-L199). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.6.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:172-189`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L172-L189). Stated as Claim 17.2 at [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:197-199`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L197-L199). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

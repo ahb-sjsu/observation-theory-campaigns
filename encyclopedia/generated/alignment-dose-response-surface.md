@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definition 11.1, Section 11.3, [`geometric-ai/manuscript/part_iii/ch11_adversarial_probing.md:68-86`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iii/ch11_adversarial_probing.md#L68-L86), with the alignment curvature of Definition 11.2 at [`geometric-ai/manuscript/part_iii/ch11_adversarial_probing.md:88-100`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iii/ch11_adversarial_probing.md#L88-L100). Online, [Geometric AI](https://erisml.org/geometric-ai/ch11_adversarial_probing.html).
+Definition 11.1, Section 11.3, [`geometric-ai/manuscript/part_iii/ch11_adversarial_probing.md:68-86`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch11_adversarial_probing.md#L68-L86), with the alignment curvature of Definition 11.2 at [`geometric-ai/manuscript/part_iii/ch11_adversarial_probing.md:88-100`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch11_adversarial_probing.md#L88-L100). Online, [Geometric AI](https://erisml.org/geometric-ai/ch11_adversarial_probing.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

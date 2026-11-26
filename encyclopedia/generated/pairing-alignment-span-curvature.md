@@ -16,10 +16,10 @@ none
 
 ## conditions
 
-- Tagged a conjecture. The volume says the cross-corpus validation is still partial.
+- Tagged a conjecture. The volume says the cross-corpus validation is not yet in hand.
 - The interaction term is a modeling axiom. It adds along an axis for synergy, as with salt and umami, subtracts for antagonism, as with sweet and bitter, and is zero in a flat space.
 - Similar summands add nearly colinearly and complementary summands add by the Pythagorean rule. Both statements are for the linear sum without the interaction term.
-- The claim that the three-term model tracks recipe co-occurrence and panel ratings better than cosine alone is stated without printed numbers.
+- That the three-term model tracks recipe co-occurrence and panel ratings better than cosine alone is a prediction of the proposed reanalysis of Section 4.7, for which no run is recorded.
 
 Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* A conjecture in the volume's own tagging. The volume presents 
 
 ## first stated
 
-Section 4.7, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:107-107`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch04_similarity_and_complementarity.md#L107-L107), with the interaction term in Section 4.6, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:91-95`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch04_similarity_and_complementarity.md#L91-L95). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
+Section 4.7, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:107-107`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch04_similarity_and_complementarity.md#L107-L107), with the interaction term in Section 4.6, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:91-95`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch04_similarity_and_complementarity.md#L91-L95). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

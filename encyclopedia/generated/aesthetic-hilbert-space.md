@@ -31,7 +31,7 @@ none. *standing.* Analogy. Appendix F says the quantum vocabulary is used for it
 
 ## first stated
 
-Definition 13.1, [`geometric-aesthetics/book/src/chapter-13-quantum-aesthetic-dynamics-superposition-measurement.md:25-33`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-13-quantum-aesthetic-dynamics-superposition-measurement.md#L25-L33). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-13-quantum-aesthetic-dynamics-superposition-measurement.html).
+Definition 13.1, [`geometric-aesthetics/book/src/chapter-13-quantum-aesthetic-dynamics-superposition-measurement.md:25-33`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-13-quantum-aesthetic-dynamics-superposition-measurement.md#L25-L33). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-13-quantum-aesthetic-dynamics-superposition-measurement.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

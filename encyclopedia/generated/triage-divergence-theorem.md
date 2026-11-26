@@ -29,7 +29,7 @@ none. *standing.* A theorem with an argument given in Section 10.2. Its numerica
 
 ## first stated
 
-Theorem 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:81-91`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_iv/ch10_pandemic_triage.md#L81-L91), on the triage problem of Definition 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_iv/ch10_pandemic_triage.md#L24-L35). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch10_pandemic_triage.html).
+Theorem 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:81-91`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch10_pandemic_triage.md#L81-L91), on the triage problem of Definition 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch10_pandemic_triage.md#L24-L35). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch10_pandemic_triage.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

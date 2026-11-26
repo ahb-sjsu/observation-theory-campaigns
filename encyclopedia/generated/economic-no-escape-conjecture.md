@@ -28,7 +28,7 @@ none. *standing.* Conjecture, stated as an open problem by analogy with the No E
 
 ## first stated
 
-Conjecture 16.1, Section 16.2, [`geometric-economics/chapters/ch16_open_questions.md:36-44`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch16_open_questions.md#L36-L44). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch16_open_questions.html).
+Conjecture 16.1, Section 16.2, [`geometric-economics/chapters/ch16_open_questions.md:36-44`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch16_open_questions.md#L36-L44). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch16_open_questions.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

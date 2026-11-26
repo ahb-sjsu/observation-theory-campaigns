@@ -19,7 +19,8 @@ none
 - The chapter states a 95% interval of 42.1% to 46.9%, an accuracy of 50.7%, and a transfer efficiency of 55.6% (transfer F1 over control F1). The labels were assigned by pattern matching on deontic words such as must, may and entitled, a method the chapter calls deliberately noisy.
 - The encoder was pretrained on more than 50 languages, Hebrew and English among them. The chapter says a test with two independent monolingual encoders remains future work.
 - The chapter says the experiment shows invariance of relational structure, not of substantive moral conclusions, and that the claim is bounded by the traditions tested.
-- The per-language table of Section 11.3.2 gives 41.5% for English. A language probe on the bond space is reported at 0.0% accuracy, which the chapter notes is below the 25% chance level.
+- The per-language table of Section 11.3.2 gives 41.5% for English. The volume's corrections record of 2026-11-26 lists the difference from the 44.5% of Section 11.3.1 as unresolved.
+- A language probe on the bond space is reported at 0.0% accuracy, below the 25% chance level. The chapter now says that an accuracy below chance is not chance and that the figure does not by itself show the bond space carries no linguistic information.
 
 Conditions are curated in `volumes/geometric-communication.toml` rather than read from a record.
 
@@ -29,7 +30,7 @@ none. *standing.* An experiment the chapter reports with intervals and limitatio
 
 ## first stated
 
-Section 11.3.1, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:185-198`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_v/ch11_cross_lingual.md#L185-L198), with the control ceiling in Section 11.3.4, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:223-230`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_v/ch11_cross_lingual.md#L223-L230). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch11_cross_lingual.html).
+Section 11.3.1, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:185-198`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch11_cross_lingual.md#L185-L198), with the control ceiling in Section 11.3.4, [`geometric-communication/manuscript/part_v/ch11_cross_lingual.md:223-230`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch11_cross_lingual.md#L223-L230). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch11_cross_lingual.html).
 
 ## measurements
 
@@ -62,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

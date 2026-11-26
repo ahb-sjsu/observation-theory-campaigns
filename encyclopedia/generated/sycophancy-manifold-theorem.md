@@ -29,7 +29,7 @@ none. *standing.* Stated as a theorem. Appendix D.3 proves the equal-projection 
 
 ## first stated
 
-Definitions 12.1 and 12.2 and Theorem 12.1, [`geometric-ai/manuscript/part_iii/ch12_sycophancy_manifold.md:18-38`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iii/ch12_sycophancy_manifold.md#L18-L38), with the proof in Appendix D.3, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:38-49`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/appendices/appendix_d_proofs.md#L38-L49). Online, [Geometric AI](https://erisml.org/geometric-ai/ch12_sycophancy_manifold.html).
+Definitions 12.1 and 12.2 and Theorem 12.1, [`geometric-ai/manuscript/part_iii/ch12_sycophancy_manifold.md:18-38`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch12_sycophancy_manifold.md#L18-L38), with the proof in Appendix D.3, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:38-49`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/appendices/appendix_d_proofs.md#L38-L49). Online, [Geometric AI](https://erisml.org/geometric-ai/ch12_sycophancy_manifold.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

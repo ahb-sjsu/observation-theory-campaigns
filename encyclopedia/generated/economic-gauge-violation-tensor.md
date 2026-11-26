@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 41, Section 8.7, [`geometric-economics/chapters/ch08_gauge_invariance.md:256-264`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch08_gauge_invariance.md#L256-L264), with the Bond Index in Section 4.4, [`geometric-economics/chapters/ch04_economic_metric.md:160-164`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch04_economic_metric.md#L160-L164). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch08_gauge_invariance.html).
+Definition 41, Section 8.7, [`geometric-economics/chapters/ch08_gauge_invariance.md:258-266`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch08_gauge_invariance.md#L258-L266), with the Bond Index in Section 4.4, [`geometric-economics/chapters/ch04_economic_metric.md:160-164`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L160-L164). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch08_gauge_invariance.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

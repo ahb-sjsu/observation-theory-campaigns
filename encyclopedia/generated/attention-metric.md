@@ -30,7 +30,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 4.1, [`geometric-cognition/chapters/ch04_attention_metric.md:51-55`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch04_attention_metric.md#L51-L55), with the weights written out at [`geometric-cognition/chapters/ch04_attention_metric.md:65-67`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch04_attention_metric.md#L65-L67). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch04_attention_metric.html).
+Definition 4.1, [`geometric-cognition/chapters/ch04_attention_metric.md:51-55`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch04_attention_metric.md#L51-L55), with the weights written out at [`geometric-cognition/chapters/ch04_attention_metric.md:65-67`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch04_attention_metric.md#L65-L67). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch04_attention_metric.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

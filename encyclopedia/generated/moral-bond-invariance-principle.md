@@ -29,7 +29,7 @@ none. *standing.* Appendix F lists Axiom 5.1 as a Modeling Axiom, and the ledger
 
 ## first stated
 
-Axiom 5.1, Section 5.5, [`geometric-ethics/chapter-5-the-moral-manifold.html:506-511`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-5-the-moral-manifold.html#L506-L511), with the orbit form at [`geometric-ethics/chapter-5-the-moral-manifold.html:522-534`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-5-the-moral-manifold.html#L522-L534). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
+Axiom 5.1, Section 5.5, [`geometric-ethics/chapter-5-the-moral-manifold.html:506-511`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L506-L511), with the orbit form at [`geometric-ethics/chapter-5-the-moral-manifold.html:522-534`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L522-L534). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

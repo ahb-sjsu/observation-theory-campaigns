@@ -6,7 +6,7 @@
 
 ## definition
 
-Five parallel assessments of the same content, each varying one of examiner, format, language, time and context while holding the others fixed, each with a pass threshold. The composite score is GIS, equal to 1 minus the mean over the five tests of the smaller of 1 and the ratio of the effect size to its threshold.
+Five parallel assessments of the same content, each varying one of examiner, format, language, time and context while holding the others fixed, each with a pass threshold. The composite score is GIS, equal to 1 minus the mean over the five tests of the smaller of 1 and the ratio of the absolute effect size to its threshold.
 
 **Example.** If the five ratios of effect size to threshold are 0.5, 1.0, 0.2, 0.5 and 0.3, their mean is 2.5 divided by 5, which is 0.5, and GIS is 1 minus 0.5, which is 0.5. That is below 0.60, the band the appendix does not recommend for consequential decisions.
 
@@ -29,7 +29,7 @@ none. *standing.* A proposed instrument. The README states that no education-dom
 
 ## first stated
 
-Appendix C, Sections C.1 and C.2, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:9-13`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/appendices/appendix_c_assessment.md#L9-L13), with the composite score in Section C.3, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:65-75`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/appendices/appendix_c_assessment.md#L65-L75). Online, [Geometric Education](https://erisml.org/geometric-education/appendix_c_assessment.html).
+Appendix C, Sections C.1 and C.2, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:9-13`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/appendices/appendix_c_assessment.md#L9-L13), with the composite score in Section C.3, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:65-75`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/appendices/appendix_c_assessment.md#L65-L75). Online, [Geometric Education](https://erisml.org/geometric-education/appendix_c_assessment.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

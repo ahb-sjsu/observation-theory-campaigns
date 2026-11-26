@@ -29,7 +29,7 @@ none. *standing.* Measured features. Their reading as evidence of curvature or h
 
 ## first stated
 
-Section 17.3.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:59-68`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L59-L68). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.3.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:59-68`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L59-L68). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -29,7 +29,7 @@ none. *standing.* The tensor is posited. What is measured is displacement under 
 
 ## first stated
 
-Definition 5.1, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:326-334`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch05_heuristic_corruption.md#L326-L334), introduced in Section 5.5, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:172-182`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch05_heuristic_corruption.md#L172-L182). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch05_heuristic_corruption.html).
+Definition 5.1, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:326-334`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch05_heuristic_corruption.md#L326-L334), introduced in Section 5.5, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:172-182`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch05_heuristic_corruption.md#L172-L182). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch05_heuristic_corruption.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

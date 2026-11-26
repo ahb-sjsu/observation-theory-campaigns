@@ -18,17 +18,17 @@ none
 
 - Tagged a modeling axiom. It assumes an objective landscape with a single deference state and two named directions at it.
 - Under a quadratic approximation of the landscape the volume relates the discrimination gap to the asymmetry as about 1 minus 1 over the asymmetry.
-- Basin radius, asymmetry and depth are not measured. They are inferred from flip rates, and the flip rates in this chapter's table differ from those in Chapter 6.
+- Basin radius, asymmetry and depth are not measured. They are inferred from flip rates. The chapter's flip-rate table follows Table 6.1 since the correction of 2026-11-26, and Figure 11.2 is redrawn from that corrected table.
 
 Conditions are curated in `volumes/geometric-reasoning.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* Posited structure. The basin shapes assigned to models are interpretations of correction-task flip rates, and the chapter's own flip-rate table is inconsistent with the earlier one.
+none. *standing.* Posited structure. The basin shapes assigned to models are interpretations of correction-task flip rates. The correction of 2026-11-26 brought the chapter's flip-rate table in line with Table 6.1 and changed the basin shapes read for three models.
 
 ## first stated
 
-Definition 11.5, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:151-153`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch11_alignment_as_heuristic_shaping.md#L151-L153), and Definitions A11.2 and A11.3, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:472-487`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch11_alignment_as_heuristic_shaping.md#L472-L487). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
+Definition 11.5, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:151-153`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L151-L153), and Definitions A11.2 and A11.3, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:472-487`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L472-L487). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

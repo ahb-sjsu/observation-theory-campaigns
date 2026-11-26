@@ -30,7 +30,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 3.7, [`geometric-cognition/chapters/ch03_cognitive_manifold.md:164-168`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch03_cognitive_manifold.md#L164-L168). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch03_cognitive_manifold.html).
+Definition 3.7, [`geometric-cognition/chapters/ch03_cognitive_manifold.md:164-168`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch03_cognitive_manifold.md#L164-L168). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch03_cognitive_manifold.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

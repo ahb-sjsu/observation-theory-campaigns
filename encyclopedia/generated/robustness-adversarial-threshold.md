@@ -28,7 +28,7 @@ none. *standing.* A proposed procedure. No threshold is measured in the volume.
 
 ## first stated
 
-Section 10.4.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:177-185`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch10_the_robustness_surface.md#L177-L185), with the search procedure at [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:220-230`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch10_the_robustness_surface.md#L220-L230). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
+Section 10.4.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:177-185`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L177-L185), with the search procedure at [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:220-230`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L220-L230). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

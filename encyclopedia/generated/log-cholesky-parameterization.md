@@ -30,7 +30,7 @@ none. *standing.* The surjection is Theorem C.5 of Appendix C with its Corollary
 
 ## first stated
 
-Section 15.3.1, [`geometric-methods/chapters/chapter-15-cholesky-parameterization.md:66-75`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-15-cholesky-parameterization.md#L66-L75), with the complete map in Section 15.3.3, [`geometric-methods/chapters/chapter-15-cholesky-parameterization.md:97-106`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-15-cholesky-parameterization.md#L97-L106). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-15-cholesky-parameterization.html).
+Section 15.3.1, [`geometric-methods/chapters/chapter-15-cholesky-parameterization.md:66-75`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-15-cholesky-parameterization.md#L66-L75), with the complete map in Section 15.3.3, [`geometric-methods/chapters/chapter-15-cholesky-parameterization.md:97-106`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-15-cholesky-parameterization.md#L97-L106). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-15-cholesky-parameterization.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

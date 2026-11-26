@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 6.4, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:92-94`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch06_teaching_geodesic.md#L92-L94), with removal in Section 6.3.1, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:103-107`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch06_teaching_geodesic.md#L103-L107). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
+Definition 6.4, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:92-94`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch06_teaching_geodesic.md#L92-L94), with removal in Section 6.3.1, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:103-107`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch06_teaching_geodesic.md#L103-L107). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

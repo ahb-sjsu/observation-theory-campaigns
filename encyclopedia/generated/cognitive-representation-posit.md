@@ -29,7 +29,7 @@ none. *standing.* A correction applied to the whole volume by its README and led
 
 ## first stated
 
-Section 3.4 states the tracks as independent dimensions, [`geometric-cognition/chapters/ch03_cognitive_manifold.md:89-89`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch03_cognitive_manifold.md#L89-L89). The correction is in [`geometric-cognition/README.md:22-28`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/README.md#L22-L28) and [`geometric-cognition/claims/LEDGER.md:14-41`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/claims/LEDGER.md#L14-L41). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch03_cognitive_manifold.html).
+Section 3.4 states the tracks as independent dimensions, [`geometric-cognition/chapters/ch03_cognitive_manifold.md:89-89`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch03_cognitive_manifold.md#L89-L89). The correction is in [`geometric-cognition/README.md:22-28`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/README.md#L22-L28) and [`geometric-cognition/claims/LEDGER.md:14-41`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/claims/LEDGER.md#L14-L41). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch03_cognitive_manifold.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

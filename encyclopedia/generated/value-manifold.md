@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Chapter 4, opening construction, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:12-12`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch04_value_manifold.md#L12-L12), with the nine dimensions introduced at [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:32-34`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch04_value_manifold.md#L32-L34). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
+Chapter 4, opening construction, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:12-12`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch04_value_manifold.md#L12-L12), with the nine dimensions introduced at [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:32-34`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch04_value_manifold.md#L32-L34). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

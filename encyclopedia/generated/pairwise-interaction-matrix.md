@@ -29,7 +29,7 @@ none. *standing.* A definition. The identities of Section 12.4.2 are proved and 
 
 ## first stated
 
-Section 12.1.3, [`geometric-methods/chapters/chapter-12-compositional-testing.md:76-94`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-12-compositional-testing.md#L76-L94). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-12-compositional-testing.html).
+Section 12.1.3, [`geometric-methods/chapters/chapter-12-compositional-testing.md:76-94`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-12-compositional-testing.md#L76-L94). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-12-compositional-testing.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

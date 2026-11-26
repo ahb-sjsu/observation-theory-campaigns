@@ -28,7 +28,7 @@ none. *standing.* Exploratory in the ledger of Volume 14 (row T1-MK). The rate s
 
 ## first stated
 
-Section 22.5, [`geometric-methods/chapters/chapter-22-the-read-metric.md:147-158`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-22-the-read-metric.md#L147-L158). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-22-the-read-metric.html).
+Section 22.5, [`geometric-methods/chapters/chapter-22-the-read-metric.md:147-158`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-22-the-read-metric.md#L147-L158). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-22-the-read-metric.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

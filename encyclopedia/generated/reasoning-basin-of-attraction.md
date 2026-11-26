@@ -30,7 +30,7 @@ none. *standing.* Posited framework. The README's epistemic-status block of 2026
 
 ## first stated
 
-Definition 7.1, [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:381-385`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch07_local_minima_and_dead_zones.md#L381-L385), with dead zones defined in Section 7.5, [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:189-195`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch07_local_minima_and_dead_zones.md#L189-L195). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch07_local_minima_and_dead_zones.html).
+Definition 7.1, [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:381-385`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch07_local_minima_and_dead_zones.md#L381-L385), with dead zones defined in Section 7.5, [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:189-195`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch07_local_minima_and_dead_zones.md#L189-L195). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch07_local_minima_and_dead_zones.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

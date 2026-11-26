@@ -18,8 +18,8 @@ none
 
 - The strata must satisfy the frontier condition and local finiteness. A stratum that meets the closure of another lies wholly inside that closure.
 - Differential operations such as geodesics, parallel transport and curvature are defined inside a stratum. Crossing a boundary needs boundary crossing data (Definition 8.11 and Convention 8.1).
-- That moral space is stratified is a modeling axiom. The volume cites step-like semantic gates as evidence, not proof, and no gate result yet comes from a preregistered study of people.
-- The v1.28 change notes record an open finding on the proof step of Proposition 8.1, the existence of a moral Whitney stratification, concerning the Whitney conditions.
+- That moral space is stratified is a modeling axiom. Section 8.10 says the evidence so far is consistent with stratification, with step-like semantic gates in one advice-column corpus and in embedding models, and that no gate result yet comes from a preregistered study of people.
+- The v1.28 and v1.29 change notes record an open finding on the proof step of Proposition 8.1, the existence of a moral Whitney stratification, concerning the Whitney conditions.
 
 Conditions are curated in `volumes/geometric-ethics.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* Appendix F lists Definition 5.4 as a Modeling Axiom (ledger GE
 
 ## first stated
 
-Definition 5.4, Section 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:792-798`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-5-the-moral-manifold.html#L792-L798), developed in Definition 8.1, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:122-138`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L122-L138). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
+Definition 5.4, Section 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:792-798`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L792-L798), developed in Definition 8.1, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:122-138`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L122-L138). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

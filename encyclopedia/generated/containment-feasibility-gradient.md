@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Section 8.6, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:173-189`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch08_no_escape.md#L173-L189), restated as a table in Section 19.3, [`geometric-ai/manuscript/part_vi/ch19_what_ai_teaches.md:38-51`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_vi/ch19_what_ai_teaches.md#L38-L51). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
+Section 8.6, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:173-189`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch08_no_escape.md#L173-L189), restated as a table in Section 19.3, [`geometric-ai/manuscript/part_vi/ch19_what_ai_teaches.md:38-51`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_vi/ch19_what_ai_teaches.md#L38-L51). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

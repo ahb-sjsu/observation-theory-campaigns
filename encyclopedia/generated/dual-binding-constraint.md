@@ -28,7 +28,7 @@ none. *standing.* Posited framework. The README's epistemic-status block of 2026
 
 ## first stated
 
-Definitions 11.6 and 11.7, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:258-264`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch11_alignment_as_heuristic_shaping.md#L258-L264), restated with margins as Definition A11.4, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:497-501`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch11_alignment_as_heuristic_shaping.md#L497-L501). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
+Definitions 11.6 and 11.7, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:258-264`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L258-L264), restated with margins as Definition A11.4, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:497-501`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L497-L501). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

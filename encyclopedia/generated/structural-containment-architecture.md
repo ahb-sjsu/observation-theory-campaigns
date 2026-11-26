@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definitions 8.1 to 8.4, Section 8.2, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:50-110`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch08_no_escape.md#L50-L110). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
+Definitions 8.1 to 8.4, Section 8.2, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:50-110`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch08_no_escape.md#L50-L110). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

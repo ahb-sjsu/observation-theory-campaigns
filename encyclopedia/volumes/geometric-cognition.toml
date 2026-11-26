@@ -137,12 +137,12 @@ id = "curvature-triggered-transition"
 kind = "concept"
 title = "curvature-triggered transition (System 1 to System 2)"
 definition = "The volume's geometric form of dual-process theory. A system follows the gradient of its heuristic field (System 1) where the curvature of the cognitive manifold is below a threshold, and computes geodesics (System 2) where the curvature reaches it."
-first_stated = "Definition 2.3, `geometric-cognition/chapters/ch02_kahneman.md:128-128`, and Definition 12.3, `geometric-cognition/chapters/ch12_dual_process.md:109-113`."
+first_stated = "Definition 2.3, `geometric-cognition/chapters/ch02_kahneman.md:128-128`, and Definition 12.3, `geometric-cognition/chapters/ch12_dual_process.md:109-115`."
 conditions = [
   "The ledger holds the identification of System 1 with gradient following and System 2 with geodesic computation at posited (GC-6).",
   "The sharp threshold is called a mathematical idealization, with a sigmoid blend of the two regimes in practice. The threshold is a property of the individual system and not a universal constant.",
-  "Chapter 2 states the trigger with sectional curvature and Chapter 12 states it with scalar curvature.",
-  "The confirming evidence in Section 12.6 is Maya's experiment, which belongs to the chapter's running example. Chapter 17 calls a result of that running example fictional and described for narrative purposes.",
+  "Chapter 2 states the trigger with the magnitude of the sectional curvature and Chapter 12 states it with the scalar curvature. A paragraph after Definition 12.3 relates the two and notes that Definition 2.3 also triggers on strongly negative curvature, which Definition 12.3 as written does not.",
+  "Section 12.6 illustrates the prediction with Maya's hypothetical experiment, which belongs to the chapter's running example, and says the study has not been run. The front matter calls Maya fictional and her studies illustrative scenarios, not data.",
 ]
 standing = "Posited. The campaign record lists no gate that tests a curvature threshold, and the drafted human gate H1 says a pass on it would say nothing about curvature."
 known_as = "Dual-process theory, System 1 and System 2, as in Kahneman."
@@ -214,9 +214,9 @@ definition = "In the plane of self-monitoring accuracy (M3) and effort scaling i
 first_stated = "Section 9.8, `geometric-cognition/chapters/ch09_metacognition.md:193-205`, with Definition 9.5, `geometric-cognition/chapters/ch09_metacognition.md:217-224`."
 conditions = [
   "Section 9.7 tabulates four models. The volume says that with four points the negative correlation of about -0.85 does not reach conventional significance.",
-  "The quadrant is empty only for thresholds from 0.149 up to below 0.500 on M3, and the appendix uses 0.25.",
-  "The statement that the gap is not a sampling artifact and the topological hole are interpretations. The volume frames the hole with the words if this interpretation is correct.",
-  "M3 and M4 values for the same models differ between chapters. Gemini 3 Flash has M3 of 0.149 in Section 9.7 and 0.250 in Section 16.7, and Chapter 1 prints Gemini 2.5 Pro at 0.350 and 0.700 where Chapter 9 prints 0.500 and 0.000.",
+  "The appendix uses a threshold of 0.25, and the volume says the midpoints of 0.5 and the medians leave the same quadrant empty. In the table of Section 9.7 the quadrant is not empty for a threshold below 0.149.",
+  "The volume says that with so few models a sampling artifact cannot be excluded. The structural constraint and the topological hole are its interpretations, and it frames the hole with the words if this interpretation is correct.",
+  "M3 and M4 values for the same models differ between chapters. Gemini 3 Flash has M3 of 0.149 in Section 9.7 and 0.250 in Section 16.7, and Gemini 2.5 Flash has 0.111 in the first and 0.167 in the second.",
 ]
 standing = "The ledger grades the observation exploratory (GC-20), with its primary artifacts not in the repository."
 related = ["metacognitive-recovery-ceiling", "capability-frontier-convergence", "cognitive-signature", "threshold"]
@@ -231,7 +231,7 @@ conditions = [
   "The ledger holds development as manifold growth, with Piagetian stages as topological transitions, at posited (GC-7).",
   "The order is argued from prerequisites. Symbols need sensorimotor dimensions, a metric can be stabilized only on dimensions that exist, and completion needs a stable metric.",
   "The theorem is stated with a one-line reason for each transition and no further proof.",
-  "The longitudinal data of Section 13.8 belong to the running example about Maya, a narrative device whose 2032 result Chapter 17 calls fictional.",
+  "Section 13.8 labels its longitudinal data illustrative. They belong to the running example about Maya, whom the front matter calls fictional.",
 ]
 known_as = "Piaget's stage theory of cognitive development."
 related = ["cognitive-manifold", "attention-metric", "judgment-gauge-invariance", "geometric-defect-taxonomy"]

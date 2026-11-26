@@ -18,7 +18,7 @@ none
 
 - Stated as an axiom. It is the Bond Invariance Principle of Geometric Ethics specialized to law.
 - The volume calls it stronger than the Legal Invariance Principle because it fixes what counts as legally relevant. Two cases with isomorphic bond structures must receive the same evaluation.
-- The volume identifies the bond-preserving transformations with the 64-element Hohfeldian gauge group of Chapter 5.
+- The axiom is stated for the group of all transformations that preserve the bond structure. The section's note of 2026-11-26 withdraws the earlier identification of that group with the 64-element Hohfeldian group of Chapter 5, and says the Hohfeldian relabelings and the equal protection group are both subgroups of it.
 - The volume notes that existing doctrine applies different levels of scrutiny to race and to sex, and says the axiom suggests this asymmetry is problematic.
 
 Conditions are curated in `volumes/geometric-law.toml` rather than read from a record.
@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 8, [`geometric-law/chapters/ch08_equal_protection.md:104-114`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch08_equal_protection.md#L104-L114). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
+Chapter 8, [`geometric-law/chapters/ch08_equal_protection.md:110-120`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch08_equal_protection.md#L110-L120), under the dated note at [`geometric-law/chapters/ch08_equal_protection.md:104-104`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch08_equal_protection.md#L104-L104). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

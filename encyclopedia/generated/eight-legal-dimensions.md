@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 3, [`geometric-law/chapters/ch03_judicial_complex.md:44-86`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch03_judicial_complex.md#L44-L86). Online, [Geometric Law](https://erisml.org/geometric-law/ch03_judicial_complex.html).
+Chapter 3, [`geometric-law/chapters/ch03_judicial_complex.md:44-86`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch03_judicial_complex.md#L44-L86). Online, [Geometric Law](https://erisml.org/geometric-law/ch03_judicial_complex.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

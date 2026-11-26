@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 8, the group and the theorem at [`geometric-law/chapters/ch08_equal_protection.md:151-176`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch08_equal_protection.md#L151-L176), with the full statement at [`geometric-law/chapters/ch08_equal_protection.md:478-480`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch08_equal_protection.md#L478-L480). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
+Chapter 8, the group and the theorem at [`geometric-law/chapters/ch08_equal_protection.md:157-182`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch08_equal_protection.md#L157-L182), with the full statement at [`geometric-law/chapters/ch08_equal_protection.md:637-639`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch08_equal_protection.md#L637-L639). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

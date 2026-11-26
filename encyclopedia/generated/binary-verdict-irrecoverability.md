@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 1, [`geometric-law/chapters/ch01_binary_verdict.md:233-237`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch01_binary_verdict.md#L233-L237), introduced at [`geometric-law/chapters/ch01_binary_verdict.md:40-44`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch01_binary_verdict.md#L40-L44). Online, [Geometric Law](https://erisml.org/geometric-law/ch01_binary_verdict.html).
+Chapter 1, [`geometric-law/chapters/ch01_binary_verdict.md:241-245`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch01_binary_verdict.md#L241-L245), introduced at [`geometric-law/chapters/ch01_binary_verdict.md:40-44`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch01_binary_verdict.md#L40-L44). Online, [Geometric Law](https://erisml.org/geometric-law/ch01_binary_verdict.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

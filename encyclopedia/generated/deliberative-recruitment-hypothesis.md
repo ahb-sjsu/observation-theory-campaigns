@@ -29,7 +29,7 @@ none. *standing.* Untested. The campaign record lists gate H1 as drafted on 2026
 
 ## first stated
 
-Section 1 of the draft registration, [`geometric-cognition/experiments/H1/PREREG-H1-DRAFT.md:20-36`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/experiments/H1/PREREG-H1-DRAFT.md#L20-L36), with its status in [`geometric-cognition/CAMPAIGN.md:17-30`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/CAMPAIGN.md#L17-L30).
+Section 1 of the draft registration, [`geometric-cognition/experiments/H1/PREREG-H1-DRAFT.md:20-36`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/experiments/H1/PREREG-H1-DRAFT.md#L20-L36), with its status in [`geometric-cognition/CAMPAIGN.md:17-30`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/CAMPAIGN.md#L17-L30).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

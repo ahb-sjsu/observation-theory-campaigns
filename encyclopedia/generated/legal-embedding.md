@@ -31,7 +31,7 @@ none. *standing.* This is the one corner the README of 2026-07-14 reports as ins
 
 ## first stated
 
-Chapter 15, [`geometric-law/chapters/ch15_ai_legal.md:52-62`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch15_ai_legal.md#L52-L62), with the formal conditions at [`geometric-law/chapters/ch15_ai_legal.md:384-394`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch15_ai_legal.md#L384-L394). The pipeline first appears in Chapter 3, [`geometric-law/chapters/ch03_judicial_complex.md:249-257`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch03_judicial_complex.md#L249-L257). Online, [Geometric Law](https://erisml.org/geometric-law/ch15_ai_legal.html).
+Chapter 15, [`geometric-law/chapters/ch15_ai_legal.md:56-66`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch15_ai_legal.md#L56-L66), with the formal conditions at [`geometric-law/chapters/ch15_ai_legal.md:475-485`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch15_ai_legal.md#L475-L485). The pipeline first appears in Chapter 3, [`geometric-law/chapters/ch03_judicial_complex.md:253-261`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch03_judicial_complex.md#L253-L261). Online, [Geometric Law](https://erisml.org/geometric-law/ch15_ai_legal.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

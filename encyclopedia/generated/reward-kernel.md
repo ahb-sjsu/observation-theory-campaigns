@@ -17,7 +17,7 @@ none
 ## conditions
 
 - Kernel misalignment shows in the tracked dimensions only through off-diagonal terms of the value metric. Where those terms are zero the volume says it is completely invisible to the reward.
-- Theorem 5.2 says that for any epsilon and any K there is a policy within epsilon of maximum reward and farther than K from the value-aligned policy. Appendix D.2 derives it directly from part (iii) of Theorem 5.1, so it inherits the non-compactness requirement.
+- Theorem 5.2 says that, under the non-compactness condition of part (iii) of Theorem 5.1, for any epsilon and any K there is a policy within epsilon of maximum reward and farther than K from the value-aligned policy. Appendix D.2 derives it directly from that part.
 - Corollary 5.1 is stated for a reward that primarily tracks some dimensions, and its kernel is then approximately spanned by the rest. The worked kernel analysis is the fictional ARIA's, with a cut at gradient magnitude 0.10.
 
 Conditions are curated in `volumes/geometric-ai.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* Theorem 5.2 is stated as a theorem and proved in Appendix D.2 
 
 ## first stated
 
-Theorem 5.1 (iv) and Section 5.3 with Theorem 5.2 (Kernel Exploitation), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:100-110`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch05_reward_irrecoverability.md#L100-L110), and Corollary 5.1 (Kernel Prediction), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:64-70`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch05_reward_irrecoverability.md#L64-L70). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
+Theorem 5.1 (iv) and Section 5.3 with Theorem 5.2 (Kernel Exploitation), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:100-110`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch05_reward_irrecoverability.md#L100-L110), and Corollary 5.1 (Kernel Prediction), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:64-70`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch05_reward_irrecoverability.md#L64-L70). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

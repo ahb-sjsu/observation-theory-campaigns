@@ -31,7 +31,7 @@ none. *standing.* Tagged Proved in the text and Proved (Lean) in Appendix F, mac
 
 ## first stated
 
-Proposition 8.3, Section 8.4, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:567-578`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L567-L578), and Theorem 12.2, [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:308-319`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L308-L319). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Proposition 8.3, Section 8.4, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:569-580`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L569-L580), and Theorem 12.2, [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:308-319`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L308-L319). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

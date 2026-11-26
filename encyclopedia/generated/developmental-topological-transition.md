@@ -21,7 +21,7 @@ none
 - The ledger holds development as manifold growth, with Piagetian stages as topological transitions, at posited (GC-7).
 - The order is argued from prerequisites. Symbols need sensorimotor dimensions, a metric can be stabilized only on dimensions that exist, and completion needs a stable metric.
 - The theorem is stated with a one-line reason for each transition and no further proof.
-- The longitudinal data of Section 13.8 belong to the running example about Maya, a narrative device whose 2032 result Chapter 17 calls fictional.
+- Section 13.8 labels its longitudinal data illustrative. They belong to the running example about Maya, whom the front matter calls fictional.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -31,7 +31,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Section 13.6, [`geometric-cognition/chapters/ch13_development.md:144-158`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch13_development.md#L144-L158), and the theorem of Technical Appendix 13A, [`geometric-cognition/chapters/ch13_development.md:303-309`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch13_development.md#L303-L309). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch13_development.html).
+Section 13.6, [`geometric-cognition/chapters/ch13_development.md:144-158`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch13_development.md#L144-L158), and the theorem of Technical Appendix 13A, [`geometric-cognition/chapters/ch13_development.md:303-309`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch13_development.md#L303-L309). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch13_development.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

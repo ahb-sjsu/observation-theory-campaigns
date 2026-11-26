@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Section 4.10, [`geometric-economics/chapters/ch04_economic_metric.md:396-412`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch04_economic_metric.md#L396-L412), with the formal statement in the technical appendix, [`geometric-economics/chapters/ch04_economic_metric.md:449-461`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch04_economic_metric.md#L449-L461). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
+Section 4.10, [`geometric-economics/chapters/ch04_economic_metric.md:400-416`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L400-L416), with the formal statement in the technical appendix, [`geometric-economics/chapters/ch04_economic_metric.md:453-465`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L453-L465). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

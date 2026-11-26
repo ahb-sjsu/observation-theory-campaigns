@@ -29,7 +29,7 @@ none. *standing.* An instrument with one definition as of v1.26 and v1.27, which
 
 ## first stated
 
-Requirement 3 of Section 18.9.6, [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:1170-1190`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-18-geometric-ethics-for-artificial-agents.html#L1170-L1190), stated once there as of v1.26. The game form is in Section 17.4, [`geometric-ethics/chapter-17-empirical-evidence-for-geometric-ethics.html:637-661`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-17-empirical-evidence-for-geometric-ethics.html#L637-L661). Online, [Geometric Ethics](https://erisml.org/book/chapter-18-geometric-ethics-for-artificial-agents.html).
+Requirement 3 of Section 18.9.6, [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:1173-1193`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-18-geometric-ethics-for-artificial-agents.html#L1173-L1193), stated once there as of v1.26. The game form is in Section 17.4, [`geometric-ethics/chapter-17-empirical-evidence-for-geometric-ethics.html:637-661`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-17-empirical-evidence-for-geometric-ethics.html#L637-L661). Online, [Geometric Ethics](https://erisml.org/book/chapter-18-geometric-ethics-for-artificial-agents.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

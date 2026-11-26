@@ -18,7 +18,7 @@ none
 
 - Preservation is approximate for pragmatics. For a translation the chapter requires the content to be equal and the pragmatic force to be approximately equal.
 - The chapter calls the re-description group the largest and least well-defined component, and says the framework does not solve the question of when two expressions are true paraphrases.
-- Chapter 13 restates the group as the fiber-preserving automorphisms of a bundle and adds a register group. For Hohfeldian normative relations it reduces the group to $D_4 \times U(1)_H$.
+- Chapter 13 restates the group as the fiber-preserving automorphisms of a bundle and adds a register group. For Hohfeldian normative relations it reduces the group to $V_4 \times U(1)_H$, with the Klein four-group in the discrete factor. Since 2026-11-26 the chapter says this group is posited and not derived as unique, and it marks the earlier dihedral group $D_4$ withdrawn.
 
 Conditions are curated in `volumes/geometric-communication.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 3.5, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:263-273`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_i/ch03_communication_manifold.md#L263-L273). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
+Definition 3.5, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:263-273`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_i/ch03_communication_manifold.md#L263-L273). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

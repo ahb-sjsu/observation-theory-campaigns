@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 10, the taxonomy at [`geometric-law/chapters/ch10_legal_failures.md:26-35`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch10_legal_failures.md#L26-L35), with the formal definitions at [`geometric-law/chapters/ch10_legal_failures.md:351-379`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch10_legal_failures.md#L351-L379). Online, [Geometric Law](https://erisml.org/geometric-law/ch10_legal_failures.html).
+Chapter 10, the taxonomy at [`geometric-law/chapters/ch10_legal_failures.md:26-35`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch10_legal_failures.md#L26-L35), with the formal definitions at [`geometric-law/chapters/ch10_legal_failures.md:357-385`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch10_legal_failures.md#L357-L385). Online, [Geometric Law](https://erisml.org/geometric-law/ch10_legal_failures.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

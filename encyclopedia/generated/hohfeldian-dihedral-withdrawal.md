@@ -29,7 +29,7 @@ none. *standing.* A withdrawal recorded in the text and the ledger. Rows GE-PROP
 
 ## first stated
 
-Section 8.4, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:592-604`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L592-L604), and Section 12.3, [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:276-297`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L276-L297) and [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:339-350`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L339-L350). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Section 8.4, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:594-606`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L594-L606), and Section 12.3, [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:276-297`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L276-L297) and [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:339-350`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L339-L350). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

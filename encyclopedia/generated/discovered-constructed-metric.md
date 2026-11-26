@@ -29,7 +29,7 @@ none. *standing.* A philosophical position argued from two measured results. App
 
 ## first stated
 
-Section 9.5, [`geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:103-109`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-09-origin-of-the-aesthetic-metric.md#L103-L109). Summarised in Section 9.8, [`geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:172-180`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-09-origin-of-the-aesthetic-metric.md#L172-L180). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-9-origin-of-the-aesthetic-metric.html).
+Section 9.5, [`geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:103-109`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-09-origin-of-the-aesthetic-metric.md#L103-L109). Summarised in Section 9.8, [`geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:172-180`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-09-origin-of-the-aesthetic-metric.md#L172-L180). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-9-origin-of-the-aesthetic-metric.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

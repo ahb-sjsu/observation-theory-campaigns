@@ -19,7 +19,7 @@ none
 ## conditions
 
 - The method is tagged established mathematics and assumes independent tests. The volume grants that the five models share training methods and that four share a lineage.
-- The volume calls the result conservative under positive dependence and in the same sentence says the true significance is lower than reported. The two statements do not agree.
+- The volume calls the combined test anti-conservative under positive dependence, so the true significance is lower than reported.
 - Each cell holds 5 to 25 evaluations, so the per-model p-values that enter the sum may be imprecise.
 - A combined sigma value is a statement about the five tested models taken together. The volume limits it to transformer language models from two laboratories.
 
@@ -31,7 +31,7 @@ none. *standing.* A standard statistical method. The five headline sigma values 
 
 ## first stated
 
-Section 12.6.1, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:340-344`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch12_benchmarks_as_geometric_probes.md#L340-L344), and the technical appendix, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:483-495`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch12_benchmarks_as_geometric_probes.md#L483-L495). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch12_benchmarks_as_geometric_probes.html).
+Section 12.6.1, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:340-344`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch12_benchmarks_as_geometric_probes.md#L340-L344), and the technical appendix, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:483-495`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch12_benchmarks_as_geometric_probes.md#L483-L495). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch12_benchmarks_as_geometric_probes.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

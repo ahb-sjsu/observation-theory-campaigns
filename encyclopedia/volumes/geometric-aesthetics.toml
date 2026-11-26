@@ -112,7 +112,7 @@ conditions = [
   "In the books experiment 71 of 128 coordinates receive nonzero weight, and on inspection they read as genre axes. The channel therefore exposes the genre confound as well as predicting.",
   "Appendix F counts about 30 of the 71 axes as having interpretable genre or form correlates (F14.2).",
   "In music the channel gives R = 0.302 raw and R = 0.177 after genre residualization.",
-  "The selected axes depend on the regression target, the corpus and the encoder. Chapter 6 states the selection once as 71 of 256 axes (means and variances), which differs from the count in Chapter 17.",
+  "The selected axes depend on the regression target, the corpus and the encoder. Chapter 6 and Chapter 17 both give the selection as 71 of 128 axes. They still differ on the feature, since Chapter 17 regresses on the per-component variances and Chapter 6 and the Appendix B code on the mean projections, and the volume's corrections record of 2026-11-26 lists this as unresolved.",
 ]
 standing = "A measured instrument. The interpretation of the selected axes is post-hoc inspection, and their reading as discovered canonical directions in Chapter 14 is posited."
 known_as = "Lasso regression (L1-regularized least squares) applied to PCA variance features."
@@ -176,7 +176,7 @@ first_stated = "Section 17.6.3, `geometric-aesthetics/book/src/chapter-17-empiri
 conditions = [
   "Two modalities only. The targets also differ (Goodreads rating for books, log listens for music), and so do the encoders (LaBSE and MERT).",
   "The volume has not ruled out that the flip comes from the encoders. Section 17.9 and Appendix E.4 keep that as a legitimate alternative reading.",
-  "Appendix E says the flip was checked after the Hellinger fix and persists. Section 12.5 says genre residualization preserves both flips.",
+  "Appendix E says the flip was checked after the Hellinger fix and persists. Section 12.5 says the flips are not reported on genre-residualized targets.",
   "Extension of the pattern to film, visual art or architecture is marked conjectured in Appendix F (F22.1, F29.4). The README lists cross-modal sign flips among the reasons the AesBSE instrument was ruled inadmissible.",
 ]
 standing = "Verified empirically in Appendix F (F21.6, F21.7). The reading that books reward continuity and music rewards contrast is the volume's interpretation, and Chapter 12 treats the flip as a broken symmetry of its invariance claim."
@@ -276,7 +276,7 @@ conditions = [
   "Swapping modality is declared not an admissible transformation. Across modalities the sign of a feature's effect is not preserved, which the volume calls broken symmetry.",
   "The conserved object is the feature vector, not a scalar beauty. Verdicts are not claimed to be preserved by translation.",
 ]
-standing = "Analogy in Appendix F. The measured part is the cross-lingual invariance result, and the conservation-law language is interpretive."
+standing = "Analogy in Appendix F, and Chapter 12 now words the Noether reading as an analogy. The measured part is the cross-lingual invariance result, and the conservation-law language is interpretive."
 known_as = "The volume's analogue of the Bond Invariance Principle of Geometric Ethics, framed after Noether's theorem."
 related = ["cross-lingual-aesthetic-invariance", "cross-modality-sign-flip", "aesthetic-falsification-criteria", "moral-noether-theorem", "moral-bond-invariance-principle"]
 online_page = "chapter-12-noethers-theorem-for-aesthetics.html"
@@ -307,8 +307,8 @@ first_stated = "Section 14.4, `geometric-aesthetics/book/src/chapter-14-collecti
 conditions = [
   "The emergent component vanishes exactly when collective valence is the sum of the individual valences.",
   "Appendix F marks canon formation as geometric aggregation of individual judgments as conjectured, with no direct empirical fit (F14.1).",
-  "The evidence offered for a nonzero emergent component is the 71 Lasso axes. The chapter's own caveat is that most of those axes do genre discrimination and that the point is structural, not a matter of effect size.",
-  "The count of 729 components assumes nine working axes per reader. Section 5.5 says the aesthetic manifold, unlike the moral one, does not start from nine known dimensions.",
+  "The 71 Lasso axes are offered as the empirical motivation for a nonzero emergent component, and the chapter conjectures that they are that component made visible. Its own caveat is that most of those axes do genre discrimination and that the point is structural, not a matter of effect size.",
+  "For two readers the tensor has $d^3$ components on $d$ axes per reader. The chapter no longer counts on nine working axes, and Section 5.5 says the aesthetic manifold, unlike the moral one, does not start from nine known dimensions.",
 ]
 standing = "Posited. No reader-level interest covectors are measured in the volume, and the Lasso axes are regression directions on aggregate ratings."
 related = ["lasso-on-spectrum-channel", "aesthetic-genre-confound-correction", "aesthetic-scalar-irrecoverability", "aesthetic-regime", "aggregation"]
@@ -354,8 +354,8 @@ title = "Falsification criteria (Appendix E.8)"
 definition = "Four stated tests. The symmetry claim is falsified if cross-lingual correlation falls below 0.5 across several language families on a pre-registered bundled corpus with n at least 200. The sign-flip claim is weakened or overturned if the flip fails on a new music corpus with a different encoder. The within-genre claim is weakened if the residual fails to replicate. Any proved claim with a proof error is retracted."
 first_stated = "Appendix E, Section E.8, `geometric-aesthetics/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md:65`. The summary is in Section E.10, `geometric-aesthetics/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md:79-81`."
 conditions = [
-  "The criteria are commitments for future replications. The appendix says none of the tests has failed so far, and those tests are the volume's own runs.",
-  "The replications named (a different music encoder, a new corpus, a pre-registered bundled corpus) have not been carried out in the volume.",
+  "The criteria are commitments for future replications. The appendix says the first measurements came out in the stated direction on the volume's own data.",
+  "The replications named (a different music encoder, a new corpus, a pre-registered bundled corpus) have not been carried out, and the appendix says so.",
   "The appendix answers the objection that four channels, 71 axes and many residualization choices leave the framework free to fit any story.",
 ]
 standing = "A stated commitment, not a result. Section E.10 says the thesis would be substantially undermined if cross-lingual invariance, the sign flip and the within-genre signal all failed to replicate."
@@ -381,7 +381,7 @@ style-holonomy = "If transport around a loop turns every tangent vector by a qua
 taste-heuristic-correspondence = "With the identity metric and heuristic h = x squared plus y squared, the gradient at the point (1, 2) is (2, 4), so the taste vector is (-2, -4) and points toward the goal at the origin."
 aesthetic-invariance-claim = "Exact invariance would give a correlation of 1 between a feature measured on English books and on their Finnish translations. The volume measured 0.77 for the Hellinger feature on 288 pairs, so the claim holds approximately."
 aesthetic-hilbert-space = "A work in the state 0.6 times the lyric reading plus 0.8 times the joke reading is read as a lyric with probability 0.36 and as a joke with probability 0.64, and the two sum to 1."
-collective-aesthetic-tensor = "For two readers and the chapter's nine working axes the tensor has 9 times 9 times 9, which is 729 components. That is the volume's count."
+collective-aesthetic-tensor = "For two readers on d axes each the tensor has d times d times d components. In the 128-dimensional PCA basis that is 128 cubed, which is 2,097,152, the volume's figure of about 2.1 million."
 aesthetic-scalar-irrecoverability = "Take the verdict Q(x, y) = x + y. The works (1, 3) and (2, 2) both score 4, so no rule can tell from the 4 which of them was rated."
 aesthetic-ledger-statuses = "In the ledger the cross-lingual correlations (F12.1) are verified empirically, while their reading as a Noether conservation law (F12.3) is analogy, so one chapter carries two statuses."
 aesthetic-falsification-criteria = "Criterion (i) needs a correlation below 0.5 on at least 200 bundles. The volume's Finnish (288) and French (227) pairs meet the size bar and show 0.77 and 0.78, above the threshold."

@@ -30,7 +30,7 @@ none. *standing.* The README's status note of 2026-07-14 calls this volume the s
 
 ## first stated
 
-Section 14.2.1, [`geometric-methods/chapters/chapter-14-gradient-reversal.md:75-80`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-14-gradient-reversal.md#L75-L80), with the limit of what an equilibrium shows at [`geometric-methods/chapters/chapter-14-gradient-reversal.md:97-103`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-14-gradient-reversal.md#L97-L103). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-14-gradient-reversal.html).
+Section 14.2.1, [`geometric-methods/chapters/chapter-14-gradient-reversal.md:75-80`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-14-gradient-reversal.md#L75-L80), with the limit of what an equilibrium shows at [`geometric-methods/chapters/chapter-14-gradient-reversal.md:97-103`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-14-gradient-reversal.md#L97-L103). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-14-gradient-reversal.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

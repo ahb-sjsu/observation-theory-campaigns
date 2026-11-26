@@ -28,7 +28,7 @@ none. *standing.* The ledger grades the statistic exploratory (GC-11-S), since n
 
 ## first stated
 
-Section 7.4, [`geometric-cognition/chapters/ch07_social_cognition.md:97-113`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch07_social_cognition.md#L97-L113), with the statistic's construction in Technical Appendix 7B, [`geometric-cognition/chapters/ch07_social_cognition.md:349-365`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch07_social_cognition.md#L349-L365). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch07_social_cognition.html).
+Section 7.4, [`geometric-cognition/chapters/ch07_social_cognition.md:97-113`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch07_social_cognition.md#L97-L113), with the statistic's construction in Technical Appendix 7B, [`geometric-cognition/chapters/ch07_social_cognition.md:349-365`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch07_social_cognition.md#L349-L365). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch07_social_cognition.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

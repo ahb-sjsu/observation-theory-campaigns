@@ -28,7 +28,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 6.4, [`geometric-cognition/chapters/ch06_executive_functions.md:181-186`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch06_executive_functions.md#L181-L186). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch06_executive_functions.html).
+Definition 6.4, [`geometric-cognition/chapters/ch06_executive_functions.md:181-186`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch06_executive_functions.md#L181-L186). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch06_executive_functions.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -31,7 +31,7 @@ none. *standing.* Stated as a theorem with a proof sketch in Appendix D.4. The R
 
 ## first stated
 
-Theorem 14.1, Section 14.5, [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:117-127`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iv/ch14_constitutional_geometry.md#L117-L127), with the four constraint types at [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:34-68`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iv/ch14_constitutional_geometry.md#L34-L68). Online, [Geometric AI](https://erisml.org/geometric-ai/ch14_constitutional_geometry.html).
+Theorem 14.1, Section 14.5, [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:117-127`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iv/ch14_constitutional_geometry.md#L117-L127), with the four constraint types at [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:34-68`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iv/ch14_constitutional_geometry.md#L34-L68). Online, [Geometric AI](https://erisml.org/geometric-ai/ch14_constitutional_geometry.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

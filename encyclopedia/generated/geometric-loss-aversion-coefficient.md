@@ -19,7 +19,7 @@ none
 ## conditions
 
 - The theorem is given with an argument that posits which dimensions a loss activates. The activations are not measured.
-- Section 4.2 takes the ratio of edge weights, which are squared distances. Section 4.10 and the technical appendix take the ratio of Finsler lengths, which is the square root of that ratio.
+- Section 4.2 takes the ratio of edge weights, which are squared distances. Section 4.10 and the technical appendix take the ratio of Finsler lengths, which is the square root of that ratio. Section 4.10 states the relation, and the volume does not settle which of the two is compared with 2.25.
 - The volume states its falsifiers. A coefficient that is constant across conditions, or one that varies but not monotonically with the count of activated dimensions, would show the derivation wrong.
 - The chapter says the value 2.25 should be derivable from a fitted Sigma and calls that fitting an empirical programme.
 
@@ -27,11 +27,11 @@ Conditions are curated in `volumes/geometric-economics.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* A derivation from posited activations, tagged in parts as conditional theorem and as empirical prediction. The chapter cites the eris-econ validation for a range of 1.0 to 3.53, and the README of 2026-07-14 says no economics instrument has passed the series' admission filter.
+none. *standing.* A derivation from posited activations, tagged in parts as conditional theorem and as empirical prediction. The chapter cites the eris-econ calibration for a range of 1.0 to 3.53 and calls it an in-sample calibration, not a held-out test. The README of 2026-07-14 says no economics instrument has passed the series' admission filter.
 
 ## first stated
 
-Theorem 34, Section 4.2, [`geometric-economics/chapters/ch04_economic_metric.md:68-99`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch04_economic_metric.md#L68-L99). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
+Theorem 34, Section 4.2, [`geometric-economics/chapters/ch04_economic_metric.md:68-99`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L68-L99). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

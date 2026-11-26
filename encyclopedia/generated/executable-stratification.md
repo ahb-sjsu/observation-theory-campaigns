@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-ethics.toml` rather than read from 
 
 ## ledger
 
-none. *standing.* A definition (ledger GE-DEF-8-14, class definition) describing the realization that runs in the ErisML scene runtime and a care robot built on it. Appendix F has no row for it.
+none. *standing.* A definition (ledger GE-DEF-8-14, class definition) describing the realization that runs in the ErisML scene runtime and a care robot built on it. Appendix F lists it as a Formal Definition as of v1.29.
 
 ## first stated
 
-Definition 8.14, Section 8.10b, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1382-1393`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1382-L1393). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.14, Section 8.10b, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1386-1397`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1386-L1397). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

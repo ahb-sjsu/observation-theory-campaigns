@@ -19,7 +19,7 @@ none
 ## conditions
 
 - It needs each voter's six-dimensional position and an ensemble of random valid maps. Appendix C uses 10,000 maps and treats a rank above the 95th percentile as evidence of manifold gerrymandering.
-- Theorem 5 is stated as a criterion and the chapter gives no proof of it.
+- Theorem 5 is stated as a criterion and the chapter gives no proof of it. Its criterion, an index above the ensemble expectation, differs from the 95th percentile of the procedure, and the volume's corrections record of 2026-11-26 lists the choice as unresolved.
 - A dimension-specific index can be high while the overall index is ordinary. The Map C example of an algorithmic map shows this on the trust and identity dimensions.
 - The index values for the three District 7 maps are illustrative.
 
@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 4 and Theorem 5 of Chapter 9, [`geometric-politics/manuscript/part_iii/ch09_gerrymandering.md:36-46`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/part_iii/ch09_gerrymandering.md#L36-L46). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch09_gerrymandering.html).
+Definition 4 and Theorem 5 of Chapter 9, [`geometric-politics/manuscript/part_iii/ch09_gerrymandering.md:36-46`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch09_gerrymandering.md#L36-L46). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch09_gerrymandering.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

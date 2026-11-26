@@ -68,7 +68,7 @@ first_stated = "Definition 3.5, `geometric-communication/manuscript/part_i/ch03_
 conditions = [
   "Preservation is approximate for pragmatics. For a translation the chapter requires the content to be equal and the pragmatic force to be approximately equal.",
   "The chapter calls the re-description group the largest and least well-defined component, and says the framework does not solve the question of when two expressions are true paraphrases.",
-  "Chapter 13 restates the group as the fiber-preserving automorphisms of a bundle and adds a register group. For Hohfeldian normative relations it reduces the group to $D_4 \\times U(1)_H$.",
+  "Chapter 13 restates the group as the fiber-preserving automorphisms of a bundle and adds a register group. For Hohfeldian normative relations it reduces the group to $V_4 \\times U(1)_H$, with the Klein four-group in the discrete factor. Since 2026-11-26 the chapter says this group is posited and not derived as unique, and it marks the earlier dihedral group $D_4$ withdrawn.",
 ]
 related = ["communication-manifold", "meaning-as-gauge-orbit", "communication-bond-invariance-principle", "reasoning-gauge-transformation", "communication-fiber-bundle"]
 
@@ -116,7 +116,7 @@ related = ["communication-bond-invariance-principle", "communication-gauge-group
 id = "communication-scalar-irrecoverability"
 kind = "result"
 title = "Communication Scalar Irrecoverability"
-definition = "For any scalar evaluation $\\phi$ of a communicative act, each level set $\\phi^{-1}(r)$ is a submanifold of the communication manifold of codimension at most 1, so it has dimension dim(S) + dim(P) + dim(C) - 1. The scalar value alone does not recover the act's position in the discarded directions."
+definition = "For any smooth scalar evaluation $\\phi$ of a communicative act and any regular value r of $\\phi$, the level set $\\phi^{-1}(r)$ is a submanifold of the communication manifold of codimension 1, so it has dimension dim(S) + dim(P) + dim(C) - 1. The scalar value alone does not recover the act's position in the discarded directions."
 first_stated = "Theorem 3.1, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:389-395`, and in profile form as Theorem 1.1, `geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:174-176`."
 conditions = [
   "Chapter 3 says the statement follows from the dimensional mismatch between the manifold and the real line. Chapter 1 defers the proof to the parent theorem of Geometric Reasoning.",
@@ -284,7 +284,8 @@ conditions = [
   "The chapter states a 95% interval of 42.1% to 46.9%, an accuracy of 50.7%, and a transfer efficiency of 55.6% (transfer F1 over control F1). The labels were assigned by pattern matching on deontic words such as must, may and entitled, a method the chapter calls deliberately noisy.",
   "The encoder was pretrained on more than 50 languages, Hebrew and English among them. The chapter says a test with two independent monolingual encoders remains future work.",
   "The chapter says the experiment shows invariance of relational structure, not of substantive moral conclusions, and that the claim is bounded by the traditions tested.",
-  "The per-language table of Section 11.3.2 gives 41.5% for English. A language probe on the bond space is reported at 0.0% accuracy, which the chapter notes is below the 25% chance level.",
+  "The per-language table of Section 11.3.2 gives 41.5% for English. The volume's corrections record of 2026-11-26 lists the difference from the 44.5% of Section 11.3.1 as unresolved.",
+  "A language probe on the bond space is reported at 0.0% accuracy, below the 25% chance level. The chapter now says that an accuracy below chance is not chance and that the figure does not by itself show the bond space carries no linguistic information.",
 ]
 standing = "An experiment the chapter reports with intervals and limitations. Under the README's status note of 2026-07-14 no instrument of this volume has passed the series' admission filter."
 related = ["gradient-reversal-layer", "bond-index", "communication-bond-invariance-principle", "chance-level", "leakage", "selective-path-dependence"]
@@ -298,7 +299,7 @@ first_stated = "Definition 13.1, `geometric-communication/manuscript/part_v/ch13
 conditions = [
   "The bundle is taken to be locally trivial and not globally trivial. The chapter offers untranslatable concepts as the reason, since some fibers have components that others lack.",
   "Identifying fibers at different contents needs a path and a connection. The chapter reads a connection as an interpretive framework and a misunderstanding as failed transport.",
-  "Here the pragmatic framing lies in the fiber and the base is the content manifold alone. Chapter 3 places the pragmatic manifold in the base with the content manifold.",
+  "Here the pragmatic framing lies in the fiber and the base is the content manifold alone. Chapter 3 places the pragmatic manifold in the base with the content manifold. Section 13.1.1 names both descriptions and says they differ only in where the pragmatic manifold is counted.",
 ]
 related = ["communication-gauge-group", "communication-manifold", "meaning-as-gauge-orbit", "moral-parallel-transport", "selective-path-dependence"]
 
@@ -306,16 +307,17 @@ related = ["communication-gauge-group", "communication-manifold", "meaning-as-ga
 id = "selective-path-dependence"
 kind = "result"
 title = "Selective Path Dependence (Proposition 13.3)"
-definition = "With normative relations modelled by a $D_4$ gauge group on the Hohfeldian square, the order in which two considerations are presented changes the judgment only on cross-type paths, where the factors point toward different vertices. On within-type paths the gate elements commute and the Wilson loop is the identity."
-first_stated = "Proposition 13.3, `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:398-406`, with the Wilson loop table at `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:375-388`."
+definition = "The order in which two considerations are presented changes the judgment only on cross-type paths, where the factors point toward different vertices of the Hohfeldian square, and not on within-type paths, where all factors point toward the same vertex. The proposition explained this by non-commuting elements of a $D_4$ gauge group. The chapter marked that explanation withdrawn on 2026-11-26, pending restatement under the Klein four-group $V_4$, and keeps the observed order effect."
+first_stated = "Proposition 13.3 with its withdrawal note, `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:400-408`, with the table of Wilson loop estimates at `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:377-390` and the estimator at `geometric-communication/manuscript/part_v/ch13_gauge_theory.md:373-373`."
 conditions = [
-  "The evidence cited is SQND Protocol 2 with 640 evaluations over 8 scenarios. Two scenarios, journalist and teacher, showed path dependence (0.659 and 0.862 in the table) and six did not, with combined chi-squared 72.14 on 16 degrees of freedom.",
+  "The evidence cited is SQND Protocol 2 with 640 evaluations over 8 scenarios. Two scenarios, journalist and teacher, showed path dependence (estimates 0.659 and 0.862 in the table) and six did not, with combined chi-squared 72.14 on 16 degrees of freedom.",
+  "The tabulated numbers are estimates and not group elements. The protocol takes the overlap of the response distributions under the two orders (the Bhattacharyya coefficient), which is 1 when the two orders give the same distribution of judgments.",
   "The sorting of the eight scenarios into cross-type and within-type is given after the results table, in the same section.",
-  "The $D_4$ group itself rests on a quarter-turn r that cycles the four positions. The chapter says r needs a semantic trigger and is probabilistic, while the correlative exchange s held at 100%.",
-  "For cross-type paths the proposition says the Wilson loop differs from the identity generically, not always.",
+  "The quarter-turn r of the $D_4$ statement is withdrawn. The chapter's group is now $V_4$, generated by the correlative exchange s and the negation n, which commute, so the group cannot be the source of the order effect. The chapter attributes the effect to curvature of the continuous connection.",
+  "The volume's corrections record says that restating the proposition needs a continuous connection whose curvature gives the order effect, and leaves it to the author.",
 ]
-standing = "A proposition whose support is two of eight scenarios in one protocol. The chapter calls it a structural prediction confirmed by that protocol."
-known_as = "Order effects in judgment, stated in the vocabulary of lattice gauge theory. Geometric Ethics v1.25 withdrew the dihedral group D4 for Hohfeldian transitions, a withdrawal this volume's text does not record."
+standing = "Withdrawn pending restatement under $V_4$, by the chapter's note of 2026-11-26. Parts (i) and (ii) and the paragraph after them are withdrawn. The observation stands, an order effect in two of eight scenarios in one protocol."
+known_as = "Order effects in judgment, stated in the vocabulary of lattice gauge theory. Geometric Ethics v1.25 withdrew the dihedral group D4 for Hohfeldian transitions, and Chapter 13 has recorded that withdrawal since 2026-11-26."
 related = ["hohfeldian-d4-group", "hohfeldian-dihedral-withdrawal", "semantic-gate", "legal-wilson-loop", "communication-fiber-bundle", "moral-holonomy"]
 
 [examples]
@@ -340,4 +342,4 @@ translation-loop-residual = "A round trip that returns a text with similarity 0.
 translation-error-decomposition = "If the intrinsic holonomy were 0.05, the path error 0.10 and the chart error 0.08, the total would be 0.23, and better path selection could remove at most 0.10 of it. The three values are chosen for the arithmetic and are not the volume's."
 hohfeldian-cross-lingual-transfer = "From the volume's figures, 44.5 divided by 79.99 is 0.556, the transfer efficiency of 55.6%. The transfer F1 exceeds the four-class chance level by 44.5 - 25 = 19.5 points."
 communication-fiber-bundle = "In the volume's example the fiber over the content five units of silver is parameterised by language, register and notation. An English and a Hebrew rendering are two points of that fiber with the same image under the projection."
-selective-path-dependence = "With the volume's actions r taking O to C to L to N to O and s exchanging O with C and L with N, applying r then s to O gives s(C) = O, and applying s then r gives r(C) = L. The two orders disagree, and in the volume's table 2 of 8 scenarios showed an order effect."
+selective-path-dependence = "With the volume's actions s exchanging O with C and L with N, and n exchanging O with L and C with N, applying s then n to O gives n(C) = N, and applying n then s gives s(L) = N. The two orders agree, so $V_4$ alone gives no order effect. In the volume's table 2 of 8 scenarios showed one."

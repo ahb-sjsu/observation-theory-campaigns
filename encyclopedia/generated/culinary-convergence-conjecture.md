@@ -16,7 +16,7 @@ none
 
 ## conditions
 
-- Tagged a conjecture, although the section is headed The Convergence Theorem and Section 11.5 calls it a theorem. No proof is given.
+- Tagged a conjecture. Section 9.6 is headed The Convergence Conjecture and Section 11.5 cites it as a conjecture. No proof is given.
 - It rests on the modeling axiom of Section 9.5 that a cuisine's mean moves along the gradient of a landscape combining availability, preservation, nutrition and hedonics.
 - The volume bounds it. Convergence is claimed for high-level principles, and divergence is called equally real in implementation and pairing topology, with the Ahn et al. network as the evidence.
 - Cultural descent is local, greedy and path-dependent, so a cuisine can sit in a local optimum.
@@ -29,7 +29,7 @@ none. *standing.* A conjecture in the volume's tagging, argued by analogy with c
 
 ## first stated
 
-Section 9.6, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:86-90`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L86-L90). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
+Section 9.6, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:86-90`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L86-L90). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

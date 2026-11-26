@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-medicine.toml` rather than read fro
 
 ## ledger
 
-none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.8 says the covariance matrix has not been estimated and the clinical Bond Index has not been computed from clinical data, so every number in these entries is an illustration unless the entry says otherwise.
+none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.9 says the covariance matrix has not been estimated and the clinical Bond Index has not been computed from clinical data, so every number in these entries is an illustration unless the entry says otherwise.
 
 ## first stated
 
-Proposition 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:90-96`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_ii/ch05_qaly_irrecoverability.md#L90-L96). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
+Proposition 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:90-96`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch05_qaly_irrecoverability.md#L90-L96). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

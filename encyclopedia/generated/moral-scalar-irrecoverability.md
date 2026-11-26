@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-ethics.toml` rather than read from 
 
 ## ledger
 
-none. *standing.* Tagged Proved in the text, by rank-nullity and the data-processing inequality. The ledger row GE-THM-15-1 has class exploratory and notes that the theorem is absent from Appendix F's registry, so the two records disagree and the lower class is given here as well.
+none. *standing.* Tagged Theorem (conditional on Definition 5.2) in the text as of v1.29, where earlier versions tagged it Proved, and listed as a Conditional Theorem in Appendix F. The volume says the mathematical implication is sound for a continuous Q and that the ethical consequent depends on the nine-dimensional chart, a modeling axiom. The ledger row GE-THM-15-1 has class exploratory, so the text and the ledger now agree. The row's scope note still describes the earlier tag, and the v1.29 change notes say it should gain a history entry.
 
 ## first stated
 
-Theorem 15.1, Section 15.6, [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:409-417`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L409-L417), with the proof at [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:418-436`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L418-L436). Online, [Geometric Ethics](https://erisml.org/book/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html).
+Theorem 15.1, Section 15.6, [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:409-423`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L409-L423), with the proof at [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:424-442`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L424-L442). Online, [Geometric Ethics](https://erisml.org/book/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

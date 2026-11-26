@@ -20,7 +20,7 @@ none
 
 - It needs cardinal distances from each voter or bloc to each candidate. Ordinal rankings alone do not give it.
 - It is introduced by a worked example and has no numbered definition. The term Condorcet winner in its usual pairwise sense is used elsewhere in the volume.
-- The bloc distances in the example are from the fictional District 7.
+- The bloc distances in the example are from the fictional District 7, and the chapter introduces the table as illustrative.
 
 Conditions are curated in `volumes/geometric-politics.toml` rather than read from a record.
 
@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 7, District 7 example, [`geometric-politics/manuscript/part_ii/ch07_arrows_theorem.md:146-156`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/part_ii/ch07_arrows_theorem.md#L146-L156). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch07_arrows_theorem.html).
+Chapter 7, District 7 example, [`geometric-politics/manuscript/part_ii/ch07_arrows_theorem.md:146-156`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch07_arrows_theorem.md#L146-L156). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch07_arrows_theorem.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

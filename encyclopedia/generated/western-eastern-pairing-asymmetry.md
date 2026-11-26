@@ -16,9 +16,9 @@ none
 
 ## conditions
 
-- The result is that of Ahn et al. (2011), which the volume reports as about 380 ingredients, about 1,021 compounds and about 56,000 recipes, with a null model that controls for ingredient frequency.
+- The result is that of Ahn et al. (2011), which the volume reports as about 380 ingredients, about 1,021 compounds and 56,498 recipes, with a null model that controls for ingredient frequency.
 - The Western effect is driven largely by a few high-frequency hub ingredients such as milk, butter, egg, vanilla and wheat. Removing them weakens it dramatically.
-- Section 4.7 says a reanalysis with a perceptual embedding sharpens the asymmetry. The section prints no numbers for it, and the README classes the volume's claims as posited and not measured.
+- Section 4.7 proposes a reanalysis with a perceptual embedding and predicts that it would sharpen the asymmetry. The section is tagged a proposed reanalysis with no run recorded for this volume, and the README classes the volume's claims as posited and not measured.
 - The volume reads the split as similarity against complementarity and says both are good, for different reasons.
 
 Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read from a record.
@@ -29,7 +29,7 @@ none. *standing.* A published external result (Ahn et al. 2011) that the volume 
 
 ## first stated
 
-Section 4.3, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:50-54`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch04_similarity_and_complementarity.md#L50-L54). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
+Section 4.3, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:50-54`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch04_similarity_and_complementarity.md#L50-L54). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

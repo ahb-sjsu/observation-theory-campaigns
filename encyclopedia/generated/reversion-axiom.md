@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-ethics.toml` rather than read from 
 
 ## ledger
 
-none. *standing.* Tagged Modeling axiom in the text. Ledger row GE-AXIOM-8-1 has class exploratory. Appendix F has no row for it.
+none. *standing.* Tagged Modeling axiom in the text. Ledger row GE-AXIOM-8-1 has class exploratory. Appendix F lists it as a Modeling Axiom as of v1.29.
 
 ## first stated
 
-Axiom 8.1, Section 8.10b, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1428-1438`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1428-L1438). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Axiom 8.1, Section 8.10b, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1432-1442`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1432-L1442). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -17,7 +17,7 @@ none
 ## conditions
 
 - A gate acts only from its source stratum. A second promise made in the obligation stratum changes nothing.
-- The volume says the discreteness of gates is an empirical claim, not a stipulation. Its evidence is the Dear Abby corpus and embedding experiments, and no gate result yet comes from a preregistered study of people.
+- The volume says the discreteness of gates is an empirical claim, not a stipulation. Section 8.4 says the claim is supported by the Dear Abby corpus, which is retrospective and was not preregistered, and by embedding experiments, which are model-mediated. No gate result yet comes from a preregistered study of people.
 - Smooth transitions between Hohfeldian states would undermine the stratification theory. The volume lists this among its falsifiers.
 - On the Hohfeldian positions each gate is one V4 operation restricted to the positions it applies from.
 
@@ -29,7 +29,7 @@ none. *standing.* Appendix F lists Definition 8.8 as a Modeling Axiom, and the l
 
 ## first stated
 
-Definition 8.8, Section 8.4, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:460-479`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L460-L479). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.8, Section 8.4, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:460-479`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L460-L479). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

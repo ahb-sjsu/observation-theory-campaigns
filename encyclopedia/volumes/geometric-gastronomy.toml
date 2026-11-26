@@ -3,7 +3,7 @@ number = 12
 title = "Geometric Gastronomy"
 repo = "geometric-gastronomy"
 slug = "geometric-gastronomy"
-standing = "The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, with no gastronomy instrument evaluated by the series' admission filter (xbse) and the nearest evaluated perceptual domains, aesthetics and music, rated inadmissible to medium. Its claims are to be read as theory at licensed strength and not as validated measurement, and the chapters tag each statement as a modeling axiom, empirical, a conjecture or a theorem."
+standing = "The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, with no gastronomy instrument evaluated by the series' admission filter (xbse) and the nearest evaluated perceptual domains, aesthetics and music, rated inadmissible to medium. Its claims are to be read as theory at licensed strength and not as validated measurement, and the chapters tag each statement as a modeling axiom, empirical, a conjecture or a theorem. Since the corrections of 2026-11-26 the analyses the volume describes carry the tag that no run is recorded for this volume, and their outcomes are worded as predictions."
 
 [[entry]]
 id = "flavor-space"
@@ -107,9 +107,9 @@ title = "Western/Eastern pairing asymmetry"
 definition = "Against a null of randomly assembled recipes, North American and Western European recipes use ingredient pairs that share more flavor compounds than chance, and East Asian recipes use pairs that share fewer. The food-pairing hypothesis is reversed in East Asian cuisine, so it cannot be a universal law."
 first_stated = "Section 4.3, `geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:50-54`."
 conditions = [
-  "The result is that of Ahn et al. (2011), which the volume reports as about 380 ingredients, about 1,021 compounds and about 56,000 recipes, with a null model that controls for ingredient frequency.",
+  "The result is that of Ahn et al. (2011), which the volume reports as about 380 ingredients, about 1,021 compounds and 56,498 recipes, with a null model that controls for ingredient frequency.",
   "The Western effect is driven largely by a few high-frequency hub ingredients such as milk, butter, egg, vanilla and wheat. Removing them weakens it dramatically.",
-  "Section 4.7 says a reanalysis with a perceptual embedding sharpens the asymmetry. The section prints no numbers for it, and the README classes the volume's claims as posited and not measured.",
+  "Section 4.7 proposes a reanalysis with a perceptual embedding and predicts that it would sharpen the asymmetry. The section is tagged a proposed reanalysis with no run recorded for this volume, and the README classes the volume's claims as posited and not measured.",
   "The volume reads the split as similarity against complementarity and says both are good, for different reasons.",
 ]
 standing = "A published external result (Ahn et al. 2011) that the volume reports and uses to bound the food-pairing hypothesis. The reading of it as diagonal against off-diagonal pairing is the volume's interpretation."
@@ -122,10 +122,10 @@ title = "alignment, span and curvature of a pairing"
 definition = "The volume's conjecture that pairing quality is a function of three geometric quantities. Alignment is the cosine of the two flavor vectors, span is how much of the space they jointly cover, and curvature is the symmetric bilinear interaction $\\mathbf{B}(\\mathbf{f}_1, \\mathbf{f}_2)$ added to their sum. A single-number summary discards two of the three."
 first_stated = "Section 4.7, `geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:107-107`, with the interaction term in Section 4.6, `geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:91-95`."
 conditions = [
-  "Tagged a conjecture. The volume says the cross-corpus validation is still partial.",
+  "Tagged a conjecture. The volume says the cross-corpus validation is not yet in hand.",
   "The interaction term is a modeling axiom. It adds along an axis for synergy, as with salt and umami, subtracts for antagonism, as with sweet and bitter, and is zero in a flat space.",
   "Similar summands add nearly colinearly and complementary summands add by the Pythagorean rule. Both statements are for the linear sum without the interaction term.",
-  "The claim that the three-term model tracks recipe co-occurrence and panel ratings better than cosine alone is stated without printed numbers.",
+  "That the three-term model tracks recipe co-occurrence and panel ratings better than cosine alone is a prediction of the proposed reanalysis of Section 4.7, for which no run is recorded.",
 ]
 standing = "A conjecture in the volume's own tagging. The volume presents it as the kitchen form of scalar irrecoverability, which it cites from Volume 4 and does not prove here."
 related = ["scalar-irrecoverability", "food-pairing-cosine-hypothesis", "cosine", "span", "curvature", "orthogonal"]
@@ -236,8 +236,8 @@ definition = "A cuisine is a probability distribution over flavor space, estimat
 first_stated = "Chapter 9, `geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:24-24`, with the eigendecomposition in Section 9.2, `geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:40-44`."
 conditions = [
   "The distribution is a modeling axiom. The eigendecomposition of a symmetric positive-semidefinite covariance is tagged a theorem and is standard linear algebra.",
-  "The named axes (richness for French, dashi for Japanese, chile and toast for Mexican) are a stylized reading. The volume says the axes depend on corpus and featurization, and that honest practice reports the loadings.",
-  "The claim that five to ten components capture most within-cuisine variance is tagged empirical and stated without a printed spectrum.",
+  "The named axes (richness for French, dashi for Japanese, chile and toast for Mexican) are a stylized, illustrative reading and not loadings computed in the volume. The volume says the axes depend on corpus and featurization, and that honest practice reports the loadings.",
+  "The claim that five to ten components capture most within-cuisine variance is tagged an expected result with no run recorded for this volume. No spectrum is printed.",
   "Authenticity is read as likelihood under the distribution, so a cuisine has no sharp edges.",
 ]
 related = ["principal-component-analysis", "covariance-matrix", "eigenvalue-eigenvector", "explained-variance", "fusion-geodesic", "culinary-convergence-conjecture"]
@@ -263,7 +263,7 @@ title = "Culinary Convergence conjecture"
 definition = "The conjecture that cuisines descending independent gradients on the same fitness landscape, set by a shared receptor complement, metabolic needs and cooking physics, reach clustered attractors. The shared peak the volume names is acid, fat, umami, salt and aromatic contrast."
 first_stated = "Section 9.6, `geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:86-90`."
 conditions = [
-  "Tagged a conjecture, although the section is headed The Convergence Theorem and Section 11.5 calls it a theorem. No proof is given.",
+  "Tagged a conjecture. Section 9.6 is headed The Convergence Conjecture and Section 11.5 cites it as a conjecture. No proof is given.",
   "It rests on the modeling axiom of Section 9.5 that a cuisine's mean moves along the gradient of a landscape combining availability, preservation, nutrition and hedonics.",
   "The volume bounds it. Convergence is claimed for high-level principles, and divergence is called equally real in implementation and pairing topology, with the Ahn et al. network as the evidence.",
   "Cultural descent is local, greedy and path-dependent, so a cuisine can sit in a local optimum.",
@@ -281,7 +281,7 @@ conditions = [
   "Tagged a modeling axiom. It applies to compound vectors and to recipe-trained embeddings such as word2vec on ingredient lists.",
   "The volume says an embedding answers which directions, which neighbors and which feasible partners. It does not answer how much, in what form, in what order or against what background.",
   "The irrecoverability is cited from the scalar irrecoverability result of Volume 4 and is not proved in this volume.",
-  "The statements that 10 to 15 principal components recover most of the variance, and that a 12-dimensional prefix predicts pairing nearly as well as the full vector, are tagged empirical or stated in passing and printed without data.",
+  "The statements that 10 to 15 principal components recover most of the variance, and that a 12-dimensional prefix predicts pairing nearly as well as the full vector, are tagged expected results with no run recorded for this volume. Appendix D.3 expects 20 to 30 components for the same purpose, and the volume's corrections record of 2026-11-26 lists the difference as unresolved.",
 ]
 related = ["quotient", "projection", "scalar-irrecoverability", "embedding", "null-space", "flavor-space"]
 
@@ -307,7 +307,7 @@ title = "inverse flavor problem"
 definition = "Given a target flavor $\\mathbf{f}^\\star$, a palette matrix $B$ and a positive-definite metric matrix $M$, choose nonnegative doses $\\mathbf{x}$ to minimize $(B\\mathbf{x} - \\mathbf{f}^\\star)^\\top M (B\\mathbf{x} - \\mathbf{f}^\\star)$ under a cost ceiling and admissibility constraints. It is a convex quadratic program. Zero distance is reachable exactly when the target lies in the admissible hull of the palette."
 first_stated = "Section 13.4, `geometric-gastronomy/chapters/ch13_designing_flavors.md:68-76`."
 conditions = [
-  "The program is a modeling axiom and the reachability statement is tagged a theorem. It is stated for the linear-mixing regime with a positive-definite metric and a convex admissible set, and the volume's proof is one sentence from strict convexity.",
+  "The program is a modeling axiom and the reachability statement is tagged a theorem. It is stated for the linear-mixing regime with a positive-definite metric and a convex admissible set, and the volume's proof is one sentence from strict convexity in the flavor point $B\\mathbf{x}$. The minimum is attained at a unique flavor point, and the dose vector is unique only when the palette vectors are linearly independent.",
   "Convexity fails where mixing is nonlinear, in synergy and antagonism and in threshold and saturation effects at high dose. There the program is a local model, refined by panel-tested iterations.",
   "When the target lies outside the reachable polytope, the residual distance is what the volume calls the artificiality gap, and the active constraints say which limit blocks a closer match.",
   "Masking, mimicry, cost-limited formulation and personalization are presented as the same program under different targets, palettes, constraints and metrics.",

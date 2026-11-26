@@ -83,7 +83,7 @@ definition = "The volume's worked illustration of two students, Alex and Ethan, 
 first_stated = "Section 1.3, `geometric-education/manuscript/part_i/ch01_gpa_trap.md:111-137`."
 conditions = [
   "Both students are composites and their coordinates are estimated from a biographical sketch. Nothing here is measured.",
-  "With the printed weights 0.60, 0.25, 0.05, 0.05, 0.03 and 0.02 the two projections are 0.593 and 0.671, which are not equal. The volume says the projections can equalize with different courses and that the structural fact matters, not the specific numbers.",
+  "With the printed weights 0.60, 0.25, 0.05, 0.05, 0.03 and 0.02 the two projections are 0.593 and 0.671, which are not equal. The volume says the projections can equalize with different courses and that the structural fact matters, not the specific numbers. Section 1.4.1 states both facts, that both transcripts read 3.5 and that the illustrative weighting separates the two students by 0.078.",
   "The weighted sum is a stand-in. The volume notes that a real grade point average is also filtered through letter grades and particular exams.",
 ]
 standing = "A posited illustration with composite students. It is a specific instance of Theorem 5.1 only in the sense that two different states can share one scalar, and the printed weights do not themselves give equal scalars."
@@ -141,7 +141,7 @@ first_stated = "Definitions 6.1 and 6.2 with Theorem 6.1, `geometric-education/m
 conditions = [
   "Theorem 6.1 states that A* search with an admissible heuristic finds the learner geodesic. The volume gives it as a direct instantiation of the A* optimality theorem of Geometric Reasoning.",
   "With an epsilon-admissible heuristic the teaching path is within epsilon of optimal.",
-  "The volume's prose reads the admissible case as a teacher who never judges a student ready too early, and the inadmissible case, written $h_T(x) > d(x, G) + \\epsilon$, as a teacher who overestimates readiness. The inequality and the prose should be read together.",
+  "The volume's prose reads the admissible case as a teacher who never judges a student ready too early, and the inadmissible case, written $h_T(x) > d(x, G) + \\epsilon$, as a teacher who overestimates readiness. The inequality and the prose do not agree, and the volume's corrections record of 2026-11-26 lists the choice between them as unresolved.",
   "The mapping of master, competent and miscalibrated teachers onto the three grades is posited. No teacher's heuristic has been measured.",
 ]
 known_as = "Admissible heuristics for A* search, after Hart, Nilsson and Raphael (1968). The volume ties the calibration of the heuristic to Shulman's pedagogical content knowledge (1986)."
@@ -267,7 +267,7 @@ related = ["gauge-violation-tensor", "assessment-gauge-invariance", "gauge-invar
 id = "gauge-invariance-test-battery"
 kind = "instrument"
 title = "Assessment Gauge Invariance Test Battery (AGITB)"
-definition = "Five parallel assessments of the same content, each varying one of examiner, format, language, time and context while holding the others fixed, each with a pass threshold. The composite score is GIS, equal to 1 minus the mean over the five tests of the smaller of 1 and the ratio of the effect size to its threshold."
+definition = "Five parallel assessments of the same content, each varying one of examiner, format, language, time and context while holding the others fixed, each with a pass threshold. The composite score is GIS, equal to 1 minus the mean over the five tests of the smaller of 1 and the ratio of the absolute effect size to its threshold."
 first_stated = "Appendix C, Sections C.1 and C.2, `geometric-education/manuscript/appendices/appendix_c_assessment.md:9-13`, with the composite score in Section C.3, `geometric-education/manuscript/appendices/appendix_c_assessment.md:65-75`."
 conditions = [
   "The thresholds are an effect size below 0.20 for format, language and context, below 0.15 for time, and a kappa of at least 0.80 or an intraclass correlation of at least 0.85 for examiners.",
@@ -313,15 +313,14 @@ id = "educational-bond-index"
 kind = "instrument"
 title = "Educational Bond Index"
 definition = "For an institutional policy P and a student population S, the expected learning deviation of the path the policy allows, measured against each student's geodesic. The learning deviation of a path is the integral over time of its manifold distance from the geodesic. An index of zero means the policy imposes no deviation."
-first_stated = "Definition 13.1, `geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:17-23`, with the computation in Section 13.3, `geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:91-97`. The online edition holds it in the notation table, `geometric-education/manuscript/appendices/appendix_d_notation.md:50-53`, and as code in Appendix B.4, `geometric-education/manuscript/appendices/appendix_b_code.md:89-121`."
+first_stated = "Definition 13.1, `geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:17-23`, with the computation in Section 13.3, `geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:91-97`. It is also in the notation table, `geometric-education/manuscript/appendices/appendix_d_notation.md:50-53`, and as code in Appendix B.4, `geometric-education/manuscript/appendices/appendix_b_code.md:89-121`."
 conditions = [
   "It is a property of the policy and not of the students. The volume says no real institution reaches zero.",
   "The computation needs an estimated learner metric, a computed geodesic and observed trajectories. The volume calls the metric estimate the most uncertain step.",
   "It is decomposed into access, heuristic, metric and residual parts. The volume gives no procedure for separating them.",
-  "Section 18.5 states that no institution has performed the prospective test. The study in Section 13.5 is carried out by the volume's composite student and is narrative, not a record.",
+  "Section 18.5 states that no institution has performed the prospective test. Section 13.5 says of itself that it is an illustrative scenario, that the study of the composite student Alex and its numbers are hypothetical, and that no such study has been run.",
 ]
-standing = "A proposed instrument that has not been computed on data. The value 2.1 and the shares of 45, 30, 15 and 10 percent in Section 13.5 belong to the narrative of the composite student Alex."
-online_page = "appendix_d_notation.html"
+standing = "A proposed instrument that has not been computed on data. The value 2.1 and the shares of 45, 30, 15 and 10 percent in Section 13.5 belong to a scenario the section labels illustrative and hypothetical."
 related = ["bond-index", "legal-bond-index", "learner-geodesic", "inherited-heuristic", "reasoning-geodesic-deviation", "mahalanobis-distance"]
 
 [examples]
@@ -330,7 +329,7 @@ learner-metric = "A symmetric 6 by 6 covariance matrix has 6 diagonal and 15 off
 learner-geodesic = "Suppose two routes reach the goal region. One has segments of cost 2 and 3 and the other has segments of cost 1.5 and 4.5. The totals are 5 and 6, so of the two the first is the geodesic even though its first segment costs more."
 educational-boundary = "With a prerequisite threshold of 0.6 on linear algebra, a student at 0.4 cannot reach the region labeled quantum mechanics and a student at 0.7 can. The volume's example of an institutional boundary is a 3.0 grade point average to stay in an honors program."
 educational-heuristic-field = "With weights of 0.5 on the teacher and 0.5 on the student's own estimate, and estimates of 4 and 6, the field value is 0.5 times 4 plus 0.5 times 6, which is 5. The other three sources have weight zero in this example."
-three-point-five-decomposition = "With the volume's weights, Alex scores 0.270 + 0.213 + 0.035 + 0.040 + 0.023 + 0.013 = 0.593 and Ethan 0.671. The coordinate differences are 0.35, 0.35, 0.30, 0.25, 0.35 and 0.30, whose squares sum to 0.61. The volume prints the distance as about 0.77, and the square root of 0.61 is 0.78."
+three-point-five-decomposition = "With the volume's weights, Alex scores 0.270 + 0.213 + 0.035 + 0.040 + 0.023 + 0.013 = 0.593 and Ethan 0.671. The coordinate differences are 0.35, 0.35, 0.30, 0.25, 0.35 and 0.30, whose squares sum to 0.61. The square root of 0.61 is 0.78, the distance the volume prints."
 gpa-irrecoverability-theorem = "With the volume's weights (0.60, 0.25, 0.05, 0.05, 0.03, 0.02), the states (0.5, 0.4, 0, 0, 0, 0) and (0.4, 0.64, 0, 0, 0, 0) both score 0.40, since 0.30 + 0.10 and 0.24 + 0.16 are equal. For six dimensions the level set of any score has dimension 5."
 assessment-geodesic-divergence = "In the volume's illustration Ethan ends at (0.90, 0.55, 0.40, 0.50, 0.40, 0.30) with a 3.7 average and Alex at (0.70, 0.90, 0.80, 0.75, 0.85, 0.70) with 3.2. The coordinate sums are 3.05 and 4.70, so the higher score goes with the lower sum, as Corollary 5.3.2 says."
 scalar-grade-adequacy-conditions = "The volume's adequate case is a typing speed test in a homogeneous population. Its inadequate case is a university calculus exam in a diverse population, which activates at least three dimensions and feeds consequential decisions, so all three conditions fail."
@@ -346,4 +345,4 @@ educational-gauge-violation-tensor = "The volume's estimated ranges for the SAT 
 gauge-invariance-test-battery = "If the five ratios of effect size to threshold are 0.5, 1.0, 0.2, 0.5 and 0.3, their mean is 2.5 divided by 5, which is 0.5, and GIS is 1 minus 0.5, which is 0.5. That is below 0.60, the band the appendix does not recommend for consequential decisions."
 knowledge-transfer-holonomy = "With a maximum curvature of 2 and a path that encloses an area of 0.3, the bound of Theorem 11.1 gives a holonomy norm of at most 0.6. On a flat region the curvature is 0 and the holonomy is 0."
 educational-ai-no-escape = "An autograder that measures 2 of the 6 learner dimensions leaves 6 minus 2, which is 4, dimensions that Corollary 5.2.1 says it cannot infer. The volume's case is a grader that runs test cases and sees domain knowledge and procedural skill only."
-educational-bond-index = "For two students whose mean distances from their geodesics are 0.4 and 0.8, the index computed as in Appendix B.4 is the average, 0.6. In the volume's narrative the shares of the index are 45, 30, 15 and 10 percent, which sum to 100."
+educational-bond-index = "For two students whose mean distances from their geodesics are 0.4 and 0.8, the index computed as in Appendix B.4 is the average, 0.6. In the volume's illustrative scenario the shares of the index are 45, 30, 15 and 10 percent, which sum to 100."

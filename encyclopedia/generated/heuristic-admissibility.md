@@ -31,7 +31,7 @@ none. *standing.* The definitions and the optimality theorem are established mat
 
 ## first stated
 
-Section 3.3.1, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:117-127`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch03_the_heuristic_field.md#L117-L127), and Definitions 3.1 and 3.2 at [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:419-429`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch03_the_heuristic_field.md#L419-L429). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
+Section 3.3.1, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:117-127`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L117-L127), and Definitions 3.1 and 3.2 at [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:419-429`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L419-L429). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

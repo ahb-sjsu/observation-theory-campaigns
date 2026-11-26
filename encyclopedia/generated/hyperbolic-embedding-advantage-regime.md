@@ -30,7 +30,7 @@ none. *standing.* A proposition stated without proof, motivated by the cited tre
 
 ## first stated
 
-Proposition 5.3 and the paragraphs around it, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:320-335`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L320-L335), with the coda comparison in Section 7.2.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:52-52`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_iii/ch07_whale_communication.md#L52-L52). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
+Proposition 5.3 and the paragraphs around it, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:320-335`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L320-L335), with the coda comparison in Section 7.2.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:52-52`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iii/ch07_whale_communication.md#L52-L52). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

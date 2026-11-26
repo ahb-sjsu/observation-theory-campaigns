@@ -28,7 +28,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Section 14.6, [`geometric-cognition/chapters/ch14_pathology.md:181-188`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch14_pathology.md#L181-L188), under the caveat of Section 14.1, [`geometric-cognition/chapters/ch14_pathology.md:38-40`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch14_pathology.md#L38-L40). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch14_pathology.html).
+Section 14.6, [`geometric-cognition/chapters/ch14_pathology.md:181-188`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch14_pathology.md#L181-L188), under the caveat of Section 14.1, [`geometric-cognition/chapters/ch14_pathology.md:38-40`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch14_pathology.md#L38-L40). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch14_pathology.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

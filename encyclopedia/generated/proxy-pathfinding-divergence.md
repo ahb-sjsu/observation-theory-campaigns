@@ -28,7 +28,7 @@ none. *standing.* Labelled a theorem and stated without proof. The volume reads 
 
 ## first stated
 
-Theorem 9.1, [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:280-286`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_iii/ch09_clinical_cases.md#L280-L286), after Definition 9.2 at [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:266-270`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_iii/ch09_clinical_cases.md#L266-L270). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch09_clinical_cases.html).
+Theorem 9.1, [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:280-286`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iii/ch09_clinical_cases.md#L280-L286), after Definition 9.2 at [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:266-270`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iii/ch09_clinical_cases.md#L266-L270). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch09_clinical_cases.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

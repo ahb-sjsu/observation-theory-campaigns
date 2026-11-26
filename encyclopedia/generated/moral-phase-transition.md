@@ -29,7 +29,7 @@ none. *standing.* Appendix F lists Definitions 8.5 and 8.10 as Modeling Axioms, 
 
 ## first stated
 
-Definition 8.10, Section 8.7, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:873-893`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L873-L893). The boundary type is Definition 8.5, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:297-300`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L297-L300). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.10, Section 8.7, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:875-895`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L875-L895). The boundary type is Definition 8.5, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:297-300`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L297-L300). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

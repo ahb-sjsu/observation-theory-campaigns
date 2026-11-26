@@ -27,11 +27,11 @@ Conditions are curated in `volumes/geometric-aesthetics.toml` rather than read f
 
 ## ledger
 
-none. *standing.* Analogy in Appendix F. The measured part is the cross-lingual invariance result, and the conservation-law language is interpretive.
+none. *standing.* Analogy in Appendix F, and Chapter 12 now words the Noether reading as an analogy. The measured part is the cross-lingual invariance result, and the conservation-law language is interpretive.
 
 ## first stated
 
-Section 12.3, [`geometric-aesthetics/book/src/chapter-12-noethers-theorem-for-aesthetics.md:50-54`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-12-noethers-theorem-for-aesthetics.md#L50-L54). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-12-noethers-theorem-for-aesthetics.html).
+Section 12.3, [`geometric-aesthetics/book/src/chapter-12-noethers-theorem-for-aesthetics.md:50-54`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-12-noethers-theorem-for-aesthetics.md#L50-L54). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-12-noethers-theorem-for-aesthetics.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

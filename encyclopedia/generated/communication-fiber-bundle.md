@@ -18,7 +18,7 @@ none
 
 - The bundle is taken to be locally trivial and not globally trivial. The chapter offers untranslatable concepts as the reason, since some fibers have components that others lack.
 - Identifying fibers at different contents needs a path and a connection. The chapter reads a connection as an interpretive framework and a misunderstanding as failed transport.
-- Here the pragmatic framing lies in the fiber and the base is the content manifold alone. Chapter 3 places the pragmatic manifold in the base with the content manifold.
+- Here the pragmatic framing lies in the fiber and the base is the content manifold alone. Chapter 3 places the pragmatic manifold in the base with the content manifold. Section 13.1.1 names both descriptions and says they differ only in where the pragmatic manifold is counted.
 
 Conditions are curated in `volumes/geometric-communication.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 13.1, [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:42-50`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_v/ch13_gauge_theory.md#L42-L50). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch13_gauge_theory.html).
+Definition 13.1, [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:42-50`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_v/ch13_gauge_theory.md#L42-L50). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch13_gauge_theory.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

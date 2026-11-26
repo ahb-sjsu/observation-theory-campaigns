@@ -19,7 +19,8 @@ none
 ## conditions
 
 - The front matter classes the use of path homology for constitutionality as a modeling axiom. The theorem has a proof sketch.
-- The same chapter states completeness as a conjecture. If the conjecture is false, preserved path homology is a necessary condition and not a sufficient one, and the appendix's full statement claims three one-directional parts only.
+- The chapter says the equivalence holds within the model, in which a constitutional violation is a change in path homology. That no violation escapes this description is the Completeness Conjecture. If the conjecture is false, preserved path homology is a necessary condition and not a sufficient one, and the appendix states the theorem in three one-directional parts.
+- The citation graph is acyclic, and the chapter says a directed cycle must include an edge that is not a forward citation, such as the edges a statute adds.
 - Building the subcomplex requires deciding which vertices satisfy each predicate and how a statute changes the graph. The volume says this legal judgment cannot be fully automated.
 - For a finite directed graph the groups are computable by Smith normal form of the boundary matrices. Chapter 16 leaves open whether the fundamental group detects inconsistencies that path homology misses.
 
@@ -27,11 +28,11 @@ Conditions are curated in `volumes/geometric-law.toml` rather than read from a r
 
 ## ledger
 
-none. *standing.* A conditional theorem with a proof sketch, whose if-and-only-if form the chapter also poses as a conjecture. The volume's applications of it are worked examples and not computations on a case corpus.
+none. *standing.* A conditional theorem with a proof sketch, whose if-and-only-if form holds within the model, while the completeness of the model is posed as a conjecture. The volume's applications of it are worked examples and not computations on a case corpus.
 
 ## first stated
 
-Chapter 7, the subcomplex at [`geometric-law/chapters/ch07_constitutional_topology.md:32-45`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch07_constitutional_topology.md#L32-L45), the theorem at [`geometric-law/chapters/ch07_constitutional_topology.md:99-103`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch07_constitutional_topology.md#L99-L103), and the completeness conjecture at [`geometric-law/chapters/ch07_constitutional_topology.md:187-191`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch07_constitutional_topology.md#L187-L191). Online, [Geometric Law](https://erisml.org/geometric-law/ch07_constitutional_topology.html).
+Chapter 7, the subcomplex at [`geometric-law/chapters/ch07_constitutional_topology.md:32-45`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch07_constitutional_topology.md#L32-L45), the theorem at [`geometric-law/chapters/ch07_constitutional_topology.md:99-103`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch07_constitutional_topology.md#L99-L103), and the completeness conjecture at [`geometric-law/chapters/ch07_constitutional_topology.md:187-191`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch07_constitutional_topology.md#L187-L191). Online, [Geometric Law](https://erisml.org/geometric-law/ch07_constitutional_topology.html).
 
 ## measurements
 
@@ -64,4 +65,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

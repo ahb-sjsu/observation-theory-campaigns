@@ -8,7 +8,7 @@
 
 The cost of a reasoning trajectory minus the cost of the geodesic that joins the same endpoints. The optimal trajectory is the path from the problem state to the goal region that minimizes the cost functional. The deviation is never negative and is zero only for a geodesic.
 
-**Example.** In the volume's illustrative triage example the geodesic costs about 2.1 nats and the corrupted trajectory about 4.6 nats, so the deviation is 4.6 - 2.1 = 2.5 nats.
+**Example.** In the volume's illustrative triage example the geodesic distance is about 1.8 nats and the corrupted trajectory's path length about 4.6 nats, so the deviation is 4.6 - 1.8 = 2.8 nats.
 
 **Known as, or related to prior art.** Path length excess over the shortest path. It is not the geodesic deviation equation of differential geometry, which describes how nearby geodesics separate.
 
@@ -30,7 +30,7 @@ none. *standing.* Posited framework. The README's epistemic-status block of 2026
 
 ## first stated
 
-Definitions 4.1 and 4.2, [`geometric-reasoning/chapters/ch04_geodesics_and_optimal_reasoning.md:92-98`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch04_geodesics_and_optimal_reasoning.md#L92-L98). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch04_geodesics_and_optimal_reasoning.html).
+Definitions 4.1 and 4.2, [`geometric-reasoning/chapters/ch04_geodesics_and_optimal_reasoning.md:92-98`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch04_geodesics_and_optimal_reasoning.md#L92-L98). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch04_geodesics_and_optimal_reasoning.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definition 7.2, Section 7.3, [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:76-90`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch07_alignment_gauge_group.md#L76-L90), with the diagnostic procedure at [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:122-132`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch07_alignment_gauge_group.md#L122-L132). Online, [Geometric AI](https://erisml.org/geometric-ai/ch07_alignment_gauge_group.html).
+Definition 7.2, Section 7.3, [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:78-92`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch07_alignment_gauge_group.md#L78-L92), with the diagnostic procedure at [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:124-134`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch07_alignment_gauge_group.md#L124-L134). Online, [Geometric AI](https://erisml.org/geometric-ai/ch07_alignment_gauge_group.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

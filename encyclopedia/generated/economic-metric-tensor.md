@@ -27,11 +27,11 @@ Conditions are curated in `volumes/geometric-economics.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Modeling axiom in the volume's tags. The repository's registered test prereg-coupling-v1, which predicted that one shared metric couples risk and social preferences as a rank-one factor, was scored on the Global Preferences Survey and falsified on that proxy. The same-subject angle test that the scorecard names as decisive is unrun.
+none. *standing.* Modeling axiom in the volume's tags. The repository's registered test prereg-coupling-v1, which predicted that one shared metric couples risk and social preferences as a rank-one factor, was scored on the Global Preferences Survey and falsified on that proxy. The same-subject angle test that the scorecard names as decisive is unrun. The preface and Section 16.1 report the failed test.
 
 ## first stated
 
-Section 4.1, [`geometric-economics/chapters/ch04_economic_metric.md:40-50`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch04_economic_metric.md#L40-L50), after Definition 4 of Chapter 3, [`geometric-economics/chapters/ch03_decision_manifold.md:125-129`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch03_decision_manifold.md#L125-L129). The registered test named in the standing is scored in [`geometric-economics/experiments/RESULTS_coupling_scorecard.md:8-14`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/experiments/RESULTS_coupling_scorecard.md#L8-L14). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
+Section 4.1, [`geometric-economics/chapters/ch04_economic_metric.md:40-50`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L40-L50), after Definition 4 of Chapter 3, [`geometric-economics/chapters/ch03_decision_manifold.md:129-133`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L129-L133). The registered test named in the standing is scored in [`geometric-economics/experiments/RESULTS_coupling_scorecard.md:8-14`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/experiments/RESULTS_coupling_scorecard.md#L8-L14). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

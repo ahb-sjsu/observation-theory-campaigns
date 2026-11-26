@@ -29,7 +29,7 @@ none. *standing.* Tagged Theorem (conditional on Req. 1 to 4) in the text and Co
 
 ## first stated
 
-Theorem 18.1, Section 18.6, [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:498-527`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-18-geometric-ethics-for-artificial-agents.html#L498-L527), on the requirements of [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:445-496`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-18-geometric-ethics-for-artificial-agents.html#L445-L496). Online, [Geometric Ethics](https://erisml.org/book/chapter-18-geometric-ethics-for-artificial-agents.html).
+Theorem 18.1, Section 18.6, [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:501-530`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-18-geometric-ethics-for-artificial-agents.html#L501-L530), on the requirements of [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:448-499`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-18-geometric-ethics-for-artificial-agents.html#L448-L499). Online, [Geometric Ethics](https://erisml.org/book/chapter-18-geometric-ethics-for-artificial-agents.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

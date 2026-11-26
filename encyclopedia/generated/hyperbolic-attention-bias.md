@@ -29,7 +29,7 @@ none. *standing.* A construction with an ablation that the volume reports only a
 
 ## first stated
 
-Section 5.6.2, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:256-264`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L256-L264), and Section 9.4.1, [`geometric-communication/manuscript/part_iv/ch09_cuneiform.md:114-120`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_iv/ch09_cuneiform.md#L114-L120). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
+Section 5.6.2, [`geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:256-264`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_ii/ch05_hyperbolic_embeddings.md#L256-L264), and Section 9.4.1, [`geometric-communication/manuscript/part_iv/ch09_cuneiform.md:114-120`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iv/ch09_cuneiform.md#L114-L120). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch05_hyperbolic_embeddings.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

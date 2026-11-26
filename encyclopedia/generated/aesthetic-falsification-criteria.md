@@ -16,8 +16,8 @@ none
 
 ## conditions
 
-- The criteria are commitments for future replications. The appendix says none of the tests has failed so far, and those tests are the volume's own runs.
-- The replications named (a different music encoder, a new corpus, a pre-registered bundled corpus) have not been carried out in the volume.
+- The criteria are commitments for future replications. The appendix says the first measurements came out in the stated direction on the volume's own data.
+- The replications named (a different music encoder, a new corpus, a pre-registered bundled corpus) have not been carried out, and the appendix says so.
 - The appendix answers the objection that four channels, 71 axes and many residualization choices leave the framework free to fit any story.
 
 Conditions are curated in `volumes/geometric-aesthetics.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* A stated commitment, not a result. Section E.10 says the thesi
 
 ## first stated
 
-Appendix E, Section E.8, [`geometric-aesthetics/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md:65`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md#L65). The summary is in Section E.10, [`geometric-aesthetics/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md:79-81`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md#L79-L81). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.html).
+Appendix E, Section E.8, [`geometric-aesthetics/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md:65`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md#L65). The summary is in Section E.10, [`geometric-aesthetics/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md:79-81`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/appendices/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.md#L79-L81). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/appendix-e-skeptics-appendix-objections-alternatives-failure-modes.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

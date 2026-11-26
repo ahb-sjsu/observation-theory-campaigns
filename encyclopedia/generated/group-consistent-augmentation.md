@@ -20,7 +20,7 @@ none
 
 - The symmetry group must be known for the task. The volume lists six groups for six task types, one of them the identity alone.
 - The claim that training on the augmented set yields an invariant function holds in the limit of sufficient capacity and training.
-- The two statements differ. Definition 14.2 holds the label fixed while the group acts on the input, and the consistency principle and Definition 14.3 apply the same element to input and output together.
+- Definition 14.2 holds the label fixed while the group acts on the input, and the consistency principle and Definition 14.3 apply the same element to input and output together. The volume relates the two. The fixed-label form is the case in which the group acts trivially on labels.
 - The volume reports parse rates and data expansion for its pipeline. It reports no measured gain in invariance or accuracy from the augmentation.
 
 Conditions are curated in `volumes/geometric-reasoning.toml` rather than read from a record.
@@ -31,7 +31,7 @@ none. *standing.* An engineering practice the volume implemented. The framing of
 
 ## first stated
 
-Section 14.1, the consistency principle, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:48-52`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch14_from_theory_to_engineering.md#L48-L52), and Definitions 14.1 and 14.2 with Proposition 14.1, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:366-370`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch14_from_theory_to_engineering.md#L366-L370). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch14_from_theory_to_engineering.html).
+Section 14.1, the consistency principle, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:48-52`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch14_from_theory_to_engineering.md#L48-L52), and Definitions 14.1 and 14.2 with Proposition 14.1, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:366-370`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch14_from_theory_to_engineering.md#L366-L370). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch14_from_theory_to_engineering.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

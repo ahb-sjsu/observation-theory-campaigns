@@ -29,7 +29,7 @@ none. *standing.* The volume's own classification scheme. The README of 2026-07-
 
 ## first stated
 
-Appendix F, Section F.1, [`geometric-aesthetics/book/src/appendices/appendix-f-mathematical-ledger-status-of-formal-claims.md:7-15`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/appendices/appendix-f-mathematical-ledger-status-of-formal-claims.md#L7-L15). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/appendix-f-mathematical-ledger-status-of-formal-claims.html).
+Appendix F, Section F.1, [`geometric-aesthetics/book/src/appendices/appendix-f-mathematical-ledger-status-of-formal-claims.md:7-15`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/appendices/appendix-f-mathematical-ledger-status-of-formal-claims.md#L7-L15). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/appendix-f-mathematical-ledger-status-of-formal-claims.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

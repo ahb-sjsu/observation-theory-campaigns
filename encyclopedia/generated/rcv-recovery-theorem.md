@@ -20,7 +20,7 @@ none
 
 - The recovery is ordinal and partial. Cardinal intensity is lost, and the Democratic Irrecoverability Theorem still applies.
 - Positions on dimensions that do not affect any candidate ranking stay invisible, as they are under plurality.
-- Chapters 5 and 15 list 45 percent of information preserved for ranked choice in the five-candidate District 7 example. The formula of this theorem gives 4 of 6 for that case, and the volume does not reconcile the two figures.
+- Chapters 5 and 15 list 45 percent of information preserved for ranked choice in the five-candidate District 7 example. The formula of this theorem gives 4 of 6 for that case, and the volume does not reconcile the two figures. Its corrections record of 2026-11-26 lists them as unresolved.
 - The Alaska 2022, New York City 2021 and Maine 2018 elections are read through the theorem after the fact. They are not tests of it.
 
 Conditions are curated in `volumes/geometric-politics.toml` rather than read from a record.
@@ -31,7 +31,7 @@ none. *standing.* A theorem with a proof written in the chapter, which counts in
 
 ## first stated
 
-Theorem 7 of Chapter 13, [`geometric-politics/manuscript/part_iv/ch13_ranked_choice.md:35-47`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/part_iv/ch13_ranked_choice.md#L35-L47). The ratios are repeated in Appendix C.3, [`geometric-politics/manuscript/appendices/appendix_c_voting.md:85-87`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/appendices/appendix_c_voting.md#L85-L87). Online, [Geometric Politics](https://erisml.org/geometric-politics/appendix_c_voting.html).
+Theorem 7 of Chapter 13, [`geometric-politics/manuscript/part_iv/ch13_ranked_choice.md:35-47`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iv/ch13_ranked_choice.md#L35-L47). The ratios are repeated in Appendix C.3, [`geometric-politics/manuscript/appendices/appendix_c_voting.md:85-87`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/appendices/appendix_c_voting.md#L85-L87). Online, [Geometric Politics](https://erisml.org/geometric-politics/appendix_c_voting.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

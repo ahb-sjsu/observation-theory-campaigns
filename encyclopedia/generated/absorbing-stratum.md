@@ -28,7 +28,7 @@ none. *standing.* Appendix F lists Definition 8.6 as a Modeling Axiom, and the l
 
 ## first stated
 
-Definition 8.6, Section 8.3 (Type III boundaries), [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:352-366`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L352-L366). The first form is Definition 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:847-850`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-5-the-moral-manifold.html#L847-L850). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.6, Section 8.3 (Type III boundaries), [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:352-366`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L352-L366). The first form is Definition 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:847-850`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L847-L850). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

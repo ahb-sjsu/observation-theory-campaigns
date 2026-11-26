@@ -31,7 +31,7 @@ none. *standing.* Named a theorem in the volume. The statement is a criterion th
 
 ## first stated
 
-Section 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:19-21`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_iii/ch09_gauge_invariance.md#L19-L21), and Theorem 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:25-33`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_iii/ch09_gauge_invariance.md#L25-L33). Online, [Geometric Education](https://erisml.org/geometric-education/ch09_gauge_invariance.html).
+Section 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:19-21`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch09_gauge_invariance.md#L19-L21), and Theorem 9.1, [`geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:25-33`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch09_gauge_invariance.md#L25-L33). Online, [Geometric Education](https://erisml.org/geometric-education/ch09_gauge_invariance.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

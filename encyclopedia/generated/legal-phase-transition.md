@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 9, [`geometric-law/chapters/ch09_stare_decisis.md:110-126`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch09_stare_decisis.md#L110-L126), with the general definition and the critical point at [`geometric-law/chapters/ch09_stare_decisis.md:210-232`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch09_stare_decisis.md#L210-L232). Online, [Geometric Law](https://erisml.org/geometric-law/ch09_stare_decisis.html).
+Chapter 9, [`geometric-law/chapters/ch09_stare_decisis.md:118-134`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch09_stare_decisis.md#L118-L134), with the general definition and the critical point at [`geometric-law/chapters/ch09_stare_decisis.md:218-240`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch09_stare_decisis.md#L218-L240). Online, [Geometric Law](https://erisml.org/geometric-law/ch09_stare_decisis.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

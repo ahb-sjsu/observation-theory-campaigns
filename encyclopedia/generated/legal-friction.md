@@ -18,7 +18,7 @@ none
 
 - The path must follow directed edges of the judicial complex. An edge of infinite weight makes the argument impossible.
 - Standards of proof are stated as thresholds on this quantity. Preponderance asks the plaintiff's best path to be shorter than the defendant's, clear and convincing asks it to be shorter by a factor below 1, and beyond reasonable doubt asks it to be below a small bound.
-- The chapter's body formula lists boundary penalties as a separate term, while its appendix folds them into the edge weights. The appendix form is the one given here.
+- The chapter's body formula writes the boundary penalties as a separate term and says they are counted once. Its appendix gives the equivalent compact form with the penalties inside the edge weights, which is the form given here.
 - The friction values in the volume's worked examples are illustrative units. No friction computed from real cases is reported.
 
 Conditions are curated in `volumes/geometric-law.toml` rather than read from a record.
@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:161-173`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch04_legal_metric.md#L161-L173), the appendix form at [`geometric-law/chapters/ch04_legal_metric.md:414-418`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch04_legal_metric.md#L414-L418), and the burden of proof at [`geometric-law/chapters/ch04_legal_metric.md:212-220`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch04_legal_metric.md#L212-L220). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
+Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:161-173`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L161-L173), the appendix form at [`geometric-law/chapters/ch04_legal_metric.md:418-422`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L418-L422), and the burden of proof at [`geometric-law/chapters/ch04_legal_metric.md:212-220`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L212-L220). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -18,7 +18,7 @@ none
 
 - Full enumeration is practical only for about 15 dimensions or fewer, depending on the cost of one evaluation. A cap on subset size trades completeness for tractability.
 - The statement that subsets larger than four add little is the volume's expectation, not a measurement, and the tables of Chapter 11 are posited.
-- A best subset chosen on the data that score it is not a finding. In the recorded run of Chapter 19 the winner won on one test module, and over 20 redraws of the generator 15 different subsets won.
+- A best subset chosen on the data that score it is not a finding. In the recorded run of Chapter 19 the winner won on one test module, and over 20 redraws of the generator 15 different subsets won. Section 11.6.5 states that on these data the ground-truth test is not passed.
 
 Conditions are curated in `volumes/geometric-methods.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's status note of 2026-07-14 calls this volume the s
 
 ## first stated
 
-Chapter 11, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:6-8`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-11-subset-enumeration.md#L6-L8), with the counts in Section 11.1.1, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:18-36`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-11-subset-enumeration.md#L18-L36). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-11-subset-enumeration.html).
+Chapter 11, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:6-8`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-11-subset-enumeration.md#L6-L8), with the counts in Section 11.1.1, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:18-36`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-11-subset-enumeration.md#L18-L36). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-11-subset-enumeration.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

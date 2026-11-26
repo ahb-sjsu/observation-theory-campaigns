@@ -21,7 +21,7 @@ none
 - In the books experiment 71 of 128 coordinates receive nonzero weight, and on inspection they read as genre axes. The channel therefore exposes the genre confound as well as predicting.
 - Appendix F counts about 30 of the 71 axes as having interpretable genre or form correlates (F14.2).
 - In music the channel gives R = 0.302 raw and R = 0.177 after genre residualization.
-- The selected axes depend on the regression target, the corpus and the encoder. Chapter 6 states the selection once as 71 of 256 axes (means and variances), which differs from the count in Chapter 17.
+- The selected axes depend on the regression target, the corpus and the encoder. Chapter 6 and Chapter 17 both give the selection as 71 of 128 axes. They still differ on the feature, since Chapter 17 regresses on the per-component variances and Chapter 6 and the Appendix B code on the mean projections, and the volume's corrections record of 2026-11-26 lists this as unresolved.
 
 Conditions are curated in `volumes/geometric-aesthetics.toml` rather than read from a record.
 
@@ -31,7 +31,7 @@ none. *standing.* A measured instrument. The interpretation of the selected axes
 
 ## first stated
 
-Section 17.3.4, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:70-78`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L70-L78). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.3.4, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:70-78`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L70-L78). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

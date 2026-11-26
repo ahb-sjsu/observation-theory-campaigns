@@ -49,7 +49,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/PrecisionRecall.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/PrecisionRecall.lean), theorems `precision_mem_unit`, `recall_mem_unit`, `f1_le_mean`, `min_le_f1`, `f1_self`, `f1_zero`, `f1_counts`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/PrecisionRecall.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/736f790/lean/DataMiningAsObservation/PrecisionRecall.lean), theorems `precision_mem_unit`, `recall_mem_unit`, `f1_le_mean`, `min_le_f1`, `f1_self`, `f1_zero`, `f1_counts`, at observation-data-mining 736f790; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/736f790/chapters/machine_checked.md).
 
 ## used in
 
@@ -65,4 +65,4 @@ Book equations stated beside the entry's terms, not defining it: 6.2.
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -19,7 +19,7 @@ none
 - It shares only a name with the Bond Index of Geometric Ethics, which measures how much an evaluation changes under re-descriptions that should not change it. The volume says a value of one says nothing about the other.
 - The geodesic is a counterfactual, the path of a perfectly calibrated clinician with unlimited resources. Section 12.7 offers expert panels, best-practice benchmarking and computed geodesics as estimates and states the limits of each.
 - It is a population measure of current policy effects. Section 12.8 says it does not measure individual injustice, historical injustice or injustice outside healthcare.
-- Section 18.8 gives it the status formally defined, operationally feasible, not yet computed from clinical data.
+- Section 18.9 gives it the status formally defined, operationally feasible, not yet computed from clinical data.
 
 Conditions are curated in `volumes/geometric-medicine.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* A defined quantity that has not been computed. Its use as a me
 
 ## first stated
 
-Definition 12.1 and Proposition 12.1, [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:21-41`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_iv/ch12_bond_index.md#L21-L41), with the distinction from the Bond Index at [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:17-19`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_iv/ch12_bond_index.md#L17-L19). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch12_bond_index.html).
+Definition 12.1 and Proposition 12.1, [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:21-41`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch12_bond_index.md#L21-L41), with the distinction from the Bond Index at [`geometric-medicine/manuscript/part_iv/ch12_bond_index.md:17-19`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_iv/ch12_bond_index.md#L17-L19). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch12_bond_index.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

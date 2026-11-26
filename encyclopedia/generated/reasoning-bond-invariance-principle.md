@@ -29,7 +29,7 @@ none. *standing.* The principle is a posited norm. The violations and the two nu
 
 ## first stated
 
-Section 8.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:68-70`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch08_gauge_invariance_and_symmetry.md#L68-L70), with the formal statement at [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:481-485`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch08_gauge_invariance_and_symmetry.md#L481-L485). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
+Section 8.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:68-70`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L68-L70), with the formal statement at [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:487-491`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L487-L491). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

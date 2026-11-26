@@ -29,7 +29,7 @@ none. *standing.* The rule follows from the definition of the coordinate. The nu
 
 ## first stated
 
-Section 6.4.4, [`geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:276-288`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-06-pathfinding-on-manifolds.md#L276-L288). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-06-pathfinding-on-manifolds.html).
+Section 6.4.4, [`geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:276-288`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-06-pathfinding-on-manifolds.md#L276-L288). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-06-pathfinding-on-manifolds.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

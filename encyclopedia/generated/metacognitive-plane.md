@@ -18,18 +18,18 @@ none
 
 - The plane and its quadrants are tagged a modeling axiom. The scores placed in it are benchmark measurements on five models.
 - The volume bounds effective control by the smaller of the two scores, treating self-monitoring as a sensor and strategy selection as an actuator.
-- The volume describes the two scores both as weakly correlated and as anti-correlated. The five pairs in its Table 7.2 give a correlation of about -0.98, so the axes are not independent in its data.
-- The statement that every tested model lies in Quadrant II or IV does not match Table 7.2, where one model scores 0.450 and 0.488 and falls in Quadrant III under the 0.5 cut.
+- The volume states that the two scores are strongly anti-correlated in the tested models. The five pairs in its Table 7.2 give a correlation of about -0.98, so the axes are not independent in its data.
+- Four of the five tested models lie in Quadrants II and IV. The fifth scores 0.450 and 0.488 and lies just inside Quadrant III under the 0.5 cut.
 
 Conditions are curated in `volumes/geometric-reasoning.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* A posited two-axis diagnostic filled with measured scores. The claim that Quadrant I is empty agrees with the tabulated scores, while the claims of independent axes and of no model in Quadrant III do not.
+none. *standing.* A posited two-axis diagnostic filled with measured scores. The claim that Quadrant I is empty agrees with the tabulated scores. Since the correction of 2026-11-26 the volume no longer calls the axes independent and places one model in Quadrant III.
 
 ## first stated
 
-Definition 9.2, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:444-458`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch09_metacognition_as_search_control.md#L444-L458), introduced in Section 9.9, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:325-339`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch09_metacognition_as_search_control.md#L325-L339). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch09_metacognition_as_search_control.html).
+Definition 9.2, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:444-458`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch09_metacognition_as_search_control.md#L444-L458), introduced in Section 9.9, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:325-339`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch09_metacognition_as_search_control.md#L325-L339). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch09_metacognition_as_search_control.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

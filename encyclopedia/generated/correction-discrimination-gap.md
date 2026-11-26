@@ -18,18 +18,18 @@ none
 
 - It is an observable computed from two rates on the same correction task, with no geometric assumption.
 - The companion sycophancy index is the wrong-flip rate divided by the correct-flip rate.
-- The volume's values disagree with each other. Chapter 6 prints gaps of 0.377, 0.238 and 0.206 for three models, and Chapter 11 prints 0.000, 0.004 and 0.003 for the same models with different correct-flip rates.
+- Table 6.1 prints gaps of 0.588, 0.377, 0.238 and 0.206 for four models. The table of Section 11.4.1 printed different rates for three of them until the correction of 2026-11-26 and now follows Table 6.1.
 - Reading the gap as distance to a critical surface or as the asymmetry of a basin is the volume's posited interpretation.
 
 Conditions are curated in `volumes/geometric-reasoning.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* A measured benchmark quantity tagged empirical, but the two chapters that tabulate it do not agree, so only the definition and the value 0.588 for one model, which both chapters give, can be relied on.
+none. *standing.* A measured benchmark quantity tagged empirical. The two chapters that tabulate it agree since the correction of 2026-11-26, which set Chapter 11 to the values of Table 6.1. The benchmark's run records are not in the repository.
 
 ## first stated
 
-Definition 6.2, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:458-462`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch06_sycophancy_as_search_hijacking.md#L458-L462), with the sycophancy index defined at [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:452-456`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch06_sycophancy_as_search_hijacking.md#L452-L456). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch06_sycophancy_as_search_hijacking.html).
+Definition 6.2, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:458-462`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch06_sycophancy_as_search_hijacking.md#L458-L462), with the sycophancy index defined at [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:452-456`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch06_sycophancy_as_search_hijacking.md#L452-L456). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch06_sycophancy_as_search_hijacking.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

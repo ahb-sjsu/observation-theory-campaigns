@@ -18,8 +18,8 @@ none
 
 ## conditions
 
-- Theorem 18.1 is written as an equivalence with a non-empty intersection of the individual kernels. The paragraph after it adds that an interaction between dimensions can lie in the collective kernel even when that intersection is empty.
-- Theorem 18.1 has no proof in the chapter and is not among the theorems proved in Appendix D.
+- Theorem 18.1 is a one-directional implication, from a non-empty intersection of the individual kernels to a positive gap. The paragraph after it adds that an interaction between dimensions can lie in the collective kernel even when that intersection is empty.
+- Theorem 18.1 has no proof in the chapter, and Appendix D says it is stated without proof.
 - The proposed remedy is a shared value tensor with system-specific emphasis weights. The claim that the Nash equilibrium then converges to the Bond Geodesic Equilibrium is asserted, and Chapter 20 lists the matching containment question as open.
 - The gap values printed (0.21 on fairness, 0.13 on institutional legitimacy, and a fall from 0.34 to 0.04) belong to a fictional three-system scenario.
 
@@ -31,7 +31,7 @@ none. *standing.* A posited quantity resting on a theorem stated without proof. 
 
 ## first stated
 
-Definition 18.3, Section 18.4, [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:54-66`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_v/ch18_multi_agent.md#L54-L66), with Theorem 18.1 (Multi-Agent Divergence) at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:44-52`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_v/ch18_multi_agent.md#L44-L52) and the two equilibria at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:26-42`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_v/ch18_multi_agent.md#L26-L42). Online, [Geometric AI](https://erisml.org/geometric-ai/ch18_multi_agent.html).
+Definition 18.3, Section 18.4, [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:54-66`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch18_multi_agent.md#L54-L66), with Theorem 18.1 (Multi-Agent Divergence) at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:44-52`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch18_multi_agent.md#L44-L52) and the two equilibria at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:26-42`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch18_multi_agent.md#L26-L42). Online, [Geometric AI](https://erisml.org/geometric-ai/ch18_multi_agent.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

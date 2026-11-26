@@ -18,7 +18,7 @@ none
 
 - The inputs are standardized scores on the six dimensions from the 26-item instrument of Appendix C. The appendix recommends at least 500 voters, and 2,000 or more for the off-diagonal covariance terms.
 - The 85 percent cut is the protocol's convention.
-- The eigenvalues printed for the American electorate are given as approximate, and those for District 7 belong to a fictional district. Neither is a recorded measurement.
+- The eigenvalues printed for the American electorate are given as approximate, and those for District 7 belong to a fictional district. Neither is a recorded measurement. The volume's corrections record of 2026-11-26 notes that the printed District 7 eigenvalues are not those of the printed covariance matrix and lists the item as unresolved.
 
 Conditions are curated in `volumes/geometric-politics.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Appendix C.2, [`geometric-politics/manuscript/appendices/appendix_c_voting.md:67-71`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/appendices/appendix_c_voting.md#L67-L71), with the reading of the eigenvalues in Chapter 4, [`geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:100-100`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/part_ii/ch04_preference_manifold.md#L100-L100). Online, [Geometric Politics](https://erisml.org/geometric-politics/appendix_c_voting.html).
+Appendix C.2, [`geometric-politics/manuscript/appendices/appendix_c_voting.md:67-71`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/appendices/appendix_c_voting.md#L67-L71), with the reading of the eigenvalues in Chapter 4, [`geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:100-100`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch04_preference_manifold.md#L100-L100). Online, [Geometric Politics](https://erisml.org/geometric-politics/appendix_c_voting.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

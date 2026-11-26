@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-ai.toml` rather than read from a re
 
 ## ledger
 
-none. *standing.* Stated as a theorem. Chapter 8 says it states and proves the AI-specific form and supports each clause with a blocking mechanism, and Appendix D, which holds the proofs of five headline theorems, does not include it. The README classes the volume as posited.
+none. *standing.* Stated as a theorem. Chapter 8 says it states the AI-specific form and gives the blocking mechanism for each escape route, and that Geometric Ethics states the original as a conditional theorem. Appendix D, which holds proofs and proof sketches for five theorems, says this one is argued route by route in Chapter 8 and does not prove it. The README classes the volume as posited.
 
 ## first stated
 
-Theorem 8.1, Section 8.1, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:34-48`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch08_no_escape.md#L34-L48), with what it does not block at [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:146-158`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch08_no_escape.md#L146-L158). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
+Theorem 8.1, Section 8.1, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:34-48`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch08_no_escape.md#L34-L48), with what it does not block at [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:146-158`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch08_no_escape.md#L146-L158). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

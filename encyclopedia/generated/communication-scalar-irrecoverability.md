@@ -6,7 +6,7 @@
 
 ## definition
 
-For any scalar evaluation $\phi$ of a communicative act, each level set $\phi^{-1}(r)$ is a submanifold of the communication manifold of codimension at most 1, so it has dimension dim(S) + dim(P) + dim(C) - 1. The scalar value alone does not recover the act's position in the discarded directions.
+For any smooth scalar evaluation $\phi$ of a communicative act and any regular value r of $\phi$, the level set $\phi^{-1}(r)$ is a submanifold of the communication manifold of codimension 1, so it has dimension dim(S) + dim(P) + dim(C) - 1. The scalar value alone does not recover the act's position in the discarded directions.
 
 **Example.** If the signal, pragmatic and content factors had 20, 4 and 10 dimensions, a level set of one score would have 20 + 4 + 10 - 1 = 33 dimensions. The factor sizes are chosen for the arithmetic and are not the volume's.
 
@@ -29,7 +29,7 @@ none. *standing.* A theorem stated with an argument from dimension counting. The
 
 ## first stated
 
-Theorem 3.1, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:389-395`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_i/ch03_communication_manifold.md#L389-L395), and in profile form as Theorem 1.1, [`geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:174-176`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_i/ch01_perplexity_trap.md#L174-L176). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
+Theorem 3.1, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:389-395`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_i/ch03_communication_manifold.md#L389-L395), and in profile form as Theorem 1.1, [`geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:174-176`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_i/ch01_perplexity_trap.md#L174-L176). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

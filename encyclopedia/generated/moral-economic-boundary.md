@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Section 3.4 on boundary penalties and Definition 5, Section 3.5, [`geometric-economics/chapters/ch03_decision_manifold.md:148-162`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch03_decision_manifold.md#L148-L162), with the three penalty regimes in the technical appendix, [`geometric-economics/chapters/ch03_decision_manifold.md:391-396`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch03_decision_manifold.md#L391-L396). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
+Section 3.4 on boundary penalties and Definition 5, Section 3.5, [`geometric-economics/chapters/ch03_decision_manifold.md:152-166`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L152-L166), with the three penalty regimes in the technical appendix, [`geometric-economics/chapters/ch03_decision_manifold.md:399-404`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L399-L404). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

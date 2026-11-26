@@ -30,7 +30,7 @@ none. *standing.* Posited framework. The README's epistemic-status block of 2026
 
 ## first stated
 
-Section 3.1.2, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:35-45`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch03_the_heuristic_field.md#L35-L45), with the formal definition at [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:417-417`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch03_the_heuristic_field.md#L417-L417). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
+Section 3.1.2, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:35-45`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L35-L45), with the formal definition at [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:417-417`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L417-L417). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

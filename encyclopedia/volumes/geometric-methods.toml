@@ -133,7 +133,7 @@ first_stated = "Chapter 11, `geometric-methods/chapters/chapter-11-subset-enumer
 conditions = [
   "Full enumeration is practical only for about 15 dimensions or fewer, depending on the cost of one evaluation. A cap on subset size trades completeness for tractability.",
   "The statement that subsets larger than four add little is the volume's expectation, not a measurement, and the tables of Chapter 11 are posited.",
-  "A best subset chosen on the data that score it is not a finding. In the recorded run of Chapter 19 the winner won on one test module, and over 20 redraws of the generator 15 different subsets won.",
+  "A best subset chosen on the data that score it is not a finding. In the recorded run of Chapter 19 the winner won on one test module, and over 20 redraws of the generator 15 different subsets won. Section 11.6.5 states that on these data the ground-truth test is not passed.",
 ]
 related = ["pareto-dominance", "pairwise-interaction-matrix", "sweep", "defect-campaign-null-result", "split"]
 

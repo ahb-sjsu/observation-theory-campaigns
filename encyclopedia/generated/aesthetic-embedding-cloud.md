@@ -29,7 +29,7 @@ none. *standing.* A construction, with encoders fixed by choice. The claim that 
 
 ## first stated
 
-Section 5.2, [`geometric-aesthetics/book/src/chapter-05-the-aesthetic-manifold.md:41-45`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-05-the-aesthetic-manifold.md#L41-L45). Restated in Section 17.2, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:19-25`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L19-L25). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-5-the-aesthetic-manifold.html).
+Section 5.2, [`geometric-aesthetics/book/src/chapter-05-the-aesthetic-manifold.md:41-45`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-05-the-aesthetic-manifold.md#L41-L45). Restated in Section 17.2, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:19-25`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L19-L25). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-5-the-aesthetic-manifold.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

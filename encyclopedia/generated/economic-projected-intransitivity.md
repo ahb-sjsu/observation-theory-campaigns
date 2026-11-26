@@ -17,7 +17,7 @@ none
 ## conditions
 
 - Transitivity on the full complex needs a fixed metric and a single reference state, so that path cost is one real-valued function of the alternative.
-- The cycle in the proof arises only when the projection is context dependent, comparing each pair on a different subset of dimensions.
+- The theorem states that the cycle arises only when the projection is context dependent, comparing each pair on a different subset of dimensions. A single fixed real-valued projection gives no cycle.
 - The volume reads Tversky's intransitivity experiments this way. That reading is an interpretation and no fitted test of it is reported.
 
 Conditions are curated in `volumes/geometric-economics.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Theorem 16, Chapter 6, [`geometric-economics/chapters/ch06_economic_tensors.md:88-98`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch06_economic_tensors.md#L88-L98). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch06_economic_tensors.html).
+Theorem 16, Chapter 6, [`geometric-economics/chapters/ch06_economic_tensors.md:92-102`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch06_economic_tensors.md#L92-L102). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch06_economic_tensors.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

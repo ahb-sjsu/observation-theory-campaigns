@@ -17,7 +17,7 @@ none
 ## conditions
 
 - It presumes that each agent has its own metric. Proposition 40 gives the monetary part, where an agent with monetary scale sigma pays D squared over sigma squared for a displacement of D dollars.
-- Proposition 42 states that the Gini coefficient is proportional to the square root of the monetary entry and discards the rest. The chapter states this without derivation.
+- Proposition 42 states that the Gini coefficient is proportional to the square root of the monetary entry and discards the rest. The chapter calls the proportionality schematic, and its appendix says the two are related and not identical.
 - The agents' metrics are not measured in the volume. The chapter's ratio of scalar to full-manifold inequality, a factor of two to three, is called a prediction and comes from an illustrative example.
 
 Conditions are curated in `volumes/geometric-economics.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 41 of Chapter 12, Section 12.2, [`geometric-economics/chapters/ch12_inequality.md:94-98`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch12_inequality.md#L94-L98), after Proposition 40, [`geometric-economics/chapters/ch12_inequality.md:50-58`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch12_inequality.md#L50-L58). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch12_inequality.html).
+Definition 41 of Chapter 12, Section 12.2, [`geometric-economics/chapters/ch12_inequality.md:94-98`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch12_inequality.md#L94-L98), after Proposition 40, [`geometric-economics/chapters/ch12_inequality.md:50-58`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch12_inequality.md#L50-L58). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch12_inequality.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

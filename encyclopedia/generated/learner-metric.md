@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 4.1 and Section 4.4.1, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:125-137`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch04_learner_manifold.md#L125-L137), with the dependence on the individual student in Section 10.1, [`geometric-education/manuscript/part_iii/ch10_personalized_learning.md:18-20`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_iii/ch10_personalized_learning.md#L18-L20). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
+Definition 4.1 and Section 4.4.1, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:125-137`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch04_learner_manifold.md#L125-L137), with the dependence on the individual student in Section 10.1, [`geometric-education/manuscript/part_iii/ch10_personalized_learning.md:18-20`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_iii/ch10_personalized_learning.md#L18-L20). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

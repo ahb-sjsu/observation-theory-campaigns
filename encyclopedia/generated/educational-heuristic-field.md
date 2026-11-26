@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 4.5, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:227-231`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch04_learner_manifold.md#L227-L231). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
+Definition 4.5, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:227-231`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch04_learner_manifold.md#L227-L231). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

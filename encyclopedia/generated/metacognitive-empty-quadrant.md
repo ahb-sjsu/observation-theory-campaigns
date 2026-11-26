@@ -17,9 +17,9 @@ none
 ## conditions
 
 - Section 9.7 tabulates four models. The volume says that with four points the negative correlation of about -0.85 does not reach conventional significance.
-- The quadrant is empty only for thresholds from 0.149 up to below 0.500 on M3, and the appendix uses 0.25.
-- The statement that the gap is not a sampling artifact and the topological hole are interpretations. The volume frames the hole with the words if this interpretation is correct.
-- M3 and M4 values for the same models differ between chapters. Gemini 3 Flash has M3 of 0.149 in Section 9.7 and 0.250 in Section 16.7, and Chapter 1 prints Gemini 2.5 Pro at 0.350 and 0.700 where Chapter 9 prints 0.500 and 0.000.
+- The appendix uses a threshold of 0.25, and the volume says the midpoints of 0.5 and the medians leave the same quadrant empty. In the table of Section 9.7 the quadrant is not empty for a threshold below 0.149.
+- The volume says that with so few models a sampling artifact cannot be excluded. The structural constraint and the topological hole are its interpretations, and it frames the hole with the words if this interpretation is correct.
+- M3 and M4 values for the same models differ between chapters. Gemini 3 Flash has M3 of 0.149 in Section 9.7 and 0.250 in Section 16.7, and Gemini 2.5 Flash has 0.111 in the first and 0.167 in the second.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* The ledger grades the observation exploratory (GC-20), with it
 
 ## first stated
 
-Section 9.8, [`geometric-cognition/chapters/ch09_metacognition.md:193-205`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch09_metacognition.md#L193-L205), with Definition 9.5, [`geometric-cognition/chapters/ch09_metacognition.md:217-224`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch09_metacognition.md#L217-L224). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch09_metacognition.html).
+Section 9.8, [`geometric-cognition/chapters/ch09_metacognition.md:193-205`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch09_metacognition.md#L193-L205), with Definition 9.5, [`geometric-cognition/chapters/ch09_metacognition.md:217-224`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch09_metacognition.md#L217-L224). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch09_metacognition.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

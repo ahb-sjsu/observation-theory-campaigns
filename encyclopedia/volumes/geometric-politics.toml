@@ -53,7 +53,7 @@ first_stated = "Appendix C.2, `geometric-politics/manuscript/appendices/appendix
 conditions = [
   "The inputs are standardized scores on the six dimensions from the 26-item instrument of Appendix C. The appendix recommends at least 500 voters, and 2,000 or more for the off-diagonal covariance terms.",
   "The 85 percent cut is the protocol's convention.",
-  "The eigenvalues printed for the American electorate are given as approximate, and those for District 7 belong to a fictional district. Neither is a recorded measurement.",
+  "The eigenvalues printed for the American electorate are given as approximate, and those for District 7 belong to a fictional district. Neither is a recorded measurement. The volume's corrections record of 2026-11-26 notes that the printed District 7 eigenvalues are not those of the printed covariance matrix and lists the item as unresolved.",
 ]
 related = ["covariance-matrix", "eigenvalue-eigenvector", "principal-component-analysis", "explained-variance", "political-preference-manifold"]
 
@@ -120,7 +120,8 @@ first_stated = "Theorem 2 of Chapter 6, `geometric-politics/manuscript/part_ii/c
 conditions = [
   "The axis must be politically activatable. A campaign can make salient only the dimensions voters recognize as relevant.",
   "The model assumes campaigns change the salience of dimensions and leave voters' positions nearly fixed.",
-  "This entry follows the first displayed form and the prose. The volume gives a second displayed form that it calls equivalent, and its proof is a short reduction to a generalized eigenvalue problem.",
+  "The second displayed form is the expansion of the first. It minimizes the electorate's variance along the axis plus the squared offset of the candidate from the mean along the axis. The proof states that identity and reduces the choice to an eigenvalue problem for the matrix $\\Sigma + (x_C - \\mu)(x_C - \\mu)^T$.",
+  "The code listing of Appendix B.5 still implements an earlier ratio form that the theorem no longer states. The volume's corrections record of 2026-11-26 lists the listing as unresolved.",
   "The chapter says the theorem is not a new prediction. It offers it as a geometric account of the known regularity that campaigns stress strengths and avoid weaknesses.",
 ]
 known_as = "Issue ownership and priming in the campaign-effects literature."
@@ -163,7 +164,7 @@ first_stated = "Chapter 7, District 7 example, `geometric-politics/manuscript/pa
 conditions = [
   "It needs cardinal distances from each voter or bloc to each candidate. Ordinal rankings alone do not give it.",
   "It is introduced by a worked example and has no numbered definition. The term Condorcet winner in its usual pairwise sense is used elsewhere in the volume.",
-  "The bloc distances in the example are from the fictional District 7.",
+  "The bloc distances in the example are from the fictional District 7, and the chapter introduces the table as illustrative.",
 ]
 known_as = "It sits beside the Condorcet winner of social choice theory, which is defined by pairwise majorities and not by mean distance."
 related = ["geometrized-arrow-theorem", "political-frechet-mean", "mahalanobis-distance", "rcv-recovery-theorem"]
@@ -175,11 +176,12 @@ title = "Polarization Illusion Theorem"
 definition = "A preference distribution with a single region of high density on the manifold can look bimodal when projected onto one axis oblique to its principal axis. A bimodal one-dimensional projection is therefore necessary but not sufficient evidence of polarization on the manifold."
 first_stated = "Theorem 4 of Chapter 8, `geometric-politics/manuscript/part_iii/ch08_polarization.md:35-41`."
 conditions = [
-  "The proof notes that every projection of a Gaussian is unimodal. The effect needs a non-Gaussian shape such as a ridge or a mixture, and the proof asserts the construction without working it through.",
+  "The proof sketch notes that every projection of a Gaussian is unimodal. The effect needs a non-Gaussian shape such as a ridge or a mixture, and the sketch asserts the construction without working it through.",
+  "The volume's corrections record of 2026-11-26 says the construction in the sketch does not work as written and leaves a correct one to the author.",
   "The theorem does not say American polarization is illusory. The chapter reads the survey record as real separation on social values and institutional trust, sorting on three dimensions, and little structure on foreign policy.",
   "The dimension-by-dimension figures are given as approximate readings of survey series. The District 7 decomposition is illustrative.",
 ]
-standing = "A theorem stated with a short proof in the chapter. Its application to the American electorate is the volume's reading of survey data and not a preregistered test."
+standing = "A theorem stated with a proof sketch, which the chapter labels as such. No complete proof is given. Its application to the American electorate is the volume's reading of survey data and not a preregistered test."
 related = ["sorting-polarization-distinction", "affective-metric-distortion", "projection", "political-preference-manifold", "simpsons-paradox"]
 
 [[entry]]
@@ -216,7 +218,7 @@ definition = "For a districting of $n$ voters, $GI$ is the average manifold dist
 first_stated = "Definition 4 and Theorem 5 of Chapter 9, `geometric-politics/manuscript/part_iii/ch09_gerrymandering.md:36-46`."
 conditions = [
   "It needs each voter's six-dimensional position and an ensemble of random valid maps. Appendix C uses 10,000 maps and treats a rank above the 95th percentile as evidence of manifold gerrymandering.",
-  "Theorem 5 is stated as a criterion and the chapter gives no proof of it.",
+  "Theorem 5 is stated as a criterion and the chapter gives no proof of it. Its criterion, an index above the ensemble expectation, differs from the 95th percentile of the procedure, and the volume's corrections record of 2026-11-26 lists the choice as unresolved.",
   "A dimension-specific index can be high while the overall index is ordinary. The Map C example of an algorithmic map shows this on the trust and identity dimensions.",
   "The index values for the three District 7 maps are illustrative.",
 ]
@@ -286,7 +288,7 @@ first_stated = "Theorem 7 of Chapter 13, `geometric-politics/manuscript/part_iv/
 conditions = [
   "The recovery is ordinal and partial. Cardinal intensity is lost, and the Democratic Irrecoverability Theorem still applies.",
   "Positions on dimensions that do not affect any candidate ranking stay invisible, as they are under plurality.",
-  "Chapters 5 and 15 list 45 percent of information preserved for ranked choice in the five-candidate District 7 example. The formula of this theorem gives 4 of 6 for that case, and the volume does not reconcile the two figures.",
+  "Chapters 5 and 15 list 45 percent of information preserved for ranked choice in the five-candidate District 7 example. The formula of this theorem gives 4 of 6 for that case, and the volume does not reconcile the two figures. Its corrections record of 2026-11-26 lists them as unresolved.",
   "The Alaska 2022, New York City 2021 and Maine 2018 elections are read through the theorem after the fact. They are not tests of it.",
 ]
 standing = "A theorem with a proof written in the chapter, which counts independent pairwise comparisons. The information percentages listed elsewhere in the volume are illustrations."
@@ -304,7 +306,7 @@ conditions = [
   "It needs voter positions from a six-dimensional survey, representative positions estimated from roll-call votes, statements and platforms, and an optimal assignment computed as a minimum-cost matching against a hypothetical pool of representatives.",
   "The README says the instrument has not been built or gated. Chapter 18 lists its adoption as a legal standard among the open questions.",
   "A low average can hide large gaps between subgroups. The volume computes it by subgroup and by dimension for that reason.",
-  "Every value printed for District 7 is illustrative, and the printed values are not all consistent. Plurality is given 2.8 in the comparison table and 1.2 in the first scenario of the same chapter.",
+  "Every value printed for District 7 is illustrative, and the printed values are not all consistent. Plurality is given 2.8 in the comparison table and 1.2 in the first scenario of the same chapter, a difference the volume's corrections record of 2026-11-26 lists as unresolved. The chapter says the computation has not been carried out for a real district.",
 ]
 known_as = "The political instance of the Bond Index of Geometric Ethics."
 related = ["bond-index", "legal-bond-index", "gerrymandering-index", "mahalanobis-distance", "rcv-recovery-theorem", "political-bond-invariance-principle"]

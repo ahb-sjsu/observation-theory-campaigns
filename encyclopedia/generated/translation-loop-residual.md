@@ -31,7 +31,7 @@ none. *standing.* A defined quantity with one reported run. The identification w
 
 ## first stated
 
-Definition 10.7 and the genre table, [`geometric-communication/manuscript/part_iv/ch10_translation.md:196-213`](https://github.com/ahb-sjsu/geometric-communication/blob/8184f3a/manuscript/part_iv/ch10_translation.md#L196-L213). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
+Definition 10.7 and the genre table, [`geometric-communication/manuscript/part_iv/ch10_translation.md:196-213`](https://github.com/ahb-sjsu/geometric-communication/blob/b0c1ca3/manuscript/part_iv/ch10_translation.md#L196-L213). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

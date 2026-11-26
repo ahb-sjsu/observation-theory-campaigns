@@ -29,7 +29,7 @@ none. *standing.* Theorems 5.1 and 5.2 are proved in the text and are elementary
 
 ## first stated
 
-Theorem 5.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:30-36`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch05_assessment_contraction.md#L30-L36), Theorem 5.2, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:48-50`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch05_assessment_contraction.md#L48-L50), and Corollary 5.2.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:60-64`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch05_assessment_contraction.md#L60-L64). Stated informally as Theorem 1.1, [`geometric-education/manuscript/part_i/ch01_gpa_trap.md:177-185`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_i/ch01_gpa_trap.md#L177-L185). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
+Theorem 5.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:30-36`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch05_assessment_contraction.md#L30-L36), Theorem 5.2, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:48-50`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch05_assessment_contraction.md#L48-L50), and Corollary 5.2.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:60-64`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch05_assessment_contraction.md#L60-L64). Stated informally as Theorem 1.1, [`geometric-education/manuscript/part_i/ch01_gpa_trap.md:177-185`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_i/ch01_gpa_trap.md#L177-L185). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

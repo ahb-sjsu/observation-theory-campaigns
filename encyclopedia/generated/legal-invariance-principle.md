@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 8, [`geometric-law/chapters/ch08_equal_protection.md:50-62`](https://github.com/ahb-sjsu/geometric-law/blob/1021d65/chapters/ch08_equal_protection.md#L50-L62). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
+Chapter 8, [`geometric-law/chapters/ch08_equal_protection.md:50-62`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch08_equal_protection.md#L50-L62). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -28,7 +28,7 @@ none. *standing.* The ledger grades the statistic exploratory (GC-12-S) and hold
 
 ## first stated
 
-Section 8.2, [`geometric-cognition/chapters/ch08_learning.md:64-84`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch08_learning.md#L64-L84). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch08_learning.html).
+Section 8.2, [`geometric-cognition/chapters/ch08_learning.md:64-84`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch08_learning.md#L64-L84). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch08_learning.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

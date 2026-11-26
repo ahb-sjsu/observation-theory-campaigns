@@ -103,7 +103,7 @@ conditions = [
   "Tagged a modeling axiom. The convex combination is suggested by the data and is not derived from them.",
   "It describes a shifted objective and not a corrupted heuristic. The volume supports this with the graded revision task, where all models scale their response to the stated severity of a correction.",
   "With equal gradient strengths and directly opposed objectives the critical value is 0.5, above which the search has no net component toward truth.",
-  "The volume gives no fitting procedure. Its values for models follow the sycophancy index for one model and the wrong-flip rate for others.",
+  "The volume gives no fitting procedure. Its values for models follow the sycophancy index, about 0.47, 0.66 and 0.73 for three models, and it sets the fourth at about 0.",
 ]
 related = ["correction-discrimination-gap", "corrigibility-basin", "heuristic-field", "reasoning-bond-invariance-principle"]
 standing = "The parameter is posited. The measured quantity behind it is the wrong-flip rate on the correction task, which runs from 0 percent to 56 percent across four models with a reported combined significance of 13.3 sigma."
@@ -117,11 +117,11 @@ first_stated = "Definition 6.2, `geometric-reasoning/chapters/ch06_sycophancy_as
 conditions = [
   "It is an observable computed from two rates on the same correction task, with no geometric assumption.",
   "The companion sycophancy index is the wrong-flip rate divided by the correct-flip rate.",
-  "The volume's values disagree with each other. Chapter 6 prints gaps of 0.377, 0.238 and 0.206 for three models, and Chapter 11 prints 0.000, 0.004 and 0.003 for the same models with different correct-flip rates.",
+  "Table 6.1 prints gaps of 0.588, 0.377, 0.238 and 0.206 for four models. The table of Section 11.4.1 printed different rates for three of them until the correction of 2026-11-26 and now follows Table 6.1.",
   "Reading the gap as distance to a critical surface or as the asymmetry of a basin is the volume's posited interpretation.",
 ]
 related = ["sycophancy-parameter", "corrigibility-basin", "precision-recall", "false-positive-rate"]
-standing = "A measured benchmark quantity tagged empirical, but the two chapters that tabulate it do not agree, so only the definition and the value 0.588 for one model, which both chapters give, can be relied on."
+standing = "A measured benchmark quantity tagged empirical. The two chapters that tabulate it agree since the correction of 2026-11-26, which set Chapter 11 to the values of Table 6.1. The benchmark's run records are not in the repository."
 
 [[entry]]
 id = "reasoning-basin-of-attraction"
@@ -157,7 +157,7 @@ id = "reasoning-gauge-transformation"
 kind = "concept"
 title = "Gauge transformation of a problem description"
 definition = "A map $\\tau$ on problem descriptions that changes the surface presentation and keeps the task-relevant content. With $\\pi$ the projection from descriptions to content, $\\tau$ is a gauge transformation exactly when $\\pi(\\tau(x)) = \\pi(x)$ for every description $x$. Such maps form a group under composition."
-first_stated = "Definition 8.1, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:479-479`, introduced in Section 8.1.2, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:50-58`."
+first_stated = "Definition 8.1, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:485-485`, introduced in Section 8.1.2, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:50-58`."
 conditions = [
   "It presupposes a content projection, a decision about which features of a description are task-relevant. The volume does not construct this projection for its benchmark and relies on rewrites judged to preserve content.",
   "The group claim needs every transformation to have a content-preserving inverse, which the definition asserts.",
@@ -171,7 +171,7 @@ id = "reasoning-bond-invariance-principle"
 kind = "concept"
 title = "Bond Invariance Principle for reasoning"
 definition = "A judgment function $f$ satisfies the principle when $f(\\tau(x)) = f(x)$ for every description $x$ and every gauge transformation $\\tau$. Equivalently the judgment depends only on the content of the description. A failure is a gauge anomaly, and its magnitude along $\\tau$ is the distance between $f(\\tau(x))$ and $f(x)$."
-first_stated = "Section 8.2, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:68-70`, with the formal statement at `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:481-485`."
+first_stated = "Section 8.2, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:68-70`, with the formal statement at `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:487-491`."
 conditions = [
   "Tagged a modeling axiom. The volume uses it as a diagnostic criterion relative to a chosen class of gauge transformations.",
   "It applies only to content-preserving transformations. A change to the facts should change the output.",
@@ -186,7 +186,7 @@ id = "salience-exploitation-hypothesis"
 kind = "concept"
 title = "Salience Exploitation Hypothesis"
 definition = "The conjecture that a gauge transformation breaks a model's invariance exactly when it changes how strongly input features attract attention, with a violation that grows with the salience differential. The differential is the sum of absolute changes in attention weight over input tokens, and the volume bounds the anomaly by a constant times it."
-first_stated = "Section 8.5, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:160-162`, with Proposition 8.1 at `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:487-495`."
+first_stated = "Section 8.5, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:160-162`, with Proposition 8.1 at `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:493-501`."
 conditions = [
   "Tagged speculation or extension. It is offered as an explanation of the ordering of five benchmark results.",
   "No attention profile or salience differential is measured in the volume. The claim that the differentials follow the same ordering as the anomalies is asserted.",
@@ -204,11 +204,11 @@ first_stated = "Definition 9.2, `geometric-reasoning/chapters/ch09_metacognition
 conditions = [
   "The plane and its quadrants are tagged a modeling axiom. The scores placed in it are benchmark measurements on five models.",
   "The volume bounds effective control by the smaller of the two scores, treating self-monitoring as a sensor and strategy selection as an actuator.",
-  "The volume describes the two scores both as weakly correlated and as anti-correlated. The five pairs in its Table 7.2 give a correlation of about -0.98, so the axes are not independent in its data.",
-  "The statement that every tested model lies in Quadrant II or IV does not match Table 7.2, where one model scores 0.450 and 0.488 and falls in Quadrant III under the 0.5 cut.",
+  "The volume states that the two scores are strongly anti-correlated in the tested models. The five pairs in its Table 7.2 give a correlation of about -0.98, so the axes are not independent in its data.",
+  "Four of the five tested models lie in Quadrants II and IV. The fifth scores 0.450 and 0.488 and lies just inside Quadrant III under the 0.5 cut.",
 ]
 related = ["prompt-recovery-ceiling", "benchmark-scalar-irrecoverability", "correlation", "expected-calibration-error", "calibration"]
-standing = "A posited two-axis diagnostic filled with measured scores. The claim that Quadrant I is empty agrees with the tabulated scores, while the claims of independent axes and of no model in Quadrant III do not."
+standing = "A posited two-axis diagnostic filled with measured scores. The claim that Quadrant I is empty agrees with the tabulated scores. Since the correction of 2026-11-26 the volume no longer calls the axes independent and places one model in Quadrant III."
 
 [[entry]]
 id = "model-robustness-profile"
@@ -220,7 +220,7 @@ conditions = [
   "It is defined relative to a chosen set of perturbation types, an evaluation set and a consistency metric, and it changes with each choice.",
   "Tagged a modeling axiom as a protocol. The volume attributes it to Chapter 9 of Geometric Methods.",
   "The correspondence with the corruption tensor, in which a component is 1 minus a normalized column norm, holds only for one stated consistency metric.",
-  "The volume's composite track scores do aggregate. They are labelled unweighted means of subtask scores, and for the Executive Functions table every printed composite is below the mean of its four subtasks.",
+  "The volume's composite track scores do aggregate. Their captions give them as weighted means of subtask scores. The weights were recovered by solving the tables and have not been confirmed against the benchmark code.",
 ]
 related = ["corruption-tensor", "robustness-adversarial-threshold", "benchmark-scalar-irrecoverability", "pareto-dominance"]
 standing = "A defined measurement protocol. The profile values printed for five models are benchmark measurements, and the reading of the profile as a surface on a reasoning manifold is posited."
@@ -262,10 +262,10 @@ first_stated = "Definition 11.5, `geometric-reasoning/chapters/ch11_alignment_as
 conditions = [
   "Tagged a modeling axiom. It assumes an objective landscape with a single deference state and two named directions at it.",
   "Under a quadratic approximation of the landscape the volume relates the discrimination gap to the asymmetry as about 1 minus 1 over the asymmetry.",
-  "Basin radius, asymmetry and depth are not measured. They are inferred from flip rates, and the flip rates in this chapter's table differ from those in Chapter 6.",
+  "Basin radius, asymmetry and depth are not measured. They are inferred from flip rates. The chapter's flip-rate table follows Table 6.1 since the correction of 2026-11-26, and Figure 11.2 is redrawn from that corrected table.",
 ]
 related = ["correction-discrimination-gap", "sycophancy-parameter", "reasoning-basin-of-attraction", "governance-margin", "hessian"]
-standing = "Posited structure. The basin shapes assigned to models are interpretations of correction-task flip rates, and the chapter's own flip-rate table is inconsistent with the earlier one."
+standing = "Posited structure. The basin shapes assigned to models are interpretations of correction-task flip rates. The correction of 2026-11-26 brought the chapter's flip-rate table in line with Table 6.1 and changed the basin shapes read for three models."
 
 [[entry]]
 id = "dual-binding-constraint"
@@ -284,17 +284,17 @@ related = ["governance-margin", "corrigibility-basin", "reasoning-manifold"]
 id = "benchmark-scalar-irrecoverability"
 kind = "result"
 title = "Scalar Irrecoverability Theorem for benchmark profiles"
-definition = "If the performance profiles of a set of models are mutually Pareto-non-dominated, so that each model beats each other on some dimension and loses on another, then every weighted-sum score with non-negative weights ranks some model below another that it beats on a subset of at least two dimensions."
+definition = "If the performance profiles of a set of models are mutually Pareto-non-dominated, so that each model beats each other on some dimension and loses on another, and each profile exceeds each other on at least two dimensions, then every weighted-sum score with non-negative weights that does not score all models equally ranks some model below another that it beats on a subset of at least two dimensions."
 first_stated = "Theorem 13.1, `geometric-reasoning/chapters/ch13_five_convergent_measurements.md:449-457`, stated informally in Section 13.6, `geometric-reasoning/chapters/ch13_five_convergent_measurements.md:280-282`."
 conditions = [
   "The hypothesis is that no profile dominates another. Where one model is at least as good on every dimension, a monotone score can respect the ordering.",
-  "Tagged a conditional theorem. The proof's step to a subset of size two is not general and appeals to the measured profiles of the five models.",
-  "The volume states it in three forms. Section 13.6 speaks of any composite score, Theorem 13.1 of weighted sums, and Theorem A10.1 of strictly monotone functions that would preserve the ordering on every axis.",
+  "Tagged a conditional theorem. That each profile exceeds each other on at least two dimensions is a hypothesis of the theorem since the correction of 2026-11-26, and the volume says the measured profiles of the five models satisfy it.",
+  "The volume states it in two formal forms, which Section 10.7.1 relates. Theorem 13.1 covers weighted sums, and Theorem A10.1 covers functions that are strictly monotone in each argument. The informal statement of Section 13.6 speaks of weighted composite scores.",
   "It concerns loss of ordering information between incomparable profiles. It does not say that a score chosen for a stated application is wrong for that application.",
 ]
 known_as = "The fact that a partial order of Pareto-incomparable points has no order-preserving map to a line that reflects every coordinate. The volume attributes the theorem to Geometric Methods, Chapter 1."
 related = ["pareto-dominance", "model-robustness-profile", "metacognitive-plane", "aggregation"]
-standing = "A conditional theorem with a proof that leans on the benchmark data for one step. The crossing profiles it is applied to are measurements on five models."
+standing = "A conditional theorem whose hypotheses include a property of the benchmark profiles. The crossing profiles it is applied to are measurements on five models."
 
 [[entry]]
 id = "fisher-combined-statistic"
@@ -304,7 +304,7 @@ definition = "The statistic $-2 \\sum_i \\ln p_i$ over $k$ independent p-values,
 first_stated = "Section 12.6.1, `geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:340-344`, and the technical appendix, `geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:483-495`."
 conditions = [
   "The method is tagged established mathematics and assumes independent tests. The volume grants that the five models share training methods and that four share a lineage.",
-  "The volume calls the result conservative under positive dependence and in the same sentence says the true significance is lower than reported. The two statements do not agree.",
+  "The volume calls the combined test anti-conservative under positive dependence, so the true significance is lower than reported.",
   "Each cell holds 5 to 25 evaluations, so the per-model p-values that enter the sum may be imprecise.",
   "A combined sigma value is a statement about the five tested models taken together. The volume limits it to transformer language models from two laboratories.",
 ]
@@ -321,7 +321,7 @@ first_stated = "Section 14.1, the consistency principle, `geometric-reasoning/ch
 conditions = [
   "The symmetry group must be known for the task. The volume lists six groups for six task types, one of them the identity alone.",
   "The claim that training on the augmented set yields an invariant function holds in the limit of sufficient capacity and training.",
-  "The two statements differ. Definition 14.2 holds the label fixed while the group acts on the input, and the consistency principle and Definition 14.3 apply the same element to input and output together.",
+  "Definition 14.2 holds the label fixed while the group acts on the input, and the consistency principle and Definition 14.3 apply the same element to input and output together. The volume relates the two. The fixed-label form is the case in which the group acts trivially on labels.",
   "The volume reports parse rates and data expansion for its pipeline. It reports no measured gain in invariance or accuracy from the augmentation.",
 ]
 known_as = "Data augmentation by a symmetry group, as in invariant and equivariant learning. The volume attributes the consistency principle to Geometric Methods, Chapter 13."
@@ -333,7 +333,7 @@ reasoning-manifold = "In the volume's illustration a model's moral judgment is a
 heuristic-field = "On the half line of states x at or above 0 with the goal at 0 and unit cost per unit distance, the field h(x) = x gives h(3) = 3, and its negative gradient points toward 0."
 heuristic-admissibility = "If the true cost from a state to the goal is 5, an estimate of 4 is admissible and an estimate of 6 is not."
 false-termination-region = "With a stopping threshold of 1, a state where the heuristic reads 0.5 and the true distance to the goal is 3 lies in the region, since the search halts there 3 units short."
-reasoning-geodesic-deviation = "In the volume's illustrative triage example the geodesic costs about 2.1 nats and the corrupted trajectory about 4.6 nats, so the deviation is 4.6 - 2.1 = 2.5 nats."
+reasoning-geodesic-deviation = "In the volume's illustrative triage example the geodesic distance is about 1.8 nats and the corrupted trajectory's path length about 4.6 nats, so the deviation is 4.6 - 1.8 = 2.8 nats."
 corruption-tensor = "With one perturbation direction whose column is (4, -2) and an intensity of 0.5, the first-order displacement of the judgment is (2, -1)."
 sycophancy-parameter = "With truth and approval gradients of equal strength 1 and directly opposed, the critical value is 1 / (1 + 1) = 0.5, so a weight of 0.6 on approval leaves no net pull toward truth."
 correction-discrimination-gap = "A system that flips on 60 percent of valid corrections and 10 percent of invalid ones has a gap of 0.60 - 0.10 = 0.50 and a sycophancy index of 0.10 / 0.60, about 0.17."

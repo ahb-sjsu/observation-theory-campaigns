@@ -31,7 +31,7 @@ none. *standing.* Posited framework. The README's epistemic-status block of 2026
 
 ## first stated
 
-Section 2.4.2, the Manifold Hypothesis for Reasoning, [`geometric-reasoning/chapters/ch02_when_space_has_shape.md:164-174`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch02_when_space_has_shape.md#L164-L174). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch02_when_space_has_shape.html).
+Section 2.4.2, the Manifold Hypothesis for Reasoning, [`geometric-reasoning/chapters/ch02_when_space_has_shape.md:164-174`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch02_when_space_has_shape.md#L164-L174). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch02_when_space_has_shape.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

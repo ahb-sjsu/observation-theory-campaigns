@@ -30,7 +30,7 @@ none. *standing.* Posited framework. The README's epistemic-status block of 2026
 
 ## first stated
 
-Definition 8.1, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:479-479`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch08_gauge_invariance_and_symmetry.md#L479-L479), introduced in Section 8.1.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:50-58`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch08_gauge_invariance_and_symmetry.md#L50-L58). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
+Definition 8.1, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:485-485`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L485-L485), introduced in Section 8.1.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:50-58`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L50-L58). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -31,7 +31,7 @@ none. *standing.* Posited. The definition is standard differential geometry, and
 
 ## first stated
 
-Definition 10.3, [`geometric-aesthetics/book/src/chapter-10-aesthetic-dynamics-parallel-transport-style-holonomy.md:101-103`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-10-aesthetic-dynamics-parallel-transport-style-holonomy.md#L101-L103). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-10-aesthetic-dynamics-parallel-transport-style-holonomy.html).
+Definition 10.3, [`geometric-aesthetics/book/src/chapter-10-aesthetic-dynamics-parallel-transport-style-holonomy.md:101-103`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-10-aesthetic-dynamics-parallel-transport-style-holonomy.md#L101-L103). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-10-aesthetic-dynamics-parallel-transport-style-holonomy.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

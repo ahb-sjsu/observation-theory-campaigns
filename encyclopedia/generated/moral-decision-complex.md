@@ -18,18 +18,18 @@ none
 
 - The volume tags the definition as a Modeling Axiom.
 - Evidence status of the metric (Section 8.10a, added in v1.28). The covariance that sets the edge weights is a modeling choice, and no measurement in the volume shows a metric predicting moral judgements better than the boundary penalties alone. Every statement that uses the covariance is a statement about a model whose metric has not been tested.
-- Proposition 8.5 relates the complex to the continuous manifold as the grid is refined. It is tagged Proved, and the v1.28 change notes record an open finding on the proof of its part (i) as written.
+- Proposition 8.5 relates the complex to the continuous manifold as the grid is refined. It is tagged Proved, and the v1.28 change notes record an open finding on the proof of its part (i) as written. For that reason v1.29 gave it no row in Appendix F.
 - Each domain volume instantiates the complex with its own dimensions, covariance and penalties. Those choices are not fixed here.
 
 Conditions are curated in `volumes/geometric-ethics.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* Tagged Modeling Axiom in the text. Appendix F and the ledger have no row for Definition 8.12.
+none. *standing.* Tagged Modeling Axiom in the text, and listed as a Modeling Axiom in Appendix F as of v1.29. The ledger has no row for Definition 8.12.
 
 ## first stated
 
-Definition 8.12, Section 8.10a, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1257-1269`](https://github.com/ahb-sjsu/geometric-ethics/blob/cf2325e/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1257-L1269). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.12, Section 8.10a, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1261-1273`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1261-L1273). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

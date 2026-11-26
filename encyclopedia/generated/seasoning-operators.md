@@ -27,11 +27,11 @@ Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read f
 
 ## ledger
 
-none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, with no gastronomy instrument evaluated by the series' admission filter (xbse) and the nearest evaluated perceptual domains, aesthetics and music, rated inadmissible to medium. Its claims are to be read as theory at licensed strength and not as validated measurement, and the chapters tag each statement as a modeling axiom, empirical, a conjecture or a theorem.
+none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, with no gastronomy instrument evaluated by the series' admission filter (xbse) and the nearest evaluated perceptual domains, aesthetics and music, rated inadmissible to medium. Its claims are to be read as theory at licensed strength and not as validated measurement, and the chapters tag each statement as a modeling axiom, empirical, a conjecture or a theorem. Since the corrections of 2026-11-26 the analyses the volume describes carry the tag that no run is recorded for this volume, and their outcomes are worded as predictions.
 
 ## first stated
 
-Chapter 6, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch06_the_algebra_of_seasoning.md#L24-L24), with the generating set and its non-commutation in Section 6.5, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:90-96`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch06_the_algebra_of_seasoning.md#L90-L96). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch06_the_algebra_of_seasoning.html).
+Chapter 6, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch06_the_algebra_of_seasoning.md#L24-L24), with the generating set and its non-commutation in Section 6.5, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:90-96`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch06_the_algebra_of_seasoning.md#L90-L96). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch06_the_algebra_of_seasoning.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

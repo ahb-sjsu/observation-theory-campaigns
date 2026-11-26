@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Theorem 7, Chapter 5, [`geometric-economics/chapters/ch05_price_as_heuristic.md:92-98`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch05_price_as_heuristic.md#L92-L98), within the pathfinding setting of Definition 6, [`geometric-economics/chapters/ch05_price_as_heuristic.md:34-41`](https://github.com/ahb-sjsu/geometric-economics/blob/ab7b319/chapters/ch05_price_as_heuristic.md#L34-L41). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch05_price_as_heuristic.html).
+Theorem 7, Chapter 5, [`geometric-economics/chapters/ch05_price_as_heuristic.md:92-98`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch05_price_as_heuristic.md#L92-L98), within the pathfinding setting of Definition 6, [`geometric-economics/chapters/ch05_price_as_heuristic.md:34-41`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch05_price_as_heuristic.md#L34-L41). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch05_price_as_heuristic.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

@@ -20,7 +20,7 @@ none
 
 - Theorem 6.1 states that A* search with an admissible heuristic finds the learner geodesic. The volume gives it as a direct instantiation of the A* optimality theorem of Geometric Reasoning.
 - With an epsilon-admissible heuristic the teaching path is within epsilon of optimal.
-- The volume's prose reads the admissible case as a teacher who never judges a student ready too early, and the inadmissible case, written $h_T(x) > d(x, G) + \epsilon$, as a teacher who overestimates readiness. The inequality and the prose should be read together.
+- The volume's prose reads the admissible case as a teacher who never judges a student ready too early, and the inadmissible case, written $h_T(x) > d(x, G) + \epsilon$, as a teacher who overestimates readiness. The inequality and the prose do not agree, and the volume's corrections record of 2026-11-26 lists the choice between them as unresolved.
 - The mapping of master, competent and miscalibrated teachers onto the three grades is posited. No teacher's heuristic has been measured.
 
 Conditions are curated in `volumes/geometric-education.toml` rather than read from a record.
@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definitions 6.1 and 6.2 with Theorem 6.1, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:24-28`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch06_teaching_geodesic.md#L24-L28) and [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:50-56`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch06_teaching_geodesic.md#L50-L56), with the weaker grades in Sections 6.2.2 and 6.2.3, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:62-70`](https://github.com/ahb-sjsu/geometric-education/blob/89bcf86/manuscript/part_ii/ch06_teaching_geodesic.md#L62-L70). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
+Definitions 6.1 and 6.2 with Theorem 6.1, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:24-28`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch06_teaching_geodesic.md#L24-L28) and [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:50-56`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch06_teaching_geodesic.md#L50-L56), with the weaker grades in Sections 6.2.2 and 6.2.3, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:62-70`](https://github.com/ahb-sjsu/geometric-education/blob/e39d0b7/manuscript/part_ii/ch06_teaching_geodesic.md#L62-L70). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

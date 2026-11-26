@@ -31,7 +31,7 @@ none. *standing.* A theorem with a proof sketch. Parts (i) and (ii) are elementa
 
 ## first stated
 
-Theorem 15.1, [`geometric-aesthetics/book/src/chapter-15-from-tensor-to-judgment.md:127-135`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-15-from-tensor-to-judgment.md#L127-L135). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-15-from-tensor-to-judgment.html).
+Theorem 15.1, [`geometric-aesthetics/book/src/chapter-15-from-tensor-to-judgment.md:127-135`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-15-from-tensor-to-judgment.md#L127-L135). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-15-from-tensor-to-judgment.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

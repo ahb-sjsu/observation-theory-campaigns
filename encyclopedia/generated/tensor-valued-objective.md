@@ -17,7 +17,7 @@ none
 ## conditions
 
 - Corollary 5.3 requires the d components to be linearly independent, and a left inverse exists when the reward is injective. A component that is missing or dependent restores a kernel.
-- Chapter 14 says the contraction weights and method are parameters set by governance and not learned features. Chapter 16 says the weights of its practical objective are learned from the metric and not hand-specified.
+- Chapter 14 says the contraction weights and method are parameters set by governance and not learned features. Chapter 16 derives the weights of its practical objective from the learned metric, notes the difference from Chapter 14, and compares the two in Section 16.6.
 - Any contraction to a scalar is itself lossy. The architecture answers this by logging the tensor, the contraction and the residue for every output.
 - The chapter points to the MoralTensor class of the ErisML library as a running implementation. The README says such artifacts are real and separately validated while the alignment thesis is not validated measurement.
 
@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definition 14.1, Section 14.3, [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:70-80`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_iv/ch14_constitutional_geometry.md#L70-L80), with Corollary 5.3 (Tensor Sufficiency) at [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:154-158`](https://github.com/ahb-sjsu/geometric-ai/blob/2363455/manuscript/part_ii/ch05_reward_irrecoverability.md#L154-L158). Online, [Geometric AI](https://erisml.org/geometric-ai/ch14_constitutional_geometry.html).
+Definition 14.1, Section 14.3, [`geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:70-80`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iv/ch14_constitutional_geometry.md#L70-L80), with Corollary 5.3 (Tensor Sufficiency) at [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:154-158`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch05_reward_irrecoverability.md#L154-L158). Online, [Geometric AI](https://erisml.org/geometric-ai/ch14_constitutional_geometry.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

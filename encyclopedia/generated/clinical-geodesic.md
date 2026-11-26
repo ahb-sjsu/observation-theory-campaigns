@@ -21,17 +21,17 @@ none
 - The goal region is the set of states at or above a minimum acceptable attribute vector, and it is set jointly by clinician and patient.
 - It may not exist. When a resource constraint removes edges, the goal region can become unreachable.
 - It depends on the covariance matrix, the boundary penalties and the goal region, and different estimates give different geodesics.
-- It is a minimum-cost path on a discrete complex and not a geodesic of a smooth metric. Section 18.8 gives the pathfinding model the status formally developed, not directly validated.
+- It is a minimum-cost path on a discrete complex and not a geodesic of a smooth metric. Section 18.9 gives the pathfinding model the status formally developed, not directly validated.
 
 Conditions are curated in `volumes/geometric-medicine.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.8 says the covariance matrix has not been estimated and the clinical Bond Index has not been computed from clinical data, so every number in these entries is an illustration unless the entry says otherwise.
+none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.9 says the covariance matrix has not been estimated and the clinical Bond Index has not been computed from clinical data, so every number in these entries is an illustration unless the entry says otherwise.
 
 ## first stated
 
-Definition 6.2, [`geometric-medicine/manuscript/part_ii/ch06_clinical_astar.md:106-112`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_ii/ch06_clinical_astar.md#L106-L112). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch06_clinical_astar.html).
+Definition 6.2, [`geometric-medicine/manuscript/part_ii/ch06_clinical_astar.md:106-112`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch06_clinical_astar.md#L106-L112). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch06_clinical_astar.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

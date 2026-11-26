@@ -29,7 +29,7 @@ none. *standing.* The moment identities are proved and checked symbolically. The
 
 ## first stated
 
-Section 17.11.2, [`geometric-methods/chapters/chapter-17-scaling.md:503-513`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-17-scaling.md#L503-L513), with the withdrawn claim at [`geometric-methods/chapters/chapter-17-scaling.md:540-540`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-17-scaling.md#L540-L540). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-17-scaling.html).
+Section 17.11.2, [`geometric-methods/chapters/chapter-17-scaling.md:503-513`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-17-scaling.md#L503-L513), with the withdrawn claim at [`geometric-methods/chapters/chapter-17-scaling.md:540-540`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-17-scaling.md#L540-L540). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-17-scaling.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

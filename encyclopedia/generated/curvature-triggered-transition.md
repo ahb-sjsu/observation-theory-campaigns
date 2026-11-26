@@ -20,8 +20,8 @@ none
 
 - The ledger holds the identification of System 1 with gradient following and System 2 with geodesic computation at posited (GC-6).
 - The sharp threshold is called a mathematical idealization, with a sigmoid blend of the two regimes in practice. The threshold is a property of the individual system and not a universal constant.
-- Chapter 2 states the trigger with sectional curvature and Chapter 12 states it with scalar curvature.
-- The confirming evidence in Section 12.6 is Maya's experiment, which belongs to the chapter's running example. Chapter 17 calls a result of that running example fictional and described for narrative purposes.
+- Chapter 2 states the trigger with the magnitude of the sectional curvature and Chapter 12 states it with the scalar curvature. A paragraph after Definition 12.3 relates the two and notes that Definition 2.3 also triggers on strongly negative curvature, which Definition 12.3 as written does not.
+- Section 12.6 illustrates the prediction with Maya's hypothetical experiment, which belongs to the chapter's running example, and says the study has not been run. The front matter calls Maya fictional and her studies illustrative scenarios, not data.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -31,7 +31,7 @@ none. *standing.* Posited. The campaign record lists no gate that tests a curvat
 
 ## first stated
 
-Definition 2.3, [`geometric-cognition/chapters/ch02_kahneman.md:128-128`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch02_kahneman.md#L128-L128), and Definition 12.3, [`geometric-cognition/chapters/ch12_dual_process.md:109-113`](https://github.com/ahb-sjsu/geometric-cognition/blob/585fc4e/chapters/ch12_dual_process.md#L109-L113). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
+Definition 2.3, [`geometric-cognition/chapters/ch02_kahneman.md:128-128`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch02_kahneman.md#L128-L128), and Definition 12.3, [`geometric-cognition/chapters/ch12_dual_process.md:109-115`](https://github.com/ahb-sjsu/geometric-cognition/blob/bb63812/chapters/ch12_dual_process.md#L109-L115). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

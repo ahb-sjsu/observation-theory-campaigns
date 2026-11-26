@@ -29,7 +29,7 @@ none. *standing.* A posited organization of measured features. The per-level inc
 
 ## first stated
 
-Section 6.1, [`geometric-aesthetics/book/src/chapter-06-the-tensor-hierarchy.md:11-20`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-06-the-tensor-hierarchy.md#L11-L20). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-6-the-tensor-hierarchy.html).
+Section 6.1, [`geometric-aesthetics/book/src/chapter-06-the-tensor-hierarchy.md:11-20`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-06-the-tensor-hierarchy.md#L11-L20). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-6-the-tensor-hierarchy.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

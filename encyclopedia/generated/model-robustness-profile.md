@@ -19,7 +19,7 @@ none
 - It is defined relative to a chosen set of perturbation types, an evaluation set and a consistency metric, and it changes with each choice.
 - Tagged a modeling axiom as a protocol. The volume attributes it to Chapter 9 of Geometric Methods.
 - The correspondence with the corruption tensor, in which a component is 1 minus a normalized column norm, holds only for one stated consistency metric.
-- The volume's composite track scores do aggregate. They are labelled unweighted means of subtask scores, and for the Executive Functions table every printed composite is below the mean of its four subtasks.
+- The volume's composite track scores do aggregate. Their captions give them as weighted means of subtask scores. The weights were recovered by solving the tables and have not been confirmed against the benchmark code.
 
 Conditions are curated in `volumes/geometric-reasoning.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* A defined measurement protocol. The profile values printed for
 
 ## first stated
 
-Definition A10.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:516-524`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch10_the_robustness_surface.md#L516-L524), introduced in Section 10.2.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:74-84`](https://github.com/ahb-sjsu/geometric-reasoning/blob/881f075/chapters/ch10_the_robustness_surface.md#L74-L84). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
+Definition A10.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:516-524`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L516-L524), introduced in Section 10.2.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:74-84`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L74-L84). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

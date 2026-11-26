@@ -31,7 +31,7 @@ none. *standing.* Posited structure. Appendix F marks the manifold claim conject
 
 ## first stated
 
-Definition 5.1 and the Gaussian restriction, [`geometric-aesthetics/book/src/chapter-05-the-aesthetic-manifold.md:27-35`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-05-the-aesthetic-manifold.md#L27-L35). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-5-the-aesthetic-manifold.html).
+Definition 5.1 and the Gaussian restriction, [`geometric-aesthetics/book/src/chapter-05-the-aesthetic-manifold.md:27-35`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-05-the-aesthetic-manifold.md#L27-L35). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-5-the-aesthetic-manifold.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

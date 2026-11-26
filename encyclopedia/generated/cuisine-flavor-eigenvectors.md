@@ -17,19 +17,19 @@ none
 ## conditions
 
 - The distribution is a modeling axiom. The eigendecomposition of a symmetric positive-semidefinite covariance is tagged a theorem and is standard linear algebra.
-- The named axes (richness for French, dashi for Japanese, chile and toast for Mexican) are a stylized reading. The volume says the axes depend on corpus and featurization, and that honest practice reports the loadings.
-- The claim that five to ten components capture most within-cuisine variance is tagged empirical and stated without a printed spectrum.
+- The named axes (richness for French, dashi for Japanese, chile and toast for Mexican) are a stylized, illustrative reading and not loadings computed in the volume. The volume says the axes depend on corpus and featurization, and that honest practice reports the loadings.
+- The claim that five to ten components capture most within-cuisine variance is tagged an expected result with no run recorded for this volume. No spectrum is printed.
 - Authenticity is read as likelihood under the distribution, so a cuisine has no sharp edges.
 
 Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, with no gastronomy instrument evaluated by the series' admission filter (xbse) and the nearest evaluated perceptual domains, aesthetics and music, rated inadmissible to medium. Its claims are to be read as theory at licensed strength and not as validated measurement, and the chapters tag each statement as a modeling axiom, empirical, a conjecture or a theorem.
+none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, with no gastronomy instrument evaluated by the series' admission filter (xbse) and the nearest evaluated perceptual domains, aesthetics and music, rated inadmissible to medium. Its claims are to be read as theory at licensed strength and not as validated measurement, and the chapters tag each statement as a modeling axiom, empirical, a conjecture or a theorem. Since the corrections of 2026-11-26 the analyses the volume describes carry the tag that no run is recorded for this volume, and their outcomes are worded as predictions.
 
 ## first stated
 
-Chapter 9, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L24-L24), with the eigendecomposition in Section 9.2, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:40-44`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L40-L44). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
+Chapter 9, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L24-L24), with the eigendecomposition in Section 9.2, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:40-44`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L40-L44). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
 
 ## measurements
 
@@ -62,4 +62,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

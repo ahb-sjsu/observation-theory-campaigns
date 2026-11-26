@@ -18,7 +18,7 @@ none
 
 ## conditions
 
-- The program is a modeling axiom and the reachability statement is tagged a theorem. It is stated for the linear-mixing regime with a positive-definite metric and a convex admissible set, and the volume's proof is one sentence from strict convexity.
+- The program is a modeling axiom and the reachability statement is tagged a theorem. It is stated for the linear-mixing regime with a positive-definite metric and a convex admissible set, and the volume's proof is one sentence from strict convexity in the flavor point $B\mathbf{x}$. The minimum is attained at a unique flavor point, and the dose vector is unique only when the palette vectors are linearly independent.
 - Convexity fails where mixing is nonlinear, in synergy and antagonism and in threshold and saturation effects at high dose. There the program is a local model, refined by panel-tested iterations.
 - When the target lies outside the reachable polytope, the residual distance is what the volume calls the artificiality gap, and the active constraints say which limit blocks a closer match.
 - Masking, mimicry, cost-limited formulation and personalization are presented as the same program under different targets, palettes, constraints and metrics.
@@ -31,7 +31,7 @@ none. *standing.* A theorem in the volume's tagging, with a one-sentence proof a
 
 ## first stated
 
-Section 13.4, [`geometric-gastronomy/chapters/ch13_designing_flavors.md:68-76`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/dfbfdbb/chapters/ch13_designing_flavors.md#L68-L76). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch13_designing_flavors.html).
+Section 13.4, [`geometric-gastronomy/chapters/ch13_designing_flavors.md:68-76`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch13_designing_flavors.md#L68-L76). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch13_designing_flavors.html).
 
 ## measurements
 
@@ -64,4 +64,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

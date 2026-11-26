@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 6 of Chapter 12, [`geometric-politics/manuscript/part_iii/ch12_coalitions.md:26-30`](https://github.com/ahb-sjsu/geometric-politics/blob/436c5b5/manuscript/part_iii/ch12_coalitions.md#L26-L30). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch12_coalitions.html).
+Definition 6 of Chapter 12, [`geometric-politics/manuscript/part_iii/ch12_coalitions.md:26-30`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch12_coalitions.md#L26-L30). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch12_coalitions.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

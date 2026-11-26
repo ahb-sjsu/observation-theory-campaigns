@@ -28,7 +28,7 @@ none. *standing.* Proved, and checked against an independent computation in `for
 
 ## first stated
 
-Section 3.6.1, [`geometric-methods/chapters/chapter-03-hyperbolic-geometry.md:530-554`](https://github.com/ahb-sjsu/geometric-methods/blob/371478c/chapters/chapter-03-hyperbolic-geometry.md#L530-L554). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-03-hyperbolic-geometry.html).
+Section 3.6.1, [`geometric-methods/chapters/chapter-03-hyperbolic-geometry.md:530-554`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-03-hyperbolic-geometry.md#L530-L554). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-03-hyperbolic-geometry.html).
 
 ## measurements
 
@@ -61,4 +61,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.

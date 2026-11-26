@@ -26,11 +26,11 @@ Conditions are curated in `volumes/geometric-medicine.toml` rather than read fro
 
 ## ledger
 
-none. *standing.* A theorem with a short proof in Section 7.1, conditional on the calibration hypothesis. Section 18.8 gives the underlying pathfinding model the status formally developed, behaviorally plausible, not directly validated.
+none. *standing.* A theorem with a short proof in Section 7.1, conditional on the calibration hypothesis. Section 18.9 gives the underlying pathfinding model the status formally developed, behaviorally plausible, not directly validated.
 
 ## first stated
 
-Theorem 7.1, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:26-32`](https://github.com/ahb-sjsu/geometric-medicine/blob/ecde39b/manuscript/part_ii/ch07_heuristic_spectrum.md#L26-L32). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch07_heuristic_spectrum.html).
+Theorem 7.1, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:26-32`](https://github.com/ahb-sjsu/geometric-medicine/blob/6c8c4c4/manuscript/part_ii/ch07_heuristic_spectrum.md#L26-L32). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch07_heuristic_spectrum.html).
 
 ## measurements
 
@@ -63,4 +63,4 @@ none
 
 ## status
 
-Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining 736f790; the commit of every record is listed in the encyclopedia's provenance.
