@@ -17,6 +17,7 @@ from __future__ import annotations
 import glob
 import json
 import os
+import posixpath
 import re
 import subprocess
 import sys
@@ -55,8 +56,23 @@ def record(repo, rel):
 
 
 def read(repo, rel):
+    """A record's text. Relative markdown links in it are made absolute (the record's file on
+    GitHub at the commit read), because the passage is quoted on a page of the encyclopedia,
+    where a relative link would point at nothing."""
     p = record(repo, rel)
-    return open(p, encoding="utf-8").read() if p else ""
+    if not p:
+        return ""
+    text = open(p, encoding="utf-8").read()
+    base = posixpath.dirname(rel.replace("\\", "/"))
+
+    def absolute(m):
+        target = m.group(2)
+        if re.match(r"[a-z][a-z0-9+.-]*:|#|/", target, re.I):
+            return m.group(0)
+        path = posixpath.normpath(posixpath.join(base, target))
+        return f"{m.group(1)}({GITHUB}/{repo}/blob/{COMMITS.get(repo) or 'HEAD'}/{path})"
+
+    return re.sub(r"(\[[^\]\n]*\])\(([^)\s]+)\)", absolute, text)
 
 
 # ---------------------------------------------------------------- the book

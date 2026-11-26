@@ -426,7 +426,15 @@ def lists_html(single):
     parts.append(('chapters', "Entries by chapter of the book", "<p>The two primers, L for linear algebra and S for probability and statistics, come before chapter 0 in the book.</p>" + "".join(f"<h2>{'Primer' if isinstance(c, str) else 'Chapter'} {chapter_link(c)}, {len(set(v))}</h2><p>" + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for c, v in sorted(used_in.items(), key=lambda kv: (0, kv[0]) if isinstance(kv[0], str) else (1, f"{kv[0]:02d}")))))
     parts.append(('lean', "Entries by Lean file", f"<p>The file of the book's Lean project that machine-checks the entry's core. Each name links to the file's source in the book's online edition. Appendix C of the book, <a href='{BOOK_URL}/machine_checked.html'>Machine-checked statements</a>, says what each file proves.</p>" + "".join(f'<h2><a href="{GITHUB}/observation-data-mining/blob/{book_commit}/lean/DataMiningAsObservation/{f}"><code>{f}</code></a></h2><p>' + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for f, v in sorted(by_lean.items(), key=lambda kv: kv[0].lower()))))
     led = ["<p>Every ledger row an entry cites, printed once in full from geometric-observation's claims ledger, with the entries it bears on.</p>"]
+    short_seen = set()
     for key, claim, cls, ln in LEDGER:
+        # Entries link a row by its short id (GO-2, NEG-15); the first row with that id carries
+        # it. A combined label ("GO-2/GO-12/GO-13 operational ...") carries each of its ids.
+        lead = key.split(" ", 1)[0]
+        for short in re.findall(r"(?:GO|NEG|OT)-[A-Za-z0-9-]+", lead):
+            if short != key and short not in short_seen:
+                led.append(f'<a id="{html.escape(short)}"></a>')
+            short_seen.add(short)
         ents = sorted({i for p, v in by_row.items() if key.startswith(p) and not key[len(p):len(p) + 1].isdigit() for i in v}, key=lambda i: sort_key(by_id[i]))
         led.append(f'<h2 id="{html.escape(key)}">{html.escape(key)} <code>[{cls}]</code></h2><p>{html.escape(claim)} <a href="{GITHUB}/geometric-observation/blob/master/claims/LEDGER.md#L{ln}">LEDGER.md:{ln}</a></p><p class=al>Entries: ' + "; ".join(elink(i, single) for i in ents) + ".</p>")
     parts.append(('ledger', "The ledger", "".join(led)))
