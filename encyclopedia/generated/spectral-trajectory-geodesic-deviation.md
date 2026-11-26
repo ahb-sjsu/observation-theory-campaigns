@@ -18,7 +18,7 @@ none
 
 - The number of windows is $K = \lfloor (T - w)/h \rfloor + 1$ for a spectrogram of T frames.
 - By the triangle inequality the deviation is at least zero, with equality if and only if the trajectory is a geodesic.
-- The chapter reads high deviation as song complexity (a trill) and low deviation as a smooth transition (a descending whistle). This reading is the chapter's interpretation and is not tested separately.
+- The chapter reads the deviation as song complexity. A descending whistle gives low deviation. A trill gives high deviation if the window resolves each repetition, and low deviation with the one-second sub-windows of the implementation, where the trajectory stays near one point. This reading is the chapter's interpretation and is not tested separately.
 
 Conditions are curated in `volumes/geometric-communication.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definitions 4.9 and 4.10, [`geometric-communication/manuscript/part_ii/ch04_three_geometries.md:358-370`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_ii/ch04_three_geometries.md#L358-L370). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch04_three_geometries.html).
+Definitions 4.9 and 4.10, [`geometric-communication/manuscript/part_ii/ch04_three_geometries.md:358-370`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_ii/ch04_three_geometries.md#L358-L370). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch04_three_geometries.html).
 
 ## measurements
 

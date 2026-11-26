@@ -6,7 +6,7 @@
 
 ## definition
 
-A fusion dish is modeled as a point on the geodesic between two cuisine distributions under the Wasserstein metric on Gaussians. The means interpolate linearly and the covariances along a curved path of valid covariances. A mixture $t\,p_A + (1-t)\,p_B$ is bimodal and is not fusion. Curdling is leaving the support of both parents.
+A fusion dish is modeled as a point on the geodesic between two cuisine distributions under the Wasserstein metric on Gaussians. The means interpolate linearly and the covariances along a curved path of valid covariances. A mixture $(1-t)\,p_A + t\,p_B$ is bimodal and is not fusion. Curdling is leaving the support of both parents.
 
 **Example.** In one dimension, two Gaussians with means 0 and 10 and standard deviations 1 and 3 have a Wasserstein midpoint with mean 5 and standard deviation 2, a single cloud. Their half-and-half mixture also has mean 5 and keeps two modes, near 0 and near 10. The numbers are illustrative.
 
@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 9.4, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:60-64`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L60-L64). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
+Section 9.4, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:60-64`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L60-L64). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
 
 ## measurements
 

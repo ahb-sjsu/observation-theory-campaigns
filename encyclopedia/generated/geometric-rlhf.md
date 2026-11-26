@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Chapter 16, [`geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:22-26`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iv/ch16_geometric_rlhf.md#L22-L26) (Definition 16.1), [`geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:36-44`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iv/ch16_geometric_rlhf.md#L36-L44) (metric learning) and [`geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:74-86`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iv/ch16_geometric_rlhf.md#L74-L86) (Definition 16.2). Online, [Geometric AI](https://erisml.org/geometric-ai/ch16_geometric_rlhf.html).
+Chapter 16, [`geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:22-26`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_iv/ch16_geometric_rlhf.md#L22-L26) (Definition 16.1), [`geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:36-44`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_iv/ch16_geometric_rlhf.md#L36-L44) (metric learning) and [`geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:74-86`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_iv/ch16_geometric_rlhf.md#L74-L86) (Definition 16.2). Online, [Geometric AI](https://erisml.org/geometric-ai/ch16_geometric_rlhf.html).
 
 ## measurements
 

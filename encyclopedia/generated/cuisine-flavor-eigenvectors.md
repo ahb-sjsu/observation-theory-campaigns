@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 9, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L24-L24), with the eigendecomposition in Section 9.2, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:40-44`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L40-L44). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
+Chapter 9, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L24-L24), with the eigendecomposition in Section 9.2, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:40-44`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L40-L44). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
 
 ## measurements
 

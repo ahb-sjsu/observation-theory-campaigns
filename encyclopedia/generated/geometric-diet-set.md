@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 11.1, [`geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:32-34`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch11_the_geometry_of_nutrition.md#L32-L34), with the diet set in Section 11.5, [`geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:82-84`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch11_the_geometry_of_nutrition.md#L82-L84). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch11_the_geometry_of_nutrition.html).
+Section 11.1, [`geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:32-34`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch11_the_geometry_of_nutrition.md#L32-L34), with the diet set in Section 11.5, [`geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:86-88`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch11_the_geometry_of_nutrition.md#L86-L88). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch11_the_geometry_of_nutrition.html).
 
 ## measurements
 

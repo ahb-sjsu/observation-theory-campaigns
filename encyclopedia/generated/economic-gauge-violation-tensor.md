@@ -18,7 +18,8 @@ none
 
 - The transformations must be meaning preserving. Under Remark 45 a nonzero entry can be a pseudo-violation that reflects real economic content.
 - Proposition 42 gives the composition rule. The violation of a composed transformation is the sum of the violations along the chain.
-- The chapter describes a measurement protocol, the same states shown under each transformation to the same or matched subjects. It reports published experiments by others and no measurement of the tensor itself.
+- The chapter describes a measurement protocol, the same states shown under each transformation to the same or matched subjects, which adapts to human subjects the experiments Geometric Ethics ran in an embedding model. It reports published experiments by others and no measurement of the tensor itself.
+- The Bond Index of Section 4.4 is the deviation under one re-description. Section 4.4 says it is a different quantity from the Bond Index of Geometric Ethics, Chapter 18, which is the mean of such deviations over the tested inputs and declared re-descriptions, divided by a tolerance.
 
 Conditions are curated in `volumes/geometric-economics.toml` rather than read from a record.
 
@@ -28,7 +29,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 41, Section 8.7, [`geometric-economics/chapters/ch08_gauge_invariance.md:258-266`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch08_gauge_invariance.md#L258-L266), with the Bond Index in Section 4.4, [`geometric-economics/chapters/ch04_economic_metric.md:160-164`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L160-L164). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch08_gauge_invariance.html).
+Definition 41, Section 8.7, [`geometric-economics/chapters/ch08_gauge_invariance.md:258-266`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch08_gauge_invariance.md#L258-L266), with the Bond Index in Section 4.4, [`geometric-economics/chapters/ch04_economic_metric.md:160-164`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch04_economic_metric.md#L160-L164). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch08_gauge_invariance.html).
 
 ## measurements
 

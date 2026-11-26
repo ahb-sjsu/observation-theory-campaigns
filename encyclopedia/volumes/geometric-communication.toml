@@ -119,12 +119,12 @@ title = "Communication Scalar Irrecoverability"
 definition = "For any smooth scalar evaluation $\\phi$ of a communicative act and any regular value r of $\\phi$, the level set $\\phi^{-1}(r)$ is a submanifold of the communication manifold of codimension 1, so it has dimension dim(S) + dim(P) + dim(C) - 1. The scalar value alone does not recover the act's position in the discarded directions."
 first_stated = "Theorem 3.1, `geometric-communication/manuscript/part_i/ch03_communication_manifold.md:391-397`, and in profile form as Theorem 1.1, `geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:168-170`."
 conditions = [
-  "Chapter 3 says the statement follows from the dimensional mismatch between the manifold and the real line. Chapter 1 defers the proof to the parent theorem of Geometric Reasoning.",
-  "The form of Theorem 1.1 needs quality profiles that are mutually Pareto-non-dominated across d independent dimensions. Its corollary says k scalar metrics with k below d still do not recover the profile.",
+  "Chapter 3 says the statement follows from the dimensional mismatch between the manifold and the real line. Chapter 1 defers the proof to the parent theorem, which it cites as a conditional theorem of Geometric Reasoning (Theorem 13.1).",
+  "The form of Theorem 1.1 needs quality profiles that are mutually Pareto-non-dominated across d independent dimensions. The chapter's summary states it for weighted composites of such profiles. Its corollary says k scalar metrics with k below d still do not recover the profile.",
   "The corollary requires independent measurements. The chapter says BLEU, METEOR and chrF++ are nearly parallel projections.",
   "The examples in the theorem (a BLEU score of 0.35, a sentiment score of +0.8, a word error rate of 5%) are illustrations, not measurements.",
 ]
-standing = "A theorem stated with an argument from dimension counting. The volume has no written proof of its own and refers to Geometric Reasoning, Chapter 13."
+standing = "A theorem stated with an argument from dimension counting. The volume has no written proof of its own. Chapter 1 refers to Geometric Reasoning, Theorem 13.1, which it calls a conditional theorem, and Chapter 15 says the level-set form is that of Geometric Ethics, Theorem 15.1."
 related = ["scalar-irrecoverability", "benchmark-scalar-irrecoverability", "communication-manifold", "projection", "pareto-dominance", "signal-scalar-gauge-trilemma"]
 
 [[entry]]
@@ -136,10 +136,10 @@ first_stated = "Definition 4.16, `geometric-communication/manuscript/part_ii/ch0
 conditions = [
   "The covariance is computed from 16 bands of a mel spectrogram with a regularization of 0.0001 times the identity. The TDA features come from a time-delay embedding of the waveform with delay 10 and dimension 3.",
   "The chapter calls the parameter values design choices that can be adjusted for other domains.",
-  "Proposition 4.3 claims that the combined vector classifies better than any one part on the BirdCLEF 206-species data. Neither Chapter 4 nor Chapter 8 prints the accuracies.",
+  "Proposition 4.3 predicts that the combined vector classifies better than any one part on the BirdCLEF 206-species data. The chapter says that neither it nor Chapter 8 prints the accuracies, so the prediction has not been checked against the data.",
   "In Chapter 8 the vector feeds a LightGBM model that carries 0.30 of the ensemble weight beside two convolutional networks.",
 ]
-standing = "A definition of a feature pipeline. The complementarity claim made for it (Proposition 4.3) is stated without printed numbers."
+standing = "A definition of a feature pipeline. The volume states the complementarity of its parts (Proposition 4.3) as a prediction that has not been checked against data."
 related = ["spectral-trajectory-geodesic-deviation", "log-euclidean-distance", "persistent-homology", "covariance-matrix", "communication-manifold"]
 
 [[entry]]
@@ -151,7 +151,7 @@ first_stated = "Definitions 4.9 and 4.10, `geometric-communication/manuscript/pa
 conditions = [
   "The number of windows is $K = \\lfloor (T - w)/h \\rfloor + 1$ for a spectrogram of T frames.",
   "By the triangle inequality the deviation is at least zero, with equality if and only if the trajectory is a geodesic.",
-  "The chapter reads high deviation as song complexity (a trill) and low deviation as a smooth transition (a descending whistle). This reading is the chapter's interpretation and is not tested separately.",
+  "The chapter reads the deviation as song complexity. A descending whistle gives low deviation. A trill gives high deviation if the window resolves each repetition, and low deviation with the one-second sub-windows of the implementation, where the trajectory stays near one point. This reading is the chapter's interpretation and is not tested separately.",
 ]
 related = ["acoustic-geometric-feature-vector", "log-euclidean-distance", "geodesic-distance", "reasoning-geodesic-deviation", "covariance-matrix"]
 
@@ -162,7 +162,7 @@ title = "hyperbolic attention bias"
 definition = "A term $B_{geo}(i, j) = -\\alpha \\, d_{\\mathbb{B}}(e_i, e_j)$ added to a transformer's attention logits beside the position bias. Here $e_i$ and $e_j$ are Poincare ball embeddings of the tokens at positions i and j, $d_{\\mathbb{B}}$ is the Poincare distance, and $\\alpha$ is a learnable scalar. Tokens with nearby embeddings attend to each other more."
 first_stated = "Section 5.6.2, `geometric-communication/manuscript/part_ii/ch05_hyperbolic_embeddings.md:254-262`, and Section 9.4.1, `geometric-communication/manuscript/part_iv/ch09_cuneiform.md:116-122`."
 conditions = [
-  "In the cuneiform model the embeddings are learnable, 32-dimensional, one for each of ByT5's 384 byte tokens, with curvature fixed at 1.0 and the scale initialised to 0.1. The bias enters the first four encoder layers.",
+  "In the cuneiform model the embeddings are learnable, 32-dimensional, one for each of ByT5's 384 byte tokens, with the curvature parameter c fixed at 1.0 and the scale initialised to 0.1. The bias enters the first four encoder layers.",
   "The bias is monotonically decreasing in hyperbolic distance when the scale is positive (Proposition 5.5).",
   "The ablation is reported as qualitative trends. A footnote of Chapter 9 says final numbers are not reported because they depend on seed, hardware and session, and the validation split has about 156 examples.",
   "Chapter 9 lists what was not measured. Supplementary data and augmentation are confounded, the number of biased layers and the curvature were not varied, and the bias acts on bytes and not on signs.",
@@ -251,11 +251,11 @@ definition = "For a text t and a chain of translations that returns to the start
 first_stated = "Definition 10.7 and the genre table, `geometric-communication/manuscript/part_iv/ch10_translation.md:194-211`."
 conditions = [
   "The value depends on the chosen similarity measure and on the translation systems in the chain. In the Old Assyrian run the similarity was chrF++ on the Akkadian transliteration and the return leg was a backtranslation by the trained model.",
-  "The chapter reports mean residuals of 0.08 for commercial records, 0.14 for contracts, 0.23 for legal proceedings and 0.31 for private letters over 1,561 pairs, with F(3, 1557) = 142.7.",
+  "The chapter reports mean residuals of 0.08 for commercial records, 0.14 for contracts, 0.23 for legal proceedings and 0.31 for private letters over 1,561 pairs, with F(3, 1557) = 142.7. It says that no run record for this table is in the repository and that Chapter 9 does not describe the English-to-Akkadian model the return leg needs, so the figures are unverified.",
   "Reading the residual as curvature of the content manifold is the volume's interpretation. The residual also contains the errors of the systems in the chain, which the chapter's own decomposition calls path error and chart error.",
-  "A second table gives residuals with and without the hyperbolic attention bias. Chapter 9 says it does not report final numbers for that ablation.",
+  "A second table gives residuals with and without the hyperbolic attention bias. The chapter says that Chapter 9 reports only qualitative trends of that ablation, that neither column matches the first table, and that its figures are unverified.",
 ]
-standing = "A defined quantity with one reported run. The identification with curvature is posited, in the sense of the README's status note of 2026-07-14."
+standing = "A defined quantity with one reported run, whose figures the volume calls unverified because no run record is in the repository. The identification with curvature is posited, in the sense of the README's status note of 2026-07-14."
 known_as = "Round-trip or back-translation evaluation in machine translation."
 related = ["language-chart", "translation-error-decomposition", "moral-holonomy", "curvature", "hyperbolic-attention-bias"]
 
@@ -338,7 +338,7 @@ decoder-robustness-index = "A flip that changes tempo only scores 0.5 + 0.5 time
 coda-boundary-asymmetry = "The volume's case is the pair 5R3 and 4R2. With 223 crossings one way and 0 the other, all 223 of 223 crossings run in one direction, which is the value 1 on the asymmetry scale for that pair."
 coda-menzerath-law = "The volume's figures are a Spearman correlation of -0.269 over 8,719 codas. The sign is negative, so a coda with more clicks tends to have a shorter mean interval between clicks, and the size is well short of -1."
 language-chart = "In the volume's example the English word silver, the Akkadian word kaspum and the Sumerian logogram KU.BABBAR label one point of the content manifold. The translation map sends the Akkadian label to the English one through that point."
-translation-loop-residual = "A round trip that returns a text with similarity 0.92 to the original has a residual of 1 - 0.92 = 0.08, the volume's mean for commercial records. Its mean for private letters, 0.31, is about 3.9 times that."
+translation-loop-residual = "A round trip that returns a text with similarity 0.92 to the original has a residual of 1 - 0.92 = 0.08, the volume's unverified mean for commercial records. Its mean for private letters, 0.31, is about 3.9 times that."
 translation-error-decomposition = "If the intrinsic holonomy were 0.05, the path error 0.10 and the chart error 0.08, the total would be 0.23, and better path selection could remove at most 0.10 of it. The three values are chosen for the arithmetic and are not the volume's."
 hohfeldian-cross-lingual-transfer = "From the volume's figures, 44.5 divided by 79.99 is 0.556, the transfer efficiency of 55.6%. The transfer F1 exceeds the four-class chance level by 44.5 - 25 = 19.5 points."
 communication-fiber-bundle = "In the volume's example the fiber over the content five units of silver is parameterised by language, register and notation. An English and a Hebrew rendering are two points of that fiber with the same image under the projection."

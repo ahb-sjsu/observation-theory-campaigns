@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Proposition 3.4, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:321-325`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_i/ch03_communication_manifold.md#L321-L325), and earlier as the definition of Section 2.5.2, [`geometric-communication/manuscript/part_i/ch02_saussure.md:221-223`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_i/ch02_saussure.md#L221-L223). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
+Proposition 3.4, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:321-325`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_i/ch03_communication_manifold.md#L321-L325), and earlier as the definition of Section 2.5.2, [`geometric-communication/manuscript/part_i/ch02_saussure.md:221-223`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_i/ch02_saussure.md#L221-L223). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
 
 ## measurements
 

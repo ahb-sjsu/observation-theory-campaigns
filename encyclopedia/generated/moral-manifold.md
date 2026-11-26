@@ -28,7 +28,7 @@ none. *standing.* Appendix F lists Definition 5.1 as a Modeling Axiom, and the l
 
 ## first stated
 
-Definition 5.1, Section 5.2, [`geometric-ethics/chapter-5-the-moral-manifold.html:153-157`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L153-L157), with the formal construction in Definition A.1 of the chapter's technical appendix, [`geometric-ethics/chapter-5-the-moral-manifold.html:1085-1092`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L1085-L1092). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
+Definition 5.1, Section 5.2, [`geometric-ethics/chapter-5-the-moral-manifold.html:153-157`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-5-the-moral-manifold.html#L153-L157), with the formal construction in Definition A.1 of the chapter's technical appendix, [`geometric-ethics/chapter-5-the-moral-manifold.html:1086-1093`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-5-the-moral-manifold.html#L1086-L1093). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
 
 ## measurements
 

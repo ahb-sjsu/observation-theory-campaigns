@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Theorem 9.1, Section 9.2, [`geometric-economics/chapters/ch09_conservation_laws.md:30-42`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch09_conservation_laws.md#L30-L42). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch09_conservation_laws.html).
+Theorem 9.1, Section 9.2, [`geometric-economics/chapters/ch09_conservation_laws.md:30-42`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch09_conservation_laws.md#L30-L42). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch09_conservation_laws.html).
 
 ## measurements
 

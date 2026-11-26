@@ -30,7 +30,7 @@ none. *standing.* Proposition 6.1 is proved in the text. The covariance, penalti
 
 ## first stated
 
-Proposition 6.1, [`geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:61-67`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-06-pathfinding-on-manifolds.md#L61-L67), with the corrected heuristics in Section 6.2.2, [`geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:71-81`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-06-pathfinding-on-manifolds.md#L71-L81). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-06-pathfinding-on-manifolds.html).
+Proposition 6.1, [`geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:61-67`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-06-pathfinding-on-manifolds.md#L61-L67), with the corrected heuristics in Section 6.2.2, [`geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:71-81`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-06-pathfinding-on-manifolds.md#L71-L81). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-06-pathfinding-on-manifolds.html).
 
 ## measurements
 

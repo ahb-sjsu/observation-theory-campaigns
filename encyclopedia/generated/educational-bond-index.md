@@ -16,8 +16,8 @@ none
 
 ## conditions
 
-- It is a property of the policy and not of the students. The volume says no real institution reaches zero.
-- The computation needs an estimated learner metric, a computed geodesic and observed trajectories. The volume calls the metric estimate the most uncertain step.
+- It is a property of the policy and not of the students. The volume says no real institution reaches zero. It follows the clinical Bond Index of Geometric Ethics (Definition 21.10) and Geometric Medicine, and the volume says it shares only a name with the Bond Index of Geometric Ethics, Chapter 18.
+- The computation needs an estimated learner metric, a computed geodesic and observed trajectories. The volume calls the metric estimate the most uncertain step. Section 13.3 says the index is meant to be computable from data institutions already collect, and that three of the six dimensions have weak or no projection onto routine learning-management data.
 - It is decomposed into access, heuristic, metric and residual parts. The volume gives no procedure for separating them.
 - Section 18.5 states that no institution has performed the prospective test. Section 13.5 says of itself that it is an illustrative scenario, that the study of the composite student Alex and its numbers are hypothetical, and that no such study has been run.
 
@@ -29,7 +29,7 @@ none. *standing.* A proposed instrument that has not been computed on data. The 
 
 ## first stated
 
-Definition 13.1, [`geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:17-23`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iv/ch13_educational_bond_index.md#L17-L23), with the computation in Section 13.3, [`geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:95-101`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iv/ch13_educational_bond_index.md#L95-L101). It is also in the notation table, [`geometric-education/manuscript/appendices/appendix_d_notation.md:50-53`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/appendices/appendix_d_notation.md#L50-L53), and as code in Appendix B.4, [`geometric-education/manuscript/appendices/appendix_b_code.md:89-121`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/appendices/appendix_b_code.md#L89-L121). Online, [Geometric Education](https://erisml.org/geometric-education/ch13_educational_bond_index.html).
+Definition 13.1, [`geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:17-25`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_iv/ch13_educational_bond_index.md#L17-L25), with the computation in Section 13.3, [`geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:97-103`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_iv/ch13_educational_bond_index.md#L97-L103). It is also in the notation table, [`geometric-education/manuscript/appendices/appendix_d_notation.md:50-53`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/appendices/appendix_d_notation.md#L50-L53), and as code in Appendix B.4, [`geometric-education/manuscript/appendices/appendix_b_code.md:89-121`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/appendices/appendix_b_code.md#L89-L121). Online, [Geometric Education](https://erisml.org/geometric-education/ch13_educational_bond_index.html).
 
 ## measurements
 

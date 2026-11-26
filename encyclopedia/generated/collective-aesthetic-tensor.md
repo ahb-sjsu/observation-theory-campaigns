@@ -18,7 +18,7 @@ none
 
 - The emergent component vanishes exactly when collective valence is the sum of the individual valences.
 - Appendix F marks canon formation as geometric aggregation of individual judgments as conjectured, with no direct empirical fit (F14.1).
-- The 71 Lasso axes are offered as the empirical motivation for a nonzero emergent component, and the chapter conjectures that they are that component made visible. Its own caveat is that most of those axes do genre discrimination and that the point is structural, not a matter of effect size.
+- The 71 Lasso axes are offered as the empirical motivation for a nonzero emergent component, and the chapter conjectures that they are that component made visible. Its own caveat is that most of those axes do genre discrimination, and that the interpretable ones, about 30 of the 71, are consistent with emergent components but not evidence for them, since the sparsity comes from the L1 penalty and a pure sum of individual judgments would also give a sparse solution.
 - For two readers the tensor has $d^3$ components on $d$ axes per reader. The chapter no longer counts on nine working axes, and Section 5.5 says the aesthetic manifold, unlike the moral one, does not start from nine known dimensions.
 
 Conditions are curated in `volumes/geometric-aesthetics.toml` rather than read from a record.
@@ -29,7 +29,7 @@ none. *standing.* Posited. No reader-level interest covectors are measured in th
 
 ## first stated
 
-Section 14.4, [`geometric-aesthetics/book/src/chapter-14-collective-aesthetic-agency-canon-and-emergence.md:49-62`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-14-collective-aesthetic-agency-canon-and-emergence.md#L49-L62). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-14-collective-aesthetic-agency-canon-and-emergence.html).
+Section 14.4, [`geometric-aesthetics/book/src/chapter-14-collective-aesthetic-agency-canon-and-emergence.md:53-66`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-14-collective-aesthetic-agency-canon-and-emergence.md#L53-L66). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-14-collective-aesthetic-agency-canon-and-emergence.html).
 
 ## measurements
 

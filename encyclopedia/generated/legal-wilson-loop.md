@@ -32,7 +32,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 5, [`geometric-law/chapters/ch05_hohfeldian_group.md:163-181`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch05_hohfeldian_group.md#L163-L181), with the discrete form at [`geometric-law/chapters/ch05_hohfeldian_group.md:455-461`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch05_hohfeldian_group.md#L455-L461). The chapter's note of 2026-11-26, which keeps the loop with values in the Klein four-group, is at [`geometric-law/chapters/ch05_hohfeldian_group.md:22-26`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch05_hohfeldian_group.md#L22-L26). Online, [Geometric Law](https://erisml.org/geometric-law/ch05_hohfeldian_group.html).
+Chapter 5, [`geometric-law/chapters/ch05_hohfeldian_group.md:163-181`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch05_hohfeldian_group.md#L163-L181), with the discrete form at [`geometric-law/chapters/ch05_hohfeldian_group.md:455-461`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch05_hohfeldian_group.md#L455-L461). The chapter's note of 2026-11-26, which keeps the loop with values in the Klein four-group, is at [`geometric-law/chapters/ch05_hohfeldian_group.md:22-26`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch05_hohfeldian_group.md#L22-L26). Online, [Geometric Law](https://erisml.org/geometric-law/ch05_hohfeldian_group.html).
 
 ## measurements
 

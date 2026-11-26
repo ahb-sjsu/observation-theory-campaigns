@@ -19,8 +19,8 @@ none
 ## conditions
 
 - The embedding is frozen at a fixed version and the probes are logistic regressions, so the same text always gives the same scores.
-- Chapter 3 names the multilingual encoder LaBSE with 768 dimensions. Chapter 15 describes a legal-domain transformer for JurisGraph, the system of its running example.
-- The probe accuracies the volume quotes, F1 from 0.74 to 0.91, are for the nine moral-dimension probes of the parent framework. For the legal probes it calls for about 200 expert-scored validation cases and at least 500 labeled cases per dimension.
+- Chapter 3 names the multilingual encoder LaBSE with 768 dimensions, which places translations close together, and adds that Geometric Ethics reports language identity is still recoverable from such representations. Chapter 15 describes a legal-domain transformer for JurisGraph, the system of its running example.
+- The probe accuracies the volume quotes, F1 from 0.74 to 0.91, are for the nine moral-dimension probes of the parent framework, as reported in an unpublished study by Thiele (2026), and the rights-and-duties axis failed its preregistered gate there. Chapter 3 says the methodology is exploratory and model-mediated in the Geometric Ethics claim ledger. For the legal probes it calls for about 200 expert-scored validation cases and at least 500 labeled cases per dimension.
 - The front matter classes AI implementation as speculation or extension, and Chapter 4 states that the scoring and calibration programme has not yet been executed on legal data.
 
 Conditions are curated in `volumes/geometric-law.toml` rather than read from a record.
@@ -31,7 +31,7 @@ none. *standing.* This is the one corner the README of 2026-07-14 reports as ins
 
 ## first stated
 
-Chapter 15, [`geometric-law/chapters/ch15_ai_legal.md:56-66`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch15_ai_legal.md#L56-L66), with the formal conditions at [`geometric-law/chapters/ch15_ai_legal.md:475-485`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch15_ai_legal.md#L475-L485). The pipeline first appears in Chapter 3, [`geometric-law/chapters/ch03_judicial_complex.md:253-261`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch03_judicial_complex.md#L253-L261). Online, [Geometric Law](https://erisml.org/geometric-law/ch15_ai_legal.html).
+Chapter 15, [`geometric-law/chapters/ch15_ai_legal.md:56-66`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch15_ai_legal.md#L56-L66), with the formal conditions at [`geometric-law/chapters/ch15_ai_legal.md:475-485`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch15_ai_legal.md#L475-L485). The pipeline first appears in Chapter 3, [`geometric-law/chapters/ch03_judicial_complex.md:253-261`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch03_judicial_complex.md#L253-L261). Online, [Geometric Law](https://erisml.org/geometric-law/ch15_ai_legal.html).
 
 ## measurements
 

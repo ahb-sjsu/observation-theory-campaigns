@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-cognition.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Untested. The campaign record lists gate H1 as drafted on 2026-09-18, not sealed and not run.
+none. *standing.* Untested. The campaign record lists gate H1 as drafted on 2026-09-18, with its self-test passed that day, and as not sealed and not run. Its probe and pilot have not run.
 
 ## first stated
 
-Section 1 of the draft registration, [`geometric-cognition/experiments/H1/PREREG-H1-DRAFT.md:20-36`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/experiments/H1/PREREG-H1-DRAFT.md#L20-L36), with its status in [`geometric-cognition/CAMPAIGN.md:17-30`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/CAMPAIGN.md#L17-L30).
+Section 1 of the draft registration, [`geometric-cognition/experiments/H1/PREREG-H1-DRAFT.md:20-36`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/experiments/H1/PREREG-H1-DRAFT.md#L20-L36), with its status in [`geometric-cognition/CAMPAIGN.md:17-30`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/CAMPAIGN.md#L17-L30).
 
 ## measurements
 

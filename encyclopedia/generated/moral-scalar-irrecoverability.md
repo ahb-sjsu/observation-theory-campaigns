@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-ethics.toml` rather than read from 
 
 ## ledger
 
-none. *standing.* Tagged Theorem (conditional on Definition 5.2) in the text as of v1.29, where earlier versions tagged it Proved, and listed as a Conditional Theorem in Appendix F. The volume says the mathematical implication is sound for a continuous Q and that the ethical consequent depends on the nine-dimensional chart, a modeling axiom. The ledger row GE-THM-15-1 has class exploratory, so the text and the ledger now agree. The row's scope note still describes the earlier tag, and the v1.29 change notes say it should gain a history entry.
+none. *standing.* Tagged Theorem (conditional on Definition 5.2) in the text as of v1.29, where earlier versions tagged it Proved, and listed as a Conditional Theorem in Appendix F. The volume says the mathematical implication is sound for a continuous Q and that the ethical consequent depends on the nine-dimensional chart, a modeling axiom. The ledger row GE-THM-15-1 has class exploratory, so the text and the ledger now agree. The row's scope note still describes the earlier tag, and a history entry of 2026-11-26 records the v1.29 change and says the scope note describes the book before v1.29.
 
 ## first stated
 
-Theorem 15.1, Section 15.6, [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:409-423`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L409-L423), with the proof at [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:424-442`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L424-L442). Online, [Geometric Ethics](https://erisml.org/book/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html).
+Theorem 15.1, Section 15.6, [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:409-423`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L409-L423), with the proof at [`geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:424-442`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html#L424-L442). Online, [Geometric Ethics](https://erisml.org/book/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html).
 
 ## measurements
 

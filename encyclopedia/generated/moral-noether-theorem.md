@@ -31,7 +31,7 @@ none. *standing.* Tagged Theorem (conditional on BIP) in the text and Conditiona
 
 ## first stated
 
-Theorem 12.1, Section 12.5, [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:518-536`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L518-L536), with Definition 12.2 (Harm), [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:576-598`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L576-L598). Online, [Geometric Ethics](https://erisml.org/book/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html).
+Theorem 12.1, Section 12.5, [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:519-537`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L519-L537), with Definition 12.2 (Harm), [`geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:577-599`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html#L577-L599). Online, [Geometric Ethics](https://erisml.org/book/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html).
 
 ## measurements
 

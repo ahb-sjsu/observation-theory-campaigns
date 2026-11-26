@@ -18,7 +18,7 @@ none
 
 - Tagged a modeling axiom. The field is indexed by person and culture, with an evolved component common to the species and a learned component that deforms it.
 - The volume describes the manifold as bounded, curved and thin, from inverted-U responses whose optima interact. The split into a rigid low-dimensional biological layer and a plastic cultural layer is tagged a conjecture, and the volume says the decisive cross-cultural factor analysis has not been run.
-- The five principal components proposed in Section 5.5 (intensity, balance, complexity, contrast, familiarity) are tagged a conjecture.
+- The five principal components proposed in Section 5.5 (intensity, balance, complexity, contrast, familiarity) are tagged a conjecture. The evidence for three to five dominant axes is described as reported, and the volume says it cites no study and records no analysis for it.
 - Chapter 14 treats the field as deforming with satiety and over a lifetime. Both are listed as open problems.
 
 Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read from a record.
@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 5, [`geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch05_the_pairing_manifold.md#L24-L24), after the hedonic field posited in Section 3.6, [`geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:92-92`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch03_the_metric_of_flavor.md#L92-L92). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch05_the_pairing_manifold.html).
+Chapter 5, [`geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch05_the_pairing_manifold.md#L24-L24), after the hedonic field posited in Section 3.6, [`geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:100-100`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch03_the_metric_of_flavor.md#L100-L100). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch05_the_pairing_manifold.html).
 
 ## measurements
 

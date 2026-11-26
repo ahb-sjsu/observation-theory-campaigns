@@ -25,8 +25,8 @@ title = "nine dimensions of the economic decision manifold"
 definition = "The nine coordinates on which the volume scores an economic state. They are consequences $d_1$, rights $d_2$, fairness $d_3$, autonomy $d_4$, privacy and trust $d_5$, social impact $d_6$, virtue and identity $d_7$, legitimacy $d_8$ and epistemic status $d_9$. Only $d_1$ is visible to a purely monetary agent."
 first_stated = "Definition 1, Section 3.1, `geometric-economics/chapters/ch03_decision_manifold.md:32-50`."
 conditions = [
-  "The number nine is tagged a modeling axiom inherited from Geometric Ethics. The chapter says the key claim is a dimension well above one, not exactly nine.",
-  "The chapter says the claim that the nine are operative is posited and not yet validated. The support it names is the cross-lingual work of Geometric Ethics, which that volume's ledger classes as exploratory, and the eris-econ calibration, an in-sample benchmark. It adds that no economics instrument has passed the series' admission filter.",
+  "The number nine is tagged a modeling axiom inherited from Geometric Ethics. The chapter says the key claim is a dimension well above one, not exactly nine, and that Geometric Ethics treats the nine as a chart chosen for coverage and not a measured dimensionality.",
+  "The chapter says the claim that the nine are operative is posited and not yet validated. The support it names is the cross-lingual work of Geometric Ethics, which that volume's ledger classes as exploratory, and the eris-econ calibration, an in-sample benchmark. It adds that no economics instrument has passed the series' admission filter, and that in a sealed test on moral-judgment data reported in Geometric Ethics learned coordinates outperformed a nine-axis codebook built on this chart.",
   "The volume names a falsifier. A replicable economic behavior that cannot be decomposed into any subset of the nine would show the framework wrong.",
 ]
 related = ["economic-decision-complex", "transferable-and-evaluative-dimensions", "economic-metric-tensor", "posited-versus-measured"]
@@ -87,7 +87,7 @@ conditions = [
   "The volume states its falsifiers. A coefficient that is constant across conditions, or one that varies but not monotonically with the count of activated dimensions, would show the derivation wrong.",
   "The chapter says the value 2.25 should be derivable from a fitted Sigma and calls that fitting an empirical programme.",
 ]
-standing = "A derivation from posited activations, tagged in parts as conditional theorem and as empirical prediction. The chapter cites the eris-econ calibration for a range of 1.0 to 3.53 and calls it an in-sample calibration, not a held-out test. The README of 2026-07-14 says no economics instrument has passed the series' admission filter."
+standing = "An argument from posited activations, tagged in parts as conditional theorem and as empirical prediction. Section 4.2 calls it a derivation, while the chapter opening says the chapter reads loss aversion as a property of the metric and that sealed tests of reduced-form geometric models against cumulative prospect theory have so far favored prospect theory (Geometric Ethics, Section 20.8). The chapter cites the eris-econ calibration for a range of 1.0 to 3.53 and calls it an in-sample calibration, not a held-out test. The README of 2026-07-14 says no economics instrument has passed the series' admission filter."
 known_as = "Loss aversion in the prospect theory of Kahneman and Tversky, where the coefficient is a fixed parameter near 2.25."
 related = ["economic-metric-tensor", "economic-finsler-metric", "metric-feature-versus-heuristic-error", "economic-decision-dimensions"]
 
@@ -243,7 +243,8 @@ first_stated = "Definition 41, Section 8.7, `geometric-economics/chapters/ch08_g
 conditions = [
   "The transformations must be meaning preserving. Under Remark 45 a nonzero entry can be a pseudo-violation that reflects real economic content.",
   "Proposition 42 gives the composition rule. The violation of a composed transformation is the sum of the violations along the chain.",
-  "The chapter describes a measurement protocol, the same states shown under each transformation to the same or matched subjects. It reports published experiments by others and no measurement of the tensor itself.",
+  "The chapter describes a measurement protocol, the same states shown under each transformation to the same or matched subjects, which adapts to human subjects the experiments Geometric Ethics ran in an embedding model. It reports published experiments by others and no measurement of the tensor itself.",
+  "The Bond Index of Section 4.4 is the deviation under one re-description. Section 4.4 says it is a different quantity from the Bond Index of Geometric Ethics, Chapter 18, which is the mean of such deviations over the tested inputs and declared re-descriptions, divided by a tolerance.",
 ]
 related = ["economic-bond-invariance-principle", "metric-feature-versus-heuristic-error", "market-pathology-taxonomy", "frobenius-norm"]
 
@@ -314,7 +315,7 @@ conditions = [
   "The premise is itself open. The volume asks whether sacred-value boundaries are topological disconnections or only very high penalties.",
   "The volume proposes a test, building instruments that try to bridge candidate disconnections such as organ markets, and reports no run of it.",
 ]
-standing = "Conjecture, stated as an open problem by analogy with the No Escape Theorem of Geometric Ethics. Nothing is proved or measured."
+standing = "Conjecture, stated as an open problem by analogy with the No Escape Theorem of Geometric Ethics, which Section 16.2 says is proved there conditional on four requirements, canonicalization, grounded evaluation, audit and external verification. Nothing is proved or measured."
 related = ["moral-economic-boundary", "economic-bond-invariance-principle", "economic-decision-complex"]
 
 [examples]

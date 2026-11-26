@@ -29,7 +29,7 @@ none. *standing.* The front matter classes conservation among its conditional th
 
 ## first stated
 
-Chapter 5, [`geometric-law/chapters/ch05_hohfeldian_group.md:270-293`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch05_hohfeldian_group.md#L270-L293). Online, [Geometric Law](https://erisml.org/geometric-law/ch05_hohfeldian_group.html).
+Chapter 5, [`geometric-law/chapters/ch05_hohfeldian_group.md:270-293`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch05_hohfeldian_group.md#L270-L293). Online, [Geometric Law](https://erisml.org/geometric-law/ch05_hohfeldian_group.html).
 
 ## measurements
 

@@ -17,7 +17,7 @@ none
 ## conditions
 
 - It is defined relative to a chosen set of perturbation types, an evaluation set and a consistency metric, and it changes with each choice.
-- Tagged a modeling axiom as a protocol. The volume attributes it to Chapter 9 of Geometric Methods.
+- Tagged a modeling axiom. The volume says the MRI of Chapter 9 of Geometric Methods is a single weighted figure, the mean and the 75th and 95th percentiles of the error deviation with weights 0.5, 0.3 and 0.2, and that this chapter uses a profile instead, of which that figure is one summary.
 - The correspondence with the corruption tensor, in which a component is 1 minus a normalized column norm, holds only for one stated consistency metric.
 - The volume's composite track scores do aggregate. Their captions give them as weighted means of subtask scores. The weights were recovered by solving the tables and have not been confirmed against the benchmark code.
 
@@ -29,7 +29,7 @@ none. *standing.* A defined measurement protocol. The profile values printed for
 
 ## first stated
 
-Definition A10.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:516-524`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L516-L524), introduced in Section 10.2.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:74-84`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L74-L84). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
+Definition A10.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:516-524`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch10_the_robustness_surface.md#L516-L524), introduced in Section 10.2.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:74-84`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch10_the_robustness_surface.md#L74-L84). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
 
 ## measurements
 

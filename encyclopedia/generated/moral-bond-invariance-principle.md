@@ -29,7 +29,7 @@ none. *standing.* Appendix F lists Axiom 5.1 as a Modeling Axiom, and the ledger
 
 ## first stated
 
-Axiom 5.1, Section 5.5, [`geometric-ethics/chapter-5-the-moral-manifold.html:506-511`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L506-L511), with the orbit form at [`geometric-ethics/chapter-5-the-moral-manifold.html:522-534`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L522-L534). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
+Axiom 5.1, Section 5.5, [`geometric-ethics/chapter-5-the-moral-manifold.html:507-512`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-5-the-moral-manifold.html#L507-L512), with the orbit form at [`geometric-ethics/chapter-5-the-moral-manifold.html:523-535`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-5-the-moral-manifold.html#L523-L535). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
 
 ## measurements
 

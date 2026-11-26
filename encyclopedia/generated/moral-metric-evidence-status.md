@@ -29,7 +29,7 @@ none. *standing.* A statement of absence of evidence, in the volume's words a mo
 
 ## first stated
 
-Section 8.10a, paragraph headed Evidence status of the metric, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1302-1321`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1302-L1321), and limitation 8 of Section 17.7, [`geometric-ethics/chapter-17-empirical-evidence-for-geometric-ethics.html:973-978`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-17-empirical-evidence-for-geometric-ethics.html#L973-L978). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Section 8.10a, paragraph headed Evidence status of the metric, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1305-1324`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1305-L1324), and limitation 8 of Section 17.7, [`geometric-ethics/chapter-17-empirical-evidence-for-geometric-ethics.html:973-978`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-17-empirical-evidence-for-geometric-ethics.html#L973-L978). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 

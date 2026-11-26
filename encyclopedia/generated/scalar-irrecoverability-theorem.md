@@ -21,6 +21,7 @@ none
 - The formal version assumes the contraction is a continuous surjection and the profile has at least two components.
 - The theorem says the profile cannot be recovered from the score. The further claim that the discarded structure determines how a system reasons is a separate ledger row held at posited (GC-10).
 - The empirical demonstration of Section 1.5 uses the five benchmark models, whose run records are not in the repository.
+- The front matter cites the theorem as Theorem 13.1 of Geometric Reasoning, a conditional theorem there.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -30,7 +31,7 @@ none. *standing.* The ledger grades the theorem proved (row GC-9) and describes 
 
 ## first stated
 
-Theorem 1.1, [`geometric-cognition/chapters/ch01_iq_trap.md:120-126`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch01_iq_trap.md#L120-L126), with the formal version and proof in Technical Appendix 1A, [`geometric-cognition/chapters/ch01_iq_trap.md:352-366`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch01_iq_trap.md#L352-L366). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch01_iq_trap.html).
+Theorem 1.1, [`geometric-cognition/chapters/ch01_iq_trap.md:120-126`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch01_iq_trap.md#L120-L126), with the formal version and proof in Technical Appendix 1A, [`geometric-cognition/chapters/ch01_iq_trap.md:352-366`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch01_iq_trap.md#L352-L366). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch01_iq_trap.html).
 
 ## measurements
 

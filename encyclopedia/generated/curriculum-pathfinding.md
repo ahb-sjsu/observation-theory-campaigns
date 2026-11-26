@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 7.1, [`geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:18-22`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch07_curriculum_pathfinding.md#L18-L22), with the search components and Theorem 7.1 at [`geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:26-42`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch07_curriculum_pathfinding.md#L26-L42). Online, [Geometric Education](https://erisml.org/geometric-education/ch07_curriculum_pathfinding.html).
+Definition 7.1, [`geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:18-22`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch07_curriculum_pathfinding.md#L18-L22), with the search components and Theorem 7.1 at [`geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:26-42`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch07_curriculum_pathfinding.md#L26-L42). Online, [Geometric Education](https://erisml.org/geometric-education/ch07_curriculum_pathfinding.html).
 
 ## measurements
 

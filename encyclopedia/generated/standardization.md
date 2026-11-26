@@ -34,7 +34,7 @@ none
 
 ## first stated
 
-Chapter 2 section 2.5 of *Data Mining as Observation*, with the whitened code's record in `geometric-observation/chapters/ch08_value.md:88-101`.
+Chapter 2 section 2.5 of *Data Mining as Observation*, with the whitened code's record in `geometric-observation/chapters/ch08_value.md:91-105`.
 
 ## measurements
 

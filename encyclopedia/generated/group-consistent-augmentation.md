@@ -31,7 +31,7 @@ none. *standing.* An engineering practice the volume implemented. The framing of
 
 ## first stated
 
-Section 14.1, the consistency principle, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:48-52`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch14_from_theory_to_engineering.md#L48-L52), and Definitions 14.1 and 14.2 with Proposition 14.1, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:366-370`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch14_from_theory_to_engineering.md#L366-L370). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch14_from_theory_to_engineering.html).
+Section 14.1, the consistency principle, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:48-52`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch14_from_theory_to_engineering.md#L48-L52), and Definitions 14.1 and 14.2 with Proposition 14.1, [`geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:366-370`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch14_from_theory_to_engineering.md#L366-L370). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch14_from_theory_to_engineering.html).
 
 ## measurements
 

@@ -29,7 +29,7 @@ none. *standing.* Appendix F lists Definition 5.4 as a Modeling Axiom (ledger GE
 
 ## first stated
 
-Definition 5.4, Section 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:792-798`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L792-L798), developed in Definition 8.1, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:122-138`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L122-L138). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
+Definition 5.4, Section 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:793-799`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-5-the-moral-manifold.html#L793-L799), developed in Definition 8.1, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:125-141`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L125-L141). Online, [Geometric Ethics](https://erisml.org/book/chapter-5-the-moral-manifold.html).
 
 ## measurements
 

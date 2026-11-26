@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 5, [`geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:171-175`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch05_voting_contraction.md#L171-L175). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch05_voting_contraction.html).
+Chapter 5, [`geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:179-183`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch05_voting_contraction.md#L179-L183). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch05_voting_contraction.html).
 
 ## measurements
 

@@ -30,13 +30,13 @@ none
 
 ## first stated
 
-Volume 14, chapter 12, `geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`, DOI 10.5281/zenodo.21776291, where the alignment law is a retrospective fit carried as exploratory with one prospective point.
+Volume 14, chapter 12, `geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:59-92`, DOI 10.5281/zenodo.21776291, where the alignment law is a retrospective fit carried as exploratory with one prospective point.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | alignment law, retrospective fit exploratory, one prospective point | [`geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch12_failure_taxonomy_and_kappa.md#L56-L82) |
+| chapter 4 section 4.4 | alignment law, retrospective fit exploratory, one prospective point | [`geometric-observation/chapters/ch12_failure_taxonomy_and_kappa.md:56-82`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/chapters/ch12_failure_taxonomy_and_kappa.md#L56-L82) |
 
 ## failures and corrections
 

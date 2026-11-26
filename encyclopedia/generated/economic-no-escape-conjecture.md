@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-economics.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Conjecture, stated as an open problem by analogy with the No Escape Theorem of Geometric Ethics. Nothing is proved or measured.
+none. *standing.* Conjecture, stated as an open problem by analogy with the No Escape Theorem of Geometric Ethics, which Section 16.2 says is proved there conditional on four requirements, canonicalization, grounded evaluation, audit and external verification. Nothing is proved or measured.
 
 ## first stated
 
-Conjecture 16.1, Section 16.2, [`geometric-economics/chapters/ch16_open_questions.md:36-44`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch16_open_questions.md#L36-L44). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch16_open_questions.html).
+Conjecture 16.1, Section 16.2, [`geometric-economics/chapters/ch16_open_questions.md:36-44`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch16_open_questions.md#L36-L44). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch16_open_questions.html).
 
 ## measurements
 

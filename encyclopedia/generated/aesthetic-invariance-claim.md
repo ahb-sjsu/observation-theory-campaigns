@@ -31,7 +31,7 @@ none. *standing.* Analogy in Appendix F, and Chapter 12 now words the Noether re
 
 ## first stated
 
-Section 12.3, [`geometric-aesthetics/book/src/chapter-12-noethers-theorem-for-aesthetics.md:50-54`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-12-noethers-theorem-for-aesthetics.md#L50-L54). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-12-noethers-theorem-for-aesthetics.html).
+Section 12.3, [`geometric-aesthetics/book/src/chapter-12-noethers-theorem-for-aesthetics.md:50-54`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-12-noethers-theorem-for-aesthetics.md#L50-L54). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-12-noethers-theorem-for-aesthetics.html).
 
 ## measurements
 

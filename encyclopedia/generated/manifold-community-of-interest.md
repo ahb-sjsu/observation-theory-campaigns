@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 9, [`geometric-politics/manuscript/part_iii/ch09_gerrymandering.md:89-95`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch09_gerrymandering.md#L89-L95). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch09_gerrymandering.html).
+Chapter 9, [`geometric-politics/manuscript/part_iii/ch09_gerrymandering.md:93-99`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iii/ch09_gerrymandering.md#L93-L99). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch09_gerrymandering.html).
 
 ## measurements
 

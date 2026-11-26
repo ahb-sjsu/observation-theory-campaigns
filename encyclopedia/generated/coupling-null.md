@@ -30,13 +30,13 @@ none
 
 ## first stated
 
-Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:112-120`, the gradient-compression case, and chapter 12 for the alignment dial, DOI 10.5281/zenodo.21776291.
+Volume 14, chapter 8, `geometric-observation/chapters/ch08_value.md:116-124`, the gradient-compression case, and chapter 12 for the alignment dial, DOI 10.5281/zenodo.21776291.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | [`geometric-observation/chapters/ch08_value.md:108-116`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch08_value.md#L108-L116) |
+| chapter 4 section 4.4 | gradient compression anti 300 of 300, flip 27 percent, coupling boundary | [`geometric-observation/chapters/ch08_value.md:108-116`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/chapters/ch08_value.md#L108-L116) |
 
 ## failures and corrections
 

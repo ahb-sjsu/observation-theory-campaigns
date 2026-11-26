@@ -29,7 +29,7 @@ none. *standing.* Verified empirically in Appendix F (F21.6, F21.7). The reading
 
 ## first stated
 
-Section 17.6.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:172-189`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L172-L189). Stated as Claim 17.2 at [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:197-199`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L197-L199). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.6.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:172-189`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L172-L189). Stated as Claim 17.2 at [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:201-203`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L201-L203). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 

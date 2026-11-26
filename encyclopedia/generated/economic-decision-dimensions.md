@@ -16,8 +16,8 @@ none
 
 ## conditions
 
-- The number nine is tagged a modeling axiom inherited from Geometric Ethics. The chapter says the key claim is a dimension well above one, not exactly nine.
-- The chapter says the claim that the nine are operative is posited and not yet validated. The support it names is the cross-lingual work of Geometric Ethics, which that volume's ledger classes as exploratory, and the eris-econ calibration, an in-sample benchmark. It adds that no economics instrument has passed the series' admission filter.
+- The number nine is tagged a modeling axiom inherited from Geometric Ethics. The chapter says the key claim is a dimension well above one, not exactly nine, and that Geometric Ethics treats the nine as a chart chosen for coverage and not a measured dimensionality.
+- The chapter says the claim that the nine are operative is posited and not yet validated. The support it names is the cross-lingual work of Geometric Ethics, which that volume's ledger classes as exploratory, and the eris-econ calibration, an in-sample benchmark. It adds that no economics instrument has passed the series' admission filter, and that in a sealed test on moral-judgment data reported in Geometric Ethics learned coordinates outperformed a nine-axis codebook built on this chart.
 - The volume names a falsifier. A replicable economic behavior that cannot be decomposed into any subset of the nine would show the framework wrong.
 
 Conditions are curated in `volumes/geometric-economics.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 1, Section 3.1, [`geometric-economics/chapters/ch03_decision_manifold.md:32-50`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L32-L50). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
+Definition 1, Section 3.1, [`geometric-economics/chapters/ch03_decision_manifold.md:32-50`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch03_decision_manifold.md#L32-L50). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
 
 ## measurements
 

@@ -16,7 +16,7 @@ none
 
 ## conditions
 
-- Tagged in the volume as a conditional theorem, with a proof sketch. It is the legal restatement of the Scalar Irrecoverability Theorem of Geometric Reasoning.
+- Tagged in the volume as a conditional theorem, with a proof sketch. It applies the Scalar Irrecoverability Theorem in the form of Theorem 15.1 of Geometric Ethics and Theorem 14 of Geometric Economics, and the chapter says Theorem 13.1 of Geometric Reasoning states a composite-score form as a conditional theorem.
 - It presupposes that a case is described by eight dimensions, which the volume tags as a modeling axiom.
 - It says that information is lost, not that verdicts are wrong. The volume says the framework audits verdicts and does not determine them.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 1, [`geometric-law/chapters/ch01_binary_verdict.md:241-245`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch01_binary_verdict.md#L241-L245), introduced at [`geometric-law/chapters/ch01_binary_verdict.md:40-44`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch01_binary_verdict.md#L40-L44). Online, [Geometric Law](https://erisml.org/geometric-law/ch01_binary_verdict.html).
+Chapter 1, [`geometric-law/chapters/ch01_binary_verdict.md:241-245`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch01_binary_verdict.md#L241-L245), introduced at [`geometric-law/chapters/ch01_binary_verdict.md:40-44`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch01_binary_verdict.md#L40-L44). Online, [Geometric Law](https://erisml.org/geometric-law/ch01_binary_verdict.html).
 
 ## measurements
 

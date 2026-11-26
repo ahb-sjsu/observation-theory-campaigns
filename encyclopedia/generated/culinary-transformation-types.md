@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 7, [`geometric-gastronomy/chapters/ch07_transformations_under_heat.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch07_transformations_under_heat.md#L24-L24), with the summary of the five motions at [`geometric-gastronomy/chapters/ch07_transformations_under_heat.md:105-105`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch07_transformations_under_heat.md#L105-L105). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch07_transformations_under_heat.html).
+Chapter 7, [`geometric-gastronomy/chapters/ch07_transformations_under_heat.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch07_transformations_under_heat.md#L24-L24), with the summary of the five motions at [`geometric-gastronomy/chapters/ch07_transformations_under_heat.md:109-109`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch07_transformations_under_heat.md#L109-L109). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch07_transformations_under_heat.html).
 
 ## measurements
 

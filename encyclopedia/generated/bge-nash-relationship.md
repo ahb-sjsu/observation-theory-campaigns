@@ -30,7 +30,7 @@ none. *standing.* Tagged a conditional theorem in the front matter. Existence of
 
 ## first stated
 
-Definition 20 and Theorem 21, Chapter 7, [`geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:72-90`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch07_bond_geodesic_equilibrium.md#L72-L90), with the proof at [`geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:94-106`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch07_bond_geodesic_equilibrium.md#L94-L106). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch07_bond_geodesic_equilibrium.html).
+Definition 20 and Theorem 21, Chapter 7, [`geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:72-90`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch07_bond_geodesic_equilibrium.md#L72-L90), with the proof at [`geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:94-106`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch07_bond_geodesic_equilibrium.md#L94-L106). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch07_bond_geodesic_equilibrium.html).
 
 ## measurements
 

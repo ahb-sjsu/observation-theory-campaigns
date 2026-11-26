@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 7.3, [`geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:92-102`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch07_curriculum_pathfinding.md#L92-L102). Online, [Geometric Education](https://erisml.org/geometric-education/ch07_curriculum_pathfinding.html).
+Definition 7.3, [`geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:92-102`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch07_curriculum_pathfinding.md#L92-L102). Online, [Geometric Education](https://erisml.org/geometric-education/ch07_curriculum_pathfinding.html).
 
 ## measurements
 

@@ -28,7 +28,7 @@ none. *standing.* Appendix F lists Definition 8.6 as a Modeling Axiom, and the l
 
 ## first stated
 
-Definition 8.6, Section 8.3 (Type III boundaries), [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:352-366`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L352-L366). The first form is Definition 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:847-850`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-5-the-moral-manifold.html#L847-L850). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.6, Section 8.3 (Type III boundaries), [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:355-369`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L355-L369). The first form is Definition 5.6, [`geometric-ethics/chapter-5-the-moral-manifold.html:848-851`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-5-the-moral-manifold.html#L848-L851). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 

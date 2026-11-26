@@ -31,7 +31,7 @@ none. *standing.* Posited, carried over from the search chapter of the Ethics vo
 
 ## first stated
 
-Section 11.3, [`geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:49-55`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md#L49-L55). The search problem is defined at [`geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:19-34`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md#L19-L34). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-11-aesthetic-reasoning-as-optimal-search.html).
+Section 11.3, [`geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:53-59`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md#L53-L59). The search problem is defined at [`geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:19-34`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md#L19-L34). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-11-aesthetic-reasoning-as-optimal-search.html).
 
 ## measurements
 

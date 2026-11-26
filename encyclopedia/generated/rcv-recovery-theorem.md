@@ -31,7 +31,7 @@ none. *standing.* A theorem with a proof written in the chapter, which counts in
 
 ## first stated
 
-Theorem 7 of Chapter 13, [`geometric-politics/manuscript/part_iv/ch13_ranked_choice.md:35-47`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iv/ch13_ranked_choice.md#L35-L47). The ratios are repeated in Appendix C.3, [`geometric-politics/manuscript/appendices/appendix_c_voting.md:85-87`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/appendices/appendix_c_voting.md#L85-L87). Online, [Geometric Politics](https://erisml.org/geometric-politics/appendix_c_voting.html).
+Theorem 7 of Chapter 13, [`geometric-politics/manuscript/part_iv/ch13_ranked_choice.md:35-47`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iv/ch13_ranked_choice.md#L35-L47). The ratios are repeated in Appendix C.3, [`geometric-politics/manuscript/appendices/appendix_c_voting.md:85-87`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/appendices/appendix_c_voting.md#L85-L87). Online, [Geometric Politics](https://erisml.org/geometric-politics/appendix_c_voting.html).
 
 ## measurements
 

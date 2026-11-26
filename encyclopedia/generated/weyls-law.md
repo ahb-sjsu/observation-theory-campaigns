@@ -34,13 +34,13 @@ none
 
 ## first stated
 
-Weyl, 1911, as chapter 0 section 0.15 of *Data Mining as Observation* states it, with the program's dimension reading in `geometric-observation/chapters/ch11_the_recognizer.md:1-99`.
+Weyl, 1911, as chapter 0 section 0.15 of *Data Mining as Observation* states it, with the program's dimension reading in `geometric-observation/chapters/ch11_the_recognizer.md:1-101`.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch11_the_recognizer.md#L1-L95) |
+| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/chapters/ch11_the_recognizer.md#L1-L95) |
 
 ## failures and corrections
 

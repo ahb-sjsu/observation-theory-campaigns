@@ -31,7 +31,7 @@ none. *standing.* The README's status note of 2026-07-14 calls this volume the s
 
 ## first stated
 
-Chapter 13, [`geometric-methods/chapters/chapter-13-group-theoretic-augmentation.md:10-12`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-13-group-theoretic-augmentation.md#L10-L12), with the orbit-stabilizer count in Section 13.6.1, [`geometric-methods/chapters/chapter-13-group-theoretic-augmentation.md:301-305`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-13-group-theoretic-augmentation.md#L301-L305). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-13-group-theoretic-augmentation.html).
+Chapter 13, [`geometric-methods/chapters/chapter-13-group-theoretic-augmentation.md:10-12`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-13-group-theoretic-augmentation.md#L10-L12), with the orbit-stabilizer count in Section 13.6.1, [`geometric-methods/chapters/chapter-13-group-theoretic-augmentation.md:301-305`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-13-group-theoretic-augmentation.md#L301-L305). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-13-group-theoretic-augmentation.html).
 
 ## measurements
 

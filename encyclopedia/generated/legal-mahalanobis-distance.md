@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:52-60`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L52-L60). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
+Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:52-60`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch04_legal_metric.md#L52-L60). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
 
 ## measurements
 

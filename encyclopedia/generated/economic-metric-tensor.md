@@ -31,7 +31,7 @@ none. *standing.* Modeling axiom in the volume's tags. The repository's register
 
 ## first stated
 
-Section 4.1, [`geometric-economics/chapters/ch04_economic_metric.md:40-50`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L40-L50), after Definition 4 of Chapter 3, [`geometric-economics/chapters/ch03_decision_manifold.md:129-133`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L129-L133). The registered test named in the standing is scored in [`geometric-economics/experiments/RESULTS_coupling_scorecard.md:8-14`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/experiments/RESULTS_coupling_scorecard.md#L8-L14). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
+Section 4.1, [`geometric-economics/chapters/ch04_economic_metric.md:40-50`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch04_economic_metric.md#L40-L50), after Definition 4 of Chapter 3, [`geometric-economics/chapters/ch03_decision_manifold.md:129-133`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch03_decision_manifold.md#L129-L133). The registered test named in the standing is scored in [`geometric-economics/experiments/RESULTS_coupling_scorecard.md:8-14`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/experiments/RESULTS_coupling_scorecard.md#L8-L14). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
 
 ## measurements
 

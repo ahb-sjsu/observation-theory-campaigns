@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definition 7.3, Section 7.5, [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:158-162`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch07_alignment_gauge_group.md#L158-L162), resting on Claim 7.1 (BIP Necessity), [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:94-106`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch07_alignment_gauge_group.md#L94-L106). Online, [Geometric AI](https://erisml.org/geometric-ai/ch07_alignment_gauge_group.html).
+Definition 7.3, Section 7.5, [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:165-169`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch07_alignment_gauge_group.md#L165-L169), resting on Claim 7.1 (BIP Necessity), [`geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:97-109`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch07_alignment_gauge_group.md#L97-L109). Online, [Geometric AI](https://erisml.org/geometric-ai/ch07_alignment_gauge_group.html).
 
 ## measurements
 

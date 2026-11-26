@@ -31,7 +31,7 @@ none. *standing.* A standard statistical method. The five headline sigma values 
 
 ## first stated
 
-Section 12.6.1, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:340-344`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch12_benchmarks_as_geometric_probes.md#L340-L344), and the technical appendix, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:483-495`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch12_benchmarks_as_geometric_probes.md#L483-L495). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch12_benchmarks_as_geometric_probes.html).
+Section 12.6.1, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:340-344`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch12_benchmarks_as_geometric_probes.md#L340-L344), and the technical appendix, [`geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:483-495`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch12_benchmarks_as_geometric_probes.md#L483-L495). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch12_benchmarks_as_geometric_probes.html).
 
 ## measurements
 

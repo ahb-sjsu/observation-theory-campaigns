@@ -16,8 +16,8 @@ none
 
 ## conditions
 
-- Chapter 3 says the statement follows from the dimensional mismatch between the manifold and the real line. Chapter 1 defers the proof to the parent theorem of Geometric Reasoning.
-- The form of Theorem 1.1 needs quality profiles that are mutually Pareto-non-dominated across d independent dimensions. Its corollary says k scalar metrics with k below d still do not recover the profile.
+- Chapter 3 says the statement follows from the dimensional mismatch between the manifold and the real line. Chapter 1 defers the proof to the parent theorem, which it cites as a conditional theorem of Geometric Reasoning (Theorem 13.1).
+- The form of Theorem 1.1 needs quality profiles that are mutually Pareto-non-dominated across d independent dimensions. The chapter's summary states it for weighted composites of such profiles. Its corollary says k scalar metrics with k below d still do not recover the profile.
 - The corollary requires independent measurements. The chapter says BLEU, METEOR and chrF++ are nearly parallel projections.
 - The examples in the theorem (a BLEU score of 0.35, a sentiment score of +0.8, a word error rate of 5%) are illustrations, not measurements.
 
@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-communication.toml` rather than rea
 
 ## ledger
 
-none. *standing.* A theorem stated with an argument from dimension counting. The volume has no written proof of its own and refers to Geometric Reasoning, Chapter 13.
+none. *standing.* A theorem stated with an argument from dimension counting. The volume has no written proof of its own. Chapter 1 refers to Geometric Reasoning, Theorem 13.1, which it calls a conditional theorem, and Chapter 15 says the level-set form is that of Geometric Ethics, Theorem 15.1.
 
 ## first stated
 
-Theorem 3.1, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:391-397`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_i/ch03_communication_manifold.md#L391-L397), and in profile form as Theorem 1.1, [`geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:168-170`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_i/ch01_perplexity_trap.md#L168-L170). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
+Theorem 3.1, [`geometric-communication/manuscript/part_i/ch03_communication_manifold.md:391-397`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_i/ch03_communication_manifold.md#L391-L397), and in profile form as Theorem 1.1, [`geometric-communication/manuscript/part_i/ch01_perplexity_trap.md:168-170`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_i/ch01_perplexity_trap.md#L168-L170). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch03_communication_manifold.html).
 
 ## measurements
 

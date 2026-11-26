@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 13.1, [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:42-50`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_v/ch13_gauge_theory.md#L42-L50). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch13_gauge_theory.html).
+Definition 13.1, [`geometric-communication/manuscript/part_v/ch13_gauge_theory.md:42-50`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_v/ch13_gauge_theory.md#L42-L50). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch13_gauge_theory.html).
 
 ## measurements
 

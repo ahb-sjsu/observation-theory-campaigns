@@ -28,7 +28,7 @@ none. *standing.* A rule of method, not a finding. Its normative source is the C
 
 ## first stated
 
-Section 21.1, [`geometric-methods/chapters/chapter-21-measurement-discipline.md:20-33`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-21-measurement-discipline.md#L20-L33). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-21-measurement-discipline.html).
+Section 21.1, [`geometric-methods/chapters/chapter-21-measurement-discipline.md:20-33`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-21-measurement-discipline.md#L20-L33). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-21-measurement-discipline.html).
 
 ## measurements
 

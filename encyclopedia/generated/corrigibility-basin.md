@@ -28,7 +28,7 @@ none. *standing.* Posited structure. The basin shapes assigned to models are int
 
 ## first stated
 
-Definition 11.5, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:151-153`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L151-L153), and Definitions A11.2 and A11.3, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:472-487`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L472-L487). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
+Definition 11.5, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:151-153`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch11_alignment_as_heuristic_shaping.md#L151-L153), and Definitions A11.2 and A11.3, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:472-487`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch11_alignment_as_heuristic_shaping.md#L472-L487). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
 
 ## measurements
 

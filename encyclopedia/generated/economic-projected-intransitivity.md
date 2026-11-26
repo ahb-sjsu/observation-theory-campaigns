@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Theorem 16, Chapter 6, [`geometric-economics/chapters/ch06_economic_tensors.md:92-102`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch06_economic_tensors.md#L92-L102). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch06_economic_tensors.html).
+Theorem 16, Chapter 6, [`geometric-economics/chapters/ch06_economic_tensors.md:92-102`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch06_economic_tensors.md#L92-L102). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch06_economic_tensors.html).
 
 ## measurements
 

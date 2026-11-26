@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 4.5, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:235-239`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch04_learner_manifold.md#L235-L239). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
+Definition 4.5, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:235-239`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch04_learner_manifold.md#L235-L239). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
 
 ## measurements
 

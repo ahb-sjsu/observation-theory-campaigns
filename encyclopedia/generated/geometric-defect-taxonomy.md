@@ -28,7 +28,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Section 14.6, [`geometric-cognition/chapters/ch14_pathology.md:189-196`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch14_pathology.md#L189-L196), under the caveat of Section 14.1, [`geometric-cognition/chapters/ch14_pathology.md:38-40`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch14_pathology.md#L38-L40). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch14_pathology.html).
+Section 14.6, [`geometric-cognition/chapters/ch14_pathology.md:189-196`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch14_pathology.md#L189-L196), under the caveat of Section 14.1, [`geometric-cognition/chapters/ch14_pathology.md:38-40`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch14_pathology.md#L38-L40). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch14_pathology.html).
 
 ## measurements
 

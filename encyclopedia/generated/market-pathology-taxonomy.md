@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Section 10.1, [`geometric-economics/chapters/ch10_market_failures.md:20-27`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch10_market_failures.md#L20-L27), with the cascade in Proposition 10.2, [`geometric-economics/chapters/ch10_market_failures.md:177-181`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch10_market_failures.md#L177-L181). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch10_market_failures.html).
+Section 10.1, [`geometric-economics/chapters/ch10_market_failures.md:20-27`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch10_market_failures.md#L20-L27), with the cascade in Proposition 10.2, [`geometric-economics/chapters/ch10_market_failures.md:177-181`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch10_market_failures.md#L177-L181). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch10_market_failures.html).
 
 ## measurements
 

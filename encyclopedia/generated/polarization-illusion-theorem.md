@@ -19,7 +19,7 @@ none
 - The proof sketch notes that every projection of a Gaussian is unimodal. The effect needs a non-Gaussian shape such as a ridge or a mixture, and the sketch asserts the construction without working it through.
 - The volume's corrections record of 2026-11-26 says the construction in the sketch does not work as written and leaves a correct one to the author.
 - The theorem does not say American polarization is illusory. The chapter reads the survey record as real separation on social values and institutional trust, sorting on three dimensions, and little structure on foreign policy.
-- The dimension-by-dimension figures are given as approximate readings of survey series. The District 7 decomposition is illustrative.
+- The dimension-by-dimension figures are given as approximate readings of the ANES series, with no computation or citation in the volume. The District 7 decomposition is illustrative.
 
 Conditions are curated in `volumes/geometric-politics.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* A theorem stated with a proof sketch, which the chapter labels
 
 ## first stated
 
-Theorem 4 of Chapter 8, [`geometric-politics/manuscript/part_iii/ch08_polarization.md:35-41`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch08_polarization.md#L35-L41). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch08_polarization.html).
+Theorem 4 of Chapter 8, [`geometric-politics/manuscript/part_iii/ch08_polarization.md:35-41`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iii/ch08_polarization.md#L35-L41). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch08_polarization.html).
 
 ## measurements
 

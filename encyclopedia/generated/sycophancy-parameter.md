@@ -29,7 +29,7 @@ none. *standing.* The parameter is posited. The measured quantity behind it is t
 
 ## first stated
 
-Section 6.3, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:69-75`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch06_sycophancy_as_search_hijacking.md#L69-L75), and Definition 6.1, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:438-442`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch06_sycophancy_as_search_hijacking.md#L438-L442). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch06_sycophancy_as_search_hijacking.html).
+Section 6.3, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:69-75`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch06_sycophancy_as_search_hijacking.md#L69-L75), and Definition 6.1, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:438-442`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch06_sycophancy_as_search_hijacking.md#L438-L442). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch06_sycophancy_as_search_hijacking.html).
 
 ## measurements
 

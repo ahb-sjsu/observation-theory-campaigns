@@ -29,7 +29,7 @@ none. *standing.* Tagged Theorem (conditional on Req. 1 to 4) in the text and Co
 
 ## first stated
 
-Theorem 18.1, Section 18.6, [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:501-530`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-18-geometric-ethics-for-artificial-agents.html#L501-L530), on the requirements of [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:448-499`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-18-geometric-ethics-for-artificial-agents.html#L448-L499). Online, [Geometric Ethics](https://erisml.org/book/chapter-18-geometric-ethics-for-artificial-agents.html).
+Theorem 18.1, Section 18.6, [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:502-531`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-18-geometric-ethics-for-artificial-agents.html#L502-L531), on the requirements of [`geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:449-500`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-18-geometric-ethics-for-artificial-agents.html#L449-L500). Online, [Geometric Ethics](https://erisml.org/book/chapter-18-geometric-ethics-for-artificial-agents.html).
 
 ## measurements
 

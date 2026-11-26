@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-education.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Theorems 5.1 and 5.2 are proved in the text and are elementary. The volume calls the result the education-specific instance of the Scalar Irrecoverability Theorem of Geometric Reasoning. Its application to real grades rests on the posited six-dimensional manifold.
+none. *standing.* Theorems 5.1 and 5.2 are proved in the text and are elementary. The volume calls the result the education-specific instance of the Scalar Irrecoverability Theorem of Geometric Reasoning, which Chapter 1 cites as a conditional theorem (Theorem 13.1). Its application to real grades rests on the posited six-dimensional manifold.
 
 ## first stated
 
-Theorem 5.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:30-36`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch05_assessment_contraction.md#L30-L36), Theorem 5.2, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:52-54`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch05_assessment_contraction.md#L52-L54), and Corollary 5.2.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:64-68`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch05_assessment_contraction.md#L64-L68). Stated informally as Theorem 1.1, [`geometric-education/manuscript/part_i/ch01_gpa_trap.md:183-191`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_i/ch01_gpa_trap.md#L183-L191). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
+Theorem 5.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:30-36`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch05_assessment_contraction.md#L30-L36), Theorem 5.2, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:52-54`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch05_assessment_contraction.md#L52-L54), and Corollary 5.2.1, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:64-68`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch05_assessment_contraction.md#L64-L68). Stated informally as Theorem 1.1, [`geometric-education/manuscript/part_i/ch01_gpa_trap.md:183-191`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_i/ch01_gpa_trap.md#L183-L191). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
 
 ## measurements
 

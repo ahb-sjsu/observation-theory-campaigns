@@ -30,7 +30,7 @@ none. *standing.* Appendix F lists Definition 10.2 as a Formal Definition (ledge
 
 ## first stated
 
-Definition 10.2, Section 10.4, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:235-251`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L235-L251), on the moral connection of Definition 10.1, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:131-144`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L131-L144). Online, [Geometric Ethics](https://erisml.org/book/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html).
+Definition 10.2, Section 10.4, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:235-251`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L235-L251), on the moral connection of Definition 10.1, [`geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:131-144`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html#L131-L144). Online, [Geometric Ethics](https://erisml.org/book/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html).
 
 ## measurements
 

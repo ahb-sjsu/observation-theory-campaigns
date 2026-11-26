@@ -17,7 +17,7 @@ none
 ## conditions
 
 - The path model is tagged a modeling axiom. The reason given is that Maillard and caramelization rates rise roughly exponentially with temperature (Arrhenius kinetics).
-- The supporting comparison is qualitative. Sous-vide at 56 degrees Celsius for two days and a roast at 230 degrees for forty minutes are said to deliver comparable total energy and to land at different flavors.
+- The supporting comparison is qualitative. Sous-vide at 56 degrees Celsius for two days delivers, by the integral of temperature in degrees Celsius over time, about seventeen times as much as a roast at 230 degrees for forty minutes, yet it is the roast that browns, and the two land at different flavors.
 - The volume rejects the equal-integral simplification as false. It gives no measured flavor distance between two such paths.
 
 Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 7.5, [`geometric-gastronomy/chapters/ch07_transformations_under_heat.md:84-92`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch07_transformations_under_heat.md#L84-L92). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch07_transformations_under_heat.html).
+Section 7.5, [`geometric-gastronomy/chapters/ch07_transformations_under_heat.md:88-96`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch07_transformations_under_heat.md#L88-L96). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch07_transformations_under_heat.html).
 
 ## measurements
 

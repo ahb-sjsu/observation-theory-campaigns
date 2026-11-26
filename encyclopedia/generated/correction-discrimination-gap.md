@@ -29,7 +29,7 @@ none. *standing.* A measured benchmark quantity tagged empirical. The two chapte
 
 ## first stated
 
-Definition 6.2, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:458-462`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch06_sycophancy_as_search_hijacking.md#L458-L462), with the sycophancy index defined at [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:452-456`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch06_sycophancy_as_search_hijacking.md#L452-L456). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch06_sycophancy_as_search_hijacking.html).
+Definition 6.2, [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:458-462`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch06_sycophancy_as_search_hijacking.md#L458-L462), with the sycophancy index defined at [`geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:452-456`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch06_sycophancy_as_search_hijacking.md#L452-L456). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch06_sycophancy_as_search_hijacking.html).
 
 ## measurements
 

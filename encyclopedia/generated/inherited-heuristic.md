@@ -8,7 +8,7 @@
 
 The inherited heuristic $h_P$ is the part of the educational heuristic field supplied by parents or family who have already been through the educational system. For a first-generation student it is about zero, and the volume calls navigation without it the empty-heuristic problem.
 
-**Example.** With the parents' estimate at zero and all other sources absent, the field is zero everywhere and A* expands states in order of cost from the start alone. The volume's stated indicator is 1.5 to 2 extra semesters to a degree for first-generation students, given without a source.
+**Example.** With the parents' estimate at zero and all other sources absent, the field is zero everywhere and A* expands states in order of cost from the start alone. The volume's stated indicator is an estimate of 1.5 to 2 extra semesters to a degree for first-generation students, given without a source.
 
 **Known as, or related to prior art.** The hidden curriculum of educational research, which Section 7.6 identifies with it.
 
@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 6.5, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:113-119`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch06_teaching_geodesic.md#L113-L119), with the cost in Section 6.4.1, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:123-125`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch06_teaching_geodesic.md#L123-L125). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
+Definition 6.5, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:113-119`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch06_teaching_geodesic.md#L113-L119), with the cost in Section 6.4.1, [`geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:123-125`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch06_teaching_geodesic.md#L123-L125). Online, [Geometric Education](https://erisml.org/geometric-education/ch06_teaching_geodesic.html).
 
 ## measurements
 

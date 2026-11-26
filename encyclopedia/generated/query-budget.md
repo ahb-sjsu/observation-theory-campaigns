@@ -29,7 +29,7 @@ none. *standing.* The identities of Section 17.11 are proved and checked symboli
 
 ## first stated
 
-Section 17.11.2, [`geometric-methods/chapters/chapter-17-scaling.md:482-490`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-17-scaling.md#L482-L490). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-17-scaling.html).
+Section 17.11.2, [`geometric-methods/chapters/chapter-17-scaling.md:482-490`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-17-scaling.md#L482-L490). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-17-scaling.html).
 
 ## measurements
 

@@ -16,7 +16,7 @@ none
 
 ## conditions
 
-- The corpus is 4,683 non-English Gutenberg books. Matched bundles formed in ten languages from six families (Germanic, Uralic, Romance, Hellenic, Italic-ancient, Constructed), from Finnish at 288 down to Latin at 20.
+- The corpus is 4,683 non-English Gutenberg books. Matched bundles, a book with its translation, formed at or above the threshold of 20 bundles per language in ten languages from six families (Germanic, Uralic, Romance, Hellenic, Italic-ancient, Constructed), from Finnish at 288 down to Latin at 20.
 - Sinitic is absent because the Chinese Gutenberg texts are classical originals and not translations. The volume calls any claim of full linguistic universality premature.
 - The invariance is partial. A correlation near 0.70 leaves about half the variance of the channel values unpreserved, and the volume says it does not claim gauge invariance in the strong sense.
 - It is a result about feature values, not verdicts. Rating transfer from an English-trained model is R = 0.07 (n = 940, p = 0.033). Appendix E grants that LaBSE was trained to align translated sentences and answers that the features are cloud statistics, not sentence-pair similarity.
@@ -29,7 +29,7 @@ none. *standing.* Verified empirically in Appendix F (F12.1, F12.2, F12.4). Its 
 
 ## first stated
 
-Section 17.5.2, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:119-135`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L119-L135). Setup in Section 17.5.1, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:113-117`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L113-L117). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.5.2, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:119-135`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L119-L135). Setup in Section 17.5.1, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:113-117`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L113-L117). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 

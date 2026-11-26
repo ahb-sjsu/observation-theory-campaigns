@@ -31,7 +31,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Section 13.6, [`geometric-cognition/chapters/ch13_development.md:144-158`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch13_development.md#L144-L158), and the theorem of Technical Appendix 13A, [`geometric-cognition/chapters/ch13_development.md:307-313`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch13_development.md#L307-L313). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch13_development.html).
+Section 13.6, [`geometric-cognition/chapters/ch13_development.md:144-158`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch13_development.md#L144-L158), and the theorem of Technical Appendix 13A, [`geometric-cognition/chapters/ch13_development.md:307-313`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch13_development.md#L307-L313). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch13_development.html).
 
 ## measurements
 

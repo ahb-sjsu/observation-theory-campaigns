@@ -30,7 +30,7 @@ none. *standing.* A corollary stated without a separate proof. It rests on the R
 
 ## first stated
 
-Corollary 5.2, Section 5.2.2, [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:72-88`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch05_reward_irrecoverability.md#L72-L88). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
+Corollary 5.2, Section 5.2.2, [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:72-88`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch05_reward_irrecoverability.md#L72-L88). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
 
 ## measurements
 

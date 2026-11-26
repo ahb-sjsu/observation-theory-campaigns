@@ -29,7 +29,7 @@ none. *standing.* Tagged Modeling Axiom in the text, and listed as a Modeling Ax
 
 ## first stated
 
-Definition 8.12, Section 8.10a, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1261-1273`](https://github.com/ahb-sjsu/geometric-ethics/blob/ca9f708/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1261-L1273). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
+Definition 8.12, Section 8.10a, [`geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1264-1276`](https://github.com/ahb-sjsu/geometric-ethics/blob/401b9a5/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html#L1264-L1276). Online, [Geometric Ethics](https://erisml.org/book/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html).
 
 ## measurements
 

@@ -34,7 +34,7 @@ Chapter 8 section 8.6 and chapter 12 section 12.5 of *Data Mining as Observation
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.6 | books 0.241 at 17 sigma, residual 0.093, R2 0.009, z 6.5, p 5.7e-11, 85 percent, fiction 0.131 on 2250 | [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:95-106`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L95-L106) |
+| chapter 8 section 8.6 | books 0.241 at 17 sigma, residual 0.093, R2 0.009, z 6.5, p 5.7e-11, 85 percent, fiction 0.131 on 2250 | [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:95-106`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L95-L106) |
 
 ## failures and corrections
 

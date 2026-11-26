@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 4, [`geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:163-169`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch04_preference_manifold.md#L163-L169). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch04_preference_manifold.html).
+Chapter 4, [`geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:171-177`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch04_preference_manifold.md#L171-L177). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch04_preference_manifold.html).
 
 ## measurements
 

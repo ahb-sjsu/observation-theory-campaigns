@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 8.6, [`geometric-gastronomy/chapters/ch08_recipe_as_geometric_construction.md:94-100`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch08_recipe_as_geometric_construction.md#L94-L100). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch08_recipe_as_geometric_construction.html).
+Section 8.6, [`geometric-gastronomy/chapters/ch08_recipe_as_geometric_construction.md:98-104`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch08_recipe_as_geometric_construction.md#L98-L104). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch08_recipe_as_geometric_construction.html).
 
 ## measurements
 

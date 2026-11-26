@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 6.6, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:100-104`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch06_the_algebra_of_seasoning.md#L100-L104). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch06_the_algebra_of_seasoning.html).
+Section 6.6, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:108-112`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch06_the_algebra_of_seasoning.md#L108-L112). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch06_the_algebra_of_seasoning.html).
 
 ## measurements
 

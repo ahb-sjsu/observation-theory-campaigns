@@ -6,7 +6,7 @@
 
 ## definition
 
-Heritable receptor variation is modeled as a near-identity linear transformation $R$ of the reference affinity matrix, so an individual's basis is $A' = RA$ and their receptor vector is $\mathbf{r}' = R\mathbf{r}$. For a single-receptor polymorphism the action is approximately a rotation in the plane of the affected axis and its perceptual neighbors.
+Heritable receptor variation is modeled as a near-identity linear transformation $R$ of the reference affinity matrix, so an individual's basis is $A' = RA$ and their receptor vector is $\mathbf{r}' = R\mathbf{r}$. For a single-receptor polymorphism the action is approximately a rotation in the plane of the affected axis and its perceptual neighbors, together with a change of gain along that axis where the polymorphism rescales it.
 
 **Example.** Let $R$ multiply the bitter coordinate by 2 and leave the rest fixed. A dish at bitter 1 in the reference frame reads as 2 for that eater, so a target of 1 needs a reference-frame design at 0.5, the pre-image under the inverse. The factor 2 is illustrative.
 
@@ -16,9 +16,9 @@ none
 
 ## conditions
 
-- Tagged a modeling axiom. The rotation is an approximation for single-receptor polymorphisms such as TAS2R38 and OR6A2, where $R$ rescales or reorients one coordinate and leaves the others fixed.
+- Tagged a modeling axiom. The rotation is an approximation for single-receptor polymorphisms such as TAS2R38 and OR6A2, where $R$ rescales or reorients one coordinate and leaves the others fixed. The volume notes that a rotation preserves length and cannot by itself represent a gain change.
 - Variation in receptor density and gain is a second form that changes resolution and not orientation. The volume treats it separately as effective flavor dimensionality.
-- Personalized design in Section 13.5 replaces the target by its pre-image $R^{-1}\mathbf{f}^\star$. The volume conjectures that the binding constraint is measuring $R$ for one eater with enough fidelity, not the optimization.
+- Personalized design in Section 13.5 replaces the target by its pre-image $R^{-1}\mathbf{f}^\star$, an argument that needs only that $R$ is invertible. The volume conjectures that the binding constraint is measuring $R$ for one eater with enough fidelity, not the optimization.
 
 Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 2.5, [`geometric-gastronomy/chapters/ch02_the_receptor_basis.md:95-95`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch02_the_receptor_basis.md#L95-L95), and its inverse use in Section 13.5, [`geometric-gastronomy/chapters/ch13_designing_flavors.md:82-82`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch13_designing_flavors.md#L82-L82). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch02_the_receptor_basis.html).
+Section 2.5, [`geometric-gastronomy/chapters/ch02_the_receptor_basis.md:99-99`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch02_the_receptor_basis.md#L99-L99), and its inverse use in Section 13.5, [`geometric-gastronomy/chapters/ch13_designing_flavors.md:90-90`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch13_designing_flavors.md#L90-L90). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch02_the_receptor_basis.html).
 
 ## measurements
 

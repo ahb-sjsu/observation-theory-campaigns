@@ -294,8 +294,8 @@ definition = "A function from legal documents to vectors of fixed dimension such
 first_stated = "Chapter 15, `geometric-law/chapters/ch15_ai_legal.md:56-66`, with the formal conditions at `geometric-law/chapters/ch15_ai_legal.md:475-485`. The pipeline first appears in Chapter 3, `geometric-law/chapters/ch03_judicial_complex.md:253-261`."
 conditions = [
   "The embedding is frozen at a fixed version and the probes are logistic regressions, so the same text always gives the same scores.",
-  "Chapter 3 names the multilingual encoder LaBSE with 768 dimensions. Chapter 15 describes a legal-domain transformer for JurisGraph, the system of its running example.",
-  "The probe accuracies the volume quotes, F1 from 0.74 to 0.91, are for the nine moral-dimension probes of the parent framework. For the legal probes it calls for about 200 expert-scored validation cases and at least 500 labeled cases per dimension.",
+  "Chapter 3 names the multilingual encoder LaBSE with 768 dimensions, which places translations close together, and adds that Geometric Ethics reports language identity is still recoverable from such representations. Chapter 15 describes a legal-domain transformer for JurisGraph, the system of its running example.",
+  "The probe accuracies the volume quotes, F1 from 0.74 to 0.91, are for the nine moral-dimension probes of the parent framework, as reported in an unpublished study by Thiele (2026), and the rights-and-duties axis failed its preregistered gate there. Chapter 3 says the methodology is exploratory and model-mediated in the Geometric Ethics claim ledger. For the legal probes it calls for about 200 expert-scored validation cases and at least 500 labeled cases per dimension.",
   "The front matter classes AI implementation as speculation or extension, and Chapter 4 states that the scoring and calibration programme has not yet been executed on legal data.",
 ]
 standing = "This is the one corner the README of 2026-07-14 reports as instrumented. It says the legal text embedding LeBSE is validated in the xbse admission filter on US case law, with labels from the CourtListener citation graph, and that this covers structure preservation in legal text embeddings and not the book's broader jurisprudential claims. The chapters do not mention LeBSE or report that test."
@@ -309,7 +309,7 @@ title = "Four geometric pathologies of law"
 definition = "Four ways the legal search goes wrong. Heuristic corruption adds to a doctrinal heuristic a bias tied to legally irrelevant features. Objective hijacking optimizes a measurable proxy in place of the legal objective. A legal local minimum is a precedent too costly to overrule. Gauge breaking is an evaluation that changes under an equal protection transformation."
 first_stated = "Chapter 10, the taxonomy at `geometric-law/chapters/ch10_legal_failures.md:26-35`, with the formal definitions at `geometric-law/chapters/ch10_legal_failures.md:357-385`."
 conditions = [
-  "The taxonomy is carried over from the four AI failure modes of the Geometric Ethics programme. The volume asserts that the mapping is by shared mathematical structure and not by analogy.",
+  "The taxonomy is carried over from the four AI failure modes of Geometric Reasoning, Chapters 5 to 8. The volume asserts that the mapping is by shared mathematical structure and not by analogy.",
   "A local minimum is inescapable when the cost barrier around it exceeds the gain from reaching the better outcome.",
   "The pathologies interact. The appendix models corruption and gauge violation feeding each other as a linear recurrence that grows when the product of its two coupling constants is positive.",
   "The examples, such as plea bargaining as objective hijacking and qualified immunity as a local minimum, are the volume's readings of known phenomena.",
@@ -323,7 +323,7 @@ title = "Irrecoverability of the binary verdict and the scalar sentence"
 definition = "A binary verdict maps the eight-dimensional legal space to one bit, and a sentence maps it to one number. Neither map is injective, so neither preserves the distances between cases, and nothing computed from the verdict or sentence alone recovers the dimensions that produced it."
 first_stated = "Chapter 1, `geometric-law/chapters/ch01_binary_verdict.md:241-245`, introduced at `geometric-law/chapters/ch01_binary_verdict.md:40-44`."
 conditions = [
-  "Tagged in the volume as a conditional theorem, with a proof sketch. It is the legal restatement of the Scalar Irrecoverability Theorem of Geometric Reasoning.",
+  "Tagged in the volume as a conditional theorem, with a proof sketch. It applies the Scalar Irrecoverability Theorem in the form of Theorem 15.1 of Geometric Ethics and Theorem 14 of Geometric Economics, and the chapter says Theorem 13.1 of Geometric Reasoning states a composite-score form as a conditional theorem.",
   "It presupposes that a case is described by eight dimensions, which the volume tags as a modeling axiom.",
   "It says that information is lost, not that verdicts are wrong. The volume says the framework audits verdicts and does not determine them.",
 ]

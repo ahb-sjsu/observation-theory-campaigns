@@ -30,7 +30,7 @@ none. *standing.* Parts 1 and 2 are proved from established mathematics in the c
 
 ## first stated
 
-Theorem 14, Chapter 6, [`geometric-economics/chapters/ch06_economic_tensors.md:42-48`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch06_economic_tensors.md#L42-L48), with its proof at [`geometric-economics/chapters/ch06_economic_tensors.md:52-60`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch06_economic_tensors.md#L52-L60). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch06_economic_tensors.html).
+Theorem 14, Chapter 6, [`geometric-economics/chapters/ch06_economic_tensors.md:42-48`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch06_economic_tensors.md#L42-L48), with its proof at [`geometric-economics/chapters/ch06_economic_tensors.md:52-60`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch06_economic_tensors.md#L52-L60). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch06_economic_tensors.html).
 
 ## measurements
 

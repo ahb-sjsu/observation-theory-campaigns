@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 1, [`geometric-gastronomy/chapters/ch01_taste_as_geometry.md:26-26`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch01_taste_as_geometry.md#L26-L26), with the full flavor vector in Section 1.4, [`geometric-gastronomy/chapters/ch01_taste_as_geometry.md:62-64`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch01_taste_as_geometry.md#L62-L64). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch01_taste_as_geometry.html).
+Chapter 1, [`geometric-gastronomy/chapters/ch01_taste_as_geometry.md:26-26`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch01_taste_as_geometry.md#L26-L26), with the full flavor vector in Section 1.4, [`geometric-gastronomy/chapters/ch01_taste_as_geometry.md:66-68`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch01_taste_as_geometry.md#L66-L68). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch01_taste_as_geometry.html).
 
 ## measurements
 

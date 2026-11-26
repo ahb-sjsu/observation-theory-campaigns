@@ -31,7 +31,7 @@ none. *standing.* The README's status note of 2026-07-14 calls this volume the s
 
 ## first stated
 
-Section 5.3.1, [`geometric-methods/chapters/chapter-05-topological-data-analysis.md:105-122`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-05-topological-data-analysis.md#L105-L122). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-05-topological-data-analysis.html).
+Section 5.3.1, [`geometric-methods/chapters/chapter-05-topological-data-analysis.md:105-122`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-05-topological-data-analysis.md#L105-L122). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-05-topological-data-analysis.html).
 
 ## measurements
 

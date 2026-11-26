@@ -19,7 +19,7 @@ none
 - Both allocations obey the same resource bound. The triage problem is a set of patients, one complex and one goal region per patient, and that bound.
 - In the withdrawal case the allocations differ only when the abandonment and trust penalties exceed the outcome differential between the two patients.
 - The proof is an argument from the form of the edge weight. The penalties it uses are not calibrated, and the trust and justice penalties are not among the five boundaries of Definition 4.3.
-- The three predictions about clinician distress in Section 10.5 are described as consistent with the pandemic literature. No test of them is reported.
+- The three predictions about clinician distress in Section 10.5 are stated as expectations. A dated note of 2026-11-26 says the findings the section attributes to published work have not been checked against that work and that no study it cites was designed to test the predictions.
 
 Conditions are curated in `volumes/geometric-medicine.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* A theorem with an argument given in Section 10.2. Its numerica
 
 ## first stated
 
-Theorem 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:79-89`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch10_pandemic_triage.md#L79-L89), on the triage problem of Definition 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iv/ch10_pandemic_triage.md#L24-L35). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch10_pandemic_triage.html).
+Theorem 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:79-89`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_iv/ch10_pandemic_triage.md#L79-L89), on the triage problem of Definition 10.1, [`geometric-medicine/manuscript/part_iv/ch10_pandemic_triage.md:24-35`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_iv/ch10_pandemic_triage.md#L24-L35). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch10_pandemic_triage.html).
 
 ## measurements
 

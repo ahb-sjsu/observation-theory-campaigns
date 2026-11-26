@@ -8,7 +8,7 @@
 
 The vector of a system's scores on the benchmark's 21 subtasks, each between 0 and 1, written $C(S) = (c_1, ..., c_{21})$. The volume treats it as the object that a composite score contracts to one number.
 
-**Example.** In the volume's Chapter 1 table Claude scores 1.000 on L2 and 0.571 on A4 while Gemini 2.5 Pro scores 0.720 and 0.790, so neither profile is above the other on both components.
+**Example.** In the volume's Chapter 1 table Claude scores 1.000 on L2 and 0.571 on A4 while Gemini 2.5 Pro scores 0.560 and 1.000, so neither profile is above the other on both components.
 
 ## equation
 
@@ -28,7 +28,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 1.1, [`geometric-cognition/chapters/ch01_iq_trap.md:59-63`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch01_iq_trap.md#L59-L63). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch01_iq_trap.html).
+Definition 1.1, [`geometric-cognition/chapters/ch01_iq_trap.md:59-63`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch01_iq_trap.md#L59-L63). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch01_iq_trap.html).
 
 ## measurements
 

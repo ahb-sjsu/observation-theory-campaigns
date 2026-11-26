@@ -32,7 +32,7 @@ none. *standing.* A conditional theorem with a proof sketch, whose if-and-only-i
 
 ## first stated
 
-Chapter 7, the subcomplex at [`geometric-law/chapters/ch07_constitutional_topology.md:32-45`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch07_constitutional_topology.md#L32-L45), the theorem at [`geometric-law/chapters/ch07_constitutional_topology.md:99-103`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch07_constitutional_topology.md#L99-L103), and the completeness conjecture at [`geometric-law/chapters/ch07_constitutional_topology.md:187-191`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch07_constitutional_topology.md#L187-L191). Online, [Geometric Law](https://erisml.org/geometric-law/ch07_constitutional_topology.html).
+Chapter 7, the subcomplex at [`geometric-law/chapters/ch07_constitutional_topology.md:32-45`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch07_constitutional_topology.md#L32-L45), the theorem at [`geometric-law/chapters/ch07_constitutional_topology.md:99-103`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch07_constitutional_topology.md#L99-L103), and the completeness conjecture at [`geometric-law/chapters/ch07_constitutional_topology.md:187-191`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch07_constitutional_topology.md#L187-L191). Online, [Geometric Law](https://erisml.org/geometric-law/ch07_constitutional_topology.html).
 
 ## measurements
 

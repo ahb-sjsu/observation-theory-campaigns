@@ -31,7 +31,7 @@ none. *standing.* A conditional theorem whose hypotheses include a property of t
 
 ## first stated
 
-Theorem 13.1, [`geometric-reasoning/chapters/ch13_five_convergent_measurements.md:449-457`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch13_five_convergent_measurements.md#L449-L457), stated informally in Section 13.6, [`geometric-reasoning/chapters/ch13_five_convergent_measurements.md:280-282`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch13_five_convergent_measurements.md#L280-L282). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch13_five_convergent_measurements.html).
+Theorem 13.1, [`geometric-reasoning/chapters/ch13_five_convergent_measurements.md:449-457`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch13_five_convergent_measurements.md#L449-L457), stated informally in Section 13.6, [`geometric-reasoning/chapters/ch13_five_convergent_measurements.md:280-282`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch13_five_convergent_measurements.md#L280-L282). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch13_five_convergent_measurements.html).
 
 ## measurements
 

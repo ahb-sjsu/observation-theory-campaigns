@@ -28,6 +28,7 @@ conditions = [
   "The formal version assumes the contraction is a continuous surjection and the profile has at least two components.",
   "The theorem says the profile cannot be recovered from the score. The further claim that the discarded structure determines how a system reasons is a separate ledger row held at posited (GC-10).",
   "The empirical demonstration of Section 1.5 uses the five benchmark models, whose run records are not in the repository.",
+  "The front matter cites the theorem as Theorem 13.1 of Geometric Reasoning, a conditional theorem there.",
 ]
 standing = "The ledger grades the theorem proved (row GC-9) and describes it as linear algebra that holds whatever the axes mean."
 known_as = "The failure of injectivity for a continuous map from two or more dimensions to one. The volume names Spearman's g, IQ and benchmark accuracy as instances of the contraction."
@@ -128,8 +129,9 @@ conditions = [
   "It is a mean over five models on two subtasks. Gemini 2.0 Flash recovers 73 percent on E2, which the volume says appears to contradict the hypothesis and explains by a hypothesized second mechanism, recomputation from scratch.",
   "The volume calls its account of why the figure is 38 percent speculative, and Chapter 17 lists whether the ceiling can be broken as an open question.",
   "The override bound of Technical Appendix 12B is given with a proof sketch. It restates the ceiling as about 62 percent of the System 1 error being committed.",
+  "The E2 mean of 38 percent matches only the Chapter 6 set of per-model recovery rates. The sets of Chapters 11 and 16 and of Geometric Reasoning give means near 48 and 50 percent, and the corrections record of 2026-11-26 lists the E2 rates as still open.",
 ]
-standing = "A measured mean whose run records are not in the repository. The ledger grades its row for a ceiling near 38 percent exploratory (GC-19, worded there as a divided-attention ceiling), and the architectural explanations are the volume's hypotheses."
+standing = "A measured mean whose run records are not in the repository. The ledger grades its row for a recovery ceiling near 38 percent exploratory (GC-19), and the architectural explanations are the volume's hypotheses."
 related = ["displacement-recovery-dissociation", "curvature-triggered-transition", "cognitive-control-tensor", "metacognitive-empty-quadrant"]
 
 [[entry]]
@@ -161,7 +163,7 @@ conditions = [
   "The registration says the self-test shows the estimator reads the endpoints and the nulls correctly on built stimuli, and does not show that a human observer will produce them.",
   "The recruitment part is not graded when the identification part misses. The registration says a pass would say nothing about curvature or about language models.",
 ]
-standing = "Untested. The campaign record lists gate H1 as drafted on 2026-09-18, not sealed and not run."
+standing = "Untested. The campaign record lists gate H1 as drafted on 2026-09-18, with its self-test passed that day, and as not sealed and not run. Its probe and pilot have not run."
 related = ["curvature-triggered-transition", "budget-reversal-gate-c1", "preregistration", "sealed", "observer-vacuity-proposition"]
 
 [[entry]]
@@ -173,9 +175,9 @@ first_stated = "Definition 7.2, `geometric-cognition/chapters/ch07_social_cognit
 conditions = [
   "The transformation must be morally irrelevant by construction. In the T5 test the rewrites are produced by one fixed model, Gemini 2.0 Flash.",
   "The volume finds that total harm is not conserved under rewriting, and says the framing transformation is then not a proper gauge transformation for these systems.",
-  "The seven harm dimensions are specified in advance and not inferred from data. Definition 7.1 and Appendix B name the seven differently.",
+  "The seven harm dimensions are specified in advance and not inferred from data.",
 ]
-known_as = "Gauge invariance in physics, and the Bond Invariance Principle, which the volume cites as Bond 2026."
+known_as = "Gauge invariance in physics, and the Bond Invariance Principle, which the volume cites as Axiom 5.1 of Geometric Ethics."
 related = ["cognitive-framing-displacement", "cognitive-heuristic-field", "nuisance", "quotient"]
 
 [[entry]]
@@ -187,7 +189,7 @@ first_stated = "Section 7.4, `geometric-cognition/chapters/ch07_social_cognition
 conditions = [
   "The five models judge the same scenarios, so the per-model statistics are not fully independent. The volume says the combination is then anti-conservative and the true combined significance is lower than 15.3 sigma.",
   "The direction is not uniform. Claude's dramatic drift is -1.5, against +6.2 to +9.8 for the Gemini models.",
-  "The figure was updated from an earlier 8.9 sigma after more scenario data and refined controls were included.",
+  "The figure was updated from an earlier 8.9 sigma after more scenario data and refined controls were included. The front matter says the benchmark was run more than once, that volumes of the series report figures from different runs, and that the run records are not published.",
 ]
 standing = "The ledger grades the statistic exploratory (GC-11-S), since no registration predates the run and no result file or seed is in the repository. The reading as a framing effect in a social-cognitive dimension is held at posited (GC-11-I)."
 related = ["judgment-gauge-invariance", "null-model", "control", "multiple-comparisons", "sycophancy-gradient"]
@@ -213,7 +215,7 @@ title = "empty quadrant (metacognition)"
 definition = "In the plane of self-monitoring accuracy (M3) and effort scaling index (M4), split at a threshold on each axis, no tested model lies in Quadrant I, where both exceed the threshold. The volume reads the gap as a structural constraint."
 first_stated = "Section 9.8, `geometric-cognition/chapters/ch09_metacognition.md:193-205`, with Definition 9.5, `geometric-cognition/chapters/ch09_metacognition.md:217-224`."
 conditions = [
-  "Section 9.7 tabulates four models. The volume says that with four points the negative correlation of about -0.85 does not reach conventional significance.",
+  "Section 9.7 tabulates four models. Technical Appendix 9B gives their M3 and M4 correlation as about -0.98, with p about 0.02 on two degrees of freedom, and says four chosen models are not a random sample.",
   "The appendix uses a threshold of 0.25, and the volume says the midpoints of 0.5 and the medians leave the same quadrant empty. In the table of Section 9.7 the quadrant is not empty for a threshold below 0.149.",
   "The volume says that with so few models a sampling artifact cannot be excluded. The structural constraint and the topological hole are its interpretations, and it frames the hole with the words if this interpretation is correct.",
   "M3 and M4 values for the same models differ between chapters. Gemini 3 Flash has M3 of 0.149 in Section 9.7 and 0.250 in Section 16.7, and Gemini 2.5 Flash has 0.111 in the first and 0.167 in the second.",
@@ -259,6 +261,7 @@ conditions = [
   "The normalization uses the minimum and maximum across the five tested models, so a signature is relative to that set.",
   "Euclidean distance weights all subtasks equally. The volume names weighted, cosine and rank-based distances as alternatives that change the structure of the space.",
   "The ledger grades the claim of five distinct profile shapes exploratory (GC-16) and leaves the predictability of a signature from architecture open (GC-21).",
+  "The signature distances of Section 16.10 rest on 21-score vectors the volume does not print, drafted beside table values that have since been corrected. The corrections record of 2026-11-26 lists them as still open.",
 ]
 related = ["cognitive-profile-tensor", "scalar-irrecoverability-theorem", "capability-frontier-convergence", "euclidean-distance", "standardization"]
 
@@ -272,6 +275,7 @@ conditions = [
   "The ledger holds the frontier reading at posited (GC-17) and the claim that the frontier is a surface and not a point at posited (GC-18).",
   "The ledger notes that a band computed from composite scores is a statement about the composite, which Chapter 1 argues discards the structure the book is about.",
   "The composite is the unweighted mean of 21 subtask scores normalized across the same five models.",
+  "The composites rest on 21-score vectors the volume does not print, drafted beside table values that have since been corrected. The corrections record of 2026-11-26 lists them as still open.",
 ]
 related = ["scalar-irrecoverability-theorem", "cognitive-signature", "metacognitive-empty-quadrant"]
 
@@ -324,7 +328,7 @@ standing = "GC-34 stays predicted and unsealed. The campaign record counts no ga
 related = ["observer-vacuity-proposition", "deliberative-recruitment-hypothesis", "preregistration", "sealed", "null-model", "witness"]
 
 [examples]
-cognitive-profile-tensor = "In the volume's Chapter 1 table Claude scores 1.000 on L2 and 0.571 on A4 while Gemini 2.5 Pro scores 0.720 and 0.790, so neither profile is above the other on both components."
+cognitive-profile-tensor = "In the volume's Chapter 1 table Claude scores 1.000 on L2 and 0.571 on A4 while Gemini 2.5 Pro scores 0.560 and 1.000, so neither profile is above the other on both components."
 scalar-irrecoverability-theorem = "The volume's illustration has three models with scores (0.95, 0.60, 0.80, 0.70, 0.85), (0.70, 0.85, 0.75, 0.80, 0.80) and (0.80, 0.75, 0.78, 0.77, 0.80). Each sums to 3.90, so all three composites are 0.78 and the score cannot say which profile produced it."
 cognitive-manifold = "The volume's analogy is a body with about 244 joints at six degrees of freedom each, which has 6 times 244 = 1464 configuration dimensions, while walking varies in about two, the phase of the gait cycle and the speed."
 cognitive-heuristic-field = "On a line with the goal at 0 and $h(x) = |x|$, the state 3 has estimated cost 3 and the negative gradient points toward 0. If $h$ also had a dip at 5, a gradient-following search started at 6 would stop at 5 and never reach the goal."

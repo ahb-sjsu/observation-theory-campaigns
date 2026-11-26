@@ -19,16 +19,17 @@ none
 - It is a mean over five models on two subtasks. Gemini 2.0 Flash recovers 73 percent on E2, which the volume says appears to contradict the hypothesis and explains by a hypothesized second mechanism, recomputation from scratch.
 - The volume calls its account of why the figure is 38 percent speculative, and Chapter 17 lists whether the ceiling can be broken as an open question.
 - The override bound of Technical Appendix 12B is given with a proof sketch. It restates the ceiling as about 62 percent of the System 1 error being committed.
+- The E2 mean of 38 percent matches only the Chapter 6 set of per-model recovery rates. The sets of Chapters 11 and 16 and of Geometric Reasoning give means near 48 and 50 percent, and the corrections record of 2026-11-26 lists the E2 rates as still open.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* A measured mean whose run records are not in the repository. The ledger grades its row for a ceiling near 38 percent exploratory (GC-19, worded there as a divided-attention ceiling), and the architectural explanations are the volume's hypotheses.
+none. *standing.* A measured mean whose run records are not in the repository. The ledger grades its row for a recovery ceiling near 38 percent exploratory (GC-19), and the architectural explanations are the volume's hypotheses.
 
 ## first stated
 
-Section 2.6, [`geometric-cognition/chapters/ch02_kahneman.md:164-166`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch02_kahneman.md#L164-L166), and Section 6.5, [`geometric-cognition/chapters/ch06_executive_functions.md:136-149`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch06_executive_functions.md#L136-L149). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
+Section 2.6, [`geometric-cognition/chapters/ch02_kahneman.md:164-166`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch02_kahneman.md#L164-L166), and Section 6.5, [`geometric-cognition/chapters/ch06_executive_functions.md:136-149`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch06_executive_functions.md#L136-L149). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
 
 ## measurements
 

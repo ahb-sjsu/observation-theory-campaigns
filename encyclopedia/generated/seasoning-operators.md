@@ -20,7 +20,7 @@ none
 
 - Each operator is tagged a modeling axiom. The forms are posited, and none is fitted to data.
 - Salt cannot create a savory direction the dish lacks, and its factor is bounded. Past the bound the dish moves toward the salt vertex and the no-rotation approximation fails.
-- The four are a generating set with approximate inverses, not a basis of a vector space. The volume calls the basis imperfect, since heat bundles a thermal flow with a trigeminal translation.
+- The four are a generating set for a monoid of transformations, with leaving the dish alone as the identity, and not a basis of a vector space. Some have partial inverses, and the volume says the structure is not a group. It calls the basis imperfect, since heat bundles a thermal flow with a trigeminal translation.
 - The inverses are lossy. Salt can be added and cannot be cleanly removed.
 
 Conditions are curated in `volumes/geometric-gastronomy.toml` rather than read from a record.
@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 6, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch06_the_algebra_of_seasoning.md#L24-L24), with the generating set and its non-commutation in Section 6.5, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:90-96`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch06_the_algebra_of_seasoning.md#L90-L96). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch06_the_algebra_of_seasoning.html).
+Chapter 6, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:24-24`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch06_the_algebra_of_seasoning.md#L24-L24), with the generating set and its non-commutation in Section 6.5, [`geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:94-100`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch06_the_algebra_of_seasoning.md#L94-L100). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch06_the_algebra_of_seasoning.html).
 
 ## measurements
 

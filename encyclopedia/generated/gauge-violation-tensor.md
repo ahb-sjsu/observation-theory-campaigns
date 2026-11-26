@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 11, [`geometric-law/chapters/ch11_sentencing_disparities.md:28-48`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch11_sentencing_disparities.md#L28-L48), with the relation to the index at [`geometric-law/chapters/ch11_sentencing_disparities.md:64-68`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch11_sentencing_disparities.md#L64-L68). Online, [Geometric Law](https://erisml.org/geometric-law/ch11_sentencing_disparities.html).
+Chapter 11, [`geometric-law/chapters/ch11_sentencing_disparities.md:28-48`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch11_sentencing_disparities.md#L28-L48), with the relation to the index at [`geometric-law/chapters/ch11_sentencing_disparities.md:64-68`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch11_sentencing_disparities.md#L64-L68). Online, [Geometric Law](https://erisml.org/geometric-law/ch11_sentencing_disparities.html).
 
 ## measurements
 

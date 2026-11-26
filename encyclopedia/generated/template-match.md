@@ -30,7 +30,7 @@ none
 
 ## first stated
 
-Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-99`, DOI 10.5281/zenodo.21776291, and the recognizer battery in the-angular-observer.
+Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-101`, DOI 10.5281/zenodo.21776291, and the recognizer battery in the-angular-observer.
 
 ## measurements
 

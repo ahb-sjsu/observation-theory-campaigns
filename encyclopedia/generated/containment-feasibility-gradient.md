@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Section 8.6, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:173-189`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch08_no_escape.md#L173-L189), restated as a table in Section 19.3, [`geometric-ai/manuscript/part_vi/ch19_what_ai_teaches.md:38-51`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_vi/ch19_what_ai_teaches.md#L38-L51). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
+Section 8.6, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:180-196`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch08_no_escape.md#L180-L196), restated as a table in Section 19.3, [`geometric-ai/manuscript/part_vi/ch19_what_ai_teaches.md:38-51`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_vi/ch19_what_ai_teaches.md#L38-L51). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
 
 ## measurements
 

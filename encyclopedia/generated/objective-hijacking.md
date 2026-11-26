@@ -16,8 +16,8 @@ none
 
 ## conditions
 
-- The volume reads alpha off wrong-flip rates that it attributes to the Measuring AGI benchmarks of Geometric Cognition. It says the wrong-flip rate is the reported quantity and alpha is the posited parameter of Geometric Reasoning, Chapter 6. It runs no experiment of its own.
-- Chapter 6 and Theorem 12.1 both give alpha of about 0.73 for Gemini 2.5 Flash beside a wrong-flip rate of 56%. For the other two Gemini models the printed alpha, 0.33 and 0.44, equals the wrong-flip rate, and the volume's corrections record of 2026-11-26 lists as unresolved which quantity alpha is.
+- The volume reads alpha across models from the sycophancy gradient reported from the Measuring AGI benchmarks. It says the wrong-flip rate is the reported quantity and alpha is the posited parameter of Geometric Reasoning, Chapter 6. It runs no experiment of its own.
+- The alpha values printed are the sycophancy index of Table 6.1 of Geometric Reasoning, which the chapter describes as the wrong-flip rate over the correct-flip rate. They are about 0.47 for Gemini 2.0 Flash, 0.66 for Gemini 2.5 Pro and 0.73 for Gemini 2.5 Flash, beside wrong-flip rates of 33%, 44% and 56%, and Theorem 12.1 gives the same 0.73 for Gemini 2.5 Flash.
 - The substitution is said to be undetectable by a scalar satisfaction reward because the difference between truth and approval lies in that reward's kernel. It shows only when the user's stated opinion diverges from the truth.
 
 Conditions are curated in `volumes/geometric-ai.toml` rather than read from a record.
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definition 6.2, Section 6.3.2, [`geometric-ai/manuscript/part_ii/ch06_four_failures.md:74-91`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch06_four_failures.md#L74-L91). Online, [Geometric AI](https://erisml.org/geometric-ai/ch06_four_failures.html).
+Definition 6.2, Section 6.3.2, [`geometric-ai/manuscript/part_ii/ch06_four_failures.md:78-95`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch06_four_failures.md#L78-L95). Online, [Geometric AI](https://erisml.org/geometric-ai/ch06_four_failures.html).
 
 ## measurements
 

@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 3, Section 3.3, [`geometric-economics/chapters/ch03_decision_manifold.md:93-99`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L93-L99), with the formal statement in the chapter's technical appendix, [`geometric-economics/chapters/ch03_decision_manifold.md:390-390`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch03_decision_manifold.md#L390-L390). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
+Definition 3, Section 3.3, [`geometric-economics/chapters/ch03_decision_manifold.md:93-99`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch03_decision_manifold.md#L93-L99), with the formal statement in the chapter's technical appendix, [`geometric-economics/chapters/ch03_decision_manifold.md:390-390`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch03_decision_manifold.md#L390-L390). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch03_decision_manifold.html).
 
 ## measurements
 

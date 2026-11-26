@@ -27,11 +27,11 @@ Conditions are curated in `volumes/geometric-economics.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* A derivation from posited activations, tagged in parts as conditional theorem and as empirical prediction. The chapter cites the eris-econ calibration for a range of 1.0 to 3.53 and calls it an in-sample calibration, not a held-out test. The README of 2026-07-14 says no economics instrument has passed the series' admission filter.
+none. *standing.* An argument from posited activations, tagged in parts as conditional theorem and as empirical prediction. Section 4.2 calls it a derivation, while the chapter opening says the chapter reads loss aversion as a property of the metric and that sealed tests of reduced-form geometric models against cumulative prospect theory have so far favored prospect theory (Geometric Ethics, Section 20.8). The chapter cites the eris-econ calibration for a range of 1.0 to 3.53 and calls it an in-sample calibration, not a held-out test. The README of 2026-07-14 says no economics instrument has passed the series' admission filter.
 
 ## first stated
 
-Theorem 34, Section 4.2, [`geometric-economics/chapters/ch04_economic_metric.md:68-99`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L68-L99). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
+Theorem 34, Section 4.2, [`geometric-economics/chapters/ch04_economic_metric.md:68-99`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch04_economic_metric.md#L68-L99). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
 
 ## measurements
 

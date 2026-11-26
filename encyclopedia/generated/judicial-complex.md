@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 3, the formal construction, [`geometric-law/chapters/ch03_judicial_complex.md:130-142`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch03_judicial_complex.md#L130-L142), with the tuple form in the appendix, [`geometric-law/chapters/ch03_judicial_complex.md:426-431`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch03_judicial_complex.md#L426-L431). Online, [Geometric Law](https://erisml.org/geometric-law/ch03_judicial_complex.html).
+Chapter 3, the formal construction, [`geometric-law/chapters/ch03_judicial_complex.md:130-142`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch03_judicial_complex.md#L130-L142), with the tuple form in the appendix, [`geometric-law/chapters/ch03_judicial_complex.md:426-431`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch03_judicial_complex.md#L426-L431). Online, [Geometric Law](https://erisml.org/geometric-law/ch03_judicial_complex.html).
 
 ## measurements
 

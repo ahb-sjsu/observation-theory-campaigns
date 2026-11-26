@@ -30,7 +30,7 @@ none. *standing.* A reinterpretation of an established theorem, supported in the
 
 ## first stated
 
-Theorem 3 of Chapter 7, [`geometric-politics/manuscript/part_ii/ch07_arrows_theorem.md:68-76`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch07_arrows_theorem.md#L68-L76). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch07_arrows_theorem.html).
+Theorem 3 of Chapter 7, [`geometric-politics/manuscript/part_ii/ch07_arrows_theorem.md:72-80`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch07_arrows_theorem.md#L72-L80). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch07_arrows_theorem.html).
 
 ## measurements
 

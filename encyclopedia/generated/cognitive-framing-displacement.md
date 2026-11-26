@@ -18,7 +18,7 @@ none
 
 - The five models judge the same scenarios, so the per-model statistics are not fully independent. The volume says the combination is then anti-conservative and the true combined significance is lower than 15.3 sigma.
 - The direction is not uniform. Claude's dramatic drift is -1.5, against +6.2 to +9.8 for the Gemini models.
-- The figure was updated from an earlier 8.9 sigma after more scenario data and refined controls were included.
+- The figure was updated from an earlier 8.9 sigma after more scenario data and refined controls were included. The front matter says the benchmark was run more than once, that volumes of the series report figures from different runs, and that the run records are not published.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The ledger grades the statistic exploratory (GC-11-S), since n
 
 ## first stated
 
-Section 7.4, [`geometric-cognition/chapters/ch07_social_cognition.md:97-113`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch07_social_cognition.md#L97-L113), with the statistic's construction in Technical Appendix 7B, [`geometric-cognition/chapters/ch07_social_cognition.md:357-373`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch07_social_cognition.md#L357-L373). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch07_social_cognition.html).
+Section 7.4, [`geometric-cognition/chapters/ch07_social_cognition.md:97-113`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch07_social_cognition.md#L97-L113), with the statistic's construction in Technical Appendix 7B, [`geometric-cognition/chapters/ch07_social_cognition.md:357-373`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch07_social_cognition.md#L357-L373). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch07_social_cognition.html).
 
 ## measurements
 

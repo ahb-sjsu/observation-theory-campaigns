@@ -18,18 +18,18 @@ none
 
 - The covariance is computed from 16 bands of a mel spectrogram with a regularization of 0.0001 times the identity. The TDA features come from a time-delay embedding of the waveform with delay 10 and dimension 3.
 - The chapter calls the parameter values design choices that can be adjusted for other domains.
-- Proposition 4.3 claims that the combined vector classifies better than any one part on the BirdCLEF 206-species data. Neither Chapter 4 nor Chapter 8 prints the accuracies.
+- Proposition 4.3 predicts that the combined vector classifies better than any one part on the BirdCLEF 206-species data. The chapter says that neither it nor Chapter 8 prints the accuracies, so the prediction has not been checked against the data.
 - In Chapter 8 the vector feeds a LightGBM model that carries 0.30 of the ensemble weight beside two convolutional networks.
 
 Conditions are curated in `volumes/geometric-communication.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* A definition of a feature pipeline. The complementarity claim made for it (Proposition 4.3) is stated without printed numbers.
+none. *standing.* A definition of a feature pipeline. The volume states the complementarity of its parts (Proposition 4.3) as a prediction that has not been checked against data.
 
 ## first stated
 
-Definition 4.16, [`geometric-communication/manuscript/part_ii/ch04_three_geometries.md:591-601`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_ii/ch04_three_geometries.md#L591-L601). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch04_three_geometries.html).
+Definition 4.16, [`geometric-communication/manuscript/part_ii/ch04_three_geometries.md:591-601`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_ii/ch04_three_geometries.md#L591-L601). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch04_three_geometries.html).
 
 ## measurements
 

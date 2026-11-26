@@ -10,7 +10,7 @@ Any continuous function that maps the nine-component clinical-moral attribute ve
 
 **Example.** The standard QALY reads the outcomes score only. Two patients with outcomes 0.5, one with trust 0.2 and one with trust 0.9, get the same value, and no function of that value can tell them apart. The kernel has dimension 9 - 1 = 8, which is the volume's count.
 
-**Known as, or related to prior art.** The rank-nullity theorem applied to a map from nine dimensions to one. The volume gives it as the clinical form of the Scalar Irrecoverability Theorem of Geometric Reasoning.
+**Known as, or related to prior art.** The rank-nullity theorem applied to a map from nine dimensions to one. The volume gives it as the clinical form of the Scalar Irrecoverability Theorem, which it cites as a conditional theorem of Geometric Reasoning (Theorem 13.1), and says its argument is a dimension count as in Geometric Ethics, Theorem 15.1.
 
 ## equation
 
@@ -31,7 +31,7 @@ none. *standing.* A theorem the volume proves in Section 5.2. Section 18.9 lists
 
 ## first stated
 
-Theorem 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:34-40`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch05_qaly_irrecoverability.md#L34-L40), with the kernel of the standard QALY in Corollary 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:72-76`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch05_qaly_irrecoverability.md#L72-L76). Previewed as Theorem 1.1. Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
+Theorem 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:34-40`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_ii/ch05_qaly_irrecoverability.md#L34-L40), with the kernel of the standard QALY in Corollary 5.1, [`geometric-medicine/manuscript/part_ii/ch05_qaly_irrecoverability.md:72-76`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_ii/ch05_qaly_irrecoverability.md#L72-L76). Previewed as Theorem 1.1. Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch05_qaly_irrecoverability.html).
 
 ## measurements
 

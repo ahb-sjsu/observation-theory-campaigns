@@ -19,7 +19,7 @@ none
 - Three things must hold together, namely an institutional mandate, a boundary crossing, and a penalty above the threshold. A voluntary crossing or one below the threshold gives distress but not injury.
 - Theorem 13.1 adds that the total never decreases and that above a clinician-specific critical level the heuristic is permanently altered, by inflated penalties (hypervigilance) or deflated ones (numbing).
 - The penalties and thresholds of clinicians have not been measured. Chapter 14 marks its prediction from pre-crisis penalty profiles as not yet tested.
-- Section 18.9 gives the claim the status consistent with the existing moral injury literature, generates novel predictions.
+- Section 18.9 gives the claim the status consistent with the moral injury literature as Chapters 10 and 14 cite it, and says the attributed findings have not been checked against their sources. It adds that the claim generates novel predictions.
 
 Conditions are curated in `volumes/geometric-medicine.toml` rather than read from a record.
 
@@ -29,7 +29,7 @@ none. *standing.* A posited definition with stated predictions and no measuremen
 
 ## first stated
 
-Definition 13.1, [`geometric-medicine/manuscript/part_v/ch13_moral_injury_theory.md:57-63`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_v/ch13_moral_injury_theory.md#L57-L63). It is anticipated in Section 7.2.3 and Proposition 7.5, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:78-78`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch07_heuristic_spectrum.md#L78-L78) and [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:200-202`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch07_heuristic_spectrum.md#L200-L202). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch13_moral_injury_theory.html).
+Definition 13.1, [`geometric-medicine/manuscript/part_v/ch13_moral_injury_theory.md:57-63`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_v/ch13_moral_injury_theory.md#L57-L63). It is anticipated in Section 7.2.3 and Proposition 7.5, [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:78-78`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_ii/ch07_heuristic_spectrum.md#L78-L78) and [`geometric-medicine/manuscript/part_ii/ch07_heuristic_spectrum.md:200-202`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_ii/ch07_heuristic_spectrum.md#L200-L202). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch13_moral_injury_theory.html).
 
 ## measurements
 

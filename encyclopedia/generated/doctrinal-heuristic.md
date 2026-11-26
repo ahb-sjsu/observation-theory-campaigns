@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 6, the definition at [`geometric-law/chapters/ch06_precedent_heuristic.md:86-90`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch06_precedent_heuristic.md#L86-L90), admissibility at [`geometric-law/chapters/ch06_precedent_heuristic.md:129-137`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch06_precedent_heuristic.md#L129-L137), and the appendix form at [`geometric-law/chapters/ch06_precedent_heuristic.md:353-363`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch06_precedent_heuristic.md#L353-L363). Online, [Geometric Law](https://erisml.org/geometric-law/ch06_precedent_heuristic.html).
+Chapter 6, the definition at [`geometric-law/chapters/ch06_precedent_heuristic.md:86-90`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch06_precedent_heuristic.md#L86-L90), admissibility at [`geometric-law/chapters/ch06_precedent_heuristic.md:129-137`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch06_precedent_heuristic.md#L129-L137), and the appendix form at [`geometric-law/chapters/ch06_precedent_heuristic.md:353-363`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch06_precedent_heuristic.md#L353-L363). Online, [Geometric Law](https://erisml.org/geometric-law/ch06_precedent_heuristic.html).
 
 ## measurements
 

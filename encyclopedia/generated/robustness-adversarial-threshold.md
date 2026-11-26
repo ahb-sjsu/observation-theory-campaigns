@@ -28,7 +28,7 @@ none. *standing.* A proposed procedure. No threshold is measured in the volume.
 
 ## first stated
 
-Section 10.4.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:177-185`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L177-L185), with the search procedure at [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:220-230`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch10_the_robustness_surface.md#L220-L230). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
+Section 10.4.1, [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:177-185`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch10_the_robustness_surface.md#L177-L185), with the search procedure at [`geometric-reasoning/chapters/ch10_the_robustness_surface.md:220-230`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch10_the_robustness_surface.md#L220-L230). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch10_the_robustness_surface.html).
 
 ## measurements
 

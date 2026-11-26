@@ -31,13 +31,13 @@ none
 
 ## first stated
 
-Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-99`, DOI 10.5281/zenodo.21776291, and the-angular-observer's recognizer battery, `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80`.
+Volume 14, chapter 11, `geometric-observation/chapters/ch11_the_recognizer.md:1-101`, DOI 10.5281/zenodo.21776291, and the-angular-observer's recognizer battery, `the-angular-observer/PREREG_RECOGNIZER_BATTERY.md:1-80`.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch11_the_recognizer.md#L1-L95) |
+| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/chapters/ch11_the_recognizer.md#L1-L95) |
 
 ## failures and corrections
 

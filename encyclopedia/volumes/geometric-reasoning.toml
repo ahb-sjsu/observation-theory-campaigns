@@ -3,7 +3,7 @@ number = 3
 title = "Geometric Reasoning"
 repo = "geometric-reasoning"
 slug = "geometric-reasoning"
-standing = "Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models."
+standing = "Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models. The front matter says the benchmark was run more than once, that volumes of the series report figures from different runs, and that the run records are not published."
 
 [[entry]]
 id = "reasoning-manifold"
@@ -91,7 +91,7 @@ conditions = [
   "No entry of the tensor is reported as a number. The data are significance levels and score drifts that the volume reads as projections of columns.",
 ]
 related = ["jacobian", "heuristic-field", "model-robustness-profile", "reasoning-bond-invariance-principle", "nuisance", "singular-value-decomposition"]
-standing = "The tensor is posited. What is measured is displacement under three perturbation types on five models, reported with combined significance of 8.9, 6.8 and 4.6 sigma, and no significant displacement under gender swap or evaluation order."
+standing = "The tensor is posited. What is measured is displacement under three perturbation types on five models, reported with combined significance of 8.9, 6.8 and 4.6 sigma, and no significant displacement under gender swap or evaluation order. For the first the front matter adds 15.3 sigma from the later run reported in Geometric Cognition, Chapter 7."
 
 [[entry]]
 id = "sycophancy-parameter"
@@ -218,7 +218,7 @@ definition = "A vector with one component per perturbation type. Component $r_i$
 first_stated = "Definition A10.1, `geometric-reasoning/chapters/ch10_the_robustness_surface.md:516-524`, introduced in Section 10.2.1, `geometric-reasoning/chapters/ch10_the_robustness_surface.md:74-84`."
 conditions = [
   "It is defined relative to a chosen set of perturbation types, an evaluation set and a consistency metric, and it changes with each choice.",
-  "Tagged a modeling axiom as a protocol. The volume attributes it to Chapter 9 of Geometric Methods.",
+  "Tagged a modeling axiom. The volume says the MRI of Chapter 9 of Geometric Methods is a single weighted figure, the mean and the 75th and 95th percentiles of the error deviation with weights 0.5, 0.3 and 0.2, and that this chapter uses a profile instead, of which that figure is one summary.",
   "The correspondence with the corruption tensor, in which a component is 1 minus a normalized column norm, holds only for one stated consistency metric.",
   "The volume's composite track scores do aggregate. Their captions give them as weighted means of subtask scores. The weights were recovered by solving the tables and have not been confirmed against the benchmark code.",
 ]

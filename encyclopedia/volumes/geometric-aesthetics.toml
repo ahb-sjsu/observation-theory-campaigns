@@ -47,10 +47,10 @@ first_stated = "Section 6.1, `geometric-aesthetics/book/src/chapter-06-the-tenso
 conditions = [
   "Higher levels can be contracted to a scalar prediction but a scalar does not reconstruct the levels above it.",
   "Levels 1 to 3 are computed in closed form from the cloud. Level 4 is learned and needs a target such as rating or listens, so it depends on that target.",
-  "The incremental values of R per level (about 0.08, 0.18, 0.21, 0.24) are from the books discovery run before genre control. The volume later attributes 85 percent of that run's R squared to genre.",
+  "The values of R per level (about 0.08, 0.18, 0.21, 0.24) are given in Section 6.7 as an expectation and not a measurement, since Chapter 17 does not record the level-by-level fits. Only the 0.24 of the combined model is measured, in the books discovery run before genre control, and the volume attributes 85 percent of that run's R squared to genre.",
   "Appendix F marks rank-2 and higher tensors on the manifold as conjectured pending the smooth-manifold claim (F6.3).",
 ]
-standing = "A posited organization of measured features. The per-level increments are measured on the uncontrolled books run, and the tensor objects on the manifold are conjectured in Appendix F."
+standing = "A posited organization of measured features. Only the combined model of the uncontrolled books run is measured, the per-level increments are an expectation, and the tensor objects on the manifold are conjectured in Appendix F."
 related = ["aesthetic-embedding-cloud", "aesthetic-spectral-divergence-channel", "aesthetic-internal-coherence", "aesthetic-trajectory-channel", "lasso-on-spectrum-channel", "aesthetic-scalar-irrecoverability"]
 online_page = "chapter-6-the-tensor-hierarchy.html"
 
@@ -65,6 +65,7 @@ conditions = [
   "In the books discovery run each divergence registers at roughly 8 sigma against rating. That run is before genre control.",
   "In music the Hellinger member saturated near 1.0 and the divergences were recomputed in a 32-dimensional subspace.",
   "The prior is fitted on the English books corpus and is not neutral. A different corpus gives different distances.",
+  "Appendix B says its code sketch computes a symmetrized Kullback-Leibler divergence under the name js, not the Jensen-Shannon divergence, and does not record which form produced the reported numbers. The volume's corrections record of 2026-11-26 lists this as open.",
 ]
 standing = "A measured instrument. The closed forms of the divergences are marked proved in Appendix F (F4.2 to F4.5), and the 8 sigma figure is a discovery-run measurement that precedes the genre control."
 related = ["aesthetic-hellinger-saturation", "aesthetic-genre-confound-correction", "cross-lingual-aesthetic-invariance", "kl-divergence", "mahalanobis-distance", "principal-component-analysis"]
@@ -94,7 +95,7 @@ definition = "Summaries of the ordered path a work traces through embedding spac
 first_stated = "Section 17.3.3, `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:59-68`."
 conditions = [
   "The features need the order of the units, which the mean and covariance summaries discard.",
-  "In the books discovery run the features contribute at 3 to 6 sigma each. Section 10.9 says the effect shrinks substantially under within-genre residualization.",
+  "In the books discovery run the features contribute at 3 to 6 sigma each. Section 10.9 says that under within-genre residualization the model of all channels together keeps R = 0.093, that Chapter 17 does not report the trajectory channel's residualized effect on its own, and that its staying predictive within genre is an expectation rather than a finding.",
   "The mean step size has opposite signs in the two modalities, $\\rho = -0.096$ in books and $\\rho = +0.071$ in music.",
   "Section 17.9 says the channel has no semantic interpretation yet beyond pacing and return to theme. The volume does not claim to have estimated manifold curvature from it.",
 ]
@@ -142,7 +143,7 @@ title = "Music reception result (FMA-Medium)"
 definition = "On 24,801 FMA-Medium tracks with MERT embeddings and log listens as target, Lasso on the PCA spectrum gives R = 0.302 raw and R = 0.177 (28.3 sigma) after genre residualization. Hand features fall to R = 0.043 after residualization."
 first_stated = "Section 17.6.2, `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:153-170`. Setup in Section 17.6.1, `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:149-151`."
 conditions = [
-  "91 percent of the hand-feature R squared is genre. The raw hand-feature figure was first R = 0.124 and is reported as R = 0.098 after the Hellinger fix.",
+  "91 percent of the hand-feature R squared is genre, and Appendix F gives about 66 percent for the spectrum Lasso. The raw hand-feature figure was first R = 0.124 and is reported as R = 0.098 after the Hellinger fix. With the residual of 0.043 neither gives 91 percent, and the volume's corrections record of 2026-11-26 lists the raw value behind the 91 percent as open.",
   "Within genre the signal holds for Rock, Electronic, Hip-Hop and Pop (R from 0.139 to 0.185). Classical (R = -0.013, n = 584) and Jazz (R = 0.031, n = 384) are null, and the volume says it does not know why.",
   "Listens conflate quality with promotion, genre popularity and platform effects. The volume calls them the only large-scale reception signal available for the corpus.",
   "On the 5,233 tracks with Echonest annotations the MERT features beat Spotify's 8 acoustic features (R = 0.225 and 0.151 against 0.103, bootstrap p = 0.001). The clips are 30 seconds and the folds are artist-disjoint.",
@@ -158,7 +159,7 @@ title = "Cross-lingual invariance of the geometric features"
 definition = "For the same book in English and in another language, the channel values computed in the fixed English PCA-128 basis agree. The mean Spearman correlation across language pairs is 0.712 for internal coherence, 0.710 for the Mahalanobis feature, and about 0.675 for the Hellinger, Bhattacharyya and Jensen-Shannon divergences."
 first_stated = "Section 17.5.2, `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:119-135`. Setup in Section 17.5.1, `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:113-117`."
 conditions = [
-  "The corpus is 4,683 non-English Gutenberg books. Matched bundles formed in ten languages from six families (Germanic, Uralic, Romance, Hellenic, Italic-ancient, Constructed), from Finnish at 288 down to Latin at 20.",
+  "The corpus is 4,683 non-English Gutenberg books. Matched bundles, a book with its translation, formed at or above the threshold of 20 bundles per language in ten languages from six families (Germanic, Uralic, Romance, Hellenic, Italic-ancient, Constructed), from Finnish at 288 down to Latin at 20.",
   "Sinitic is absent because the Chinese Gutenberg texts are classical originals and not translations. The volume calls any claim of full linguistic universality premature.",
   "The invariance is partial. A correlation near 0.70 leaves about half the variance of the channel values unpreserved, and the volume says it does not claim gauge invariance in the strong sense.",
   "It is a result about feature values, not verdicts. Rating transfer from an English-trained model is R = 0.07 (n = 940, p = 0.033). Appendix E grants that LaBSE was trained to align translated sentences and answers that the features are cloud statistics, not sentence-pair similarity.",
@@ -172,7 +173,7 @@ id = "cross-modality-sign-flip"
 kind = "result"
 title = "Cross-modality sign flip"
 definition = "Two channels have opposite signs of association with reception in books and in music. Internal coherence is positive for book rating ($\\rho = +0.126$) and negative for music listens ($\\rho = -0.076$). Mean step size is negative for books ($\\rho = -0.096$) and positive for music ($\\rho = +0.071$)."
-first_stated = "Section 17.6.3, `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:172-189`. Stated as Claim 17.2 at `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:197-199`."
+first_stated = "Section 17.6.3, `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:172-189`. Stated as Claim 17.2 at `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:201-203`."
 conditions = [
   "Two modalities only. The targets also differ (Goodreads rating for books, log listens for music), and so do the encoders (LaBSE and MERT).",
   "The volume has not ruled out that the flip comes from the encoders. Section 17.9 and Appendix E.4 keep that as a legitimate alternative reading.",
@@ -219,7 +220,7 @@ id = "discovered-constructed-metric"
 kind = "concept"
 title = "Discovered-constructed metric"
 definition = "The volume's position on where the aesthetic metric comes from. The encoder and the corpus are constructions that could have been otherwise. Given them, the extracted features (divergences, coherence, trajectory statistics, Lasso axes) are what the representation forces, and that layer is called discovered."
-first_stated = "Section 9.5, `geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:103-109`. Summarised in Section 9.8, `geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:172-180`."
+first_stated = "Section 9.5, `geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:103-109`. Summarised in Section 9.8, `geometric-aesthetics/book/src/chapter-09-origin-of-the-aesthetic-metric.md:176-184`."
 conditions = [
   "The evidence offered against pure construction and pure convention is the cross-lingual invariance result. The evidence offered for the conventional share is the genre confound.",
   "Section 9.8 asks that the metric be reported at three levels. They are the full model with genre in it, the within-stratum residual, and the features that transfer across language families.",
@@ -252,7 +253,7 @@ id = "taste-heuristic-correspondence"
 kind = "concept"
 title = "Taste-heuristic correspondence"
 definition = "Proposition 11.1. The aesthetic tangent vector at a point, the sense of where a program should go next, is the negative metric-raised gradient of the heuristic $h$ of an A* search toward a goal region, $T^\\mu = -g^{\\mu\\nu} \\partial_\\nu h$. Trained taste is read as a compiled heuristic."
-first_stated = "Section 11.3, `geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:49-55`. The search problem is defined at `geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:19-34`."
+first_stated = "Section 11.3, `geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:53-59`. The search problem is defined at `geometric-aesthetics/book/src/chapter-11-aesthetic-reasoning-as-optimal-search.md:19-34`."
 conditions = [
   "It presupposes the aesthetic search problem of Definition 11.1, with a state, a goal region, a task-dependent cost functional and stratum constraints.",
   "The volume calls it a consistency condition between the geometric and the computational reading, not a stipulation. Appendix F does not list it among its formal claims.",
@@ -303,11 +304,11 @@ id = "collective-aesthetic-tensor"
 kind = "concept"
 title = "Collective aesthetic tensor"
 definition = "A multilinear map that takes one interest covector from each reader in a population and returns a collective valence direction on the manifold. For two readers it splits into each reader's individual contribution plus an emergent component, the part of collective valence not attributable to any individual."
-first_stated = "Section 14.4, `geometric-aesthetics/book/src/chapter-14-collective-aesthetic-agency-canon-and-emergence.md:49-62`."
+first_stated = "Section 14.4, `geometric-aesthetics/book/src/chapter-14-collective-aesthetic-agency-canon-and-emergence.md:53-66`."
 conditions = [
   "The emergent component vanishes exactly when collective valence is the sum of the individual valences.",
   "Appendix F marks canon formation as geometric aggregation of individual judgments as conjectured, with no direct empirical fit (F14.1).",
-  "The 71 Lasso axes are offered as the empirical motivation for a nonzero emergent component, and the chapter conjectures that they are that component made visible. Its own caveat is that most of those axes do genre discrimination and that the point is structural, not a matter of effect size.",
+  "The 71 Lasso axes are offered as the empirical motivation for a nonzero emergent component, and the chapter conjectures that they are that component made visible. Its own caveat is that most of those axes do genre discrimination, and that the interpretable ones, about 30 of the 71, are consistent with emergent components but not evidence for them, since the sparsity comes from the L1 penalty and a pure sum of individual judgments would also give a sparse solution.",
   "For two readers the tensor has $d^3$ components on $d$ axes per reader. The chapter no longer counts on nine working axes, and Section 5.5 says the aesthetic manifold, unlike the moral one, does not start from nine known dimensions.",
 ]
 standing = "Posited. No reader-level interest covectors are measured in the volume, and the Lasso axes are regression directions on aggregate ratings."
@@ -318,15 +319,15 @@ online_page = "chapter-14-collective-aesthetic-agency-canon-and-emergence.html"
 id = "aesthetic-scalar-irrecoverability"
 kind = "result"
 title = "Aesthetic Scalar Irrecoverability (Theorem 15.1)"
-definition = "Any function $Q$ from a $d$-dimensional aesthetic tensor to a scalar verdict is not injective, so distinct works share a verdict. No function recovers the tensor from the scalar. The geodesic on the full manifold generally differs from the path that is optimal for the scalar."
-first_stated = "Theorem 15.1, `geometric-aesthetics/book/src/chapter-15-from-tensor-to-judgment.md:127-135`."
+definition = "Any continuous function $Q$ from a $d$-dimensional aesthetic tensor to a scalar verdict, with $d > 1$, is not injective, so distinct works share a verdict. No function recovers the tensor from the scalar. The geodesic on the full manifold generally differs from the path that is optimal for the scalar."
+first_stated = "Theorem 15.1, `geometric-aesthetics/book/src/chapter-15-from-tensor-to-judgment.md:131-139`."
 conditions = [
-  "It is given with a proof sketch (rank-nullity and the data processing inequality) and is said to transfer unchanged from the Ethics volume.",
+  "It is given with a proof sketch and is said to transfer unchanged from the Ethics volume. Part (i) rests on the fact that no continuous map from $\\mathbb{R}^d$ to $\\mathbb{R}$ with $d > 1$ is injective, with rank-nullity added where $Q$ is smooth, and part (ii) on the data processing inequality.",
   "Part (i) is stated generically, at regular points of $Q$.",
   "Part (iii) concerns geodesics on a manifold whose Riemannian structure Appendix F marks conjectured.",
   "Appendix F records only the weaker statement that a scalar is the lowest-information projection of the feature tensor, marked proved trivially (F6.1).",
 ]
-standing = "A theorem with a proof sketch. Parts (i) and (ii) are elementary facts about maps to one dimension, and part (iii) depends on posited geometry."
+standing = "A theorem with a proof sketch. Parts (i) and (ii) are elementary facts about continuous maps to one dimension, and part (iii) depends on posited geometry."
 known_as = "The Scalar Irrecoverability Theorem of Geometric Methods and Geometric Ethics, in aesthetic form."
 related = ["aesthetic-tensor-hierarchy", "collective-aesthetic-tensor", "scalar-irrecoverability", "moral-scalar-irrecoverability", "projection"]
 online_page = "chapter-15-from-tensor-to-judgment.html"
@@ -365,7 +366,7 @@ online_page = "appendix-e-skeptics-appendix-objections-alternatives-failure-mode
 [examples]
 aesthetic-manifold = "With embedding dimension d = 2 the Gaussian submanifold has dimension d + d(d+1)/2 = 2 + 3 = 5, two numbers for the mean and three for the symmetric covariance."
 aesthetic-embedding-cloud = "The volume's cases are a 300-paragraph novel under LaBSE, which gives 300 points in 768 dimensions, and a 30-second clip under MERT at 1.5 frames per second, which gives 45 points in 1024 dimensions."
-aesthetic-tensor-hierarchy = "In the volume's books discovery run, Level 1 alone gives R of about 0.08, adding Level 2 gives 0.18, adding Level 3 gives 0.21 and adding Level 4 gives 0.24, so the increments are 0.10, 0.03 and 0.03."
+aesthetic-tensor-hierarchy = "In the ladder the volume expects for its books discovery run, Level 1 alone gives R of about 0.08, adding Level 2 gives 0.18, adding Level 3 gives 0.21 and adding Level 4 gives the measured 0.24 of the combined model, so the expected increments are 0.10, 0.03 and 0.03."
 aesthetic-spectral-divergence-channel = "In one dimension, a work with mean 2 against a prior with mean 0 and variance 4 has Mahalanobis distance 2 divided by the prior standard deviation 2, which is 1."
 aesthetic-internal-coherence = "A work with three units whose pairwise cosine similarities are 0.9, 0.5 and 0.4 has pair_sim_mean equal to 1.8 divided by 3, which is 0.6."
 aesthetic-trajectory-channel = "A work whose three units sit at 0, 3 and 4 on a line takes steps of 3 and 1, so its mean step size is 2."

@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 4.1, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:32-36`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch04_similarity_and_complementarity.md#L32-L36). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
+Section 4.1, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:32-36`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch04_similarity_and_complementarity.md#L32-L36). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
 
 ## measurements
 

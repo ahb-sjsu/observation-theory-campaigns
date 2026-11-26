@@ -28,7 +28,7 @@ none. *standing.* A single-decoder measurement that the chapter reports with its
 
 ## first stated
 
-Section 7.4.4, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:178-186`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iii/ch07_whale_communication.md#L178-L186). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch07_whale_communication.html).
+Section 7.4.4, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:178-186`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_iii/ch07_whale_communication.md#L178-L186). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch07_whale_communication.html).
 
 ## measurements
 

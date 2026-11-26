@@ -26,11 +26,11 @@ Conditions are curated in `volumes/geometric-reasoning.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models.
+none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models. The front matter says the benchmark was run more than once, that volumes of the series report figures from different runs, and that the run records are not published.
 
 ## first stated
 
-Section 3.1.2, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:35-45`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L35-L45), with the formal definition at [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:417-417`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch03_the_heuristic_field.md#L417-L417). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
+Section 3.1.2, [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:35-45`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch03_the_heuristic_field.md#L35-L45), with the formal definition at [`geometric-reasoning/chapters/ch03_the_heuristic_field.md:417-417`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch03_the_heuristic_field.md#L417-L417). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch03_the_heuristic_field.html).
 
 ## measurements
 

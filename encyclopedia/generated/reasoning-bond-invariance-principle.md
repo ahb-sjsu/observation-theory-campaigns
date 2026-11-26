@@ -29,7 +29,7 @@ none. *standing.* The principle is a posited norm. The violations and the two nu
 
 ## first stated
 
-Section 8.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:68-70`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L68-L70), with the formal statement at [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:487-491`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L487-L491). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
+Section 8.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:68-70`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch08_gauge_invariance_and_symmetry.md#L68-L70), with the formal statement at [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:487-491`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch08_gauge_invariance_and_symmetry.md#L487-L491). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
 
 ## measurements
 

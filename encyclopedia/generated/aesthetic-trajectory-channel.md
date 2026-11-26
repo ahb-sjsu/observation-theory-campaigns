@@ -17,7 +17,7 @@ none
 ## conditions
 
 - The features need the order of the units, which the mean and covariance summaries discard.
-- In the books discovery run the features contribute at 3 to 6 sigma each. Section 10.9 says the effect shrinks substantially under within-genre residualization.
+- In the books discovery run the features contribute at 3 to 6 sigma each. Section 10.9 says that under within-genre residualization the model of all channels together keeps R = 0.093, that Chapter 17 does not report the trajectory channel's residualized effect on its own, and that its staying predictive within genre is an expectation rather than a finding.
 - The mean step size has opposite signs in the two modalities, $\rho = -0.096$ in books and $\rho = +0.071$ in music.
 - Section 17.9 says the channel has no semantic interpretation yet beyond pacing and return to theme. The volume does not claim to have estimated manifold curvature from it.
 
@@ -29,7 +29,7 @@ none. *standing.* Measured features. Their reading as evidence of curvature or h
 
 ## first stated
 
-Section 17.3.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:59-68`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L59-L68). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.3.3, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:59-68`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L59-L68). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 

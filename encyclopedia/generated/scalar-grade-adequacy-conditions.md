@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Proposition 5.4, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:122-130`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch05_assessment_contraction.md#L122-L130). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
+Proposition 5.4, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:122-130`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch05_assessment_contraction.md#L122-L130). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
 
 ## measurements
 

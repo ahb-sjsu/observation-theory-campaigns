@@ -16,7 +16,7 @@ none
 
 ## conditions
 
-- Section 9.7 tabulates four models. The volume says that with four points the negative correlation of about -0.85 does not reach conventional significance.
+- Section 9.7 tabulates four models. Technical Appendix 9B gives their M3 and M4 correlation as about -0.98, with p about 0.02 on two degrees of freedom, and says four chosen models are not a random sample.
 - The appendix uses a threshold of 0.25, and the volume says the midpoints of 0.5 and the medians leave the same quadrant empty. In the table of Section 9.7 the quadrant is not empty for a threshold below 0.149.
 - The volume says that with so few models a sampling artifact cannot be excluded. The structural constraint and the topological hole are its interpretations, and it frames the hole with the words if this interpretation is correct.
 - M3 and M4 values for the same models differ between chapters. Gemini 3 Flash has M3 of 0.149 in Section 9.7 and 0.250 in Section 16.7, and Gemini 2.5 Flash has 0.111 in the first and 0.167 in the second.
@@ -29,7 +29,7 @@ none. *standing.* The ledger grades the observation exploratory (GC-20), with it
 
 ## first stated
 
-Section 9.8, [`geometric-cognition/chapters/ch09_metacognition.md:193-205`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch09_metacognition.md#L193-L205), with Definition 9.5, [`geometric-cognition/chapters/ch09_metacognition.md:217-224`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch09_metacognition.md#L217-L224). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch09_metacognition.html).
+Section 9.8, [`geometric-cognition/chapters/ch09_metacognition.md:193-205`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch09_metacognition.md#L193-L205), with Definition 9.5, [`geometric-cognition/chapters/ch09_metacognition.md:217-224`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch09_metacognition.md#L217-L224). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch09_metacognition.html).
 
 ## measurements
 

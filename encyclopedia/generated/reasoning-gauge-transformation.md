@@ -26,11 +26,11 @@ Conditions are curated in `volumes/geometric-reasoning.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models.
+none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models. The front matter says the benchmark was run more than once, that volumes of the series report figures from different runs, and that the run records are not published.
 
 ## first stated
 
-Definition 8.1, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:485-485`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L485-L485), introduced in Section 8.1.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:50-58`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch08_gauge_invariance_and_symmetry.md#L50-L58). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
+Definition 8.1, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:485-485`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch08_gauge_invariance_and_symmetry.md#L485-L485), introduced in Section 8.1.2, [`geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:50-58`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch08_gauge_invariance_and_symmetry.md#L50-L58). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch08_gauge_invariance_and_symmetry.html).
 
 ## measurements
 

@@ -29,7 +29,7 @@ none. *standing.* Measured on one recorded run of 16 November 2026, with an orac
 
 ## first stated
 
-Sections 19.4 and 19.5, [`geometric-methods/chapters/chapter-19-case-study-defect-prediction.md:183-221`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-19-case-study-defect-prediction.md#L183-L221), and Section 19.7, [`geometric-methods/chapters/chapter-19-case-study-defect-prediction.md:237-241`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-19-case-study-defect-prediction.md#L237-L241). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-19-case-study-defect-prediction.html).
+Sections 19.4 and 19.5, [`geometric-methods/chapters/chapter-19-case-study-defect-prediction.md:183-221`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-19-case-study-defect-prediction.md#L183-L221), and Section 19.7, [`geometric-methods/chapters/chapter-19-case-study-defect-prediction.md:237-241`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-19-case-study-defect-prediction.md#L237-L241). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-19-case-study-defect-prediction.html).
 
 ## measurements
 

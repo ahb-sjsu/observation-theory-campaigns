@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Section 4.4, [`geometric-economics/chapters/ch04_economic_metric.md:166-180`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L166-L180), with the full table in Section 4.9, [`geometric-economics/chapters/ch04_economic_metric.md:370-386`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch04_economic_metric.md#L370-L386). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
+Section 4.4, [`geometric-economics/chapters/ch04_economic_metric.md:166-180`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch04_economic_metric.md#L166-L180), with the full table in Section 4.9, [`geometric-economics/chapters/ch04_economic_metric.md:370-386`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch04_economic_metric.md#L370-L386). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch04_economic_metric.html).
 
 ## measurements
 

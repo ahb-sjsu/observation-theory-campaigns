@@ -17,6 +17,7 @@ none
 ## conditions
 
 - The chapter states the theorem and gives no proof. The index and its threshold of 1 work as a definition.
+- The theorem also calls a coalition vulnerable on a dimension whose within-coalition variance exceeds the squared tolerance. The chapter says the two conditions are nested, since an index above 1 needs a variance above $d/(d - \dim A_C)$ times the squared tolerance, so every fragile coalition is vulnerable and not every vulnerable one is fragile.
 - It needs the tolerance and the within-coalition variance on each dimension, neither of which the volume measures.
 - The claim that both American party coalitions operate near the threshold is argued from the posited agreement dimension of 2.
 
@@ -28,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Theorem 6 of Chapter 12, [`geometric-politics/manuscript/part_iii/ch12_coalitions.md:71-77`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch12_coalitions.md#L71-L77). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch12_coalitions.html).
+Theorem 6 of Chapter 12, [`geometric-politics/manuscript/part_iii/ch12_coalitions.md:71-79`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iii/ch12_coalitions.md#L71-L79). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch12_coalitions.html).
 
 ## measurements
 

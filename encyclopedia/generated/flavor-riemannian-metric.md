@@ -17,7 +17,7 @@ none
 ## conditions
 
 - Tagged a modeling axiom. No component of the tensor is given a measured value.
-- The logarithm (Weber-Fechner) is a first approximation. The volume says Stevens' power law $P = kC^a$ describes many continua better, with exponents it quotes near 1.3 for sucrose and near 1.4 for salt.
+- The logarithm (Weber-Fechner) is a first approximation. The volume says Stevens' power law $P = kC^a$ describes many continua better, with exponents it quotes near 1.3 for sucrose and about 1.4 for salt, a value it says it gives without a source.
 - The tensor depends on position, with off-diagonal entries for cross-modal taste interactions, and on history. Cross-adaptation is modeled as $g \mapsto A^\top g A$ for an operator set by recent exposure.
 - Chapter 14 states that with a path-dependent metric the space is not a Riemannian manifold in the usual sense, and leaves the choice of formalism open.
 
@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 3, [`geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:24-26`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch03_the_metric_of_flavor.md#L24-L26), with the logarithmic ruler in Section 3.1, [`geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:40-40`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch03_the_metric_of_flavor.md#L40-L40). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch03_the_metric_of_flavor.html).
+Chapter 3, [`geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:24-26`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch03_the_metric_of_flavor.md#L24-L26), with the logarithmic ruler in Section 3.1, [`geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:40-40`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch03_the_metric_of_flavor.md#L40-L40). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch03_the_metric_of_flavor.html).
 
 ## measurements
 

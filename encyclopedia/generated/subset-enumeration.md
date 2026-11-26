@@ -28,7 +28,7 @@ none. *standing.* The README's status note of 2026-07-14 calls this volume the s
 
 ## first stated
 
-Chapter 11, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:6-8`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-11-subset-enumeration.md#L6-L8), with the counts in Section 11.1.1, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:18-36`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-11-subset-enumeration.md#L18-L36). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-11-subset-enumeration.html).
+Chapter 11, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:6-8`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-11-subset-enumeration.md#L6-L8), with the counts in Section 11.1.1, [`geometric-methods/chapters/chapter-11-subset-enumeration.md:18-36`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-11-subset-enumeration.md#L18-L36). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-11-subset-enumeration.html).
 
 ## measurements
 

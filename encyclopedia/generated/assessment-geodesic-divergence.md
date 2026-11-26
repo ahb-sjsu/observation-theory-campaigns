@@ -29,7 +29,7 @@ none. *standing.* Stated as a theorem. The text says the proof uses the calculus
 
 ## first stated
 
-Theorem 5.3, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:72-80`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch05_assessment_contraction.md#L72-L80), with Corollaries 5.3.1 and 5.3.2 at [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:108-118`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch05_assessment_contraction.md#L108-L118). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
+Theorem 5.3, [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:72-80`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch05_assessment_contraction.md#L72-L80), with Corollaries 5.3.1 and 5.3.2 at [`geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:108-118`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch05_assessment_contraction.md#L108-L118). Online, [Geometric Education](https://erisml.org/geometric-education/ch05_assessment_contraction.html).
 
 ## measurements
 

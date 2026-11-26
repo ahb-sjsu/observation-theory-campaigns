@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 10, [`geometric-politics/manuscript/part_iii/ch10_overton_window.md:26-32`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch10_overton_window.md#L26-L32), with Definition 5 at [`geometric-politics/manuscript/part_iii/ch10_overton_window.md:48-54`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch10_overton_window.md#L48-L54). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch10_overton_window.html).
+Chapter 10, [`geometric-politics/manuscript/part_iii/ch10_overton_window.md:26-32`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iii/ch10_overton_window.md#L26-L32), with Definition 5 at [`geometric-politics/manuscript/part_iii/ch10_overton_window.md:52-58`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iii/ch10_overton_window.md#L52-L58). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch10_overton_window.html).
 
 ## measurements
 

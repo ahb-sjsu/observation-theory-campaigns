@@ -20,17 +20,17 @@ none
 
 - It is a normative requirement, stated as a definition. It applies only to re-descriptions that leave the nine-component attribute vector unchanged, and deciding which do is a judgment.
 - The volume reads algorithmic bias as a violation, when a recommendation changes with race, zip code or insurance status.
-- Section 18.3 says the symmetry group is identified in principle only, and the front matter says the conservation law for clinical reasoning remains conjectural.
+- Section 18.3 says the symmetry group is identified in principle only, and the front matter says the conservation law for clinical reasoning remains conjectural. Section 18.3 adds that Noether's theorem needs a continuous symmetry, that the re-descriptions the book lists are discrete, and that whether the group has a continuous part is open.
 
 Conditions are curated in `volumes/geometric-medicine.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.9 says the covariance matrix has not been estimated and the clinical Bond Index has not been computed from clinical data, so every number in these entries is an illustration unless the entry says otherwise.
+none. *standing.* The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.9 says the framework has no direct empirical validation and the clinical Bond Index has not been computed from clinical data, and its front matter says the covariance matrix has not been estimated, so every number in these entries is an illustration unless the entry says otherwise.
 
 ## first stated
 
-Definition 8.3, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:161-165`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_ii/ch08_consent_gauge.md#L161-L165). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
+Definition 8.3, [`geometric-medicine/manuscript/part_ii/ch08_consent_gauge.md:161-165`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_ii/ch08_consent_gauge.md#L161-L165). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch08_consent_gauge.html).
 
 ## measurements
 

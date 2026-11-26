@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 41 of Chapter 12, Section 12.2, [`geometric-economics/chapters/ch12_inequality.md:94-98`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch12_inequality.md#L94-L98), after Proposition 40, [`geometric-economics/chapters/ch12_inequality.md:50-58`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch12_inequality.md#L50-L58). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch12_inequality.html).
+Definition 41 of Chapter 12, Section 12.2, [`geometric-economics/chapters/ch12_inequality.md:94-98`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch12_inequality.md#L94-L98), after Proposition 40, [`geometric-economics/chapters/ch12_inequality.md:50-58`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch12_inequality.md#L50-L58). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch12_inequality.html).
 
 ## measurements
 

@@ -28,7 +28,7 @@ none. *standing.* A reported measurement failure and its repair. Section 17.7 li
 
 ## first stated
 
-Section 17.6.1, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:151`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L151). Its cause is given in Section 5.2, [`geometric-aesthetics/book/src/chapter-05-the-aesthetic-manifold.md:59`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-05-the-aesthetic-manifold.md#L59). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.6.1, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:151`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L151). Its cause is given in Section 5.2, [`geometric-aesthetics/book/src/chapter-05-the-aesthetic-manifold.md:59`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-05-the-aesthetic-manifold.md#L59). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 

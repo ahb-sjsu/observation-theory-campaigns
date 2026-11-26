@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls the vo
 
 ## first stated
 
-Definition 38 of Chapter 11, Section 11.1, [`geometric-economics/chapters/ch11_financial_crises.md:40-46`](https://github.com/ahb-sjsu/geometric-economics/blob/0382d57/chapters/ch11_financial_crises.md#L40-L46). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch11_financial_crises.html).
+Definition 38 of Chapter 11, Section 11.1, [`geometric-economics/chapters/ch11_financial_crises.md:40-46`](https://github.com/ahb-sjsu/geometric-economics/blob/a4483e7/chapters/ch11_financial_crises.md#L40-L46). Online, [Geometric Economics](https://erisml.org/geometric-economics/ch11_financial_crises.html).
 
 ## measurements
 

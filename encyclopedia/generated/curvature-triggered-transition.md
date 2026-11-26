@@ -31,7 +31,7 @@ none. *standing.* Posited. The campaign record lists no gate that tests a curvat
 
 ## first stated
 
-Definition 2.3, [`geometric-cognition/chapters/ch02_kahneman.md:128-128`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch02_kahneman.md#L128-L128), and Definition 12.3, [`geometric-cognition/chapters/ch12_dual_process.md:109-115`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch12_dual_process.md#L109-L115). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
+Definition 2.3, [`geometric-cognition/chapters/ch02_kahneman.md:128-128`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch02_kahneman.md#L128-L128), and Definition 12.3, [`geometric-cognition/chapters/ch12_dual_process.md:109-115`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch12_dual_process.md#L109-L115). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch02_kahneman.html).
 
 ## measurements
 

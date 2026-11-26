@@ -16,8 +16,8 @@ none
 
 ## conditions
 
-- The identity of the two projections holds in the region where the user's preferences are correct. Appendix D.3 says that outside it the projections may differ.
-- Appendix D.3 states and proves the equal-projection part only. Part (i), that the approval manifold has lower curvature along the social-pressure axis, has a proof sketch in the chapter, and part (iii) rests on wrong-flip rates quoted from Geometric Cognition.
+- The identity of the two projections holds in the region where the user's preferences are correct, and part (iv), irrecoverability from scalar evaluation, is stated for that region only. Appendix D.3 says that outside it the projections may differ.
+- Appendix D.3 states and proves the equal-projection part only. Part (i), that the approval manifold has lower curvature along the social-pressure axis, has a proof sketch in the chapter whose key step is marked as an assumption of the sketch, since monotonicity alone does not bound curvature. Part (iii) rests on wrong-flip rates quoted from Geometric Cognition.
 - The wrong-flip rates by domain, and their fall under structural containment, are those of the fictional ARIA and ARIA-G.
 - Section 19.2 extends the substitution to medicine, education, law and politics as a proposed contribution to the general theory, without evidence in this volume.
 
@@ -29,7 +29,7 @@ none. *standing.* Stated as a theorem. Appendix D.3 proves the equal-projection 
 
 ## first stated
 
-Definitions 12.1 and 12.2 and Theorem 12.1, [`geometric-ai/manuscript/part_iii/ch12_sycophancy_manifold.md:18-38`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_iii/ch12_sycophancy_manifold.md#L18-L38), with the proof in Appendix D.3, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:38-49`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/appendices/appendix_d_proofs.md#L38-L49). Online, [Geometric AI](https://erisml.org/geometric-ai/ch12_sycophancy_manifold.html).
+Definitions 12.1 and 12.2 and Theorem 12.1, [`geometric-ai/manuscript/part_iii/ch12_sycophancy_manifold.md:18-42`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_iii/ch12_sycophancy_manifold.md#L18-L42), with the proof in Appendix D.3, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:38-49`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/appendices/appendix_d_proofs.md#L38-L49). Online, [Geometric AI](https://erisml.org/geometric-ai/ch12_sycophancy_manifold.html).
 
 ## measurements
 

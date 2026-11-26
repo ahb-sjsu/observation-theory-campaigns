@@ -30,14 +30,14 @@ none
 
 ## first stated
 
-Chapter 0 section 0.2 of *Data Mining as Observation*, with the program's whitened code in Volume 14 chapter 8, `geometric-observation/chapters/ch08_value.md:88-101`.
+Chapter 0 section 0.2 of *Data Mining as Observation*, with the program's whitened code in Volume 14 chapter 8, `geometric-observation/chapters/ch08_value.md:91-105`.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 2 section 2.5 | whitened code wins at every budget | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch08_value.md#L84-L97) |
-| chapter 4 section 4.3 | whitened code on whale 0.83, 0.85, 0.97 vs 0.41, 0.80, 0.89 | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch08_value.md#L84-L97) |
+| chapter 2 section 2.5 | whitened code wins at every budget | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/chapters/ch08_value.md#L84-L97) |
+| chapter 4 section 4.3 | whitened code on whale 0.83, 0.85, 0.97 vs 0.41, 0.80, 0.89 | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/chapters/ch08_value.md#L84-L97) |
 
 ## failures and corrections
 

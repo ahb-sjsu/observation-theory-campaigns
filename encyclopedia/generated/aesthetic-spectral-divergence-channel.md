@@ -20,6 +20,7 @@ none
 - In the books discovery run each divergence registers at roughly 8 sigma against rating. That run is before genre control.
 - In music the Hellinger member saturated near 1.0 and the divergences were recomputed in a 32-dimensional subspace.
 - The prior is fitted on the English books corpus and is not neutral. A different corpus gives different distances.
+- Appendix B says its code sketch computes a symmetrized Kullback-Leibler divergence under the name js, not the Jensen-Shannon divergence, and does not record which form produced the reported numbers. The volume's corrections record of 2026-11-26 lists this as open.
 
 Conditions are curated in `volumes/geometric-aesthetics.toml` rather than read from a record.
 
@@ -29,7 +30,7 @@ none. *standing.* A measured instrument. The closed forms of the divergences are
 
 ## first stated
 
-Section 17.3.1, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:35-47`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L35-L47). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
+Section 17.3.1, [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:35-47`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L35-L47). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-17-empirical-evidence-for-geometric-aesthetics.html).
 
 ## measurements
 

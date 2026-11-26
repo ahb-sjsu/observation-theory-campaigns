@@ -29,7 +29,7 @@ none. *standing.* Reported as an empirical convergence with a posited geometric 
 
 ## first stated
 
-Section 7.6, [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:215-225`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch07_local_minima_and_dead_zones.md#L215-L225), with Propositions 7.1 and 7.2 at [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:387-397`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch07_local_minima_and_dead_zones.md#L387-L397). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch07_local_minima_and_dead_zones.html).
+Section 7.6, [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:215-225`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch07_local_minima_and_dead_zones.md#L215-L225), with Propositions 7.1 and 7.2 at [`geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:387-397`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch07_local_minima_and_dead_zones.md#L387-L397). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch07_local_minima_and_dead_zones.html).
 
 ## measurements
 

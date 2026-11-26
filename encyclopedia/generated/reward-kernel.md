@@ -28,7 +28,7 @@ none. *standing.* Theorem 5.2 is stated as a theorem and proved in Appendix D.2 
 
 ## first stated
 
-Theorem 5.1 (iv) and Section 5.3 with Theorem 5.2 (Kernel Exploitation), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:100-110`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch05_reward_irrecoverability.md#L100-L110), and Corollary 5.1 (Kernel Prediction), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:64-70`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch05_reward_irrecoverability.md#L64-L70). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
+Theorem 5.1 (iv) and Section 5.3 with Theorem 5.2 (Kernel Exploitation), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:100-110`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch05_reward_irrecoverability.md#L100-L110), and Corollary 5.1 (Kernel Prediction), [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:64-70`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch05_reward_irrecoverability.md#L64-L70). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
 
 ## measurements
 

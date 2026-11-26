@@ -8,7 +8,7 @@
 
 For a text t and a chain of translations that returns to the starting language with result $\hat{t}$, the residual is $\rho(t) = 1 - \mathrm{sim}(t, \hat{t})$, where sim is a semantic similarity measure on the starting language. The volume uses it as a proxy for sectional curvature and as the empirical counterpart of holonomy.
 
-**Example.** A round trip that returns a text with similarity 0.92 to the original has a residual of 1 - 0.92 = 0.08, the volume's mean for commercial records. Its mean for private letters, 0.31, is about 3.9 times that.
+**Example.** A round trip that returns a text with similarity 0.92 to the original has a residual of 1 - 0.92 = 0.08, the volume's unverified mean for commercial records. Its mean for private letters, 0.31, is about 3.9 times that.
 
 **Known as, or related to prior art.** Round-trip or back-translation evaluation in machine translation.
 
@@ -19,19 +19,19 @@ none
 ## conditions
 
 - The value depends on the chosen similarity measure and on the translation systems in the chain. In the Old Assyrian run the similarity was chrF++ on the Akkadian transliteration and the return leg was a backtranslation by the trained model.
-- The chapter reports mean residuals of 0.08 for commercial records, 0.14 for contracts, 0.23 for legal proceedings and 0.31 for private letters over 1,561 pairs, with F(3, 1557) = 142.7.
+- The chapter reports mean residuals of 0.08 for commercial records, 0.14 for contracts, 0.23 for legal proceedings and 0.31 for private letters over 1,561 pairs, with F(3, 1557) = 142.7. It says that no run record for this table is in the repository and that Chapter 9 does not describe the English-to-Akkadian model the return leg needs, so the figures are unverified.
 - Reading the residual as curvature of the content manifold is the volume's interpretation. The residual also contains the errors of the systems in the chain, which the chapter's own decomposition calls path error and chart error.
-- A second table gives residuals with and without the hyperbolic attention bias. Chapter 9 says it does not report final numbers for that ablation.
+- A second table gives residuals with and without the hyperbolic attention bias. The chapter says that Chapter 9 reports only qualitative trends of that ablation, that neither column matches the first table, and that its figures are unverified.
 
 Conditions are curated in `volumes/geometric-communication.toml` rather than read from a record.
 
 ## ledger
 
-none. *standing.* A defined quantity with one reported run. The identification with curvature is posited, in the sense of the README's status note of 2026-07-14.
+none. *standing.* A defined quantity with one reported run, whose figures the volume calls unverified because no run record is in the repository. The identification with curvature is posited, in the sense of the README's status note of 2026-07-14.
 
 ## first stated
 
-Definition 10.7 and the genre table, [`geometric-communication/manuscript/part_iv/ch10_translation.md:194-211`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iv/ch10_translation.md#L194-L211). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
+Definition 10.7 and the genre table, [`geometric-communication/manuscript/part_iv/ch10_translation.md:194-211`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_iv/ch10_translation.md#L194-L211). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch10_translation.html).
 
 ## measurements
 

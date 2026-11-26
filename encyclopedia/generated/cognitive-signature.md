@@ -19,6 +19,7 @@ none
 - The normalization uses the minimum and maximum across the five tested models, so a signature is relative to that set.
 - Euclidean distance weights all subtasks equally. The volume names weighted, cosine and rank-based distances as alternatives that change the structure of the space.
 - The ledger grades the claim of five distinct profile shapes exploratory (GC-16) and leaves the predictability of a signature from architecture open (GC-21).
+- The signature distances of Section 16.10 rest on 21-score vectors the volume does not print, drafted beside table values that have since been corrected. The corrections record of 2026-11-26 lists them as still open.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -28,7 +29,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definitions 16.1 and 16.2, [`geometric-cognition/chapters/ch16_five_signatures.md:299-309`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch16_five_signatures.md#L299-L309), with the normalization in Technical Appendix 16A, [`geometric-cognition/chapters/ch16_five_signatures.md:370-378`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch16_five_signatures.md#L370-L378). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch16_five_signatures.html).
+Definitions 16.1 and 16.2, [`geometric-cognition/chapters/ch16_five_signatures.md:299-309`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch16_five_signatures.md#L299-L309), with the normalization in Technical Appendix 16A, [`geometric-cognition/chapters/ch16_five_signatures.md:370-378`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch16_five_signatures.md#L370-L378). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch16_five_signatures.html).
 
 ## measurements
 

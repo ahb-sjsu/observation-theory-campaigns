@@ -29,7 +29,7 @@ none. *standing.* Withdrawn pending restatement under $V_4$, by the chapter's da
 
 ## first stated
 
-Chapter 5, now titled The Hohfeldian Gauge Group. The dated note is at [`geometric-law/chapters/ch05_hohfeldian_group.md:22-26`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch05_hohfeldian_group.md#L22-L26), the theorem with its withdrawal marks at [`geometric-law/chapters/ch05_hohfeldian_group.md:69-107`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch05_hohfeldian_group.md#L69-L107), and the full statement, also marked withdrawn, at [`geometric-law/chapters/ch05_hohfeldian_group.md:453-453`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch05_hohfeldian_group.md#L453-L453). Online, [Geometric Law](https://erisml.org/geometric-law/ch05_hohfeldian_group.html).
+Chapter 5, now titled The Hohfeldian Gauge Group. The dated note is at [`geometric-law/chapters/ch05_hohfeldian_group.md:22-26`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch05_hohfeldian_group.md#L22-L26), the theorem with its withdrawal marks at [`geometric-law/chapters/ch05_hohfeldian_group.md:69-107`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch05_hohfeldian_group.md#L69-L107), and the full statement, also marked withdrawn, at [`geometric-law/chapters/ch05_hohfeldian_group.md:453-453`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch05_hohfeldian_group.md#L453-L453). Online, [Geometric Law](https://erisml.org/geometric-law/ch05_hohfeldian_group.html).
 
 ## measurements
 

@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-politics.toml` rather than read fro
 
 ## ledger
 
-none. *standing.* A theorem with a proof written in the chapter, inside a volume that is posited as a whole. The volume calls it the political instance of the Scalar Irrecoverability Theorem of Geometric Reasoning.
+none. *standing.* A theorem with a proof written in the chapter, inside a volume that is posited as a whole. The volume calls it the political instance of the Scalar Irrecoverability Theorem of Geometric Reasoning, which it cites as Theorem 13.1 of that book, a conditional theorem.
 
 ## first stated
 
-Theorem 1 of Chapter 5, [`geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:49-55`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch05_voting_contraction.md#L49-L55), after Definition 2 of the voting function at [`geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:24-33`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch05_voting_contraction.md#L24-L33). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch05_voting_contraction.html).
+Theorem 1 of Chapter 5, [`geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:53-59`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch05_voting_contraction.md#L53-L59), after Definition 2 of the voting function at [`geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:28-37`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch05_voting_contraction.md#L28-L37). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch05_voting_contraction.html).
 
 ## measurements
 

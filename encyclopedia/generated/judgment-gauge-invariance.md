@@ -10,7 +10,7 @@ A moral judgment function $J$ is gauge invariant under a transformation of the s
 
 **Example.** If a scenario's seven harm scores sum to 30 and its euphemistic rewrite sums to 18, the harm conservation violation is 18 - 30 = -12 and the judgment is not invariant. The volume prints euphemistic drifts of the total from -9.1 to -14.1.
 
-**Known as, or related to prior art.** Gauge invariance in physics, and the Bond Invariance Principle, which the volume cites as Bond 2026.
+**Known as, or related to prior art.** Gauge invariance in physics, and the Bond Invariance Principle, which the volume cites as Axiom 5.1 of Geometric Ethics.
 
 ## equation
 
@@ -20,7 +20,7 @@ none
 
 - The transformation must be morally irrelevant by construction. In the T5 test the rewrites are produced by one fixed model, Gemini 2.0 Flash.
 - The volume finds that total harm is not conserved under rewriting, and says the framing transformation is then not a proper gauge transformation for these systems.
-- The seven harm dimensions are specified in advance and not inferred from data. Definition 7.1 and Appendix B name the seven differently.
+- The seven harm dimensions are specified in advance and not inferred from data.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -30,7 +30,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 7.2, [`geometric-cognition/chapters/ch07_social_cognition.md:82-86`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch07_social_cognition.md#L82-L86), with the judgment vector in Definition 7.1, [`geometric-cognition/chapters/ch07_social_cognition.md:63-67`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch07_social_cognition.md#L63-L67). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch07_social_cognition.html).
+Definition 7.2, [`geometric-cognition/chapters/ch07_social_cognition.md:82-86`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch07_social_cognition.md#L82-L86), with the judgment vector in Definition 7.1, [`geometric-cognition/chapters/ch07_social_cognition.md:63-67`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch07_social_cognition.md#L63-L67). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch07_social_cognition.html).
 
 ## measurements
 

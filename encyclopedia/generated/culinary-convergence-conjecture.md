@@ -29,7 +29,7 @@ none. *standing.* A conjecture in the volume's tagging, argued by analogy with c
 
 ## first stated
 
-Section 9.6, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:86-90`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L86-L90). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
+Section 9.6, [`geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:90-94`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch09_the_eigenvalues_of_a_kitchen.md#L90-L94). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch09_the_eigenvalues_of_a_kitchen.html).
 
 ## measurements
 

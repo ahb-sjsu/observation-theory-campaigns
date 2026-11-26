@@ -34,7 +34,7 @@ none
 
 ## first stated
 
-Chapter 8 section 8.1 of *Data Mining as Observation*, with the virgin split in `geometric-observation/chapters/ch10_the_blind_probe.md:108-126`.
+Chapter 8 section 8.1 of *Data Mining as Observation*, with the virgin split in `geometric-observation/chapters/ch10_the_blind_probe.md:109-127`.
 
 ## measurements
 

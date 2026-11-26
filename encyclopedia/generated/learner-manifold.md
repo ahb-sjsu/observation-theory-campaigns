@@ -17,7 +17,7 @@ none
 ## conditions
 
 - The description is exact where learning is continuous and smooth. Where learning has discontinuities such as sudden insight, the volume calls it an approximation.
-- Whether six is the right number of dimensions is, in the volume's words, an open empirical question. Proposition 4.1 is checked against six scenarios the volume itself lists.
+- Whether six is the right number of dimensions is, in the volume's words, an open empirical question. Proposition 4.1 is checked by reading off the activations of six scenarios the volume itself lists, and the volume says whether those activations are right is an empirical question.
 - Domain knowledge is treated as one aggregate of many subject-specific dimensions, and the volume notes that this aggregation is itself a contraction.
 - The manifold grows as the student learns, so a path is planned on a space that will have changed by the time the student reaches each waypoint.
 
@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 4.2, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:36-38`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch04_learner_manifold.md#L36-L38), with the summary table of Section 4.11, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:260-274`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch04_learner_manifold.md#L260-L274). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
+Section 4.2, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:36-38`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch04_learner_manifold.md#L36-L38), with the summary table of Section 4.11, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:260-274`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch04_learner_manifold.md#L260-L274). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
 
 ## measurements
 

@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Definition 4.1 and Section 4.4.1, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:129-141`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_ii/ch04_learner_manifold.md#L129-L141), with the dependence on the individual student in Section 10.1, [`geometric-education/manuscript/part_iii/ch10_personalized_learning.md:18-20`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch10_personalized_learning.md#L18-L20). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
+Definition 4.1 and Section 4.4.1, [`geometric-education/manuscript/part_ii/ch04_learner_manifold.md:129-141`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_ii/ch04_learner_manifold.md#L129-L141), with the dependence on the individual student in Section 10.1, [`geometric-education/manuscript/part_iii/ch10_personalized_learning.md:18-20`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_iii/ch10_personalized_learning.md#L18-L20). Online, [Geometric Education](https://erisml.org/geometric-education/ch04_learner_manifold.html).
 
 ## measurements
 

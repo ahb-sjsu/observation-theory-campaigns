@@ -10,7 +10,7 @@ id = "flavor-space"
 kind = "concept"
 title = "flavor space and the flavor vector"
 definition = "A posited finite-dimensional perceptual space $\\mathcal{F}$ in which every flavor experience is a point, every ingredient a vector and every culinary operation a map from the space to itself. The flavor vector concatenates a taste block (about 5 dimensions), an aroma block (about 10 to 30), a trigeminal block (about 5) and a texture and temperature block."
-first_stated = "Chapter 1, `geometric-gastronomy/chapters/ch01_taste_as_geometry.md:26-26`, with the full flavor vector in Section 1.4, `geometric-gastronomy/chapters/ch01_taste_as_geometry.md:62-64`."
+first_stated = "Chapter 1, `geometric-gastronomy/chapters/ch01_taste_as_geometry.md:26-26`, with the full flavor vector in Section 1.4, `geometric-gastronomy/chapters/ch01_taste_as_geometry.md:66-68`."
 conditions = [
   "Tagged a modeling axiom. The existence of the space and its modest dimension are posited, not measured.",
   "The coordinates are perceptual, recovered by dimensionality reduction from receptor responses, and are not columns of a chemistry table. The chain the volume gives runs from about 10,000 volatiles through about 400 receptor types to perceptual dimensions on the order of tens.",
@@ -35,12 +35,12 @@ related = ["null-space", "kernel", "quotient", "matrix", "read-operator", "flavo
 id = "receptor-basis-rotation"
 kind = "concept"
 title = "individual variation as a rotation of the receptor basis"
-definition = "Heritable receptor variation is modeled as a near-identity linear transformation $R$ of the reference affinity matrix, so an individual's basis is $A' = RA$ and their receptor vector is $\\mathbf{r}' = R\\mathbf{r}$. For a single-receptor polymorphism the action is approximately a rotation in the plane of the affected axis and its perceptual neighbors."
-first_stated = "Section 2.5, `geometric-gastronomy/chapters/ch02_the_receptor_basis.md:95-95`, and its inverse use in Section 13.5, `geometric-gastronomy/chapters/ch13_designing_flavors.md:82-82`."
+definition = "Heritable receptor variation is modeled as a near-identity linear transformation $R$ of the reference affinity matrix, so an individual's basis is $A' = RA$ and their receptor vector is $\\mathbf{r}' = R\\mathbf{r}$. For a single-receptor polymorphism the action is approximately a rotation in the plane of the affected axis and its perceptual neighbors, together with a change of gain along that axis where the polymorphism rescales it."
+first_stated = "Section 2.5, `geometric-gastronomy/chapters/ch02_the_receptor_basis.md:99-99`, and its inverse use in Section 13.5, `geometric-gastronomy/chapters/ch13_designing_flavors.md:90-90`."
 conditions = [
-  "Tagged a modeling axiom. The rotation is an approximation for single-receptor polymorphisms such as TAS2R38 and OR6A2, where $R$ rescales or reorients one coordinate and leaves the others fixed.",
+  "Tagged a modeling axiom. The rotation is an approximation for single-receptor polymorphisms such as TAS2R38 and OR6A2, where $R$ rescales or reorients one coordinate and leaves the others fixed. The volume notes that a rotation preserves length and cannot by itself represent a gain change.",
   "Variation in receptor density and gain is a second form that changes resolution and not orientation. The volume treats it separately as effective flavor dimensionality.",
-  "Personalized design in Section 13.5 replaces the target by its pre-image $R^{-1}\\mathbf{f}^\\star$. The volume conjectures that the binding constraint is measuring $R$ for one eater with enough fidelity, not the optimization.",
+  "Personalized design in Section 13.5 replaces the target by its pre-image $R^{-1}\\mathbf{f}^\\star$, an argument that needs only that $R$ is invertible. The volume conjectures that the binding constraint is measuring $R$ for one eater with enough fidelity, not the optimization.",
 ]
 related = ["orthogonal-matrix", "basis", "effective-flavor-dimensionality", "binding-affinity-matrix", "inverse-flavor-problem"]
 
@@ -49,7 +49,7 @@ id = "effective-flavor-dimensionality"
 kind = "concept"
 title = "effective flavor dimensionality"
 definition = "The count of eigenvalues of an individual's receptor-response covariance $\\Sigma_r$ that exceed that person's perceptual noise threshold. Supertasting raises gain and lifts marginal eigenvalues above the threshold. Specific anosmias and non-taster haplotypes drop particular eigenvalues below it and collapse dimensions."
-first_stated = "Section 2.6, `geometric-gastronomy/chapters/ch02_the_receptor_basis.md:107-109`."
+first_stated = "Section 2.6, `geometric-gastronomy/chapters/ch02_the_receptor_basis.md:111-113`."
 conditions = [
   "Tagged a modeling axiom. The volume gives no measured spectrum or threshold for any person.",
   "The receptor types are the same across people. The volume's reading is that supertasters make fuller use of the available dimensions, not that they inhabit a higher-dimensional space.",
@@ -65,7 +65,7 @@ definition = "A symmetric positive-definite tensor $g_{ij}(\\mathbf{f})$ at each
 first_stated = "Chapter 3, `geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:24-26`, with the logarithmic ruler in Section 3.1, `geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:40-40`."
 conditions = [
   "Tagged a modeling axiom. No component of the tensor is given a measured value.",
-  "The logarithm (Weber-Fechner) is a first approximation. The volume says Stevens' power law $P = kC^a$ describes many continua better, with exponents it quotes near 1.3 for sucrose and near 1.4 for salt.",
+  "The logarithm (Weber-Fechner) is a first approximation. The volume says Stevens' power law $P = kC^a$ describes many continua better, with exponents it quotes near 1.3 for sucrose and about 1.4 for salt, a value it says it gives without a source.",
   "The tensor depends on position, with off-diagonal entries for cross-modal taste interactions, and on history. Cross-adaptation is modeled as $g \\mapsto A^\\top g A$ for an operator set by recent exposure.",
   "Chapter 14 states that with a path-dependent metric the space is not a Riemannian manifold in the usual sense, and leaves the choice of formalism open.",
 ]
@@ -76,11 +76,11 @@ id = "hedonic-manifold"
 kind = "concept"
 title = "hedonic manifold"
 definition = "A hedonic function $H$ assigns each flavor point a scalar pleasantness. The hedonic manifold is its high-value region, the set where $H$ exceeds a threshold $\\theta$, or its ridge, where $H$ is locally maximal across the transverse directions. Pairing is the choice of two flavors whose sum lands on it."
-first_stated = "Chapter 5, `geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:24-24`, after the hedonic field posited in Section 3.6, `geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:92-92`."
+first_stated = "Chapter 5, `geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:24-24`, after the hedonic field posited in Section 3.6, `geometric-gastronomy/chapters/ch03_the_metric_of_flavor.md:100-100`."
 conditions = [
   "Tagged a modeling axiom. The field is indexed by person and culture, with an evolved component common to the species and a learned component that deforms it.",
   "The volume describes the manifold as bounded, curved and thin, from inverted-U responses whose optima interact. The split into a rigid low-dimensional biological layer and a plastic cultural layer is tagged a conjecture, and the volume says the decisive cross-cultural factor analysis has not been run.",
-  "The five principal components proposed in Section 5.5 (intensity, balance, complexity, contrast, familiarity) are tagged a conjecture.",
+  "The five principal components proposed in Section 5.5 (intensity, balance, complexity, contrast, familiarity) are tagged a conjecture. The evidence for three to five dominant axes is described as reported, and the volume says it cites no study and records no analysis for it.",
   "Chapter 14 treats the field as deforming with satiety and over a lifetime. Both are listed as open problems.",
 ]
 related = ["seasoning-fixed-point", "flavor-uncanny-valley", "geometric-diet-set", "threshold", "manifold", "flavor-space"]
@@ -120,10 +120,10 @@ id = "pairing-alignment-span-curvature"
 kind = "result"
 title = "alignment, span and curvature of a pairing"
 definition = "The volume's conjecture that pairing quality is a function of three geometric quantities. Alignment is the cosine of the two flavor vectors, span is how much of the space they jointly cover, and curvature is the symmetric bilinear interaction $\\mathbf{B}(\\mathbf{f}_1, \\mathbf{f}_2)$ added to their sum. A single-number summary discards two of the three."
-first_stated = "Section 4.7, `geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:107-107`, with the interaction term in Section 4.6, `geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:91-95`."
+first_stated = "Section 4.7, `geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:115-115`, with the interaction term in Section 4.6, `geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:95-99`."
 conditions = [
   "Tagged a conjecture. The volume says the cross-corpus validation is not yet in hand.",
-  "The interaction term is a modeling axiom. It adds along an axis for synergy, as with salt and umami, subtracts for antagonism, as with sweet and bitter, and is zero in a flat space.",
+  "The interaction term is a modeling axiom. It adds along an axis for synergy, as with salt and umami, subtracts for antagonism, as with sweet and bitter, and is zero in a flat space. The volume reads it as curvature in the loose sense of a second-order correction to the linear sum, and defines no embedding of which it would be the second fundamental form.",
   "Similar summands add nearly colinearly and complementary summands add by the Pythagorean rule. Both statements are for the linear sum without the interaction term.",
   "That the three-term model tracks recipe co-occurrence and panel ratings better than cosine alone is a prediction of the proposed reanalysis of Section 4.7, for which no run is recorded.",
 ]
@@ -135,7 +135,7 @@ id = "flavor-uncanny-valley"
 kind = "concept"
 title = "uncanny valley of flavor"
 definition = "The conjecture that hedonic response dips in the near shell of a familiar flavor anchor, close enough that the category fires and far enough that the prediction is violated. The volume's shell penalty is $K(d) = (d^2/\\sigma^2)\\exp(-d^2/\\sigma^2)$, zero at the anchor, largest at distance $\\sigma$ and fading far away."
-first_stated = "Section 5.3, `geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:54-54`, with the shell penalty in Section 5.6, `geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:104-110`."
+first_stated = "Section 5.3, `geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:54-54`, with the shell penalty in Section 5.6, `geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:108-114`."
 conditions = [
   "Tagged a conjecture, by analogy with Mori's uncanny valley for faces. The evidence cited is the literature on expectation and sensory incongruity.",
   "The penalty is one term of a posited hedonic kernel, beside an inverted-U term and a complementarity reward $\\gamma[1 - \\cos(\\mathbf{f}_1, \\mathbf{f}_2)]$.",
@@ -150,11 +150,11 @@ id = "seasoning-operators"
 kind = "concept"
 title = "seasoning operators (salt, acid, fat, heat)"
 definition = "Four maps from flavor space to itself. Salt stretches the savory component by a factor $\\lambda > 1$, as $T(\\mathbf{f}) = \\mathbf{f} + (\\lambda - 1)P_{sav}\\mathbf{f}$. Acid rotates the vector toward a brightness axis. Fat is a low-pass filter on the temporal flavor curve. Heat is a flow that releases volatiles at temperature-dependent rates. They do not commute."
-first_stated = "Chapter 6, `geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:24-24`, with the generating set and its non-commutation in Section 6.5, `geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:90-96`."
+first_stated = "Chapter 6, `geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:24-24`, with the generating set and its non-commutation in Section 6.5, `geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:94-100`."
 conditions = [
   "Each operator is tagged a modeling axiom. The forms are posited, and none is fitted to data.",
   "Salt cannot create a savory direction the dish lacks, and its factor is bounded. Past the bound the dish moves toward the salt vertex and the no-rotation approximation fails.",
-  "The four are a generating set with approximate inverses, not a basis of a vector space. The volume calls the basis imperfect, since heat bundles a thermal flow with a trigeminal translation.",
+  "The four are a generating set for a monoid of transformations, with leaving the dish alone as the identity, and not a basis of a vector space. Some have partial inverses, and the volume says the structure is not a group. It calls the basis imperfect, since heat bundles a thermal flow with a trigeminal translation.",
   "The inverses are lossy. Salt can be added and cannot be cleanly removed.",
 ]
 known_as = "The four elements of Nosrat's Salt, Fat, Acid, Heat (2017)."
@@ -165,7 +165,7 @@ id = "seasoning-fixed-point"
 kind = "concept"
 title = "seasoning fixed point"
 definition = "A dish is properly seasoned at a point $\\mathbf{f}^\\star$ that is a fixed point of taste-and-adjust, a local maximum of the hedonic function $H$. No small admissible move raises $H$, the gradient is about zero and the Hessian is negative semidefinite."
-first_stated = "Section 6.6, `geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:100-104`."
+first_stated = "Section 6.6, `geometric-gastronomy/chapters/ch06_the_algebra_of_seasoning.md:108-112`."
 conditions = [
   "Tagged a modeling axiom. It rests on the posited hedonic function of Chapter 5.",
   "The fixed point is stable only against small moves. Seasoning finds the nearest peak and not the highest, and a distant configuration can beat it.",
@@ -179,7 +179,7 @@ id = "culinary-transformation-types"
 kind = "concept"
 title = "geometric types of culinary transformation"
 definition = "Each cooking process is a map $\\Phi_\\theta$ on flavor space set by process variables such as temperature, time, water activity and pH. The volume sorts the maps into five types. Maillard browning expands dimension, caramelization follows a one-dimensional curve, protein denaturation collapses dimensions, fermentation is a slow flow, and smoking, curing and aging are approximately translations."
-first_stated = "Chapter 7, `geometric-gastronomy/chapters/ch07_transformations_under_heat.md:24-24`, with the summary of the five motions at `geometric-gastronomy/chapters/ch07_transformations_under_heat.md:105-105`."
+first_stated = "Chapter 7, `geometric-gastronomy/chapters/ch07_transformations_under_heat.md:24-24`, with the summary of the five motions at `geometric-gastronomy/chapters/ch07_transformations_under_heat.md:109-109`."
 conditions = [
   "Tagged a modeling axiom. The types are a classification, and no map is fitted.",
   "The Maillard map is close to the identity until the surface dries and passes about 140 degrees Celsius, where it switches on sharply.",
@@ -193,10 +193,10 @@ id = "time-temperature-path-dependence"
 kind = "correction"
 title = "time-temperature path dependence"
 definition = "The cooked flavor is the time-ordered composition of local transformation maps along the schedule $T(t)$, and not a function of the total heat $\\int T\\,dt$. Two schedules give the same flavor only if their paths are equivalent under the kinetics, a stronger condition than equal energy."
-first_stated = "Section 7.5, `geometric-gastronomy/chapters/ch07_transformations_under_heat.md:84-92`."
+first_stated = "Section 7.5, `geometric-gastronomy/chapters/ch07_transformations_under_heat.md:88-96`."
 conditions = [
   "The path model is tagged a modeling axiom. The reason given is that Maillard and caramelization rates rise roughly exponentially with temperature (Arrhenius kinetics).",
-  "The supporting comparison is qualitative. Sous-vide at 56 degrees Celsius for two days and a roast at 230 degrees for forty minutes are said to deliver comparable total energy and to land at different flavors.",
+  "The supporting comparison is qualitative. Sous-vide at 56 degrees Celsius for two days delivers, by the integral of temperature in degrees Celsius over time, about seventeen times as much as a roast at 230 degrees for forty minutes, yet it is the roast that browns, and the two land at different flavors.",
   "The volume rejects the equal-integral simplification as false. It gives no measured flavor distance between two such paths.",
 ]
 related = ["culinary-transformation-types", "cooking-non-commutativity", "scalar-irrecoverability", "aggregation"]
@@ -220,7 +220,7 @@ id = "substitution-distance"
 kind = "instrument"
 title = "substitution distance"
 definition = "Replacing ingredient j by j' at amount $a_j$ moves the dish, to first order, by $\\Delta\\mathbf{f} \\approx a_j(\\mathbf{f}_{j'} - \\mathbf{f}_j)$. The substitution is safe when this displacement is short in the flavor metric. Agreement on one coordinate, such as sourness, does not guarantee a short distance."
-first_stated = "Section 8.6, `geometric-gastronomy/chapters/ch08_recipe_as_geometric_construction.md:94-100`."
+first_stated = "Section 8.6, `geometric-gastronomy/chapters/ch08_recipe_as_geometric_construction.md:98-104`."
 conditions = [
   "Tagged a modeling axiom, to first order. It ignores curvature corrections and the nonlinearities of downstream operators.",
   "It assumes the substitute passes through the same downstream operators. A substitution near the source of a long branch can grow through each transformation, and one near the sink does not.",
@@ -246,7 +246,7 @@ related = ["principal-component-analysis", "covariance-matrix", "eigenvalue-eige
 id = "fusion-geodesic"
 kind = "concept"
 title = "fusion as a geodesic between cuisines"
-definition = "A fusion dish is modeled as a point on the geodesic between two cuisine distributions under the Wasserstein metric on Gaussians. The means interpolate linearly and the covariances along a curved path of valid covariances. A mixture $t\\,p_A + (1-t)\\,p_B$ is bimodal and is not fusion. Curdling is leaving the support of both parents."
+definition = "A fusion dish is modeled as a point on the geodesic between two cuisine distributions under the Wasserstein metric on Gaussians. The means interpolate linearly and the covariances along a curved path of valid covariances. A mixture $(1-t)\\,p_A + t\\,p_B$ is bimodal and is not fusion. Curdling is leaving the support of both parents."
 first_stated = "Section 9.4, `geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:60-64`."
 conditions = [
   "Tagged a modeling axiom. It treats each cuisine as a Gaussian with a mean and a covariance.",
@@ -261,7 +261,7 @@ id = "culinary-convergence-conjecture"
 kind = "result"
 title = "Culinary Convergence conjecture"
 definition = "The conjecture that cuisines descending independent gradients on the same fitness landscape, set by a shared receptor complement, metabolic needs and cooking physics, reach clustered attractors. The shared peak the volume names is acid, fat, umami, salt and aromatic contrast."
-first_stated = "Section 9.6, `geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:86-90`."
+first_stated = "Section 9.6, `geometric-gastronomy/chapters/ch09_the_eigenvalues_of_a_kitchen.md:90-94`."
 conditions = [
   "Tagged a conjecture. Section 9.6 is headed The Convergence Conjecture and Section 11.5 cites it as a conjecture. No proof is given.",
   "It rests on the modeling axiom of Section 9.5 that a cuisine's mean moves along the gradient of a landscape combining availability, preservation, nutrition and hedonics.",
@@ -276,7 +276,7 @@ id = "embedding-lossy-projection"
 kind = "correction"
 title = "ingredient embedding as a lossy projection"
 definition = "An ingredient embedding assigns each food one fixed vector. The volume models it as a lossy projection $\\Pi$ that quotients out concentration, matrix context and time. Two foods with the same embedding can taste different, and no operation on the projected vector recovers what was discarded."
-first_stated = "Section 10.6, `geometric-gastronomy/chapters/ch10_flavor_embeddings.md:96-104`."
+first_stated = "Section 10.6, `geometric-gastronomy/chapters/ch10_flavor_embeddings.md:100-108`."
 conditions = [
   "Tagged a modeling axiom. It applies to compound vectors and to recipe-trained embeddings such as word2vec on ingredient lists.",
   "The volume says an embedding answers which directions, which neighbors and which feasible partners. It does not answer how much, in what form, in what order or against what background.",
@@ -290,7 +290,7 @@ id = "geometric-diet-set"
 kind = "concept"
 title = "nutritional feasible set and the geometric diet"
 definition = "The nutritional feasible set $\\mathcal{C}$ is the convex polytope of intake vectors with every nutrient between its lower requirement and its upper limit, $\\ell_k \\le n_k \\le u_k$. The geometric diet set is the set of diets whose nutrition lies in $\\mathcal{C}$ and whose flavor lies within $\\varepsilon$ of the hedonic manifold."
-first_stated = "Section 11.1, `geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:32-34`, with the diet set in Section 11.5, `geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:82-84`."
+first_stated = "Section 11.1, `geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:32-34`, with the diet set in Section 11.5, `geometric-gastronomy/chapters/ch11_the_geometry_of_nutrition.md:86-88`."
 conditions = [
   "Both sets are tagged modeling axioms. The palatability and nutritional-quality scalars of Section 11.2 are defined and not measured.",
   "Optimizing one scalar over the polytope lands on a vertex. The volume's case is Stigler's diet problem, with nine nutrients and 77 foods, costing 39.93 dollars a year by hand and 39.69 by the simplex method, in 1939 dollars.",
@@ -305,7 +305,7 @@ id = "inverse-flavor-problem"
 kind = "instrument"
 title = "inverse flavor problem"
 definition = "Given a target flavor $\\mathbf{f}^\\star$, a palette matrix $B$ and a positive-definite metric matrix $M$, choose nonnegative doses $\\mathbf{x}$ to minimize $(B\\mathbf{x} - \\mathbf{f}^\\star)^\\top M (B\\mathbf{x} - \\mathbf{f}^\\star)$ under a cost ceiling and admissibility constraints. It is a convex quadratic program. Zero distance is reachable exactly when the target lies in the admissible hull of the palette."
-first_stated = "Section 13.4, `geometric-gastronomy/chapters/ch13_designing_flavors.md:68-76`."
+first_stated = "Section 13.4, `geometric-gastronomy/chapters/ch13_designing_flavors.md:72-80`."
 conditions = [
   "The program is a modeling axiom and the reachability statement is tagged a theorem. It is stated for the linear-mixing regime with a positive-definite metric and a convex admissible set, and the volume's proof is one sentence from strict convexity in the flavor point $B\\mathbf{x}$. The minimum is attained at a unique flavor point, and the dose vector is unique only when the palette vectors are linearly independent.",
   "Convexity fails where mixing is nonlinear, in synergy and antagonism and in threshold and saturation effects at high dose. There the program is a local model, refined by panel-tested iterations.",

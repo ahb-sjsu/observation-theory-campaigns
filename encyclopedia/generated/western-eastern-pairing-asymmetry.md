@@ -29,7 +29,7 @@ none. *standing.* A published external result (Ahn et al. 2011) that the volume 
 
 ## first stated
 
-Section 4.3, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:50-54`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch04_similarity_and_complementarity.md#L50-L54). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
+Section 4.3, [`geometric-gastronomy/chapters/ch04_similarity_and_complementarity.md:50-54`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch04_similarity_and_complementarity.md#L50-L54). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch04_similarity_and_complementarity.html).
 
 ## measurements
 

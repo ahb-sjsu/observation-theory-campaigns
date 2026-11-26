@@ -3,14 +3,14 @@ number = 8
 title = "Geometric Medicine"
 repo = "geometric-medicine"
 slug = "geometric-medicine"
-standing = "The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.9 says the covariance matrix has not been estimated and the clinical Bond Index has not been computed from clinical data, so every number in these entries is an illustration unless the entry says otherwise."
+standing = "The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a clinical instrument is plausible but has not been built or gated. Its Section 18.9 says the framework has no direct empirical validation and the clinical Bond Index has not been computed from clinical data, and its front matter says the covariance matrix has not been estimated, so every number in these entries is an illustration unless the entry says otherwise."
 
 [[entry]]
 id = "clinical-decision-complex"
 kind = "concept"
 title = "Clinical decision complex"
 definition = "A weighted simplicial complex on which clinical decisions are pathfinding problems. Each vertex is a clinical state with an attribute vector of nine clinical-moral scores, each edge is an available clinical action with a non-negative weight, and each higher simplex is a care bundle whose cost is evaluated as a unit."
-first_stated = "Definition 4.1, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:28-36`."
+first_stated = "Definition 4.1, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:27-35`."
 conditions = [
   "It is a simplicial complex and not a smooth manifold. The volume writes clinical manifold informally and means this complex.",
   "The nine dimensions are inherited from the moral manifold of Geometric Ethics, and each score lies between 0 and 1. Section 4.13 calls the nine-dimensional structure a model and an open empirical question.",
@@ -25,7 +25,7 @@ id = "clinical-edge-weight"
 kind = "concept"
 title = "Clinical edge weight"
 definition = "The cost of one clinical action. It is the quadratic form $\\Delta a^T \\Sigma^{-1} \\Delta a$ in the change of the patient's nine-component attribute vector, with $\\Sigma$ the 9 by 9 clinical-moral covariance matrix, plus the sum of the penalties $\\beta_k$ of the clinical-moral boundaries the action crosses."
-first_stated = "Definition 4.2, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:144-148`."
+first_stated = "Definition 4.2, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:143-147`."
 conditions = [
   "The volume calls the quadratic form the Mahalanobis distance. The formula has no square root.",
   "The covariance matrix has 45 independent entries and the theorems are said to hold for any positive-definite one. None of the entries has been estimated, and Section 4.5.2 says the framework runs on the qualitative structure until it is.",
@@ -39,7 +39,7 @@ id = "clinical-moral-boundaries"
 kind = "concept"
 title = "Clinical-moral boundaries"
 definition = "Thresholds on the clinical decision complex where the decision regime changes discontinuously, each with a penalty added to the weight of any action that crosses it. Five are defined, namely harm, futility, consent, abandonment and sacred value. The sacred-value penalty is infinite, and the others are finite in at least some settings."
-first_stated = "Definition 4.3, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:166-176`."
+first_stated = "Definition 4.3, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:165-175`."
 conditions = [
   "The penalty ranges are given as typical calibrations in normalized units. They are not measured, and Section 4.12 says they must be calibrated for specific clinical populations.",
   "The consent penalty is about infinite for a competent patient outside an emergency and drops to a finite value in an emergency or when the patient lacks capacity.",
@@ -53,7 +53,7 @@ id = "clinical-friction"
 kind = "concept"
 title = "Clinical friction"
 definition = "The total cost of a path on the clinical decision complex, the sum of the clinical edge weights of its steps. It splits into distance friction, the sum of the covariance-weighted terms, and boundary friction, the sum of the boundary penalties crossed."
-first_stated = "Definition 4.6, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:277-281`, with the decomposition at `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:289-295`."
+first_stated = "Definition 4.6, `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:276-280`, with the decomposition at `geometric-medicine/manuscript/part_ii/ch04_clinical_manifold.md:288-294`."
 conditions = [
   "Friction is a property of a path and not of a case. A clinically difficult case can have a low-friction minimum path.",
   "The volume calls distance friction reducible by better treatments and boundary friction structural.",
@@ -116,7 +116,7 @@ conditions = [
   "The result is about loss of information under the map. That the nine dimensions are the right description of a clinical state is the volume's posited model.",
 ]
 standing = "A theorem the volume proves in Section 5.2. Section 18.9 lists it as proved mathematically and consistent with the QALY critique literature."
-known_as = "The rank-nullity theorem applied to a map from nine dimensions to one. The volume gives it as the clinical form of the Scalar Irrecoverability Theorem of Geometric Reasoning."
+known_as = "The rank-nullity theorem applied to a map from nine dimensions to one. The volume gives it as the clinical form of the Scalar Irrecoverability Theorem, which it cites as a conditional theorem of Geometric Reasoning (Theorem 13.1), and says its argument is a dimension count as in Geometric Ethics, Theorem 15.1."
 related = ["scalar-irrecoverability", "moral-scalar-irrecoverability", "null-space", "qaly-adequacy-conditions", "clinical-geodesic", "economic-scalar-irrecoverability"]
 
 [[entry]]
@@ -200,7 +200,7 @@ first_stated = "Definition 8.3, `geometric-medicine/manuscript/part_ii/ch08_cons
 conditions = [
   "It is a normative requirement, stated as a definition. It applies only to re-descriptions that leave the nine-component attribute vector unchanged, and deciding which do is a judgment.",
   "The volume reads algorithmic bias as a violation, when a recommendation changes with race, zip code or insurance status.",
-  "Section 18.3 says the symmetry group is identified in principle only, and the front matter says the conservation law for clinical reasoning remains conjectural.",
+  "Section 18.3 says the symmetry group is identified in principle only, and the front matter says the conservation law for clinical reasoning remains conjectural. Section 18.3 adds that Noether's theorem needs a continuous symmetry, that the re-descriptions the book lists are discrete, and that whether the group has a continuous part is open.",
 ]
 known_as = "The clinical instance of the Bond Invariance Principle of Geometric Ethics."
 related = ["moral-bond-invariance-principle", "consent-gauge-invariance", "consent-invariance-score", "reasoning-bond-invariance-principle", "judicial-bond-invariance-principle"]
@@ -229,7 +229,7 @@ conditions = [
   "Both allocations obey the same resource bound. The triage problem is a set of patients, one complex and one goal region per patient, and that bound.",
   "In the withdrawal case the allocations differ only when the abandonment and trust penalties exceed the outcome differential between the two patients.",
   "The proof is an argument from the form of the edge weight. The penalties it uses are not calibrated, and the trust and justice penalties are not among the five boundaries of Definition 4.3.",
-  "The three predictions about clinician distress in Section 10.5 are described as consistent with the pandemic literature. No test of them is reported.",
+  "The three predictions about clinician distress in Section 10.5 are stated as expectations. A dated note of 2026-11-26 says the findings the section attributes to published work have not been checked against that work and that no study it cites was designed to test the predictions.",
 ]
 standing = "A theorem with an argument given in Section 10.2. Its numerical content depends on boundary penalties that have not been estimated."
 related = ["forced-contraction", "clinical-friction", "clinical-moral-boundaries", "qaly-adequacy-conditions", "clinical-moral-injury", "allocation"]
@@ -286,7 +286,7 @@ conditions = [
   "It uses the clinical Bond Index and inherits its counterfactual geodesic and unestimated parameters.",
   "The four zones of Proposition 12.2 (below 1.2, 1.2 to 1.5, 1.5 to 2.0, and 2.0 or more) are called illustrative, not prescriptive. Each institution and community is to set its own.",
   "The figure 2.3 is the volume's example of a reading. No ratio has been computed from clinical data. The ratios of the case study of Section 12.4 belong to a hypothetical medical center, and the section is headed an illustrative case study.",
-  "The ratio is undefined when the index of the reference population is zero, a case Proposition 12.1 allows. The volume's corrections record of 2026-11-26 lists this as unresolved.",
+  "The definition says the ratio is defined only when the index of the reference population is above zero. It is undefined when the policy is manifold-optimal for that population, a case Proposition 12.1 allows.",
 ]
 related = ["clinical-bond-index", "disparate-impact-ratio", "clinical-friction", "medical-bond-invariance-principle"]
 
@@ -300,7 +300,7 @@ conditions = [
   "Three things must hold together, namely an institutional mandate, a boundary crossing, and a penalty above the threshold. A voluntary crossing or one below the threshold gives distress but not injury.",
   "Theorem 13.1 adds that the total never decreases and that above a clinician-specific critical level the heuristic is permanently altered, by inflated penalties (hypervigilance) or deflated ones (numbing).",
   "The penalties and thresholds of clinicians have not been measured. Chapter 14 marks its prediction from pre-crisis penalty profiles as not yet tested.",
-  "Section 18.9 gives the claim the status consistent with the existing moral injury literature, generates novel predictions.",
+  "Section 18.9 gives the claim the status consistent with the moral injury literature as Chapters 10 and 14 cite it, and says the attributed findings have not been checked against their sources. It adds that the claim generates novel predictions.",
 ]
 standing = "A posited definition with stated predictions and no measurement. The volume distinguishes it from burnout and gives that distinction as a prediction to test."
 related = ["clinical-moral-boundaries", "moral-residue-of-contraction", "clinical-heuristic-hierarchy", "forced-contraction", "triage-divergence-theorem"]

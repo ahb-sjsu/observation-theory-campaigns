@@ -29,7 +29,7 @@ none. *standing.* Exploratory in the sense of Chapter 21. Three predictions were
 
 ## first stated
 
-Section 22.4, [`geometric-methods/chapters/chapter-22-the-read-metric.md:118-137`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-22-the-read-metric.md#L118-L137), with the estimator in Section 22.2, [`geometric-methods/chapters/chapter-22-the-read-metric.md:44-48`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-22-the-read-metric.md#L44-L48). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-22-the-read-metric.html).
+Section 22.4, [`geometric-methods/chapters/chapter-22-the-read-metric.md:118-137`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-22-the-read-metric.md#L118-L137), with the estimator in Section 22.2, [`geometric-methods/chapters/chapter-22-the-read-metric.md:44-48`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-22-the-read-metric.md#L44-L48). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-22-the-read-metric.html).
 
 ## measurements
 

@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Section 6.1, [`geometric-ai/manuscript/part_ii/ch06_four_failures.md:20-32`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch06_four_failures.md#L20-L32), with the table of pathologies and remedies at [`geometric-ai/manuscript/part_ii/ch06_four_failures.md:173-180`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch06_four_failures.md#L173-L180). Online, [Geometric AI](https://erisml.org/geometric-ai/ch06_four_failures.html).
+Section 6.1, [`geometric-ai/manuscript/part_ii/ch06_four_failures.md:20-32`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch06_four_failures.md#L20-L32), with the table of pathologies and remedies at [`geometric-ai/manuscript/part_ii/ch06_four_failures.md:181-188`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch06_four_failures.md#L181-L188). Online, [Geometric AI](https://erisml.org/geometric-ai/ch06_four_failures.html).
 
 ## measurements
 

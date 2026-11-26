@@ -28,7 +28,7 @@ none. *standing.* Labelled a theorem and stated without proof. The volume reads 
 
 ## first stated
 
-Theorem 9.1, [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:282-288`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iii/ch09_clinical_cases.md#L282-L288), after Definition 9.2 at [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:268-272`](https://github.com/ahb-sjsu/geometric-medicine/blob/c220ac9/manuscript/part_iii/ch09_clinical_cases.md#L268-L272). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch09_clinical_cases.html).
+Theorem 9.1, [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:282-288`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_iii/ch09_clinical_cases.md#L282-L288), after Definition 9.2 at [`geometric-medicine/manuscript/part_iii/ch09_clinical_cases.md:268-272`](https://github.com/ahb-sjsu/geometric-medicine/blob/4578fc5/manuscript/part_iii/ch09_clinical_cases.md#L268-L272). Online, [Geometric Medicine](https://erisml.org/geometric-medicine/ch09_clinical_cases.html).
 
 ## measurements
 

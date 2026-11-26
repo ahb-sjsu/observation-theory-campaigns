@@ -19,6 +19,7 @@ none
 - The ledger holds the frontier reading at posited (GC-17) and the claim that the frontier is a surface and not a point at posited (GC-18).
 - The ledger notes that a band computed from composite scores is a statement about the composite, which Chapter 1 argues discards the structure the book is about.
 - The composite is the unweighted mean of 21 subtask scores normalized across the same five models.
+- The composites rest on 21-score vectors the volume does not print, drafted beside table values that have since been corrected. The corrections record of 2026-11-26 lists them as still open.
 
 Conditions are curated in `volumes/geometric-cognition.toml` rather than read from a record.
 
@@ -28,7 +29,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Section 16.9, [`geometric-cognition/chapters/ch16_five_signatures.md:284-288`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch16_five_signatures.md#L284-L288). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch16_five_signatures.html).
+Section 16.9, [`geometric-cognition/chapters/ch16_five_signatures.md:284-288`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch16_five_signatures.md#L284-L288). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch16_five_signatures.html).
 
 ## measurements
 

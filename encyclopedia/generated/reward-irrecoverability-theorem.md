@@ -31,7 +31,7 @@ none. *standing.* Stated as a theorem with a written proof in Appendix D.1, as t
 
 ## first stated
 
-Theorem 5.1, Section 5.1, [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:36-46`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch05_reward_irrecoverability.md#L36-L46), with the proof in Appendix D.1, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:7-30`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/appendices/appendix_d_proofs.md#L7-L30). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
+Theorem 5.1, Section 5.1, [`geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:36-46`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch05_reward_irrecoverability.md#L36-L46), with the proof in Appendix D.1, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:7-30`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/appendices/appendix_d_proofs.md#L7-L30). Online, [Geometric AI](https://erisml.org/geometric-ai/ch05_reward_irrecoverability.html).
 
 ## measurements
 

@@ -31,7 +31,7 @@ none. *standing.* A theorem in the volume's tagging, with a one-sentence proof a
 
 ## first stated
 
-Section 13.4, [`geometric-gastronomy/chapters/ch13_designing_flavors.md:68-76`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch13_designing_flavors.md#L68-L76). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch13_designing_flavors.html).
+Section 13.4, [`geometric-gastronomy/chapters/ch13_designing_flavors.md:72-80`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch13_designing_flavors.md#L72-L80). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch13_designing_flavors.html).
 
 ## measurements
 

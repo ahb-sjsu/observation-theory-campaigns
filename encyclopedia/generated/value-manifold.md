@@ -17,8 +17,8 @@ none
 ## conditions
 
 - The nine dimensions are inherited from the moral manifold of Geometric Ethics and re-read for AI. They are welfare, rights, justice, autonomy, trust, social impact, dignity, institutional legitimacy and epistemic integrity.
-- A footnote of the chapter says the claim that nine dimensions suffice is empirical and open to revision. Open question 2 of Chapter 20 says that if the manifold must be specified in advance, the nine-dimensional structure is an assumption and not a discovery.
-- The chapter's statement that the manifold is realized in about 11 principal components of a transformer's residual stream is illustrated on the fictional system ARIA and attributed to Geometric Cognition, Chapter 15.
+- A footnote of the chapter says Geometric Ethics now treats the nine as a chart for coverage and audit, not a measured basis. Eight of the nine pass a frozen-null gate and rights does not, and a tenth axis carries signal the nine miss. Open question 2 of Chapter 20 says that if the manifold must be specified in advance, the nine-dimensional structure is an assumption and not a discovery.
+- The chapter posits that the value manifold occupies about 11 principal components of a transformer's residual stream, the 9 moral dimensions plus 2 of task context. It calls the 11 this volume's posit, illustrates it on the fictional system ARIA, and cites the illustrative running example of Geometric Cognition, Chapter 15, in which 12 principal components capture 87% of the variance.
 
 Conditions are curated in `volumes/geometric-ai.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Chapter 4, opening construction, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:12-12`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch04_value_manifold.md#L12-L12), with the nine dimensions introduced at [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:32-34`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch04_value_manifold.md#L32-L34). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
+Chapter 4, opening construction, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:12-12`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch04_value_manifold.md#L12-L12), with the nine dimensions introduced at [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:32-34`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch04_value_manifold.md#L32-L34). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
 
 ## measurements
 

@@ -31,7 +31,7 @@ none. *standing.* A posited quantity resting on a theorem stated without proof. 
 
 ## first stated
 
-Definition 18.3, Section 18.4, [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:54-66`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch18_multi_agent.md#L54-L66), with Theorem 18.1 (Multi-Agent Divergence) at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:44-52`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch18_multi_agent.md#L44-L52) and the two equilibria at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:26-42`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch18_multi_agent.md#L26-L42). Online, [Geometric AI](https://erisml.org/geometric-ai/ch18_multi_agent.html).
+Definition 18.3, Section 18.4, [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:57-69`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_v/ch18_multi_agent.md#L57-L69), with Theorem 18.1 (Multi-Agent Divergence) at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:43-51`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_v/ch18_multi_agent.md#L43-L51) and the two equilibria at [`geometric-ai/manuscript/part_v/ch18_multi_agent.md:25-41`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_v/ch18_multi_agent.md#L25-L41). Online, [Geometric AI](https://erisml.org/geometric-ai/ch18_multi_agent.html).
 
 ## measurements
 

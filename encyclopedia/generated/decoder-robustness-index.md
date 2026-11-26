@@ -29,7 +29,7 @@ none. *standing.* A defined index applied once, to synthesised signals and one d
 
 ## first stated
 
-Section 7.4.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:126-160`](https://github.com/ahb-sjsu/geometric-communication/blob/217c957/manuscript/part_iii/ch07_whale_communication.md#L126-L160). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch07_whale_communication.html).
+Section 7.4.2, [`geometric-communication/manuscript/part_iii/ch07_whale_communication.md:126-160`](https://github.com/ahb-sjsu/geometric-communication/blob/22f0bb0/manuscript/part_iii/ch07_whale_communication.md#L126-L160). Online, [Geometric Communication](https://erisml.org/geometric-communication/ch07_whale_communication.html).
 
 ## measurements
 

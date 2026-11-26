@@ -30,7 +30,7 @@ none. *standing.* The README's epistemic-status block of 2026-07-14 calls this v
 
 ## first stated
 
-Definition 4.1, Section 4.3, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:118-128`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch04_value_manifold.md#L118-L128), with the Mahalanobis approximation at [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:138-146`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch04_value_manifold.md#L138-L146). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
+Definition 4.1, Section 4.3, [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:118-128`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch04_value_manifold.md#L118-L128), with the Mahalanobis approximation at [`geometric-ai/manuscript/part_ii/ch04_value_manifold.md:138-146`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch04_value_manifold.md#L138-L146). Online, [Geometric AI](https://erisml.org/geometric-ai/ch04_value_manifold.html).
 
 ## measurements
 

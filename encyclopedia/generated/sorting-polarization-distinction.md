@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 8, [`geometric-politics/manuscript/part_iii/ch08_polarization.md:73-79`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch08_polarization.md#L73-L79). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch08_polarization.html).
+Chapter 8, [`geometric-politics/manuscript/part_iii/ch08_polarization.md:73-79`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iii/ch08_polarization.md#L73-L79). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch08_polarization.html).
 
 ## measurements
 

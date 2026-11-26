@@ -30,7 +30,7 @@ none. *standing.* A definition. Appendix C proves in writing that dominance is a
 
 ## first stated
 
-Section 8.1.1, [`geometric-methods/chapters/chapter-08-pareto-optimization.md:14-20`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-08-pareto-optimization.md#L14-L20). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-08-pareto-optimization.html).
+Section 8.1.1, [`geometric-methods/chapters/chapter-08-pareto-optimization.md:14-20`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-08-pareto-optimization.md#L14-L20). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-08-pareto-optimization.html).
 
 ## measurements
 

@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 8, [`geometric-law/chapters/ch08_equal_protection.md:110-120`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch08_equal_protection.md#L110-L120), under the dated note at [`geometric-law/chapters/ch08_equal_protection.md:104-104`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch08_equal_protection.md#L104-L104). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
+Chapter 8, [`geometric-law/chapters/ch08_equal_protection.md:110-120`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch08_equal_protection.md#L110-L120), under the dated note at [`geometric-law/chapters/ch08_equal_protection.md:104-104`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch08_equal_protection.md#L104-L104). Online, [Geometric Law](https://erisml.org/geometric-law/ch08_equal_protection.html).
 
 ## measurements
 

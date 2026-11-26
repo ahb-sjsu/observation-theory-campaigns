@@ -29,7 +29,7 @@ none. *standing.* A posited two-axis diagnostic filled with measured scores. The
 
 ## first stated
 
-Definition 9.2, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:444-458`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch09_metacognition_as_search_control.md#L444-L458), introduced in Section 9.9, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:325-339`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch09_metacognition_as_search_control.md#L325-L339). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch09_metacognition_as_search_control.html).
+Definition 9.2, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:444-458`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch09_metacognition_as_search_control.md#L444-L458), introduced in Section 9.9, [`geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:325-339`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch09_metacognition_as_search_control.md#L325-L339). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch09_metacognition_as_search_control.html).
 
 ## measurements
 

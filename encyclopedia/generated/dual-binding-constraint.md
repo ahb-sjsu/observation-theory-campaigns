@@ -24,11 +24,11 @@ Conditions are curated in `volumes/geometric-reasoning.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models.
+none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models. The front matter says the benchmark was run more than once, that volumes of the series report figures from different runs, and that the run records are not published.
 
 ## first stated
 
-Definitions 11.6 and 11.7, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:258-264`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L258-L264), restated with margins as Definition A11.4, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:497-501`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch11_alignment_as_heuristic_shaping.md#L497-L501). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
+Definitions 11.6 and 11.7, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:258-264`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch11_alignment_as_heuristic_shaping.md#L258-L264), restated with margins as Definition A11.4, [`geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:497-501`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch11_alignment_as_heuristic_shaping.md#L497-L501). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch11_alignment_as_heuristic_shaping.html).
 
 ## measurements
 

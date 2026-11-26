@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 10.6, [`geometric-gastronomy/chapters/ch10_flavor_embeddings.md:96-104`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch10_flavor_embeddings.md#L96-L104). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch10_flavor_embeddings.html).
+Section 10.6, [`geometric-gastronomy/chapters/ch10_flavor_embeddings.md:100-108`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch10_flavor_embeddings.md#L100-L108). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch10_flavor_embeddings.html).
 
 ## measurements
 

@@ -29,7 +29,7 @@ none. *standing.* A proposed instrument. The README states that no education-dom
 
 ## first stated
 
-Appendix C, Sections C.1 and C.2, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:9-13`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/appendices/appendix_c_assessment.md#L9-L13), with the composite score in Section C.3, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:65-75`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/appendices/appendix_c_assessment.md#L65-L75). Online, [Geometric Education](https://erisml.org/geometric-education/appendix_c_assessment.html).
+Appendix C, Sections C.1 and C.2, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:9-13`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/appendices/appendix_c_assessment.md#L9-L13), with the composite score in Section C.3, [`geometric-education/manuscript/appendices/appendix_c_assessment.md:65-75`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/appendices/appendix_c_assessment.md#L65-L75). Online, [Geometric Education](https://erisml.org/geometric-education/appendix_c_assessment.html).
 
 ## measurements
 

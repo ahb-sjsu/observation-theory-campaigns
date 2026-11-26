@@ -28,7 +28,7 @@ none. *standing.* Proved in writing in Appendix C. Parts (iii) and (iv) were res
 
 ## first stated
 
-Section 1.1.1, [`geometric-methods/chapters/chapter-01-why-geometry.md:16-24`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-01-why-geometry.md#L16-L24), and as Theorem C.1 in Appendix C, [`geometric-methods/chapters/appendix-c-proofs.md:13-23`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/appendix-c-proofs.md#L13-L23). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-01-why-geometry.html).
+Section 1.1.1, [`geometric-methods/chapters/chapter-01-why-geometry.md:16-24`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-01-why-geometry.md#L16-L24), and as Theorem C.1 in Appendix C, [`geometric-methods/chapters/appendix-c-proofs.md:13-23`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/appendix-c-proofs.md#L13-L23). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-01-why-geometry.html).
 
 ## measurements
 

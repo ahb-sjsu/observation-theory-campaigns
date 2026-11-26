@@ -31,7 +31,7 @@ none. *standing.* Three predictions registered in the script before it ran, grad
 
 ## first stated
 
-Section 14.9, [`geometric-methods/chapters/chapter-14-gradient-reversal.md:774-791`](https://github.com/ahb-sjsu/geometric-methods/blob/65452de/chapters/chapter-14-gradient-reversal.md#L774-L791). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-14-gradient-reversal.html).
+Section 14.9, [`geometric-methods/chapters/chapter-14-gradient-reversal.md:774-791`](https://github.com/ahb-sjsu/geometric-methods/blob/d910c92/chapters/chapter-14-gradient-reversal.md#L774-L791). Online, [Geometric Methods](https://erisml.org/geometric-methods/chapter-14-gradient-reversal.html).
 
 ## measurements
 

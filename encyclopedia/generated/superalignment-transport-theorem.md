@@ -22,6 +22,7 @@ none
 - In a flat extension the human-evaluable dimensions stay aligned, and behaviour on the extension dimensions is left undetermined by human values.
 - In a curved extension the holonomy is approximately the sectional curvature times the area enclosed by the transport path. Whether that curvature stays bounded as capability grows is open question 4 of Chapter 20.
 - The curvature alarm values printed for ARIA-G are fictional.
+- The volume's corrections record of 2026-11-26 lists the theorem as open for restatement. Definition 17.2 transports along an open path while the holonomy is a closed-loop integral, the equivalence holds for the holonomy group over all loops and not for one loop, and the forward step of Appendix D.5 shows only that transport keeps the human directions among themselves.
 
 Conditions are curated in `volumes/geometric-ai.toml` rather than read from a record.
 
@@ -31,7 +32,7 @@ none. *standing.* Stated as a theorem and proved in Appendix D.5 by applying the
 
 ## first stated
 
-Theorem 17.1, Section 17.4, [`geometric-ai/manuscript/part_v/ch17_superalignment.md:54-62`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch17_superalignment.md#L54-L62), on Definitions 17.1 and 17.2 at [`geometric-ai/manuscript/part_v/ch17_superalignment.md:30-50`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_v/ch17_superalignment.md#L30-L50), with the proof in Appendix D.5, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:65-79`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/appendices/appendix_d_proofs.md#L65-L79). Online, [Geometric AI](https://erisml.org/geometric-ai/ch17_superalignment.html).
+Theorem 17.1, Section 17.4, [`geometric-ai/manuscript/part_v/ch17_superalignment.md:54-62`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_v/ch17_superalignment.md#L54-L62), on Definitions 17.1 and 17.2 at [`geometric-ai/manuscript/part_v/ch17_superalignment.md:30-50`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_v/ch17_superalignment.md#L30-L50), with the proof in Appendix D.5, [`geometric-ai/manuscript/appendices/appendix_d_proofs.md:65-79`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/appendices/appendix_d_proofs.md#L65-L79). Online, [Geometric AI](https://erisml.org/geometric-ai/ch17_superalignment.html).
 
 ## measurements
 

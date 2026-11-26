@@ -26,11 +26,11 @@ Conditions are curated in `volumes/geometric-reasoning.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models.
+none. *standing.* Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models. The front matter says the benchmark was run more than once, that volumes of the series report figures from different runs, and that the run records are not published.
 
 ## first stated
 
-Definitions 4.1 and 4.2, [`geometric-reasoning/chapters/ch04_geodesics_and_optimal_reasoning.md:92-98`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch04_geodesics_and_optimal_reasoning.md#L92-L98). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch04_geodesics_and_optimal_reasoning.html).
+Definitions 4.1 and 4.2, [`geometric-reasoning/chapters/ch04_geodesics_and_optimal_reasoning.md:92-98`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch04_geodesics_and_optimal_reasoning.md#L92-L98). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch04_geodesics_and_optimal_reasoning.html).
 
 ## measurements
 

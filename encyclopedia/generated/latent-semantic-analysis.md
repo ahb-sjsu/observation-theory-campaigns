@@ -28,13 +28,13 @@ none
 
 ## first stated
 
-Deerwester, Dumais, Furnas, Landauer, and Harshman, indexing by latent semantic analysis, 1990, as chapter 12 section 12.1 of *Data Mining as Observation* reads it, with the program's frozen embedding in `geometric-observation/chapters/ch10_the_blind_probe.md:108-126`.
+Deerwester, Dumais, Furnas, Landauer, and Harshman, indexing by latent semantic analysis, 1990, as chapter 12 section 12.1 of *Data Mining as Observation* reads it, with the program's frozen embedding in `geometric-observation/chapters/ch10_the_blind_probe.md:109-127`.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 12 section 12.3 | 041 non-oracle, frozen LSA TF-IDF to SVD 100 train-only, AUROC 0.975 vs 0.910, flip tied, magnitude overshot, partial | [`geometric-observation/chapters/ch10_the_blind_probe.md:100-118`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/chapters/ch10_the_blind_probe.md#L100-L118); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/8e2bda0/claims/LEDGER.md) row GO-B-blind 041 |
+| chapter 12 section 12.3 | 041 non-oracle, frozen LSA TF-IDF to SVD 100 train-only, AUROC 0.975 vs 0.910, flip tied, magnitude overshot, partial | [`geometric-observation/chapters/ch10_the_blind_probe.md:100-118`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/chapters/ch10_the_blind_probe.md#L100-L118); [`geometric-observation/claims/LEDGER.md`](https://github.com/ahb-sjsu/geometric-observation/blob/e15d65f/claims/LEDGER.md) row GO-B-blind 041 |
 
 ## failures and corrections
 

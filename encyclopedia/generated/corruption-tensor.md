@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-reasoning.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* The tensor is posited. What is measured is displacement under three perturbation types on five models, reported with combined significance of 8.9, 6.8 and 4.6 sigma, and no significant displacement under gender swap or evaluation order.
+none. *standing.* The tensor is posited. What is measured is displacement under three perturbation types on five models, reported with combined significance of 8.9, 6.8 and 4.6 sigma, and no significant displacement under gender swap or evaluation order. For the first the front matter adds 15.3 sigma from the later run reported in Geometric Cognition, Chapter 7.
 
 ## first stated
 
-Definition 5.1, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:326-334`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch05_heuristic_corruption.md#L326-L334), introduced in Section 5.5, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:172-182`](https://github.com/ahb-sjsu/geometric-reasoning/blob/b645f23/chapters/ch05_heuristic_corruption.md#L172-L182). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch05_heuristic_corruption.html).
+Definition 5.1, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:326-334`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch05_heuristic_corruption.md#L326-L334), introduced in Section 5.5, [`geometric-reasoning/chapters/ch05_heuristic_corruption.md:172-182`](https://github.com/ahb-sjsu/geometric-reasoning/blob/149995b/chapters/ch05_heuristic_corruption.md#L172-L182). Online, [Geometric Reasoning](https://erisml.org/geometric-reasoning/ch05_heuristic_corruption.html).
 
 ## measurements
 

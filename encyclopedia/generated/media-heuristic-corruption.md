@@ -18,7 +18,7 @@ none
 
 - A well-calibrated media heuristic is one that reports on all six dimensions and estimates distances without systematic distortion. The four modes are departures from that standard.
 - The coverage patterns assigned to cable news, public radio, social media and local news are the volume's characterization and carry no cited measurement.
-- The perceived and actual distances between the two District 7 voters are illustrative. The cumulative size of the distortion is argued from a framing result quoted from Geometric Communication.
+- The perceived and actual distances between the two District 7 voters are illustrative. The cumulative size of the distortion is argued from a framing result quoted from Geometric Communication at 8.9 sigma, which the chapter says was 15.3 sigma in a later run reported in Geometric Cognition.
 
 Conditions are curated in `volumes/geometric-politics.toml` rather than read from a record.
 
@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Chapter 11, [`geometric-politics/manuscript/part_iii/ch11_media.md:26-72`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_iii/ch11_media.md#L26-L72). Chapter 6 gives the three campaign versions at [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:84-92`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch06_campaigns_heuristic.md#L84-L92). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch11_media.html).
+Chapter 11, [`geometric-politics/manuscript/part_iii/ch11_media.md:26-72`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_iii/ch11_media.md#L26-L72). Chapter 6 gives the three campaign versions at [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:88-96`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch06_campaigns_heuristic.md#L88-L96). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch11_media.html).
 
 ## measurements
 

@@ -31,7 +31,7 @@ none. *standing.* The README's status block of 2026-09-13 calls the book a domai
 
 ## first stated
 
-Definition 5.1, [`geometric-cognition/chapters/ch05_working_memory.md:64-64`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch05_working_memory.md#L64-L64), and Definition 5.2, [`geometric-cognition/chapters/ch05_working_memory.md:85-91`](https://github.com/ahb-sjsu/geometric-cognition/blob/3d5a346/chapters/ch05_working_memory.md#L85-L91). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch05_working_memory.html).
+Definition 5.1, [`geometric-cognition/chapters/ch05_working_memory.md:64-64`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch05_working_memory.md#L64-L64), and Definition 5.2, [`geometric-cognition/chapters/ch05_working_memory.md:85-91`](https://github.com/ahb-sjsu/geometric-cognition/blob/93e39e2/chapters/ch05_working_memory.md#L85-L91). Online, [Geometric Cognition](https://erisml.org/geometric-cognition/ch05_working_memory.html).
 
 ## measurements
 

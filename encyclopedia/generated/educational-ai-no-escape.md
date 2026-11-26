@@ -25,11 +25,11 @@ Conditions are curated in `volumes/geometric-education.toml` rather than read fr
 
 ## ledger
 
-none. *standing.* Stated as a theorem with a proof sketch. It is a restatement for AI systems of results that are themselves posited or elementary, and no AI system was tested.
+none. *standing.* Stated as a theorem with a proof sketch. It is a restatement for AI systems of results that are themselves posited or elementary, and no AI system was tested. The volume calls it an analogue of the No Escape Theorem of Geometric Ethics (Theorem 18.1) that borrows the name and not the mechanism.
 
 ## first stated
 
-Theorem 12.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:55-62`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch12_ai_education.md#L55-L62), with the proof sketch in Section 12.3.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:66-72`](https://github.com/ahb-sjsu/geometric-education/blob/085dda1/manuscript/part_iii/ch12_ai_education.md#L66-L72). Online, [Geometric Education](https://erisml.org/geometric-education/ch12_ai_education.html).
+Theorem 12.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:55-62`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_iii/ch12_ai_education.md#L55-L62), with the proof sketch in Section 12.3.1, [`geometric-education/manuscript/part_iii/ch12_ai_education.md:66-72`](https://github.com/ahb-sjsu/geometric-education/blob/7bf76da/manuscript/part_iii/ch12_ai_education.md#L66-L72). Online, [Geometric Education](https://erisml.org/geometric-education/ch12_ai_education.html).
 
 ## measurements
 

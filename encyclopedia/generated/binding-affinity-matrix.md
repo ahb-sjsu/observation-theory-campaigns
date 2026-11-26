@@ -28,7 +28,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 2.3, [`geometric-gastronomy/chapters/ch02_the_receptor_basis.md:54-64`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch02_the_receptor_basis.md#L54-L64). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch02_the_receptor_basis.html).
+Section 2.3, [`geometric-gastronomy/chapters/ch02_the_receptor_basis.md:54-64`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch02_the_receptor_basis.md#L54-L64). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch02_the_receptor_basis.html).
 
 ## measurements
 

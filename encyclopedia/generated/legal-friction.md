@@ -29,7 +29,7 @@ none. *standing.* The README's epistemic status of 2026-07-14 calls the volume a
 
 ## first stated
 
-Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:161-173`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L161-L173), the appendix form at [`geometric-law/chapters/ch04_legal_metric.md:418-422`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L418-L422), and the burden of proof at [`geometric-law/chapters/ch04_legal_metric.md:212-220`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch04_legal_metric.md#L212-L220). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
+Chapter 4, [`geometric-law/chapters/ch04_legal_metric.md:161-173`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch04_legal_metric.md#L161-L173), the appendix form at [`geometric-law/chapters/ch04_legal_metric.md:418-422`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch04_legal_metric.md#L418-L422), and the burden of proof at [`geometric-law/chapters/ch04_legal_metric.md:212-220`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch04_legal_metric.md#L212-L220). Online, [Geometric Law](https://erisml.org/geometric-law/ch04_legal_metric.html).
 
 ## measurements
 

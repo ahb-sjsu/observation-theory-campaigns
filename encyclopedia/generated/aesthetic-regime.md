@@ -29,7 +29,7 @@ none. *standing.* Posited structure read from measured results. Appendix F marks
 
 ## first stated
 
-Section 8.4, [`geometric-aesthetics/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md:73-83`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md#L73-L83). The boundary types are in Section 8.3, [`geometric-aesthetics/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md:39-69`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/7a5e20e/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md#L39-L69). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-8-stratification-boundaries-thresholds-phase-transitions.html).
+Section 8.4, [`geometric-aesthetics/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md:73-83`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md#L73-L83). The boundary types are in Section 8.3, [`geometric-aesthetics/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md:39-69`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/dc255d3/book/src/chapter-08-stratification-boundaries-thresholds-phase-transitions.md#L39-L69). Online, [Geometric Aesthetics](https://erisml.org/geometric-aesthetics/chapter-8-stratification-boundaries-thresholds-phase-transitions.html).
 
 ## measurements
 

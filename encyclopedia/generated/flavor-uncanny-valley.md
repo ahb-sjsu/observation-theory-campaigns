@@ -31,7 +31,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Section 5.3, [`geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:54-54`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch05_the_pairing_manifold.md#L54-L54), with the shell penalty in Section 5.6, [`geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:104-110`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/1b6657d/chapters/ch05_the_pairing_manifold.md#L104-L110). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch05_the_pairing_manifold.html).
+Section 5.3, [`geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:54-54`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch05_the_pairing_manifold.md#L54-L54), with the shell penalty in Section 5.6, [`geometric-gastronomy/chapters/ch05_the_pairing_manifold.md:108-114`](https://github.com/ahb-sjsu/geometric-gastronomy/blob/b43823b/chapters/ch05_the_pairing_manifold.md#L108-L114). Online, [Geometric Gastronomy](https://erisml.org/geometric-gastronomy/ch05_the_pairing_manifold.html).
 
 ## measurements
 

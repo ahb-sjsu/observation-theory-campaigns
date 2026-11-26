@@ -31,7 +31,7 @@ none. *standing.* Withdrawn pending restatement under $V_4$, by the volume's dat
 
 ## first stated
 
-Chapter 2, the dated note at [`geometric-law/chapters/ch02_hohfeld.md:97-101`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch02_hohfeld.md#L97-L101), the generators and relations with their withdrawal marks at [`geometric-law/chapters/ch02_hohfeld.md:105-152`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch02_hohfeld.md#L105-L152), and the theorem with its withdrawal mark and proof at [`geometric-law/chapters/ch02_hohfeld.md:501-503`](https://github.com/ahb-sjsu/geometric-law/blob/c05fb6b/chapters/ch02_hohfeld.md#L501-L503). Online, [Geometric Law](https://erisml.org/geometric-law/ch02_hohfeld.html).
+Chapter 2, the dated note at [`geometric-law/chapters/ch02_hohfeld.md:97-101`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch02_hohfeld.md#L97-L101), the generators and relations with their withdrawal marks at [`geometric-law/chapters/ch02_hohfeld.md:105-152`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch02_hohfeld.md#L105-L152), and the theorem with its withdrawal mark and proof at [`geometric-law/chapters/ch02_hohfeld.md:501-503`](https://github.com/ahb-sjsu/geometric-law/blob/1e50dfc/chapters/ch02_hohfeld.md#L501-L503). Online, [Geometric Law](https://erisml.org/geometric-law/ch02_hohfeld.html).
 
 ## measurements
 

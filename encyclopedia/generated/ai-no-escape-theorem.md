@@ -29,7 +29,7 @@ none. *standing.* Stated as a theorem. Chapter 8 says it states the AI-specific 
 
 ## first stated
 
-Theorem 8.1, Section 8.1, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:34-48`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch08_no_escape.md#L34-L48), with what it does not block at [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:146-158`](https://github.com/ahb-sjsu/geometric-ai/blob/a628e38/manuscript/part_ii/ch08_no_escape.md#L146-L158). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
+Theorem 8.1, Section 8.1, [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:33-47`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch08_no_escape.md#L33-L47), with what it does not block at [`geometric-ai/manuscript/part_ii/ch08_no_escape.md:153-165`](https://github.com/ahb-sjsu/geometric-ai/blob/2cc8c63/manuscript/part_ii/ch08_no_escape.md#L153-L165). Online, [Geometric AI](https://erisml.org/geometric-ai/ch08_no_escape.html).
 
 ## measurements
 

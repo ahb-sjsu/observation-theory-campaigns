@@ -21,7 +21,7 @@ none
 - The axis must be politically activatable. A campaign can make salient only the dimensions voters recognize as relevant.
 - The model assumes campaigns change the salience of dimensions and leave voters' positions nearly fixed.
 - The second displayed form is the expansion of the first. It minimizes the electorate's variance along the axis plus the squared offset of the candidate from the mean along the axis. The proof states that identity and reduces the choice to an eigenvalue problem for the matrix $\Sigma + (x_C - \mu)(x_C - \mu)^T$.
-- The code listing of Appendix B.5 still implements an earlier ratio form that the theorem no longer states. The volume's corrections record of 2026-11-26 lists the listing as unresolved.
+- The code listing of Appendix B.5 implements the theorem as now stated. It takes the eigenvector of that matrix with the smallest eigenvalue.
 - The chapter says the theorem is not a new prediction. It offers it as a geometric account of the known regularity that campaigns stress strengths and avoid weaknesses.
 
 Conditions are curated in `volumes/geometric-politics.toml` rather than read from a record.
@@ -32,7 +32,7 @@ none. *standing.* The README's epistemic-status note of 2026-07-14 calls this vo
 
 ## first stated
 
-Theorem 2 of Chapter 6, [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:50-58`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch06_campaigns_heuristic.md#L50-L58), after the projection axis is defined at [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:40-44`](https://github.com/ahb-sjsu/geometric-politics/blob/0fe7a96/manuscript/part_ii/ch06_campaigns_heuristic.md#L40-L44). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch06_campaigns_heuristic.html).
+Theorem 2 of Chapter 6, [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:50-58`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch06_campaigns_heuristic.md#L50-L58), after the projection axis is defined at [`geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:40-44`](https://github.com/ahb-sjsu/geometric-politics/blob/8f4a831/manuscript/part_ii/ch06_campaigns_heuristic.md#L40-L44). Online, [Geometric Politics](https://erisml.org/geometric-politics/ch06_campaigns_heuristic.html).
 
 ## measurements
 
