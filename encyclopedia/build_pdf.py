@@ -267,7 +267,7 @@ for r in tsk_rows:
     tsk.append(f"| {r['tsk']} | {r['where']} | " + "; ".join(link(i) for i in r["entries"] if i in by_id) + f" | {r['chapter']} |")
 parts = [
     "---",
-    "title: The Observation Theory Encyclopedia",
+    "title: The Geometric Series Encyclopedia",
     f"subtitle: Companion to *Data Mining as Observation*, {len(entries)} entries",
     "author: The observation theory program, ahb-sjsu",
     f"date: Built {DATE} from commit {COMMIT}",

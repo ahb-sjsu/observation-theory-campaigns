@@ -330,7 +330,7 @@ MATHJAX = '<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\\\(","\\\\)"]]
 
 
 def shell(title, body, single=False, extra_head=""):
-    nav = (f'<header class="top"><a class="brand" href="{"#top" if single else "index.html"}">The Observation Theory Encyclopedia</a>'
+    nav = (f'<header class="top"><a class="brand" href="{"#top" if single else "index.html"}">The Geometric Series Encyclopedia</a>'
            f'<a href="{"#tsk" if single else "tsk.html"}">From TSK</a><a href="{"#about" if single else "about.html"}">About</a><a href="{"#kinds" if single else "kinds.html"}">By kind</a>'
            f'<a href="{"#volumes" if single else "volumes.html"}">By volume</a>'
            f'<a href="{"#chapters" if single else "chapters.html"}">By chapter</a><a href="{"#lean" if single else "lean.html"}">By Lean file</a>'
@@ -448,6 +448,7 @@ def lists_html(single):
 
 
 ABOUT = """
+<p><strong>Scope.</strong> The encyclopedia began as the Observation Theory encyclopedia, built from the records of Volume 14 and its textbook, and carried that name until November 2026. It now covers all fourteen volumes of the Geometric Series. The entries of Volumes 1 to 13 are curated from each volume's text. Each cites the passage that states it and carries, as its status, what that volume says of its own evidence. Most of those volumes describe themselves as posited frameworks, and their entries say so. The page <a href="volumes.html">By volume</a> lists every entry under its volume.</p>
 <p>This is the encyclopedia of the observation theory program, the companion to the textbook <a href="../data-mining-as-observation/index.html"><em>Data Mining as Observation</em></a>, which can be read online. It has one entry for every headword of the book's glossary and three that were filled by hand before the generator existed.</p>
 <p><strong>Where the entries come from.</strong> An entry is built from the program's records rather than written beside them. The claims ledger in geometric-observation is the authority for what a result is worth, a campaign track file for what was measured, and the book's sources tables for every number the book states. The generator gathers what those records say about one thing, keyed by their identifiers, so that a correction in a record propagates on the next rebuild. The curated parts, the definition, the conditions, the prior art, and the related entries, live in <code>entries.toml</code>.</p>
 <p><strong>The card.</strong> Every entry opens with a card: the canonical definition and aliases, the exact book version and commit, the epistemic and correction status, the defining equation, the assumptions and scope, the prior-art relationship, the evidence links, and the last semantic review date. Below the card come a schematic, the full entry, the related entries, and what was cited beside the entry without naming it.</p>
@@ -470,12 +471,12 @@ def index_body(single):
     letters = sorted({letter(e) for e in entries})
     search = ('<input class="search" id="q" placeholder="Search entries, aliases, and definitions" oninput="filt()">'
               '<script>function filt(){var q=document.getElementById("q").value.toLowerCase();document.querySelectorAll(".tile").forEach(function(t){t.style.display=(!q||t.dataset.k.indexOf(q)>=0)?"":"none"});}</script>')
-    return (f'<h1 id="top">The Observation Theory Encyclopedia</h1><p class=al>{len(entries)} entries across the volumes of the Geometric Series, companion to {BOOK_TITLE}. Built {DATE} from commit <code>{COMMIT}</code>.</p>'
+    return (f'<h1 id="top">The Geometric Series Encyclopedia</h1><p class=al>{len(entries)} entries across the volumes of the Geometric Series, companion to {BOOK_TITLE}. Built {DATE} from commit <code>{COMMIT}</code>.</p>'
             + search + '<p class="letters">' + "".join(f'<a href="#L{L}">{L}</a>' for L in letters) + "</p><div>" + "".join(tiles) + "</div>")
 
 
 # ---------------------------------------------------------------- write the static pages
-open(os.path.join(SITE, "index.html"), "w", encoding="utf-8").write(shell("The Observation Theory Encyclopedia", index_body(False)))
+open(os.path.join(SITE, "index.html"), "w", encoding="utf-8").write(shell("The Geometric Series Encyclopedia", index_body(False)))
 open(os.path.join(SITE, "about.html"), "w", encoding="utf-8").write(shell("About the encyclopedia", "<h1>About</h1>" + ABOUT))
 for key, title, body in lists_html(False):
     open(os.path.join(SITE, key + ".html"), "w", encoding="utf-8").write(shell(title, f"<h1>{title}</h1>" + body))
@@ -498,7 +499,7 @@ var el=document.getElementById(h)||document.getElementById('home');el.classList.
 if(window.MathJax&&MathJax.typesetPromise){MathJax.typesetPromise([el]);}}
 window.addEventListener('hashchange',route);window.addEventListener('DOMContentLoaded',route);
 </script>"""
-open(os.path.join(SITE, "all.html"), "w", encoding="utf-8").write(shell("The Observation Theory Encyclopedia", "\n".join(single) + ROUTER, single=True))
+open(os.path.join(SITE, "all.html"), "w", encoding="utf-8").write(shell("The Geometric Series Encyclopedia", "\n".join(single) + ROUTER, single=True))
 print("wrote", SITE, "pages", len(entries) + 7, "single file", os.path.getsize(os.path.join(SITE, "all.html")) // 1024, "KB")
 if UNMAPPED:
     print("links into the book's repository with no page in the online edition, left as they are:", dict(UNMAPPED.most_common()))

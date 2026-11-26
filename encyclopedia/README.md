@@ -1,4 +1,7 @@
-# Observation Theory encyclopedia
+# The Geometric Series Encyclopedia
+
+Called the Observation Theory encyclopedia until 2026-11-26, when it was extended from Volume 14 and its
+textbook to all fourteen volumes of the series (see "The other volumes of the series" below).
 
 One entry per concept, instrument, result, or correction, gathered from the program's own
 records and keyed by their identifiers. `SCHEMA.md` gives the fields and the rules. The
