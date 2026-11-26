@@ -36,8 +36,8 @@ theory-radar, `theory-radar/paper/theory_radar_paper.tex:290-304` and `theory-ra
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 5 section 5.4 | Monotone Invariance and AUROC invariance theorems, the AUROC to F1 bound via the Youden index, stated in the source for every ROC curve and corrected in the book to concave curves, with the counterexample at AUROC 0.75 and F1 0.857 | [`theory-radar/paper/astar_paper.tex:94-170`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/astar_paper.tex#L94-L170); [`theory-radar/paper/theory_radar_paper.tex:290-304`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/theory_radar_paper.tex#L290-L304) |
-| chapter 6 section 6.3 | Monotone Invariance Theorem and its proof | [`theory-radar/paper/theory_radar_paper.tex:290-304`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/theory_radar_paper.tex#L290-L304); [`theory-radar/paper/astar_paper.tex:94-110`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/astar_paper.tex#L94-L110) |
+| chapter 5 section 5.4 | Monotone Invariance and AUROC invariance theorems, the AUROC to F1 bound via the Youden index, stated in the source for every ROC curve and corrected in the book to concave curves, with the counterexample at AUROC 0.75 and F1 0.857 | [`theory-radar/paper/astar_paper.tex:94-170`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/astar_paper.tex#L94-L170); [`theory-radar/paper/theory_radar_paper.tex:290-304`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/theory_radar_paper.tex#L290-L304) |
+| chapter 6 section 6.3 | Monotone Invariance Theorem and its proof | [`theory-radar/paper/theory_radar_paper.tex:290-304`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/theory_radar_paper.tex#L290-L304); [`theory-radar/paper/astar_paper.tex:94-110`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/astar_paper.tex#L94-L110) |
 
 ## failures and corrections
 
@@ -50,7 +50,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/MonotoneInvariance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/MonotoneInvariance.lean), theorems `aurocNum_comp`, `auroc_comp`, `predicted_comp`, `predictedBelow_comp`, `sweptF1_comp`, `sweptF1Below_comp`, `optF1_comp`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/MonotoneInvariance.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/MonotoneInvariance.lean), theorems `aurocNum_comp`, `auroc_comp`, `predicted_comp`, `predictedBelow_comp`, `sweptF1_comp`, `sweptF1Below_comp`, `optF1_comp`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -66,4 +66,4 @@ none
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

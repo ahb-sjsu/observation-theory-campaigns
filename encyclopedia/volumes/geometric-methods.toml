@@ -1,0 +1,355 @@
+[volume]
+number = 1
+title = "Geometric Methods"
+repo = "geometric-methods"
+slug = "geometric-methods"
+standing = "The README's status note of 2026-07-14 calls this volume the series' metrology discipline, a method that is normative and not a finding. Its Section 21.8 (November 2026) classes each result as proved, posited, or measured on a recorded run, and the tables of Chapters 1, 8, 9, 11 and 12 are posited illustrations."
+
+[[entry]]
+id = "pareto-dominance"
+kind = "concept"
+title = "Pareto dominance"
+definition = "A configuration dominates another when it is no worse on every objective and strictly better on at least one. Two configurations of which neither dominates the other are mutually non-dominated, and the non-dominated set is the Pareto frontier."
+first_stated = "Section 8.1.1, `geometric-methods/chapters/chapter-08-pareto-optimization.md:14-20`."
+conditions = [
+  "Every objective has a direction fixed in advance. The volume minimizes all of them.",
+  "Dominance is a partial order. It ranks nothing inside the frontier, and a choice there needs a stated preference between the objectives.",
+  "The frontier tables of Chapter 8 are posited illustrations. In the recorded run of Chapter 19 the frontier had two points, and one of them was a lucky draw on the test set.",
+]
+standing = "A definition. Appendix C proves in writing that dominance is a strict partial order (Theorem C.7), and its Corollary C.7.1 was restated in the November 2026 review."
+known_as = "Pareto efficiency in economics and the non-dominated sorting of multi-objective optimization."
+related = ["budget", "subset-enumeration", "scalar-irrecoverability", "defect-campaign-null-result"]
+
+[[entry]]
+id = "scalar-irrecoverability"
+kind = "result"
+title = "Scalar Irrecoverability Theorem"
+definition = "A linear scalar summary $\\phi(v) = w^\\top v$ of an evaluation vector with n components, n at least 2, has a null space of dimension n minus 1. Vectors with the same summary can differ by any amount in their components, so the summary alone neither reconstructs the vector nor bounds its components."
+first_stated = "Section 1.1.1, `geometric-methods/chapters/chapter-01-why-geometry.md:16-24`, and as Theorem C.1 in Appendix C, `geometric-methods/chapters/appendix-c-proofs.md:13-23`."
+conditions = [
+  "The summary is linear with a nonzero weight vector. The unbounded difference in every component needs at least two nonzero weights. With exactly one nonzero weight that component is determined by the summary and the others are free.",
+  "For a continuous summary that is not linear the theorem says only that each interior value has an uncountable preimage, so the summary is not injective.",
+  "The ultimatum-game vectors that illustrate it in Chapter 1 are posited.",
+]
+standing = "Proved in writing in Appendix C. Parts (iii) and (iv) were restated or reproved in the November 2026 review, and there is no machine-checked proof."
+related = ["null-space", "projection", "pareto-dominance", "kernel"]
+
+[[entry]]
+id = "einstein-midpoint"
+kind = "instrument"
+title = "Einstein midpoint"
+definition = "The weighted centroid of points on the Poincare ball of curvature minus c. It is the average in the Klein model with each point weighted by its Lorentz factor, carried back to the ball. In ball coordinates it is the Mobius half of $\\sum_i w_i \\lambda_i x_i / \\sum_i w_i (\\lambda_i - 1)$, with $\\lambda_i = 2/(1 - c\\|x_i\\|^2)$."
+first_stated = "Section 3.6.1, `geometric-methods/chapters/chapter-03-hyperbolic-geometry.md:530-554`."
+conditions = [
+  "The points lie in the open ball, where c times the squared norm is below 1, and the weights are non-negative.",
+  "Proposition 3.1 states that the midpoint lies in the ball, reduces to the Euclidean weighted mean as c goes to 0, and for two points with equal weights is the midpoint of their geodesic. The text gives a proof sketch.",
+  "Weighting the ball coordinates by $1/(1 - c\\|x\\|^2)$ and averaging them directly is not a hyperbolic midpoint. The November 2026 review corrected the chapter's formula.",
+]
+standing = "Proved, and checked against an independent computation in `formal/matlab/volume_checks.m` (Section 21.8)."
+related = ["geodesic-distance", "curvature", "manifold", "mean-median"]
+
+[[entry]]
+id = "log-euclidean-distance"
+kind = "concept"
+title = "log-Euclidean distance"
+definition = "The distance between two symmetric positive definite matrices is the Frobenius norm of the difference of their matrix logarithms, $d_{LE}(S_1, S_2) = \\|\\log S_1 - \\log S_2\\|_F$. The logarithm is taken on the eigenvalues."
+first_stated = "Definition 4.2 and Proposition 4.1, `geometric-methods/chapters/chapter-04-spd-manifolds.md:45-55`."
+conditions = [
+  "Both matrices are symmetric positive definite, so every eigenvalue is strictly positive and its logarithm exists. The printed code clamps eigenvalues at 1e-10.",
+  "It is a proper metric, because the logarithm maps the positive definite matrices one to one onto the symmetric matrices, where the Frobenius norm is a metric.",
+  "The Frechet mean under this distance has a closed form, the exponential of the weighted average of the logarithms. Under the affine-invariant metric the mean needs an iterative algorithm.",
+  "The contribution the volume claims for this layer in the bioacoustics case study is posited. The comparison of Section 20.9.4 has not been run.",
+]
+standing = "A definition. Its metric property is stated with a proof sketch as Proposition 4.1 and proved in writing as Theorem C.4 of Appendix C, with no machine-checked proof."
+known_as = "The log-Euclidean metric of Arsigny et al. (2006)."
+related = ["positive-definite", "frobenius-norm", "covariance-matrix", "log-cholesky-parameterization", "mahalanobis-distance"]
+
+[[entry]]
+id = "persistent-homology"
+kind = "concept"
+title = "persistent homology"
+definition = "Connect the points of a cloud that lie within a distance threshold, forming the Vietoris-Rips complex, and raise the threshold from zero. Each topological feature, a connected component or a loop, has a birth threshold and a death threshold, and its persistence is death minus birth."
+first_stated = "Section 5.3.1, `geometric-methods/chapters/chapter-05-topological-data-analysis.md:105-122`."
+conditions = [
+  "Long persistence is read as structure and short persistence as noise. The volume calls this a heuristic, made formal by the stability theorem, under which a perturbation of the cloud by at most delta moves the persistence diagram by at most delta in bottleneck distance.",
+  "One connected component never dies. It is excluded from summary statistics.",
+  "Higher homology dimensions are expensive to compute and rarely interpretable. The volume says components and loops suffice for most applications.",
+  "The contribution the volume claims for this layer in the bioacoustics case study is posited. The comparison of Section 20.9.4 has not been run.",
+]
+known_as = "Persistent homology of topological data analysis, with the stability theorem of Cohen-Steiner, Edelsbrunner and Harer (2007)."
+related = ["graph", "hierarchical-clustering", "manifold", "intrinsic-dimension"]
+
+[[entry]]
+id = "euclidean-heuristic-admissibility"
+kind = "result"
+title = "admissibility of the Euclidean heuristic under a Mahalanobis metric"
+definition = "In A* search with Mahalanobis edge weights, the straight-line Euclidean distance to the goal never overestimates the true cost exactly when every eigenvalue of the inverse covariance is at least 1. Otherwise scale it by the square root of the smallest eigenvalue, or use the Mahalanobis distance to the goal as the heuristic."
+first_stated = "Proposition 6.1, `geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:61-67`, with the corrected heuristics in Section 6.2.2, `geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:71-81`."
+conditions = [
+  "The metric tensor is a constant inverse covariance, so the space is flat and anisotropic, not curved.",
+  "The scaled heuristic is admissible and often very loose. The Mahalanobis heuristic is exact for one step and ignores boundary penalties, so it can fall far below the true cost where a boundary lies on the path.",
+  "The covariance the chapter applies it to, with variances from 0.25 to 25, is posited. No record supports its values.",
+]
+standing = "Proposition 6.1 is proved in the text. The covariance, penalties and scaling functions of Chapter 6 that it is applied to are posited (Section 21.8)."
+known_as = "Admissible heuristics for A* search, after Hart, Nilsson and Raphael (1968)."
+related = ["mahalanobis-distance", "eigenvalue-eigenvector", "geodesic-distance", "anisotropic", "degenerate-balance-coordinate"]
+
+[[entry]]
+id = "degenerate-balance-coordinate"
+kind = "concept"
+title = "balance coordinate that degenerates at a boundary"
+definition = "A balance coordinate d = (g - l)/(g + l) of two competing non-negative magnitudes equals plus or minus 1 exactly when one magnitude is absent. On those sets it is constant, an interaction term d times x equals plus or minus x, and its coefficient cannot be separated from the coefficient of x."
+first_stated = "Section 6.4.4, `geometric-methods/chapters/chapter-06-pathfinding-on-manifolds.md:276-288`."
+conditions = [
+  "The chart-selection rule applies where the endpoints of a bounded coordinate mean absence and not extremity. Fit each side separately, and do not read an interaction coefficient estimated across an endpoint as a property of either side.",
+  "The evidence is a study of 95,748 risky-choice trials in an archived draft of the geometric-economics repository. A pooled interaction of +0.25 fell to about -0.03, within its noise, once the regions were separated.",
+  "The draft was archived on 2026-11-02 because the model it tested has a diagonal metric and hand-chosen coordinates. The volume states that the rule is about coordinates and does not depend on that model.",
+  "The discontinuities the draft reports are jumps in a risk-sensitivity term at two different boundaries. They are not edge weights of the nine-dimensional decision complex.",
+]
+standing = "The rule follows from the definition of the coordinate. The numbers quoted with it are the record of an archived draft (Section 21.8)."
+related = ["confound", "simpsons-paradox", "stratification", "euclidean-heuristic-admissibility"]
+
+[[entry]]
+id = "model-robustness-index"
+kind = "instrument"
+title = "Model Robustness Index (MRI)"
+definition = "Multiply each parameter by an independent log-normal factor, and for each draw record $\\omega$, the absolute change in the model's error from baseline. The index is 0.5 times the mean of $\\omega$ plus 0.3 times its 75th percentile plus 0.2 times its 95th percentile. Lower is more robust."
+first_stated = "Sections 9.2.1 and 9.2.2, `geometric-methods/chapters/chapter-09-adversarial-robustness.md:83-102`."
+conditions = [
+  "The defaults are 300 draws and a log-scale standard deviation of 0.5, with perturbed values clamped to the range 0.001 to 1,000,000. The volume asks for the index at several scales.",
+  "An index of exactly zero can mean that the evaluation function cannot see the perturbation. In the recorded run of Chapter 19 it was zero because the function reads only whether each parameter is below 1000.",
+  "The values in Chapter 9 are hypothetical. The recorded values are those of Chapter 19, which are exploratory.",
+  "The Decoder Robustness Index of Section 10.5 applies the same formula to perturbations of the input signal, with a graded semantic distance in place of the change in error.",
+]
+standing = "A definition. Appendix C states the convergence of the empirical index as Theorem C.6, proved in writing, and the worked values of Chapter 9 are posited."
+related = ["sensitivity", "percentile", "defect-campaign-null-result", "admissibility-checks", "pairwise-interaction-matrix"]
+
+[[entry]]
+id = "subset-enumeration"
+kind = "instrument"
+title = "subset enumeration"
+definition = "Optimize and score every subset of the n parameter dimensions up to a maximum size, holding the dimensions outside the subset at an inactive sentinel value. The number of subsets of size 1 to k is the sum of the binomial coefficients n choose j for j from 1 to k."
+first_stated = "Chapter 11, `geometric-methods/chapters/chapter-11-subset-enumeration.md:6-8`, with the counts in Section 11.1.1, `geometric-methods/chapters/chapter-11-subset-enumeration.md:18-36`."
+conditions = [
+  "Full enumeration is practical only for about 15 dimensions or fewer, depending on the cost of one evaluation. A cap on subset size trades completeness for tractability.",
+  "The statement that subsets larger than four add little is the volume's expectation, not a measurement, and the tables of Chapter 11 are posited.",
+  "A best subset chosen on the data that score it is not a finding. In the recorded run of Chapter 19 the winner won on one test module, and over 20 redraws of the generator 15 different subsets won.",
+]
+related = ["pareto-dominance", "pairwise-interaction-matrix", "sweep", "defect-campaign-null-result", "split"]
+
+[[entry]]
+id = "pairwise-interaction-matrix"
+kind = "concept"
+title = "pairwise interaction matrix"
+definition = "Let $\\Delta_i$ be the rise in error from removing dimension i alone. The pairwise interaction $\\Phi_{ij}$ is the rise from removing both i and j, minus $\\Delta_i + \\Delta_j$. A positive value marks a redundant pair, each standing in for the other. A negative value marks a complementary pair, each needing the other."
+first_stated = "Section 12.1.3, `geometric-methods/chapters/chapter-12-compositional-testing.md:76-94`."
+conditions = [
+  "The matrix is symmetric with zero diagonal and costs 1 + n + n(n-1)/2 evaluations for n dimensions.",
+  "Ablation from the full model is blind to redundant pairs, and adding dimensions one at a time is blind to complementary pairs.",
+  "The two identities of Section 12.4.2 that tie the matrix to the gains of a build-up sequence hold exactly only when the evaluation function has no interactions above second order.",
+  "The sign convention was corrected in the November 2026 review. The matrix printed in Section 12.2.2 is hypothetical.",
+]
+standing = "A definition. The identities of Section 12.4.2 are proved and checked symbolically in `formal/matlab/volume_checks.m`, and the tables of Chapter 12 are posited."
+related = ["sensitivity", "subset-enumeration", "model-robustness-index", "independence"]
+
+[[entry]]
+id = "dihedral-augmentation"
+kind = "instrument"
+title = "D4 augmentation and the orbit-stabilizer count"
+definition = "Apply the eight rotations and reflections of the square, the dihedral group D4, to a grid, and use the resulting orbit as equivalent training examples. The number of distinct grids in the orbit times the number of group elements that leave the grid unchanged is 8."
+first_stated = "Chapter 13, `geometric-methods/chapters/chapter-13-group-theoretic-augmentation.md:10-12`, with the orbit-stabilizer count in Section 13.6.1, `geometric-methods/chapters/chapter-13-group-theoretic-augmentation.md:301-305`."
+conditions = [
+  "The target function must be invariant under the group. Augmentation encourages a model to learn that invariance and does not guarantee it.",
+  "For an input and output pair the same transform is applied to both, or the augmented pair encodes a different rule.",
+  "A grid with internal symmetry yields duplicates. A grid of orbit size 2 among grids of orbit size 8 is overrepresented by a factor of 4 unless the duplicates are removed.",
+  "The eightfold reduction of the hypothesis space is stated only up to factors that depend on the structure of the group action.",
+]
+known_as = "Data augmentation by a symmetry group, with the orbit-stabilizer theorem and Burnside's lemma."
+related = ["quotient", "nuisance", "paraphrase-class", "gradient-reversal-layer"]
+
+[[entry]]
+id = "gradient-reversal-layer"
+kind = "instrument"
+title = "gradient reversal layer"
+definition = "A layer between an encoder and a domain head that passes its input unchanged on the forward pass and multiplies the gradient by minus lambda on the backward pass. The domain head learns to predict the nuisance variable while the encoder is trained to make that prediction harder."
+first_stated = "Section 14.2.1, `geometric-methods/chapters/chapter-14-gradient-reversal.md:75-80`, with the limit of what an equilibrium shows at `geometric-methods/chapters/chapter-14-gradient-reversal.md:97-103`."
+conditions = [
+  "A domain head at chance means the representation defeats that discriminator. It does not mean the representation holds no information about the nuisance.",
+  "The method fails when the nuisance and task subspaces coincide, when the domain head is too weak to detect the nuisance, or when the minimax training does not converge.",
+  "Invariance is measured by a probe fitted after training on held-out data and by accuracy on a test set where the shortcut is broken. In the recorded run of Section 14.9 the probe recovered the nuisance 99.9% of the time under full reversal.",
+]
+known_as = "The domain-adversarial neural network of Ganin et al. (2016)."
+related = ["reversal-shortcut-experiment", "nuisance", "encoder", "leakage", "residualization"]
+
+[[entry]]
+id = "reversal-shortcut-experiment"
+kind = "result"
+title = "gradient reversal shortcut experiment"
+definition = "On synthetic spectrograms in which the recording condition predicts the coda type 90% of the time, full gradient reversal lowered the domain head's training accuracy from 95.9% to 37.7%. A probe fitted afterwards still recovered the condition 99.9% of the time, and accuracy on the shifted test stayed at chance."
+first_stated = "Section 14.9, `geometric-methods/chapters/chapter-14-gradient-reversal.md:774-791`."
+conditions = [
+  "Three predictions with thresholds were written into the script before it ran. P1 and P2 held and P3 failed.",
+  "Every setting was at chance on the shifted test, 16.7% to 17.6%, so no model learned the true signal. The experiment cannot say whether reversal helps a model that is able to learn it.",
+  "The data are synthetic, each setting was run with three seeds, and the setting lambda 0.5 was run without a prediction.",
+  "The section replaces an earlier version that used random data with random labels, a test that could not fail.",
+]
+standing = "Three predictions registered in the script before it ran, graded on one recorded run of 16 November 2026. One of the three failed. Priority is shown by file hash, not by version-control ancestry (Section 21.8)."
+known_as = "The finding of Elazar and Goldberg (2018) that an adversary at chance is compatible with a representation from which a fresh classifier recovers the attribute."
+related = ["gradient-reversal-layer", "preregistration", "nuisance", "chance-level", "admissibility-checks", "linear-classifier"]
+
+[[entry]]
+id = "log-cholesky-parameterization"
+kind = "instrument"
+title = "log-diagonal Cholesky parameterization"
+definition = "Write a symmetric positive definite matrix as L times its transpose, with L lower triangular, and store the diagonal of L as logarithms. The n(n+1)/2 stored numbers are unconstrained, and any real values give a symmetric positive definite matrix."
+first_stated = "Section 15.3.1, `geometric-methods/chapters/chapter-15-cholesky-parameterization.md:66-75`, with the complete map in Section 15.3.3, `geometric-methods/chapters/chapter-15-cholesky-parameterization.md:97-106`."
+conditions = [
+  "The map from the parameters to the positive definite matrices is smooth, onto, and has a smooth inverse, the Cholesky decomposition followed by the logarithm of the diagonal.",
+  "Setting every parameter to zero gives the identity matrix, the volume's starting point for optimization.",
+  "When the training signal is too limited to fit a full matrix, Section 15.8 restricts the factor to its n diagonal numbers, which gives a diagonal matrix.",
+]
+standing = "The surjection is Theorem C.5 of Appendix C with its Corollary C.5.1, proved in writing. No machine-checked proof."
+known_as = "The Cholesky factorization with a log-transformed diagonal."
+related = ["positive-definite", "symmetric-matrix", "log-euclidean-distance", "mahalanobis-distance", "covariance-matrix"]
+
+[[entry]]
+id = "query-budget"
+kind = "concept"
+title = "query budget"
+definition = "The mean number of retrieval slots per point, $\\rho = n_q k / n$, when $n_q$ queries each return k neighbours from n points. A corpus with no hub structure still shows a k-occurrence skewness of $1/\\sqrt{\\rho}$, so the null of a hubness reading rises as the budget falls."
+first_stated = "Section 17.11.2, `geometric-methods/chapters/chapter-17-scaling.md:482-490`."
+conditions = [
+  "The null assumes every point is equally likely to be returned, so its count is close to Poisson with mean equal to the budget.",
+  "Every count statistic is quoted with its budget, and a comparison made at two budgets compares two nulls.",
+  "The volume's rule is to keep the budget at 2 or more where a decision depends on the count. Below that the null dominates every statistic.",
+  "The measured table is from one corpus, 1024-dimensional embeddings of Wikipedia passages in the openvector-bench repository, and is not peer reviewed.",
+]
+standing = "The identities of Section 17.11 are proved and checked symbolically in `formal/matlab/ch17_neighbourhood_stats.m`. The measurements are demonstrated or exploratory, as each source file states."
+related = ["hubness", "anti-hub", "poisson-ceiling", "skewness", "attractiveness-skew", "null-model"]
+
+[[entry]]
+id = "attractiveness-skew"
+kind = "instrument"
+title = "attractiveness skew"
+definition = "Model the retrieval count of a point as Poisson with mean $\\rho w$, where w is its attractiveness, with mean one. Solve the variance and third central moment of the counts for those of w, and report $\\mu_3(w)/\\mathrm{Var}(w)^{3/2}$, a hubness measure that does not contain the query budget."
+first_stated = "Section 17.11.2, `geometric-methods/chapters/chapter-17-scaling.md:503-513`, with the withdrawn claim at `geometric-methods/chapters/chapter-17-scaling.md:540-540`."
+conditions = [
+  "The estimator returns no value when the variance of the counts is at or below the budget, which is when the budget is too small to resolve any structure.",
+  "On a fixed corpus with a known skew of 9.85 the estimate stayed between 9.84 and 10.02 across budgets of 0.5 to 4, while the raw skewness ranged from 2.46 to 5.59.",
+  "Two simpler statistics formed by dividing by a null were believed free of the budget. Measured under two protocols, their slopes changed sign.",
+  "An invariant estimator does not protect against a biased sample. The claim that hubness in the real corpus rises with corpus size was withdrawn when queries and corpus were found to come from different files of an ordered dataset.",
+]
+standing = "The moment identities are proved and checked symbolically. The measurements are demonstrated or exploratory as each source file states, and one claim built on them was withdrawn, not refuted."
+related = ["query-budget", "hubness", "hub", "poisson-distribution", "skewness", "withdrawn-versus-refuted"]
+
+[[entry]]
+id = "defect-campaign-null-result"
+kind = "correction"
+title = "defect campaign, the recorded run"
+definition = "The recorded run of the defect-prediction campaign did not recover the generator's structure. The best configuration contains the OO group, which the generator makes pure noise, and won on one correct positive prediction. The robustness index was exactly zero because the evaluation function reads only whether each parameter is below 1000."
+first_stated = "Sections 19.4 and 19.5, `geometric-methods/chapters/chapter-19-case-study-defect-prediction.md:183-221`, and Section 19.7, `geometric-methods/chapters/chapter-19-case-study-defect-prediction.md:237-241`."
+conditions = [
+  "An earlier version of the chapter printed typical output that no run had produced and reported that the analysis recovered the generator's structure. The recorded output differs from it in almost every respect.",
+  "The targets cannot be met on these data. The generator's own formula, used as an oracle, reaches an AUC of 54.5% against a target of 80%, and the 31 configurations span 43% to 59%, within two standard errors of chance.",
+  "Over 20 redraws of the same generator 15 different configurations win, so the choice of best configuration carries no information about the generator.",
+  "The run is exploratory. No prediction was registered before it.",
+]
+standing = "Measured on one recorded run of 16 November 2026, with an oracle bound and a 20-seed redraw. Exploratory, since no prediction was registered before the run (Section 21.8)."
+related = ["model-robustness-index", "subset-enumeration", "admissibility-checks", "split", "auroc", "posited-versus-measured"]
+
+[[entry]]
+id = "frozen-null-gate"
+kind = "instrument"
+title = "frozen-null gate"
+definition = "A pass mark set as a margin over nulls, which are versions of the instrument that cannot contain the effect. The gate passes when the score of the system under test, minus the highest null score on the same held-out data, is at least the margin $\\delta$. Nulls, margin and date are committed before the run."
+first_stated = "Section 21.3, `geometric-methods/chapters/chapter-21-measurement-discipline.md:67-73`."
+conditions = [
+  "The margin is sized in units of noise. With a margin of z standard errors of the difference under no effect, a system with no effect passes with probability 1 minus the standard normal distribution function at z.",
+  "A bar of this kind may be tightened later. It may not be loosened.",
+  "A null can depend on a design quantity, as the hubness null depends on the query budget. Hold that quantity fixed, or model the null and remove it, and confirm the removal by measurement.",
+  "The rule is normative. The volume classes the method itself as exploratory until programmes other than its author's have used it and reported what broke.",
+]
+standing = "A rule of method, not a finding. Its normative source is the Claim Ledger Specification PE-CLS-1.0, which governs where the chapter differs from it."
+related = ["null-model", "bar", "gate", "preregistration", "sealed", "query-budget"]
+
+[[entry]]
+id = "admissibility-checks"
+kind = "concept"
+title = "admissibility (checks A1 to A4)"
+definition = "The property that an experimental design could have failed. It has four checks, each discharged by a named artifact. A1 asks whether any outcome could have withheld the pass, A2 whether every fitted object is identified, A3 whether the manipulation moved the named construct, and A4 whether the estimate is the registered one."
+first_stated = "Section 21.4, `geometric-methods/chapters/chapter-21-measurement-discipline.md:91-100`."
+conditions = [
+  "A1 is a property of the design and is settled before any data exist, by a constructed record that the registered grading code scores as a miss.",
+  "A2 to A4 are instrument gates. A miss voids the run and does not refute the claim, where a miss at a physics gate refutes it, and the registration separates the two kinds in advance.",
+  "A registration that declares all four checks not applicable has checked nothing.",
+  "The witness of A1 is an incomplete defence. It can be weaker than the real alternative, and a bar that refuses a pure null can still credit a proxy for the effect.",
+]
+standing = "A rule of method, not a finding. Its normative source is the Claim Ledger Specification PE-CLS-1.0, which governs where the chapter differs from it."
+related = ["witness", "preregistration", "gate", "frozen-null-gate", "control", "confound"]
+
+[[entry]]
+id = "withdrawn-versus-refuted"
+kind = "concept"
+title = "withdrawn versus refuted"
+definition = "A claim is refuted when a valid measurement contradicted it, and its negation is then supported. A claim is withdrawn when its evidence turns out to be invalid, through a broken instrument, a contaminated arm or a sampling rule that was not what it was thought to be. It returns to unknown, and its negation gains nothing."
+first_stated = "Section 21.1, `geometric-methods/chapters/chapter-21-measurement-discipline.md:20-33`."
+conditions = [
+  "Both are classes of the claim ledger of PE-CLS-1.0, and that specification governs where the chapter differs from it.",
+  "The two are kept apart only if physics gates and instrument gates are separated before the run. Otherwise a failed experiment can be redescribed afterwards as a broken instrument.",
+  "When a claim is refuted or withdrawn, every claim that depends on it is suspended until it is re-examined.",
+]
+standing = "A rule of method, not a finding. Its normative source is the Claim Ledger Specification PE-CLS-1.0."
+related = ["ledger-class", "posited-versus-measured", "correction", "verdict", "attractiveness-skew"]
+
+[[entry]]
+id = "moving-kernel-excess-rate"
+kind = "result"
+title = "moving kernel and the excess rate of an averaged read metric"
+definition = "When the directions a consumer does not read change from point to point, the averaged read metric can have rank q larger than the number k of quantities the consumer reads. A description whose error covariance does not depend on the point then pays an excess rate of about (q - k)/2 times log(1/D) at consumer loss D."
+first_stated = "Section 22.5, `geometric-methods/chapters/chapter-22-the-read-metric.md:147-158`."
+conditions = [
+  "Averaging is harmless when the unread directions are the same at every point. The excess, which includes a bounded term, grows without limit as the target loss falls.",
+  "The statement is about one family of Gaussian test channels and about information rates, not about every code.",
+  "The practical test compares the rank of the averaged estimate with the typical rank of the local matrices at the probe points. A clearly larger rank of the average means the kernel moves.",
+]
+standing = "Exploratory in the ledger of Volume 14 (row T1-MK). The rate statements have written proofs and independent audits and no sealed numerical test (Section 21.8)."
+related = ["read-operator", "read-subspace", "null-space", "water-filling", "rank", "read-weighted-allocation-run"]
+
+[[entry]]
+id = "read-weighted-allocation-run"
+kind = "result"
+title = "read-weighted allocation, the recorded run of Section 22.4"
+definition = "On a synthetic consumer that reads 3 directions of an 8-dimensional Gaussian source, reverse water-filling against a read metric estimated from 200 probe points gave 0.476, 0.334 and 0.196 of the consumer loss of the identity-weighted allocation at 1, 2 and 4 nats. Its reconstruction error was larger at every rate."
+first_stated = "Section 22.4, `geometric-methods/chapters/chapter-22-the-read-metric.md:118-137`, with the estimator in Section 22.2, `geometric-methods/chapters/chapter-22-the-read-metric.md:44-48`."
+conditions = [
+  "Three predictions were written in the script, and the script was committed, before it ran. All three passed, the first at 1 nat with little room, 0.476 against a mark of 0.5.",
+  "There is one synthetic consumer, one seed, and no registration outside the script.",
+  "The consumer was built with a kernel that is the same at every point, the favourable case for an averaged metric.",
+  "The estimate costs 2p queries for each probe point, 3,200 queries here, and recovers the local metric only. Whether a direction is unread or only weakly read cannot be settled by a finite number of probes.",
+]
+standing = "Exploratory in the sense of Chapter 21. Three predictions were fixed in the committed script before the run of 25 November 2026 and graded on that one run, with one synthetic consumer and one seed."
+related = ["water-filling", "read-operator", "blind-probe", "mahalanobis-distance", "finite-difference", "moving-kernel-excess-rate"]
+
+[examples]
+pareto-dominance = "With two objectives to minimize, (2, 3) dominates (2, 4), and neither of (1, 5) and (3, 2) dominates the other."
+scalar-irrecoverability = "With weights (1, 1) the vectors (0, 10) and (10, 0) both have summary 10 and differ by 10 in each component. For the volume's evaluation on 5 dimensions the null space has dimension 4."
+einstein-midpoint = "For the points (0.9, 0) and (0, 0) in the unit ball with equal weights, the midpoint lies at radius tanh(0.5 artanh 0.9), about 0.627. The shortcut that averages ball coordinates weighted by 1/(1 - 0.81) and 1 gives 0.756. Both values are the volume's."
+log-euclidean-distance = "The logarithm of the identity is the zero matrix and the logarithm of diag(e, e) is diag(1, 1), so their distance is the square root of 2, about 1.414."
+persistent-homology = "For three points on a line at 0, 1 and 3, three components are born at threshold 0. One dies at 1, when the first two points join, one dies at 2, when the third joins, and one never dies, so the persistences are 1 and 2."
+euclidean-heuristic-admissibility = "In the volume's posited covariance the Consequences axis has variance 25, so a Euclidean step of 1 along it has Mahalanobis length 0.2. The Euclidean heuristic says 1 and overestimates. For a diagonal covariance the matching eigenvalue of the inverse is 0.04, and scaling by its square root gives 0.2."
+degenerate-balance-coordinate = "With g = 3 and l = 1 the coordinate is 2/4 = 0.5. With l = 0 it is 1 whether g is 3 or 7, so on that set it tells nothing about g."
+model-robustness-index = "With a mean of 0.8, a 75th percentile of 1.4 and a 95th percentile of 3.1, the index is 0.40 + 0.42 + 0.62 = 1.44. These are the volume's hypothetical values."
+subset-enumeration = "For the volume's 5 feature groups there are 5, 10, 10, 5 and 1 subsets of sizes 1 to 5, which is 31 in all and 30 with the size capped at 4."
+pairwise-interaction-matrix = "In the volume's illustration, two copies of one signal cost 0 to remove singly and 1 to remove together, so the interaction is 1 - 0 = +1. Two halves of an exclusive-or cost 1 each and 1 together, so it is 1 - 2 = -1."
+dihedral-augmentation = "A grid left unchanged by the identity and the half turn only has 2 such elements, so its orbit has 8/2 = 4 distinct grids."
+gradient-reversal-layer = "With lambda 0.5, a domain-loss gradient of (2, -1) arriving at the layer reaches the encoder as (-1, 0.5), and the forward output equals the input."
+reversal-shortcut-experiment = "P3 required the probe's accuracy to fall by at least 15 points under full reversal. It was 99.9% without reversal and 99.9% with it, a fall of 0.0, so P3 failed. The numbers are from the volume's recorded run."
+log-cholesky-parameterization = "For a 2 by 2 matrix, log-diagonal entries of 0 and 0 with an off-diagonal entry of 1 give L with rows (1, 0) and (1, 1), and the product has rows (1, 1) and (1, 2), with determinant 1. A 9 by 9 matrix needs 36 + 9 = 45 numbers."
+query-budget = "With 10,000 queries, 10 neighbours each and 200,000 points, the budget is 100,000/200,000 = 0.5 and the null skewness is 1 over the square root of 0.5, about 1.41. The volume's measured skewness in that cell is 1.79."
+attractiveness-skew = "Counts with mean 2 and variance 6 give an attractiveness variance of (6 - 2)/4 = 1. Counts with mean 2 and variance 2 give 0, and the estimator returns no value."
+defect-campaign-null-result = "A configuration that finds no defective module misses the precision, recall and F1 targets by 70, 65 and 67 points, so its mean absolute error over the five targets is at least (70 + 65 + 67)/5 = 40.4. The numbers are from the volume's recorded run."
+frozen-null-gate = "With a score of 0.62 for the system and 0.48 and 0.55 for two nulls, the difference from the higher null is 0.07, below a margin of 0.10, so the gate fails. By the volume's figure, a margin of one standard error lets a system with no effect pass about 16% of the time."
+admissibility-checks = "The A1 witness for an evaluation function is to evaluate it at two different parameter vectors and require the outputs to differ. In the volume's Chapter 19 run, 189,462 calls came down to 32 distinct models, one for each on or off pattern of 5 groups."
+withdrawn-versus-refuted = "The volume's case is the claim that hubness rises with corpus size at about +0.5 per decade. With the rows shuffled before the split the slope was +0.26 plus or minus 0.20, which fits a rise and fits none, so the claim was withdrawn and its negation was not asserted."
+moving-kernel-excess-rate = "For the volume's example, the consumer x1 + a sin(x2) reads one number, so k = 1. Its Jacobian is (1, a) at x2 = 0 and (1, 0) at x2 = pi/2, so the average has rank q = 2 and the leading excess is 0.5 log(1/D), which is 2 nats at D = exp(-4)."
+read-weighted-allocation-run = "At 4 nats the volume's table gives consumer losses of 0.033 and 0.170 and reconstruction errors of 0.722 and 0.307. The loss ratio from these rounded values is 0.19, where the record gives 0.196, and the reconstruction ratio is 2.4."

@@ -34,7 +34,7 @@ Chapter 8 section 8.6 and chapter 12 section 12.5 of *Data Mining as Observation
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.6 | books 0.241 at 17 sigma, residual 0.093, R2 0.009, z 6.5, p 5.7e-11, 85 percent, fiction 0.131 on 2250 | `geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:95-106` |
+| chapter 8 section 8.6 | books 0.241 at 17 sigma, residual 0.093, R2 0.009, z 6.5, p 5.7e-11, 85 percent, fiction 0.131 on 2250 | [`geometric-aesthetics/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md:95-106`](https://github.com/ahb-sjsu/geometric-aesthetics/blob/a32666e/book/src/chapter-17-empirical-evidence-for-geometric-aesthetics.md#L95-L106) |
 
 ## failures and corrections
 
@@ -47,7 +47,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Residual.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/Residual.lean), theorems `residual_orth`, `residual_sq`, `residual_of_orth`, `residual_self`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Residual.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/Residual.lean), theorems `residual_orth`, `residual_sq`, `residual_of_orth`, `residual_self`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -67,4 +67,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

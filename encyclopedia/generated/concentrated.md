@@ -34,7 +34,7 @@ Chapter 0 section 0.4 of *Data Mining as Observation*, with the allocation repor
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | [`turboquant-pro/turboquant_pro/read_allocation.py:244-307`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/turboquant_pro/read_allocation.py#L244-L307) |
+| chapter 4 section 4.2 | allocation report, gain over uniform, concentration caution below effective rank 2 | [`turboquant-pro/turboquant_pro/read_allocation.py:244-307`](https://github.com/ahb-sjsu/turboquant-pro/blob/5389c05/turboquant_pro/read_allocation.py#L244-L307) |
 
 ## failures and corrections
 
@@ -47,7 +47,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Concentrated.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/Concentrated.lean), theorems `sq_le_sum_sq`, `effRank_le_of_fraction`, `effRank_le_four`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Concentrated.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/Concentrated.lean), theorems `sq_le_sum_sq`, `effRank_le_of_fraction`, `effRank_le_four`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -67,4 +67,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

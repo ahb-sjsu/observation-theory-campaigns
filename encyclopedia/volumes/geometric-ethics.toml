@@ -1,0 +1,357 @@
+[volume]
+number = 2
+title = "Geometric Ethics"
+repo = "geometric-ethics"
+slug = "book"
+standing = "The volume's README (epistemic status of v1.25, dated 2026-11-08, with notes for v1.26 to v1.28) calls it a posited framework, partially instrumented. Eight of nine moral-dimension encoders clear a preregistered gate and the claims marked Proved are machine-checked, while everything else, including the broader geometric thesis, is posited theory, and as of v1.28 the metric has not been tested."
+
+[[entry]]
+id = "moral-manifold"
+kind = "concept"
+title = "Moral manifold"
+definition = "The space M whose points are structured moral situations, each a complete specification of agents, relationships, options and morally relevant context. Formally it is a paracompact Hausdorff space with a Whitney stratification into smooth manifolds. Agent perspectives are a fiber over each point and are not points of M."
+first_stated = "Definition 5.1, Section 5.2, `geometric-ethics/chapter-5-the-moral-manifold.html:153-157`, with the formal construction in Definition A.1 of the chapter's technical appendix, `geometric-ethics/chapter-5-the-moral-manifold.html:1085-1092`."
+conditions = [
+  "The volume labels it a modeling choice. It says the manifold is a model, not a discovery, and that it is posited, not proved.",
+  "It is a stratified space and not a smooth manifold. Smooth calculus holds inside each stratum only.",
+  "The volume says the manifold must be extended if a moral phenomenon appears that its dimensions cannot represent, and reduced if dimensions prove redundant. Section 5.3 reports a tenth axis that passed a preregistered gate and four learned axes that do not separate from one general-valence channel.",
+]
+standing = "Appendix F lists Definition 5.1 as a Modeling Axiom, and the ledger row GE-DEF-5-1 has class exploratory."
+related = ["nine-dimension-moral-chart", "moral-stratification", "moral-bond-invariance-principle", "manifold", "posited-versus-measured"]
+
+[[entry]]
+id = "nine-dimension-moral-chart"
+kind = "concept"
+title = "Nine-dimension moral chart"
+definition = "The canonical chart of the moral manifold. A generic point has nine coordinates, one per cell of a grid of three ethical scopes (individual, relational, collective) by three epistemic modes (what matters, who decides, what we know). Lower strata may have fewer active dimensions."
+first_stated = "Definition 5.2, Section 5.3, `geometric-ethics/chapter-5-the-moral-manifold.html:364-372`, after the grid of `geometric-ethics/chapter-5-the-moral-manifold.html:214-248`."
+conditions = [
+  "The volume calls the nine a canonical engineering chart chosen for coverage and audit. It does not claim nine is the unique or minimal basis.",
+  "The completeness claim carried its own falsification condition and the volume reports that the condition is met. Identity attack passed a preregistered gate as a tenth axis, and purity and loyalty also passed a gate.",
+  "Measured on text, four learned axes do no better than one general-valence channel, and the eight validated axis scores have effective rank 5.19 of 8, below the six the section expected.",
+  "The rights-and-duties axis could not be learned as a graded score. The volume now treats rights as a hand-specified hard constraint, not a measured coordinate.",
+]
+standing = "Appendix F lists Definition 5.2 as a Modeling Axiom, and the ledger row GE-DEF-5-2 is exploratory. The ledger row GE-PURITY-COMPLETENESS, the claim that the nine form a complete basis, has class refuted."
+related = ["moral-manifold", "effective-rank", "basis", "posited-versus-measured", "moral-scalar-irrecoverability"]
+
+[[entry]]
+id = "moral-bond-invariance-principle"
+kind = "concept"
+title = "Bond Invariance Principle"
+definition = "If two descriptions d and d' of one situation are related by an admissible coordinate transformation, a legitimate moral evaluation assigns both the same value, $E(d) = E(d')$. In group terms the evaluation is constant on the orbits of the admissible re-description group."
+first_stated = "Axiom 5.1, Section 5.5, `geometric-ethics/chapter-5-the-moral-manifold.html:506-511`, with the orbit form at `geometric-ethics/chapter-5-the-moral-manifold.html:522-534`."
+conditions = [
+  "The volume tags it as a definition and modeling choice. It is an axiom of the framework, not a measured fact about evaluators.",
+  "It demands invariance under re-description, not under re-situation. Descriptions that pick out different features or contexts may be evaluated differently.",
+  "Both descriptions must pass the five admissibility conditions of Section 5.5, which are same physical grounding, same agent structure, same stratum, reversibility and no evaluative loading.",
+  "The volume posits the admissible group as V4 times U(1)_H. The discrete factor V4 is proved, and that this is the whole group is a modeling hypothesis.",
+]
+standing = "Appendix F lists Axiom 5.1 as a Modeling Axiom, and the ledger row GE-AXIOM-5-1 has class exploratory."
+related = ["bond-index", "moral-noether-theorem", "no-escape-theorem", "hohfeldian-klein-four-group", "paraphrase-class", "quotient"]
+
+[[entry]]
+id = "moral-stratification"
+kind = "concept"
+title = "Moral stratification"
+definition = "A Whitney stratification of the moral manifold into strata, each a smooth manifold on which the evaluation function and the metric are smooth. At a boundary between strata the evaluation or the metric may be discontinuous, or the effective dimension may change."
+first_stated = "Definition 5.4, Section 5.6, `geometric-ethics/chapter-5-the-moral-manifold.html:792-798`, developed in Definition 8.1, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:122-138`."
+conditions = [
+  "The strata must satisfy the frontier condition and local finiteness. A stratum that meets the closure of another lies wholly inside that closure.",
+  "Differential operations such as geodesics, parallel transport and curvature are defined inside a stratum. Crossing a boundary needs boundary crossing data (Definition 8.11 and Convention 8.1).",
+  "That moral space is stratified is a modeling axiom. The volume cites step-like semantic gates as evidence, not proof, and no gate result yet comes from a preregistered study of people.",
+  "The v1.28 change notes record an open finding on the proof step of Proposition 8.1, the existence of a moral Whitney stratification, concerning the Whitney conditions.",
+]
+standing = "Appendix F lists Definition 5.4 as a Modeling Axiom (ledger GE-DEF-5-4, exploratory) and Definition 8.1 as a Formal Definition (ledger GE-DEF-8-1). Proposition 8.1 is a Conditional Theorem whose ledger row GE-PROP-8-1 is exploratory."
+related = ["moral-manifold", "absorbing-stratum", "semantic-gate", "moral-phase-transition", "executable-stratification", "stratification"]
+
+[[entry]]
+id = "absorbing-stratum"
+kind = "concept"
+title = "Absorbing stratum"
+definition = "A stratum $S_0$ with a tubular neighborhood N and a retraction r from N onto $S_0$ such that every compatible evaluation satisfies $S(p) = S(r(p))$ on N. Near it the evaluation depends only on the projection onto $S_0$ and not on the transverse coordinates. It formalizes a nullifier, a condition that overrides all other considerations."
+first_stated = "Definition 8.6, Section 8.3 (Type III boundaries), `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:352-366`. The first form is Definition 5.6, `geometric-ethics/chapter-5-the-moral-manifold.html:847-850`."
+conditions = [
+  "The definition is a modeling axiom. It models nullifiers and does not prove that any given condition is one.",
+  "The volume's three nullifiers (abuse, danger, impossibility) come from its analysis of the Dear Abby corpus, which it says reflects one American tradition and was not preregistered.",
+  "In the decision complex an absorbing boundary has an infinite penalty. In an executable stratification an absorbing stratum is left only through a gate triggered by a human-oversight event.",
+]
+standing = "Appendix F lists Definition 8.6 as a Modeling Axiom, and the ledger row GE-DEF-8-6 is exploratory. Proposition 8.2, that the evaluation after entry is determined by the absorbing stratum, is listed as a Conditional Theorem (ledger GE-PROP-8-2, exploratory)."
+related = ["moral-stratification", "strata-absorption-theorem", "executable-stratification", "moral-decision-edge-weight", "semantic-gate"]
+
+[[entry]]
+id = "semantic-gate"
+kind = "concept"
+title = "Semantic gate"
+definition = "A map from a triggering feature and a source stratum to a target stratum. The gate fires when the feature satisfies the gate's activation predicate, which takes the value 0 or 1, and it then moves the evaluation from the rules of the source stratum to those of the target. The transition is all or nothing."
+first_stated = "Definition 8.8, Section 8.4, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:460-479`."
+conditions = [
+  "A gate acts only from its source stratum. A second promise made in the obligation stratum changes nothing.",
+  "The volume says the discreteness of gates is an empirical claim, not a stipulation. Its evidence is the Dear Abby corpus and embedding experiments, and no gate result yet comes from a preregistered study of people.",
+  "Smooth transitions between Hohfeldian states would undermine the stratification theory. The volume lists this among its falsifiers.",
+  "On the Hohfeldian positions each gate is one V4 operation restricted to the positions it applies from.",
+]
+standing = "Appendix F lists Definition 8.8 as a Modeling Axiom, and the ledger row GE-DEF-8-8 is exploratory. The firing rates the volume prints (89 to 97 percent) come from its Dear Abby corpus analysis, which it says was not preregistered."
+related = ["moral-stratification", "executable-stratification", "hohfeldian-klein-four-group", "moral-phase-transition", "gate", "threshold"]
+
+[[entry]]
+id = "hohfeldian-klein-four-group"
+kind = "result"
+title = "Hohfeldian Klein four-group (V4)"
+definition = "The four Hohfeldian positions Obligation, Claim, Liberty and No-claim carry two operations, the correlative s (O with C, L with N) and the jural flip n (O with L, C with N). They are commuting involutions and generate the Klein four-group $V_4 = \\{e, n, s, sn\\}$, which acts regularly on the four positions."
+first_stated = "Proposition 8.3, Section 8.4, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:567-578`, and Theorem 12.2, `geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:308-319`."
+conditions = [
+  "The theorem is about the permutation group of four labels under the two stated operations. That moral positions are these four, with these two operations, is a modeling choice (Axioms A1 and A2).",
+  "No operation in the group cycles the four positions. The quarter-turn O to C to N to L to O lies outside it, and the earlier dihedral claim is withdrawn.",
+  "The group is abelian, so the result of a sequence of operations depends only on how many times s and n occur modulo 2. Order effects in judgment cannot come from this group.",
+  "The measured correlative rates are below 100 percent (O with C at 87 percent, L with N at 82 percent in the volume's corpus). The group is the structure, not a description of how people always reason.",
+]
+standing = "Tagged Proved in the text and Proved (Lean) in Appendix F, machine-checked in Lean 4 with Mathlib. Ledger rows GE-PROP-8-3-V4 and GE-THM-12-2-V4 have class proved. The full gauge group V4 times U(1)_H is Posit 12.3, a modeling choice (GE-POSIT-12-3, exploratory)."
+known_as = "Hohfeld's jural relations (correlatives and opposites), with the Klein four-group of elementary group theory."
+related = ["hohfeldian-dihedral-withdrawal", "semantic-gate", "moral-bond-invariance-principle", "bond-index", "moral-holonomy"]
+
+[[entry]]
+id = "hohfeldian-dihedral-withdrawal"
+kind = "correction"
+title = "Withdrawal of the dihedral group D4"
+definition = "Versions of the volume up to v1.24 stated that Hohfeldian transitions form the dihedral group D4 of order eight, adding a quarter-turn that cycles the four positions. Version 1.25 withdraws this. The two demonstrated operations generate only V4, and the uniqueness theorem for the gauge group is withdrawn with it."
+first_stated = "Section 8.4, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:592-604`, and Section 12.3, `geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:276-297` and `geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:339-350`."
+conditions = [
+  "Three facts retire the claim. No quarter-turn has been demonstrated as a normative operation, the Lean proof shows it is not generated by s and n, and a direct search in a learned representation did not find it.",
+  "Axiom A3, the cyclic ordering, read a walk as an operation. Alternating s and n visits all four positions, but each step is s or n and the walk closes because sn applied twice is the identity.",
+  "The corollary that a double promise creates a claim rested on the quarter-turn and is withdrawn with it.",
+  "With A3 withdrawn there is no uniqueness claim. The volume says no result in it excludes further discrete symmetries.",
+]
+standing = "A withdrawal recorded in the text and the ledger. Rows GE-PROP-8-3, GE-THM-12-2, GE-THM-12-3 and GE-LEMMA-9-1 (the D4 forms) and GE-D4-MEASURED (the claim that D4 was discovered in data) have status withdrawn."
+related = ["hohfeldian-klein-four-group", "semantic-gate", "correction", "witness"]
+
+[[entry]]
+id = "moral-phase-transition"
+kind = "concept"
+title = "Moral phase transition"
+definition = "A point on a path through moral space, at a value of a continuous control parameter, where the satisfaction function is discontinuous (first order), or is continuous with a discontinuous gradient (second order), or where both are continuous and the metric is discontinuous (higher order)."
+first_stated = "Definition 8.10, Section 8.7, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:873-893`. The boundary type is Definition 8.5, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:297-300`."
+conditions = [
+  "The definition is a modeling axiom, and the parallel with phase transitions in statistical physics is the volume's analogy.",
+  "A phase transition boundary (Type II) is one across which the metric changes in rank or signature. A threshold (Type I) keeps the same framework on both sides and changes only the conclusion.",
+  "The critical phenomena the volume lists (heightened concern, amplified disagreement, slow deliberation near a boundary) are offered as indirect evidence and are not measured in the volume.",
+  "An auxiliary prediction of asymmetric obligation thresholds, called hysteresis, was falsified and led to a revision of the framework.",
+]
+standing = "Appendix F lists Definitions 8.5 and 8.10 as Modeling Axioms, and the ledger rows GE-DEF-8-5 and GE-DEF-8-10 are exploratory. The ledger row GE-HYSTERESIS has class refuted."
+related = ["moral-stratification", "semantic-gate", "moral-decision-edge-weight", "threshold", "decision-boundary"]
+
+[[entry]]
+id = "moral-decision-complex"
+kind = "concept"
+title = "Moral decision complex"
+definition = "A weighted simplicial complex built from the moral manifold. A vertex is a morally relevant state with a nine-dimensional attribute vector, an edge is an available action with a non-negative weight for its total moral cost, and a higher simplex is a bundle of jointly executed actions whose cost may differ from the sum of its edges."
+first_stated = "Definition 8.12, Section 8.10a, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1257-1269`."
+conditions = [
+  "The volume tags the definition as a Modeling Axiom.",
+  "Evidence status of the metric (Section 8.10a, added in v1.28). The covariance that sets the edge weights is a modeling choice, and no measurement in the volume shows a metric predicting moral judgements better than the boundary penalties alone. Every statement that uses the covariance is a statement about a model whose metric has not been tested.",
+  "Proposition 8.5 relates the complex to the continuous manifold as the grid is refined. It is tagged Proved, and the v1.28 change notes record an open finding on the proof of its part (i) as written.",
+  "Each domain volume instantiates the complex with its own dimensions, covariance and penalties. Those choices are not fixed here.",
+]
+standing = "Tagged Modeling Axiom in the text. Appendix F and the ledger have no row for Definition 8.12."
+related = ["moral-decision-edge-weight", "moral-metric-evidence-status", "moral-manifold", "geometric-decision-cost", "graph"]
+
+[[entry]]
+id = "moral-decision-edge-weight"
+kind = "concept"
+title = "Mahalanobis edge weight with boundary penalties"
+definition = "The weight of an action from state i to state j on the moral decision complex. It is the squared Mahalanobis distance of the attribute change under the 9 by 9 moral covariance, plus a penalty for each moral boundary the action crosses, $w = \\Delta a^T \\Sigma^{-1} \\Delta a + \\sum_k \\beta_k 1[k]$."
+first_stated = "Definition 8.13, Section 8.10a, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1270-1285`, with the penalties classified at `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1318-1333`."
+conditions = [
+  "Evidence status of the metric (Section 8.10a, added in v1.28). The covariance is a modeling choice with no evidence so far. No measurement in the volume shows that a metric, set by hand or learned, predicts moral judgements better than the boundary penalties alone, and the one registered test was void.",
+  "Penalties follow the boundary type. A threshold has a finite penalty, a phase transition a large finite one, and an absorbing or sacred-value boundary an infinite one, so no finite-cost path crosses it.",
+  "For the limit to Riemannian arc length each edge is weighted by the square root of the quadratic form. The sum of the squared forms along a refining path tends to zero.",
+]
+standing = "Tagged Formal Definition in the text. The v1.28 change notes state that the ledger has no claim for Definition 8.13 or for the metric's predictive value."
+known_as = "Squared Mahalanobis distance with additive penalty terms."
+related = ["moral-decision-complex", "moral-metric-evidence-status", "mahalanobis-distance", "covariance-matrix", "geometric-decision-cost", "moral-phase-transition"]
+
+[[entry]]
+id = "moral-metric-evidence-status"
+kind = "result"
+title = "Evidence status of the moral metric"
+definition = "The volume's statement, added in v1.28, that the moral metric is untested. No measurement it reports shows a metric, set by hand or learned from data, predicting moral judgements better than the boundary penalties alone. The one registered test of the question was void, so it neither supports nor refutes the metric."
+first_stated = "Section 8.10a, paragraph headed Evidence status of the metric, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1298-1317`, and limitation 8 of Section 17.7, `geometric-ethics/chapter-17-empirical-evidence-for-geometric-ethics.html:973-978`."
+conditions = [
+  "The registered test (prereg-precedent-v1, run in November 2026) asked whether a metric learned on sentence embeddings improves prediction of community verdicts on 1,165 held-out forum posts, beyond two gates read from the text and the nearest earlier cases.",
+  "No predictor in that run did better than the average verdict. The registration had fixed that outcome in advance as the sign of an instrument that reads no signal, so the run is void.",
+  "A later check, not registered and made on the training posts, found that the embeddings explain between 2.5 and 4 percent of the variance of the verdicts while about 86 percent of that variance is not vote noise. The volume concludes the test could not have detected a metric effect of ordinary size.",
+  "The statement covers the predictive value of the metric. It does not withdraw the boundaries, the gates or the proved results.",
+]
+standing = "A statement of absence of evidence, in the volume's words a model whose metric has not been tested. The void run is neither a pass nor a refutation, and the ledger has no row for the claim."
+related = ["moral-decision-edge-weight", "moral-decision-complex", "preregistration", "posited-versus-measured", "metric", "null-model"]
+
+[[entry]]
+id = "executable-stratification"
+kind = "instrument"
+title = "Executable stratification"
+definition = "A tuple of a finite set of strata with an initial stratum, an ordered list of semantic gates (each with source strata, a triggering feature, a target and a boundary type), a set of authority strata whose rules grant an action, and a set of absorbing strata. On each event the state moves to the target of the first matching gate, and otherwise stays."
+first_stated = "Definition 8.14, Section 8.10b, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1382-1393`."
+conditions = [
+  "Gates are edge-triggered. A gate fires on the event just observed and never on the history.",
+  "Constraint surfaces (Type IV boundaries) are not strata. They are the agent's non-defeasible prohibitions and no gate leads there.",
+  "An authority stratum must be computed from an authenticated channel, a physical measurement or the governor's ruling on attested evidence. A stratum read by a learned model may only remove watchfulness and never grant.",
+  "A claim an entity makes about itself is free text and is never a gate.",
+]
+standing = "A definition (ledger GE-DEF-8-14, class definition) describing the realization that runs in the ErisML scene runtime and a care robot built on it. Appendix F has no row for it."
+related = ["semantic-gate", "strata-containment-theorem", "strata-absorption-theorem", "reversion-axiom", "absorbing-stratum", "moral-stratification"]
+
+[[entry]]
+id = "strata-containment-theorem"
+kind = "result"
+title = "Containment theorem for executable strata"
+definition = "If every gate whose target is an authority stratum is triggered only by system events, then no sequence of events containing no system event, whatever a learned model classified, moves the stratification into an authority stratum it did not start in."
+first_stated = "Theorem 8.6, Section 8.10b, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1411-1415`, with its status at `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1420-1427`."
+conditions = [
+  "The hypothesis is about the gate list. Every gate into an authority stratum must have a system-event trigger. The ErisML runtime checks this when a scene loads and refuses to run one that violates it.",
+  "The theorem is about the stratum state machine. It does not say that system events are authentic, which rests on the channels and measurements that produce them.",
+  "It does not prevent entry into non-authority strata. A welcomed visitor reaches the welcomed stratum, which grants nothing.",
+]
+standing = "Proved by induction on the event sequence and machine-checked in Lean 4 in the book's formal/lean project, on the standard axioms only. Ledger row GE-THM-8-6 has class proved. The care robot's own proof is a weaker form."
+related = ["executable-stratification", "strata-absorption-theorem", "reversion-axiom", "no-escape-theorem", "semantic-gate"]
+
+[[entry]]
+id = "strata-absorption-theorem"
+kind = "result"
+title = "Absorption theorem for executable strata"
+definition = "If every gate leaving an absorbing stratum is triggered only by human-oversight events, then no sequence of events containing no oversight event moves the stratification out of an absorbing stratum."
+first_stated = "Theorem 8.7, Section 8.10b, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1416-1419`, with its status at `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1420-1427`."
+conditions = [
+  "The hypothesis is that every gate out of an absorbing stratum has a human-oversight trigger. The ErisML runtime checks this at load time and refuses a scene that violates it.",
+  "The theorem holds for gates of any kind and any event sequence without an oversight event. It says nothing about what happens once an oversight event arrives.",
+  "It is a statement about the executable realization. The continuous notion of an absorbing stratum (Definition 8.6) remains a modeling axiom.",
+]
+standing = "Proved by induction on the event sequence and machine-checked in Lean 4 in the book's formal/lean project, on the standard axioms only. Ledger row GE-THM-8-7 has class proved."
+related = ["executable-stratification", "strata-containment-theorem", "absorbing-stratum", "reversion-axiom"]
+
+[[entry]]
+id = "reversion-axiom"
+kind = "concept"
+title = "Reversion axiom"
+definition = "A right granted on evidence lasts only while the evidence supports it. When the attested evidence behind an authority stratum stays below the bar that admitted it for a declared interval, the stratum is left and every right it granted reverts with it."
+first_stated = "Axiom 8.1, Section 8.10b, `geometric-ethics/chapter-8-stratification-boundaries-thresholds-and-phase-tra.html:1428-1438`."
+conditions = [
+  "The volume tags it as a modeling axiom. It is a design rule for authority strata, not a theorem.",
+  "The interval is a penumbral zone (Definition 8.9) given a width in time. Evidence that comes and goes inside the interval does not switch the rights off and on.",
+  "It applies to authority strata entered on attested evidence. The bar and the interval are declared by the scene and are not fixed by the volume.",
+]
+standing = "Tagged Modeling axiom in the text. Ledger row GE-AXIOM-8-1 has class exploratory. Appendix F has no row for it."
+related = ["executable-stratification", "strata-containment-theorem", "strata-absorption-theorem", "semantic-gate", "threshold"]
+
+[[entry]]
+id = "bond-index"
+kind = "instrument"
+title = "Bond Index"
+definition = "A dimensionless audit measure of how much an evaluation moves when only the description changes, $Bd = D_{op} / \\tau$. $D_{op}$ is the mean, over the inputs tested and the re-descriptions declared, of the distance between the evaluation before and after the re-description, and the divisor is a tolerance. Zero is perfect invariance."
+first_stated = "Requirement 3 of Section 18.9.6, `geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:1170-1190`, stated once there as of v1.26. The game form is in Section 17.4, `geometric-ethics/chapter-17-empirical-evidence-for-geometric-ethics.html:637-661`."
+conditions = [
+  "The distance is 0 or 1 for a verdict or a Hohfeldian position, the absolute change over the scale for a score, and the distance under the moral metric for a vector or a tensor. The vector form therefore inherits the untested metric.",
+  "It is reported with the worst single case and the share of tests in which the evaluation moved, because a mean hides both.",
+  "A result covers the declared suite of re-descriptions and nothing outside it (corrected in v1.27). A value of zero is not a guarantee against re-descriptions that were not tested.",
+  "The clinical Bond Index of Chapter 21 shares the name and is a different quantity, the expected excess cost of a policy's mandated path over the manifold-optimal path. A value of one says nothing about the other.",
+]
+standing = "An instrument with one definition as of v1.26 and v1.27, which also corrected two statements about it (random play in the Dear Ethicist game scores about 0.75, not 0.5, and Appendix B now uses the five tiers of Chapter 18). The convergence claim about it, Proposition 19.4, is a Conditional Theorem whose ledger row GE-PROP-19-4 is exploratory."
+related = ["moral-bond-invariance-principle", "hohfeldian-klein-four-group", "no-escape-theorem", "audit", "paraphrase-class", "moral-decision-edge-weight"]
+
+[[entry]]
+id = "moral-parallel-transport"
+kind = "concept"
+title = "Moral parallel transport"
+definition = "An obligation vector O is parallel-transported along a curve in the moral manifold when its covariant derivative along the curve vanishes, $\\nabla_{\\dot\\gamma} O = 0$. Given the obligation at the start, the equations fix a unique obligation at every point of the curve. The volume reads it as faithful maintenance of an obligation across changing circumstances."
+first_stated = "Definition 10.2, Section 10.4, `geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:235-251`, on the moral connection of Definition 10.1, `geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:131-144`."
+conditions = [
+  "It needs a moral connection, which is defined within each stratum only. Across a boundary the connection may be discontinuous and the junction conditions of Definition 13.6 apply.",
+  "Satisfaction is constant along the curve only when the connection is the Levi-Civita connection of the moral metric and both the obligation and the interest are transported (Proposition 10.1).",
+  "The mathematics is the standard definition. Which connection moral reasoning uses is not measured, and the volume states that curvature has not been directly measured.",
+]
+standing = "Appendix F lists Definition 10.2 as a Formal Definition (ledger GE-DEF-10-2, class definition). Proposition 10.1 is a Conditional Theorem whose ledger row GE-PROP-10-1 is exploratory."
+known_as = "Parallel transport along a curve under an affine connection, from differential geometry."
+related = ["moral-holonomy", "moral-manifold", "moral-stratification", "curvature", "moral-noether-theorem"]
+
+[[entry]]
+id = "moral-holonomy"
+kind = "concept"
+title = "Moral holonomy"
+definition = "For a closed loop at a point p of the moral manifold, the holonomy is the linear map on the tangent space at p given by parallel transport of an obligation around the loop. If it is the identity for all loops the connection is flat at p. If not, the connection has curvature, and evaluation depends on the path."
+first_stated = "Definition 10.3, Section 10.5, `geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:309-324`. The infinitesimal form is Proposition 10.2, `geometric-ethics/chapter-10-moral-dynamics-parallel-transport-holonomy-and-th.html:1020-1030`."
+conditions = [
+  "The volume states that curvature has not been directly measured. Tracing an obligation around a moral circuit and measuring the holonomy is an experiment that has not been designed.",
+  "The discrete part of a loop that crosses Hohfeldian boundaries is an element of V4, which is abelian. Any order dependence must come from the continuous connection or be a departure from the structure, and the data do not yet separate the two.",
+  "The order effects the volume reports (path dependence in 2 of 8 scenarios, tagged a preliminary empirical result) come from one language model, not from people.",
+  "Proposition 10.2 was corrected in v1.25. The infinitesimal holonomy is the Riemann tensor with a minus sign.",
+]
+standing = "Appendix F lists Definition 10.3 as a Formal Definition (ledger GE-DEF-10-3, class definition). That moral space has nonzero holonomy is a prediction of the framework, and Proposition 10.2 is a Conditional Theorem whose ledger row is exploratory."
+known_as = "Holonomy of a connection, from differential geometry."
+related = ["moral-parallel-transport", "hohfeldian-klein-four-group", "curvature", "bond-index", "moral-manifold"]
+
+[[entry]]
+id = "moral-noether-theorem"
+kind = "result"
+title = "Moral Noether theorem (invariance of harm accounting)"
+definition = "If the moral Lagrangian is invariant under a re-description that shifts the path along a generator $\\xi$ (the Bond Invariance Principle), then the Noether charge $H = p_\\mu \\xi^\\mu$, the moral momentum contracted with the generator, is constant along extremal paths. The volume defines harm as this charge for the continuous factor of the gauge group."
+first_stated = "Theorem 12.1, Section 12.5, `geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:518-536`, with Definition 12.2 (Harm), `geometric-ethics/chapter-12-noether-s-theorem-for-ethics-symmetry-invariance-.html:576-598`."
+conditions = [
+  "The theorem is conditional on the Bond Invariance Principle and a twice-differentiable Lagrangian. It applies inside each stratum, not on the constraint set, and at a boundary the harm ledger tracks the jumps.",
+  "It does not say that total harm in the world is constant. Harm can be generated and repaired. The law constrains only what re-description can change.",
+  "The continuous factor U(1)_H rests on Axiom A4, a modeling choice that there is exactly one continuous conserved quantity. The discrete factor V4 gives selection rules and not Noether charges.",
+  "The stronger thesis Conservation of Harm, asserted through v1.23, was withdrawn by the author and replaced by this weaker claim of representation-invariance of harm accounting.",
+]
+standing = "Tagged Theorem (conditional on BIP) in the text and Conditional Theorem in Appendix F. Ledger row GE-THM-12-1 is exploratory, and the row GE-HARM-CONSERVATION for the stronger claim is withdrawn."
+known_as = "Noether's theorem of classical mechanics, applied to a posited moral Lagrangian."
+related = ["moral-bond-invariance-principle", "hohfeldian-klein-four-group", "moral-parallel-transport", "hohfeldian-dihedral-withdrawal"]
+
+[[entry]]
+id = "moral-scalar-irrecoverability"
+kind = "result"
+title = "Scalar Irrecoverability Theorem"
+definition = "Any continuous map Q from the nine-dimensional moral attribute vector to one scalar is not injective, has no function that recovers the vector from the scalar, and in general gives a scalar-optimal path that differs from the geodesic on the full manifold by an amount no function of Q alone bounds."
+first_stated = "Theorem 15.1, Section 15.6, `geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:409-417`, with the proof at `geometric-ethics/chapter-15-from-tensor-to-decision-the-philosophy-of-moral-c.html:418-436`."
+conditions = [
+  "Q must be continuous, and continuously differentiable where the proof uses its differential (corrected in v1.25). At a regular point the kernel of the differential has dimension at least 8.",
+  "Part (iii) is stated in general. It does not say that every scalar rule gives a worse path in every case.",
+  "The theorem counts dimensions of the attribute space. Its moral reading assumes the nine coordinates carry independent morally relevant variation, which Section 5.3 qualifies (effective rank 5.19 of 8 on text).",
+]
+standing = "Tagged Proved in the text, by rank-nullity and the data-processing inequality. The ledger row GE-THM-15-1 has class exploratory and notes that the theorem is absent from Appendix F's registry, so the two records disagree and the lower class is given here as well."
+related = ["nine-dimension-moral-chart", "moral-decision-complex", "scalar-irrecoverability", "null-space", "rank", "projection"]
+
+[[entry]]
+id = "no-escape-theorem"
+kind = "result"
+title = "No Escape Theorem"
+definition = "For an agent whose pipeline satisfies four requirements (mandatory canonicalization, evaluation grounded in physical observables, complete audit, and strong external verification), relative to the declared grounding and transformation group, a re-description that preserves the grounded values leaves the evaluated output unchanged, and an output that violates the constraints is blocked or flagged by audit."
+first_stated = "Theorem 18.1, Section 18.6, `geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:498-527`, on the requirements of `geometric-ethics/chapter-18-geometric-ethics-for-artificial-agents.html:445-496`."
+conditions = [
+  "The theorem is conditional on Requirements 1 to 4 and on an adequate grounding. It is as strong as those premises.",
+  "It blocks cognitive escape routes only. Physical attacks such as sensor spoofing and hardware tampering, and an incomplete grounding, are outside its scope.",
+  "The volume reports that a version of the I-EIP monitor it proposes for verification failed three sealed preregistrations. It calls that requirement of its architecture an engineering target, not a verified component.",
+  "Averaging over paraphrases met a preregistered invariance bar on natural rewordings only. Euphemistic rewrites of flagged content still passed, so the volume says this is not adversarial robustness.",
+]
+standing = "Tagged Theorem (conditional on Req. 1 to 4) in the text and Conditional Theorem in Appendix F. Ledger row GE-THM-18-1 has class exploratory."
+related = ["moral-bond-invariance-principle", "bond-index", "strata-containment-theorem", "audit", "certificate"]
+
+[examples]
+moral-manifold = "Alice's promise to Bob on a normal Saturday is one point of M. The same Saturday with an emergency is a different point, and Alice's and Bob's views of either one are two points of the fiber over it, not two points of M."
+nine-dimension-moral-chart = "Three scopes times three modes give 3 x 3 = 9 cells, and Rights and Duties is the cell Relational by What Matters. The volume's measured effective rank is 5.19 of 8 validated axes, so the nine are not nine independent measured coordinates."
+moral-bond-invariance-principle = "If withholding treatment and allowing natural death pick out the same action in all morally relevant respects, an evaluation that scores one 0.6 must score the other 0.6. A score of 0.6 against 0.4 violates the principle."
+moral-stratification = "Within the consent stratum a little more information changes the evaluation a little. At the line between insufficient and sufficient consent the evaluation jumps from impermissible to permissible, which is a stratum boundary."
+absorbing-stratum = "In the abuse stratum (582 cases in the volume's corpus count) a promise of strength 0.2 and a promise of strength 0.9 give the same evaluation, because the evaluation depends only on the projection onto the stratum."
+semantic-gate = "The phrase you promised takes Liberty to Obligation, at 94 percent in the volume's Dear Abby table. There is no state that is half obligated, and saying it again from Obligation changes nothing."
+hohfeldian-klein-four-group = "With the volume's two-bit code O = 00, L = 10, C = 01, N = 11, n = 10 and s = 01, operations act by XOR. From O, s then n gives 00, 01, 11, which is N. From O, n then s gives 00, 10, 11, which is N again, so the order does not matter."
+hohfeldian-dihedral-withdrawal = "The walk O, C, N, L, O alternates s, n, s, n, so it is four steps of two operations and not one operation applied four times. The group they generate has 4 elements, where D4 would have 8."
+moral-phase-transition = "At the consent boundary the volume sets satisfaction to minus infinity below the threshold (treatment is battery) and to a finite value above it. The jump is a first-order transition."
+moral-decision-complex = "Three states A, B, C with action weights A to B = 2, B to C = 3 and A to C = 6. The minimum-weight path from A to C goes through B at cost 2 + 3 = 5, which is less than 6. The weights are illustrative."
+moral-decision-edge-weight = "With the identity as covariance and a change of 1 on one dimension and 2 on another, the first term is 1 + 4 = 5. Crossing one boundary with penalty 3 gives a weight of 8, and a boundary with infinite penalty gives an infinite weight. The numbers are illustrative."
+moral-metric-evidence-status = "On 1,165 held-out posts no predictor beat the average verdict, so the registered comparison was not graded. The embeddings explain at most 4 percent of verdict variance where about 86 percent is not vote noise, so a missing metric effect could not be told from a present one."
+executable-stratification = "The volume's visitor_standing has five strata (none, stranger, welcomed, arranged, hostile). A stranger who says he is the plumber stays a stranger, because the claim matches no gate. Margaret's welcome moves him to welcomed, which grants nothing."
+strata-containment-theorem = "Start at stranger and feed the events he says he is the plumber, then Margaret welcomes him. Neither is a system event, so the state ends at welcomed and is never arranged, the authority stratum, which only the monitoring centre's authenticated announcement can enter."
+strata-absorption-theorem = "Start at hostile and feed three events, an apology, Margaret's welcome and a claim to be her grandson. None is an oversight event, so the state is hostile after each of the three, and it stays so until the centre clears him."
+reversion-axiom = "Take a bar of 2 fresh attested witnesses and a declared interval of 3 cycles (illustrative numbers). Counts of 2, 1, 2, 1 never stay below the bar for 3 cycles, so the right holds. Counts of 2, 1, 1, 1 do, so the stratum is left on the fourth cycle and the right reverts."
+bond-index = "In the game form the distance is 0 when a pairing is the correlative and 1 when it is not. One wrong pairing in 8 gives 1/8 = 0.125, close to the volume's mean of about 0.13. Random choice among four positions is wrong 3 times in 4, which gives 0.75."
+moral-parallel-transport = "With all connection coefficients zero the transport equation reduces to dO/dt = 0, so an obligation with care component 0.5 arrives with care component 0.5. With nonzero coefficients the components change while the transported obligation is, geometrically, the same one."
+moral-holonomy = "In the volume's illustration an obligation with care component 0.5 is carried around the loop friendship, confidentiality, duty to warn, resolution, friendship. It returns with care 0.35, privacy 0.1 and epistemic 0.05, so the holonomy is not the identity. The numbers are illustrative, not measured."
+moral-noether-theorem = "With a flat metric and no potential a path has constant velocity, say (2, 3). For the generator (1, 0) the charge is 2 x 1 + 3 x 0 = 2 at every time, which is the conserved quantity. The numbers are illustrative."
+moral-scalar-irrecoverability = "Let Q be the sum of the nine coordinates. The states (1, 0, 0, 0, 0, 0, 0, 0, 0) and (0, 1, 0, 0, 0, 0, 0, 0, 0) both map to 1, so no function of the value 1 can return both. The directions Q cannot see number 9 - 1 = 8."
+no-escape-theorem = "If x and x' describe the same situation, the canonicalizer gives C(x) = C(x'). The evaluation reads only the grounded values of the canonical form, so it returns the same output for both, and renaming alone changes nothing."

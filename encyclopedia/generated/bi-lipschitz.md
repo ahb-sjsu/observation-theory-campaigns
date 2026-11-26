@@ -26,7 +26,7 @@ Conditions are curated in `entries.toml` rather than read from a record.
 
 ## ledger
 
-- *refutes or corrects.* NEG-1 `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L94).
+- *refutes or corrects.* NEG-1 `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/claims/LEDGER.md#L94).
 
 ## first stated
 
@@ -38,7 +38,7 @@ none
 
 ## failures and corrections
 
-- NEG-1, `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/claims/LEDGER.md#L94).
+- NEG-1, `[refuted]`. Fixed-scale, uniform-in-m bi-Lipschitz for the commute filter. [`geometric-observation/claims/LEDGER.md:94`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/claims/LEDGER.md#L94).
 
 ## invariance envelope
 
@@ -47,7 +47,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/BiLipschitz.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/BiLipschitz.lean), theorems `one_le_factor`, `within_comp`, `nn_preserved`, `not_rank_faithful`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/BiLipschitz.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/BiLipschitz.lean), theorems `one_le_factor`, `within_comp`, `nn_preserved`, `not_rank_faithful`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -63,4 +63,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

@@ -28,13 +28,13 @@ none
 
 ## first stated
 
-Chapter 0 section 0.15 and chapter 9 section 9.2 of *Data Mining as Observation*, with the program's recognizer in `geometric-observation/chapters/ch11_the_recognizer.md:1-95`.
+Chapter 0 section 0.15 and chapter 9 section 9.2 of *Data Mining as Observation*, with the program's recognizer in `geometric-observation/chapters/ch11_the_recognizer.md:1-99`.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch11_the_recognizer.md#L1-L95) |
+| chapter 9 section 9.2 | the recognizer's mechanism, low multiplets and angular distances, dimension before shape by Weyl's law, refusal, the growth gotcha | [`geometric-observation/chapters/ch11_the_recognizer.md:1-95`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/chapters/ch11_the_recognizer.md#L1-L95) |
 
 ## failures and corrections
 
@@ -47,7 +47,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Multiplet.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/Multiplet.lean), theorems `cycleEig_zero`, `cycleEig_nonneg`, `cycleEig_le_four`, `cycleEig_pair`, `pair_distinct`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Multiplet.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/Multiplet.lean), theorems `cycleEig_zero`, `cycleEig_nonneg`, `cycleEig_le_four`, `cycleEig_pair`, `pair_distinct`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -65,4 +65,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

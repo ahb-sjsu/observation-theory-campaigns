@@ -30,14 +30,14 @@ none
 
 ## first stated
 
-Chapter 0 section 0.2 of *Data Mining as Observation*, with the program's whitened code in Volume 14 chapter 8, `geometric-observation/chapters/ch08_value.md:84-97`.
+Chapter 0 section 0.2 of *Data Mining as Observation*, with the program's whitened code in Volume 14 chapter 8, `geometric-observation/chapters/ch08_value.md:88-101`.
 
 ## measurements
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 2 section 2.5 | whitened code wins at every budget | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch08_value.md#L84-L97) |
-| chapter 4 section 4.3 | whitened code on whale 0.83, 0.85, 0.97 vs 0.41, 0.80, 0.89 | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/b2626a6/chapters/ch08_value.md#L84-L97) |
+| chapter 2 section 2.5 | whitened code wins at every budget | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/chapters/ch08_value.md#L84-L97) |
+| chapter 4 section 4.3 | whitened code on whale 0.83, 0.85, 0.97 vs 0.41, 0.80, 0.89 | [`geometric-observation/chapters/ch08_value.md:84-97`](https://github.com/ahb-sjsu/geometric-observation/blob/0a59b0d/chapters/ch08_value.md#L84-L97) |
 
 ## failures and corrections
 
@@ -50,7 +50,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Whitening.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/Whitening.lean), theorems `whiten_unit_variance`, `whiten_sq_sum`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Whitening.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/Whitening.lean), theorems `whiten_unit_variance`, `whiten_sq_sum`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -68,4 +68,4 @@ Ledger rows that cite the entry's records without naming it: GO-2 (neg. half: no
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

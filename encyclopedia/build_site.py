@@ -41,9 +41,17 @@ def run(cmd, cwd=None, inp=None):
 
 COMMIT = run(["git", "rev-parse", "--short", "HEAD"], REPO).stdout.strip()
 DATE = datetime.date.today().isoformat()
-CFG = tomllib.load(open(os.path.join(ROOT, "entries.toml"), "rb"))
+sys.path.insert(0, ROOT)
+import config  # noqa: E402
+
+CFG = config.load(ROOT, SRC)  # entries.toml plus volumes/*.toml
 entries = CFG["entry"]
-REPOS = {name: os.path.join(SRC, rel) for name, rel in CFG["repos"].items()}
+REPOS = CFG["repo_paths"]
+SERIES_URL = ".."  # the encyclopedia sits beside the volumes on erisml.org
+
+
+def volume_link(v):
+    return f'<a href="{SERIES_URL}/{v["slug"]}/index.html"><em>{html.escape(v["title"])}</em></a>'
 
 
 def sort_key(e):
@@ -219,7 +227,9 @@ def status_of(eid):
     led = pages[eid][0].get("ledger", "")
     classes = re.findall(r"`\[(\w+)\]`", led)
     edges = re.findall(r"\*(proves|measures|refutes or corrects)\.\*", led)
-    if not classes:
+    if not classes and by_id[eid].get("volume"):
+        epi = by_id[eid].get("standing", "").rstrip(".") or "the volume states no standing for this entry"
+    elif not classes:
         epi = "no ledger row names this entry"
     else:
         c = collections.Counter(zip(edges, classes))
@@ -232,7 +242,7 @@ def status_of(eid):
 def evidence_links(eid):
     secs = pages[eid][0]
     links = []
-    for k in ("ledger", "measurements", "failures and corrections", "machine checked"):
+    for k in (("first stated",) if by_id[eid].get("volume") else ()) + ("ledger", "measurements", "failures and corrections", "machine checked"):
         for m in re.finditer(r"\[`([^`]+)`\]\((https?://[^)]+)\)", secs.get(k, "")):
             links.append((m.group(1), m.group(2)))
     lean = by_id[eid].get("lean", [])
@@ -274,7 +284,9 @@ def card(e):
     rows = [
         ("Definition", html.escape(secs.get("definition", "none").split("\n")[0]) + (" <span class=al>Also " + ", ".join(html.escape(a) for a in aliases(e)) + ".</span>" if aliases(e) else "")),
         ("Example", ex.group(1).strip() if ex else "none"),
-        ("Book", f"{BOOK_TITLE}, draft {BOOK_DRAFT}, commit <code>{book_commit}</code>; entry id <code>{eid}</code>, kind {e['kind']}."),
+        (("Volume", f"{volume_link(e['volume'])}, Volume {e['volume']['number']} of the Geometric Series; entry id <code>{eid}</code>, kind {e['kind']}.")
+         if e.get("volume") else
+         ("Book", f"{BOOK_TITLE}, draft {BOOK_DRAFT}, commit <code>{book_commit}</code>; entry id <code>{eid}</code>, kind {e['kind']}.")),
         ("Status", f"{html.escape(epi)}. Corrections: {corr}."),
         ("Defining equation", first_eq or "none"),
         ("Assumptions and scope", ("<ul>" + "".join(f"<li>{c}</li>" for c in conds) + "</ul>") if conds else "none"),
@@ -320,6 +332,7 @@ MATHJAX = '<script>window.MathJax={tex:{inlineMath:[["$","$"],["\\\\(","\\\\)"]]
 def shell(title, body, single=False, extra_head=""):
     nav = (f'<header class="top"><a class="brand" href="{"#top" if single else "index.html"}">The Observation Theory Encyclopedia</a>'
            f'<a href="{"#tsk" if single else "tsk.html"}">From TSK</a><a href="{"#about" if single else "about.html"}">About</a><a href="{"#kinds" if single else "kinds.html"}">By kind</a>'
+           f'<a href="{"#volumes" if single else "volumes.html"}">By volume</a>'
            f'<a href="{"#chapters" if single else "chapters.html"}">By chapter</a><a href="{"#lean" if single else "lean.html"}">By Lean file</a>'
            f'<a href="{"#ledger" if single else "ledger.html"}">Ledger</a><a href="{"#provenance" if single else "provenance.html"}">Provenance</a></header>')
     return book_links(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -402,6 +415,14 @@ def lists_html(single):
     parts = []
     kinds = collections.OrderedDict((k, [e for e in entries if e["kind"] == k]) for k in ("concept", "instrument", "result", "correction", "reference"))
     parts.append(('kinds', "Entries by kind", "".join(f"<h2>{k}, {len(v)}</h2><p>" + "; ".join(elink(e["id"], single) for e in v) + ".</p>" for k, v in kinds.items())))
+    vols = sorted(CFG["volumes"], key=lambda v: v["number"])
+    vol_html = ["<p>The Geometric Series has fourteen volumes. The entries of Volume 14, <em>Geometric Observation</em>, and of its textbook are built from the program's claim ledger and measurement records, and carry ledger classes. The entries of the other volumes are curated from each volume's text. Each cites the passage that states it, and carries the standing the volume gives its own claims in place of a ledger class.</p>"]
+    for v in vols:
+        own = [e for e in entries if e.get("volume") and e["volume"]["number"] == v["number"]]
+        vol_html.append(f'<h2>Volume {v["number"]}, {volume_link(v)}, {len(own)}</h2><p class=al>{html.escape(v.get("standing", ""))}</p><p>' + "; ".join(elink(e["id"], single) for e in own) + ".</p>")
+    rest = [e for e in entries if not e.get("volume")]
+    vol_html.append(f'<h2>Volume 14, <a href="{SERIES_URL}/geometric-observation/index.html"><em>Geometric Observation</em></a>, and {BOOK_TITLE}, {len(rest)}</h2><p>' + "; ".join(elink(e["id"], single) for e in rest) + ".</p>")
+    parts.append(('volumes', "Entries by volume", "".join(vol_html)))
     parts.append(('chapters', "Entries by chapter of the book", "<p>The two primers, L for linear algebra and S for probability and statistics, come before chapter 0 in the book.</p>" + "".join(f"<h2>{'Primer' if isinstance(c, str) else 'Chapter'} {chapter_link(c)}, {len(set(v))}</h2><p>" + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for c, v in sorted(used_in.items(), key=lambda kv: (0, kv[0]) if isinstance(kv[0], str) else (1, f"{kv[0]:02d}")))))
     parts.append(('lean', "Entries by Lean file", f"<p>The file of the book's Lean project that machine-checks the entry's core. Each name links to the file's source in the book's online edition. Appendix C of the book, <a href='{BOOK_URL}/machine_checked.html'>Machine-checked statements</a>, says what each file proves.</p>" + "".join(f'<h2><a href="{GITHUB}/observation-data-mining/blob/{book_commit}/lean/DataMiningAsObservation/{f}"><code>{f}</code></a></h2><p>' + "; ".join(elink(i, single) for i in sorted(set(v), key=lambda i: sort_key(by_id[i]))) + ".</p>" for f, v in sorted(by_lean.items(), key=lambda kv: kv[0].lower()))))
     led = ["<p>Every ledger row an entry cites, printed once in full from geometric-observation's claims ledger, with the entries it bears on.</p>"]
@@ -445,11 +466,11 @@ def index_body(single):
             tiles.append(f'</div><h2 id="L{L}">{L}</h2><div class="grid">')
         d = html.escape(pages[e["id"]][0].get("definition", ""))
         d = d.split(". ")[0]
-        tiles.append(f'<div class="tile" data-k="{html.escape((e["title"] + " " + e["id"] + " " + " ".join(aliases(e)) + " " + d).lower())}"><a class="t" href="{("#" if single else "") + e["id"] + ("" if single else ".html")}">{html.escape(e["title"])}</a><span class="kind {e["kind"]}">{e["kind"]}</span><p>{d}.</p></div>')
+        tiles.append(f'<div class="tile" data-k="{html.escape((e["title"] + " " + e["id"] + " " + " ".join(aliases(e)) + " " + d).lower())}"><a class="t" href="{("#" if single else "") + e["id"] + ("" if single else ".html")}">{html.escape(e["title"])}</a><span class="kind {e["kind"]}">{e["kind"]}</span>{("<span class=al> " + html.escape(e["volume"]["title"]) + "</span>") if e.get("volume") else ""}<p>{d}.</p></div>')
     letters = sorted({letter(e) for e in entries})
     search = ('<input class="search" id="q" placeholder="Search entries, aliases, and definitions" oninput="filt()">'
               '<script>function filt(){var q=document.getElementById("q").value.toLowerCase();document.querySelectorAll(".tile").forEach(function(t){t.style.display=(!q||t.dataset.k.indexOf(q)>=0)?"":"none"});}</script>')
-    return (f'<h1 id="top">The Observation Theory Encyclopedia</h1><p class=al>{len(entries)} entries, companion to {BOOK_TITLE}. Built {DATE} from commit <code>{COMMIT}</code>.</p>'
+    return (f'<h1 id="top">The Observation Theory Encyclopedia</h1><p class=al>{len(entries)} entries across the volumes of the Geometric Series, companion to {BOOK_TITLE}. Built {DATE} from commit <code>{COMMIT}</code>.</p>'
             + search + '<p class="letters">' + "".join(f'<a href="#L{L}">{L}</a>' for L in letters) + "</p><div>" + "".join(tiles) + "</div>")
 
 

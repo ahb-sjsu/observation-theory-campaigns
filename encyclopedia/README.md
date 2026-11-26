@@ -299,6 +299,23 @@ entry by a typed edge, defines, proves, measures, or refutes and corrects, and o
 name the entry appear in its body. Records cited beside an entry without naming it are listed
 under its see-also heading. `SCHEMA.md` states the rules.
 
+## The other volumes of the series
+
+Since 2026-11-26 the encyclopedia covers all fourteen volumes of the Geometric Series. The entries
+above come from Volume 14 and its textbook and are built from the program's records. The entries of
+Volumes 1 to 13 are curated, one file per volume in `volumes/<repo>.toml` (the format is in
+`config.py`). Each cites the passage of the volume that states it, by file and line, links to the
+page of the online edition, and carries a `standing`, the volume's own statement of what kind of
+claim it is, where a record-built entry carries ledger classes. Most volumes describe themselves as
+posited frameworks, and their entries say so.
+
+`python encyclopedia/check_volume.py encyclopedia/volumes/<repo>.toml <volumes root>` checks one
+file without building: ids, citations (file exists, lines in range), related ids, the online page,
+and the prose rule. `generate.py` and `build_site.py` take `--volumes-root <dir>`, a folder of clean,
+up-to-date clones of the volume repositories, because citations are by line. `volumes.html` lists the
+entries by volume. The volume entries were drafted by one agent per volume on 2026-11-26 and have not
+had a semantic review, which their cards state.
+
 ## The website
 
 `python encyclopedia/build_site.py C:/source` builds the web-first form into `encyclopedia/site/`.

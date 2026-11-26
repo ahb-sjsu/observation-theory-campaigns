@@ -1,0 +1,353 @@
+[volume]
+number = 3
+title = "Geometric Reasoning"
+repo = "geometric-reasoning"
+slug = "geometric-reasoning"
+standing = "Posited framework. The README's epistemic-status block of 2026-07-14 calls the volume speculative theory awaiting instruments, to be read as theory at licensed strength and not as validated measurement. Its chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation, and the empirical tags rest on one benchmark of five language models."
+
+[[entry]]
+id = "reasoning-manifold"
+kind = "concept"
+title = "Reasoning manifold"
+definition = "The set of coherent reasoning states of a cognitive system, taken to be a low-dimensional manifold $M$ inside the high-dimensional activation space. Reasoning is a trajectory on $M$, and its quality is read from the geometry of $M$ and from how the trajectory sits against the geodesics of $M$."
+first_stated = "Section 2.4.2, the Manifold Hypothesis for Reasoning, `geometric-reasoning/chapters/ch02_when_space_has_shape.md:164-174`."
+conditions = [
+  "Tagged a modeling axiom. The volume calls it a substantive empirical claim and not a definition, and it does not measure the manifold or its metric.",
+  "It asserts three things. Coherent states are a thin subset of activation space, the subset is smooth and low-dimensional, and its geometry is not uniform.",
+  "The support offered is indirect. It is representation engineering, circuit findings, low-rank fine-tuning and the volume's own 7-dimensional harm ratings, which use a Euclidean metric as a first approximation.",
+  "Chapter 15 leaves open whether a Riemannian manifold is the right object and lists Finsler, sub-Riemannian and stratified alternatives.",
+]
+known_as = "The manifold hypothesis of machine learning, which the volume cites from Bengio, Courville and Vincent and extends from data to reasoning states."
+related = ["manifold", "metric", "curvature", "heuristic-field", "reasoning-geodesic-deviation", "posited-versus-measured"]
+
+[[entry]]
+id = "heuristic-field"
+kind = "concept"
+title = "Heuristic field"
+definition = "A smooth function $h$ from the reasoning manifold to the non-negative reals that estimates the cost of reaching the goal region from each state. It is zero on the goal region and positive elsewhere, and its negative gradient is the direction the search follows."
+first_stated = "Section 3.1.2, `geometric-reasoning/chapters/ch03_the_heuristic_field.md:35-45`, with the formal definition at `geometric-reasoning/chapters/ch03_the_heuristic_field.md:417-417`."
+conditions = [
+  "Tagged a modeling axiom. That a reasoning system's guidance is one scalar field on a manifold is a structural choice of the volume.",
+  "Smoothness is assumed so that the gradient exists. The integral curves of the negative gradient approximate geodesics only when the heuristic equals the true cost-to-go.",
+  "For language models the field is implicit. Chapter 15 lists measuring it from activations as an open question.",
+]
+known_as = "The heuristic function of A* search, restated as a scalar field. The volume compares it to a potential energy surface and a loss landscape."
+related = ["reasoning-manifold", "heuristic-admissibility", "false-termination-region", "corruption-tensor", "gradient"]
+
+[[entry]]
+id = "heuristic-admissibility"
+kind = "concept"
+title = "Admissible heuristic field"
+definition = "A heuristic field is admissible when it never overestimates the true cost-to-go, so that $h(x)$ is at most the geodesic distance from $x$ to the goal region at every state. It is consistent when $h(x)$ is at most the distance from $x$ to $y$ plus $h(y)$ for every pair of states."
+first_stated = "Section 3.3.1, `geometric-reasoning/chapters/ch03_the_heuristic_field.md:117-127`, and Definitions 3.1 and 3.2 at `geometric-reasoning/chapters/ch03_the_heuristic_field.md:419-429`."
+conditions = [
+  "The guarantee that A* with an admissible heuristic finds an optimal path is the theorem of Hart, Nilsson and Raphael, which the volume tags established mathematics for graph search.",
+  "Consistency implies admissibility and not the reverse. In the smooth case consistency means the gradient of the heuristic has norm at most 1.",
+  "Carrying the guarantee over to a manifold and to language models rests on the volume's modeling axioms.",
+  "The volume states that overconfidence is not this failure. It is the complementary one, underestimation in a search that stops when the heuristic is small.",
+]
+known_as = "Admissibility and consistency of heuristics in A* search, from Hart, Nilsson and Raphael (1968)."
+related = ["heuristic-field", "false-termination-region", "geodesic-distance", "reasoning-geodesic-deviation"]
+standing = "The definitions and the optimality theorem are established mathematics of search. Their use as a description of reasoning in language models is posited."
+
+[[entry]]
+id = "false-termination-region"
+kind = "result"
+title = "False termination region"
+definition = "The set of states outside the goal where the heuristic reads below the stopping threshold while the true distance to the goal is large. A search that halts when $h(x)$ falls below the threshold and enters this set stops outside the goal. The volume reads overconfidence as this underestimation of cost-to-go."
+first_stated = "Proposition 3.1 and Corollary 3.1, `geometric-reasoning/chapters/ch03_the_heuristic_field.md:439-441`, with the reading of overconfidence in Section 3.6.3, `geometric-reasoning/chapters/ch03_the_heuristic_field.md:273-277`."
+conditions = [
+  "It assumes a satisficing search with a fixed threshold. The heuristic must underestimate the true cost-to-go by more than the threshold on a region that does not meet the goal.",
+  "Tagged a conditional theorem. The identification of a model's stated confidence with the terminal value of an implicit heuristic is the volume's modeling step.",
+  "The measured part is separate. All five models were overconfident on the calibration task, with expected calibration errors from 0.230 to 0.415.",
+]
+related = ["heuristic-field", "heuristic-admissibility", "expected-calibration-error", "calibration", "reasoning-basin-of-attraction"]
+standing = "A conditional statement about threshold search, given without a full proof. The calibration errors it is attached to are benchmark measurements, and the link between the two is posited."
+
+[[entry]]
+id = "reasoning-geodesic-deviation"
+kind = "concept"
+title = "Geodesic deviation of a reasoning trajectory"
+definition = "The cost of a reasoning trajectory minus the cost of the geodesic that joins the same endpoints. The optimal trajectory is the path from the problem state to the goal region that minimizes the cost functional. The deviation is never negative and is zero only for a geodesic."
+first_stated = "Definitions 4.1 and 4.2, `geometric-reasoning/chapters/ch04_geodesics_and_optimal_reasoning.md:92-98`."
+conditions = [
+  "Tagged a modeling axiom. It needs a cost metric on the reasoning manifold, which the volume posits and does not measure.",
+  "It measures the efficiency of the path and not whether the answer is right. A lucky shortcut can be accurate and still have a large deviation.",
+  "The volume computes it only in illustrations. Its one empirical pointer is framework-switching efficiency, which it calls a proxy.",
+]
+known_as = "Path length excess over the shortest path. It is not the geodesic deviation equation of differential geometry, which describes how nearby geodesics separate."
+related = ["reasoning-manifold", "geodesic-distance", "heuristic-field", "nat"]
+
+[[entry]]
+id = "corruption-tensor"
+kind = "concept"
+title = "Corruption tensor"
+definition = "The first-order response of a system's final judgment to task-irrelevant perturbations. Entry $C_{ij}$ gives the displacement of judgment dimension $i$ per unit intensity of perturbation direction $j$. It is the Jacobian of the judgment endpoint with respect to the perturbation intensities, taken at zero perturbation."
+first_stated = "Definition 5.1, `geometric-reasoning/chapters/ch05_heuristic_corruption.md:326-334`, introduced in Section 5.5, `geometric-reasoning/chapters/ch05_heuristic_corruption.md:172-182`."
+conditions = [
+  "The tensor is tagged a modeling axiom. It is a linear response and holds to first order in the perturbation intensity.",
+  "It is specific to a model and is not symmetric in general. A column of zeros marks a perturbation the system is invariant to.",
+  "The benchmark probes three columns, for framing, emotional anchoring and sensory distractors. The volume says mapping the full tensor remains an open empirical program.",
+  "No entry of the tensor is reported as a number. The data are significance levels and score drifts that the volume reads as projections of columns.",
+]
+related = ["jacobian", "heuristic-field", "model-robustness-profile", "reasoning-bond-invariance-principle", "nuisance", "singular-value-decomposition"]
+standing = "The tensor is posited. What is measured is displacement under three perturbation types on five models, reported with combined significance of 8.9, 6.8 and 4.6 sigma, and no significant displacement under gender swap or evaluation order."
+
+[[entry]]
+id = "sycophancy-parameter"
+kind = "concept"
+title = "Sycophancy parameter"
+definition = "The weight $\\alpha$ between 0 and 1 in the combined objective $(1-\\alpha) f_T + \\alpha f_A$, where $f_T$ rewards states near the correct answer and $f_A$ rewards states that agree with the interlocutor. At 0 the search follows truth alone and at 1 it follows approval alone."
+first_stated = "Section 6.3, `geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:69-75`, and Definition 6.1, `geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:438-442`."
+conditions = [
+  "Tagged a modeling axiom. The convex combination is suggested by the data and is not derived from them.",
+  "It describes a shifted objective and not a corrupted heuristic. The volume supports this with the graded revision task, where all models scale their response to the stated severity of a correction.",
+  "With equal gradient strengths and directly opposed objectives the critical value is 0.5, above which the search has no net component toward truth.",
+  "The volume gives no fitting procedure. Its values for models follow the sycophancy index for one model and the wrong-flip rate for others.",
+]
+related = ["correction-discrimination-gap", "corrigibility-basin", "heuristic-field", "reasoning-bond-invariance-principle"]
+standing = "The parameter is posited. The measured quantity behind it is the wrong-flip rate on the correction task, which runs from 0 percent to 56 percent across four models with a reported combined significance of 13.3 sigma."
+
+[[entry]]
+id = "correction-discrimination-gap"
+kind = "instrument"
+title = "Discrimination gap"
+definition = "The correct-flip rate minus the wrong-flip rate. The correct-flip rate is how often a system changes its answer after a valid correction, and the wrong-flip rate is how often it abandons a correct answer after an invalid one. A gap of 1 is perfect discrimination and a gap of 0 is none."
+first_stated = "Definition 6.2, `geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:458-462`, with the sycophancy index defined at `geometric-reasoning/chapters/ch06_sycophancy_as_search_hijacking.md:452-456`."
+conditions = [
+  "It is an observable computed from two rates on the same correction task, with no geometric assumption.",
+  "The companion sycophancy index is the wrong-flip rate divided by the correct-flip rate.",
+  "The volume's values disagree with each other. Chapter 6 prints gaps of 0.377, 0.238 and 0.206 for three models, and Chapter 11 prints 0.000, 0.004 and 0.003 for the same models with different correct-flip rates.",
+  "Reading the gap as distance to a critical surface or as the asymmetry of a basin is the volume's posited interpretation.",
+]
+related = ["sycophancy-parameter", "corrigibility-basin", "precision-recall", "false-positive-rate"]
+standing = "A measured benchmark quantity tagged empirical, but the two chapters that tabulate it do not agree, so only the definition and the value 0.588 for one model, which both chapters give, can be relied on."
+
+[[entry]]
+id = "reasoning-basin-of-attraction"
+kind = "concept"
+title = "Basin of attraction of a reasoning minimum"
+definition = "The set of states from which gradient flow on the evaluation function converges to a given local minimum. Its depth is the lowest value of the function on the basin's boundary minus the value at the minimum. A dead zone is different. It is a flat region with a near-zero gradient and no minimum."
+first_stated = "Definition 7.1, `geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:381-385`, with dead zones defined in Section 7.5, `geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:189-195`."
+conditions = [
+  "It assumes a smooth evaluation function with isolated local minima on a Riemannian reasoning manifold. The basins then partition the manifold up to a set of measure zero.",
+  "The definition is standard dynamics. That a model's premature convergence is a trajectory settling in such a basin is the volume's posited reading.",
+  "No basin depth, radius or exit angle is measured in the volume.",
+]
+known_as = "Basins of attraction of gradient flow in dynamical systems and optimization."
+related = ["prompt-recovery-ceiling", "false-termination-region", "corrigibility-basin", "heuristic-field", "gradient"]
+
+[[entry]]
+id = "prompt-recovery-ceiling"
+kind = "result"
+title = "Recovery ceiling (about 38 percent)"
+definition = "The volume's claim that an explicit instruction to re-evaluate restores a displaced judgment about 38 percent of the time, at the same rate after emotional anchoring and after vivid distractors. It models this as an escape probability equal to the fraction of exit directions from a basin times a threshold factor in the impulse energy."
+first_stated = "Section 7.6, `geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:215-225`, with Propositions 7.1 and 7.2 at `geometric-reasoning/chapters/ch07_local_minima_and_dead_zones.md:387-397`."
+conditions = [
+  "The rates are tagged empirical and come from two tasks on five models. The basin geometry that is said to explain them is posited and no exit angle is measured.",
+  "The volume's own table does not give the figure. Table 5.2 lists recovery rates of 20, 73, 47, 55 and 53 percent after emotional anchoring, whose mean is 49.6 percent.",
+  "Chapter 13 uses the same name for a different quantity, a bound of 62 to 72 percent on resistance scores.",
+  "The volume predicts that new perturbation types will also recover at about 38 percent under prompting, and it marks this as testable and not yet tested.",
+]
+related = ["reasoning-basin-of-attraction", "metacognitive-plane", "corruption-tensor", "mean-median"]
+standing = "Reported as an empirical convergence with a posited geometric explanation. The 38 percent figure is not reproduced by the per-model rates the volume tabulates, and the prediction for new perturbation types is untested."
+
+[[entry]]
+id = "reasoning-gauge-transformation"
+kind = "concept"
+title = "Gauge transformation of a problem description"
+definition = "A map $\\tau$ on problem descriptions that changes the surface presentation and keeps the task-relevant content. With $\\pi$ the projection from descriptions to content, $\\tau$ is a gauge transformation exactly when $\\pi(\\tau(x)) = \\pi(x)$ for every description $x$. Such maps form a group under composition."
+first_stated = "Definition 8.1, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:479-479`, introduced in Section 8.1.2, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:50-58`."
+conditions = [
+  "It presupposes a content projection, a decision about which features of a description are task-relevant. The volume does not construct this projection for its benchmark and relies on rewrites judged to preserve content.",
+  "The group claim needs every transformation to have a content-preserving inverse, which the definition asserts.",
+  "The standard applied to gauge transformations is invariance, an identical output, and not robustness, a nearby one.",
+]
+known_as = "Gauge transformations of physics, used by analogy. The same structure is a group action whose orbits are the classes of equivalent descriptions."
+related = ["reasoning-bond-invariance-principle", "quotient", "paraphrase-class", "nuisance", "group-consistent-augmentation"]
+
+[[entry]]
+id = "reasoning-bond-invariance-principle"
+kind = "concept"
+title = "Bond Invariance Principle for reasoning"
+definition = "A judgment function $f$ satisfies the principle when $f(\\tau(x)) = f(x)$ for every description $x$ and every gauge transformation $\\tau$. Equivalently the judgment depends only on the content of the description. A failure is a gauge anomaly, and its magnitude along $\\tau$ is the distance between $f(\\tau(x))$ and $f(x)$."
+first_stated = "Section 8.2, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:68-70`, with the formal statement at `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:481-485`."
+conditions = [
+  "Tagged a modeling axiom. The volume uses it as a diagnostic criterion relative to a chosen class of gauge transformations.",
+  "It applies only to content-preserving transformations. A change to the facts should change the output.",
+  "A test of it is only as good as the claim that the rewrite preserved content. In the benchmark the rewrites were produced by a fixed model.",
+  "Measured against it, the benchmark reports violations under framing, emotional anchoring and sensory distractors, and no significant violation under gender swap or evaluation order.",
+]
+related = ["reasoning-gauge-transformation", "quotient", "corruption-tensor", "salience-exploitation-hypothesis", "paraphrase-class"]
+standing = "The principle is a posited norm. The violations and the two null results measured against it are benchmark findings on five models, tagged empirical."
+
+[[entry]]
+id = "salience-exploitation-hypothesis"
+kind = "concept"
+title = "Salience Exploitation Hypothesis"
+definition = "The conjecture that a gauge transformation breaks a model's invariance exactly when it changes how strongly input features attract attention, with a violation that grows with the salience differential. The differential is the sum of absolute changes in attention weight over input tokens, and the volume bounds the anomaly by a constant times it."
+first_stated = "Section 8.5, `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:160-162`, with Proposition 8.1 at `geometric-reasoning/chapters/ch08_gauge_invariance_and_symmetry.md:487-495`."
+conditions = [
+  "Tagged speculation or extension. It is offered as an explanation of the ordering of five benchmark results.",
+  "No attention profile or salience differential is measured in the volume. The claim that the differentials follow the same ordering as the anomalies is asserted.",
+  "Proposition 8.1 holds under the hypothesis and assumes the output is Lipschitz in the attention profile.",
+]
+related = ["reasoning-bond-invariance-principle", "reasoning-gauge-transformation", "attention", "corruption-tensor"]
+standing = "Speculation in the volume's own tagging. It fits five ordered observations after the fact and has no direct test in the volume."
+
+[[entry]]
+id = "metacognitive-plane"
+kind = "concept"
+title = "Metacognitive plane"
+definition = "The unit square of points $(M_3, M_4)$, where $M_3$ is the self-monitoring score and $M_4$ is the strategy-selection or effort-scaling score. Scores above 0.5 on both axes are Quadrant I, full control. High $M_3$ alone is Quadrant II, aware but passive. High $M_4$ alone is Quadrant IV, reactive but blind."
+first_stated = "Definition 9.2, `geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:444-458`, introduced in Section 9.9, `geometric-reasoning/chapters/ch09_metacognition_as_search_control.md:325-339`."
+conditions = [
+  "The plane and its quadrants are tagged a modeling axiom. The scores placed in it are benchmark measurements on five models.",
+  "The volume bounds effective control by the smaller of the two scores, treating self-monitoring as a sensor and strategy selection as an actuator.",
+  "The volume describes the two scores both as weakly correlated and as anti-correlated. The five pairs in its Table 7.2 give a correlation of about -0.98, so the axes are not independent in its data.",
+  "The statement that every tested model lies in Quadrant II or IV does not match Table 7.2, where one model scores 0.450 and 0.488 and falls in Quadrant III under the 0.5 cut.",
+]
+related = ["prompt-recovery-ceiling", "benchmark-scalar-irrecoverability", "correlation", "expected-calibration-error", "calibration"]
+standing = "A posited two-axis diagnostic filled with measured scores. The claim that Quadrant I is empty agrees with the tabulated scores, while the claims of independent axes and of no model in Quadrant III do not."
+
+[[entry]]
+id = "model-robustness-profile"
+kind = "instrument"
+title = "Model Robustness Index as a profile"
+definition = "A vector with one component per perturbation type. Component $r_i$ is the average, over an evaluation set, of a consistency score between the model's output on an input and its output on the input perturbed by type $i$. The score lies between 0 and 1 and the components are not aggregated."
+first_stated = "Definition A10.1, `geometric-reasoning/chapters/ch10_the_robustness_surface.md:516-524`, introduced in Section 10.2.1, `geometric-reasoning/chapters/ch10_the_robustness_surface.md:74-84`."
+conditions = [
+  "It is defined relative to a chosen set of perturbation types, an evaluation set and a consistency metric, and it changes with each choice.",
+  "Tagged a modeling axiom as a protocol. The volume attributes it to Chapter 9 of Geometric Methods.",
+  "The correspondence with the corruption tensor, in which a component is 1 minus a normalized column norm, holds only for one stated consistency metric.",
+  "The volume's composite track scores do aggregate. They are labelled unweighted means of subtask scores, and for the Executive Functions table every printed composite is below the mean of its four subtasks.",
+]
+related = ["corruption-tensor", "robustness-adversarial-threshold", "benchmark-scalar-irrecoverability", "pareto-dominance"]
+standing = "A defined measurement protocol. The profile values printed for five models are benchmark measurements, and the reading of the profile as a surface on a reasoning manifold is posited."
+
+[[entry]]
+id = "robustness-adversarial-threshold"
+kind = "instrument"
+title = "Adversarial threshold"
+definition = "For one perturbation type, the smallest intensity $\\epsilon^*$ at which performance falls more than a chosen tolerance $\\delta$ below its unperturbed value. It is found by binary search on the intensity, and the vector of thresholds over perturbation types is the threshold profile."
+first_stated = "Section 10.4.1, `geometric-reasoning/chapters/ch10_the_robustness_surface.md:177-185`, with the search procedure at `geometric-reasoning/chapters/ch10_the_robustness_surface.md:220-230`."
+conditions = [
+  "It needs a perturbation family with a continuous intensity and a user-chosen tolerance. Binary search also assumes that performance falls as intensity rises.",
+  "The volume ran no threshold search. Its evidence is indirect, a reading of four sycophancy rates at one fixed intensity as models below, near or past their thresholds.",
+  "This reading replaces the continuous sycophancy parameter of Chapter 6 with model-specific thresholds, and the volume does not reconcile the two.",
+]
+related = ["model-robustness-profile", "sycophancy-parameter", "threshold", "sweep"]
+standing = "A proposed procedure. No threshold is measured in the volume."
+
+[[entry]]
+id = "governance-margin"
+kind = "concept"
+title = "Governance margin"
+definition = "The smallest geodesic distance, over the whole of a reasoning trajectory, from the trajectory to the safety boundary that separates permitted from forbidden states. It is positive when the trajectory stays inside the permitted region, zero when it touches the boundary, and negative when it enters the forbidden region."
+first_stated = "Definition 11.3, `geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:58-62`, and Definition A11.1, `geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:452-456`."
+conditions = [
+  "Tagged a modeling axiom. It assumes a safety boundary that is a codimension-1 submanifold of the reasoning manifold and a metric to measure distance to it.",
+  "It is a property of the whole path and not of the output alone. The volume calls this path governance.",
+  "Under a bounded perturbation of the heuristic the margin is said to shrink at most linearly, by a Lipschitz constant times the perturbation size times the trajectory duration. Governance robustness is the largest perturbation that leaves the margin positive.",
+  "No margin is measured. The numbers in the volume's triage example are illustrative.",
+]
+related = ["dual-binding-constraint", "corrigibility-basin", "geodesic-distance", "margin", "reasoning-manifold"]
+
+[[entry]]
+id = "corrigibility-basin"
+kind = "concept"
+title = "Corrigibility basin"
+definition = "The basin of attraction of the state \"defer to human judgment\" under gradient flow on the objective landscape. Its asymmetry is its radius in the truth-consistent direction divided by its radius in the truth-inconsistent direction. An asymmetry of 1 is sycophancy, a large asymmetry is selective deference, and zero radii are stubbornness."
+first_stated = "Definition 11.5, `geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:151-153`, and Definitions A11.2 and A11.3, `geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:472-487`."
+conditions = [
+  "Tagged a modeling axiom. It assumes an objective landscape with a single deference state and two named directions at it.",
+  "Under a quadratic approximation of the landscape the volume relates the discrimination gap to the asymmetry as about 1 minus 1 over the asymmetry.",
+  "Basin radius, asymmetry and depth are not measured. They are inferred from flip rates, and the flip rates in this chapter's table differ from those in Chapter 6.",
+]
+related = ["correction-discrimination-gap", "sycophancy-parameter", "reasoning-basin-of-attraction", "governance-margin", "hessian"]
+standing = "Posited structure. The basin shapes assigned to models are interpretations of correction-task flip rates, and the chapter's own flip-rate table is inconsistent with the earlier one."
+
+[[entry]]
+id = "dual-binding-constraint"
+kind = "concept"
+title = "Dual binding constraint"
+definition = "A human and AI system satisfies the constraint when the AI's reasoning trajectory stays in the permitted region of its manifold at all times and the operator's decision trajectory stays in the permitted region of the operator decision space at all times. Both conditions are necessary and neither is sufficient."
+first_stated = "Definitions 11.6 and 11.7, `geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:258-264`, restated with margins as Definition A11.4, `geometric-reasoning/chapters/ch11_alignment_as_heuristic_shaping.md:497-501`."
+conditions = [
+  "Tagged speculation or extension. The operator decision space and its permitted region are posited by analogy with the AI's safety boundary.",
+  "A coupling tensor maps changes in operator decisions to displacements of the AI's safety boundary. In the volume's joint condition the operator's deviation, scaled by the norm of this tensor, is subtracted from the AI's governance robustness.",
+  "Nothing in the constraint is measured. Chapter 15 returns to it as an open question.",
+]
+related = ["governance-margin", "corrigibility-basin", "reasoning-manifold"]
+
+[[entry]]
+id = "benchmark-scalar-irrecoverability"
+kind = "result"
+title = "Scalar Irrecoverability Theorem for benchmark profiles"
+definition = "If the performance profiles of a set of models are mutually Pareto-non-dominated, so that each model beats each other on some dimension and loses on another, then every weighted-sum score with non-negative weights ranks some model below another that it beats on a subset of at least two dimensions."
+first_stated = "Theorem 13.1, `geometric-reasoning/chapters/ch13_five_convergent_measurements.md:449-457`, stated informally in Section 13.6, `geometric-reasoning/chapters/ch13_five_convergent_measurements.md:280-282`."
+conditions = [
+  "The hypothesis is that no profile dominates another. Where one model is at least as good on every dimension, a monotone score can respect the ordering.",
+  "Tagged a conditional theorem. The proof's step to a subset of size two is not general and appeals to the measured profiles of the five models.",
+  "The volume states it in three forms. Section 13.6 speaks of any composite score, Theorem 13.1 of weighted sums, and Theorem A10.1 of strictly monotone functions that would preserve the ordering on every axis.",
+  "It concerns loss of ordering information between incomparable profiles. It does not say that a score chosen for a stated application is wrong for that application.",
+]
+known_as = "The fact that a partial order of Pareto-incomparable points has no order-preserving map to a line that reflects every coordinate. The volume attributes the theorem to Geometric Methods, Chapter 1."
+related = ["pareto-dominance", "model-robustness-profile", "metacognitive-plane", "aggregation"]
+standing = "A conditional theorem with a proof that leans on the benchmark data for one step. The crossing profiles it is applied to are measurements on five models."
+
+[[entry]]
+id = "fisher-combined-statistic"
+kind = "instrument"
+title = "Fisher-combined significance"
+definition = "The statistic $-2 \\sum_i \\ln p_i$ over $k$ independent p-values, one per model. Under the null it follows a chi-squared distribution with $2k$ degrees of freedom. The volume converts the combined p-value to a sigma value with the standard normal quantile function and reports its headline results in this form."
+first_stated = "Section 12.6.1, `geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:340-344`, and the technical appendix, `geometric-reasoning/chapters/ch12_benchmarks_as_geometric_probes.md:483-495`."
+conditions = [
+  "The method is tagged established mathematics and assumes independent tests. The volume grants that the five models share training methods and that four share a lineage.",
+  "The volume calls the result conservative under positive dependence and in the same sentence says the true significance is lower than reported. The two statements do not agree.",
+  "Each cell holds 5 to 25 evaluations, so the per-model p-values that enter the sum may be imprecise.",
+  "A combined sigma value is a statement about the five tested models taken together. The volume limits it to transformer language models from two laboratories.",
+]
+known_as = "Fisher's method for combining independent p-values."
+related = ["p-value", "null-hypothesis", "multiple-comparisons", "independence", "reasoning-bond-invariance-principle"]
+standing = "A standard statistical method. The five headline sigma values it produces are measured benchmark results whose independence assumption the volume itself says is imperfect."
+
+[[entry]]
+id = "group-consistent-augmentation"
+kind = "instrument"
+title = "Consistent group augmentation"
+definition = "Training-data augmentation by a task's symmetry group in which the same group element is applied to every component of a training example. The task symmetry group is the largest group of input transformations that leave the ground-truth label unchanged. Applying the element to some components and not others is inconsistent augmentation."
+first_stated = "Section 14.1, the consistency principle, `geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:48-52`, and Definitions 14.1 and 14.2 with Proposition 14.1, `geometric-reasoning/chapters/ch14_from_theory_to_engineering.md:366-370`."
+conditions = [
+  "The symmetry group must be known for the task. The volume lists six groups for six task types, one of them the identity alone.",
+  "The claim that training on the augmented set yields an invariant function holds in the limit of sufficient capacity and training.",
+  "The two statements differ. Definition 14.2 holds the label fixed while the group acts on the input, and the consistency principle and Definition 14.3 apply the same element to input and output together.",
+  "The volume reports parse rates and data expansion for its pipeline. It reports no measured gain in invariance or accuracy from the augmentation.",
+]
+known_as = "Data augmentation by a symmetry group, as in invariant and equivariant learning. The volume attributes the consistency principle to Geometric Methods, Chapter 13."
+related = ["reasoning-gauge-transformation", "reasoning-bond-invariance-principle", "fine-tuning", "quotient"]
+standing = "An engineering practice the volume implemented. The framing of it as restoring a broken gauge symmetry of a reasoning manifold is posited, and no before-and-after invariance measurement is given."
+
+[examples]
+reasoning-manifold = "In the volume's illustration a model's moral judgment is a point in a harm space of 7 dimensions, each rated 0 to 10, while the activations that produce it have thousands of dimensions."
+heuristic-field = "On the half line of states x at or above 0 with the goal at 0 and unit cost per unit distance, the field h(x) = x gives h(3) = 3, and its negative gradient points toward 0."
+heuristic-admissibility = "If the true cost from a state to the goal is 5, an estimate of 4 is admissible and an estimate of 6 is not."
+false-termination-region = "With a stopping threshold of 1, a state where the heuristic reads 0.5 and the true distance to the goal is 3 lies in the region, since the search halts there 3 units short."
+reasoning-geodesic-deviation = "In the volume's illustrative triage example the geodesic costs about 2.1 nats and the corrupted trajectory about 4.6 nats, so the deviation is 4.6 - 2.1 = 2.5 nats."
+corruption-tensor = "With one perturbation direction whose column is (4, -2) and an intensity of 0.5, the first-order displacement of the judgment is (2, -1)."
+sycophancy-parameter = "With truth and approval gradients of equal strength 1 and directly opposed, the critical value is 1 / (1 + 1) = 0.5, so a weight of 0.6 on approval leaves no net pull toward truth."
+correction-discrimination-gap = "A system that flips on 60 percent of valid corrections and 10 percent of invalid ones has a gap of 0.60 - 0.10 = 0.50 and a sycophancy index of 0.10 / 0.60, about 0.17."
+reasoning-basin-of-attraction = "For the function (x^2 - 1)^2 on the line, the minima are at -1 and 1, the basin of 1 is every x above 0, and its depth is the value 1 at x = 0 minus the value 0 at x = 1."
+prompt-recovery-ceiling = "In the volume's formula a basin with half of its directions leading out and a threshold factor of 0.8 gives an escape probability of 0.5 times 0.8 = 0.4."
+reasoning-gauge-transformation = "Swapping the genders of the actors in a scenario changes the description and not who did what to whom, so it is a gauge transformation, while changing what was done is not."
+reasoning-bond-invariance-principle = "A system that rates a scenario at 40 on a 70-point harm scale and its euphemistic rewrite at 31 has an anomaly of magnitude 9 along that rewrite, where the principle requires 0."
+salience-exploitation-hypothesis = "If a rewrite moves 0.1 of attention weight off one token and onto another, the salience differential is 0.1 + 0.1 = 0.2, and with a constant of 3 the bound on the anomaly is 0.6."
+metacognitive-plane = "The volume's scores place one model at (0.094, 0.723), in Quadrant IV with a control bound of 0.094, and another at (0.700, 0.350), in Quadrant II with a bound of 0.350."
+model-robustness-profile = "A model whose verdict is unchanged on 3 of 4 inputs under reframing and on 4 of 4 under reordering has the profile (0.75, 1.00), with verdict agreement as the consistency score."
+robustness-adversarial-threshold = "With a baseline of 0.90 and a tolerance of 0.10, a performance of 0.85 at intensity 0.2 and 0.78 at intensity 0.4 puts the threshold between 0.2 and 0.4, and the next probe is at 0.3."
+governance-margin = "In the volume's illustration a margin of 3.0 standardized units against a displacement of 4.2 means the trajectory crosses the safety boundary, by 1.2 if the displacement points straight at it."
+corrigibility-basin = "A basin that reaches 2 units in the truth-consistent direction and 1 unit in the other has asymmetry 2, and the volume's approximation gives a discrimination gap of 1 - 1/2 = 0.5."
+dual-binding-constraint = "With an AI governance robustness of 1.0, a coupling norm of 2 and an operator deviation of 0.3, the AI can absorb a heuristic perturbation smaller than 1.0 - 2 times 0.3 = 0.4."
+benchmark-scalar-irrecoverability = "On the volume's two metacognition scores, (0.700, 0.350) averages 0.525 and (0.094, 0.723) averages 0.409, so the average ranks the first model higher although the second is better on the second score."
+fisher-combined-statistic = "Two p-values of 0.01 give -2 times (ln 0.01 + ln 0.01) = 18.42, to be compared with a chi-squared distribution with 4 degrees of freedom."
+group-consistent-augmentation = "The symmetry group of a square grid has 8 elements, 4 rotations and 4 reflections, so one input and output grid pair yields 8 consistent variants when each element is applied to both grids."

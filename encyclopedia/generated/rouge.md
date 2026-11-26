@@ -34,7 +34,7 @@ Lin, ROUGE, 2004, as chapter 0 section 0.11 states it, with the program's 13.7 R
 
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
-| chapter 8 section 8.9 | 13.7 ROUGE-L, 0.25/4.19/9.60/13.7 at 64/128/256/512, re-validation negative 0.31 n=40, 26.64 under symmetric nf4, `_quant_nf4a_group` unchanged since `289bdfc` before `4f7baab` | [`turboquant-pro/CLAIMS.md:63-81`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/CLAIMS.md#L63-L81); [`turboquant-pro/benchmarks/kvquant_matrix/REVAL-2026-08-08.md`](https://github.com/ahb-sjsu/turboquant-pro/blob/856c4cb/benchmarks/kvquant_matrix/REVAL-2026-08-08.md) |
+| chapter 8 section 8.9 | 13.7 ROUGE-L, 0.25/4.19/9.60/13.7 at 64/128/256/512, re-validation negative 0.31 n=40, 26.64 under symmetric nf4, `_quant_nf4a_group` unchanged since `289bdfc` before `4f7baab` | [`turboquant-pro/CLAIMS.md:63-81`](https://github.com/ahb-sjsu/turboquant-pro/blob/5389c05/CLAIMS.md#L63-L81); [`turboquant-pro/benchmarks/kvquant_matrix/REVAL-2026-08-08.md`](https://github.com/ahb-sjsu/turboquant-pro/blob/5389c05/benchmarks/kvquant_matrix/REVAL-2026-08-08.md) |
 
 ## failures and corrections
 
@@ -47,7 +47,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Rouge.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/Rouge.lean), theorems `overlap_le`, `rouge1_mem_unit`, `rouge1_self`, `rouge1_perm`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Rouge.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/Rouge.lean), theorems `overlap_le`, `rouge1_mem_unit`, `rouge1_self`, `rouge1_perm`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -65,4 +65,4 @@ Ledger rows that cite the entry's records without naming it: NEG-4.
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

@@ -1,0 +1,348 @@
+[volume]
+number = 6
+title = "Geometric Cognition"
+repo = "geometric-cognition"
+slug = "geometric-cognition"
+standing = "The README's status block of 2026-09-13 calls the book a domain exposition at posited, graded by a claim ledger converted from the manuscript with debt ratio 1.0, so every row is retrospective and no gate has been sealed in the repository. The ledger grades the benchmark statistics exploratory because their primary run records are not in the repository, and it holds every interpretation at posited because the admission filter xbse ruled the cognitive instrument inadmissible on 2026-07-14."
+
+[[entry]]
+id = "cognitive-profile-tensor"
+kind = "concept"
+title = "cognitive profile tensor"
+definition = "The vector of a system's scores on the benchmark's 21 subtasks, each between 0 and 1, written $C(S) = (c_1, ..., c_{21})$. The volume treats it as the object that a composite score contracts to one number."
+first_stated = "Definition 1.1, `geometric-cognition/chapters/ch01_iq_trap.md:59-63`."
+conditions = [
+  "The volume calls the 21 components a simplification of a true profile that has far more dimensions.",
+  "The subtasks come from the five Measuring AGI tracks. The ledger holds the claim that those tracks are dimensions of cognition at posited (row GC-1).",
+  "The scores are for five language models in one experimental cycle, and the primary run records are not in the repository.",
+]
+related = ["scalar-irrecoverability-theorem", "cognitive-signature", "vector", "contraction"]
+
+[[entry]]
+id = "scalar-irrecoverability-theorem"
+kind = "result"
+title = "Scalar Irrecoverability Theorem"
+definition = "For any map from profiles with two or more components to a single real number, each value in the range has a continuum of distinct profiles in its preimage. No function of the score can therefore return the profile."
+first_stated = "Theorem 1.1, `geometric-cognition/chapters/ch01_iq_trap.md:120-126`, with the formal version and proof in Technical Appendix 1A, `geometric-cognition/chapters/ch01_iq_trap.md:344-358`."
+conditions = [
+  "The formal version assumes the contraction is a continuous surjection and the profile has at least two components.",
+  "The theorem says the profile cannot be recovered from the score. The further claim that the discarded structure determines how a system reasons is a separate ledger row held at posited (GC-10).",
+  "The empirical demonstration of Section 1.5 uses the five benchmark models, whose run records are not in the repository.",
+]
+standing = "The ledger grades the theorem proved (row GC-9) and describes it as linear algebra that holds whatever the axes mean."
+known_as = "The failure of injectivity for a continuous map from two or more dimensions to one. The volume names Spearman's g, IQ and benchmark accuracy as instances of the contraction."
+related = ["cognitive-profile-tensor", "contraction", "cognitive-signature", "capability-frontier-convergence"]
+
+[[entry]]
+id = "cognitive-manifold"
+kind = "concept"
+title = "cognitive manifold"
+definition = "The set of cognitive states a system actually visits, hypothesized to form a smooth submanifold $M$ of the activation space whose dimension is far below the number of units. Its dimension is the number of independent ways the cognitive state can vary."
+first_stated = "Definition 3.3, `geometric-cognition/chapters/ch03_cognitive_manifold.md:64-68`, with the formal definition in Technical Appendix 3A, `geometric-cognition/chapters/ch03_cognitive_manifold.md:325-335`."
+conditions = [
+  "It is a hypothesis, and the volume calls it a strong claim. The ledger holds the row that cognitive states form a manifold on which distance is meaningful at posited (GC-2).",
+  "The formal definition adds a Riemannian metric and a smooth embedding. It requires each task trajectory in activation space to stay within a small distance of a curve on the manifold.",
+  "Chapter 17 leaves open whether the manifold is Riemannian or Finsler and what its dimension is for human cognition.",
+]
+known_as = "The manifold hypothesis of machine learning, which the volume cites from Bengio and colleagues, Tenenbaum and colleagues, and Roweis and Saul."
+related = ["manifold", "intrinsic-dimension", "attention-metric", "cognitive-heuristic-field", "cognitive-representation-posit"]
+
+[[entry]]
+id = "cognitive-heuristic-field"
+kind = "concept"
+title = "heuristic field"
+definition = "A smooth real-valued function $h$ on the cognitive manifold that assigns each state an estimate of the cost of reaching the goal state, approximating the geodesic distance to it. System 1 processing follows its negative gradient."
+first_stated = "Definition 3.7, `geometric-cognition/chapters/ch03_cognitive_manifold.md:164-168`."
+conditions = [
+  "The field is an estimate and can be wrong. A local minimum of $h$ far from the true goal traps gradient-following search, which the volume calls premature convergence.",
+  "The volume reads framing, anchoring and sycophancy as corruption of the field. Those readings are interpretations on benchmark axes, and the ledger holds each interpretation at posited.",
+  "Chapter 17 lists measuring the field from neural activations as an open question.",
+]
+known_as = "The heuristic function of A* search, which the volume's notation table gives as $f(x) = g(x) + h(x)$."
+related = ["cognitive-manifold", "curvature-triggered-transition", "geodesic-distance", "gradient", "geometric-defect-taxonomy"]
+
+[[entry]]
+id = "attention-metric"
+kind = "concept"
+title = "attention metric"
+definition = "A positive-definite symmetric bilinear form $g$ on each tangent space of the cognitive manifold whose components are set by attention allocation. A dimension with a larger attention weight has higher resolution, so states that differ along it are farther apart and easier to tell apart."
+first_stated = "Definition 4.1, `geometric-cognition/chapters/ch04_attention_metric.md:51-55`, with the weights written out at `geometric-cognition/chapters/ch04_attention_metric.md:65-67`."
+conditions = [
+  "The ledger holds the claim that attention is the metric at posited (GC-3).",
+  "Under divided attention a fixed budget W is spread over k targets, so each target receives W/k and less resolution than under selective attention.",
+  "The volume reads benchmark scores as constraints on the metric through a model. Its eccentricity estimates of about 4.2 for Claude and 1.1 for Gemini 3 Flash assume a harmonic mean of per-dimension performance and a sigmoid in the attention weight.",
+]
+known_as = "A Riemannian metric tensor. Section 4.11 of the volume connects it to Fisher information."
+related = ["metric", "positive-definite", "cognitive-manifold", "working-memory-tangent-space", "mahalanobis-distance"]
+
+[[entry]]
+id = "working-memory-tangent-space"
+kind = "concept"
+title = "working memory as tangent space"
+definition = "Working memory at a cognitive state is identified with the tangent space of the cognitive manifold at that state, equipped with the attention metric. Its effective capacity is the participation ratio of the metric eigenvalues, the square of their sum divided by the sum of their squares."
+first_stated = "Definition 5.1, `geometric-cognition/chapters/ch05_working_memory.md:64-64`, and Definition 5.2, `geometric-cognition/chapters/ch05_working_memory.md:85-91`."
+conditions = [
+  "The ledger holds the identification of working memory with the tangent space at posited (GC-4).",
+  "The effective dimension lies between 1, when one eigenvalue dominates, and the manifold's dimension, when all eigenvalues are equal.",
+  "The estimates from the E4 subtask, about 10 to 11 effective dimensions for Gemini 2.0 Flash and at least 16 for Gemini 3 Flash, assume a sigmoid accuracy model and a demand of about two dimensions per party.",
+  "Logarithmic scaling of the effective dimension with model size is offered as the simplest hypothesis, and Section 5.15 lists its consequences as predictions.",
+]
+known_as = "The participation ratio. The volume sets the capacity beside the item limits of Miller and of Cowan."
+related = ["attention-metric", "cognitive-manifold", "effective-rank", "cognitive-control-tensor"]
+
+[[entry]]
+id = "cognitive-control-tensor"
+kind = "concept"
+title = "control tensor"
+definition = "A (2,0)-tensor $C$ at each cognitive state that gives, for each direction of perturbation and each direction of response, the control system's capacity to manage the interaction. Its four named components are cognitive flexibility, inhibitory control, counterfactual sensitivity and working memory management, sampled by subtasks E1 to E4."
+first_stated = "Definition 6.4, `geometric-cognition/chapters/ch06_executive_functions.md:181-186`."
+conditions = [
+  "The ledger holds executive function as search control over the manifold at posited (GC-5).",
+  "The benchmark recovers four numbers, one per subtask. The worked diagonal form ignores interactions between the functions and assumes the four subtasks are orthogonal, which the volume calls a crude approximation.",
+  "The formal definition requires nonnegative components, a bounded trace and smooth variation with the state.",
+]
+related = ["displacement-recovery-dissociation", "metacognitive-recovery-ceiling", "scalar-irrecoverability-theorem", "working-memory-tangent-space"]
+
+[[entry]]
+id = "displacement-recovery-dissociation"
+kind = "result"
+title = "displacement-recovery dissociation"
+definition = "On the E2 emotional anchoring test, how far a perturbation moves a model's judgment and how often an inhibition instruction restores it vary independently across models. The volume assigns displacement to the metric and recovery to the control layer."
+first_stated = "Section 6.4, `geometric-cognition/chapters/ch06_executive_functions.md:108-123`."
+conditions = [
+  "The evidence is five models on one subtask, and the run records are not in the repository.",
+  "Claude's high displacement statistic partly reflects its low stochastic variation, which shrinks the denominator of the t statistic.",
+  "Recovery rates for the same models differ between the volume's appendices. Technical Appendix 6B prints 0.29, 0.43 and 0.20 for Gemini 2.5 Flash, Gemini 3 Flash and Gemini 2.5 Pro, and Technical Appendix 11A prints 0.48, 0.52 and 0.45.",
+  "The reading of emotional anchoring as an executive control failure is held at posited in the ledger (GC-14-I).",
+]
+standing = "A measured pattern in five models that the ledger's anchoring statistic row grades exploratory (GC-14-S). The assignment to metric and control layer is the volume's interpretation."
+related = ["cognitive-control-tensor", "metacognitive-recovery-ceiling", "cognitive-signature"]
+
+[[entry]]
+id = "metacognitive-recovery-ceiling"
+kind = "result"
+title = "recovery ceiling (about 38 percent)"
+definition = "The observation that an explicit instruction to ignore a perturbation restores about 38 to 39 percent of the verdicts the perturbation displaced, on both the A1 distractor test and the E2 emotional anchoring test. The volume reads it as a limit of prompt-level control."
+first_stated = "Section 2.6, `geometric-cognition/chapters/ch02_kahneman.md:164-166`, and Section 6.5, `geometric-cognition/chapters/ch06_executive_functions.md:132-145`."
+conditions = [
+  "It is a mean over five models on two subtasks. Gemini 2.0 Flash recovers 73 percent on E2, which the volume says appears to contradict the hypothesis and explains by a hypothesized second mechanism, recomputation from scratch.",
+  "The volume calls its account of why the figure is 38 percent speculative, and Chapter 17 lists whether the ceiling can be broken as an open question.",
+  "The override bound of Technical Appendix 12B is given with a proof sketch. It restates the ceiling as about 62 percent of the System 1 error being committed.",
+]
+standing = "A measured mean whose run records are not in the repository. The ledger grades its row for a ceiling near 38 percent exploratory (GC-19, worded there as a divided-attention ceiling), and the architectural explanations are the volume's hypotheses."
+related = ["displacement-recovery-dissociation", "curvature-triggered-transition", "cognitive-control-tensor", "metacognitive-empty-quadrant"]
+
+[[entry]]
+id = "curvature-triggered-transition"
+kind = "concept"
+title = "curvature-triggered transition (System 1 to System 2)"
+definition = "The volume's geometric form of dual-process theory. A system follows the gradient of its heuristic field (System 1) where the curvature of the cognitive manifold is below a threshold, and computes geodesics (System 2) where the curvature reaches it."
+first_stated = "Definition 2.3, `geometric-cognition/chapters/ch02_kahneman.md:128-128`, and Definition 12.3, `geometric-cognition/chapters/ch12_dual_process.md:109-113`."
+conditions = [
+  "The ledger holds the identification of System 1 with gradient following and System 2 with geodesic computation at posited (GC-6).",
+  "The sharp threshold is called a mathematical idealization, with a sigmoid blend of the two regimes in practice. The threshold is a property of the individual system and not a universal constant.",
+  "Chapter 2 states the trigger with sectional curvature and Chapter 12 states it with scalar curvature.",
+  "The confirming evidence in Section 12.6 is Maya's experiment, which belongs to the chapter's running example. Chapter 17 calls a result of that running example fictional and described for narrative purposes.",
+]
+standing = "Posited. The campaign record lists no gate that tests a curvature threshold, and the drafted human gate H1 says a pass on it would say nothing about curvature."
+known_as = "Dual-process theory, System 1 and System 2, as in Kahneman."
+related = ["cognitive-heuristic-field", "cognitive-manifold", "curvature", "metacognitive-recovery-ceiling", "deliberative-recruitment-hypothesis"]
+
+[[entry]]
+id = "deliberative-recruitment-hypothesis"
+kind = "concept"
+title = "Deliberative Recruitment Hypothesis (gate H1)"
+definition = "The claim, labelled GC-DRH-1, that for a participant whose sensitivity profile was identified on a calibration block, process measures of deliberation on a disjoint test block peak at that participant's identified resolution boundary. The peak sits at a larger separation when the probe's attribute carries low workload variance in the context."
+first_stated = "Section 1 of the draft registration, `geometric-cognition/experiments/H1/PREREG-H1-DRAFT.md:20-36`, with its status in `geometric-cognition/CAMPAIGN.md:17-30`."
+online_page = "none"
+conditions = [
+  "The registration is a draft and is not sealed. No participant has been recruited, no pilot has run and no bar is fixed, and human data collection waits on ethics approval.",
+  "The only stage run is a self-test on synthetic observers on 2026-09-18. It passed 20 of 20 checks on its fourth run, after three recorded failures that changed the estimator.",
+  "The registration says the self-test shows the estimator reads the endpoints and the nulls correctly on built stimuli, and does not show that a human observer will produce them.",
+  "The recruitment part is not graded when the identification part misses. The registration says a pass would say nothing about curvature or about language models.",
+]
+standing = "Untested. The campaign record lists gate H1 as drafted on 2026-09-18, not sealed and not run."
+related = ["curvature-triggered-transition", "budget-reversal-gate-c1", "preregistration", "sealed", "observer-vacuity-proposition"]
+
+[[entry]]
+id = "judgment-gauge-invariance"
+kind = "concept"
+title = "moral gauge invariance of judgment"
+definition = "A moral judgment function $J$ is gauge invariant under a transformation of the scenario text when the judgment of the transformed scenario equals the judgment of the original for every scenario, the transformation changing surface presentation and preserving all moral content. The judgment is a vector of seven harm scores from 0 to 10."
+first_stated = "Definition 7.2, `geometric-cognition/chapters/ch07_social_cognition.md:82-86`, with the judgment vector in Definition 7.1, `geometric-cognition/chapters/ch07_social_cognition.md:63-67`."
+conditions = [
+  "The transformation must be morally irrelevant by construction. In the T5 test the rewrites are produced by one fixed model, Gemini 2.0 Flash.",
+  "The volume finds that total harm is not conserved under rewriting, and says the framing transformation is then not a proper gauge transformation for these systems.",
+  "The seven harm dimensions are specified in advance and not inferred from data. Definition 7.1 and Appendix B name the seven differently.",
+]
+known_as = "Gauge invariance in physics, and the Bond Invariance Principle, which the volume cites as Bond 2026."
+related = ["cognitive-framing-displacement", "cognitive-heuristic-field", "nuisance", "quotient"]
+
+[[entry]]
+id = "cognitive-framing-displacement"
+kind = "result"
+title = "framing displacement (the 15.3 sigma effect)"
+definition = "On the T5 test, rewriting a scenario in a euphemistic or dramatic register with the moral facts fixed shifts each model's total harm score beyond its own re-judging noise. The volume reports the shift as 15.3 sigma, combined across five models by Fisher's method."
+first_stated = "Section 7.4, `geometric-cognition/chapters/ch07_social_cognition.md:97-113`, with the statistic's construction in Technical Appendix 7B, `geometric-cognition/chapters/ch07_social_cognition.md:349-365`."
+conditions = [
+  "The five models judge the same scenarios, so the per-model statistics are not fully independent. The volume says the combination is then anti-conservative and the true combined significance is lower than 15.3 sigma.",
+  "The direction is not uniform. Claude's dramatic drift is -1.5, against +6.2 to +9.8 for the Gemini models.",
+  "The figure was updated from an earlier 8.9 sigma after more scenario data and refined controls were included.",
+]
+standing = "The ledger grades the statistic exploratory (GC-11-S), since no registration predates the run and no result file or seed is in the repository. The reading as a framing effect in a social-cognitive dimension is held at posited (GC-11-I)."
+related = ["judgment-gauge-invariance", "null-model", "control", "multiple-comparisons", "sycophancy-gradient"]
+
+[[entry]]
+id = "sycophancy-gradient"
+kind = "result"
+title = "sycophancy gradient"
+definition = "On the L2 test, the fraction of invalid corrections that make a model change its verdict, the wrong flip rate, rises across four models from 0 percent to 56 percent. The sycophancy index is the wrong flip rate divided by the correct flip rate."
+first_stated = "Section 8.2, `geometric-cognition/chapters/ch08_learning.md:64-84`."
+conditions = [
+  "There are nine wrong-correction items per model, with Wilson 95 percent intervals as wide as 27 to 81 percent. Four models are tabulated.",
+  "The 13.3 sigma Fisher figure reflects correction integration overall. The volume says it conflates accepting valid corrections with accepting invalid ones.",
+  "The reading as a leaky correction filter, a projection that fails to suppress invalid evidence, is the volume's interpretation.",
+]
+standing = "The ledger grades the statistic exploratory (GC-12-S) and holds the reading as belief revision under social pressure at posited (GC-12-I). The run records are not in the repository."
+related = ["cognitive-framing-displacement", "cognitive-heuristic-field", "confidence-interval", "cognitive-signature"]
+
+[[entry]]
+id = "metacognitive-empty-quadrant"
+kind = "result"
+title = "empty quadrant (metacognition)"
+definition = "In the plane of self-monitoring accuracy (M3) and effort scaling index (M4), split at a threshold on each axis, no tested model lies in Quadrant I, where both exceed the threshold. The volume reads the gap as a structural constraint."
+first_stated = "Section 9.8, `geometric-cognition/chapters/ch09_metacognition.md:193-205`, with Definition 9.5, `geometric-cognition/chapters/ch09_metacognition.md:217-224`."
+conditions = [
+  "Section 9.7 tabulates four models. The volume says that with four points the negative correlation of about -0.85 does not reach conventional significance.",
+  "The quadrant is empty only for thresholds from 0.149 up to below 0.500 on M3, and the appendix uses 0.25.",
+  "The statement that the gap is not a sampling artifact and the topological hole are interpretations. The volume frames the hole with the words if this interpretation is correct.",
+  "M3 and M4 values for the same models differ between chapters. Gemini 3 Flash has M3 of 0.149 in Section 9.7 and 0.250 in Section 16.7, and Chapter 1 prints Gemini 2.5 Pro at 0.350 and 0.700 where Chapter 9 prints 0.500 and 0.000.",
+]
+standing = "The ledger grades the observation exploratory (GC-20), with its primary artifacts not in the repository."
+related = ["metacognitive-recovery-ceiling", "capability-frontier-convergence", "cognitive-signature", "threshold"]
+
+[[entry]]
+id = "developmental-topological-transition"
+kind = "concept"
+title = "developmental stages as topological transitions"
+definition = "The volume models Piaget's four stages as a nested sequence of manifolds, $M_0$ inside $M_1$ inside $M_2$ inside $M_3$, reached by dimension addition, metric stabilization and completion under logical operations. Each transition is said to change the topological type of the cognitive manifold."
+first_stated = "Section 13.6, `geometric-cognition/chapters/ch13_development.md:144-158`, and the theorem of Technical Appendix 13A, `geometric-cognition/chapters/ch13_development.md:303-309`."
+conditions = [
+  "The ledger holds development as manifold growth, with Piagetian stages as topological transitions, at posited (GC-7).",
+  "The order is argued from prerequisites. Symbols need sensorimotor dimensions, a metric can be stabilized only on dimensions that exist, and completion needs a stable metric.",
+  "The theorem is stated with a one-line reason for each transition and no further proof.",
+  "The longitudinal data of Section 13.8 belong to the running example about Maya, a narrative device whose 2032 result Chapter 17 calls fictional.",
+]
+known_as = "Piaget's stage theory of cognitive development."
+related = ["cognitive-manifold", "attention-metric", "judgment-gauge-invariance", "geometric-defect-taxonomy"]
+
+[[entry]]
+id = "geometric-defect-taxonomy"
+kind = "concept"
+title = "geometric taxonomy of cognitive pathology"
+definition = "The volume's classification of four conditions by the geometric object that is defective. ADHD is instability of the attention metric, autism is rigidity of the attention metric, depression is a collapsed heuristic field with near-zero gradient, and anxiety is an inflated heuristic field that overestimates cost."
+first_stated = "Section 14.6, `geometric-cognition/chapters/ch14_pathology.md:181-188`, under the caveat of Section 14.1, `geometric-cognition/chapters/ch14_pathology.md:38-40`."
+conditions = [
+  "The volume's own caveat says these characterizations are theoretical proposals and not clinical findings, hypotheses and not diagnoses, and that they have not been validated by large-scale empirical studies.",
+  "The ledger holds cognitive pathology as geometric defect at posited (GC-8).",
+  "The volume offers the taxonomy as a complement to clinical description and not a replacement for it.",
+]
+related = ["attention-metric", "cognitive-heuristic-field", "developmental-topological-transition"]
+
+[[entry]]
+id = "cognitive-signature"
+kind = "instrument"
+title = "cognitive signature and signature distance"
+definition = "The vector of a model's normalized subtask scores, compared between models by Euclidean distance. Each subtask is rescaled so that the worst of the five models is 0 and the best is 1, with lower-is-better subtasks inverted."
+first_stated = "Definitions 16.1 and 16.2, `geometric-cognition/chapters/ch16_five_signatures.md:299-309`, with the normalization in Technical Appendix 16A, `geometric-cognition/chapters/ch16_five_signatures.md:370-378`."
+conditions = [
+  "The normalization uses the minimum and maximum across the five tested models, so a signature is relative to that set.",
+  "Euclidean distance weights all subtasks equally. The volume names weighted, cosine and rank-based distances as alternatives that change the structure of the space.",
+  "The ledger grades the claim of five distinct profile shapes exploratory (GC-16) and leaves the predictability of a signature from architecture open (GC-21).",
+]
+related = ["cognitive-profile-tensor", "scalar-irrecoverability-theorem", "capability-frontier-convergence", "euclidean-distance", "standardization"]
+
+[[entry]]
+id = "capability-frontier-convergence"
+kind = "result"
+title = "composite convergence near 0.68 (capability frontier)"
+definition = "The five models' composite scores fall between 0.63 and 0.72. The volume reads the narrow band as a capability frontier, a surface of achievable profiles that the composite projects to a value near 0.68."
+first_stated = "Section 16.9, `geometric-cognition/chapters/ch16_five_signatures.md:284-288`."
+conditions = [
+  "The ledger holds the frontier reading at posited (GC-17) and the claim that the frontier is a surface and not a point at posited (GC-18).",
+  "The ledger notes that a band computed from composite scores is a statement about the composite, which Chapter 1 argues discards the structure the book is about.",
+  "The composite is the unweighted mean of 21 subtask scores normalized across the same five models.",
+]
+related = ["scalar-irrecoverability-theorem", "cognitive-signature", "metacognitive-empty-quadrant"]
+
+[[entry]]
+id = "cognitive-representation-posit"
+kind = "correction"
+title = "representation posit and the admission verdict"
+definition = "The claim that the five benchmark tracks are dimensions of cognition and not an analyst's coordinates is ledger row GC-1. The admission filter xbse ruled the cognitive instrument inadmissible on 2026-07-14 because no structure label independent of the embedding was available, so the ledger caps every interpretation at posited."
+first_stated = "Section 3.4 states the tracks as independent dimensions, `geometric-cognition/chapters/ch03_cognitive_manifold.md:89-89`. The correction is in `geometric-cognition/README.md:22-28` and `geometric-cognition/claims/LEDGER.md:14-41`."
+conditions = [
+  "The verdict has not been overturned, and the README says its realignment does not overturn it.",
+  "The ledger splits each empirical claim into a statistic row and an interpretation row. Every interpretation row uses GC-1 and cannot be graded above it.",
+  "The README names the refutation condition this corpus currently fails. Cross-domain metric transfer must survive the replacement of researcher-coded encodings by independently measured ones, and the corpus's encodings are researcher-coded.",
+  "The conversion edited no chapter, so the manuscript states several rows more strongly than the ledger grades them.",
+]
+standing = "A correction applied to the whole volume by its README and ledger on 2026-09-13. GC-1 is posited."
+related = ["posited-versus-measured", "ledger-class", "cognitive-manifold", "observer-vacuity-proposition", "confound"]
+
+[[entry]]
+id = "observer-vacuity-proposition"
+kind = "result"
+title = "vacuity proposition for the cognitive observer"
+definition = "A cognitive observer is a representation map, a metric, a budget and an admissible set, together with a search policy. If all four components are fitted to a finite choice record, some observer reproduces any record exactly, so choice data alone cannot disconfirm the account."
+first_stated = "Proposition 3 of the foundational paper, `geometric-cognition/paper/olgc.tex:185-196`, with the observer defined at `geometric-cognition/paper/olgc.tex:164-171` and the README's statement at `geometric-cognition/README.md:41-47`."
+online_page = "none"
+conditions = [
+  "The paper marks the proposition proved, elementary and not new. Making the admissible set menu-dependent and equal to the option chosen reproduces any record.",
+  "The account has content under modular identification, where each component is estimated from evidence disjoint from the record it predicts. It then excludes records that differ from the induced order by more than the budget's indifference band (ledger row GC-28).",
+  "How much a single unidentified component can absorb is open (GC-33), so identifying three of four components is not known to beat identifying none.",
+  "The paper is draft 0.1.",
+]
+standing = "The ledger grades the proposition proved and not new (GC-27). The observer definition it concerns is posited (GC-26)."
+known_as = "The paper places it beside the result of Kalai, Rubinstein and Spiegler that rationalization by multiple rationales admits every choice function, and contrasts it with Afriat's theorem."
+related = ["cognitive-representation-posit", "budget-reversal-gate-c1", "geometric-evaluation-theory", "observer", "budget"]
+
+[[entry]]
+id = "budget-reversal-gate-c1"
+kind = "correction"
+title = "gate C1, the budget reversal contrast"
+definition = "Gate C1 was drafted to test ledger row GC-34, that under a budget manipulation with metric and ideal held fixed, order reversals concentrate on pairs trading a retained direction against an unresolved one. Its own controls showed the registered contrast does not come from the budget, and the registration was ruled not sealable."
+first_stated = "The claim is in `geometric-cognition/experiments/C1/PREREG-C1-DRAFT.md:13-17`, and the outcome is in `geometric-cognition/CAMPAIGN.md:266-306` with the disposition at `geometric-cognition/experiments/C1/PREREG-C1-DRAFT.md:1515-1520`."
+online_page = "none"
+conditions = [
+  "Rebuilding both pair classes against a random plane reproduced the contrast, 0.9531 at rank 1 and 0.9688 at rank 2 against the registered 0.9683. The record says the retained subspace is doing no work.",
+  "The contrast is an identity in the chance p that a graded verdict agrees with the fitted metric, equal to $(2p - 1)^2$, because a pair's class label is itself the prediction.",
+  "Two instruments failed their gates on the first evaluator, reported distances on arithmetic with a calibration $r^2$ of 0.0946 and pairwise comparison on position bias with a first-position rate of 0.8175. Those runs were voided and not scored against GC-34.",
+  "Later sections of the draft record a prediction of the cells that failed, a design that never manipulated a budget, and one candidate signal in order-dependence (15 of 192 trading pairs against 4 of 192, Fisher p = 0.0164) that the draft calls a hypothesis and not a result.",
+]
+standing = "GC-34 stays predicted and unsealed. The campaign record counts no gate sealed or run and no ledger class raised or lowered."
+related = ["observer-vacuity-proposition", "deliberative-recruitment-hypothesis", "preregistration", "sealed", "null-model", "witness"]
+
+[examples]
+cognitive-profile-tensor = "In the volume's Chapter 1 table Claude scores 1.000 on L2 and 0.571 on A4 while Gemini 2.5 Pro scores 0.720 and 0.790, so neither profile is above the other on both components."
+scalar-irrecoverability-theorem = "The volume's illustration has three models with scores (0.95, 0.60, 0.80, 0.70, 0.85), (0.70, 0.85, 0.75, 0.80, 0.80) and (0.80, 0.75, 0.78, 0.77, 0.80). Each sums to 3.90, so all three composites are 0.78 and the score cannot say which profile produced it."
+cognitive-manifold = "The volume's analogy is a body with about 244 joints at six degrees of freedom each, which has 6 times 244 = 1464 configuration dimensions, while walking varies in about two, the phase of the gait cycle and the speed."
+cognitive-heuristic-field = "On a line with the goal at 0 and $h(x) = |x|$, the state 3 has estimated cost 3 and the negative gradient points toward 0. If $h$ also had a dip at 5, a gradient-following search started at 6 would stop at 5 and never reach the goal."
+attention-metric = "With attention weight 4 on color and 1 on shape and no cross terms, a unit step along color has squared length 4 and a unit step along shape has squared length 1. On the A4 divided attention test the volume prints 0.571 for Claude and 1.000 for Gemini 3 Flash, a gap of 0.429."
+working-memory-tangent-space = "Metric eigenvalues 3 and 1 give $(3 + 1)^2 / (9 + 1) = 1.6$ effective dimensions, the same value Section 10.11 of the volume computes for weights 0.75 and 0.25."
+cognitive-control-tensor = "The volume's diagonal for Claude is (0.673, 0.492, 0.562, 0.886). Its anisotropy is 0.886 / 0.492 = 1.80, the largest of the five models, and for Gemini 2.0 Flash it is 0.710 / 0.500 = 1.42."
+displacement-recovery-dissociation = "The volume prints for Claude the largest displacement statistic, t = 5.10, and the lowest recovery, 0.20, and for Gemini 2.0 Flash t = 3.80 and recovery 0.73. The products in Technical Appendix 11A are 5.10 times 0.20 = 1.02 and 3.80 times 0.73 = 2.77."
+metacognitive-recovery-ceiling = "The A1 warning recoveries the volume prints are about 42, 38, 40, 35 and 37 percent, whose mean is 192 / 5 = 38.4 percent. The E2 mean is printed as 38 percent, with single models from 20 to 73 percent."
+curvature-triggered-transition = "In the volume's illustration a framing perturbation of 0.1 that produces a displacement of 0.3 is an amplification of 3.0, and over five reasoning steps $e^{5s} = 3$ gives $s = (ln 3)/5$, about 0.22, so the curvature magnitude is about 0.048. The inputs 0.1, 0.3 and 5 are modelled values."
+deliberative-recruitment-hypothesis = "In the self-test the synthetic rank budget observer scores 0.988 in the high role and 0.691 in the low role at the largest separation, a difference of 0.297, while the uniform noise observer scores 0.986 in both, a difference of 0.000. These are simulated observers and not participants."
+judgment-gauge-invariance = "If a scenario's seven harm scores sum to 30 and its euphemistic rewrite sums to 18, the harm conservation violation is 18 - 30 = -12 and the judgment is not invariant. The volume prints euphemistic drifts of the total from -9.1 to -14.1."
+cognitive-framing-displacement = "For Gemini 2.5 Pro the volume prints a euphemistic drift of -14.1 on the 70-point scale against a control drift of 4.2. 14.1 / 70 is about 20 percent of the scale, and 14.1 / 4.2 is about 3.4 times the control."
+sycophancy-gradient = "The volume prints for Gemini 2.0 Flash a flip on 33 percent of invalid corrections and 71 percent of valid ones. 33 / 71 is about 0.46 where the volume prints an index of 0.472, and the gap 0.71 - 0.33 is 0.38 where it prints 0.377, the printed rates being rounded."
+metacognitive-empty-quadrant = "With the appendix's threshold of 0.25, Gemini 2.5 Pro at (0.500, 0.000) is in Quadrant II and Gemini 2.0 Flash at (0.042, 0.827) is in Quadrant IV. Their differences are 0.458 on M3 and -0.827 on M4, as the volume prints."
+developmental-topological-transition = "The volume gives the sensorimotor manifold about 3 to 5 dimensions. Adding one symbolic dimension to a 4-dimensional patch gives 5 dimensions, and manifolds of different dimension are not homeomorphic, which is the volume's reason for the first transition."
+geometric-defect-taxonomy = "The volume's inflation factor is the estimated cost divided by the true cost. A true cost of 2 estimated as 6 gives a factor of 3, far above the value near 1 the volume assigns to healthy cognition, which is its picture of anxiety."
+cognitive-signature = "Signatures (1, 0) and (0, 1) have the same mean, 0.5, and a distance of the square root of 2, about 1.41. The volume's matrix prints 0.58 for Gemini 3 Flash and Gemini 2.5 Flash, its closest pair, and 1.03 for Claude and Gemini 2.0 Flash, its farthest."
+capability-frontier-convergence = "The composites the volume prints are 0.72, 0.70, 0.68, 0.66 and 0.63. Their range is 0.72 - 0.63 = 0.09 and their mean is 3.39 / 5 = 0.678."
+cognitive-representation-posit = "The 15.3 sigma framing statistic is ledger row GC-11-S, graded exploratory. Its reading as a framing effect in a social-cognitive dimension is row GC-11-I, which uses GC-1 and so stays at posited. The ledger counts 21 posited rows of 39."
+observer-vacuity-proposition = "Suppose an agent picks a from the menu {a, b} and b from the menu {a, b, c}. Setting the admissible set to {a} on the first menu and {b} on the second reproduces the record under any metric and budget, so the fit excludes nothing."
+budget-reversal-gate-c1 = "With agreement chance p = 0.992 the identity gives a trading reversal rate of $p^2 + (1-p)^2$ = 0.9841, a within-subspace rate of $2p(1-p)$ = 0.0159 and a contrast of $(2p-1)^2$ = 0.9683, which is the pilot's value with nothing left for the budget to explain."

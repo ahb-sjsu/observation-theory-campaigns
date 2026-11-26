@@ -1,0 +1,344 @@
+[volume]
+number = 5
+title = "Geometric Law"
+repo = "geometric-law"
+slug = "geometric-law"
+standing = "The README's epistemic status of 2026-07-14 calls the volume a posited framework with one instrumented corner. That corner is the legal text embedding LeBSE, validated in the xbse admission filter on US case law with labels from the CourtListener citation graph, and the README says this covers structure preservation in legal text embeddings and not the book's broader jurisprudential claims, which remain posited theory at licensed strength."
+
+[[entry]]
+id = "judicial-complex"
+kind = "concept"
+title = "Judicial complex"
+definition = "The judicial complex $\\mathcal{K}$ is a directed weighted simplicial complex. Each decided case is a vertex carrying a vector of eight legal dimension scores, a court level and a date. A directed edge with an asymmetric non-negative weight runs from a cited case to the citing case, and a set of mutually citing cases that establish a doctrine is a higher simplex."
+first_stated = "Chapter 3, the formal construction, `geometric-law/chapters/ch03_judicial_complex.md:126-138`, with the tuple form in the appendix, `geometric-law/chapters/ch03_judicial_complex.md:418-423`."
+conditions = [
+  "The front matter classes the structural choices of the model as modeling axioms, and Chapter 16 calls the complex a model of legal reasoning and not a replica.",
+  "Citation edges respect time, so the citation subgraph is acyclic. Binding authority runs from a higher court to a lower one, and the reverse direction has high or infinite cost.",
+  "The continuum limit to a Riemannian manifold is used as a theoretical tool. The discrete complex is primary and every computation on it is finite.",
+  "Chapter 4 states that scoring a case corpus and calibrating the weights has not yet been executed on legal data. The five-case complex in Chapter 3 is an illustration.",
+]
+known_as = "Citation networks of case law and the simplicial complexes of algebraic topology."
+related = ["eight-legal-dimensions", "legal-edge-weight", "legal-friction", "graph", "manifold"]
+
+[[entry]]
+id = "eight-legal-dimensions"
+kind = "concept"
+title = "Eight legal dimensions"
+definition = "Eight axes along which a legal state is scored. They are entitlement structure, factual nexus, procedural posture, statutory authority, constitutional conformity, precedential constraint, remedial scope and public interest. The eight scores of a case form its attribute vector."
+first_stated = "Chapter 3, `geometric-law/chapters/ch03_judicial_complex.md:44-86`."
+conditions = [
+  "The volume says the choice of eight is a modeling decision, not a derivation from first principles and not the unique correct decomposition. Chapter 1 tags it as a modeling axiom.",
+  "Dimensions may be added or merged. The stated requirement is several non-redundant axes of legal variation, and the later theorems are said to hold for any finite-dimensional attribute space.",
+  "The scores are to come from linear probes on a text embedding, trained on expert labels. Chapter 4 states that this programme has not yet been executed on legal data.",
+  "Chapter 15 requires that no pair of predicted scores correlate above 0.7 on held-out cases. Otherwise the probes are retrained or the dimensions redefined.",
+]
+related = ["judicial-complex", "legal-mahalanobis-distance", "legal-embedding", "covariance-matrix"]
+
+[[entry]]
+id = "legal-mahalanobis-distance"
+kind = "concept"
+title = "Legal Mahalanobis distance"
+definition = "The distance between two cases is the square root of $\\Delta v^T \\Sigma^{-1} \\Delta v$, where $\\Delta v$ is the difference of their eight-dimensional attribute vectors and $\\Sigma$ is the covariance matrix of the eight dimensions over the case corpus."
+first_stated = "Chapter 4, `geometric-law/chapters/ch04_legal_metric.md:52-60`."
+conditions = [
+  "The covariance matrix must be positive definite. When it is diagonal the distance reduces to a Euclidean distance with each dimension weighted by the inverse of its variance.",
+  "The front matter classes the Mahalanobis metric as a modeling axiom. The volume says the metric is calibrated from data and can be miscalibrated, for example by a biased corpus.",
+  "Chapter 4 states that the calibration programme has not yet been executed on legal data. Chapter 16 lists metric calibration as its first open problem and says no calibration protocol, sensitivity bound or uncertainty procedure exists yet.",
+  "The predicted off-diagonal entries, such as a positive covariance of statutory authority with remedial scope, are stated as falsifiable predictions. The volume reports no test of them.",
+]
+known_as = "Mahalanobis distance."
+related = ["mahalanobis-distance", "covariance-matrix", "eight-legal-dimensions", "legal-edge-weight", "calibration", "positive-definite"]
+
+[[entry]]
+id = "legal-edge-weight"
+kind = "concept"
+title = "Asymmetric edge weight (legal)"
+definition = "The weight of a directed edge from case $i$ to case $j$ is the quadratic form $\\Delta v^T \\Sigma^{-1} \\Delta v$, plus a penalty $\\beta$ for each regime boundary crossed, plus a hierarchical cost. That cost is 0 from a higher court to a lower one, a positive constant $\\eta$ at the same level, and infinite from lower to higher."
+first_stated = "Chapter 4, `geometric-law/chapters/ch04_legal_metric.md:114-155`, with the appendix form at `geometric-law/chapters/ch04_legal_metric.md:408-412`."
+conditions = [
+  "The weight is asymmetric, so it is a cost function for shortest paths on a directed graph and not a metric. The volume states that only the doctrinal term taken alone is a metric.",
+  "The formula uses the quadratic form without the square root, although the chapter labels that term the Mahalanobis distance. The worked example adds the squared value to the other two terms.",
+  "The boundary penalties are to be estimated from the observed cost of crossing jurisdictional, doctrinal, statutory and constitutional boundaries. The volume gives no estimated values.",
+  "Chapter 15 gives a different operational weight, a cross-validated mix of a citation-type term, an attribute-distance term and an outcome term.",
+]
+related = ["legal-mahalanobis-distance", "judicial-complex", "legal-friction", "precedential-weight-deformation", "metric"]
+
+[[entry]]
+id = "legal-friction"
+kind = "concept"
+title = "Legal friction"
+definition = "The legal friction of a path of cases is the sum of its edge weights plus, for each evidentiary requirement $j$, a weight $\\omega_j$ times the shortfall of the path's evidence below that requirement's threshold. A strong argument is a low-friction path, and the burden of proof is the least friction from the starting case to the goal region."
+first_stated = "Chapter 4, `geometric-law/chapters/ch04_legal_metric.md:161-173`, the appendix form at `geometric-law/chapters/ch04_legal_metric.md:414-418`, and the burden of proof at `geometric-law/chapters/ch04_legal_metric.md:212-220`."
+conditions = [
+  "The path must follow directed edges of the judicial complex. An edge of infinite weight makes the argument impossible.",
+  "Standards of proof are stated as thresholds on this quantity. Preponderance asks the plaintiff's best path to be shorter than the defendant's, clear and convincing asks it to be shorter by a factor below 1, and beyond reasonable doubt asks it to be below a small bound.",
+  "The chapter's body formula lists boundary penalties as a separate term, while its appendix folds them into the edge weights. The appendix form is the one given here.",
+  "The friction values in the volume's worked examples are illustrative units. No friction computed from real cases is reported.",
+]
+related = ["legal-edge-weight", "doctrinal-heuristic", "judicial-complex", "threshold"]
+
+[[entry]]
+id = "hohfeldian-d4-group"
+kind = "result"
+title = "Hohfeldian D4 group"
+definition = "The four first-order Hohfeldian positions, right, duty, liberty and no-right, are permuted by a correlative rotation $r$ of order 4 and an opposite swap $s$ of order 2 that satisfy $srs = r^{-1}$. These generate the dihedral group of order 8, which acts faithfully on the four positions."
+first_stated = "Chapter 2, the generators and relations at `geometric-law/chapters/ch02_hohfeld.md:110-142` and the theorem with its proof at `geometric-law/chapters/ch02_hohfeld.md:473-475`."
+conditions = [
+  "Geometric Ethics, the founding volume, withdrew the dihedral group for the Hohfeldian positions in its version 1.25 and uses the Klein four-group. This volume's text predates that change and has not been revised.",
+  "The rotation $r$ sends right to duty, duty to liberty, liberty to no-right and no-right to right. The swap $s$ exchanges right with no-right and duty with liberty.",
+  "The result covers the first square only. The second square of power, liability, immunity and disability carries its own copy, and the two are joined in the octad gauge group.",
+  "Reading each of the eight elements as a re-description that leaves the underlying legal bond unchanged is the volume's interpretation. That evaluation must be invariant under them is a separate axiom.",
+]
+standing = "A theorem the volume proves by direct verification of the three defining relations. The group theory is standard, and the legal reading of it belongs to the posited framework."
+known_as = "Hohfeld's jural correlatives and opposites, and the dihedral group of symmetries of a square."
+related = ["hohfeldian-octad-gauge-group", "judicial-bond-invariance-principle", "legal-wilson-loop"]
+
+[[entry]]
+id = "hohfeldian-octad-gauge-group"
+kind = "result"
+title = "Hohfeldian octad gauge group"
+definition = "The symmetry group of the full Hohfeldian octad is the semi-direct product of two copies of the dihedral group of order 8. One copy acts on the first-order positions and the other on the second-order positions, and a homomorphism $\\varphi$ lets second-order operations twist first-order ones. The volume works with 64 elements."
+first_stated = "Chapter 5, `geometric-law/chapters/ch05_hohfeldian_group.md:63-97`, with the full statement at `geometric-law/chapters/ch05_hohfeldian_group.md:433-433`."
+conditions = [
+  "The volume gives a proof sketch. The appendix specifies the coupling homomorphism on one generator of the second copy.",
+  "When the coupling is trivial the group is the direct product, which the volume identifies as the Geometric Ethics result and calls adequate for ethics and inadequate for law.",
+  "The chapter body says the order is at most 64 and depends on the coupling. The appendix states order 64.",
+  "That the legal evaluation must be unchanged by all 64 elements is the Judicial Bond Invariance Principle, which is an axiom.",
+]
+related = ["hohfeldian-d4-group", "judicial-bond-invariance-principle", "legal-wilson-loop", "liability-damages-conservation"]
+
+[[entry]]
+id = "legal-wilson-loop"
+kind = "instrument"
+title = "Legal Wilson loop"
+definition = "The ordered product of the Hohfeldian gauge transformations along the edges of a closed path of cases. If the product is the identity the cycle is consistent. Any other group element means the chain of precedents returns to its starting point with the rights and duties relabeled."
+first_stated = "Chapter 5, `geometric-law/chapters/ch05_hohfeldian_group.md:153-171`, with the discrete form at `geometric-law/chapters/ch05_hohfeldian_group.md:435-441`."
+conditions = [
+  "Each edge needs a group element saying how the citing case relabels the positions of the cited case. In the volume's examples these are assigned by reading the cases.",
+  "Relabeling at the vertices changes the product by conjugation. Only its conjugacy class, and so whether it is trivial, is gauge-invariant.",
+  "The proposition that a body of case law is consistent if and only if all loops are trivial is stated without proof.",
+  "Chapter 3 states that the time-ordered citation graph is acyclic. The running example closes its loop with a return step from the last case to the first that is not a citation.",
+]
+known_as = "Wilson loops and holonomy in gauge theory."
+related = ["hohfeldian-octad-gauge-group", "precedential-weight-deformation", "legal-phase-transition", "topological-constitutionality"]
+
+[[entry]]
+id = "liability-damages-conservation"
+kind = "result"
+title = "Liability-damages conservation"
+definition = "In a closed bilateral dispute under a fixed legal framework, the net liabilities of the two parties sum to zero. Every right that adjudication assigns to one party is a correlative duty of the other, and every dollar of damages awarded to one is a dollar of liability on the other."
+first_stated = "Chapter 5, `geometric-law/chapters/ch05_hohfeldian_group.md:260-283`."
+conditions = [
+  "Closed means two fixed parties and a fixed legal framework. The volume names three operations that break the law, which are legislation, constitutional amendment and third-party intervention.",
+  "Punitive damages are handled by extending the system to include the state as a third party, after which the three net liabilities sum to zero.",
+  "The proof rests on Hohfeld's correlative pairs and on the premise that adjudication assigns positions already existing in the framework and creates none.",
+  "Chapter 1 says the conservation laws are conditional on assumptions that may not hold in all legal contexts.",
+]
+standing = "The front matter classes conservation among its conditional theorems, results that follow from the model's axioms. No measurement of it is reported."
+related = ["hohfeldian-d4-group", "equal-protection-gauge-invariance", "hohfeldian-octad-gauge-group"]
+
+[[entry]]
+id = "legal-invariance-principle"
+kind = "concept"
+title = "Legal Invariance Principle (LIP)"
+definition = "A legal judgment procedure is well-posed if and only if its output is unchanged by every legally irrelevant transformation of the case. The listed transformations are renaming the parties, changing their race, gender, religion or national origin, rephrasing arguments without changing their logical content, reordering the presentation, and translating between languages."
+first_stated = "Chapter 8, `geometric-law/chapters/ch08_equal_protection.md:50-62`."
+conditions = [
+  "Stated as an axiom. The volume presents it as a formalization of equal protection, due process and the rule that like cases be decided alike, and not as a reform proposal.",
+  "It requires identical treatment only when all legally relevant features are identical. A prior felony conviction is a relevant feature, so a longer sentence for it is no violation.",
+  "The principle does not itself say which features are irrelevant. Chapter 15 calls that choice a normative commitment, and the Judicial Bond Invariance Principle is the volume's answer.",
+]
+related = ["judicial-bond-invariance-principle", "equal-protection-gauge-invariance", "due-process-quotient-regularity", "legal-bond-index", "nuisance"]
+
+[[entry]]
+id = "judicial-bond-invariance-principle"
+kind = "concept"
+title = "Judicial Bond Invariance Principle (JBIP)"
+definition = "If a transformation of a dispute's description preserves the Hohfeldian bond structure, meaning the configuration of rights, duties, liberties, no-rights, powers, immunities, liabilities and disabilities among the parties, then the legal evaluation must be unchanged."
+first_stated = "Chapter 8, `geometric-law/chapters/ch08_equal_protection.md:104-114`."
+conditions = [
+  "Stated as an axiom. It is the Bond Invariance Principle of Geometric Ethics specialized to law.",
+  "The volume calls it stronger than the Legal Invariance Principle because it fixes what counts as legally relevant. Two cases with isomorphic bond structures must receive the same evaluation.",
+  "The volume identifies the bond-preserving transformations with the 64-element Hohfeldian gauge group of Chapter 5.",
+  "The volume notes that existing doctrine applies different levels of scrutiny to race and to sex, and says the axiom suggests this asymmetry is problematic.",
+]
+related = ["legal-invariance-principle", "hohfeldian-octad-gauge-group", "legal-bond-index", "equal-protection-gauge-invariance"]
+
+[[entry]]
+id = "equal-protection-gauge-invariance"
+kind = "result"
+title = "Equal protection as gauge invariance"
+definition = "The equal protection gauge group is generated by transformations that change a party's protected-class attribute while preserving all facts, all legal attributes and all Hohfeldian bonds. A legal evaluation satisfies equal protection if and only if it is unchanged by every element of this group."
+first_stated = "Chapter 8, the group and the theorem at `geometric-law/chapters/ch08_equal_protection.md:151-176`, with the full statement at `geometric-law/chapters/ch08_equal_protection.md:478-480`."
+conditions = [
+  "The front matter classes this among the conditional theorems that follow from the invariance axiom. The chapter gives a proof sketch.",
+  "The added claim that the invariance implies an entitlement balance in any closed bilateral dispute also uses the Hohfeldian correlative structure.",
+  "Disparate impact is treated separately. An invariant rule applied to a population whose distribution of situations differs by group can still give different group averages.",
+  "The tiers of scrutiny and affirmative action are read as gauge-breaking terms that need justification, so the requirement as doctrine applies it is approximate invariance with stated exceptions.",
+]
+related = ["legal-invariance-principle", "legal-bond-index", "gauge-violation-tensor", "liability-damages-conservation", "disparate-impact-ratio"]
+
+[[entry]]
+id = "due-process-quotient-regularity"
+kind = "result"
+title = "Due process as quotient regularity"
+definition = "Due process is the requirement that the legal evaluation map be well defined on the quotient of the space of legal situations by the legally irrelevant transformations. It fails when the outcome depends on which description of the same dispute was presented."
+first_stated = "Chapter 8, `geometric-law/chapters/ch08_equal_protection.md:327-339`."
+conditions = [
+  "The equivalence classes are those fixed by the Legal Invariance Principle, so the statement inherits that axiom's choice of irrelevant transformations.",
+  "The volume gives a proof sketch, and the sketch addresses procedural due process.",
+  "The constitutional subcomplex of Chapter 7 uses this well-definedness as its due process predicate.",
+]
+related = ["quotient", "legal-invariance-principle", "equal-protection-gauge-invariance", "topological-constitutionality"]
+
+[[entry]]
+id = "legal-bond-index"
+kind = "instrument"
+title = "Legal Bond Index (LBI)"
+definition = "The mean, over test cases and bond-preserving transformations, of the size of the change in the legal outcome under the transformation divided by the size of the original outcome. A value of 0 is perfect invariance, and the index can be split by transformation type, such as race or sex."
+first_stated = "Chapter 8, `geometric-law/chapters/ch08_equal_protection.md:220-246`, with the normalized form at `geometric-law/chapters/ch08_equal_protection.md:472-476`. Chapter 5 states it first in brief, `geometric-law/chapters/ch05_hohfeldian_group.md:311-319`."
+conditions = [
+  "It needs a transformed version of each test case. The volume says submitting transformed cases to a real court is impractical, and that for AI legal systems the index is directly computable.",
+  "The 0.155 baseline is the Bond Index of Geometric Ethics, from 20,030 normative evaluations. The volume says it is not a standard for legal systems and that the legal baseline remains to be measured.",
+  "The volume says Sentencing Commission data suggests a racial index of about 0.19 for federal sentencing and does not give the computation. The per-judge and per-district figures in its running example illustrate the method.",
+  "The definition varies across chapters. Chapters 5 and 8 state it unnormalized with a range of 0 to 1, the Chapter 8 appendix divides by the original outcome, and Chapter 15 uses Mahalanobis distances between system outputs with a suggested threshold of 0.05.",
+]
+related = ["judicial-bond-invariance-principle", "gauge-violation-tensor", "equal-protection-gauge-invariance", "paired", "disparate-impact-ratio"]
+
+[[entry]]
+id = "doctrinal-heuristic"
+kind = "concept"
+title = "Doctrinal heuristic"
+definition = "A legal doctrine read as an A* heuristic. It is a non-negative function on cases that estimates the remaining legal friction to the goal region, computed as the sum of the estimated costs of the claim's elements not yet established. It is admissible when no element's estimate exceeds its true proving cost."
+first_stated = "Chapter 6, the definition at `geometric-law/chapters/ch06_precedent_heuristic.md:86-90`, admissibility at `geometric-law/chapters/ch06_precedent_heuristic.md:129-137`, and the appendix form at `geometric-law/chapters/ch06_precedent_heuristic.md:351-361`."
+conditions = [
+  "With an admissible heuristic, A* returns the minimum-friction argument. That is the standard A* guarantee, and the volume's proof assumes that element costs add.",
+  "Overestimation breaks admissibility. Underestimation keeps it and weakens the guidance, down to the zero heuristic, which the volume identifies with a totality of the circumstances test.",
+  "The volume calls balancing tests circular heuristics and says a novel legal question has no precomputed heuristic at all.",
+  "The element costs are posited. The friction units in the chapter's comparison of McDonnell Douglas with direct evidence are illustrative.",
+]
+known_as = "Admissible heuristics in A* search, with precedent in the role of a pattern database."
+related = ["legal-friction", "judicial-complex", "legal-geometric-pathologies", "precedential-weight-deformation"]
+
+[[entry]]
+id = "topological-constitutionality"
+kind = "result"
+title = "Topological constitutionality"
+definition = "The constitutional subcomplex is the part of the judicial complex whose vertices and simplices satisfy every constitutional predicate. A statute is called constitutional if and only if adding it leaves all path homology groups of that subcomplex unchanged, which the volume restates as creating no new non-trivial directed cycle."
+first_stated = "Chapter 7, the subcomplex at `geometric-law/chapters/ch07_constitutional_topology.md:32-45`, the theorem at `geometric-law/chapters/ch07_constitutional_topology.md:99-103`, and the completeness conjecture at `geometric-law/chapters/ch07_constitutional_topology.md:187-191`."
+conditions = [
+  "The front matter classes the use of path homology for constitutionality as a modeling axiom. The theorem has a proof sketch.",
+  "The same chapter states completeness as a conjecture. If the conjecture is false, preserved path homology is a necessary condition and not a sufficient one, and the appendix's full statement claims three one-directional parts only.",
+  "Building the subcomplex requires deciding which vertices satisfy each predicate and how a statute changes the graph. The volume says this legal judgment cannot be fully automated.",
+  "For a finite directed graph the groups are computable by Smith normal form of the boundary matrices. Chapter 16 leaves open whether the fundamental group detects inconsistencies that path homology misses.",
+]
+standing = "A conditional theorem with a proof sketch, whose if-and-only-if form the chapter also poses as a conjecture. The volume's applications of it are worked examples and not computations on a case corpus."
+known_as = "Path homology of directed graphs, which the volume attributes to Grigor'yan, Lin, Muranov and Yau."
+related = ["judicial-complex", "legal-wilson-loop", "due-process-quotient-regularity", "equal-protection-gauge-invariance"]
+
+[[entry]]
+id = "precedential-weight-deformation"
+kind = "concept"
+title = "Precedential weight deformation"
+definition = "A binding precedent at a vertex adds a term to the weights of nearby edges. The size of the term scales as the precedent's hierarchical weight divided by the graph distance from the precedent raised to a decay exponent $n$, and the deformations of several precedents add."
+first_stated = "Chapter 9, `geometric-law/chapters/ch09_stare_decisis.md:30-46`, with the full form at `geometric-law/chapters/ch09_stare_decisis.md:358-362`."
+conditions = [
+  "The decay law is given as a scaling relation. The volume gives no values for the exponent, the hierarchical weights or the holding operator.",
+  "Hierarchical weight is ordered with the Supreme Court above a circuit court and a circuit court above a district court.",
+  "The deformation defines the legal connection. Carrying a rule along heavily deformed edges may rotate it, and the rotation around a closed path is the holonomy read by the Wilson loop.",
+]
+related = ["legal-edge-weight", "legal-phase-transition", "legal-wilson-loop", "doctrinal-heuristic", "curvature"]
+
+[[entry]]
+id = "legal-phase-transition"
+kind = "concept"
+title = "Legal phase transition (overruling as graph surgery)"
+definition = "Overruling a precedent is a discrete graph surgery. The old precedent's weight deformation is removed from every nearby edge and the new precedent's is added, which changes shortest paths discontinuously. Its cost is the sum, over the cases that relied on the old precedent, of each case's weight times the size of its weight change."
+first_stated = "Chapter 9, `geometric-law/chapters/ch09_stare_decisis.md:110-126`, with the general definition and the critical point at `geometric-law/chapters/ch09_stare_decisis.md:210-232`."
+conditions = [
+  "The volume's criterion is that a precedent is overruled when the holonomy around its doctrinal loop exceeds a tolerance and the benefit exceeds the reliance cost. Neither threshold is given a value.",
+  "A first-order transition flips a holding. A second-order transition changes a rule continuously with a jump in its rate of change, and the volume's example is the erosion of Bivens.",
+  "The volume offers the model as an explanation of why overruling is rare and comes in clusters. It reports no test of the criterion.",
+]
+related = ["precedential-weight-deformation", "legal-wilson-loop", "legal-geometric-pathologies", "threshold"]
+
+[[entry]]
+id = "gauge-violation-tensor"
+kind = "instrument"
+title = "Gauge violation tensor"
+definition = "A matrix whose entry for transformation $i$ and outcome $j$ is the mean over cases of the absolute change in outcome $j$ when protected characteristic $i$ is swapped, divided by the original outcome. Rows are characteristics such as race or gender, columns are outcomes such as sentence length or bail, and the mean of all entries is the Legal Bond Index."
+first_stated = "Chapter 11, `geometric-law/chapters/ch11_sentencing_disparities.md:28-48`, with the relation to the index at `geometric-law/chapters/ch11_sentencing_disparities.md:64-68`."
+conditions = [
+  "A swap cannot be applied to a real defendant. The volume estimates entries from matched pairs of cases alike in drug type, quantity, criminal history, role, district and year.",
+  "The appendix floors the denominator at a small positive constant to avoid division by zero.",
+  "The intersectional term is the violation under two simultaneous swaps minus the two separate violations. A positive value is superadditive and a negative value subadditive.",
+  "The tensor printed in the volume is for a hypothetical district. No tensor computed from real sentencing data is reported.",
+]
+related = ["legal-bond-index", "equal-protection-gauge-invariance", "paired", "singular-value-decomposition", "confound"]
+
+[[entry]]
+id = "legal-embedding"
+kind = "instrument"
+title = "Legal embedding and dimension probes"
+definition = "A function from legal documents to vectors of fixed dimension such that documents on the same legal issue have high cosine similarity and a change of wording or style moves the vector by less than a tolerance. Eight linear probes then read the eight legal dimension scores from the vector."
+first_stated = "Chapter 15, `geometric-law/chapters/ch15_ai_legal.md:52-62`, with the formal conditions at `geometric-law/chapters/ch15_ai_legal.md:384-394`. The pipeline first appears in Chapter 3, `geometric-law/chapters/ch03_judicial_complex.md:249-257`."
+conditions = [
+  "The embedding is frozen at a fixed version and the probes are logistic regressions, so the same text always gives the same scores.",
+  "Chapter 3 names the multilingual encoder LaBSE with 768 dimensions. Chapter 15 describes a legal-domain transformer for JurisGraph, the system of its running example.",
+  "The probe accuracies the volume quotes, F1 from 0.74 to 0.91, are for the nine moral-dimension probes of the parent framework. For the legal probes it calls for about 200 expert-scored validation cases and at least 500 labeled cases per dimension.",
+  "The front matter classes AI implementation as speculation or extension, and Chapter 4 states that the scoring and calibration programme has not yet been executed on legal data.",
+]
+standing = "This is the one corner the README of 2026-07-14 reports as instrumented. It says the legal text embedding LeBSE is validated in the xbse admission filter on US case law, with labels from the CourtListener citation graph, and that this covers structure preservation in legal text embeddings and not the book's broader jurisprudential claims. The chapters do not mention LeBSE or report that test."
+known_as = "Sentence embeddings and linear probing classifiers."
+related = ["embedding", "encoder", "eight-legal-dimensions", "logistic-regression", "legal-bond-index", "posited-versus-measured"]
+
+[[entry]]
+id = "legal-geometric-pathologies"
+kind = "concept"
+title = "Four geometric pathologies of law"
+definition = "Four ways the legal search goes wrong. Heuristic corruption adds to a doctrinal heuristic a bias tied to legally irrelevant features. Objective hijacking optimizes a measurable proxy in place of the legal objective. A legal local minimum is a precedent too costly to overrule. Gauge breaking is an evaluation that changes under an equal protection transformation."
+first_stated = "Chapter 10, the taxonomy at `geometric-law/chapters/ch10_legal_failures.md:26-35`, with the formal definitions at `geometric-law/chapters/ch10_legal_failures.md:351-379`."
+conditions = [
+  "The taxonomy is carried over from the four AI failure modes of the Geometric Ethics programme. The volume asserts that the mapping is by shared mathematical structure and not by analogy.",
+  "A local minimum is inescapable when the cost barrier around it exceeds the gain from reaching the better outcome.",
+  "The pathologies interact. The appendix models corruption and gauge violation feeding each other as a linear recurrence that grows when the product of its two coupling constants is positive.",
+  "The examples, such as plea bargaining as objective hijacking and qualified immunity as a local minimum, are the volume's readings of known phenomena.",
+]
+related = ["doctrinal-heuristic", "legal-phase-transition", "legal-bond-index", "gauge-violation-tensor"]
+
+[[entry]]
+id = "binary-verdict-irrecoverability"
+kind = "result"
+title = "Irrecoverability of the binary verdict and the scalar sentence"
+definition = "A binary verdict maps the eight-dimensional legal space to one bit, and a sentence maps it to one number. Neither map is injective, so neither preserves the distances between cases, and nothing computed from the verdict or sentence alone recovers the dimensions that produced it."
+first_stated = "Chapter 1, `geometric-law/chapters/ch01_binary_verdict.md:233-237`, introduced at `geometric-law/chapters/ch01_binary_verdict.md:40-44`."
+conditions = [
+  "Tagged in the volume as a conditional theorem, with a proof sketch. It is the legal restatement of the Scalar Irrecoverability Theorem of Geometric Reasoning.",
+  "It presupposes that a case is described by eight dimensions, which the volume tags as a modeling axiom.",
+  "It says that information is lost, not that verdicts are wrong. The volume says the framework audits verdicts and does not determine them.",
+]
+related = ["eight-legal-dimensions", "projection", "judicial-complex", "legal-invariance-principle"]
+
+[examples]
+judicial-complex = "In the volume's illustrative mini-complex, five voter ID cases are the vertices and six citations are the directed edges, one of which runs from Crawford (Supreme Court, 2008) to Judge Rivera's district case of 2026."
+eight-legal-dimensions = "The volume's illustrative vector for Crawford v. Marion County is (0.7, 0.5, 0.9, 0.5, 0.7, 0.8, 0.6, 0.7), so it scores 0.9 on procedural posture and 0.5 on statutory authority."
+legal-mahalanobis-distance = "In the volume's illustration every variance is 0.04, so a difference of 0.3 on one dimension contributes 0.09 / 0.04 = 2.25. Its eight contributions sum to 5.3125, and the square root gives a distance of about 2.30."
+legal-edge-weight = "In the volume's illustration the edge from McDonnell Douglas (Supreme Court) to a district case has quadratic form 5.3125, no boundary crossing and hierarchical cost 0, so its weight is 5.3125 + 0 + 0 = 5.3125. The reverse edge has infinite weight."
+legal-friction = "A path of two edges with weights 2 and 3, plus one evidentiary requirement of weight 4 whose evidence falls 0.25 short of its threshold, has friction 2 + 3 + 4 x 0.25 = 6."
+hohfeldian-d4-group = "Apply s, then r, then s to right. Right goes to no-right, no-right goes to right, and right goes to no-right. The reverse rotation also sends right to no-right, so the two agree on this position, as the volume checks."
+hohfeldian-octad-gauge-group = "Each copy of the dihedral group has 8 elements, so the pairs number 8 x 8 = 64. With a trivial coupling the product of (g1, g2) and (h1, h2) is (g1 h1, g2 h2)."
+legal-wilson-loop = "In the volume's running example the four edges carry rs, e, e and s. The product is rs times s, and since s times s is the identity the loop equals r, which is not the identity, so the cycle is inconsistent."
+liability-damages-conservation = "If the court awards A 100 dollars against B, the net liability of B is +100 and that of A is -100, and the sum is 0."
+legal-invariance-principle = "Renaming Smith v. Jones as Doe v. Roe, with everything else unchanged, must leave the judgment unchanged."
+judicial-bond-invariance-principle = "In the volume's example a landlord refuses a tenant for race in one case and for religion in another. Both cases have the same right, duty, breach, power and liability, so the evaluation must be the same."
+equal-protection-gauge-invariance = "Changing a party's sex twice returns the original case, so that generator has order 2. If the original case draws 60 months, the case with the sex changed must also draw 60 months."
+due-process-quotient-regularity = "Two descriptions of one dispute lie in the same equivalence class. If the evaluation returns liable for one and not liable for the other, it does not factor through the quotient, and due process fails."
+legal-bond-index = "Sentences of 100, 50 and 80 months that become 110, 50 and 72 under a transformation change by 0.10, 0 and 0.10 of the original, so the normalized index is 0.20 / 3, about 0.067."
+doctrinal-heuristic = "In the volume's illustration McDonnell Douglas estimates 2.0 + 0.5 + 4.0 = 6.5 friction units from the start and direct evidence estimates 8.0, so A* explores the McDonnell Douglas path first."
+topological-constitutionality = "In the volume's running example the Digital Privacy Act adds two edges that create two new non-trivial directed cycles in the constitutional subcomplex, so the first path homology group changes and the statute is ruled unconstitutional."
+precedential-weight-deformation = "With hierarchical weight 8 and decay exponent 2, the deformation scales as 8 / 4 = 2 at graph distance 2 and as 8 / 16 = 0.5 at graph distance 4."
+legal-phase-transition = "Two relying cases with weights 3 and 1 whose edge weights change by 0.5 and 2 give an overruling cost of 3 x 0.5 + 1 x 2 = 3.5."
+gauge-violation-tensor = "In the volume's hypothetical district the race row is 0.187, 0.213, 0.038, 0.082 and 0.104, which sums to 0.624. The five row sums 0.624, 0.479, 0.637, 0.156 and 0.444 add to 2.340, where the chapter prints 2.520, and 2.340 / 25 is about 0.094."
+legal-embedding = "With a tolerance of 0.05, an opinion and its plain-language restatement that embed 0.02 apart pass the style condition, and a pair 0.2 apart fails it. A probe whose linear score is 0 outputs 0.5, which the volume flags as uncertain."
+legal-geometric-pathologies = "A heuristic whose true estimate is 6.5 and which adds 1.5 for a defendant's race returns 8.0, and the 1.5 is the corruption term. A local minimum with barrier 5 and gain 3 is inescapable because 5 exceeds 3."
+binary-verdict-irrecoverability = "Two cases with first scores 0.9 and 0.6 that both receive the verdict 1 cannot be told apart from the verdict, although they differ by 0.3 on that dimension."

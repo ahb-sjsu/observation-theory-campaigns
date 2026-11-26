@@ -1,0 +1,342 @@
+[volume]
+number = 4
+title = "Geometric Economics"
+repo = "geometric-economics"
+slug = "geometric-economics"
+standing = "The README's epistemic-status block of 2026-07-14 calls the volume a posited framework, speculative theory awaiting instruments, and says that no economics instrument has been evaluated by the series' admission filter and that none passes its gate. Its claims are to be read as theory at licensed strength and not as validated measurement, and the chapters tag each claim as established mathematics, empirical, modeling axiom, conditional theorem or speculation."
+
+[[entry]]
+id = "economic-decision-complex"
+kind = "concept"
+title = "economic decision complex"
+definition = "A weighted simplicial complex whose vertices are economic states, each carrying an attribute vector of nine scores, whose edges are available actions carrying a nonnegative total cost, and whose higher simplices are bundles of actions that can be taken jointly."
+first_stated = "Definition 3, Section 3.3, `geometric-economics/chapters/ch03_decision_manifold.md:89-95`, with the formal statement in the chapter's technical appendix, `geometric-economics/chapters/ch03_decision_manifold.md:382-382`."
+conditions = [
+  "The object is combinatorial and not a smooth manifold. The volume uses manifold language as an approximation when alternatives are many and finely graded.",
+  "Not every pair of states is joined by an edge. Only feasible transitions are, and an edge weight may be infinite.",
+  "The chapter states that the complex is a claim about the space in which decisions are made, not a utility function and not a prescription of what agents should do.",
+]
+related = ["economic-decision-dimensions", "moral-economic-boundary", "economic-metric-tensor", "bond-geodesic", "manifold", "graph"]
+
+[[entry]]
+id = "economic-decision-dimensions"
+kind = "concept"
+title = "nine dimensions of the economic decision manifold"
+definition = "The nine coordinates on which the volume scores an economic state. They are consequences $d_1$, rights $d_2$, fairness $d_3$, autonomy $d_4$, privacy and trust $d_5$, social impact $d_6$, virtue and identity $d_7$, legitimacy $d_8$ and epistemic status $d_9$. Only $d_1$ is visible to a purely monetary agent."
+first_stated = "Definition 1, Section 3.1, `geometric-economics/chapters/ch03_decision_manifold.md:32-50`."
+conditions = [
+  "The number nine is tagged a modeling axiom inherited from Geometric Ethics. The chapter says the key claim is a dimension well above one, not exactly nine.",
+  "The chapter tags the claim that the nine are operative as Empirical, citing Geometric Ethics and the eris-econ validation. The README of 2026-07-14 says no economics instrument has passed the series' admission filter.",
+  "The volume names a falsifier. A replicable economic behavior that cannot be decomposed into any subset of the nine would show the framework wrong.",
+]
+related = ["economic-decision-complex", "transferable-and-evaluative-dimensions", "economic-metric-tensor", "posited-versus-measured"]
+
+[[entry]]
+id = "transferable-and-evaluative-dimensions"
+kind = "concept"
+title = "transferable and evaluative dimensions"
+definition = "Dimensions $d_1$, $d_2$ and $d_4$ are transferable, meaning a gain to one party requires a matching cost to another in a closed bilateral exchange. Dimensions $d_3$ and $d_5$ to $d_9$ are evaluative, meaning both parties can gain on them at once."
+first_stated = "Definition 2, Section 3.2, `geometric-economics/chapters/ch03_decision_manifold.md:79-81`."
+conditions = [
+  "The split is stated for closed bilateral exchanges. Chapter 9 derives conservation on the transferable dimensions from it.",
+  "Section 8.2 groups $d_1$ to $d_4$ as transferable and $d_5$ to $d_9$ as evaluative, which differs from Definition 2 and from Theorem 9.1 on where fairness $d_3$ sits.",
+  "Evaluative dimensions are not necessarily conserved. Chapter 9 adds that they can also fall for both parties.",
+]
+related = ["economic-decision-dimensions", "attribute-conservation-law", "economic-bond-invariance-principle"]
+
+[[entry]]
+id = "moral-economic-boundary"
+kind = "concept"
+title = "moral-economic boundary and boundary penalty"
+definition = "A threshold in the decision complex where the local decision regime changes discontinuously. Crossing boundary k adds a penalty $\\beta_k$ to the edge weight on top of the Mahalanobis term, and the penalty may be infinite."
+first_stated = "Section 3.4 on boundary penalties and Definition 5, Section 3.5, `geometric-economics/chapters/ch03_decision_manifold.md:148-162`, with the three penalty regimes in the technical appendix, `geometric-economics/chapters/ch03_decision_manifold.md:391-396`."
+conditions = [
+  "The three regimes of the penalty, infinite, finite and zero, are tagged a modeling axiom.",
+  "The volume says finite penalties are measurable as the compensation at which agents become willing to cross, after the taboo trade-off paradigm of Tetlock. It reports no such measurement of its own.",
+  "The four named types are the theft, promise, sacred-value and market-norm against social-norm boundaries. The last changes the covariance matrix itself and not only a penalty.",
+  "Chapter 16 leaves open whether infinite boundaries are topological features or only very high penalties.",
+]
+known_as = "Tetlock's forbidden or taboo trade-offs, which the volume names as the infinite-penalty case."
+related = ["economic-decision-complex", "geometric-decision-cost", "economic-heuristic-truncation-theorem", "economic-no-escape-conjecture", "threshold"]
+
+[[entry]]
+id = "economic-metric-tensor"
+kind = "concept"
+title = "economic metric (inverse covariance as metric tensor)"
+definition = "In the continuous limit of the decision complex the cost of a small displacement is $ds^2 = g_{ij}\\,da^i\\,da^j$ with the metric tensor g equal to the inverse of the nine by nine dimensional covariance matrix Sigma. Cost is counted in standard deviations of behavioral expectation, so unusual displacements are costly."
+first_stated = "Section 4.1, `geometric-economics/chapters/ch04_economic_metric.md:40-50`, after Definition 4 of Chapter 3, `geometric-economics/chapters/ch03_decision_manifold.md:125-129`. The registered test named in the standing is scored in `geometric-economics/experiments/RESULTS_coupling_scorecard.md:8-14`."
+conditions = [
+  "Taking the inverse covariance as the metric tensor is tagged a modeling axiom.",
+  "Sigma is symmetric positive semidefinite with at most 45 free parameters and is to be estimated from a calibration sample before prediction. The distance is a proper metric only when Sigma is positive definite and a pseudometric otherwise.",
+  "Chapter 16 calls the calibration partial and lists as open whether Sigma can be estimated from large observational data, whether it is stable in time and whether it is universal or culture specific.",
+  "The symmetric quadratic form cannot express the asymmetry between gains and losses. Section 4.10 replaces it with a Finsler metric for that purpose.",
+]
+standing = "Modeling axiom in the volume's tags. The repository's registered test prereg-coupling-v1, which predicted that one shared metric couples risk and social preferences as a rank-one factor, was scored on the Global Preferences Survey and falsified on that proxy. The same-subject angle test that the scorecard names as decisive is unrun."
+known_as = "The Mahalanobis distance of 1936, read as a Riemannian metric."
+related = ["geometric-decision-cost", "mahalanobis-distance", "covariance-matrix", "economic-finsler-metric", "economic-singularity", "geometric-evaluation-theory"]
+
+[[entry]]
+id = "geometric-loss-aversion-coefficient"
+kind = "result"
+title = "geometric loss-aversion coefficient"
+definition = "The ratio of the edge weight of a loss to the edge weight of an equal gain, $\\lambda = w_- / w_+$. A gain is taken to move the state on $d_1$ alone while a loss also moves it on rights, fairness, social and identity dimensions, so the ratio exceeds one and grows with the number and intensity of dimensions activated."
+first_stated = "Theorem 34, Section 4.2, `geometric-economics/chapters/ch04_economic_metric.md:68-99`."
+conditions = [
+  "The theorem is given with an argument that posits which dimensions a loss activates. The activations are not measured.",
+  "Section 4.2 takes the ratio of edge weights, which are squared distances. Section 4.10 and the technical appendix take the ratio of Finsler lengths, which is the square root of that ratio.",
+  "The volume states its falsifiers. A coefficient that is constant across conditions, or one that varies but not monotonically with the count of activated dimensions, would show the derivation wrong.",
+  "The chapter says the value 2.25 should be derivable from a fitted Sigma and calls that fitting an empirical programme.",
+]
+standing = "A derivation from posited activations, tagged in parts as conditional theorem and as empirical prediction. The chapter cites the eris-econ validation for a range of 1.0 to 3.53, and the README of 2026-07-14 says no economics instrument has passed the series' admission filter."
+known_as = "Loss aversion in the prospect theory of Kahneman and Tversky, where the coefficient is a fixed parameter near 2.25."
+related = ["economic-metric-tensor", "economic-finsler-metric", "metric-feature-versus-heuristic-error", "economic-decision-dimensions"]
+
+[[entry]]
+id = "economic-finsler-metric"
+kind = "concept"
+title = "Finsler metric of the decision manifold"
+definition = "A cost function F(x, v) of position x and direction v that uses one inverse covariance matrix for gain directions and another for loss directions, so that F(x, v) and F(x, -v) differ. The loss-aversion coefficient at x is the ratio F(x, -v) / F(x, v)."
+first_stated = "Section 4.10, `geometric-economics/chapters/ch04_economic_metric.md:396-412`, with the formal statement in the technical appendix, `geometric-economics/chapters/ch04_economic_metric.md:449-461`."
+conditions = [
+  "Tagged a modeling axiom. The gain and loss metric tensors are not estimated in the volume.",
+  "The tangent space at each point is split into a gain cone and a loss cone by the sign of the net change on the salient dimensions.",
+  "Within one cone and for small displacements it reduces to the Mahalanobis metric. When the gain and loss matrices are equal it is the Mahalanobis metric and the coefficient is one.",
+]
+known_as = "Finsler geometry, which the volume cites from Bao, Chern and Shen."
+related = ["economic-metric-tensor", "geometric-loss-aversion-coefficient", "mahalanobis-distance", "metric"]
+
+[[entry]]
+id = "metric-feature-versus-heuristic-error"
+kind = "concept"
+title = "metric feature versus heuristic error"
+definition = "The volume's two-way classification of behavioral phenomena. A metric feature follows from the manifold's metric and would persist for an agent with perfect information. A heuristic error is a different evaluation of the same state under a different description. Gauge invariance is the criterion that separates them."
+first_stated = "Section 4.4, `geometric-economics/chapters/ch04_economic_metric.md:166-180`, with the full table in Section 4.9, `geometric-economics/chapters/ch04_economic_metric.md:366-382`."
+conditions = [
+  "The table lists loss aversion, reference dependence, the endowment effect, hyperbolic discounting and status quo bias as metric features. It lists framing, anchoring, availability bias and the sunk cost fallacy as heuristic errors.",
+  "The classification rests on the posited metric. It is not an observed property of the phenomena.",
+  "The volume gives a test and reports no run of it. Loss aversion should resist debiasing while framing effects should shrink when the attribute vector is made explicit, and identical responses to debiasing would show the classification wrong.",
+]
+related = ["geometric-loss-aversion-coefficient", "economic-bond-invariance-principle", "economic-gauge-violation-tensor", "market-pathology-taxonomy"]
+
+[[entry]]
+id = "economic-heuristic-truncation-theorem"
+kind = "result"
+title = "Heuristic Truncation Theorem (moral heuristics as admissible heuristics)"
+definition = "A moral heuristic that charges, at each state, the sum over boundaries of the penalty times the probability that the action crosses the boundary is admissible when each penalty is a lower bound on the true cost of crossing. A* search with it then finds the optimal path on the decision complex."
+first_stated = "Theorem 7, Chapter 5, `geometric-economics/chapters/ch05_price_as_heuristic.md:92-98`, within the pathfinding setting of Definition 6, `geometric-economics/chapters/ch05_price_as_heuristic.md:34-41`."
+conditions = [
+  "The decision is modelled as A* search with cost f = g + h, where g is the accumulated edge weight and h the heuristic estimate of the remaining cost. The identification of g with deliberate and h with intuitive judgment is the volume's modelling.",
+  "The premise is that each penalty does not exceed the true cost of crossing. A heuristic that overestimates moral cost is inadmissible, and the volume calls that case genuine bias.",
+  "Theorem 10 makes admissibility relative to the space. An infinite penalty can be admissible on the full complex and inadmissible on the monetary projection.",
+  "Definition 11 and Theorem 12 relax the claim to a heuristic within a factor one plus epsilon of the true cost, with path cost at most that factor times the optimum.",
+]
+known_as = "The admissibility theorem for A* search of Hart, Nilsson and Raphael, and the bounded suboptimality of weighted A*."
+related = ["moral-economic-boundary", "price-as-scalar-heuristic", "bond-geodesic", "economic-decision-complex"]
+
+[[entry]]
+id = "price-as-scalar-heuristic"
+kind = "concept"
+title = "price signal as scalar heuristic"
+definition = "The price is read as a heuristic estimate of the remaining cost that reports only the monetary coordinate. It is the projection onto $d_1$ of the full edge weight to the goal, and it carries nothing about the other eight dimensions."
+first_stated = "Chapter 5, `geometric-economics/chapters/ch05_price_as_heuristic.md:72-82`, restated in `geometric-economics/chapters/ch05_price_as_heuristic.md:214-235`."
+conditions = [
+  "An efficient market is restated as a price heuristic that is admissible on $d_1$. The strongest efficient market hypothesis is restated as a price heuristic that is exact on $d_1$.",
+  "The reading holds inside the A* model of decision of Definition 6 and is a reinterpretation. The volume reports no test of it.",
+  "Externalities, information asymmetry and coercive pricing are read as gaps on $d_6$, $d_9$ and $d_4$ between the price heuristic and the full cost.",
+]
+known_as = "Hayek's account of prices as carriers of dispersed information, which the volume says holds on the monetary dimension only."
+related = ["economic-heuristic-truncation-theorem", "economic-scalar-irrecoverability", "market-pathology-taxonomy", "projection"]
+
+[[entry]]
+id = "economic-scalar-irrecoverability"
+kind = "result"
+title = "Scalar Irrecoverability Theorem (economic form)"
+definition = "Any continuous map from nine-dimensional attribute vectors to a scalar utility is not injective and has no left inverse, and the optimal path on the decision complex can differ from the utility-maximizing path by an amount that no function of the scalar bounds."
+first_stated = "Theorem 14, Chapter 6, `geometric-economics/chapters/ch06_economic_tensors.md:42-48`, with its proof at `geometric-economics/chapters/ch06_economic_tensors.md:52-60`."
+conditions = [
+  "The map is assumed continuous. Non-injectivity is proved from Brouwer's invariance of dimension on the unit cube.",
+  "The unbounded divergence of paths in part 3 uses a boundary penalty that can be infinite while the scalar difference stays finite.",
+  "The front matter tags irrecoverability a conditional theorem. It is a statement about maps, and it bears on economic choice only where choice depends on more than one coordinate, which the volume posits.",
+]
+standing = "Parts 1 and 2 are proved from established mathematics in the chapter. The application to economic behavior shares the volume's posited standing."
+known_as = "Brouwer's invariance of dimension, and the non-injectivity of a continuous map from a higher-dimensional space to the line."
+related = ["economic-projected-intransitivity", "price-as-scalar-heuristic", "inequality-tensor", "projection", "quotient", "null-space"]
+
+[[entry]]
+id = "economic-projected-intransitivity"
+kind = "result"
+title = "Projected Intransitivity"
+definition = "Preference on the full complex, ordering alternatives by path cost from the current state under a fixed metric, is transitive. A projected preference can cycle when the projection compares different pairs on different dimensions."
+first_stated = "Theorem 16, Chapter 6, `geometric-economics/chapters/ch06_economic_tensors.md:88-98`."
+conditions = [
+  "Transitivity on the full complex needs a fixed metric and a single reference state, so that path cost is one real-valued function of the alternative.",
+  "The cycle in the proof arises only when the projection is context dependent, comparing each pair on a different subset of dimensions.",
+  "The volume reads Tversky's intransitivity experiments this way. That reading is an interpretation and no fitted test of it is reported.",
+]
+related = ["economic-scalar-irrecoverability", "economic-metric-tensor", "economic-decision-dimensions", "projection"]
+
+[[entry]]
+id = "bond-geodesic"
+kind = "concept"
+title = "Bond geodesic"
+definition = "The minimum-cost path on the economic decision complex from an initial state to a goal region, where the cost of a path is the sum of its edge weights and each edge weight is the Mahalanobis term plus the penalties of the boundaries crossed."
+first_stated = "Definition 18, Chapter 7, `geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:40-48`."
+conditions = [
+  "It is the discrete analogue of a Riemannian geodesic. In the smooth limit the volume identifies it with a geodesic of the metric given by the inverse covariance.",
+  "It needs the covariance matrix and the boundary penalties as inputs. The volume says the framework does not supply those measurements.",
+  "Edge weights are squared Mahalanobis terms, so the volume notes that two half steps cost half as much as one full step and the path favors gradual transitions.",
+  "A path that crosses a boundary with infinite penalty has infinite cost and is never the geodesic when a finite-cost path exists.",
+]
+known_as = "A shortest path in a weighted graph, which the volume computes by A* search."
+related = ["economic-decision-complex", "bond-geodesic-equilibrium", "moral-economic-boundary", "geodesic-distance", "geometric-decision-cost"]
+
+[[entry]]
+id = "bond-geodesic-equilibrium"
+kind = "concept"
+title = "Bond geodesic equilibrium (BGE)"
+definition = "A profile of paths, one per agent, in which each agent's path is a Bond geodesic on that agent's decision complex given the paths of the others. No agent can lower its behavioral friction, its total path cost on the full complex, by changing path alone."
+first_stated = "Definition 19, Chapter 7, `geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:58-66`."
+conditions = [
+  "The front matter tags the choice of the BGE as the equilibrium concept a modeling axiom.",
+  "A pure BGE need not exist. Theorem 23 gives a mixed BGE for a finite game in which every agent always has a path of finite cost to its goal.",
+  "A BGE is not Pareto optimal in general, and several can coexist. Lemma 26 gives uniqueness when each agent's self-separation exceeds its cross-sensitivity.",
+  "Agents are assumed to pathfind on the manifold they perceive. The volume says a miscalibrated heuristic or covariance gives a BGE of the perceived game that can differ from that of the true game.",
+]
+known_as = "Nash equilibrium, applied to the augmented game whose payoffs are the negative of behavioral friction."
+related = ["bond-geodesic", "bge-nash-relationship", "economic-metric-tensor", "moral-economic-boundary"]
+
+[[entry]]
+id = "bge-nash-relationship"
+kind = "result"
+title = "BGE and Nash relationship (augmented game)"
+definition = "A profile is a BGE exactly when it is a Nash equilibrium of the augmented game, whose strategies are the simple paths to the goal and whose payoffs are the negative of behavioral friction. With zero penalties and covariance on $d_1$ alone it is the Nash equilibrium of the monetary game. Positive penalties exclude scalar equilibria that cross a boundary."
+first_stated = "Definition 20 and Theorem 21, Chapter 7, `geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:72-90`, with the proof at `geometric-economics/chapters/ch07_bond_geodesic_equilibrium.md:94-106`."
+conditions = [
+  "Equivalence holds by construction of the augmented game, with finite sets of simple paths as strategies.",
+  "Scalar nesting is stated for a single-action game with all penalties zero and the covariance confined to the monetary dimension, and it uses the goal region to restrict the feasible actions.",
+  "Refinement removes a boundary-crossing equilibrium only when the penalty exceeds the scalar cost disadvantage of the path that avoids the boundary.",
+]
+standing = "Tagged a conditional theorem in the front matter. Existence of a mixed BGE follows from Nash's theorem of 1950 through the equivalence."
+known_as = "Nash equilibrium and Nash's existence theorem."
+related = ["bond-geodesic-equilibrium", "bond-geodesic", "moral-economic-boundary", "price-as-scalar-heuristic"]
+
+[[entry]]
+id = "economic-bond-invariance-principle"
+kind = "concept"
+title = "economic Bond Invariance Principle and gauge group"
+definition = "An economic evaluation J satisfies the principle when J of a re-described state equals J of the state for every meaning-preserving transformation, one that changes labels, units or accounting conventions and not the economic reality. The transformations form the economic gauge group, scalings of the monetary dimension by a positive real together with permutations of the numeraire."
+first_stated = "Definition 34, Section 8.1, `geometric-economics/chapters/ch08_gauge_invariance.md:32-36`, with the gauge group in Definition 35, `geometric-economics/chapters/ch08_gauge_invariance.md:62-72`."
+conditions = [
+  "Tagged a modeling axiom and described as a consistency condition, not a normative preference.",
+  "The three named classes of meaning-preserving transformation are currency relabeling, unit scaling and numeraire choice.",
+  "Theorem 37 states that the edge weight is invariant under monetary scaling because the covariance rescales with the units. The violations the chapter studies are in the agent's heuristic and not in the manifold cost.",
+  "Remark 45 limits the principle. A changed evaluation may show that the transformation was not meaning preserving and that the descriptions carried different information.",
+]
+related = ["economic-gauge-violation-tensor", "metric-feature-versus-heuristic-error", "attribute-conservation-law", "market-pathology-taxonomy"]
+
+[[entry]]
+id = "economic-gauge-violation-tensor"
+kind = "instrument"
+title = "economic gauge violation tensor and Bond Index"
+definition = "For a heuristic h, transformations i and states j, the entry $V_{ij}$ is h of the transformed state minus h of the state. An invariant heuristic has every entry zero, and the Frobenius norm of V is the total violation. The Bond Index of Chapter 4 is the same difference in absolute value divided by h of the state."
+first_stated = "Definition 41, Section 8.7, `geometric-economics/chapters/ch08_gauge_invariance.md:256-264`, with the Bond Index in Section 4.4, `geometric-economics/chapters/ch04_economic_metric.md:160-164`."
+conditions = [
+  "The transformations must be meaning preserving. Under Remark 45 a nonzero entry can be a pseudo-violation that reflects real economic content.",
+  "Proposition 42 gives the composition rule. The violation of a composed transformation is the sum of the violations along the chain.",
+  "The chapter describes a measurement protocol, the same states shown under each transformation to the same or matched subjects. It reports published experiments by others and no measurement of the tensor itself.",
+]
+related = ["economic-bond-invariance-principle", "metric-feature-versus-heuristic-error", "market-pathology-taxonomy", "frobenius-norm"]
+
+[[entry]]
+id = "attribute-conservation-law"
+kind = "result"
+title = "attribute conservation in closed exchange"
+definition = "In a closed bilateral exchange between agents A and B the changes on each transferable dimension sum to zero, so that the change for A plus the change for B is zero on money $d_1$, rights $d_2$ and autonomy $d_4$. The evaluative dimensions are not conserved and may rise for both parties."
+first_stated = "Theorem 9.1, Section 9.2, `geometric-economics/chapters/ch09_conservation_laws.md:30-42`."
+conditions = [
+  "The exchange is closed. No third party enters and no external rule changes during it.",
+  "In an open system the sum equals the net external input on that dimension. The volume reads an observed violation as a sign that the system boundary was drawn too narrowly.",
+  "The theorem is tagged conditional. Money is conserved by accounting identity, rights by the Hohfeldian correlative structure taken from Geometric Ethics, and autonomy in the sense that voluntary constraints are symmetric.",
+  "Section 9.9 rederives the law from the invariance principle by a Noether argument, also tagged conditional. Chapter 16 lists the empirical pattern as an untested prediction.",
+]
+known_as = "The accounting identity that every payment is a receipt, and Noether's theorem for the derivation the volume gives."
+related = ["transferable-and-evaluative-dimensions", "economic-bond-invariance-principle", "bond-geodesic-equilibrium"]
+
+[[entry]]
+id = "market-pathology-taxonomy"
+kind = "concept"
+title = "four geometric pathologies of markets"
+definition = "The volume's classification of market failure into four kinds. Heuristic corruption is a price heuristic that points away from the geodesic. Objective hijacking is search on the wrong objective. A local minimum is a suboptimal basin that traps agents. Gauge breaking is an evaluation that depends on the description."
+first_stated = "Section 10.1, `geometric-economics/chapters/ch10_market_failures.md:20-27`, with the cascade in Proposition 10.2, `geometric-economics/chapters/ch10_market_failures.md:177-181`."
+conditions = [
+  "Tagged a modeling axiom and taken over from the failure taxonomy of Geometric Reasoning.",
+  "The claim that the four are exhaustive rests on a constructive classification of any deviation from the full-manifold geodesic, so it holds inside the framework.",
+  "Proposition 10.2 states that the four form a self-reinforcing cycle and gives the 2008 crisis as its illustration, without proof.",
+  "Chapters 1 and 16 list as predictions that the four types can be classified from observable signatures and that they co-occur in the cascade order. No test is reported.",
+]
+related = ["price-as-scalar-heuristic", "economic-bond-invariance-principle", "economic-singularity", "metric-feature-versus-heuristic-error"]
+
+[[entry]]
+id = "economic-singularity"
+kind = "concept"
+title = "economic singularity"
+definition = "A region of the decision manifold where the covariance matrix Sigma becomes degenerate, with its determinant going to zero, so that the metric, its inverse, diverges. There the geodesic equation has no finite-cost solution and price discovery fails. The volume models a financial crisis as this event."
+first_stated = "Definition 38 of Chapter 11, Section 11.1, `geometric-economics/chapters/ch11_financial_crises.md:40-46`."
+conditions = [
+  "In normal times Sigma is positive definite and every direction has a finite cost.",
+  "The mechanism given is that correlations between dimensions converge to plus or minus one, as when all holders sell at once.",
+  "The linear algebra is tagged established mathematics. The identification of a crisis with a degenerate Sigma is the volume's model, illustrated on 2008 and not fitted.",
+  "The chapter precedes it with the geometric bubble of its Definition 39, in which the monetary metric component falls while the trust and epistemic components rise.",
+]
+related = ["economic-metric-tensor", "market-pathology-taxonomy", "covariance-matrix", "determinant", "positive-definite", "curvature"]
+
+[[entry]]
+id = "inequality-tensor"
+kind = "concept"
+title = "inequality tensor"
+definition = "For a population of N agents, the entrywise variance across agents of the metric tensor each agent experiences. Its entry for dimensions i and j is the mean over agents of the squared deviation of that agent's $g_{ij}$ from the population average."
+first_stated = "Definition 41 of Chapter 12, Section 12.2, `geometric-economics/chapters/ch12_inequality.md:94-98`, after Proposition 40, `geometric-economics/chapters/ch12_inequality.md:50-58`."
+conditions = [
+  "It presumes that each agent has its own metric. Proposition 40 gives the monetary part, where an agent with monetary scale sigma pays D squared over sigma squared for a displacement of D dollars.",
+  "Proposition 42 states that the Gini coefficient is proportional to the square root of the monetary entry and discards the rest. The chapter states this without derivation.",
+  "The agents' metrics are not measured in the volume. The chapter's ratio of scalar to full-manifold inequality, a factor of two to three, is called a prediction and comes from an illustrative example.",
+]
+related = ["economic-metric-tensor", "economic-scalar-irrecoverability", "variance", "economic-decision-dimensions"]
+
+[[entry]]
+id = "economic-no-escape-conjecture"
+kind = "result"
+title = "Economic No Escape conjecture"
+definition = "If the economic decision manifold has components separated by the absence of any connecting path, and not merely by high boundary penalties, then no financial instrument, regulatory arbitrage or contract can create a transition between them."
+first_stated = "Conjecture 16.1, Section 16.2, `geometric-economics/chapters/ch16_open_questions.md:36-44`."
+conditions = [
+  "It is a conjecture. The surrounding open problem is tagged speculation or extension.",
+  "The premise is itself open. The volume asks whether sacred-value boundaries are topological disconnections or only very high penalties.",
+  "The volume proposes a test, building instruments that try to bridge candidate disconnections such as organ markets, and reports no run of it.",
+]
+standing = "Conjecture, stated as an open problem by analogy with the No Escape Theorem of Geometric Ethics. Nothing is proved or measured."
+related = ["moral-economic-boundary", "economic-bond-invariance-principle", "economic-decision-complex"]
+
+[examples]
+economic-decision-complex = "In the volume's running example the state with no new barista and the state after the hire are two vertices, the hire is the edge between them, and each vertex carries nine scores."
+economic-decision-dimensions = "In the volume's running example a salary of 3,200 dollars a month is scored on $d_1$, a wish to pay at least 18 dollars an hour on $d_3$, and payroll tax compliance on $d_8$."
+transferable-and-evaluative-dimensions = "A payment of 5 dollars changes the buyer by -5 and the seller by +5 on $d_1$, which sums to zero. In the volume's illustration both parties gain trust, +0.3 and +0.4, which sums to +0.7."
+moral-economic-boundary = "The volume's grocery example. Buying for 50 dollars has weight $50^2/\\sigma_1^2$, which is 1 when the monetary scale is 50, and stealing crosses the theft boundary with infinite penalty. The buy edge is the cheaper one."
+economic-metric-tensor = "With a diagonal covariance each dimension adds its squared change over its variance. In the volume's illustration a 100 dollar expense at monetary scale 50 adds $100^2/50^2 = 4.0$ and a fairness change of 0.6 at scale 0.8 adds 0.5625, for 4.5625 on those two dimensions."
+geometric-loss-aversion-coefficient = "The volume's Remark 35. A loss that activates four further dimensions at half a standard deviation each gives $1 + 4 \\times 0.25 = 2.0$, against 1.0 for a loss that moves $d_1$ alone."
+economic-finsler-metric = "If a direction v has quadratic form 1 under the gain matrix and 4 under the loss matrix, the lengths are 1 and 2 and the coefficient is 2. Equal matrices give a coefficient of 1."
+metric-feature-versus-heuristic-error = "In the volume's table loss aversion is a metric feature. Choosing differently between a 90 percent survival rate and a 10 percent mortality rate is a heuristic error, since both describe one state."
+economic-heuristic-truncation-theorem = "One boundary with penalty 5, true crossing cost 8 and crossing probability 0.5 gives a heuristic value of 2.5. The same sum with the true cost is 4, so the heuristic does not overestimate."
+price-as-scalar-heuristic = "In the volume's example fair-trade beans cost 8.20 dollars a pound and conventional beans 4.50. The price reports a difference of 3.70 dollars on $d_1$ and nothing about fairness, labor conditions or trust."
+economic-scalar-irrecoverability = "In two dimensions the map that adds the coordinates sends (1, 0) and (0, 1) both to 1, so the pair cannot be recovered from the sum. The volume's illustration is a shop valued at 200,000 dollars, a value shared by every configuration on one level set."
+economic-projected-intransitivity = "The volume's proof uses x = (3, 1, 5), y = (5, 3, 1) and z = (1, 5, 3). On dimensions 1 and 2 y beats x, on 2 and 3 z beats y, and on 1 and 3 x beats z, which is a cycle."
+bond-geodesic = "Two paths to the goal with edge weights 1 + 4 = 5 and 2 + 2 = 4. The second is the Bond geodesic. A third path that crosses a boundary with infinite penalty costs infinity and is excluded."
+bond-geodesic-equilibrium = "The volume's ultimatum game with 10 dollars. A responder whose fairness penalty exceeds $1^2/\\sigma_1^2$ rejects an offer of 1 dollar, and a proposer who anticipates this offers 40 to 50 percent."
+bge-nash-relationship = "Two paths with behavioral friction 4 and 6 have augmented payoffs -4 and -6. The path of least friction is the strategy of greatest payoff, so the two best-response conditions coincide."
+economic-bond-invariance-principle = "The experiment of Shafir, Diamond and Tversky as the volume reports it. A 2 percent raise under 4 percent inflation is a real change of -2 percent and was rated better than a 1 percent cut under zero inflation, a real change of -1 percent. The rating followed the label, which violates the principle."
+economic-gauge-violation-tensor = "A heuristic that scores a wage offer 100 in annual terms and 110 in monthly terms has an entry of 10 for that transformation and state, and a Bond Index of 10 / 100 = 0.10."
+attribute-conservation-law = "The volume's worked example. Maria pays 2,000 dollars and Elena receives 2,000, which sums to zero on $d_1$. The evaluative gains sum to 0.7 + 0.5 + 0.9 + 0.3 = 2.4."
+market-pathology-taxonomy = "The volume's reading of 2008. Mortgage models that ignored tail risk are heuristic corruption, rating agencies paid by issuers are objective hijacking, the housing bubble is a local minimum, and rising nominal prices over flat real prices are gauge breaking."
+economic-singularity = "For two dimensions with unit variances and correlation r the determinant of Sigma is $1 - r^2$. It is 0.64 at r = 0.6 and 0.19 at r = 0.9, and it goes to zero as r goes to 1."
+inequality-tensor = "In the volume's illustration a 100 dollar expense costs 4.0 at monetary scale 50 and 0.0004 at scale 5,000, a ratio of 10,000. For two agents whose $g_{11}$ are 1 and 3 the average is 2 and the monetary entry of the tensor is 1."
+economic-no-escape-conjecture = "The volume's candidate is the organ market. If no path joins the state of holding an organ to the state of holding money, the conjecture says that no instrument can complete the trade, whatever its price."

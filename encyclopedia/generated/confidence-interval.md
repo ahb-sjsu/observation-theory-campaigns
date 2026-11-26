@@ -45,7 +45,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/ConfidenceInterval.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/ConfidenceInterval.lean), theorems `missRate_eq`, `some_miss_le`, `nine_intervals`, `nine_expected`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/ConfidenceInterval.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/ConfidenceInterval.lean), theorems `missRate_eq`, `some_miss_le`, `nine_intervals`, `nine_expected`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -61,4 +61,4 @@ Book equations stated beside the entry's terms, not defining it: 8.3, 8.2.
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

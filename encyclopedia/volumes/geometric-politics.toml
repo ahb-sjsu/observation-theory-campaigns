@@ -1,0 +1,335 @@
+[volume]
+number = 10
+title = "Geometric Politics"
+repo = "geometric-politics"
+slug = "geometric-politics"
+standing = "The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, and says a political-argument instrument is plausible but has not been built or gated. District 7, the source of nearly every number in the volume, is a fictional district, and Chapter 18 says precise estimation of the manifold needs larger and richer datasets than currently exist."
+
+[[entry]]
+id = "political-preference-manifold"
+kind = "concept"
+title = "Political preference manifold"
+definition = "The six-dimensional space $\\mathcal{P}$ in which each voter is a point with coordinates for economic policy, social values, environmental priority, foreign policy, institutional trust and identity. An electorate is a distribution of points on it."
+first_stated = "Chapter 4, `geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:22-34`."
+conditions = [
+  "The volume calls the claim empirical and not axiomatic. The six dimensions are proposed from a theoretical decomposition and factor analysis, and the exact decomposition varies with the survey year and the items.",
+  "Chapter 18 lists the measurement of the manifold and its correct dimensionality as open questions. It says the effective dimensionality may differ across electorates, across time and across scale.",
+  "The manifold is a model of the structure of disagreement. Chapter 4 says it is not a claim about the psychology of the voter.",
+]
+related = ["manifold", "political-metric", "electorate-effective-dimensionality", "democratic-irrecoverability-theorem", "posited-versus-measured"]
+
+[[entry]]
+id = "political-metric"
+kind = "concept"
+title = "Political metric"
+definition = "A Riemannian metric tensor $g_{ij}(p)$ on the political preference manifold that gives the cost of moving a position along dimensions $i$ and $j$ at the point $p$. It is anisotropic and position-dependent, so equal coordinate steps can cost different amounts."
+first_stated = "Chapter 4, `geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:56-64`."
+conditions = [
+  "The metric is posited. Chapter 18 says estimating it, its off-diagonal terms and its curvature is an open problem that needs trade-off and intensity questions that existing surveys do not ask.",
+  "In practice the volume replaces the geodesic distance with the Mahalanobis distance computed from the electorate's covariance matrix. It gives this as an approximation for a region of roughly constant curvature.",
+  "The echo-chamber case of Chapter 11 is a degenerate limit in which the graded metric becomes a step function, zero inside the group and infinite outside it.",
+]
+related = ["metric", "mahalanobis-distance", "geodesic-distance", "sacred-value-singularity", "political-preference-manifold"]
+
+[[entry]]
+id = "sacred-value-singularity"
+kind = "concept"
+title = "Sacred value as curvature singularity"
+definition = "A sacred value is a position a voter treats as non-negotiable. The volume models it as a region where the metric component $g_{ii}$ on that dimension grows without bound, so that crossing the boundary has infinite cost."
+first_stated = "Chapter 4, `geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:66-76`."
+conditions = [
+  "The construction is a hypothesis. Chapter 18 asks whether the manifold is flat in the center and curved near sacred values, as Chapter 4 hypothesizes, and says the data to test it do not exist.",
+  "It applies to the dimension that carries the sacred value. The other five coordinates of the two voters may agree.",
+  "The volume draws a design reading from it, that procedures which make voters trade a sacred value against other dimensions are ill-conditioned. That reading is not tested in the volume.",
+]
+related = ["political-metric", "curvature", "affective-metric-distortion", "economic-singularity"]
+
+[[entry]]
+id = "electorate-effective-dimensionality"
+kind = "instrument"
+title = "Effective dimensionality of an electorate"
+definition = "The number of eigenvalues of the electorate's six-by-six covariance matrix, taken from the largest down, needed to reach 85 percent of the total variance. One dominant eigenvalue means the left-right axis is a good approximation, and evenly spread eigenvalues mean it is a poor one."
+first_stated = "Appendix C.2, `geometric-politics/manuscript/appendices/appendix_c_voting.md:67-71`, with the reading of the eigenvalues in Chapter 4, `geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:100-100`."
+conditions = [
+  "The inputs are standardized scores on the six dimensions from the 26-item instrument of Appendix C. The appendix recommends at least 500 voters, and 2,000 or more for the off-diagonal covariance terms.",
+  "The 85 percent cut is the protocol's convention.",
+  "The eigenvalues printed for the American electorate are given as approximate, and those for District 7 belong to a fictional district. Neither is a recorded measurement.",
+]
+related = ["covariance-matrix", "eigenvalue-eigenvector", "principal-component-analysis", "explained-variance", "political-preference-manifold"]
+
+[[entry]]
+id = "political-frechet-mean"
+kind = "concept"
+title = "Frechet mean of an electorate"
+definition = "The point of the preference manifold that minimizes the sum of squared manifold distances to all voters. The volume uses it as the multi-dimensional counterpart of the median voter."
+first_stated = "Chapter 4, `geometric-politics/manuscript/part_ii/ch04_preference_manifold.md:163-169`."
+conditions = [
+  "It depends on the metric. With sacred-value boundaries the volume says the mean is pulled into the interior of the acceptable region.",
+  "It need not coincide with the median on any single dimension, because the dimensions are correlated.",
+  "The District 7 coordinates given for it are an illustration from a fictional district.",
+]
+known_as = "The Frechet mean, or Karcher mean, of a distribution on a metric space. The one-dimensional comparison is the median voter of Downs."
+related = ["political-preference-manifold", "political-metric", "manifold-condorcet-winner", "gerrymandering-index", "mean-median"]
+
+[[entry]]
+id = "democratic-irrecoverability-theorem"
+kind = "result"
+title = "Democratic Irrecoverability Theorem"
+definition = "A voting function maps the positions of $n$ voters on a $d$-dimensional preference manifold to an outcome space of lower dimension. It is then non-injective, no function of the outcome recovers the preferences, and the fraction of manifold information destroyed is at least $(d - \\dim \\mathcal{O})/d$."
+first_stated = "Theorem 1 of Chapter 5, `geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:49-55`, after Definition 2 of the voting function at `geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:24-33`."
+conditions = [
+  "The outcome space must have lower dimension than the preference manifold. The supporting Lemma 1 is stated with the weaker hypothesis that the outcome dimension is below $n$ times $d$.",
+  "The bound depends on $d$. Chapter 18 notes that with an effective dimensionality of 4 the plurality bound falls from 83 percent to 75 percent.",
+  "Part (c) treats the preference configuration as a random variable and bounds mutual information by the entropy of the outcome. The percentages of information preserved that the chapter lists for five voting systems in District 7 are illustrations and not outputs of the theorem.",
+]
+standing = "A theorem with a proof written in the chapter, inside a volume that is posited as a whole. The volume calls it the political instance of the Scalar Irrecoverability Theorem of Geometric Reasoning."
+related = ["scalar-irrecoverability", "political-preference-manifold", "rcv-recovery-theorem", "geometrized-arrow-theorem", "political-bond-index", "binary-verdict-irrecoverability"]
+
+[[entry]]
+id = "democratic-gauge-group"
+kind = "concept"
+title = "Democratic gauge group"
+definition = "The group $G_D$ of changes to a voting function's input that should leave its output unchanged. It is generated by voter anonymity, option neutrality and re-description invariance. A voting function invariant under it is called democratically well-posed."
+first_stated = "Definition 3 of Chapter 5, `geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:97-105`."
+conditions = [
+  "Option neutrality means that relabeling the candidates permutes the output in the same way. It does not mean the output is fixed.",
+  "The volume reads Arrow's axioms as conditions of this kind. That reading is an interpretation given in prose in Chapters 5 and 7.",
+  "Chapter 17 asks whether invariance under this group yields a conserved democratic legitimacy. It calls the idea speculative because no political Lagrangian has been specified.",
+]
+related = ["political-bond-invariance-principle", "geometrized-arrow-theorem", "reasoning-gauge-transformation", "quotient"]
+
+[[entry]]
+id = "political-bond-invariance-principle"
+kind = "concept"
+title = "Political Bond Invariance Principle"
+definition = "A democratic evaluation, such as an election, a poll or a representation assessment, is epistemically well-posed if and only if it is invariant under voter anonymity, option neutrality and re-description invariance."
+first_stated = "Chapter 5, `geometric-politics/manuscript/part_ii/ch05_voting_contraction.md:171-175`."
+conditions = [
+  "The volume states it as an axiom. It is the political instance of the Bond Invariance Principle of Geometric Ethics.",
+  "The volume names three violations. Voter suppression breaks anonymity, ballot order effects break neutrality, and framing in ballot language breaks re-description invariance.",
+  "The framing violation is tied to a framing result quoted from Geometric Communication. This volume does not measure it.",
+]
+related = ["democratic-gauge-group", "moral-bond-invariance-principle", "political-bond-index", "legal-invariance-principle"]
+
+[[entry]]
+id = "campaign-gradient-theorem"
+kind = "result"
+title = "Campaign Gradient Theorem"
+definition = "A campaign is modeled as choosing a unit projection axis, the dimension voters attend to. The theorem says a successful campaign finds the axis along which the mean squared projected distance between the electorate and the candidate is smallest."
+first_stated = "Theorem 2 of Chapter 6, `geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:50-58`, after the projection axis is defined at `geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:40-44`."
+conditions = [
+  "The axis must be politically activatable. A campaign can make salient only the dimensions voters recognize as relevant.",
+  "The model assumes campaigns change the salience of dimensions and leave voters' positions nearly fixed.",
+  "This entry follows the first displayed form and the prose. The volume gives a second displayed form that it calls equivalent, and its proof is a short reduction to a generalized eigenvalue problem.",
+  "The chapter says the theorem is not a new prediction. It offers it as a geometric account of the known regularity that campaigns stress strengths and avoid weaknesses.",
+]
+known_as = "Issue ownership and priming in the campaign-effects literature."
+related = ["heuristic-field", "media-heuristic-corruption", "projection", "covariance-matrix", "political-frechet-mean"]
+
+[[entry]]
+id = "media-heuristic-corruption"
+kind = "concept"
+title = "Media heuristic corruption"
+definition = "The media environment is treated as the heuristic field voters use to estimate political distances. It is corrupted in four modes, which are dimensional suppression, distance inflation, axis rotation by engagement-optimizing algorithms, and echo-chamber metric collapse."
+first_stated = "Chapter 11, `geometric-politics/manuscript/part_iii/ch11_media.md:26-72`. Chapter 6 gives the three campaign versions at `geometric-politics/manuscript/part_ii/ch06_campaigns_heuristic.md:84-92`."
+conditions = [
+  "A well-calibrated media heuristic is one that reports on all six dimensions and estimates distances without systematic distortion. The four modes are departures from that standard.",
+  "The coverage patterns assigned to cable news, public radio, social media and local news are the volume's characterization and carry no cited measurement.",
+  "The perceived and actual distances between the two District 7 voters are illustrative. The cumulative size of the distortion is argued from a framing result quoted from Geometric Communication.",
+]
+related = ["heuristic-field", "heuristic-admissibility", "affective-metric-distortion", "campaign-gradient-theorem", "corruption-tensor"]
+
+[[entry]]
+id = "geometrized-arrow-theorem"
+kind = "result"
+title = "Arrow's theorem, geometrized"
+definition = "For a preference manifold of effective dimension at least 3, no contraction to a one-dimensional social ranking preserves all of topology, orientation and symmetry. These are the volume's readings of independence of irrelevant alternatives, unanimity and non-dictatorship."
+first_stated = "Theorem 3 of Chapter 7, `geometric-politics/manuscript/part_ii/ch07_arrows_theorem.md:68-76`."
+conditions = [
+  "The chapter gives a proof sketch. It says the full proof follows Arrow's original argument reinterpreted geometrically.",
+  "The impossibility is tied to the one-dimensional output. The volume says cardinal scoring, proportional seat shares and a full-manifold output relax it, with the Gibbard-Satterthwaite constraint on strategic voting still in force.",
+  "The translation of each axiom into a geometric condition is the volume's interpretation.",
+]
+standing = "A reinterpretation of an established theorem, supported in the chapter by a proof sketch and not a full proof."
+known_as = "Arrow's impossibility theorem of 1951."
+related = ["democratic-irrecoverability-theorem", "democratic-gauge-group", "manifold-condorcet-winner", "economic-projected-intransitivity", "scalar-irrecoverability"]
+
+[[entry]]
+id = "manifold-condorcet-winner"
+kind = "concept"
+title = "Manifold Condorcet winner"
+definition = "The candidate with the lowest mean manifold distance to the electorate. The volume uses it to show that a cycle in ordinal majority preferences can coexist with a single nearest candidate once distances are kept."
+first_stated = "Chapter 7, District 7 example, `geometric-politics/manuscript/part_ii/ch07_arrows_theorem.md:146-156`."
+conditions = [
+  "It needs cardinal distances from each voter or bloc to each candidate. Ordinal rankings alone do not give it.",
+  "It is introduced by a worked example and has no numbered definition. The term Condorcet winner in its usual pairwise sense is used elsewhere in the volume.",
+  "The bloc distances in the example are from the fictional District 7.",
+]
+known_as = "It sits beside the Condorcet winner of social choice theory, which is defined by pairwise majorities and not by mean distance."
+related = ["geometrized-arrow-theorem", "political-frechet-mean", "mahalanobis-distance", "rcv-recovery-theorem"]
+
+[[entry]]
+id = "polarization-illusion-theorem"
+kind = "result"
+title = "Polarization Illusion Theorem"
+definition = "A preference distribution with a single region of high density on the manifold can look bimodal when projected onto one axis oblique to its principal axis. A bimodal one-dimensional projection is therefore necessary but not sufficient evidence of polarization on the manifold."
+first_stated = "Theorem 4 of Chapter 8, `geometric-politics/manuscript/part_iii/ch08_polarization.md:35-41`."
+conditions = [
+  "The proof notes that every projection of a Gaussian is unimodal. The effect needs a non-Gaussian shape such as a ridge or a mixture, and the proof asserts the construction without working it through.",
+  "The theorem does not say American polarization is illusory. The chapter reads the survey record as real separation on social values and institutional trust, sorting on three dimensions, and little structure on foreign policy.",
+  "The dimension-by-dimension figures are given as approximate readings of survey series. The District 7 decomposition is illustrative.",
+]
+standing = "A theorem stated with a short proof in the chapter. Its application to the American electorate is the volume's reading of survey data and not a preregistered test."
+related = ["sorting-polarization-distinction", "affective-metric-distortion", "projection", "political-preference-manifold", "simpsons-paradox"]
+
+[[entry]]
+id = "sorting-polarization-distinction"
+kind = "concept"
+title = "Sorting versus polarization"
+definition = "Sorting is the alignment of the covariance matrix, with positions on different dimensions becoming correlated through party identity. Polarization is the separation of the party centroids on the manifold. The first concerns second moments and the second concerns means."
+first_stated = "Chapter 8, `geometric-politics/manuscript/part_iii/ch08_polarization.md:73-79`."
+conditions = [
+  "The two are treated as geometrically independent. Either can be high while the other is low.",
+  "Both produce a bimodal one-dimensional projection, so one axis cannot tell them apart. Telling them apart needs the full covariance structure.",
+  "The volume's reading of the 2020s American electorate as high sorting with moderate polarization, with party means about 1.5 standard deviations apart, is stated as approximate.",
+]
+related = ["polarization-illusion-theorem", "covariance-matrix", "affective-metric-distortion", "electorate-effective-dimensionality"]
+
+[[entry]]
+id = "affective-metric-distortion"
+kind = "concept"
+title = "Affective polarization as metric distortion"
+definition = "Affective polarization is modeled as the condition in which the perceived distance between an in-group voter and an out-group voter is much larger than their actual manifold distance."
+first_stated = "Chapter 8, `geometric-politics/manuscript/part_iii/ch08_polarization.md:95-101`."
+conditions = [
+  "It concerns perceived distance, estimated from party labels and media impressions. Actual positions need not move.",
+  "The volume says it is strongest on social values and identity, weak on environment and foreign policy, and concentrated near sacred-value boundaries.",
+  "The self-reinforcing loop that ends in a singularity of perceived distance is described in prose. The District 7 perceived and actual distances are illustrative.",
+]
+related = ["political-metric", "media-heuristic-corruption", "sacred-value-singularity", "sorting-polarization-distinction", "mahalanobis-distance"]
+
+[[entry]]
+id = "gerrymandering-index"
+kind = "instrument"
+title = "Gerrymandering index"
+definition = "For a districting of $n$ voters, $GI$ is the average manifold distance from each voter to the Frechet mean of that voter's district. The Gerrymandering Surgery Theorem calls a map a gerrymander when its index exceeds the expected index of random compact, contiguous, population-equal maps."
+first_stated = "Definition 4 and Theorem 5 of Chapter 9, `geometric-politics/manuscript/part_iii/ch09_gerrymandering.md:36-46`."
+conditions = [
+  "It needs each voter's six-dimensional position and an ensemble of random valid maps. Appendix C uses 10,000 maps and treats a rank above the 95th percentile as evidence of manifold gerrymandering.",
+  "Theorem 5 is stated as a criterion and the chapter gives no proof of it.",
+  "A dimension-specific index can be high while the overall index is ordinary. The Map C example of an algorithmic map shows this on the trust and identity dimensions.",
+  "The index values for the three District 7 maps are illustrative.",
+]
+known_as = "It sits beside the efficiency gap, which the volume treats as a one-dimensional test, and the ensemble method of computational redistricting."
+related = ["political-frechet-mean", "manifold-community-of-interest", "political-bond-index", "mahalanobis-distance", "monte-carlo"]
+
+[[entry]]
+id = "manifold-community-of-interest"
+kind = "concept"
+title = "Community of interest, manifold criterion"
+definition = "A connected subset of voters whose image on the preference manifold is also connected and compact. The test is to cluster the district's voters by manifold position. One cluster passes, and two or more mean separated communities have been combined."
+first_stated = "Chapter 9, `geometric-politics/manuscript/part_iii/ch09_gerrymandering.md:89-95`."
+conditions = [
+  "The definition rests on shared manifold position and not on shared geography. Adjacent neighborhoods can fail it and distant ones can meet it.",
+  "The test depends on a clustering method that chooses the number of clusters. The volume suggests Gaussian mixture models.",
+  "The cluster counts for the three District 7 maps are illustrative.",
+]
+related = ["gerrymandering-index", "persistent-homology", "agreement-submanifold", "k-means"]
+
+[[entry]]
+id = "overton-window"
+kind = "concept"
+title = "Overton window as geodesic constraint"
+definition = "A connected, bounded subset $W$ of the preference manifold. Positions inside it cost nothing, and a position outside pays a penalty equal to a coefficient times the squared manifold distance to $W$. A trajectory is Overton-admissible when it stays inside the window of its time."
+first_stated = "Chapter 10, `geometric-politics/manuscript/part_iii/ch10_overton_window.md:26-32`, with Definition 5 at `geometric-politics/manuscript/part_iii/ch10_overton_window.md:48-54`."
+conditions = [
+  "The boundary is a gradient and not a wall. The quadratic penalty and its coefficient are posited.",
+  "The window moves. The volume names four forces, which are elite adoption, crisis events, generational replacement and media amplification.",
+  "The Overton cost of a constrained path is its length minus the length of the unconstrained geodesic. It is zero when the geodesic stays inside the window.",
+  "The shapes given for the American and Scandinavian windows and for District 7 over three decades are descriptive.",
+]
+known_as = "The Overton window of Joseph Overton, usually drawn as an interval on the left-right axis."
+related = ["political-metric", "geodesic-distance", "curvature", "media-heuristic-corruption"]
+
+[[entry]]
+id = "agreement-submanifold"
+kind = "concept"
+title = "Agreement submanifold"
+definition = "For a coalition, the set of dimensions on which every pair of members differs by at most a tolerance $\\epsilon$. Its dimension measures the depth of the coalition. One shared dimension is called fragile and four is called robust."
+first_stated = "Definition 6 of Chapter 12, `geometric-politics/manuscript/part_iii/ch12_coalitions.md:26-30`."
+conditions = [
+  "The tolerance is chosen by the analyst and the volume gives no value for it.",
+  "Agreement is tested coordinate by coordinate. Correlations between dimensions do not enter the definition.",
+  "The statement that both American party coalitions have agreement dimension about 2 is the volume's characterization and carries no cited measurement.",
+]
+related = ["coalition-fragility-index", "manifold-community-of-interest", "pareto-dominance", "bond-geodesic-equilibrium"]
+
+[[entry]]
+id = "coalition-fragility-index"
+kind = "result"
+title = "Coalition fragility index"
+definition = "$F(C)$ is the share of dimensions outside the coalition's agreement submanifold, multiplied by the largest ratio of within-coalition variance to squared tolerance among those outside dimensions. A coalition with $F(C)$ above 1 is called geometrically fragile."
+first_stated = "Theorem 6 of Chapter 12, `geometric-politics/manuscript/part_iii/ch12_coalitions.md:71-77`."
+conditions = [
+  "The chapter states the theorem and gives no proof. The index and its threshold of 1 work as a definition.",
+  "It needs the tolerance and the within-coalition variance on each dimension, neither of which the volume measures.",
+  "The claim that both American party coalitions operate near the threshold is argued from the posited agreement dimension of 2.",
+]
+related = ["agreement-submanifold", "sample-variance", "threshold", "political-preference-manifold"]
+
+[[entry]]
+id = "rcv-recovery-theorem"
+kind = "result"
+title = "RCV Recovery Theorem"
+definition = "In an election with $k$ candidates on a $d$-dimensional preference manifold, plurality keeps ordinal information along one axis and ranked-choice voting keeps it along $\\min(d, k-1)$ axes. The recovery ratios are $1/d$ and $\\min(d, k-1)/d$."
+first_stated = "Theorem 7 of Chapter 13, `geometric-politics/manuscript/part_iv/ch13_ranked_choice.md:35-47`. The ratios are repeated in Appendix C.3, `geometric-politics/manuscript/appendices/appendix_c_voting.md:85-87`."
+conditions = [
+  "The recovery is ordinal and partial. Cardinal intensity is lost, and the Democratic Irrecoverability Theorem still applies.",
+  "Positions on dimensions that do not affect any candidate ranking stay invisible, as they are under plurality.",
+  "Chapters 5 and 15 list 45 percent of information preserved for ranked choice in the five-candidate District 7 example. The formula of this theorem gives 4 of 6 for that case, and the volume does not reconcile the two figures.",
+  "The Alaska 2022, New York City 2021 and Maine 2018 elections are read through the theorem after the fact. They are not tests of it.",
+]
+standing = "A theorem with a proof written in the chapter, which counts independent pairwise comparisons. The information percentages listed elsewhere in the volume are illustrations."
+known_as = "Ranked-choice voting is also called instant-runoff voting."
+related = ["democratic-irrecoverability-theorem", "manifold-condorcet-winner", "political-bond-index", "geometrized-arrow-theorem"]
+online_page = "appendix_c_voting.html"
+
+[[entry]]
+id = "political-bond-index"
+kind = "instrument"
+title = "Political Bond Index"
+definition = "For a set of voters and an electoral system, $BI$ is the average over voters of the manifold distance to the actual representative minus the distance to the closest possible representative under an unconstrained optimal assignment. It is zero for a perfect system and positive otherwise."
+first_stated = "Definition 8 of Chapter 15, `geometric-politics/manuscript/part_iv/ch15_political_bond_index.md:27-36`. The computation is specified in Appendix C.3, `geometric-politics/manuscript/appendices/appendix_c_voting.md:91-93`."
+conditions = [
+  "It needs voter positions from a six-dimensional survey, representative positions estimated from roll-call votes, statements and platforms, and an optimal assignment computed as a minimum-cost matching against a hypothetical pool of representatives.",
+  "The README says the instrument has not been built or gated. Chapter 18 lists its adoption as a legal standard among the open questions.",
+  "A low average can hide large gaps between subgroups. The volume computes it by subgroup and by dimension for that reason.",
+  "Every value printed for District 7 is illustrative, and the printed values are not all consistent. Plurality is given 2.8 in the comparison table and 1.2 in the first scenario of the same chapter.",
+]
+known_as = "The political instance of the Bond Index of Geometric Ethics."
+related = ["bond-index", "legal-bond-index", "gerrymandering-index", "mahalanobis-distance", "rcv-recovery-theorem", "political-bond-invariance-principle"]
+online_page = "appendix_c_voting.html"
+
+[examples]
+political-preference-manifold = "The volume's illustration places the university enclave of District 7 at $(-1.8, -2.0, 2.0, -1.0, 0.5, -1.5)$ in standardized coordinates. Reading the first and third numbers, the enclave is progressive on economics and high on environmental priority."
+political-metric = "Take a diagonal metric with cost 1 on the economic dimension and cost 4 on the social dimension. A unit step on the social dimension has length $\\sqrt{4} = 2$, twice the length of a unit step on the economic dimension."
+sacred-value-singularity = "Two voters agree on five dimensions and sit on opposite sides of a sacred boundary on the sixth. Their coordinate difference may be one scale point, and the volume puts their distance in the political metric at infinity."
+electorate-effective-dimensionality = "The volume's District 7 eigenvalues are 3.2, 2.8, 1.9, 1.5, 1.0 and 0.6, which sum to 11.0. The first three reach 7.9, or 72 percent, and the first four reach 9.4, or 85 percent, so the effective dimensionality is 4."
+political-frechet-mean = "Three voters sit at 0, 1 and 5 on a line with ordinary distance. The point 2 gives squared distances 4, 1 and 9, a sum of 14. The median voter at 1 gives 1, 0 and 16, a sum of 17, so the Frechet mean is 2 and not the median."
+democratic-irrecoverability-theorem = "With six dimensions and a single-winner outcome of dimension 1, at least $(6-1)/6$, about 83 percent, of the manifold information is destroyed. With four effective dimensions the bound is $3/4$, or 75 percent."
+democratic-gauge-group = "Five ballots read A, A, A, B, B. Swapping the ballots of the first and fourth voters gives B, A, A, A, B, and the count is still 3 to 2 for A, as anonymity requires."
+political-bond-invariance-principle = "Suppose the same voters with the same preferences elect A when A is listed first and B when B is listed first. The outcome depends on the labeling of the ballot, so the election fails option neutrality and is not well-posed under the principle."
+campaign-gradient-theorem = "Let the electorate have mean zero, variance 4 on axis 1 and variance 1 on axis 2, and let the candidate sit at $(0, 2)$. The mean squared projected distance is $4 + 0 = 4$ on axis 1 and $1 + 4 = 5$ on axis 2, so the campaign makes axis 1 salient."
+media-heuristic-corruption = "In the volume's illustration two District 7 voters are 2.3 Mahalanobis units apart and each perceives 5.5. The ratio $5.5 / 2.3$ is about 2.4, the distortion factor the chapter reports."
+geometrized-arrow-theorem = "On a six-dimensional manifold a contraction to a single ranking must drop $6 - 1 = 5$ dimensions of information, while the three conditions together ask that none be dropped."
+manifold-condorcet-winner = "In the volume's table the three blocs are 1.2, 2.8 and 5.1 from A, 2.5, 0.3 and 2.2 from B, and 4.8, 2.5 and 1.4 from C. The means are about 3.0, 1.7 and 2.9, so B is the manifold Condorcet winner although the ordinal preferences cycle."
+polarization-illusion-theorem = "A one-axis histogram with two peaks is consistent with two separated clusters and with one elongated cluster seen obliquely. In the volume's District 7 illustration the party centroids are 1.5 Mahalanobis units apart, which the chapter reads as moderate separation with substantial overlap."
+sorting-polarization-distinction = "Two parties have centroids at $(-0.5, -0.5)$ and $(0.5, 0.5)$, a distance of $\\sqrt{2}$, about 1.41. If the variance inside each party falls from 1 to 0.25 the centroids have not moved, so sorting has risen and polarization has not."
+affective-metric-distortion = "In the volume's District 7 illustration the party centroids are 1.5 Mahalanobis units apart and voters perceive about 4.2. The ratio $4.2 / 1.5$ is 2.8, which the chapter calls nearly three times the actual distance."
+gerrymandering-index = "Four voters sit at 0, 1, 10 and 11 on a line. Districts {0, 1} and {10, 11} have means 0.5 and 10.5, and every voter is 0.5 from the mean, so the index is 0.5. Districts {0, 10} and {1, 11} have means 5 and 6, every voter is 5 away, and the index is 5."
+manifold-community-of-interest = "In the volume's illustration the clustering test finds one cluster under the bipartisan Map A and two under the partisan Map B, where the Route 9 corridor and the exurban belt are joined. Map B's district fails the criterion."
+overton-window = "With penalty coefficient 2, a position 3 manifold units outside the window costs $2 \\times 3^2 = 18$, and a position inside costs 0. If the geodesic between two positions has length 4 and the shortest path inside the window has length 6, the Overton cost of the path is 2."
+agreement-submanifold = "Three members have environmental positions 1.0, 1.2 and 1.4 and economic positions $-1$, 0 and 1, and the tolerance is 0.5. The largest environmental gap is 0.4 and the largest economic gap is 2, so only the environmental dimension is in the agreement submanifold and its dimension is 1."
+coalition-fragility-index = "With six dimensions and agreement on two, the first factor is $4/6$, about 0.67. The index reaches 1 when the worst outside dimension has variance equal to 1.5 times the squared tolerance, since $0.67 \\times 1.5 = 1$. These are the volume's figures."
+rcv-recovery-theorem = "With six dimensions and five candidates, plurality has ratio $1/6$, about 17 percent, and ranked choice has $\\min(6, 4)/6 = 4/6$, about 67 percent. With three candidates ranked choice has $2/6$, about 33 percent."
+political-bond-index = "Two voters are 2.0 and 3.0 from their actual representatives and 1.0 and 1.5 from their optimal ones. The excesses are 1.0 and 1.5, so the index is 1.25. In the volume's illustration a move from 1.2 to 0.9 is a 25 percent reduction."

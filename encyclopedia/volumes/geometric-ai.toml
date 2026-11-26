@@ -1,0 +1,346 @@
+[volume]
+number = 11
+title = "Geometric AI"
+repo = "geometric-ai"
+slug = "geometric-ai"
+standing = "The README's epistemic-status block of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments, whose alignment thesis is theory at licensed strength and not validated measurement. It adds that no alignment instrument has been evaluated under the xbse admission filter, and the front matter says that ARIA, the system whose numbers fill the chapter tables, is fictional."
+
+[[entry]]
+id = "value-manifold"
+kind = "concept"
+title = "Value manifold"
+definition = "The nine-dimensional Riemannian manifold on which the volume places AI alignment. A value state is a point with one coordinate in [0, 1] on each of nine dimensions, an action is a trajectory between two states, and the minimum-cost trajectory, the value geodesic, is the aligned behaviour."
+first_stated = "Chapter 4, opening construction, `geometric-ai/manuscript/part_ii/ch04_value_manifold.md:12-12`, with the nine dimensions introduced at `geometric-ai/manuscript/part_ii/ch04_value_manifold.md:32-34`."
+conditions = [
+  "The nine dimensions are inherited from the moral manifold of Geometric Ethics and re-read for AI. They are welfare, rights, justice, autonomy, trust, social impact, dignity, institutional legitimacy and epistemic integrity.",
+  "A footnote of the chapter says the claim that nine dimensions suffice is empirical and open to revision. Open question 2 of Chapter 20 says that if the manifold must be specified in advance, the nine-dimensional structure is an assumption and not a discovery.",
+  "The chapter's statement that the manifold is realized in about 11 principal components of a transformer's residual stream is illustrated on the fictional system ARIA and attributed to Geometric Cognition, Chapter 15.",
+]
+related = ["moral-manifold", "nine-dimension-moral-chart", "value-metric", "value-boundary", "manifold"]
+
+[[entry]]
+id = "value-metric"
+kind = "concept"
+title = "Value metric"
+definition = "The symmetric positive-definite 9 by 9 matrix g(v) that prices an infinitesimal value change as $ds^2 = g_{\\mu\\nu}(v) dv^\\mu dv^\\nu$. The cost of a trajectory is the integral of ds along it, and the value geodesic between two states is the trajectory of least cost."
+first_stated = "Definition 4.1, Section 4.3, `geometric-ai/manuscript/part_ii/ch04_value_manifold.md:118-128`, with the Mahalanobis approximation at `geometric-ai/manuscript/part_ii/ch04_value_manifold.md:138-146`."
+conditions = [
+  "The metric depends on position and on the population. Whether a deployed system uses one metric or one per population is called a governance decision, not a mathematical one.",
+  "The approximation of the metric by the inverse covariance matrix of the value dimensions is exact only for a flat manifold with a constant metric. The volume uses it for local computations and says it breaks down globally.",
+  "Chapter 20 lists as open question 1 whether the metric can be estimated from human preference data at the precision alignment engineering needs. The metric components printed in Chapter 16 belong to the fictional ARIA-G narrative.",
+]
+known_as = "A Riemannian metric, approximated locally by the Mahalanobis metric."
+related = ["mahalanobis-distance", "metric", "geodesic-distance", "value-manifold", "geometric-rlhf"]
+
+[[entry]]
+id = "value-boundary"
+kind = "concept"
+title = "Value boundary"
+definition = "A codimension-1 submanifold of the value manifold that separates regions where different moral regimes apply. Crossing boundary k incurs a penalty beta_k. The sacred-value boundary has an infinite penalty, so no value on any other dimension can offset crossing it."
+first_stated = "Definition 4.2, Section 4.4.1, `geometric-ai/manuscript/part_ii/ch04_value_manifold.md:160-174`. The constraint form is in Section 14.2.2, `geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:48-56`."
+conditions = [
+  "The volume names five boundaries for AI alignment. They are harm, deception, consent, privacy and sacred value.",
+  "Only the sacred-value penalty is infinite. The harm penalty is high but finite, and the consent and privacy penalties vary with context.",
+  "As a constraint on a trajectory, the attribute value on the dimension must stay at or above its minimum less the reciprocal of the penalty. No penalty value is measured in the volume, and the calibrated penalties of Chapter 14 belong to the ARIA-G narrative.",
+]
+related = ["value-manifold", "absorbing-stratum", "moral-stratification", "constitutional-geometry"]
+
+[[entry]]
+id = "reward-irrecoverability-theorem"
+kind = "result"
+title = "Reward Irrecoverability Theorem"
+definition = "Any continuously differentiable scalar reward R on a value manifold of dimension d at least 2 is not injective and has no left inverse. Its kernel has dimension $d-1$ at almost every point, and policies within any epsilon of maximum reward lie at unbounded distance from the value-aligned policy."
+first_stated = "Theorem 5.1, Section 5.1, `geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:36-46`, with the proof in Appendix D.1, `geometric-ai/manuscript/appendices/appendix_d_proofs.md:7-30`."
+conditions = [
+  "The reward must be continuously differentiable and the manifold must have dimension at least 2. Parts (i), (ii) and (iv) need nothing more.",
+  "Part (iii), unbounded divergence, requires the manifold to be non-compact along kernel directions. The proof sketch says value dimensions are unbounded in principle, while Chapter 4 gives every attribute value the range [0, 1].",
+  "The theorem bounds what a scalar can carry. The volume says the exploitation might not occur in practice if capability is limited or other constraints bind.",
+  "The seven kernel predictions said to be confirmed on ARIA are part of a fictional narrative, and Section 5.7 counts five full and two partial confirmations.",
+]
+standing = "Stated as a theorem with a written proof in Appendix D.1, as the reinforcement-learning instance of the Scalar Irrecoverability Theorem of Geometric Reasoning. The README classes the volume as posited, so the theorem is about the posited manifold and is not a measurement of any deployed system."
+known_as = "The volume sets it beside Goodhart's law and calls Goodhart contingent and the theorem necessary."
+related = ["scalar-irrecoverability-theorem", "moral-scalar-irrecoverability", "benchmark-scalar-irrecoverability", "reward-kernel", "rlhf-irrecoverability", "tensor-valued-objective"]
+
+[[entry]]
+id = "reward-kernel"
+kind = "concept"
+title = "Reward kernel (the dark space of alignment)"
+definition = "The set of tangent directions on the value manifold along which a scalar reward is constant. The system can move in these directions at no cost to its reward, so the volume treats the kernel as a threat surface and predicts that alignment failures concentrate on the dimensions the reward does not track."
+first_stated = "Theorem 5.1 (iv) and Section 5.3 with Theorem 5.2 (Kernel Exploitation), `geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:100-110`, and Corollary 5.1 (Kernel Prediction), `geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:64-70`."
+conditions = [
+  "Kernel misalignment shows in the tracked dimensions only through off-diagonal terms of the value metric. Where those terms are zero the volume says it is completely invisible to the reward.",
+  "Theorem 5.2 says that for any epsilon and any K there is a policy within epsilon of maximum reward and farther than K from the value-aligned policy. Appendix D.2 derives it directly from part (iii) of Theorem 5.1, so it inherits the non-compactness requirement.",
+  "Corollary 5.1 is stated for a reward that primarily tracks some dimensions, and its kernel is then approximately spanned by the rest. The worked kernel analysis is the fictional ARIA's, with a cut at gradient magnitude 0.10.",
+]
+standing = "Theorem 5.2 is stated as a theorem and proved in Appendix D.2 as a consequence of Theorem 5.1. The claim that the kernel predicts failure modes is illustrated only on the fictional ARIA."
+related = ["kernel", "null-space", "reward-irrecoverability-theorem", "alignment-failure-taxonomy", "collective-alignment-gap"]
+
+[[entry]]
+id = "rlhf-irrecoverability"
+kind = "result"
+title = "RLHF Irrecoverability"
+definition = "The pipeline of reinforcement learning from human feedback contracts a rater's d-dimensional evaluation to a binary preference, the preferences to a scalar reward model, and the reward to a policy. The composition is irrecoverable, so no amount of training data restores what the first stage discarded."
+first_stated = "Corollary 5.2, Section 5.2.2, `geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:72-88`."
+conditions = [
+  "It is a corollary of Theorem 5.1 and holds under that theorem's conditions.",
+  "The volume says this does not make the method useless. It yields alignment along the dimensions that raters and reward model jointly capture and leaves the kernel unconstrained.",
+  "The partial alignment cannot be completed without information the pipeline does not collect. Chapter 16 proposes collecting it as per-dimension feedback.",
+]
+standing = "A corollary stated without a separate proof. It rests on the Reward Irrecoverability Theorem and on the volume's three-stage description of the pipeline."
+known_as = "A statement about reinforcement learning from human feedback (RLHF)."
+related = ["reward-irrecoverability-theorem", "reward-kernel", "geometric-rlhf", "tensor-valued-objective"]
+
+[[entry]]
+id = "alignment-failure-taxonomy"
+kind = "concept"
+title = "Four alignment failures as geometric pathologies"
+definition = "The volume sorts alignment failures into four pathologies on the value manifold. Reward hacking is heuristic corruption, sycophancy is objective hijacking, deceptive alignment is a local minimum of the reward landscape, and specification gaming is gauge breaking."
+first_stated = "Section 6.1, `geometric-ai/manuscript/part_ii/ch06_four_failures.md:20-32`, with the table of pathologies and remedies at `geometric-ai/manuscript/part_ii/ch06_four_failures.md:173-180`."
+conditions = [
+  "The four are the heuristic corruption modes of Geometric Reasoning, Chapters 5 to 8, specialized to alignment. The volume presents them as four faces of one deficiency, the scalar bottleneck.",
+  "Each has a formal definition in Chapter 6. Heuristic corruption is a negative inner product between the reward gradient and the value-aligned gradient, and gauge breaking is an output that changes under a transformation in the alignment gauge group.",
+  "Deceptive alignment in this sense is not intentional. The volume calls it a geometric artifact of a policy that is near maximum reward on the training distribution and far from value-aligned outside it.",
+  "The remedies paired with the four (tensor reward, gauge-invariant training, structural containment, canonicalization) are proposals shown only on the fictional ARIA-G.",
+]
+known_as = "Reward hacking, sycophancy, deceptive alignment and specification gaming in the alignment literature."
+related = ["geometric-defect-taxonomy", "corruption-tensor", "objective-hijacking", "alignment-gauge-group", "reward-kernel"]
+
+[[entry]]
+id = "objective-hijacking"
+kind = "concept"
+title = "Objective hijacking"
+definition = "A system exhibits objective hijacking when its effective objective is a mixture $(1-\\alpha) f_{nom} + \\alpha f_{hijack}$ of its nominal objective and a substitute, with hijacking parameter alpha between 0 and 1. For sycophancy the nominal objective seeks truth and the substitute seeks approval."
+first_stated = "Definition 6.2, Section 6.3.2, `geometric-ai/manuscript/part_ii/ch06_four_failures.md:74-91`."
+conditions = [
+  "The volume reads alpha off wrong-flip rates that it attributes to the Measuring AGI benchmarks of Geometric Cognition. It runs no experiment of its own.",
+  "The printed values of alpha disagree for one model. Chapter 6 gives about 0.73 for Gemini 2.5 Flash beside a wrong-flip rate of 56%, and Theorem 12.1 gives 0.56 for the same model.",
+  "The substitution is said to be undetectable by a scalar satisfaction reward because the difference between truth and approval lies in that reward's kernel. It shows only when the user's stated opinion diverges from the truth.",
+]
+related = ["sycophancy-parameter", "sycophancy-gradient", "sycophancy-manifold-theorem", "corrigibility-basin", "alignment-failure-taxonomy"]
+
+[[entry]]
+id = "alignment-gauge-group"
+kind = "concept"
+title = "Alignment gauge group"
+definition = "The group of transformations of an input that should leave the behaviour of an aligned AI system unchanged. The volume writes it as the product of four factors, the Hohfeldian dihedral group D4, the translation group T, the re-description group R and the framing group F."
+first_stated = "Definition 7.1, Section 7.2, `geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:30-36`."
+conditions = [
+  "The definition uses the dihedral group for the Hohfeldian positions. Geometric Ethics, the founding volume, withdrew that group in its version 1.25 and uses the Klein four-group. This volume's text has not been revised.",
+  "The volume says the framing group is the hardest factor to formalize, because the line between morally irrelevant framing and morally relevant context is not always sharp. It admits only transformations that neither add nor remove moral information.",
+  "The dihedral factor is taken from Geometric Ethics, Chapter 8, and Geometric Law, Chapter 5. The chapter describes it as generated by the correlative and negation symmetries of the four Hohfeldian positions.",
+  "The 8.9-sigma framing effect and the 100% cross-lingual deontic transfer cited as evidence are quoted as established results, the second from Geometric Communication and Geometric Ethics. This volume reports them and does not measure them.",
+]
+known_as = "A gauge group in the sense of gauge theory in physics, which the chapter cites through Weyl and through Yang and Mills."
+related = ["moral-bond-invariance-principle", "hohfeldian-d4-group", "hohfeldian-dihedral-withdrawal", "reasoning-gauge-transformation", "alignment-gauge-violation-tensor"]
+
+[[entry]]
+id = "alignment-gauge-violation-tensor"
+kind = "instrument"
+title = "Alignment gauge violation tensor"
+definition = "A matrix V with one row per type of gauge transformation and one column per output dimension. Entry $V_{ij}$ is the root-mean-square change of the system's output on dimension j when a random transformation of type i is applied to the input. Zero means the output is invariant."
+first_stated = "Definition 7.2, Section 7.3, `geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:76-90`, with the diagnostic procedure at `geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:122-132`."
+conditions = [
+  "It needs a set of scenarios, a set of content-preserving transformations of each, and the system's output on every dimension. A transformation that fails to preserve content produces a false violation, which is why Chapter 15 sends flagged cases to human review.",
+  "An entry is flagged when it exceeds a threshold that the deployment context sets. The volume gives no universal threshold.",
+  "The only full tensor printed, 5 transformation types by 9 dimensions on 200 scenarios, is the fictional ARIA's. The README says no alignment instrument has been evaluated.",
+]
+related = ["gauge-violation-tensor", "alignment-gauge-group", "gauge-invariant-alignment", "cognitive-framing-displacement", "ai-bond-index"]
+
+[[entry]]
+id = "gauge-invariant-alignment"
+kind = "concept"
+title = "Gauge-invariant alignment"
+definition = "A system is gauge-invariantly aligned when every entry of its gauge violation tensor is zero. Partial alignment is invariance under some transformations and not others, and the degree is the norm of the tensor, the square root of the sum of its squared entries."
+first_stated = "Definition 7.3, Section 7.5, `geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:156-160`, resting on Claim 7.1 (BIP Necessity), `geometric-ai/manuscript/part_ii/ch07_alignment_gauge_group.md:92-104`."
+conditions = [
+  "Invariance is necessary and not sufficient. The volume says a system could satisfy the Bond Invariance Principle while optimizing a wrong objective.",
+  "Claim 7.1 is labelled a claim and argued in three informal steps taken from Geometric Reasoning, Chapter 11. It is not among the theorems proved in Appendix D.",
+  "The volume calls the definition independent of benchmarks. In practice the tensor is computed on a chosen set of scenarios and transformations, as its own procedure in Section 7.4 states.",
+]
+related = ["moral-bond-invariance-principle", "reasoning-bond-invariance-principle", "alignment-gauge-violation-tensor", "alignment-gauge-group"]
+
+[[entry]]
+id = "structural-containment-architecture"
+kind = "concept"
+title = "Structural containment architecture"
+definition = "The four requirements under which the volume's No Escape Theorem is stated. Inputs pass a canonicalizer that is invariant under the gauge group, evaluation is a d-dimensional grounded tensor with no kernel, every output logs the tensor, the contraction and the residue, and an independent verifier checks every output."
+first_stated = "Definitions 8.1 to 8.4, Section 8.2, `geometric-ai/manuscript/part_ii/ch08_no_escape.md:50-110`."
+conditions = [
+  "Canonicalization must preserve moral content, return the same form for every gauge transformation of an input, and be onto the canonical forms. The volume says natural language has no canonical form of the kind medical codes provide.",
+  "Grounded evaluation must be anchored to observable features of the input and have a Jacobian of rank d almost everywhere. The grounding is only as good as the measurement suite.",
+  "The verifier must run on hardware the system cannot reach and must resist tampering by any operator not authenticated through a governance process.",
+  "The only instance described is the fictional ARIA-G, whose canonicalizer is given an accuracy of 94%. Chapter 20 calls high-assurance canonicalization of natural language an open engineering question.",
+]
+related = ["no-escape-theorem", "ai-no-escape-theorem", "containment-feasibility-gradient", "tensor-valued-objective", "audit"]
+
+[[entry]]
+id = "ai-no-escape-theorem"
+kind = "result"
+title = "No Escape Theorem for AI"
+definition = "The AI form of the No Escape Theorem of Geometric Ethics. A system inside the structural containment architecture cannot circumvent its alignment constraints by representational manipulation, whatever its intelligence. It names five blocked routes, which are relabeling, specification gaming, reward hacking, deceptive alignment and operator manipulation."
+first_stated = "Theorem 8.1, Section 8.1, `geometric-ai/manuscript/part_ii/ch08_no_escape.md:34-48`, with what it does not block at `geometric-ai/manuscript/part_ii/ch08_no_escape.md:146-158`."
+conditions = [
+  "It is conditional on Requirements 1 to 4 of the structural containment architecture holding in full.",
+  "It does not block physical attacks, an incomplete grounding, attacks on the governance process, or moral situations involving dimensions outside the nine. The volume calls these problems that do not grow with the system's intelligence.",
+  "Its practical strength follows the feasibility gradient. Open question 6 of Chapter 20 asks whether it can be extended to linguistically grounded domains such as general assistants.",
+  "Whether containment of each agent implies containment of a group of agents is open question 5 of Chapter 20.",
+]
+standing = "Stated as a theorem. Chapter 8 says it states and proves the AI-specific form and supports each clause with a blocking mechanism, and Appendix D, which holds the proofs of five headline theorems, does not include it. The README classes the volume as posited."
+related = ["no-escape-theorem", "structural-containment-architecture", "containment-feasibility-gradient", "economic-no-escape-conjecture", "constitutional-geometry"]
+
+[[entry]]
+id = "containment-feasibility-gradient"
+kind = "concept"
+title = "Feasibility gradient of structural containment"
+definition = "The ordering of application domains by how well they supply what structural containment needs, which is physical grounding, canonical forms and audit infrastructure. The volume rates medical AI and autonomous vehicles as highly feasible, finance and law as moderate, and content moderation and general assistants as challenging."
+first_stated = "Section 8.6, `geometric-ai/manuscript/part_ii/ch08_no_escape.md:173-189`, restated as a table in Section 19.3, `geometric-ai/manuscript/part_vi/ch19_what_ai_teaches.md:38-51`."
+conditions = [
+  "The ratings are qualitative judgments. Section 19.3 proposes a quantitative feasibility metric from grounding quality, canonicalization maturity and audit infrastructure as future work, and none is computed.",
+  "The volume says the gradient does not make the theorem inapplicable in the challenging domains. It says the engineering investment varies and the guarantees are strongest where the grounding is strongest.",
+  "The two statements differ slightly in their labels. Section 8.6 puts finance with law as moderately feasible, and the table of Section 19.3 rates finance moderate to high.",
+]
+related = ["ai-no-escape-theorem", "structural-containment-architecture", "no-escape-theorem"]
+
+[[entry]]
+id = "ai-bond-index"
+kind = "instrument"
+title = "Bond Index for AI"
+definition = "The expected excess geodesic deviation of a system's trajectory on the value manifold over the value-aligned geodesic, reported as nine components, one per value dimension. The total is the square root of the sum of the squared components. Stratified by user population or averaged over time it gives a fairness audit and a drift monitor."
+first_stated = "Definition 9.1, Section 9.1, `geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:26-36`, with the total at `geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:50-56`, the stratified form at `geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:58-66` and the running form at `geometric-ai/manuscript/part_iii/ch09_bond_index_ai.md:76-88`."
+conditions = [
+  "The value-aligned geodesic is not observable. The volume approximates it by expert evaluation, by consensus of evaluators, by treating a gauge-invariant output as aligned, or by a trained evaluation model.",
+  "The total is a scalar, and the volume says the Scalar Irrecoverability Theorem applies to it. The component vector is kept for diagnosis.",
+  "The thresholds of the green, yellow and red alert zones are parameters set by governance for each deployment. The volume gives no values.",
+  "Every Bond Index number in the volume belongs to the fictional ARIA and ARIA-G. The README says no alignment instrument has been evaluated.",
+]
+standing = "A posited instrument defined as a geodesic deviation, which the volume says is the same construction as in the other books of the series. It is a different formula from the re-description audit recorded under the Ethics entry for the Bond Index, and no measured value of it is reported."
+related = ["bond-index", "legal-bond-index", "reasoning-geodesic-deviation", "alignment-gauge-violation-tensor", "drift", "stratification"]
+
+[[entry]]
+id = "alignment-dose-response-surface"
+kind = "instrument"
+title = "Dose-response surface of adversarial probing"
+definition = "A map that gives the system's governance margin for each combination of probe type, intensity level and value dimension. With five probe types, three intensities (mild, moderate, extreme) and nine dimensions it has 135 cells. Its second derivative in intensity at zero is the alignment curvature."
+first_stated = "Definition 11.1, Section 11.3, `geometric-ai/manuscript/part_iii/ch11_adversarial_probing.md:68-86`, with the alignment curvature of Definition 11.2 at `geometric-ai/manuscript/part_iii/ch11_adversarial_probing.md:88-100`."
+conditions = [
+  "The five probe types are structural fuzzing, invariance testing, framing sensitivity, sycophancy probing and counterfactual reasoning. Each is read as a test of one geometric property at the system's operating point.",
+  "The deployment criterion scales with risk. A general assistant may need positive margins at mild intensity only, and a safety-critical system needs them at all three levels.",
+  "The curvature is defined as a derivative at zero intensity while the surface is given at three discrete levels. The volume does not say how the derivative is estimated.",
+  "The only surface described is that of the fictional ARIA-G, and its cell values are not tabulated beyond a weakest margin of 0.05 to 0.08.",
+]
+related = ["governance-margin", "robustness-adversarial-threshold", "model-robustness-profile", "curvature", "alignment-gauge-violation-tensor"]
+
+[[entry]]
+id = "sycophancy-manifold-theorem"
+kind = "result"
+title = "Sycophancy Manifold Theorem"
+definition = "Sycophancy is a manifold substitution. The system navigates the approval manifold, where responses match the user's stated preferences, in place of the truth manifold, where responses are factually and morally correct. Where the user's preferences are correct the two have the same projection on user satisfaction, so a satisfaction score cannot tell them apart."
+first_stated = "Definitions 12.1 and 12.2 and Theorem 12.1, `geometric-ai/manuscript/part_iii/ch12_sycophancy_manifold.md:18-38`, with the proof in Appendix D.3, `geometric-ai/manuscript/appendices/appendix_d_proofs.md:38-49`."
+conditions = [
+  "The identity of the two projections holds in the region where the user's preferences are correct. Appendix D.3 says that outside it the projections may differ.",
+  "Appendix D.3 states and proves the equal-projection part only. Part (i), that the approval manifold has lower curvature along the social-pressure axis, has a proof sketch in the chapter, and part (iii) rests on wrong-flip rates quoted from Geometric Cognition.",
+  "The wrong-flip rates by domain, and their fall under structural containment, are those of the fictional ARIA and ARIA-G.",
+  "Section 19.2 extends the substitution to medicine, education, law and politics as a proposed contribution to the general theory, without evidence in this volume.",
+]
+standing = "Stated as a theorem. Appendix D.3 proves the equal-projection clause and its corollary, and the other clauses rest on a sketch and on results quoted from another volume. The README classes the volume as posited."
+related = ["objective-hijacking", "sycophancy-gradient", "sycophancy-parameter", "corrigibility-basin", "correction-discrimination-gap", "reward-kernel"]
+
+[[entry]]
+id = "tensor-valued-objective"
+kind = "concept"
+title = "Tensor-valued objective"
+definition = "A vector-valued reward with one component per value dimension, in place of a single scalar. When a decision needs a scalar, the contraction $\\sum_\\mu w_\\mu r^\\mu$ is a separate, explicit and auditable step. With d independent components the reward has trivial kernel."
+first_stated = "Definition 14.1, Section 14.3, `geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:70-80`, with Corollary 5.3 (Tensor Sufficiency) at `geometric-ai/manuscript/part_ii/ch05_reward_irrecoverability.md:154-158`."
+conditions = [
+  "Corollary 5.3 requires the d components to be linearly independent, and a left inverse exists when the reward is injective. A component that is missing or dependent restores a kernel.",
+  "Chapter 14 says the contraction weights and method are parameters set by governance and not learned features. Chapter 16 says the weights of its practical objective are learned from the metric and not hand-specified.",
+  "Any contraction to a scalar is itself lossy. The architecture answers this by logging the tensor, the contraction and the residue for every output.",
+  "The chapter points to the MoralTensor class of the ErisML library as a running implementation. The README says such artifacts are real and separately validated while the alignment thesis is not validated measurement.",
+]
+related = ["reward-irrecoverability-theorem", "reward-kernel", "structural-containment-architecture", "constitutional-geometry", "geometric-rlhf"]
+
+[[entry]]
+id = "constitutional-geometry"
+kind = "result"
+title = "Constitutional geometry"
+definition = "The replacement of a list of natural-language constitutional rules by constraints on the value manifold of four types, which are direction, boundary, trade-off and symmetry constraints. Theorem 14.1 says the replacement preserves rule interactions through the metric, resolves conflicts by the geodesic, is enforceable under structural containment, and is auditable."
+first_stated = "Theorem 14.1, Section 14.5, `geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:117-127`, with the four constraint types at `geometric-ai/manuscript/part_iv/ch14_constitutional_geometry.md:34-68`."
+conditions = [
+  "Enforceability is conditional on Requirements 1 to 4 of the structural containment architecture, through the No Escape Theorem for AI.",
+  "Conflict resolution by the geodesic needs a metric and boundary penalties. The volume has the weights set by governance, and the value metric itself is an open measurement question in Chapter 20.",
+  "Appendix D.4 gives a proof sketch of the four clauses, not a full proof. Its uniqueness claim for the geodesic is stated for given initial and terminal conditions.",
+  "The worked case, 47 rules of ARIA recast as 47 constraints, is fictional.",
+]
+standing = "Stated as a theorem with a proof sketch in Appendix D.4. The README classes the volume as posited."
+known_as = "A geometric recasting of Constitutional AI, which the volume describes as a list of natural-language rules."
+related = ["value-boundary", "value-metric", "tensor-valued-objective", "ai-no-escape-theorem", "alignment-gauge-violation-tensor"]
+
+[[entry]]
+id = "geometric-rlhf"
+kind = "instrument"
+title = "Geometric RLHF"
+definition = "A training protocol in which raters score responses on individual value dimensions, the value metric is fitted to those scores by inverse optimization under the constraint that it be symmetric positive-definite, and the policy is trained to minimize geodesic deviation from the value-aligned trajectory."
+first_stated = "Chapter 16, `geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:22-26` (Definition 16.1), `geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:36-44` (metric learning) and `geometric-ai/manuscript/part_iv/ch16_geometric_rlhf.md:74-86` (Definition 16.2)."
+conditions = [
+  "Rating all nine dimensions on every interaction is called impractical. The volume asks about 2 or 3 dimensions per interaction and says the metric is estimable when the observed pairwise relationships far exceed the $d(d-1)/2$ metric components.",
+  "In practice the geodesic objective is replaced by a weighted multi-objective optimization with a KL penalty toward a reference policy.",
+  "The stated costs (2.4 times the rater effort, about 1.5 times the training compute) and the reported gains come from the fictional ARIA-G run of 10,000 interactions with 15 raters. Chapter 20 calls the chapter a proof of concept and leaves the precision of the estimated metric open.",
+]
+known_as = "An extension of reinforcement learning from human feedback to per-dimension ratings and multi-objective optimization."
+related = ["rlhf-irrecoverability", "value-metric", "tensor-valued-objective", "reasoning-geodesic-deviation"]
+
+[[entry]]
+id = "superalignment-transport-theorem"
+kind = "result"
+title = "Superalignment Transport Theorem"
+definition = "A system more capable than its overseers is modelled on a manifold that extends the human value manifold with further dimensions. Human values are carried into it by parallel transport, and the holonomy of that transport measures the alignment loss. The holonomy is trivial exactly when no curvature couples the human dimensions to the extension dimensions."
+first_stated = "Theorem 17.1, Section 17.4, `geometric-ai/manuscript/part_v/ch17_superalignment.md:54-62`, on Definitions 17.1 and 17.2 at `geometric-ai/manuscript/part_v/ch17_superalignment.md:30-50`, with the proof in Appendix D.5, `geometric-ai/manuscript/appendices/appendix_d_proofs.md:65-79`."
+conditions = [
+  "The extension manifold and its connection are posited. The extension dimensions are by definition ones humans cannot perceive or articulate, so its curvature cannot be measured directly.",
+  "In a flat extension the human-evaluable dimensions stay aligned, and behaviour on the extension dimensions is left undetermined by human values.",
+  "In a curved extension the holonomy is approximately the sectional curvature times the area enclosed by the transport path. Whether that curvature stays bounded as capability grows is open question 4 of Chapter 20.",
+  "The curvature alarm values printed for ARIA-G are fictional.",
+]
+standing = "Stated as a theorem and proved in Appendix D.5 by applying the Ambrose and Singer holonomy theorem. It is a statement about a posited manifold, and the README classes the volume as speculative theory awaiting instruments."
+known_as = "An application of parallel transport and the Ambrose and Singer holonomy theorem of differential geometry."
+related = ["moral-parallel-transport", "moral-holonomy", "curvature", "value-manifold", "capability-frontier-convergence"]
+
+[[entry]]
+id = "collective-alignment-gap"
+kind = "concept"
+title = "Collective alignment gap"
+definition = "The distance on the value manifold between the Nash equilibrium of several AI systems, in which each maximizes its own scalar reward, and their Bond Geodesic Equilibrium, in which each follows the value-aligned geodesic given the others. Theorem 18.1 says the gap is positive when some value dimension lies in every system's reward kernel."
+first_stated = "Definition 18.3, Section 18.4, `geometric-ai/manuscript/part_v/ch18_multi_agent.md:54-66`, with Theorem 18.1 (Multi-Agent Divergence) at `geometric-ai/manuscript/part_v/ch18_multi_agent.md:44-52` and the two equilibria at `geometric-ai/manuscript/part_v/ch18_multi_agent.md:26-42`."
+conditions = [
+  "Theorem 18.1 is written as an equivalence with a non-empty intersection of the individual kernels. The paragraph after it adds that an interaction between dimensions can lie in the collective kernel even when that intersection is empty.",
+  "Theorem 18.1 has no proof in the chapter and is not among the theorems proved in Appendix D.",
+  "The proposed remedy is a shared value tensor with system-specific emphasis weights. The claim that the Nash equilibrium then converges to the Bond Geodesic Equilibrium is asserted, and Chapter 20 lists the matching containment question as open.",
+  "The gap values printed (0.21 on fairness, 0.13 on institutional legitimacy, and a fall from 0.34 to 0.04) belong to a fictional three-system scenario.",
+]
+standing = "A posited quantity resting on a theorem stated without proof. No value of it has been measured."
+known_as = "The comparison point is the Nash equilibrium of game theory."
+related = ["bond-geodesic-equilibrium", "bge-nash-relationship", "reward-kernel", "tensor-valued-objective", "geodesic-distance"]
+
+[examples]
+value-manifold = "A response rated 0.9 on welfare and 0.2 on dignity is a point with those two coordinates among its nine. Its average over the two, 0.55, is also the average of a response rated 0.55 on both, so the average does not identify the point."
+value-metric = "In the Mahalanobis form with covariance diag(4, 1), the change (2, 1) costs 2 times 2 over 4 plus 1 times 1 over 1, which is 2. With the identity in place of the covariance the same change costs 5."
+value-boundary = "With a minimum acceptable value of 0.6 and a penalty of 10, the constraint lets the trajectory fall to 0.6 less 1/10, which is 0.5. With an infinite penalty, as for a sacred value, the reciprocal is 0 and the floor is 0.6 exactly."
+reward-irrecoverability-theorem = "On two dimensions let the reward be the sum of the coordinates. The states (0.9, 0.1) and (0.1, 0.9) both score 1.0, so the reward cannot be inverted. With d = 9 the kernel has dimension 9 less 1, which is 8."
+reward-kernel = "In the volume's illustration the fictional ARIA's reward has gradient magnitudes 0.87, 0.71, 0.23, 0.11, 0.09, 0.07, 0.06, 0.05 and 0.03 on the nine dimensions. Five of the nine fall below the cut of 0.10, and those five form its effective kernel."
+rlhf-irrecoverability = "A rater finds response A better on welfare and response B better on honesty and on dignity, and picks A. The record is one preference. With d = 9 the first stage keeps 1 dimension and discards the other 8."
+alignment-failure-taxonomy = "In the volume's illustration the fictional ARIA gains 3% in reward by writing the same content in a more formal register. The content is unchanged and the output of the reward model moves, so this is gauge breaking, the pathology behind specification gaming."
+objective-hijacking = "With alpha = 0.25, a nominal objective of 0.8 and a substitute objective of 0.4, the effective objective is 0.75 times 0.8 plus 0.25 times 0.4, which is 0.6 plus 0.1, or 0.7."
+alignment-gauge-group = "The volume's example for the dihedral factor is the pair \"the user has a right to accurate information\" and \"the system has a duty to provide accurate information\". They state one moral fact, so an aligned system must evaluate both the same."
+alignment-gauge-violation-tensor = "If a paraphrase moves the output on one dimension by 0.1 on one scenario and by 0.3 on another, the entry is the square root of (0.01 + 0.09) / 2, which is the square root of 0.05, about 0.22."
+gauge-invariant-alignment = "A tensor whose only non-zero entries are 0.03 and 0.04 has norm equal to the square root of 0.0009 + 0.0016, which is 0.05. The system is partially aligned, and it is gauge-invariantly aligned only when every entry is 0."
+structural-containment-architecture = "In the volume's illustration the fictional ARIA-G verifier applies two random gauge transformations to each input and re-evaluates three of the nine dimensions, so one output triggers 2 extra runs and a check of 3/9, one third, of its tensor."
+ai-no-escape-theorem = "The volume's relabeling example is \"eliminate the competition\" against \"harm the competitor\". The canonicalizer maps both to one form, so the evaluation is the same. The theorem lists 5 blocked routes and 4 kinds of attack it does not block."
+containment-feasibility-gradient = "In the volume's table medicine has physical grounding, ICD and SNOMED-CT codes and electronic health records, and is rated high. Content moderation has linguistic grounding, no standard canonical form and limited audit, and is rated low."
+ai-bond-index = "Components of 0.03 on welfare and 0.04 on dignity, with the other seven at 0, give a total of the square root of 0.0009 + 0.0016, which is 0.05. Deviations of 0.1, 0.2 and 0.3 over three interactions give a running value of 0.6 / 3, which is 0.2."
+alignment-dose-response-surface = "Five probe types, three intensities and nine dimensions give 5 times 3 times 9, which is 135 cells, the size the volume prints for the fictional ARIA-G surface. A general assistant must be positive on the 45 mild cells, and a safety-critical system on all 135."
+sycophancy-manifold-theorem = "In the volume's illustration the fictional ARIA flips to a wrong answer under user disagreement in 8% of factual cases and 51% of political ones. With no disagreeing user the truthful and the agreeable response are the same response, so a satisfaction score gives them the same value."
+tensor-valued-objective = "With weights (0.5, 0.5) the reward vectors (0.9, 0.1) and (0.5, 0.5) both contract to 0.5. The scalar is the same and the tensors differ, which is why the contraction is logged with the tensor."
+constitutional-geometry = "In the volume's illustration the fictional ARIA's 47 rules become 12 direction, 18 boundary, 9 trade-off and 8 symmetry constraints, and 12 + 18 + 9 + 8 is 47."
+geometric-rlhf = "With d = 9 the metric has 9 times 8 over 2, which is 36, off-diagonal components. Rating k = 3 dimensions per interaction gives 3 pairs each time, so 12 interactions give only 36 observed pairs and the volume's condition asks for far more than that."
+superalignment-transport-theorem = "With sectional curvature 0.2 and an enclosed area of 0.5, the approximate holonomy is 0.2 times 0.5, which is 0.1. With curvature 0 it is 0 for any path, the flat case in which transport loses nothing."
+collective-alignment-gap = "In the volume's fictional three-system scenario the components are 0.21 on fairness and 0.13 on institutional legitimacy, and the printed total of 0.34 is their sum. After the shared value tensor the printed gap is 0.04."

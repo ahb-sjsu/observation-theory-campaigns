@@ -34,7 +34,7 @@ none
 
 ## first stated
 
-Chapter 2 section 2.5 of *Data Mining as Observation*, with the whitened code's record in `geometric-observation/chapters/ch08_value.md:84-97`.
+Chapter 2 section 2.5 of *Data Mining as Observation*, with the whitened code's record in `geometric-observation/chapters/ch08_value.md:88-101`.
 
 ## measurements
 
@@ -51,7 +51,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/Standardization.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/Standardization.lean), theorems `mean_zero`, `variance_one`, `standardize_inv`, `standardize_lt_iff`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/Standardization.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/Standardization.lean), theorems `mean_zero`, `variance_one`, `standardize_inv`, `standardize_lt_iff`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -69,4 +69,4 @@ Sources-table rows that share a record with the entry without naming it: chapter
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

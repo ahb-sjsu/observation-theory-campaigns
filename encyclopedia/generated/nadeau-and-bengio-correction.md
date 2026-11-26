@@ -41,18 +41,18 @@ Nadeau and Bengio, inference for the generalization error, 2003, as chapter 8 ci
 | Where the book states it | Numbers, as the book's sources table records them | Source |
 |---|---|---|
 | chapter 6 section 6.4 | the uncorrected t stored as sigma, 251 and 15.84, nine wins to three, seven, eight, 3 wins 17 ties 11 losses on 31 datasets, the three-way inconsistency | `constraint-gap/review/FINDINGS.md:1-35`; `constraint-gap/README.md:57-76` |
-| chapter 6 section 6.4 | the reviewer's revision plan, drop sigma, bounded claim, 19 at 200 by 5 vs 11 at 20 by 5, rerun in progress | [`theory-radar/paper/REVISION_PLAN.md:1-60`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/REVISION_PLAN.md#L1-L60) |
+| chapter 6 section 6.4 | the reviewer's revision plan, drop sigma, bounded claim, 19 at 200 by 5 vs 11 at 20 by 5, rerun in progress | [`theory-radar/paper/REVISION_PLAN.md:1-60`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/REVISION_PLAN.md#L1-L60) |
 | chapter 6 section 6.4 | five analyses negative, 0.2 percent of floor, twelve times the band, learning-curve redesign | `constraint-gap/README.md:57-76`; `constraint-gap/review/REDESIGN.md:1-45` |
-| chapter 6 section 6.5 | loading weights and stability across folds requested | [`theory-radar/paper/REVISION_PLAN.md`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/REVISION_PLAN.md) issue 6 |
+| chapter 6 section 6.5 | loading weights and stability across folds requested | [`theory-radar/paper/REVISION_PLAN.md`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/REVISION_PLAN.md) issue 6 |
 | chapter 7 section 7.3 | correlation negative 0.59 at p 4.8e-4 with size, negative 0.562 at p 0.001 with the ensemble's score, predictive 0.345 and 0.589, interval negative 0.165 to 0.125, the one-line summary | `constraint-gap/review/INDETERMINATES.md:60-80`; `constraint-gap/review/REDESIGN.md:45-70` |
 | chapter 7 section 7.4 | the redesign, grid 50 to N, ten folds, twenty repetitions, crossing size, the 800-row boundary declared in advance, seventeen at median 0.006 and p 0.964, store the folds | `constraint-gap/review/REDESIGN.md:1-110` |
 | chapter 8 section 8.5 | variance inflation 251, SE inflation 15.84, J_eff 3.98, about 62 needed, 3 of 9 at full, 7 at half, 8 at a third | `constraint-gap/review/FINDINGS.md:1-35` |
 | chapter 8 section 8.5 | 9/3/19 to 3/17/11, five negative analyses, 0.2 percent of floor, twelve times the band, learning-curve redesign | `constraint-gap/README.md:57-76`; `constraint-gap/review/REDESIGN.md` |
-| chapter 8 section 8.5 | three-way inconsistency, lines 544, 548 to 556, 755 | `constraint-gap/review/FINDINGS.md:7-31` against [`theory-radar/paper/theory_radar_v6_submission.tex`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/theory_radar_v6_submission.tex) |
+| chapter 8 section 8.5 | three-way inconsistency, lines 544, 548 to 556, 755 | `constraint-gap/review/FINDINGS.md:7-31` against [`theory-radar/paper/theory_radar_v6_submission.tex`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/theory_radar_v6_submission.tex) |
 
 ## failures and corrections
 
-- [`theory-radar/paper/REVISION_PLAN.md:39-45`](https://github.com/ahb-sjsu/theory-radar/blob/37c4e6c/paper/REVISION_PLAN.md#L39-L45) at 37c4e6c. **Fix:** - Drop "σ significance" everywhere - Report: mean ΔF1, std, 95% CI, and corrected resampled t-statistic - Table columns: "Test F1", "GB F1", "ΔF1", "95% CI", "Direction" - Text: "the formula outperforms GB by ΔF1=0.031, 95% CI [0.028, 0.034]" - Add Nadeau-Bengio corrected t-test (accounts for CV fold correlation) - Keep effect size as supplementary but don't call it "σ"
+- [`theory-radar/paper/REVISION_PLAN.md:39-45`](https://github.com/ahb-sjsu/theory-radar/blob/db41b48/paper/REVISION_PLAN.md#L39-L45) at db41b48. **Fix:** - Drop "σ significance" everywhere - Report: mean ΔF1, std, 95% CI, and corrected resampled t-statistic - Table columns: "Test F1", "GB F1", "ΔF1", "95% CI", "Direction" - Text: "the formula outperforms GB by ΔF1=0.031, 95% CI [0.028, 0.034]" - Add Nadeau-Bengio corrected t-test (accounts for CV fold correlation) - Keep effect size as supplementary but don't call it "σ"
 
 ## invariance envelope
 
@@ -61,7 +61,7 @@ none declared
 
 ## machine checked
 
-[`lean/DataMiningAsObservation/NadeauBengio.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/lean/DataMiningAsObservation/NadeauBengio.lean), theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining f3914f0; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/f3914f0/chapters/machine_checked.md).
+[`lean/DataMiningAsObservation/NadeauBengio.lean`](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/lean/DataMiningAsObservation/NadeauBengio.lean), theorems `correctedVar_eq`, `naiveVar_le_correctedVar`, `inflation_unbounded`, `book_numbers`, at observation-data-mining bccca4f; what the check covers is stated in the book's [appendix C](https://github.com/ahb-sjsu/observation-data-mining/blob/bccca4f/chapters/machine_checked.md).
 
 ## used in
 
@@ -77,4 +77,4 @@ none
 
 ## status
 
-Generated 2026-09-12 by `encyclopedia/generate.py`; book at observation-data-mining f3914f0; the commit of every record is listed in the encyclopedia's provenance.
+Generated 2026-11-25 by `encyclopedia/generate.py`; book at observation-data-mining bccca4f; the commit of every record is listed in the encyclopedia's provenance.

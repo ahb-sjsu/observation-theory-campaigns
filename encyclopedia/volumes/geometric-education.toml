@@ -1,0 +1,349 @@
+[volume]
+number = 9
+title = "Geometric Education"
+repo = "geometric-education"
+slug = "geometric-education"
+standing = "The README's epistemic-status note of 2026-07-14 calls this volume a posited framework, speculative theory awaiting instruments. No education-domain instrument has been evaluated by the series' admission filter, and Chapter 18 states that the six predictions of Section 16.3 have not been tested and that no method for estimating the learner metric has been validated at scale."
+
+[[entry]]
+id = "learner-manifold"
+kind = "concept"
+title = "learner manifold"
+definition = "The six-dimensional Riemannian manifold of learner states. A state is a point $(d_1, \\ldots, d_6)$ whose coordinates are domain knowledge, procedural skill, metacognitive awareness, motivation and engagement, transfer ability, and creativity, each scored from 0 to 1. Learning is a path on it."
+first_stated = "Section 4.2, `geometric-education/manuscript/part_ii/ch04_learner_manifold.md:36-38`, with the summary table of Section 4.11, `geometric-education/manuscript/part_ii/ch04_learner_manifold.md:252-266`."
+conditions = [
+  "The description is exact where learning is continuous and smooth. Where learning has discontinuities such as sudden insight, the volume calls it an approximation.",
+  "Whether six is the right number of dimensions is, in the volume's words, an open empirical question. Proposition 4.1 is checked against six scenarios the volume itself lists.",
+  "Domain knowledge is treated as one aggregate of many subject-specific dimensions, and the volume notes that this aggregation is itself a contraction.",
+  "The manifold grows as the student learns, so a path is planned on a space that will have changed by the time the student reaches each waypoint.",
+]
+related = ["manifold", "learner-metric", "learner-geodesic", "reasoning-manifold", "cognitive-manifold", "posited-versus-measured"]
+
+[[entry]]
+id = "learner-metric"
+kind = "concept"
+title = "learner metric"
+definition = "A symmetric positive-definite tensor field $g_{ij}(x)$ on the learner manifold. The squared length of a small step is $ds^2 = \\sum_{i,j} g_{ij}(x) dx^i dx^j$, read as the educational effort of that transition. In practice the volume takes it as the inverse of the 6 by 6 learner covariance matrix, which gives a Mahalanobis distance."
+first_stated = "Definition 4.1 and Section 4.4.1, `geometric-education/manuscript/part_ii/ch04_learner_manifold.md:125-137`, with the dependence on the individual student in Section 10.1, `geometric-education/manuscript/part_iii/ch10_personalized_learning.md:18-20`."
+conditions = [
+  "The metric depends on position. The same increment of knowledge costs less for a student with strong knowledge and metacognition than for a student weak in both, and the volume calls this dependence curvature.",
+  "Chapter 10 adds that the metric also differs between two students at the same position. A uniform metric is an approximation the volume accepts only for a homogeneous population, content on one dimension, and a short course.",
+  "No covariance matrix is printed. The volume describes three cross terms in words and says the matrix is to be estimated from data.",
+  "Section 10.4 states that no current adaptive learning system estimates the 6 by 6 metric or computes a geodesic from it.",
+]
+known_as = "The Mahalanobis distance, with the inverse covariance matrix as a constant metric."
+related = ["mahalanobis-distance", "covariance-matrix", "positive-definite", "curvature", "learner-manifold", "legal-mahalanobis-distance"]
+
+[[entry]]
+id = "learner-geodesic"
+kind = "concept"
+title = "learner geodesic"
+definition = "The path from a student's current state to the goal region that minimizes total learning cost, the integral of $\\sqrt{g_{ij} \\dot{\\gamma}^i \\dot{\\gamma}^j}$ along the path. The goal region is the set of states at or above a minimum acceptable attribute vector."
+first_stated = "Definition 4.2, `geometric-education/manuscript/part_ii/ch04_learner_manifold.md:157-161`, with the goal region in Definition 4.4, `geometric-education/manuscript/part_ii/ch04_learner_manifold.md:217-219`."
+conditions = [
+  "The geodesic is in general not a straight line, and it differs between students because the cost of a transition depends on the student's position.",
+  "The goal is a region and not a point. The university, the employer and the student may each define a different one.",
+  "The manifold changes as the student traverses it, so the optimal path at one time may not be optimal later.",
+  "It is a posited object. Computing it needs the learner metric, which the volume has not estimated from data.",
+]
+related = ["geodesic-distance", "learner-metric", "learner-manifold", "assessment-geodesic-divergence", "curriculum-pathfinding", "bond-geodesic"]
+
+[[entry]]
+id = "educational-boundary"
+kind = "concept"
+title = "educational boundary"
+definition = "A threshold on the learner manifold where the region a learner can reach changes discontinuously. The volume defines three types. A prerequisite boundary comes from the structure of knowledge, an institutional boundary is imposed by an institution, and a developmental boundary comes from the learner's developmental stage."
+first_stated = "Definition 4.3, `geometric-education/manuscript/part_ii/ch04_learner_manifold.md:203-213`, with prerequisites as connectivity in Proposition 7.2, `geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:48-56`."
+conditions = [
+  "A prerequisite boundary is unavoidable. The volume says a student who skips the prerequisite is in a region where the directions of motion needed for the content do not exist.",
+  "An institutional boundary may or may not match the structure of knowledge. The volume's diagnostic is that a prerequisite whose removal leaves success in the later course unchanged, with other variables controlled, is institutional.",
+  "A developmental boundary cannot be crossed by instruction until the connectivity exists. The volume takes the stages from Piaget.",
+  "The diagnostic is proposed and the volume reports no application of it.",
+]
+related = ["learner-manifold", "curriculum-pathfinding", "educational-local-minimum", "developmental-topological-transition", "threshold"]
+
+[[entry]]
+id = "educational-heuristic-field"
+kind = "concept"
+title = "educational heuristic field"
+definition = "A non-negative function h on the learner manifold that estimates the remaining cost from a learner state to the goal region. It is a weighted sum of the estimates supplied by teachers, parents, peers, institutions and the student's own metacognition."
+first_stated = "Definition 4.5, `geometric-education/manuscript/part_ii/ch04_learner_manifold.md:227-231`."
+conditions = [
+  "The weights of the five sources depend on the student's context and developmental stage. The volume gives no values for them.",
+  "A strong field gives near-geodesic paths and a weak field gives detours and dead ends. This is the volume's reading of guidance, mentoring and advising, and it is posited.",
+  "The formal development is in Chapter 6, where the teacher's component and the parents' component are defined separately.",
+]
+related = ["heuristic-field", "pedagogical-heuristic-admissibility", "inherited-heuristic", "cognitive-heuristic-field", "learner-geodesic"]
+
+[[entry]]
+id = "three-point-five-decomposition"
+kind = "concept"
+title = "the 3.5 Decomposition"
+definition = "The volume's worked illustration of two students, Alex and Ethan, who carry the same 3.5 grade point average and occupy different learner states. Alex is $(0.45, 0.85, 0.70, 0.80, 0.75, 0.65)$ and Ethan is $(0.80, 0.50, 0.40, 0.55, 0.40, 0.35)$, and a weighted sum dominated by domain knowledge stands for the grade."
+first_stated = "Section 1.3, `geometric-education/manuscript/part_i/ch01_gpa_trap.md:111-137`."
+conditions = [
+  "Both students are composites and their coordinates are estimated from a biographical sketch. Nothing here is measured.",
+  "With the printed weights 0.60, 0.25, 0.05, 0.05, 0.03 and 0.02 the two projections are 0.593 and 0.671, which are not equal. The volume says the projections can equalize with different courses and that the structural fact matters, not the specific numbers.",
+  "The weighted sum is a stand-in. The volume notes that a real grade point average is also filtered through letter grades and particular exams.",
+]
+standing = "A posited illustration with composite students. It is a specific instance of Theorem 5.1 only in the sense that two different states can share one scalar, and the printed weights do not themselves give equal scalars."
+related = ["gpa-irrecoverability-theorem", "learner-manifold", "projection", "euclidean-distance", "scalar-irrecoverability"]
+
+[[entry]]
+id = "gpa-irrecoverability-theorem"
+kind = "result"
+title = "GPA Irrecoverability Theorem"
+definition = "On a connected learner manifold of dimension at least 2, a continuous surjective scalar assessment G is not injective, so distinct learner states share one score. No function then maps the score back to the state. For k scalar assessments with k below the dimension d, the joint assessment is still not injective."
+first_stated = "Theorem 5.1, `geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:30-36`, Theorem 5.2, `geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:48-50`, and Corollary 5.2.1, `geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:60-64`. Stated informally as Theorem 1.1, `geometric-education/manuscript/part_i/ch01_gpa_trap.md:177-185`."
+conditions = [
+  "The only restriction on G is continuity. The printed proof takes a regular value of G and applies the preimage theorem, so the level set has dimension d minus 1.",
+  "It is a statement about the map and holds for the six learner dimensions only if they are independent dimensions of a real space of learner states, which the volume posits.",
+  "The estimate that one grade value is compatible with 100 to 1000 qualitatively distinct profiles is called a rough estimate. No computation is printed.",
+  "Scores that all project mainly onto domain knowledge are correlated, so a battery of them spans fewer independent dimensions than it has scores.",
+]
+standing = "Theorems 5.1 and 5.2 are proved in the text and are elementary. The volume calls the result the education-specific instance of the Scalar Irrecoverability Theorem of Geometric Reasoning. Its application to real grades rests on the posited six-dimensional manifold."
+related = ["scalar-irrecoverability", "benchmark-scalar-irrecoverability", "three-point-five-decomposition", "assessment-geodesic-divergence", "scalar-grade-adequacy-conditions", "null-space"]
+
+[[entry]]
+id = "assessment-geodesic-divergence"
+kind = "result"
+title = "geodesic divergence of the assessment-optimal path"
+definition = "The path that maximizes a scalar assessment G at each step differs from the learner geodesic to the goal. The divergence, the integral over the path parameter of the manifold distance between the two paths, is strictly positive whenever G is not proportional to the distance-to-goal function."
+first_stated = "Theorem 5.3, `geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:68-76`, with Corollaries 5.3.1 and 5.3.2 at `geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:100-110`."
+conditions = [
+  "The two paths coincide only when the gradient of G is parallel to the gradient of the distance to the goal, that is when the assessment weights match the true educational costs up to a scalar multiple.",
+  "The theorem also states that the divergence grows without bound as the dimension increases. The text supports this with the remark that a scalar captures at most one direction in d.",
+  "Corollary 5.3.2 concludes that a student who maximizes G ends with a higher score and a lower sum across all dimensions than a student on the geodesic.",
+  "The four-year trajectories of Alex and Ethan that illustrate it are posited, with composite students.",
+]
+standing = "Stated as a theorem. The text says the proof uses the calculus of variations and gives the argument in prose, with no displayed derivation. No trajectory data support it."
+related = ["gpa-irrecoverability-theorem", "learner-geodesic", "reasoning-geodesic-deviation", "gradient", "educational-ai-no-escape"]
+
+[[entry]]
+id = "scalar-grade-adequacy-conditions"
+kind = "result"
+title = "adequacy conditions for a scalar grade"
+definition = "A scalar assessment adequately represents the learner state when three conditions hold together. The assessment activates mainly one dimension, the students are about equal on every other dimension, and no equity, access or fairness issue arises from the contraction. Each level set then holds only educationally equivalent states."
+first_stated = "Proposition 5.4, `geometric-education/manuscript/part_ii/ch05_assessment_contraction.md:114-122`."
+conditions = [
+  "All three conditions are needed at once. The volume says they hold for narrowly defined skill assessments in homogeneous populations.",
+  "The volume says they fail for every course that involves higher-order thinking, diverse students or consequential stakes.",
+  "The proposition is stated without proof, and the terms adequate and educationally equivalent are not given a numerical test.",
+]
+related = ["gpa-irrecoverability-theorem", "learner-manifold", "assessment-gauge-invariance", "quotient"]
+
+[[entry]]
+id = "pedagogical-heuristic-admissibility"
+kind = "concept"
+title = "pedagogical heuristic and its admissibility"
+definition = "The pedagogical heuristic $h_T(x)$ is the teacher's estimate of the geodesic distance from the student's state x to the nearest point of the goal region. It is admissible when $h_T(x)$ is at most that distance for every x, and epsilon-admissible when it exceeds the distance by at most a small epsilon."
+first_stated = "Definitions 6.1 and 6.2 with Theorem 6.1, `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:24-28` and `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:50-56`, with the weaker grades in Sections 6.2.2 and 6.2.3, `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:62-70`."
+conditions = [
+  "Theorem 6.1 states that A* search with an admissible heuristic finds the learner geodesic. The volume gives it as a direct instantiation of the A* optimality theorem of Geometric Reasoning.",
+  "With an epsilon-admissible heuristic the teaching path is within epsilon of optimal.",
+  "The volume's prose reads the admissible case as a teacher who never judges a student ready too early, and the inadmissible case, written $h_T(x) > d(x, G) + \\epsilon$, as a teacher who overestimates readiness. The inequality and the prose should be read together.",
+  "The mapping of master, competent and miscalibrated teachers onto the three grades is posited. No teacher's heuristic has been measured.",
+]
+known_as = "Admissible heuristics for A* search, after Hart, Nilsson and Raphael (1968). The volume ties the calibration of the heuristic to Shulman's pedagogical content knowledge (1986)."
+related = ["heuristic-admissibility", "educational-heuristic-field", "euclidean-heuristic-admissibility", "gauge-variant-pedagogical-heuristic", "learner-geodesic"]
+
+[[entry]]
+id = "gauge-variant-pedagogical-heuristic"
+kind = "concept"
+title = "gauge-variant pedagogical heuristic"
+definition = "A teacher's estimate of a student's distance to the goal that depends on features of the student that are not coordinates on the learner manifold, such as race, gender, accent, first language or family background. Two students at the same learner state then receive different estimates."
+first_stated = "Definition 6.3, `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:80-86`."
+conditions = [
+  "It need not be conscious bias. The volume says it can arise when a teacher applies a correct statistical observation about a group to a new student without checking that student's state.",
+  "The volume states that the damage is directional, underestimating students from disadvantaged backgrounds and overestimating students from advantaged ones. This is asserted and not measured in the volume.",
+  "It is the fourth of the four heuristic failure modes of Section 6.5, which the volume takes from Geometric Reasoning.",
+]
+related = ["pedagogical-heuristic-admissibility", "assessment-gauge-invariance", "nuisance", "reasoning-gauge-transformation", "judgment-gauge-invariance"]
+
+[[entry]]
+id = "scaffolding-as-metric-adjustment"
+kind = "concept"
+title = "scaffolding as local metric adjustment"
+definition = "A scaffold is a temporary change of the local metric near the student's current state, so that a transition too costly in the natural metric becomes feasible in the scaffolded one. It does not move the student. It is removed when the student can make the transition unaided."
+first_stated = "Definition 6.4, `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:92-94`, with removal in Section 6.3.1, `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:103-107`."
+conditions = [
+  "The timing of removal is a heuristic judgment by the teacher. Removed too early, the student is back in a high-curvature region without support. Removed too late, it wastes time and can create dependence.",
+  "The volume's examples are worked examples, visual representations, peer discussion and simplified notation.",
+  "It is the volume's formal reading of Vygotsky's zone of proximal development and is posited. No scaffolded metric has been estimated.",
+]
+known_as = "Scaffolding within Vygotsky's zone of proximal development, which the volume names as its source."
+related = ["learner-metric", "curvature", "pedagogical-heuristic-admissibility", "learner-geodesic"]
+
+[[entry]]
+id = "inherited-heuristic"
+kind = "concept"
+title = "inherited heuristic and the empty-heuristic problem"
+definition = "The inherited heuristic $h_P$ is the part of the educational heuristic field supplied by parents or family who have already been through the educational system. For a first-generation student it is about zero, and the volume calls navigation without it the empty-heuristic problem."
+first_stated = "Definition 6.5, `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:113-119`, with the cost in Section 6.4.1, `geometric-education/manuscript/part_ii/ch06_teaching_geodesic.md:123-125`."
+conditions = [
+  "The claim is that the field is deficient and not the student, who may sit at the same learner state as a continuing-generation peer.",
+  "The search-theory statement behind it is that A* with a zero heuristic reduces to uniform-cost search, which finds the goal and explores every state up to the geodesic cost.",
+  "The volume cites longer time to degree, more changes of major and more late withdrawals as indicators, without a source at that point. Prediction 16.3.4 asks whether the excess persists after controlling for ability, and Chapter 18 says it has not been tested.",
+  "Chapter 7 identifies the hidden curriculum with this field.",
+]
+known_as = "The hidden curriculum of educational research, which Section 7.6 identifies with it."
+related = ["educational-heuristic-field", "heuristic-field", "educational-bond-index", "pedagogical-heuristic-admissibility"]
+
+[[entry]]
+id = "curriculum-pathfinding"
+kind = "concept"
+title = "curriculum as pathfinding"
+definition = "A curriculum is a planned path through the learner manifold, given by a sequence of courses as waypoints, from the incoming student's estimated state to the goal region set by the degree requirements. Designing it is A* search in which each course is an edge with a cost and prerequisites are hard constraints."
+first_stated = "Definition 7.1, `geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:18-22`, with the search components and Theorem 7.1 at `geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:26-42`."
+conditions = [
+  "Theorem 7.1 states that an admissible designer's heuristic gives the minimum-cost curriculum. The cost is total educational cost and not course count or time to degree.",
+  "The planned path is not the student's actual trajectory. The gap between them, which the volume calls the learning deviation, depends on the true starting state, the student's own metric and the teaching.",
+  "The starting state is estimated from placement tests and transcripts, which the volume says see mainly domain knowledge.",
+  "Proposition 7.3, that more elective freedom raises transfer and creativity on average, is stated without data.",
+]
+known_as = "A* search for a minimum-cost path on a weighted graph."
+related = ["learner-geodesic", "educational-boundary", "educational-local-minimum", "pedagogical-heuristic-admissibility", "graph"]
+
+[[entry]]
+id = "educational-local-minimum"
+kind = "concept"
+title = "educational local minimum"
+definition = "A learner state x from which the geodesic cost to the goal is greater than from some nearby state y, while the cost of moving from x to y exceeds the time, effort and motivation the student has. The student cannot progress without outside intervention."
+first_stated = "Definition 7.3, `geometric-education/manuscript/part_ii/ch07_curriculum_pathfinding.md:92-102`."
+conditions = [
+  "The volume's three examples are the prerequisite trap, the remediation loop and the recursive GPA trap.",
+  "In the GPA trap a cumulative average below the graduation threshold resists improvement, and the courses that raise it fastest may not count toward the degree.",
+  "The definition depends on the student's available resources, so the same state can be a local minimum for one student and not for another.",
+  "The examples are described in words. The volume reports no measured case.",
+]
+related = ["educational-boundary", "curriculum-pathfinding", "learner-geodesic", "false-termination-region", "reasoning-basin-of-attraction"]
+
+[[entry]]
+id = "grading-moral-injury"
+kind = "concept"
+title = "grading moral injury"
+definition = "The injury a teacher incurs when a mandated assessment G requires a grade the teacher judges to be a lossy projection of the true learner state x. Its increment is $\\|x - \\psi(G(x))\\|$, the distance from x to the state an observer would infer from the grade alone, and the career total is the sum over assessment events and students."
+first_stated = "Definition 8.1, `geometric-education/manuscript/part_iii/ch08_grading_moral_injury.md:28-34`, and Theorem 8.1, `geometric-education/manuscript/part_iii/ch08_grading_moral_injury.md:38-46`."
+conditions = [
+  "The reconstruction $\\psi$ is called the best reconstruction and is not specified, so the increment has no computed value in the volume.",
+  "Theorem 8.1 is the sum of the increments. The volume draws from it that injury is greatest for teachers who grade often, teach diverse students and perceive the full learner state accurately.",
+  "The volume separates it from burnout, which it ties to workload. Prediction 16.3.6 proposes a survey test of that dissociation, and Chapter 18 says the predictions have not been tested.",
+  "The reading of the rise in average grades from 2.52 in 1950 to 3.15 in 2020 as moral numbing is the volume's interpretation, not a tested claim.",
+]
+standing = "Posited, by analogy with the moral injury of Geometric Medicine. Theorem 8.1 is an accounting identity for a quantity that has not been measured."
+related = ["gpa-irrecoverability-theorem", "learner-manifold", "reconstruction-error", "educational-ai-no-escape"]
+
+[[entry]]
+id = "assessment-gauge-invariance"
+kind = "concept"
+title = "assessment gauge invariance"
+definition = "An assessment A, which maps a learner state x and an instrument I to a score, is gauge-invariant when $A(x, I_1)$ and $A(x, I_2)$ differ by no more than measurement noise for every state and every meaning-preserving change of instrument. The volume names five such changes, of examiner, format, language, time and context."
+first_stated = "Section 9.1, `geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:19-21`, and Theorem 9.1, `geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:25-33`."
+conditions = [
+  "It does not require identical performance on every instrument. It requires the measured understanding to be the same once instrument-specific variance is removed.",
+  "The volume calls it a necessary condition for assessment validity. Variance tied to the instrument is treated as systematic bias and not as noise.",
+  "Which changes of instrument preserve meaning is posited. The volume's argument that format changes the score is that formats project onto different learner dimensions.",
+  "The effect sizes quoted for the five changes are cited from the literature in general terms. The volume ran no study, and Prediction 16.3.2 on format has not been tested.",
+]
+standing = "Named a theorem in the volume. The statement is a criterion that defines a gauge-invariant assessment, and it is the education form of the Bias Invariance Principle of Geometric Reasoning."
+known_as = "The Bias Invariance Principle of Geometric Reasoning, which the volume names as its source."
+related = ["educational-gauge-violation-tensor", "gauge-invariance-test-battery", "reasoning-bond-invariance-principle", "nuisance", "paraphrase-class", "gauge-variant-pedagogical-heuristic"]
+
+[[entry]]
+id = "educational-gauge-violation-tensor"
+kind = "instrument"
+title = "educational gauge violation tensor"
+definition = "A matrix $V_{ij}$ whose row i is one of the five changes of instrument and whose column j is a score dimension, with a single column for a scalar score. The entry is the expected change in score j when the instrument is changed, $V_{ij} = E[A_j(x, I_i') - A_j(x, I_i)]$. A gauge-invariant assessment has every entry zero."
+first_stated = "Definition 9.2, `geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:93-99`, with the table for the SAT at `geometric-education/manuscript/part_iii/ch09_gauge_invariance.md:101-111`."
+conditions = [
+  "The entries are expectations over students, taken with the learner state held fixed while the instrument changes.",
+  "The SAT table gives estimated ranges with no source and no study behind them. The examiner row is marked not applicable because the test is machine-scored.",
+  "The total violation is defined as the sum of absolute values across the changes. The volume puts it on the order of 200 to 500 SAT points.",
+  "The volume proposes the measurement and reports no measured tensor.",
+]
+related = ["gauge-violation-tensor", "assessment-gauge-invariance", "gauge-invariance-test-battery", "economic-gauge-violation-tensor", "expectation"]
+
+[[entry]]
+id = "gauge-invariance-test-battery"
+kind = "instrument"
+title = "Assessment Gauge Invariance Test Battery (AGITB)"
+definition = "Five parallel assessments of the same content, each varying one of examiner, format, language, time and context while holding the others fixed, each with a pass threshold. The composite score is GIS, equal to 1 minus the mean over the five tests of the smaller of 1 and the ratio of the effect size to its threshold."
+first_stated = "Appendix C, Sections C.1 and C.2, `geometric-education/manuscript/appendices/appendix_c_assessment.md:9-13`, with the composite score in Section C.3, `geometric-education/manuscript/appendices/appendix_c_assessment.md:65-75`."
+conditions = [
+  "The thresholds are an effect size below 0.20 for format, language and context, below 0.15 for time, and a kappa of at least 0.80 or an intraclass correlation of at least 0.85 for examiners.",
+  "The bands are GIS of 0.80 or more as adequate, 0.60 to 0.80 as moderate violation, and below 0.60 as not recommended for consequential decisions.",
+  "The examiner test is scored by a reliability, where higher is better, and the other four by an effect size, where lower is better. The appendix does not say how the examiner test enters the composite formula.",
+  "The appendix asks for at least 50 students per test and recommends ethics review. The battery is proposed, and the volume reports no administration of it.",
+]
+standing = "A proposed instrument. The README states that no education-domain instrument has been evaluated by the series' admission filter and that none currently passes its gate."
+related = ["assessment-gauge-invariance", "educational-gauge-violation-tensor", "threshold", "gate", "preregistration"]
+
+[[entry]]
+id = "knowledge-transfer-holonomy"
+kind = "concept"
+title = "knowledge transfer as parallel transport, and transfer holonomy"
+definition = "A piece of understanding is a tangent vector k at a point in one domain chart of the learner manifold. Transfer is parallel transport of k along a path into a second chart, giving k'. The holonomy H, equal to k' minus k, measures the distortion. Transfer succeeds when the norm of H is small."
+first_stated = "Definition 11.1, `geometric-education/manuscript/part_iii/ch11_transfer_learning.md:20-24`, and Theorem 11.1, `geometric-education/manuscript/part_iii/ch11_transfer_learning.md:56-66`."
+conditions = [
+  "Theorem 11.1 states that the holonomy is zero where the manifold is flat between the domains, is at most the maximum curvature times the area enclosed by the path, and depends on the path taken.",
+  "The theorem is stated without proof, with a reference to the Ambrose-Singer theorem. It writes the holonomy as an integral of the connection form around a closed curve, while the path of the definition runs from one domain to another.",
+  "Near transfer is read as low curvature between similar domains and far transfer as high curvature. A route through an intermediate domain may have lower total holonomy than the direct route.",
+  "No curvature between domains has been measured. Prediction 16.3.3, on interdisciplinary courses and transfer scores, has not been tested.",
+]
+known_as = "Near, far and negative transfer in educational research, and holonomy of parallel transport in differential geometry."
+related = ["moral-parallel-transport", "moral-holonomy", "curvature", "learner-manifold", "curriculum-pathfinding"]
+
+[[entry]]
+id = "educational-ai-no-escape"
+kind = "result"
+title = "No Escape Theorem for Educational AI"
+definition = "An AI system working on the learner manifold is bound by its structure in four ways. It cannot recommend skipping a prerequisite, cannot assess dimensions it does not measure, cannot optimize a scalar objective without the divergence of Theorem 5.3, and cannot give gauge-invariant assessment without evaluation across formats, contexts and modes."
+first_stated = "Theorem 12.1, `geometric-education/manuscript/part_iii/ch12_ai_education.md:51-58`, with the proof sketch in Section 12.3.1, `geometric-education/manuscript/part_iii/ch12_ai_education.md:62-68`."
+conditions = [
+  "The text gives a proof sketch. Each part is referred to an earlier statement, namely the prerequisite connectivity of the manifold, Corollary 5.2.1, Theorem 5.3 and Theorem 9.1.",
+  "It applies to a system operating within the volume's framework and inherits every posit of that framework.",
+  "Section 18.6 notes its limit. It does not say that an AI tutor cannot give misleading guidance inside the manifold, for example from a wrong estimate of the metric.",
+  "The volume adds that automated grading performs the same contraction as human grading and lacks the teacher's discomfort signal.",
+]
+standing = "Stated as a theorem with a proof sketch. It is a restatement for AI systems of results that are themselves posited or elementary, and no AI system was tested."
+related = ["no-escape-theorem", "economic-no-escape-conjecture", "gpa-irrecoverability-theorem", "assessment-geodesic-divergence", "assessment-gauge-invariance", "sycophancy-parameter"]
+
+[[entry]]
+id = "educational-bond-index"
+kind = "instrument"
+title = "Educational Bond Index"
+definition = "For an institutional policy P and a student population S, the expected learning deviation of the path the policy allows, measured against each student's geodesic. The learning deviation of a path is the integral over time of its manifold distance from the geodesic. An index of zero means the policy imposes no deviation."
+first_stated = "Definition 13.1, `geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:17-23`, with the computation in Section 13.3, `geometric-education/manuscript/part_iv/ch13_educational_bond_index.md:91-97`. The online edition holds it in the notation table, `geometric-education/manuscript/appendices/appendix_d_notation.md:50-53`, and as code in Appendix B.4, `geometric-education/manuscript/appendices/appendix_b_code.md:89-121`."
+conditions = [
+  "It is a property of the policy and not of the students. The volume says no real institution reaches zero.",
+  "The computation needs an estimated learner metric, a computed geodesic and observed trajectories. The volume calls the metric estimate the most uncertain step.",
+  "It is decomposed into access, heuristic, metric and residual parts. The volume gives no procedure for separating them.",
+  "Section 18.5 states that no institution has performed the prospective test. The study in Section 13.5 is carried out by the volume's composite student and is narrative, not a record.",
+]
+standing = "A proposed instrument that has not been computed on data. The value 2.1 and the shares of 45, 30, 15 and 10 percent in Section 13.5 belong to the narrative of the composite student Alex."
+online_page = "appendix_d_notation.html"
+related = ["bond-index", "legal-bond-index", "learner-geodesic", "inherited-heuristic", "reasoning-geodesic-deviation", "mahalanobis-distance"]
+
+[examples]
+learner-manifold = "The volume's illustrative state for Alex at college entry is (0.45, 0.85, 0.70, 0.80, 0.75, 0.65). The first coordinate, domain knowledge, is the lowest and the second, procedural skill, is the highest, and all six lie between 0 and 1."
+learner-metric = "A symmetric 6 by 6 covariance matrix has 6 diagonal and 15 off-diagonal entries, 21 in all, as the volume counts. With the identity as covariance, two states that differ by 0.3 on one dimension and 0.4 on another are at distance 0.5."
+learner-geodesic = "Suppose two routes reach the goal region. One has segments of cost 2 and 3 and the other has segments of cost 1.5 and 4.5. The totals are 5 and 6, so of the two the first is the geodesic even though its first segment costs more."
+educational-boundary = "With a prerequisite threshold of 0.6 on linear algebra, a student at 0.4 cannot reach the region labeled quantum mechanics and a student at 0.7 can. The volume's example of an institutional boundary is a 3.0 grade point average to stay in an honors program."
+educational-heuristic-field = "With weights of 0.5 on the teacher and 0.5 on the student's own estimate, and estimates of 4 and 6, the field value is 0.5 times 4 plus 0.5 times 6, which is 5. The other three sources have weight zero in this example."
+three-point-five-decomposition = "With the volume's weights, Alex scores 0.270 + 0.213 + 0.035 + 0.040 + 0.023 + 0.013 = 0.593 and Ethan 0.671. The coordinate differences are 0.35, 0.35, 0.30, 0.25, 0.35 and 0.30, whose squares sum to 0.61. The volume prints the distance as about 0.77, and the square root of 0.61 is 0.78."
+gpa-irrecoverability-theorem = "With the volume's weights (0.60, 0.25, 0.05, 0.05, 0.03, 0.02), the states (0.5, 0.4, 0, 0, 0, 0) and (0.4, 0.64, 0, 0, 0, 0) both score 0.40, since 0.30 + 0.10 and 0.24 + 0.16 are equal. For six dimensions the level set of any score has dimension 5."
+assessment-geodesic-divergence = "In the volume's illustration Ethan ends at (0.90, 0.55, 0.40, 0.50, 0.40, 0.30) with a 3.7 average and Alex at (0.70, 0.90, 0.80, 0.75, 0.85, 0.70) with 3.2. The coordinate sums are 3.05 and 4.70, so the higher score goes with the lower sum, as Corollary 5.3.2 says."
+scalar-grade-adequacy-conditions = "The volume's adequate case is a typing speed test in a homogeneous population. Its inadequate case is a university calculus exam in a diverse population, which activates at least three dimensions and feeds consequential decisions, so all three conditions fail."
+pedagogical-heuristic-admissibility = "If the true distance to the goal is 10, an estimate of 8 is admissible. An estimate of 10.5 is not admissible and is epsilon-admissible for epsilon equal to 1. An estimate of 13 is neither."
+gauge-variant-pedagogical-heuristic = "Two students are at the same learner state, at true distance 5 from the goal. A teacher who estimates 4 for one and 7 for the other because of their accents has a gauge-variant heuristic, since the state is the same and the estimates differ by 3."
+scaffolding-as-metric-adjustment = "For a step of 0.1 in domain knowledge, a natural metric component of 4 gives a cost of 0.1 times the square root of 4, which is 0.2. A scaffold that lowers the component to 1 gives a cost of 0.1."
+inherited-heuristic = "With the parents' estimate at zero and all other sources absent, the field is zero everywhere and A* expands states in order of cost from the start alone. The volume's stated indicator is 1.5 to 2 extra semesters to a degree for first-generation students, given without a source."
+curriculum-pathfinding = "Suppose a formal-first sequence of three courses costs a student 3, 4 and 5, and an applied-first sequence to the same goal region costs 2, 3 and 4. The totals are 12 and 9, so the minimum-cost curriculum for that student is the applied-first one, with the same number of courses."
+educational-local-minimum = "A student with a 1.8 average over 90 credits has 162 grade points and needs 2.0 to graduate, the volume's example threshold. Nine more credits at 4.0 give 198 points over 99 credits, which is 2.0. At 3.0 it takes 18 credits, since 216 over 108 is 2.0."
+grading-moral-injury = "If the teacher sees a state (0.3, 0.9) on two dimensions and the grade alone suggests (0.6, 0.6), the increment is the square root of 0.09 + 0.09, about 0.42. Ten assessment events with 30 students at 0.42 each total about 127."
+assessment-gauge-invariance = "A student scores 82 on a free-response form and 74 on a multiple-choice form of the same content, and the noise bound is 3 points. The difference of 8 exceeds 3, so for this pair of instruments the assessment is not gauge-invariant."
+educational-gauge-violation-tensor = "The volume's estimated ranges for the SAT are 50 to 150 points for format, 80 to 200 for language, 10 to 30 for time and 50 to 100 for context. The lower ends sum to 190 and the upper ends to 480, which the volume rounds to 200 to 500."
+gauge-invariance-test-battery = "If the five ratios of effect size to threshold are 0.5, 1.0, 0.2, 0.5 and 0.3, their mean is 2.5 divided by 5, which is 0.5, and GIS is 1 minus 0.5, which is 0.5. That is below 0.60, the band the appendix does not recommend for consequential decisions."
+knowledge-transfer-holonomy = "With a maximum curvature of 2 and a path that encloses an area of 0.3, the bound of Theorem 11.1 gives a holonomy norm of at most 0.6. On a flat region the curvature is 0 and the holonomy is 0."
+educational-ai-no-escape = "An autograder that measures 2 of the 6 learner dimensions leaves 6 minus 2, which is 4, dimensions that Corollary 5.2.1 says it cannot infer. The volume's case is a grader that runs test cases and sees domain knowledge and procedural skill only."
+educational-bond-index = "For two students whose mean distances from their geodesics are 0.4 and 0.8, the index computed as in Appendix B.4 is the average, 0.6. In the volume's narrative the shares of the index are 45, 30, 15 and 10 percent, which sum to 100."

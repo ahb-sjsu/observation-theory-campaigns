@@ -26,8 +26,11 @@ from datetime import date
 HERE = os.path.dirname(os.path.abspath(__file__))
 GITHUB = "https://github.com/ahb-sjsu"
 SRC = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
-CFG = tomllib.load(open(os.path.join(HERE, "entries.toml"), "rb"))
-REPOS = {name: os.path.join(SRC, rel) for name, rel in CFG["repos"].items()}
+sys.path.insert(0, HERE)
+import config  # noqa: E402
+
+CFG = config.load(HERE, SRC)  # entries.toml plus volumes/*.toml
+REPOS = CFG["repo_paths"]
 OUT = os.path.join(HERE, "generated")
 os.makedirs(OUT, exist_ok=True)
 BOOK = REPOS["observation-data-mining"]
@@ -330,14 +333,57 @@ def short(claim, n=240):
 
 # ---------------------------------------------------------------- assembly
 EXAMPLES = tomllib.load(open(os.path.join(HERE, "examples.toml"), "rb")) if os.path.exists(os.path.join(HERE, "examples.toml")) else {}
+EXAMPLES.update(CFG["examples"])
 FIGDIR = os.path.join(HERE, "figures")
+SITE_URL = "https://erisml.org"
+
+
+def volume_checks(e):
+    """A volume entry is curated, so its citations are the only tie to the record. Check them:
+    a definition, at least one `repo/path:lines` citation into the volume's repository whose
+    file exists and has those lines, related ids that exist, and an online page that is in the
+    volume's published site. Returns the online page name."""
+    v = e["volume"]
+    eid = e["id"]
+    if not e.get("definition", "").strip():
+        problems.append(f"{eid}: no definition")
+    cites = re.findall(r"`([\w.-]+)[\\/]([^`:]+?):(\d+)(?:-(\d+))?`", e.get("first_stated", ""))
+    own = [c for c in cites if c[0] == v["repo"]]
+    if not own and not e.get("online_page"):
+        problems.append(f"{eid}: first_stated cites no file of {v['repo']} by line")
+    for repo, rel, a, b in cites:
+        p = os.path.join(REPOS.get(repo, ""), rel.replace("\\", "/"))
+        if repo not in REPOS or not os.path.exists(p):
+            problems.append(f"{eid}: cited file missing, {repo}/{rel}")
+            continue
+        n = sum(1 for _ in open(p, encoding="utf-8", errors="replace"))
+        if int(b or a) > n or int(a) < 1 or int(b or a) < int(a):
+            problems.append(f"{eid}: {repo}/{rel}:{a}-{b or a} is outside the file's {n} lines")
+    for r in e.get("related", []):
+        if r not in ALL_IDS:
+            problems.append(f"{eid}: related id '{r}' does not exist")
+    page = e.get("online_page") or (os.path.splitext(os.path.basename(own[0][1]))[0] + ".html" if own else "")
+    if page == "none":  # the cited record is in the repository only
+        return ""
+    if page:
+        r = subprocess.run(["git", "cat-file", "-e", f"origin/site:{page}"], cwd=REPOS[v["repo"]], capture_output=True)
+        if r.returncode != 0:
+            problems.append(f"{eid}: online page {page} is not in {v['repo']}'s published site")
+    return page
 CAPTIONS = {}
 if os.path.exists(os.path.join(FIGDIR, "captions.toml")):
     CAPTIONS = tomllib.load(open(os.path.join(FIGDIR, "captions.toml"), "rb"))
 
 
+ALL_IDS = {e["id"] for e in CFG["entry"]}
+
+
 def build(e):
     out = [f"# {e['title']}", "", f"**id.** {e['id']}", f"**kind.** {e['kind']}", ""]
+    vol = e.get("volume")
+    page = volume_checks(e) if vol else ""
+    if vol:
+        out[-1:] = [f"**volume.** {vol['title']}, Volume {vol['number']} of the Geometric Series", ""]
     if os.path.exists(os.path.join(FIGDIR, e["id"] + ".svg")):
         out += [f"![{CAPTIONS.get(e['id'], e['title'])}](../figures/{e['id']}.svg)", ""]
     definition = e.get("definition") or (glossary_definition(e["glossary"]) if e.get("glossary") else "")
@@ -363,7 +409,7 @@ def build(e):
     out += ["## conditions", ""]
     out += [f"- {c}" for c in conds] if conds else ["none"]
     if conds:
-        out += ["", "Conditions are curated in `entries.toml` rather than read from a record."]
+        out += ["", "Conditions are curated in `" + (("volumes/" + vol["file"]) if vol else "entries.toml") + "` rather than read from a record."]
     out.append("")
     # ledger rows: typed, and only rows that name the entry appear in the body
     rows = ledger_rows(e.get("ledger", []))
@@ -382,8 +428,12 @@ def build(e):
             out.append(f"- *{edge}.* {key} `[{cls}]`. {short(claim)} {ledger_link(ln)}.")
             any_row = True
     if not any_row:
-        out.append("none")
-    out += ["", "## first stated", "", clean(e.get("first_stated", "none")), ""]
+        # a volume entry has no ledger row; it carries the volume's own statement of its evidence
+        out.append(("none. *standing.* " + e["standing"]) if vol and e.get("standing") else "none")
+    first = linkify(e.get("first_stated", "none")) if vol else clean(e.get("first_stated", "none"))
+    if vol and page:
+        first += f" Online, [{vol['title']}]({SITE_URL}/{vol['slug']}/{page})."
+    out += ["", "## first stated", "", first, ""]
     # measurements: only rows whose claim or section names the entry appear in the body
     out += ["## measurements", ""]
     srows = sources_rows(e.get("book_records", []))
@@ -428,7 +478,10 @@ def build(e):
         used.append(("primers " if len(prim) > 1 else "primer ") + " and ".join(prim))
     if chs:
         used.append("chapters " + ", ".join(str(c) for c in chs))
-    out += ["## used in", "", ("*Data Mining as Observation* " + ", ".join(used) + ".") if used else "none", ""]
+    used_text = ("*Data Mining as Observation* " + ", ".join(used) + ".") if used else "none"
+    if vol:
+        used_text = f"*{vol['title']}*, Volume {vol['number']} of the Geometric Series." + ("" if not used else " " + used_text)
+    out += ["## used in", "", used_text, ""]
     out += ["## related", "", ", ".join(e.get("related", [])) or "none", ""]
     # what was cited beside the entry but is not about it, kept out of the body
     see = []
@@ -444,7 +497,7 @@ def build(e):
     return "\n".join(out)
 
 
-ids = {e["id"] for e in CFG["entry"]}
+ids = ALL_IDS
 for k in EXAMPLES:
     if k not in ids:
         problems.append(f"example for unknown entry {k}")
